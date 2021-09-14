@@ -1,0 +1,41 @@
+import {LOGIN_API, SEND_OTP} from '../../config/urls';
+import {apiGet, apiPost, setUserData} from '../../utils/utils';
+import store from '../store';
+import types from '../types';
+const {dispatch} = store;
+
+export const saveUserData = data => {
+  dispatch({
+    type: types.LOGIN,
+    payload: data,
+  });
+};
+
+export function login(data = {}, headers = {}) {
+  console.log(data, 'login>data>data>data');
+  return new Promise((resolve, reject) => {
+    apiPost(LOGIN_API, data, headers)
+      .then(async res => {
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+}
+
+export function verifyAccount(data = {}, headers = {}) {
+  console.log(data, 'verifyAccount>data>data>data');
+  return new Promise((resolve, reject) => {
+    apiPost(SEND_OTP, data, headers)
+      .then(async res => {
+        setUserData(res.data).then(suc => {
+          saveUserData(res.data);
+          resolve(res);
+        });
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+}

@@ -1,0 +1,55 @@
+import {getColorCodeWithOpactiyNumber} from '../../utils/helperFunctions';
+import types from '../types';
+
+const initial_state = {
+  themeColors: {
+    themeMain: '#41A2E6',
+    themeOpacity20: getColorCodeWithOpactiyNumber('41A2E6', 20),
+    headingColor: '#000000',
+    textGrey: '#1E2428',
+    textGreyLight: '#8F92A1',
+    bottomBarGradientA: 'rgba(50,181,252,1)',
+    bottomBarGradientB: 'rgba(97,160,242,1)',
+    backgroundGrey: '#F4F7FA',
+    currencyRed: '#F44746',
+  },
+  themeLayouts: {},
+  appData: {},
+  currencies: {},
+  languages: {},
+  allAddresss: [],
+  shortCodeStatus: null,
+  appStyle: {
+    fontSizeData: {
+      regular: 'campton-light',
+      bold: 'campton-semibold',
+      medium: 'campton-book',
+      semiBold: 'campton-medium',
+    },
+    tabBarLayout: 1,
+    homePageLayout: 1,
+  },
+  themeColor: false,
+  themeToggle: false,
+  clientInfo: null,
+  //internetConnection: false,
+};
+
+export default function (state = initial_state, action) {
+  switch (action.type) {
+    case types.APP_INIT: {
+      const data = action.payload;
+      return {
+        ...state,
+        clientInfo: data,
+      };
+    }
+    case types.NO_INTERNET: {
+      const internetConnection = action.payload;
+      return {...state, internetConnection};
+    }
+    default: {
+      return {...state};
+    }
+  }
+}

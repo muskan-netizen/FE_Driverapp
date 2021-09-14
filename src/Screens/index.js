@@ -1,0 +1,7 @@
+export {default as ShortCode} from './ShortCode/ShortCode';
+export {default as Login} from './Auth/Login/Login';
+export {default as Webview} from './Webview/Webview';
+export {default as PhoneVerification} from './Auth/PhoneVerification/PhoneVerification';
+export {default as DashBoard} from './DashBoard/DashBoard';
+export {default as MyProfile} from './MyProfile/MyProfile';
+
