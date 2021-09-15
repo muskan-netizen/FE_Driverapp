@@ -89,5 +89,9 @@ export default {
 
   lightSkyD:'#AACCFF',
   blueSolid:'#2C80FF',
-  blackShade2:'#272727'
+  blackShade2:'#272727',
+  circularBlue:'#307CFC',
+  circularOrnage:'#FDA223',
+  circularRed:'#FF5353',
+  backGround:'#F2F2F7'
 };

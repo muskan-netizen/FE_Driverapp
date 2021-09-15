@@ -1,4 +1,4 @@
-import React, {Fragment, useState} from 'react';
+import React, {Fragment, useEffect, useState} from 'react';
 import {Text, TouchableOpacity, View, Image} from 'react-native';
 import Animated from 'react-native-reanimated';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
@@ -7,6 +7,7 @@ import imagePath from '../constants/imagePath';
 import strings from '../constants/lang';
 import navigationStrings from '../navigation/navigationStrings';
 import colors from '../styles/colors';
+import fontFamily from '../styles/fontFamily';
 import {height, moderateScale, textScale} from '../styles/responsiveSize';
 
 export default function CustomDrawerContent({
@@ -16,34 +17,40 @@ export default function CustomDrawerContent({
   progress,
   ...props
 }) {
-  
   const [states, setState] = useState({
-
     routes: [
       {
         id: 0,
         label: strings.TASKHISTORY,
         image: imagePath.taskHistory,
-        key: navigationStrings.DASHBOARD,
+        key: navigationStrings.TASKSTACK,
+        // subRoute:navigationStrings.DASHBOARD
       },
       {
         id: 1,
         label: strings.SETTING,
         image: imagePath.settingsIcon,
-        key: navigationStrings.MYPROFILE,
+        key: navigationStrings.PROFILESTACK,
+        // subRoute:navigationStrings.MYPROFILE
+      },
+      {
+        id: 2,
+        label: strings.LOGOUT,
+        image: imagePath.logout,
+        // key: navigationStrings.PROFILESTACK,
+        // subRoute:navigationStrings.MYPROFILE
       },
     ],
+    logoutAlert: false,
     selectedDrawerItem: null,
   });
-  const {routes, selectedDrawerItem} = states;
-  const currentTheme = useSelector(state => state.initBoot);
-  const insets = useSafeAreaInsets();
-  const {themeColors, themeLayouts, appStyle} = currentTheme;
-  const fontFamily = appStyle?.fontSizeData;
-  // const translateX = Animated.interpolate(progress, {
-  //   inputRange: [0, 1],
-  //   outputRange: [-100, 0],
-  // });
+  const {routes, selectedDrawerItem, logoutAlert} = states;
+
+  useEffect(() => {
+    if (logoutAlert) {
+      setTimeout(() => {}, 1000);
+    }
+  }, [logoutAlert]);
 
   return (
     <View
@@ -57,22 +64,19 @@ export default function CustomDrawerContent({
         const isFocused = selectedDrawerItem?.index === index;
         const label = route.label;
         const onPress = () => {
-          // const event = navigation.emit({
-          //   type: 'drawerItemPress',
-          //   target: route.key,
-          //   canPreventDefault: true,
-          // });
+          if (route?.key) {
+            navigation.navigate(route.key);
+          } else {
+            navigation.toggleDrawer();
+          }
 
-          // if (!isFocused && !event.defaultPrevented) {
-          //   navigation.navigate(route.name);
-          // }
-          navigation.navigate(route.key);
+          // navigation.navigate(route.key, { screen: navigationStrings.subRoute });
         };
 
         return (
           <Fragment key={route.name}>
             <TouchableOpacity
-            key={index}
+              key={index}
               accessibilityRole="button"
               accessibilityStates={isFocused ? ['selected'] : []}
               testID={JSON.stringify(route.id)}
@@ -90,9 +94,9 @@ export default function CustomDrawerContent({
                 style={{
                   paddingLeft: moderateScale(20),
                   fontSize: textScale(14),
-                  fontFamily: fontFamily?.bold,
+                  fontFamily: fontFamily?.medium,
                   ...props.labelStyle,
-                  color: isFocused ? colors.black : 'rgba(255,255,255,.5)',
+                  color: colors.black,
                 }}>
                 {label}
               </Text>

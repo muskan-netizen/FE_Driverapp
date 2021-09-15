@@ -47,9 +47,15 @@ export default function Routes() {
         ref={navigationRef}>
         <Stack.Navigator>
           {shortCode(Stack)}
-          {userData && userData?.access_token
-            ? drawer(Stack)
-            : AuthStack(Stack)}
+          {userData && userData?.access_token ? (
+            <Stack.Screen
+              name={navigationStrings.DRAWER_ROUTES}
+              component={DrawerRoutes}
+              options={{headerShown: false, gestureEnabled: false}}
+            />
+          ) : (
+            AuthStack(Stack)
+          )}
           {/* {AuthStack(Stack)}
           {drawer(Stack)} */}
         </Stack.Navigator>

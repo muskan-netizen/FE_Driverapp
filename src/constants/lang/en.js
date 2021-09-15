@@ -20,5 +20,9 @@ export default {
   RESENTCODE: 'Resend code',
   TASKHISTORY: 'Task History',
   SETTING:'Settings',
-  LOGOUT:'Logout'
+  LOGOUT:'Logout',
+  NOTASK:'No Tasks Assigned Yet',
+  NOTASKASSIGNED:'You have no tasks assigned or your all tasks were completed. We’ll notify you when new tasks arrive.',
+  OFFDUTY:'Off Duty',
+  OFFDUTYMESSAGE:'You have no tasks assigned or your all tasks were completed. We’ll notify you when new tasks arrive.'
 };

@@ -7,8 +7,8 @@ export default {
   SHORT_CODE: 'shortCode',
   SEND_OTP: 'SendOtp',
   DASHBOARD: 'Dashboard',
-  MYPROFILE: 'profile',
+  MYPROFILE: 'MyProfile',
   TASKSTACK: 'TaskStack',
   PROFILESTACK: 'ProfileStack',
-  DRAWER_ROUTES: 'drawerRoutes',
+  DRAWER_ROUTES: 'DrawerRoutes',
 };

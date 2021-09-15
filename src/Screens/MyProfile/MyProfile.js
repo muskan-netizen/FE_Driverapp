@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View} from 'react-native';
+import {View, Text} from 'react-native';
 import {loaderOne} from '../../Components/Loaders/AnimatedLoaderFiles';
 import WrapperContainer from '../../Components/WrapperContainer';
 // import store from '../../redux/store';
@@ -24,7 +24,9 @@ export default function MyProfile({route, navigation}) {
       bgColor={colors.white}
       isLoadingB={isLoading}
       source={loaderOne}>
-      <View style={{flex: 1}}></View>
+      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+        <Text>{'Profile'}</Text>
+      </View>
     </WrapperContainer>
   );
 }

@@ -1,12 +1,13 @@
 import React from 'react';
 import {Modal, View} from 'react-native';
-import {BarIndicator} from 'react-native-indicators';
+import {DotIndicator} from 'react-native-indicators';
 import {useSelector} from 'react-redux';
+import colors from '../styles/colors';
 import commonStylesFunc from '../styles/commonStyles';
 
 const LoadingComponent = () => {
   const {appData, themeColors, themeLayouts, currencies, languages, appStyle} =
-    useSelector((state) => state?.initBoot);
+    useSelector(state => state?.initBoot);
   const fontFamily = appStyle?.fontSizeData;
   const commonStyles = commonStylesFunc({fontFamily});
 
@@ -14,10 +15,11 @@ const LoadingComponent = () => {
     <View
       style={{
         ...commonStyles.loader,
-        backgroundColor: 'rgba(255,255,255,0.5)',
+        // backgroundColor: 'rgba(255,255,255,0.5)',
+        backgroundColor: 'transparent',
         elevation: 5,
       }}>
-      <BarIndicator size={25} color={themeColors.primary_color} />
+      <DotIndicator size={15} color={colors.themeColor} />
     </View>
   );
 };

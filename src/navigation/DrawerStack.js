@@ -6,7 +6,12 @@ import imagePath from '../constants/imagePath';
 import strings from '../constants/lang';
 import colors from '../styles/colors';
 import fontFamily from '../styles/fontFamily';
-import {moderateScale, textScale} from '../styles/responsiveSize';
+import {
+  moderateScale,
+  moderateScaleVertical,
+  textScale,
+  width,
+} from '../styles/responsiveSize';
 import navigationStrings from './navigationStrings';
 import ProfileStack from './ProfileStack';
 import TaskStack from './TaskStack';
@@ -23,6 +28,9 @@ export default function DrawerRoutes(props) {
         headerShown: false,
         swipeEnabled: true,
         gestureEnabled: true,
+        drawerStyle: {
+          paddingTop: moderateScaleVertical(width / 6),
+        },
       }}
       // hideStatusBar={true}
       drawerStyle={{width: '75%', backgroundColor: colors.blueHeaderColor}}

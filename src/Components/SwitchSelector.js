@@ -15,10 +15,11 @@ const SwitchSelectorComponent = ({
   textStyleInput = {},
   borderRadius = 10,
   textInputStyle = {},
-  valuePadding = 1,
+  valuePadding = 0,
   options = [],
   height = 35,
   fontSize = textScale(10),
+  borderWidth = 0,
 }) => {
   return (
     <SwitchSelector
@@ -36,9 +37,11 @@ const SwitchSelectorComponent = ({
       valuePadding={valuePadding}
       options={options}
       height={height}
+      borderWidth={borderWidth}
       fontSize={fontSize}
-      testID="gender-switch-selector"
-      accessibilityLabel="gender-switch-selector"
+      backgroundColor={colors.lightGreyBg}
+      testID="switch-selector"
+      accessibilityLabel="switch-selector"
     />
   );
 };
