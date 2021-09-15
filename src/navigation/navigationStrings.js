@@ -9,6 +9,7 @@ export default {
   DASHBOARD: 'Dashboard',
   MYPROFILE: 'MyProfile',
   TASKSTACK: 'TaskStack',
+  TASKHISTORY:'TaskHistory',
   PROFILESTACK: 'ProfileStack',
   DRAWER_ROUTES: 'DrawerRoutes',
 };

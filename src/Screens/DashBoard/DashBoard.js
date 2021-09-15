@@ -243,9 +243,9 @@ export default function DashBoard({route, navigation}) {
         // hideRight={true}
         customCenter={() => customCenter()}
         rightIcon={imagePath.map}
-        onPressRight={() =>
-          navigation.navigate(navigationStrings.SEARCHPRODUCTOVENDOR)
-        }
+        onPressRight={() => {
+          // navigation.navigate(navigationStrings.SEARCHPRODUCTOVENDOR)
+        }}
       />
       <View style={{...commonStyles.headerTopLine}} />
 

@@ -24,5 +24,16 @@ export default {
   NOTASK:'No Tasks Assigned Yet',
   NOTASKASSIGNED:'You have no tasks assigned or your all tasks were completed. We’ll notify you when new tasks arrive.',
   OFFDUTY:'Off Duty',
-  OFFDUTYMESSAGE:'You have no tasks assigned or your all tasks were completed. We’ll notify you when new tasks arrive.'
+  OFFDUTYMESSAGE:'You have no tasks assigned or your all tasks were completed. We’ll notify you when new tasks arrive.',
+  PROFILE:'Profile',
+  PERSONAL:'Personal',
+  FULLNAME:'Full Name',
+  TRASNPORTATION:'Transportation',
+  MODELMAKE:'Model, Make',
+  LICENSEPLATE:'License Plate',
+  COLOR:'Color',
+  CASHCOLLECTED:'Cash Collected',
+  CLEAR:"Clear",
+  SELECTADATE:'Select a date',
+  SELECTDATEANDTIME: 'Select Date and Time',
 };

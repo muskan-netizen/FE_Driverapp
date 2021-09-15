@@ -105,7 +105,7 @@ export default StyleSheet.create({
     overflow: 'hidden',
     marginTop: 20,
   },
-  imageView:{
+  imageView: {
     height: 100,
     width: 100,
     borderRadius: 100 / 2,
@@ -117,5 +117,6 @@ export default StyleSheet.create({
     borderColor: colors.textGreyJ,
     position: 'absolute',
     top: -50,
-  }
+  },
+  
 });

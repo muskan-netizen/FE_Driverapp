@@ -93,5 +93,6 @@ export default {
   circularBlue:'#307CFC',
   circularOrnage:'#FDA223',
   circularRed:'#FF5353',
-  backGround:'#F2F2F7'
+  backGround:'#F2F2F7',
+  lightGreyBg2:'rgba(0,0,0,0.44)'
 };

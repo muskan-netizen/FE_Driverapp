@@ -218,6 +218,8 @@ PODS:
   - React-jsinspector (0.65.1)
   - react-native-appearance (0.3.4):
     - React
+  - react-native-date-picker (4.0.0):
+    - React-Core
   - react-native-geocoder (0.5.0):
     - React
   - react-native-geolocation-service (5.3.0-beta.2):
@@ -373,6 +375,7 @@ DEPENDENCIES:
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - react-native-appearance (from `../node_modules/react-native-appearance`)
+  - react-native-date-picker (from `../node_modules/react-native-date-picker`)
   - react-native-geocoder (from `../node_modules/react-native-geocoder`)
   - react-native-geolocation-service (from `../node_modules/react-native-geolocation-service`)
   - "react-native-netinfo (from `../node_modules/@react-native-community/netinfo`)"
@@ -450,6 +453,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
   react-native-appearance:
     :path: "../node_modules/react-native-appearance"
+  react-native-date-picker:
+    :path: "../node_modules/react-native-date-picker"
   react-native-geocoder:
     :path: "../node_modules/react-native-geocoder"
   react-native-geolocation-service:
@@ -531,6 +536,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: 43f2542aed3c26e42175b339f8d37fe3dd683765
   React-jsinspector: 41e58e5b8e3e0bf061fdf725b03f2144014a8fb0
   react-native-appearance: 0f0e5fc2fcef70e03d48c8fe6b00b9158c2ba8aa
+  react-native-date-picker: da6c4f85945a2c087c569c7ac52851819ed24218
   react-native-geocoder: 757427682892bb256f3b3745858cc90eba148a8e
   react-native-geolocation-service: 94c7d2ffdbbf4dd431241e0c8e37d491ebd41430
   react-native-netinfo: 92e6e4476eb8bf6fc2d7c0a6ca0a1406f663d73a

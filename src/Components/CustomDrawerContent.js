@@ -24,11 +24,11 @@ export default function CustomDrawerContent({
         label: strings.TASKHISTORY,
         image: imagePath.taskHistory,
         key: navigationStrings.TASKSTACK,
-        // subRoute:navigationStrings.DASHBOARD
+        subRoute: navigationStrings.TASKHISTORY,
       },
       {
         id: 1,
-        label: strings.SETTING,
+        label: strings.PROFILE,
         image: imagePath.settingsIcon,
         key: navigationStrings.PROFILESTACK,
         // subRoute:navigationStrings.MYPROFILE
@@ -65,11 +65,16 @@ export default function CustomDrawerContent({
         const label = route.label;
         const onPress = () => {
           if (route?.key) {
-            navigation.navigate(route.key);
+            if (route?.subRoute) {
+              navigation.navigate(route.key, {
+                screen: route?.subRoute,
+              });
+            } else {
+              navigation.navigate(route.key);
+            }
           } else {
             navigation.toggleDrawer();
           }
-
           // navigation.navigate(route.key, { screen: navigationStrings.subRoute });
         };
 

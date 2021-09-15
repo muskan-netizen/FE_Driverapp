@@ -6,9 +6,7 @@ import fontFamily from '../styles/fontFamily';
 import {textScale, width} from '../styles/responsiveSize';
 import {TouchableOpacity} from 'react-native';
 const TaskComponent = ({}) => {
-  return <TouchableOpacity>
-      
-  </TouchableOpacity>;
+  return <TouchableOpacity></TouchableOpacity>;
 };
 
 const styles = StyleSheet.create({

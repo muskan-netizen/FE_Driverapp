@@ -1,3 +1,5 @@
+import imagePath from "../../constants/imagePath";
+
 const colorArray = [
   '#FF7E79',
   '#D4FB79',
@@ -11,4 +13,29 @@ const colorArray = [
   '#00C699',
 ];
 
-export {colorArray};
+const transportationArray=[
+  {id: 1, activeIcon: imagePath.walkBlue, inactiveIcon: imagePath.walk},
+  {
+    id: 2,
+    activeIcon: imagePath.cycleActive,
+    inactiveIcon: imagePath.cycleInactive,
+  },
+  {
+    id: 3,
+    activeIcon: imagePath.bikeSelected,
+    inactiveIcon: imagePath.bikeNonSelected,
+  },
+  {
+    id: 4,
+    activeIcon: imagePath.carSelectd,
+    inactiveIcon: imagePath.carNonSelectd,
+  },
+  {
+    id: 5,
+    activeIcon: imagePath.truckActive,
+    inactiveIcon: imagePath.truckInactive,
+  },
+  
+]
+
+export {colorArray,transportationArray};

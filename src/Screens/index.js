@@ -4,4 +4,5 @@ export {default as Webview} from './Webview/Webview';
 export {default as PhoneVerification} from './Auth/PhoneVerification/PhoneVerification';
 export {default as DashBoard} from './DashBoard/DashBoard';
 export {default as MyProfile} from './MyProfile/MyProfile';
+export {default as TaskHistory} from './TaskHistory/TaskHistory';
 
