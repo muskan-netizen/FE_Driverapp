@@ -101,6 +101,7 @@ export default function TaskHistory({route, navigation}) {
         data={item}
         index={index}
         allTasks={allTaskInHistory}
+        showCurrency={true}
         onPress={_onPressTask}
       />
     );

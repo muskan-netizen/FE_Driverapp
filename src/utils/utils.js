@@ -95,13 +95,12 @@ export async function apiReq(
 ) {
   return new Promise(async (res, rej) => {
     const getTokenHeader = await getHeaders();
-
     headers = {
       ...getTokenHeader,
       ...headers,
     };
     //
-
+    console.log(headers,"headers");
     if (method === 'get' || method === 'delete') {
       data = {
         ...requestOptions,

@@ -16,9 +16,12 @@ import moment from 'moment';
 import generateBoxShadowStyle from './generateBoxShadowStyle';
 import {getColorCodeWithOpactiyNumber} from '../utils/helperFunctions';
 import {colorArray} from '../utils/constants/ConstantValues';
-const TaskListCard = ({data = {}, allTasks = [], index = null}) => {
-  console.log(data, 'data>data>data');
-
+const TaskListCard = ({
+  data = {},
+  allTasks = [],
+  index = null,
+  showCurrency = false,
+}) => {
   let dueDate = new Date(data?.order?.order_time).toUTCString();
   //console.log(dueDate, 'dueDate');
 
@@ -85,6 +88,17 @@ const TaskListCard = ({data = {}, allTasks = [], index = null}) => {
             {moment(date).format('MM/DD/YYYY HH:mm')}
           </Text>
         </View>
+
+        {!!showCurrency && (
+          <View style={{flexDirection: 'row', marginTop: moderateScale(5)}}>
+            <Image source={imagePath.dollor} />
+            <Text style={styles.dateTimeStyle}>
+              {data?.order?.amount
+                ? Number(data?.order?.amount).toFixed(2)
+                : Number(0).toFixed(2)}
+            </Text>
+          </View>
+        )}
       </View>
       <View
         style={{
@@ -135,7 +149,7 @@ const styles = StyleSheet.create({
   shadowStyle: {
     flexDirection: 'row',
     borderWidth: 1,
-    marginHorizontal: moderateScale(20),
+    marginHorizontal: moderateScale(10),
     borderColor: colors.grey2,
     backgroundColor: colors.white,
     borderRadius: 8,
@@ -153,6 +167,7 @@ const styles = StyleSheet.create({
     fontFamily: fontFamily.semiBold,
     fontSize: textScale(10),
     opacity: 0.5,
+    paddingLeft: 5,
   },
   statusView: {
     minWidth: moderateScale(60),

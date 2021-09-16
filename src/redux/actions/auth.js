@@ -24,6 +24,15 @@ export function login(data = {}, headers = {}) {
   });
 }
 
+export const updataeUserData = data => {
+  setUserData(data).then(suc => {
+    dispatch({
+      type: types.UPDATEUSER,
+      payload: data,
+    });
+  });
+};
+
 export function verifyAccount(data = {}, headers = {}) {
   console.log(data, 'verifyAccount>data>data>data');
   return new Promise((resolve, reject) => {

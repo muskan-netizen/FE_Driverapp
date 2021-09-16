@@ -18,22 +18,44 @@ import TaskListCard from '../../Components/TaskListCard';
 import {showError} from '../../utils/helperFunctions';
 import ListEmptyComponent from '../../Components/ListEmptyComponent';
 import strings from '../../constants/lang';
+import MapView from 'react-native-maps'; // remove PROVIDER_GOOGLE import if not using Google Maps
+import styles from './styles';
+import DeviceInfo from 'react-native-device-info';
+
 export default function DashBoard({route, navigation}) {
+  const userData = useSelector(state => state?.auth?.userData);
+
   const [state, setState] = useState({
     isLoading: false,
     isEnabled: true,
     options: [
-      {label: "Today's Tasks", value: 0, testID: '1'},
-      {label: 'All Tasks', value: 1, testID: '2'},
+      {label: strings.TODAYSTASK, value: 0, testID: '1'},
+      {label: strings.ALLTASKS, value: 1, testID: '2'},
     ],
-    initial: 0,
+    initial: userData?.is_available,
     selectedOption: 0,
     todaysTasks: [],
     allTasks: [],
     isRefreshing: false,
     pageNo: 1,
+    region: {
+      latitude: 30.7191,
+      longitude: 76.8107,
+      latitudeDelta: 0.015,
+      longitudeDelta: 0.0121,
+    },
+    coordinate: {
+      latitude: 30.7191,
+      longitude: 76.8107,
+      latitudeDelta: 0.015,
+      longitudeDelta: 0.0121,
+    },
+    enableMap: false,
+    markers: [],
   });
   const {
+    region,
+    coordinate,
     todaysTasks,
     allTasks,
     initial,
@@ -43,9 +65,11 @@ export default function DashBoard({route, navigation}) {
     selectedOption,
     isRefreshing,
     pageNo,
+    enableMap,
+    markers,
   } = state;
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
-
+  console.log(userData, 'userData>New');
   useEffect(() => {
     getTasks();
   }, [selectedOption]);
@@ -69,12 +93,14 @@ export default function DashBoard({route, navigation}) {
         if (selectedOption) {
           updateState({
             allTasks: res?.data,
+            markers: res?.data,
             isRefreshing: false,
             isLoading: false,
           });
         } else {
           updateState({
             todaysTasks: res?.data,
+            markers: res?.data,
             isRefreshing: false,
             isLoading: false,
           });
@@ -85,6 +111,7 @@ export default function DashBoard({route, navigation}) {
   };
   //Error handling in api
   const errorMethod = error => {
+    console.log(error,"error");
     updateState({isLoading: false, isRefreshing: false, isLoading: false});
     showError(error?.message || error?.error);
   };
@@ -97,9 +124,38 @@ export default function DashBoard({route, navigation}) {
   const moveToNewScreen = (screenName, data) => () => {
     navigation.navigate(screenName, {data});
   };
-  const toggleSwitch = () => {
-    updateState({isEnabled: !isEnabled});
+
+  const onOffDuty = () => {
+    // alert('213');
+    updateState({ isLoading: true});
+    actions
+      .onOffDuty(
+        `?device_token=${DeviceInfo.getUniqueId()}`,
+        {},
+        {client: clientInfo?.database_name},
+      )
+      .then(res => {
+        console.log(res, 'onOffDuty>res>res');
+        updateState({ isLoading: false});
+        if (res?.data) {
+          updateState({initial:res?.data?.is_available})
+          let updatedUserData = {...userData};
+          updatedUserData['is_available'] = res?.data?.is_available;
+          actions.updataeUserData(updatedUserData);
+        }
+      })
+      .catch(errorMethod);
   };
+
+  const toggleSwitch = () => {
+    updateState({isEnabled: !isEnabled, });
+  };
+
+  //OFF DUTY CALL ON STATE UPDATE
+  useEffect(() => {
+    onOffDuty();
+  }, [isEnabled]);
+
   const updateContent = value => {
     updateState({selectedOption: value, isLoading: true});
   };
@@ -155,22 +211,6 @@ export default function DashBoard({route, navigation}) {
   const homeMainView = () => {
     return (
       <>
-        <View
-          style={{
-            justifyContent: 'center',
-            alignItems: 'center',
-            marginTop: moderateScaleVertical(20),
-            paddingBottom: moderateScaleVertical(20),
-            borderBottomWidth: moderateScaleVertical(1),
-            borderBottomColor: colors.lightGreyBg,
-          }}>
-          <SwitchSelectorComponent
-            options={options}
-            initial={initial}
-            onPress={value => updateContent(value)}
-          />
-        </View>
-
         <View style={{flex: 1}}>
           <FlatList
             data={selectedOption ? allTasks : todaysTasks}
@@ -200,9 +240,9 @@ export default function DashBoard({route, navigation}) {
             }
             onEndReached={onEndReachedDelayed}
             onEndReachedThreshold={0.5}
-            ListFooterComponent={() => (
-              <View style={{height: moderateScaleVertical(65)}} />
-            )}
+            // ListFooterComponent={() => (
+            //   <View style={{height: moderateScaleVertical(65)}} />
+            // )}
             ListEmptyComponent={
               <ListEmptyComponent
                 isLoading={isLoading}
@@ -215,6 +255,12 @@ export default function DashBoard({route, navigation}) {
         </View>
       </>
     );
+  };
+
+  const _onRegionChange = region => {
+    updateState({region: region});
+    // _getAddressBasedOnCoordinates(region);
+    // animate(region);
   };
 
   const offDutyView = () => {
@@ -230,6 +276,40 @@ export default function DashBoard({route, navigation}) {
       </>
     );
   };
+
+  const mapView = () => {
+    if (markers.length)
+      return (
+        <MapView
+          //   provider={PROVIDER_GOOGLE} // remove if not using Google Maps
+          style={styles.map}
+          region={region}
+          initialRegion={region}
+          //   customMapStyle={mapStyle}
+          onRegionChangeComplete={_onRegionChange}>
+          {markers.map((coordinate, index) => (
+            <MapView.Marker
+              tracksViewChanges={false}
+              zIndex={index}
+              key={`coordinate_${index}`}
+              image={imagePath.pinRed}
+              coordinate={{
+                latitude: Number(coordinate?.location?.latitude),
+                longitude: Number(coordinate?.location?.longitude),
+              }}></MapView.Marker>
+          ))}
+        </MapView>
+      );
+    return (
+      <ListEmptyComponent
+        isLoading={isLoading}
+        message={strings.NOTASK}
+        subMessage={strings.NOTASKASSIGNED}
+        containerStyle={{backgroundColor: colors.backGround}}
+      />
+    );
+  };
+
   return (
     <WrapperContainer
       statusBarColor={colors.white}
@@ -242,14 +322,29 @@ export default function DashBoard({route, navigation}) {
         onPressLeft={() => navigation.toggleDrawer()}
         // hideRight={true}
         customCenter={() => customCenter()}
-        rightIcon={imagePath.map}
+        rightIcon={enableMap ? imagePath.listMenu : imagePath.map}
         onPressRight={() => {
+          updateState({enableMap: !enableMap});
           // navigation.navigate(navigationStrings.SEARCHPRODUCTOVENDOR)
         }}
       />
       <View style={{...commonStyles.headerTopLine}} />
-
-      {isEnabled ? homeMainView() : offDutyView()}
+      <View
+        style={{
+          justifyContent: 'center',
+          alignItems: 'center',
+          marginTop: moderateScaleVertical(20),
+          paddingBottom: moderateScaleVertical(20),
+          borderBottomWidth: moderateScaleVertical(1),
+          borderBottomColor: colors.lightGreyBg,
+        }}>
+        <SwitchSelectorComponent
+          options={options}
+          initial={initial}
+          onPress={value => updateContent(value)}
+        />
+      </View>
+      {isEnabled ? (enableMap ? mapView() : homeMainView()) : offDutyView()}
     </WrapperContainer>
   );
 }

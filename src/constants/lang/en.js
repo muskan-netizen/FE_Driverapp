@@ -36,4 +36,6 @@ export default {
   CLEAR:"Clear",
   SELECTADATE:'Select a date',
   SELECTDATEANDTIME: 'Select Date and Time',
+  TODAYSTASK:"Today's Tasks",
+  ALLTASKS:"All Tasks"
 };

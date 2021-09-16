@@ -12,10 +12,18 @@ export default function (state = initial_state, action) {
       console.log(data,'this login data')
       return {userData: data};
     }
+
+    case types.UPDATEUSER: {
+      const data = action.payload;
+      console.log(data,'this login data')
+      return {userData: data};
+    }
+
     case types.USER_LOGOUT: {
       const data = action.payload;
       return {userData: undefined};
     }
+
     // case types.PROFILE_ADDRESS: {
     //   const data = action.payload;
     //   console.log(data,'yaha')

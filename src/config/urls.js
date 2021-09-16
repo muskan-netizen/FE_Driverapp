@@ -11,4 +11,5 @@ export const PRIVACYANDTERMSANDCONDITIONS = getApiUrl('/cmscontent');
 //Task Apis
 export const GETTASKS = getApiUrl('/taskList');
 export const GETTASKHISTORY = getApiUrl('/task/history');
+export const UPDATEONOFFDUTYSTATUS = getApiUrl('/updateStatus');
 
