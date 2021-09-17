@@ -9,13 +9,11 @@ export default function (state = initial_state, action) {
   switch (action.type) {
     case types.LOGIN: {
       const data = action.payload;
-      console.log(data,'this login data')
       return {userData: data};
     }
 
     case types.UPDATEUSER: {
       const data = action.payload;
-      console.log(data,'this login data')
       return {userData: data};
     }
 

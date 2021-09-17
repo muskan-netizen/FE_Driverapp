@@ -20,6 +20,7 @@ const TaskListCard = ({
   data = {},
   allTasks = [],
   index = null,
+  _onPressTask = () => {},
   showCurrency = false,
 }) => {
   let dueDate = new Date(data?.order?.order_time).toUTCString();
@@ -70,7 +71,7 @@ const TaskListCard = ({
   };
 
   return (
-    <TouchableOpacity style={styles.shadowStyle}>
+    <TouchableOpacity style={styles.shadowStyle} onPress={_onPressTask}>
       <View style={[styles.borderLine, {backgroundColor: getRandomColor()}]} />
       <View
         style={{

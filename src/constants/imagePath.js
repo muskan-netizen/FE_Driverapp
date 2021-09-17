@@ -50,6 +50,9 @@ export default {
   logo:require('../assets/images/Main_logo.png'),
   pinRed:require('../assets/images/ic_pin.png'),
   dollor:require('../assets/images/ic_dollar.png'),
+  customer:require('../assets/images/ic_customer.png'),
+  details:require('../assets/images/ic_details.png'),
+  task:require('../assets/images/ic_task.png'),
 
   
   

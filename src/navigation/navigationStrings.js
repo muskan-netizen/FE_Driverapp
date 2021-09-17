@@ -12,4 +12,5 @@ export default {
   TASKHISTORY:'TaskHistory',
   PROFILESTACK: 'ProfileStack',
   DRAWER_ROUTES: 'DrawerRoutes',
+  TASKDETAIL:"TaskDetail"
 };

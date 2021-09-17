@@ -21,6 +21,8 @@ import strings from '../../constants/lang';
 import MapView from 'react-native-maps'; // remove PROVIDER_GOOGLE import if not using Google Maps
 import styles from './styles';
 import DeviceInfo from 'react-native-device-info';
+import navigationStrings from '../../navigation/navigationStrings';
+import {TouchableOpacity} from 'react-native';
 
 export default function DashBoard({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
@@ -32,8 +34,8 @@ export default function DashBoard({route, navigation}) {
       {label: strings.TODAYSTASK, value: 0, testID: '1'},
       {label: strings.ALLTASKS, value: 1, testID: '2'},
     ],
-    initial: userData?.is_available,
-    selectedOption: 0,
+    initial: 0,
+    selectedOption: userData?.is_available,
     todaysTasks: [],
     allTasks: [],
     isRefreshing: false,
@@ -69,10 +71,9 @@ export default function DashBoard({route, navigation}) {
     markers,
   } = state;
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
-  console.log(userData, 'userData>New');
   useEffect(() => {
     getTasks();
-  }, [selectedOption]);
+  }, [initial]);
 
   useEffect(() => {
     {
@@ -84,7 +85,7 @@ export default function DashBoard({route, navigation}) {
   const getTasks = () => {
     actions
       .getListOfTasks(
-        `?all=${selectedOption}`,
+        `?all=${initial}`,
         {},
         {client: clientInfo?.database_name},
       )
@@ -111,7 +112,7 @@ export default function DashBoard({route, navigation}) {
   };
   //Error handling in api
   const errorMethod = error => {
-    console.log(error,"error");
+    console.log(error, 'error');
     updateState({isLoading: false, isRefreshing: false, isLoading: false});
     showError(error?.message || error?.error);
   };
@@ -127,7 +128,7 @@ export default function DashBoard({route, navigation}) {
 
   const onOffDuty = () => {
     // alert('213');
-    updateState({ isLoading: true});
+    updateState({isLoading: true});
     actions
       .onOffDuty(
         `?device_token=${DeviceInfo.getUniqueId()}`,
@@ -136,9 +137,9 @@ export default function DashBoard({route, navigation}) {
       )
       .then(res => {
         console.log(res, 'onOffDuty>res>res');
-        updateState({ isLoading: false});
+        updateState({isLoading: false});
         if (res?.data) {
-          updateState({initial:res?.data?.is_available})
+          updateState({initial: res?.data?.is_available});
           let updatedUserData = {...userData};
           updatedUserData['is_available'] = res?.data?.is_available;
           actions.updataeUserData(updatedUserData);
@@ -148,7 +149,7 @@ export default function DashBoard({route, navigation}) {
   };
 
   const toggleSwitch = () => {
-    updateState({isEnabled: !isEnabled, });
+    updateState({isEnabled: !isEnabled});
   };
 
   //OFF DUTY CALL ON STATE UPDATE
@@ -157,7 +158,7 @@ export default function DashBoard({route, navigation}) {
   }, [isEnabled]);
 
   const updateContent = value => {
-    updateState({selectedOption: value, isLoading: true});
+    updateState({initial: value, isLoading: true});
   };
   const customCenter = () => {
     return (
@@ -189,8 +190,9 @@ export default function DashBoard({route, navigation}) {
     trailing: false,
   });
 
-  const _onPressTask = () => {
+  const _onPressTask = item => {
     console.log('Here it is');
+    moveToNewScreen(navigationStrings.TASKDETAIL, item)();
   };
   const renderTaskList = ({item, index}) => {
     return (
@@ -198,7 +200,7 @@ export default function DashBoard({route, navigation}) {
         data={item}
         index={index}
         allTasks={selectedOption ? allTasks : todaysTasks}
-        onPress={_onPressTask}
+        _onPressTask={() => _onPressTask(item)}
       />
     );
   };

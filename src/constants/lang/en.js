@@ -37,5 +37,12 @@ export default {
   SELECTADATE:'Select a date',
   SELECTDATEANDTIME: 'Select Date and Time',
   TODAYSTASK:"Today's Tasks",
-  ALLTASKS:"All Tasks"
+  ALLTASKS:"All Tasks",
+  TASK:'Task',
+  CANCEL:'CANCEL',
+  TASKDETAIL:'Task Details',
+  CUSTOMER:'Customer',
+  TASKTIMINGS:'Task Timings',
+  RECIPIENT:'Recipient Notes',
+  CASHTOBECOLLECTED:'Cash to be collected',
 };

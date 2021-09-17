@@ -5,4 +5,4 @@ export {default as PhoneVerification} from './Auth/PhoneVerification/PhoneVerifi
 export {default as DashBoard} from './DashBoard/DashBoard';
 export {default as MyProfile} from './MyProfile/MyProfile';
 export {default as TaskHistory} from './TaskHistory/TaskHistory';
-
+export {default as TaskDetail} from './TaskDetail/TaskDetail';
