@@ -39,10 +39,11 @@ export default {
   TODAYSTASK:"Today's Tasks",
   ALLTASKS:"All Tasks",
   TASK:'Task',
-  CANCEL:'CANCEL',
+  CANCEL:'Cancel',
   TASKDETAIL:'Task Details',
   CUSTOMER:'Customer',
   TASKTIMINGS:'Task Timings',
   RECIPIENT:'Recipient Notes',
   CASHTOBECOLLECTED:'Cash to be collected',
+  CANCELMESSAGE:"If you are not able to complete the job,Press 'OK'"
 };

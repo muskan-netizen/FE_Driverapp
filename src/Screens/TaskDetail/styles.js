@@ -41,7 +41,7 @@ export default StyleSheet.create({
   },
   address: {
     fontSize: textScale(14),
-    fontFamily: fontFamily.semiBold,
+    fontFamily: fontFamily.medium,
     color: colors.blackShade2,
     paddingBottom: moderateScale(5),
   },
@@ -56,7 +56,7 @@ export default StyleSheet.create({
     fontFamily: fontFamily.regular,
     color: colors.iconGrey,
     paddingBottom: moderateScale(5),
-    backgroundColor: colors.borderColorD,
+    backgroundColor: colors.backGround,
     padding: moderateScale(10),
     justifyContent: 'center',
   },

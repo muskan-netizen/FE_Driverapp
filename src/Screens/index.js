@@ -6,3 +6,5 @@ export {default as DashBoard} from './DashBoard/DashBoard';
 export {default as MyProfile} from './MyProfile/MyProfile';
 export {default as TaskHistory} from './TaskHistory/TaskHistory';
 export {default as TaskDetail} from './TaskDetail/TaskDetail';
+export {default as TaskCancel} from './TaskCancel/TaskCancel';
+

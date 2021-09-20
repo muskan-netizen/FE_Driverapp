@@ -1,0 +1,134 @@
+import React, {useState, useEffect} from 'react';
+import {
+  Image,
+  ScrollView,
+  Animated,
+  TouchableWithoutFeedback,
+  Text,
+  TouchableOpacity,
+  View,
+  Alert,
+  StyleSheet,
+  TextInput,
+} from 'react-native';
+import MapView from 'react-native-maps';
+import {useSelector} from 'react-redux';
+import Header from '../../Components/Header';
+import {loaderOne} from '../../Components/Loaders/AnimatedLoaderFiles';
+import WrapperContainer from '../../Components/WrapperContainer';
+import imagePath from '../../constants/imagePath';
+import strings from '../../constants/lang';
+// import store from '../../redux/store';
+import colors from '../../styles/colors';
+import commonStylesFunc from '../../styles/commonStyles';
+import fontFamily from '../../styles/fontFamily';
+import {
+  moderateScale,
+  moderateScaleVertical,
+  textScale,
+  width,
+} from '../../styles/responsiveSize';
+import {
+  getColorCodeWithOpactiyNumber,
+  showError,
+} from '../../utils/helperFunctions';
+import styles from './styles';
+import Communications from 'react-native-communications';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+
+var ACTION_TIMER = 1500;
+var COLORS = ['#8FEE90', '#27A468'];
+var _value = 0;
+export default function TaskCancel({route, navigation}) {
+  const userData = useSelector(state => state?.auth?.userData);
+  let taskDetail = route?.params?.data;
+  console.log(taskDetail, 'taskDetail');
+  const [state, setState] = useState({
+    isLoading: false,
+    cancelReasons: [
+      {
+        id: 1,
+        reason: 'Driver/Vehicle Incident',
+      },
+      {
+        id: 2,
+        reason: 'Destination Unreachable',
+      },
+      {
+        id: 3,
+        reason: 'Recipent Unavailable',
+      },
+      {
+        id: 4,
+        reason: 'Refused - Incorrect/Missing items',
+      },
+      {
+        id: 5,
+        reason: 'Refused - Damage',
+      },
+      {
+        id: 6,
+        reason: 'Unable to Locate',
+      },
+      {
+        id: 7,
+        reason: 'Other',
+      },
+    ],
+    selectedReason: null,
+    inputReason: '',
+  });
+
+  const {isLoading, cancelReasons, selectedReason, inputReason} = state;
+  const commonStyles = commonStylesFunc({fontFamily});
+  const updateState = data => setState(state => ({...state, ...data}));
+  const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
+
+  //Naviagtion to specific screen
+  const moveToNewScreen = (screenName, data) => () => {
+    navigation.navigate(screenName, {data});
+  };
+
+  //Error handling in api
+  const errorMethod = error => {
+    updateState({isLoading: false, isRefreshing: false, isLoading: false});
+    showError(error?.message || error?.error);
+  };
+
+  return (
+    <WrapperContainer
+      statusBarColor={colors.white}
+      bgColor={colors.white}
+      isLoading={isLoading}
+      source={loaderOne}>
+      <Header
+        headerStyle={{backgroundColor: colors.white}}
+        leftIconStyle={{tintColor: colors.themeColor}}
+        customLeft={() => (
+          <TouchableOpacity
+            onPress={() => navigation.goBack()}
+            style={{flexDirection: 'row', alignItems: 'center'}}>
+            <Image source={imagePath.backArrow} />
+            <Text style={styles.textStyle}>{strings.TASK}</Text>
+          </TouchableOpacity>
+        )}
+        // hideRight={true}
+        // onPressLeft={()=>navigation.goBack()}
+        // centerTitle={strings.TASK}
+      />
+      <View style={{...commonStyles.headerTopLine}} />
+      <KeyboardAwareScrollView showsVerticalScrollIndicator={false}>
+        {cancelReasons.map((i, inx) => {
+          return (
+            <View style={styles.rowViewTaskCancel}>
+              <Text style={styles.reason}>{i.reason}</Text>
+            </View>
+          );
+        })}
+        <View style={styles.inputBottomView}>
+          <TextInput value={inputReason} style={styles.textInputStyle}/>
+        </View>
+      </KeyboardAwareScrollView>
+    </WrapperContainer>
+  );
+}

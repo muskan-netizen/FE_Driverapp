@@ -7,6 +7,7 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Alert,
 } from 'react-native';
 import MapView from 'react-native-maps';
 import {useSelector} from 'react-redux';
@@ -26,6 +27,7 @@ import {
 } from '../../utils/helperFunctions';
 import styles from './styles';
 import Communications from 'react-native-communications';
+import navigationStrings from '../../navigation/navigationStrings';
 
 var ACTION_TIMER = 1500;
 var COLORS = ['#8FEE90', '#27A468'];
@@ -112,8 +114,8 @@ export default function TaskDetail({route, navigation}) {
 
   const getButtonWidthLayout = e => {
     updateState({
-      buttonWidth: e.nativeEvent.layout.width - 6,
-      buttonHeight: e.nativeEvent.layout.height - 6,
+      buttonWidth: e.nativeEvent.layout.width,
+      buttonHeight: e.nativeEvent.layout.height,
     });
   };
 
@@ -205,6 +207,159 @@ export default function TaskDetail({route, navigation}) {
     );
   };
 
+  const taskDetailView = () => {
+    return (
+      <ScrollView>
+        <View style={{padding: moderateScale(15)}}>
+          <View
+            style={[
+              styles.statusView,
+              {
+                backgroundColor: getBackGroudColor(taskDetail?.tasktype?.name),
+              },
+            ]}>
+            <Text
+              style={{
+                color: getTextColor(taskDetail?.tasktype?.name),
+                textAlign: 'center',
+                fontFamily: fontFamily.medium,
+                fontSize: textScale(10),
+                paddingBottom: moderateScale(5),
+              }}>
+              {taskDetail?.tasktype?.name}
+            </Text>
+          </View>
+
+          <View>
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+              }}>
+              <View style={{flex: 0.8}}>
+                <Text style={styles.address}>
+                  {taskDetail?.location?.address}
+                </Text>
+              </View>
+
+              <View
+                style={{
+                  flex: 0.2,
+                  alignItems: 'center',
+                }}>
+                <Image source={imagePath?.path} />
+              </View>
+            </View>
+
+            <Text style={styles.shortName}>
+              {taskDetail?.location?.short_name}
+            </Text>
+          </View>
+        </View>
+        <View style={styles.taskDetailView}>
+          <Text style={styles.taskText}>{strings.TASKDETAIL}</Text>
+        </View>
+
+        <View style={{padding: moderateScale(15)}}>
+          <View style={styles.labelView}>
+            <Image source={imagePath.customer} />
+            <View
+              style={{
+                marginLeft: moderateScale(7),
+                justifyContent: 'space-between',
+                flexDirection: 'row',
+              }}>
+              <View style={{flex: 0.7}}>
+                <Text style={styles.taskLable}>{strings.CUSTOMER}</Text>
+                <Text style={styles.taskValue}>
+                  {taskDetail?.order?.customer?.name}
+                </Text>
+              </View>
+
+              <View
+                style={{
+                  flex: 0.3,
+                  flexDirection: 'row',
+                  justifyContent: 'center',
+                }}>
+                <TouchableOpacity
+                  onPress={() =>
+                    taskDetail?.order?.recipient_phone
+                      ? Communications.phonecall(
+                          taskDetail?.order?.recipient_phone,
+                          true,
+                        )
+                      : console.log()
+                  }>
+                  <Image source={imagePath?.call} />
+                </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() =>
+                    taskDetail?.order?.recipient_phone
+                      ? Communications.text(taskDetail?.order?.recipient_phone)
+                      : console.log()
+                  }
+                  style={{marginLeft: moderateScale(10)}}>
+                  <Image source={imagePath?.chatBlue} />
+                </TouchableOpacity>
+              </View>
+            </View>
+          </View>
+
+          <View style={styles.labelView}>
+            <Image source={imagePath.task} />
+            <View style={{marginLeft: moderateScale(7)}}>
+              <Text style={styles.taskLable}>{strings.TASKTIMINGS}</Text>
+              <Text style={styles.taskValue}>
+                {taskDetail?.order?.order_time}
+              </Text>
+            </View>
+          </View>
+
+          {!!taskDetail?.order?.cash_to_be_collected && (
+            <View style={styles.labelView}>
+              <Image source={imagePath.details} />
+              <View style={{marginLeft: moderateScale(7)}}>
+                <Text style={styles.taskLable}>
+                  {strings.CASHTOBECOLLECTED}
+                </Text>
+                <Text style={styles.taskValue}>
+                  {Number(taskDetail?.order?.cash_to_be_collected).toFixed(2)}
+                </Text>
+              </View>
+            </View>
+          )}
+
+          {!!taskDetail?.order?.task_description && (
+            <View style={styles.labelView}>
+              <Image source={imagePath.details} />
+              <View style={{marginLeft: moderateScale(7)}}>
+                <Text style={styles.taskLable}>{strings.TASKDETAIL}</Text>
+                <Text style={styles.taskValue}>
+                  {taskDetail?.order?.task_description}
+                </Text>
+              </View>
+            </View>
+          )}
+        </View>
+      </ScrollView>
+    );
+  };
+
+  const cancelTask = () => {
+    Alert.alert('', strings.CANCELMESSAGE, [
+      {
+        text: 'Cancel',
+        onPress: () => console.log('Cancel Pressed'),
+        style: 'cancel',
+      },
+      {
+        text: 'OK',
+        onPress: () => moveToNewScreen(navigationStrings.TASKCANCEL)(),
+      },
+    ]);
+  };
+
   return (
     <WrapperContainer
       statusBarColor={colors.white}
@@ -218,7 +373,7 @@ export default function TaskDetail({route, navigation}) {
         // onPressLeft={()=>navigation.goBack()}
         centerTitle={strings.TASK}
         customRight={() => (
-          <TouchableOpacity>
+          <TouchableOpacity onPress={cancelTask}>
             <Text
               style={{
                 color: colors.textGrey,
@@ -233,134 +388,7 @@ export default function TaskDetail({route, navigation}) {
       <View style={{...commonStyles.headerTopLine}} />
       {mapView()}
       <View style={styles.mainContainer}>
-        <ScrollView>
-          <View style={{padding: moderateScale(15)}}>
-            <View
-              style={[
-                styles.statusView,
-                {
-                  backgroundColor: getBackGroudColor(
-                    taskDetail?.tasktype?.name,
-                  ),
-                },
-              ]}>
-              <Text
-                style={{
-                  color: getTextColor(taskDetail?.tasktype?.name),
-                  textAlign: 'center',
-                  fontFamily: fontFamily.medium,
-                  fontSize: textScale(10),
-                  paddingBottom: moderateScale(5),
-                }}>
-                {taskDetail?.tasktype?.name}
-              </Text>
-            </View>
-
-            <View
-              style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-              <View>
-                <Text style={styles.address}>
-                  {taskDetail?.location?.address}
-                </Text>
-                <Text style={styles.shortName}>
-                  {taskDetail?.location?.short_name}
-                </Text>
-              </View>
-              <View style={{alignItems: 'center'}}>
-                <Image source={imagePath?.path} />
-              </View>
-            </View>
-          </View>
-          <View style={styles.taskDetailView}>
-            <Text style={styles.taskText}>{strings.TASKDETAIL}</Text>
-          </View>
-
-          <View style={{padding: moderateScale(15)}}>
-            <View style={styles.labelView}>
-              <Image source={imagePath.customer} />
-              <View
-                style={{
-                  marginLeft: moderateScale(7),
-                  justifyContent: 'space-between',
-                  flexDirection: 'row',
-                }}>
-                <View style={{flex: 0.7}}>
-                  <Text style={styles.taskLable}>{strings.CUSTOMER}</Text>
-                  <Text style={styles.taskValue}>
-                    {taskDetail?.order?.customer?.name}
-                  </Text>
-                </View>
-
-                <View
-                  style={{
-                    flex: 0.3,
-                    flexDirection: 'row',
-                    justifyContent: 'center',
-                  }}>
-                  <TouchableOpacity
-                    onPress={() =>
-                      taskDetail?.order?.recipient_phone
-                        ? Communications.phonecall(
-                            taskDetail?.order?.recipient_phone,
-                            true,
-                          )
-                        : console.log()
-                    }>
-                    <Image source={imagePath?.call} />
-                  </TouchableOpacity>
-                  <TouchableOpacity
-                    onPress={() =>
-                      taskDetail?.order?.recipient_phone
-                        ? Communications.text(
-                            taskDetail?.order?.recipient_phone,
-                          )
-                        : console.log()
-                    }
-                    style={{marginLeft: moderateScale(10)}}>
-                    <Image source={imagePath?.chatBlue} />
-                  </TouchableOpacity>
-                </View>
-              </View>
-            </View>
-
-            <View style={styles.labelView}>
-              <Image source={imagePath.task} />
-              <View style={{marginLeft: moderateScale(7)}}>
-                <Text style={styles.taskLable}>{strings.TASKTIMINGS}</Text>
-                <Text style={styles.taskValue}>
-                  {taskDetail?.order?.order_time}
-                </Text>
-              </View>
-            </View>
-
-            {!!taskDetail?.order?.cash_to_be_collected && (
-              <View style={styles.labelView}>
-                <Image source={imagePath.details} />
-                <View style={{marginLeft: moderateScale(7)}}>
-                  <Text style={styles.taskLable}>
-                    {strings.CASHTOBECOLLECTED}
-                  </Text>
-                  <Text style={styles.taskValue}>
-                    {Number(taskDetail?.order?.cash_to_be_collected).toFixed(2)}
-                  </Text>
-                </View>
-              </View>
-            )}
-
-            {!!taskDetail?.order?.task_description && (
-              <View style={styles.labelView}>
-                <Image source={imagePath.details} />
-                <View style={{marginLeft: moderateScale(7)}}>
-                  <Text style={styles.taskLable}>{strings.TASKDETAIL}</Text>
-                  <Text style={styles.taskValue}>
-                    {taskDetail?.order?.task_description}
-                  </Text>
-                </View>
-              </View>
-            )}
-          </View>
-        </ScrollView>
-
+        {taskDetailView()}
         {buttonView()}
       </View>
     </WrapperContainer>
