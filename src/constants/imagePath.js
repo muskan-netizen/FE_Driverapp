@@ -53,6 +53,9 @@ export default {
   customer:require('../assets/images/ic_customer.png'),
   details:require('../assets/images/ic_details.png'),
   task:require('../assets/images/ic_task.png'),
+  task_green_tik:require('../assets/images/ic_tick.png'),
+
+  
 
   
   

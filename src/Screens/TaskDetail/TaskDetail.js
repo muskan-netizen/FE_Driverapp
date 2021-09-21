@@ -28,6 +28,7 @@ import {
 import styles from './styles';
 import Communications from 'react-native-communications';
 import navigationStrings from '../../navigation/navigationStrings';
+import actions from '../../redux/actions';
 
 var ACTION_TIMER = 1500;
 var COLORS = ['#8FEE90', '#27A468'];
@@ -54,9 +55,12 @@ export default function TaskDetail({route, navigation}) {
     pressAction: new Animated.Value(0),
     buttonWidth: 0,
     buttonHeight: 0,
+    taskStatus: taskDetail?.task_status ? taskDetail?.task_status : '',
+    buttonPressComplete: 0,
   });
 
   const {
+    taskStatus,
     isLoading,
     region,
     coordinate,
@@ -64,6 +68,7 @@ export default function TaskDetail({route, navigation}) {
     pressAction,
     buttonWidth,
     buttonHeight,
+    buttonPressComplete,
   } = state;
   const commonStyles = commonStylesFunc({fontFamily});
   const updateState = data => setState(state => ({...state, ...data}));
@@ -96,20 +101,29 @@ export default function TaskDetail({route, navigation}) {
     }).start(animationActionComplete);
   };
   const handlePressOut = () => {
-    Animated.timing(pressAction, {
-      duration: _value * ACTION_TIMER,
-      toValue: 0,
-      useNativeDriver: false,
-    }).start();
+    if (buttonPressComplete == 1) {
+      Animated.timing(pressAction, {
+        duration: _value * ACTION_TIMER,
+        toValue: 0,
+        useNativeDriver: false,
+      }).stop();
+    } else {
+      Animated.timing(pressAction, {
+        duration: _value * ACTION_TIMER,
+        toValue: 0,
+        useNativeDriver: false,
+      }).start();
+    }
   };
   const animationActionComplete = () => {
+    // alert('1234');
     var message = '';
     if (_value === 1) {
+      updateState({buttonPressComplete: 1});
       message = 'You held it long enough to fire the action!';
+    } else {
+      updateState({buttonPressComplete: 0});
     }
-    updateState({
-      textComplete: message,
-    });
   };
 
   const getButtonWidthLayout = e => {
@@ -182,11 +196,30 @@ export default function TaskDetail({route, navigation}) {
       inputRange: [0, 1],
       outputRange: COLORS,
     });
+
     return {
       width: width,
       height: buttonHeight,
       backgroundColor: bgColor,
     };
+  };
+
+  const updateTaskStatus = () => {
+    let data = {};
+    data['task_status'] = 5;
+    data['task_id'] = taskDetail?.id;
+    console.log(data, 'updateTaskStatus>>>DATA');
+    // updateState({isLoading: true});
+    // actions
+    //   .updateTask(data, {client: clientInfo?.database_name})
+    //   .then(res => {
+    //     console.log(res, 'submitReason>res>res');
+    //     updateState({isLoading: false});
+    //     if (res?.data) {
+    //       navigation.navigate(navigation.DASHBOARD);
+    //     }
+    //   })
+    //   .catch(errorMethod);
   };
 
   const buttonView = () => {
@@ -200,9 +233,6 @@ export default function TaskDetail({route, navigation}) {
             <Text style={styles.text}>{'Hold to start'}</Text>
           </View>
         </TouchableWithoutFeedback>
-        <View>
-          <Text>{textComplete}</Text>
-        </View>
       </View>
     );
   };
@@ -372,18 +402,20 @@ export default function TaskDetail({route, navigation}) {
         // hideRight={true}
         // onPressLeft={()=>navigation.goBack()}
         centerTitle={strings.TASK}
-        customRight={() => (
-          <TouchableOpacity onPress={cancelTask}>
-            <Text
-              style={{
-                color: colors.textGrey,
-                fontFamily: fontFamily.regular,
-                fontSize: textScale(10),
-              }}>
-              {strings.CANCEL}
-            </Text>
-          </TouchableOpacity>
-        )}
+        customRight={() =>
+          !!(taskStatus != '1') && (
+            <TouchableOpacity onPress={cancelTask}>
+              <Text
+                style={{
+                  color: colors.textGrey,
+                  fontFamily: fontFamily.regular,
+                  fontSize: textScale(10),
+                }}>
+                {strings.CANCEL}
+              </Text>
+            </TouchableOpacity>
+          )
+        }
       />
       <View style={{...commonStyles.headerTopLine}} />
       {mapView()}

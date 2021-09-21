@@ -34,7 +34,7 @@ export default function Login({navigation, route}) {
     cca2: paramData?.get_country_set?.code
       ? paramData?.get_country_set?.code
       : 'IN',
-    phoneNumber: '9785771568',
+    phoneNumber: '8006066235',
   });
 
   const {themeColors} = useSelector(state => state?.initBoot);

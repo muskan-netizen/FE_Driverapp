@@ -31,16 +31,13 @@ export default StyleSheet.create({
     borderBottomColor: colors.iconGrey,
     borderBottomWidth: StyleSheet.hairlineWidth,
     paddingVertical: moderateScale(15),
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   inputBottomView: {
-    marginHorizontal: moderateScale(20),
-    backgroundColor: colors.backGround,
-    height: moderateScaleVertical(width / 3.5),
-    borderRadius: moderateScale(4),
-    marginVertical: moderateScale(10),
+   
   },
   textInputStyle: {
-    flex: 1,
     opacity: 0.7,
     color: colors.black,
     fontFamily: fontFamily.semiBold,
@@ -49,5 +46,10 @@ export default StyleSheet.create({
     paddingTop: 0,
     paddingBottom: 0,
     textAlign: I18nManager.isRTL ? 'right' : 'left',
+    marginHorizontal: moderateScale(20),
+    backgroundColor: colors.backGround,
+    height: moderateScaleVertical(width / 3.5),
+    borderRadius: moderateScale(4),
+    marginVertical: moderateScale(10),
   },
 });

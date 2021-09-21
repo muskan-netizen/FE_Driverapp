@@ -29,7 +29,6 @@ const App = () => {
         });
       }
 
-
       const getClientInfo = await getItem('clientInfo');
       dispatch({
         type: types.APP_INIT,
@@ -61,7 +60,10 @@ const App = () => {
         duration={2000}
         positionValue={moderateScaleVertical(20)}
       />
-      <FlashMessage position="top" />
+      <FlashMessage
+        position="top"
+       
+      />
       <NoInternetModal show={!internetConnection} />
     </SafeAreaProvider>
   );

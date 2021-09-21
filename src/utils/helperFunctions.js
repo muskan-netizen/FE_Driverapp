@@ -1,17 +1,22 @@
-import { callingCountries } from 'country-data';
-import { Alert, Animated, BackHandler } from 'react-native';
+import {callingCountries} from 'country-data';
+import {Alert, Animated, Image, BackHandler} from 'react-native';
+import {showMessage} from 'react-native-flash-message';
 import Geocoder from 'react-native-geocoder';
 import Geolocation from 'react-native-geolocation-service';
-import { Toast } from '../library/toastify-react-native';
+import imagePath from '../constants/imagePath';
+import {Toast} from '../library/toastify-react-native';
 import * as NavigationService from '../navigation/NavigationService';
 import navigationStrings from '../navigation/navigationStrings';
+import colors from '../styles/colors';
+import fontFamily from '../styles/fontFamily';
+import { textScale } from '../styles/responsiveSize';
 // import actions from '../redux/actions';
 import strings from './../constants/lang/index';
 
-const getCurrentLocation = (type) =>
+const getCurrentLocation = type =>
   new Promise((resolve, reject) => {
     Geolocation.getCurrentPosition(
-      (position) => {
+      position => {
         const cords = {
           latitude: position.coords.latitude,
           longitude: position.coords.longitude,
@@ -20,7 +25,7 @@ const getCurrentLocation = (type) =>
           position.coords.latitude,
           position.coords.longitude,
           type,
-        ).then((res) => {
+        ).then(res => {
           if (type == 'home') {
             const data = {
               ...cords,
@@ -32,7 +37,7 @@ const getCurrentLocation = (type) =>
           }
         });
       },
-      (error) => {
+      error => {
         reject(error.message);
       },
       {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
@@ -78,27 +83,40 @@ const getLocation = async (lat, lng, type) => {
   }
 };
 
-const showError = (message) => {
+const showError = message => {
   console.log(message, 'THIS IS MESSAGE');
 
-  // showMessage({
-  //   type: 'danger',
-  //   icon: 'danger',
-  //   message,
-  // });
-  Toast.error(message);
+  showMessage({
+    message: 'Error!!',
+    description: message,
+    type: 'default',
+    backgroundColor: colors.themeColor, // background color
+    textStyle: {
+      color: colors.white, // text color
+      fontFamily: fontFamily.medium,
+      fontSize:textScale(12)
+    },
+  });
+  // Toast.error(message);
 };
 
-const showSuccess = (message) => {
-  // showMessage({
-  //   type: 'success',
-  //   icon: 'success',
-  //   message,
-  // });
+const showSuccess = message => {
+  showMessage({
+    message: 'Success!!',
+    description: message,
+    type: 'default',
+    backgroundColor: colors.themeColor, // background color
 
-  Toast.success(message);
+    textStyle: {
+      color: colors.white, // text color
+      fontFamily: fontFamily.medium,
+      fontSize:textScale(12)
+    },
+  });
+
+  // Toast.success(message);
 };
-const showInfo = (message) => {
+const showInfo = message => {
   // showMessage({
   //   type: 'info',
   //   icon: 'info',
@@ -181,7 +199,7 @@ const renameKey = (object, key, newKey) => {
   return clonedObj;
 };
 //cloning object
-const clone = (obj) => Object.assign({}, obj);
+const clone = obj => Object.assign({}, obj);
 
 export function getAddressComponent(details, update) {
   console.log(details, 'details');
@@ -194,27 +212,27 @@ export function getAddressComponent(details, update) {
   let latitude = '';
   let longitude = '';
   let street = '';
-  pincode = details?.address_components?.find((addressComponent) =>
+  pincode = details?.address_components?.find(addressComponent =>
     addressComponent?.types.includes('postal_code'),
   )?.short_name;
 
-  city = details?.address_components?.find((addressComponent) =>
+  city = details?.address_components?.find(addressComponent =>
     addressComponent?.types.includes('locality'),
   )?.short_name;
 
-  states = details?.address_components?.find((addressComponent) =>
+  states = details?.address_components?.find(addressComponent =>
     addressComponent?.types.includes('administrative_area_level_1'),
   )?.short_name;
 
-  street = details?.address_components?.find((addressComponent) =>
+  street = details?.address_components?.find(addressComponent =>
     addressComponent?.types.includes('administrative_area_level_2'),
   )?.short_name;
 
-  country = details?.address_components?.find((addressComponent) =>
+  country = details?.address_components?.find(addressComponent =>
     addressComponent?.types?.includes('country'),
   )?.long_name;
 
-  let country_sort = details?.address_components?.find((addressComponent) =>
+  let country_sort = details?.address_components?.find(addressComponent =>
     addressComponent?.types?.includes('country'),
   )?.short_name;
   country_id = callingCountries[`${country_sort}`]?.countryCallingCodes[0];
@@ -253,7 +271,7 @@ export function getAddressComponent(details, update) {
   return data;
 }
 
-export const sessionHandler = (error) => {
+export const sessionHandler = error => {
   actions.userLogout();
   NavigationService.navigate(navigationStrings.OUTER_SCREEN, {}),
     Alert.alert(error, '', [

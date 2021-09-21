@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {FlatList} from 'react-native';
 import {cloneDeep, debounce} from 'lodash';
 import {Image, Switch, View, RefreshControl} from 'react-native';
@@ -258,11 +258,21 @@ export default function DashBoard({route, navigation}) {
       </>
     );
   };
+  const DEFAULT_PADDING = {top: 40, right: 40, bottom: 40, left: 40};
 
   const _onRegionChange = region => {
     updateState({region: region});
     // _getAddressBasedOnCoordinates(region);
     // animate(region);
+    console.log(markers, ' mapRef.current');
+    // setTimeout(() => {
+    //   if (!!mapRef.current) {
+    //     mapRef.current.fitToCoordinates(markers, {
+    //       edgePadding: DEFAULT_PADDING,
+    //       animated: true,
+    //     });
+    //   }
+    // }, 2500);
   };
 
   const offDutyView = () => {
@@ -279,10 +289,13 @@ export default function DashBoard({route, navigation}) {
     );
   };
 
+  const mapRef = useRef();
+
   const mapView = () => {
     if (markers.length)
       return (
         <MapView
+          ref={mapRef}
           //   provider={PROVIDER_GOOGLE} // remove if not using Google Maps
           style={styles.map}
           region={region}

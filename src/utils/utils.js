@@ -108,7 +108,7 @@ export async function apiReq(
         headers,
       };
     }
-    //
+    console.log(headers,"headers");
 
     axios[method](endPoint, data, {headers})
       .then(result => {

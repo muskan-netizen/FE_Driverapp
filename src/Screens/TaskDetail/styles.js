@@ -99,7 +99,7 @@ export default StyleSheet.create({
     flex: 1,
     // flexDirection: 'column',
     justifyContent: 'flex-end',
-    marginBottom: -15,
+    // marginBottom: -15,
   },
   button: {
     padding: 15,

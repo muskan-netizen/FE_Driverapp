@@ -34,7 +34,9 @@ import {
 } from '../../utils/helperFunctions';
 import styles from './styles';
 import Communications from 'react-native-communications';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import ButtonComponent from '../../Components/ButtonComponent';
+import actions from '../../redux/actions';
 
 var ACTION_TIMER = 1500;
 var COLORS = ['#8FEE90', '#27A468'];
@@ -91,10 +93,37 @@ export default function TaskCancel({route, navigation}) {
 
   //Error handling in api
   const errorMethod = error => {
+    console.log(error,"error");
     updateState({isLoading: false, isRefreshing: false, isLoading: false});
     showError(error?.message || error?.error);
   };
 
+  const onselectReason = item => {
+    updateState({selectedReason: item});
+  };
+
+  const submitReason = () => {
+    if (!selectedReason) {
+      showError(strings.SELECTREASON);
+    } else if (selectedReason && selectedReason?.id == 7 && inputReason == '') {
+      showError(strings.PLEASEINPUTSOMEREADY);
+    } else {
+      updateState({isLoading: true});
+      let data = {};
+      data['task_status'] = 5;
+      data['note'] = selectedReason?.reason;
+      actions
+        .cancelTask(data, {client: clientInfo?.database_name})
+        .then(res => {
+          console.log(res, 'submitReason>res>res');
+          updateState({isLoading: false});
+          if (res?.data) {
+            navigation.navigate(navigation.DASHBOARD);
+          }
+        })
+        .catch(errorMethod);
+    }
+  };
   return (
     <WrapperContainer
       statusBarColor={colors.white}
@@ -120,15 +149,27 @@ export default function TaskCancel({route, navigation}) {
       <KeyboardAwareScrollView showsVerticalScrollIndicator={false}>
         {cancelReasons.map((i, inx) => {
           return (
-            <View style={styles.rowViewTaskCancel}>
+            <TouchableOpacity
+              activeOpacity={1}
+              onPress={() => onselectReason(i)}
+              style={styles.rowViewTaskCancel}>
               <Text style={styles.reason}>{i.reason}</Text>
-            </View>
+              {selectedReason && selectedReason?.id == i?.id && (
+                <Image source={imagePath?.task_green_tik} />
+              )}
+            </TouchableOpacity>
           );
         })}
-        <View style={styles.inputBottomView}>
-          <TextInput value={inputReason} style={styles.textInputStyle}/>
-        </View>
+        <TextInput
+          multiline={true}
+          value={inputReason}
+          textAlignVertical={'top'}
+          style={styles.textInputStyle}
+          onChangeText={text => updateState({inputReason: text})}
+        />
       </KeyboardAwareScrollView>
+
+      <ButtonComponent buttonTitle={strings.DONE} onPress={submitReason} />
     </WrapperContainer>
   );
 }
