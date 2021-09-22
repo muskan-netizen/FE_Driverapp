@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import {
   Image,
   ScrollView,
@@ -8,6 +8,8 @@ import {
   TouchableOpacity,
   View,
   Alert,
+  Linking,
+  Platform,
 } from 'react-native';
 import MapView from 'react-native-maps';
 import {useSelector} from 'react-redux';
@@ -29,6 +31,9 @@ import styles from './styles';
 import Communications from 'react-native-communications';
 import navigationStrings from '../../navigation/navigationStrings';
 import actions from '../../redux/actions';
+import ActionSheet from 'react-native-actionsheet';
+// import {createOpenLink} from '../../utils/CreateMapLinks';
+import {createOpenLink} from 'react-native-open-maps';
 
 var ACTION_TIMER = 1500;
 var COLORS = ['#8FEE90', '#27A468'];
@@ -55,8 +60,9 @@ export default function TaskDetail({route, navigation}) {
     pressAction: new Animated.Value(0),
     buttonWidth: 0,
     buttonHeight: 0,
-    taskStatus: taskDetail?.task_status ? taskDetail?.task_status : '',
+    taskStatus: taskDetail?.task_status ? Number(taskDetail?.task_status) : '',
     buttonPressComplete: 0,
+    buttonText: '',
   });
 
   const {
@@ -69,11 +75,15 @@ export default function TaskDetail({route, navigation}) {
     buttonWidth,
     buttonHeight,
     buttonPressComplete,
+    buttonText,
   } = state;
   const commonStyles = commonStylesFunc({fontFamily});
   const updateState = data => setState(state => ({...state, ...data}));
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
 
+  useEffect(() => {
+    getStatusName(taskStatus);
+  }, [taskStatus]);
   //Naviagtion to specific screen
   const moveToNewScreen = (screenName, data) => () => {
     navigation.navigate(screenName, {data});
@@ -132,6 +142,12 @@ export default function TaskDetail({route, navigation}) {
       buttonHeight: e.nativeEvent.layout.height,
     });
   };
+
+  useEffect(() => {
+    if (buttonPressComplete) {
+      updateTaskStatus();
+    }
+  }, [buttonPressComplete]);
 
   const mapView = () => {
     return (
@@ -204,22 +220,76 @@ export default function TaskDetail({route, navigation}) {
     };
   };
 
+  const getUpdatedStatus = () => {
+    switch (taskStatus) {
+      case 1:
+        return 2;
+        break;
+      case 2:
+        return 3;
+        break;
+      case 3:
+        return 4;
+        break;
+      default:
+        break;
+    }
+  };
+
   const updateTaskStatus = () => {
     let data = {};
-    data['task_status'] = 5;
+    data['task_status'] = getUpdatedStatus();
     data['task_id'] = taskDetail?.id;
     console.log(data, 'updateTaskStatus>>>DATA');
-    // updateState({isLoading: true});
-    // actions
-    //   .updateTask(data, {client: clientInfo?.database_name})
-    //   .then(res => {
-    //     console.log(res, 'submitReason>res>res');
-    //     updateState({isLoading: false});
-    //     if (res?.data) {
-    //       navigation.navigate(navigation.DASHBOARD);
-    //     }
-    //   })
-    //   .catch(errorMethod);
+
+    updateState({isLoading: true});
+    actions
+      .updateTask(data, {client: clientInfo?.database_name})
+      .then(res => {
+        console.log(res, 'updateTaskStatus>res>res');
+        updateState({isLoading: false});
+        if (res?.data) {
+          updateState({
+            buttonPressComplete: 0,
+            taskStatus: Number(res?.data?.task_status),
+          });
+          // getStatusName(taskStatus)
+          setTimeout(async () => {
+            updateState({
+              isLoading: false,
+            });
+          }, 2000);
+        }
+      })
+      .catch(errorMethod);
+  };
+
+  useEffect(() => {
+    handlePressOut();
+  }, [buttonPressComplete]);
+
+  const openMaps = () => {
+    showActionSheet();
+  };
+
+  const getStatusName = taskStatus => {
+    console.log(taskStatus, 'getStatusName');
+    switch (taskStatus) {
+      case 1:
+        updateState({buttonText: 'Hold to start'});
+        break;
+      case 2:
+        updateState({buttonText: 'Hold to arrive'});
+        break;
+      case 3:
+        updateState({buttonText: 'Hold to complete'});
+        break;
+      case 4:
+        updateState({buttonText: 'Hold to complete'});
+        break;
+      default:
+        break;
+    }
   };
 
   const buttonView = () => {
@@ -230,7 +300,7 @@ export default function TaskDetail({route, navigation}) {
           onPressOut={handlePressOut}>
           <View style={styles.button} onLayout={getButtonWidthLayout}>
             <Animated.View style={[styles.bgFill, getProgressStyles()]} />
-            <Text style={styles.text}>{'Hold to start'}</Text>
+            <Text style={styles.text}>{buttonText}</Text>
           </View>
         </TouchableWithoutFeedback>
       </View>
@@ -272,13 +342,14 @@ export default function TaskDetail({route, navigation}) {
                 </Text>
               </View>
 
-              <View
+              <TouchableOpacity
+                onPress={Platform?.OS == 'android' ? openGoogleMap : openMaps}
                 style={{
                   flex: 0.2,
                   alignItems: 'center',
                 }}>
                 <Image source={imagePath?.path} />
-              </View>
+              </TouchableOpacity>
             </View>
 
             <Text style={styles.shortName}>
@@ -390,6 +461,40 @@ export default function TaskDetail({route, navigation}) {
     ]);
   };
 
+  //this function use for open actionsheet
+  let actionSheet = useRef();
+  const showActionSheet = () => {
+    actionSheet.current.show();
+  };
+
+  /*****Apple cordinate and call apple map */
+  const appleCoordinate = {
+    latitude: Number(taskDetail?.location?.latitude),
+    longitude: Number(taskDetail?.location?.longitude),
+  };
+  const openAppleMap = createOpenLink(appleCoordinate);
+  /**** */
+
+  /*****Google cordinate and call apple map */
+  const googleCoordinate = {
+    latitude: Number(taskDetail?.location?.latitude),
+    longitude: Number(taskDetail?.location?.longitude),
+    provider: 'google',
+    zoom: 10,
+  };
+  const openGoogleMap = createOpenLink(googleCoordinate);
+  /**** */
+
+  // this funtion use for camera handle
+  const onPressMapChoice = index => {
+    if (index == 0) {
+      openAppleMap();
+    }
+    if (index == 1) {
+      openGoogleMap();
+    }
+  };
+
   return (
     <WrapperContainer
       statusBarColor={colors.white}
@@ -423,6 +528,18 @@ export default function TaskDetail({route, navigation}) {
         {taskDetailView()}
         {buttonView()}
       </View>
+      <ActionSheet
+        ref={actionSheet}
+        // title={'Choose one option'}
+        options={[
+          strings.OPENINAPPLEMAPS,
+          strings.OPENINGOOGLEMAPS,
+          strings.CANCEL,
+        ]}
+        cancelButtonIndex={2}
+        destructiveButtonIndex={2}
+        onPress={index => onPressMapChoice(index)}
+      />
     </WrapperContainer>
   );
 }
