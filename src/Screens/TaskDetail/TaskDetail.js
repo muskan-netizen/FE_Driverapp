@@ -456,7 +456,8 @@ export default function TaskDetail({route, navigation}) {
       },
       {
         text: 'OK',
-        onPress: () => moveToNewScreen(navigationStrings.TASKCANCEL)(),
+        onPress: () =>
+          moveToNewScreen(navigationStrings.TASKCANCEL, taskDetail)(),
       },
     ]);
   };

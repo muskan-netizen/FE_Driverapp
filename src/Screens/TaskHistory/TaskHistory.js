@@ -23,7 +23,7 @@ import styles from './styles';
 import DatePicker from 'react-native-date-picker';
 import DatePickerModal from '../../Components/DatePickerModal';
 import {TouchableOpacity} from 'react-native';
-
+import moment from 'moment';
 export default function TaskHistory({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
   console.log(userData, 'userData');
@@ -31,10 +31,11 @@ export default function TaskHistory({route, navigation}) {
     isLoading: true,
     totalCashCollected: 0,
     allTaskInHistory: [],
-    selectedDate: null,
     isRefreshing: false,
     pageNo: 1,
     isModalVisibleForDateTime: false,
+    selectedDate: null,
+    savedDate: null,
   });
 
   const {
@@ -42,6 +43,7 @@ export default function TaskHistory({route, navigation}) {
     totalCashCollected,
     allTaskInHistory,
     selectedDate,
+    savedDate,
     isRefreshing,
     pageNo,
     isModalVisibleForDateTime,
@@ -62,8 +64,17 @@ export default function TaskHistory({route, navigation}) {
   }, [isLoading, isRefreshing]);
 
   const getAllTaskHistory = () => {
+    let url = '';
+    if (selectedDate) {
+      url = `?from_date=${moment(selectedDate).format(
+        'YYYY-MM-DD',
+      )}&to_date=${moment(selectedDate).format('YYYY-MM-DD')}`;
+    } else {
+      url = `?from_date=&to_date=`;
+    }
+    console.log(url, 'url');
     actions
-      .getListOfTaskHistory({}, {client: clientInfo?.database_name})
+      .getListOfTaskHistory(url, {}, {client: clientInfo?.database_name})
       .then(res => {
         console.log(res, 'getAllTaskHistory>>>getAllTaskHistory data');
         updateState({
@@ -112,6 +123,29 @@ export default function TaskHistory({route, navigation}) {
     updateState({pageNo: 1, isRefreshing: true});
   };
 
+  const onDateChange = value => {
+    console.log(value, 'value>value>value');
+    updateState({
+      savedDate: value,
+    });
+  };
+
+  const onSelectDate = () => {
+    updateState({isModalVisibleForDateTime: false});
+    if (savedDate) {
+      updateState({
+        selectedDate: savedDate,
+        isLoading: true,
+      });
+    }else{
+      updateState({
+        selectedDate: new Date(),
+        savedDate:new Date(),
+        isLoading: true,
+      });
+    }
+  };
+
   return (
     <WrapperContainer
       statusBarColor={colors.white}
@@ -140,18 +174,29 @@ export default function TaskHistory({route, navigation}) {
           } :- ${totalCashCollected.toFixed(2)}`}</Text>
         </View>
         <View style={{flex: 0.5, flexDirection: 'row'}}>
-          <View style={styles.viewStyle}>
+          <TouchableOpacity
+            onPress={() =>
+              updateState({
+                selectedDate: null,
+                savedDate:null,
+                isLoading: true,
+              })
+            }
+            style={styles.viewStyle}>
             <Text style={styles.clear}>{strings.CLEAR}</Text>
-          </View>
-          <View
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => updateState({isModalVisibleForDateTime: true})}
             style={{
               justifyContent: 'center',
               marginHorizontal: moderateScale(10),
             }}>
             <Text style={styles.selectedDate}>
-              {selectedDate ? selectedDate : strings.SELECTADATE}
+              {selectedDate
+                ? moment(selectedDate).format('DD-MM-YYYY')
+                : strings.SELECTADATE}
             </Text>
-          </View>
+          </TouchableOpacity>
           <TouchableOpacity
             onPress={() => updateState({isModalVisibleForDateTime: true})}
             style={{justifyContent: 'center'}}>
@@ -190,7 +235,10 @@ export default function TaskHistory({route, navigation}) {
       </View>
       <DatePickerModal
         isVisible={isModalVisibleForDateTime}
-        onclose={() => updateState({isModalVisibleForDateTime: false})}
+        date={savedDate}
+        onclose={()=>updateState({isModalVisibleForDateTime:false})}
+        onSelectDate={() => onSelectDate()}
+        onDateChange={value => onDateChange(value)}
       />
     </WrapperContainer>
   );

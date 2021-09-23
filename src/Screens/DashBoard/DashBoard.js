@@ -23,6 +23,7 @@ import styles from './styles';
 import DeviceInfo from 'react-native-device-info';
 import navigationStrings from '../../navigation/navigationStrings';
 import {TouchableOpacity} from 'react-native';
+import {useFocusEffect} from '@react-navigation/native';
 
 export default function DashBoard({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
@@ -41,19 +42,20 @@ export default function DashBoard({route, navigation}) {
     isRefreshing: false,
     pageNo: 1,
     region: {
-      latitude: 30.7191,
-      longitude: 76.8107,
+      latitude: 20.5937,
+      longitude: 78.9629,
       latitudeDelta: 0.015,
       longitudeDelta: 0.0121,
     },
     coordinate: {
-      latitude: 30.7191,
-      longitude: 76.8107,
+      latitude: 20.5937,
+      longitude: 78.9629,
       latitudeDelta: 0.015,
       longitudeDelta: 0.0121,
     },
     enableMap: false,
     markers: [],
+    isLoadingSwitch: false,
   });
   const {
     region,
@@ -69,11 +71,18 @@ export default function DashBoard({route, navigation}) {
     pageNo,
     enableMap,
     markers,
+    isLoadingSwitch,
   } = state;
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
-  useEffect(() => {
-    getTasks();
-  }, [initial]);
+  // useEffect(() => {
+  //   getTasks();
+  // }, [initial]);
+
+  useFocusEffect(
+    React.useCallback(() => {
+      getTasks();
+    }, [initial]),
+  );
 
   useEffect(() => {
     {
@@ -113,7 +122,12 @@ export default function DashBoard({route, navigation}) {
   //Error handling in api
   const errorMethod = error => {
     console.log(error, 'error');
-    updateState({isLoading: false, isRefreshing: false, isLoading: false});
+    updateState({
+      isLoading: false,
+      isRefreshing: false,
+      isLoading: false,
+      isLoadingSwitch: false,
+    });
     showError(error?.message || error?.error);
   };
 
@@ -128,7 +142,7 @@ export default function DashBoard({route, navigation}) {
 
   const onOffDuty = () => {
     // alert('213');
-    updateState({isLoading: true});
+    updateState({isLoadingSwitch: true});
     actions
       .onOffDuty(
         `?device_token=${DeviceInfo.getUniqueId()}`,
@@ -137,9 +151,9 @@ export default function DashBoard({route, navigation}) {
       )
       .then(res => {
         console.log(res, 'onOffDuty>res>res');
-        updateState({isLoading: false});
+        updateState({isLoadingSwitch: false});
         if (res?.data) {
-          updateState({initial: res?.data?.is_available});
+          // updateState({isEnabled: res?.data?.is_available});
           let updatedUserData = {...userData};
           updatedUserData['is_available'] = res?.data?.is_available;
           actions.updataeUserData(updatedUserData);
@@ -191,9 +205,10 @@ export default function DashBoard({route, navigation}) {
   });
 
   const _onPressTask = item => {
-    console.log('Here it is');
+    console.log('Here it is', item);
     moveToNewScreen(navigationStrings.TASKDETAIL, item)();
   };
+
   const renderTaskList = ({item, index}) => {
     return (
       <TaskListCard
@@ -263,17 +278,33 @@ export default function DashBoard({route, navigation}) {
   const _onRegionChange = region => {
     updateState({region: region});
     // _getAddressBasedOnCoordinates(region);
-    // animate(region);
+
     console.log(markers, ' mapRef.current');
-    // setTimeout(() => {
-    //   if (!!mapRef.current) {
-    //     mapRef.current.fitToCoordinates(markers, {
-    //       edgePadding: DEFAULT_PADDING,
-    //       animated: true,
-    //     });
-    //   }
-    // }, 2500);
   };
+
+  const animate = region => {
+    mapRef.current.animateToRegion({
+      region: region,
+      duration: 500,
+    });
+  };
+
+  useEffect(() => {
+    if (markers && markers.length && enableMap) {
+      let newArray = markers.map((i, inx) => {
+        return {
+          latitude: Number(i?.location?.latitude),
+          longitude: Number(i?.location?.longitude),
+        };
+      });
+      console.log(newArray, 'newArray');
+      animate(region);
+      setTimeout(() => {
+        // animate(region);
+        fitPadding(newArray);
+      }, 500);
+    }
+  }, [markers, enableMap]);
 
   const offDutyView = () => {
     return (
@@ -290,6 +321,13 @@ export default function DashBoard({route, navigation}) {
   };
 
   const mapRef = useRef();
+
+  const fitPadding = newArray => {
+    mapRef.current.fitToCoordinates(newArray, {
+      edgePadding: {top: 100, right: 100, bottom: 100, left: 100},
+      animated: true,
+    });
+  };
 
   const mapView = () => {
     if (markers.length)
@@ -308,6 +346,9 @@ export default function DashBoard({route, navigation}) {
               zIndex={index}
               key={`coordinate_${index}`}
               image={imagePath.pinRed}
+              onPress={() => {
+                _onPressTask(coordinate);
+              }}
               coordinate={{
                 latitude: Number(coordinate?.location?.latitude),
                 longitude: Number(coordinate?.location?.longitude),
@@ -329,7 +370,7 @@ export default function DashBoard({route, navigation}) {
     <WrapperContainer
       statusBarColor={colors.white}
       bgColor={colors.backGround}
-      isLoading={isLoading}
+      isLoading={isLoading || isLoadingSwitch}
       source={loaderOne}>
       <Header
         headerStyle={{backgroundColor: colors.white}}
@@ -353,11 +394,15 @@ export default function DashBoard({route, navigation}) {
           borderBottomWidth: moderateScaleVertical(1),
           borderBottomColor: colors.lightGreyBg,
         }}>
-        <SwitchSelectorComponent
-          options={options}
-          initial={initial}
-          onPress={value => updateContent(value)}
-        />
+        {isEnabled ? (
+          <SwitchSelectorComponent
+            options={options}
+            initial={initial}
+            onPress={value => updateContent(value)}
+          />
+        ) : (
+          <View style={{height: 35}} />
+        )}
       </View>
       {isEnabled ? (enableMap ? mapView() : homeMainView()) : offDutyView()}
     </WrapperContainer>

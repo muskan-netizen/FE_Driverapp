@@ -4,7 +4,7 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 platform :ios, '11.0'
 
 
-#Toda Target
+#RoyoDriverApp Target
 target 'RoyoDriverApp' do
   permissions_path = '../node_modules/react-native-permissions/ios'
   config = use_native_modules!
@@ -17,3 +17,16 @@ target 'RoyoDriverApp' do
   
 end
 
+
+#RoyoDriverApp Target
+target 'Runrun' do
+  permissions_path = '../node_modules/react-native-permissions/ios'
+  config = use_native_modules!
+  use_react_native!(
+    :path => config[:reactNativePath],
+    :hermes_enabled => false
+  )
+  pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
+  pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
+  
+end

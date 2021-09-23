@@ -27,6 +27,7 @@ const DatePickerModal = ({
   mode = 'datetime',
   onDateChange = () => {},
   onclose,
+  onSelectDate,
   closeIcon,
   closeText = 'Done',
   showHeader = false,
@@ -43,7 +44,7 @@ const DatePickerModal = ({
       onBackButtonPress={onclose}
       style={[styles.modalContainer, modalContainer]}>
       <View style={styles.modalMainViewContainer}>
-        <TouchableOpacity style={styles.closeButton} onPress={onclose}>
+        <TouchableOpacity style={styles.closeButton} onPress={onSelectDate}>
           {closeIcon ? (
             <Image source={imagePath.crossB} />
           ) : (
@@ -67,10 +68,10 @@ const DatePickerModal = ({
 
           <View style={{alignItems: 'center', height: height / 3}}>
             <DatePicker
-              date={date}
+              date={date?date:new Date()}
               mode={mode}
-              minimumDate={new Date()}
-              maximumDate={undefined}
+              // minimumDate={undefined}
+              maximumDate={new Date()}
               style={{width: width - 20, height: height / 4}}
               onDateChange={value => onDateChange(value)}
             />

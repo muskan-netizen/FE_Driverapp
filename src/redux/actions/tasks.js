@@ -2,7 +2,7 @@ import {
   GETTASKHISTORY,
   GETTASKS,
   UPDATEONOFFDUTYSTATUS,
-  UPDATETASKSTATUS
+  UPDATETASKSTATUS,
 } from '../../config/urls';
 import {apiGet, apiPost} from '../../utils/utils';
 import store from '../store';
@@ -22,9 +22,9 @@ export function getListOfTasks(url = '', data = {}, headers = {}) {
 }
 
 //Get List of payment method
-export function getListOfTaskHistory(data = {}, headers = {}) {
+export function getListOfTaskHistory(uri = '', data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
-    apiGet(GETTASKHISTORY, data, headers)
+    apiGet(GETTASKHISTORY + uri, data, headers)
       .then(res => {
         resolve(res);
       })
@@ -50,9 +50,9 @@ export function onOffDuty(uri = '', data = {}, headers = {}) {
 
 //cancel task
 
-export function cancelTask( data = {}, headers = {}) {
+export function cancelTask(data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
-    apiPost(UPDATETASKSTATUS , data, headers)
+    apiPost(UPDATETASKSTATUS, data, headers)
       .then(res => {
         resolve(res);
       })
@@ -62,10 +62,9 @@ export function cancelTask( data = {}, headers = {}) {
   });
 }
 
-
-export function updateTask( data = {}, headers = {}) {
+export function updateTask(data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
-    apiPost(UPDATETASKSTATUS , data, headers)
+    apiPost(UPDATETASKSTATUS, data, headers)
       .then(res => {
         resolve(res);
       })

@@ -37,6 +37,7 @@ import Communications from 'react-native-communications';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import ButtonComponent from '../../Components/ButtonComponent';
 import actions from '../../redux/actions';
+import navigationStrings from '../../navigation/navigationStrings';
 
 var ACTION_TIMER = 1500;
 var COLORS = ['#8FEE90', '#27A468'];
@@ -44,7 +45,7 @@ var _value = 0;
 export default function TaskCancel({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
   let taskDetail = route?.params?.data;
-  console.log(taskDetail, 'taskDetail');
+  console.log(taskDetail, 'taskDetail>>>');
   const [state, setState] = useState({
     isLoading: false,
     cancelReasons: [
@@ -93,7 +94,7 @@ export default function TaskCancel({route, navigation}) {
 
   //Error handling in api
   const errorMethod = error => {
-    console.log(error,"error");
+    console.log(error, 'error');
     updateState({isLoading: false, isRefreshing: false, isLoading: false});
     showError(error?.message || error?.error);
   };
@@ -112,13 +113,15 @@ export default function TaskCancel({route, navigation}) {
       let data = {};
       data['task_status'] = 5;
       data['note'] = selectedReason?.reason;
+      data['task_id']=taskDetail?.id
+      console.log(data, 'updateTaskStatus>>>DATA');
       actions
-        .cancelTask(data, {client: clientInfo?.database_name})
+        .updateTask(data, {client: clientInfo?.database_name})
         .then(res => {
           console.log(res, 'submitReason>res>res');
           updateState({isLoading: false});
           if (res?.data) {
-            navigation.navigate(navigation.DASHBOARD);
+            navigation.navigate(navigationStrings.DASHBOARD);
           }
         })
         .catch(errorMethod);

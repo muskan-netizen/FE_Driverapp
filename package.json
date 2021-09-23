@@ -3,8 +3,10 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "royodispatcher": "react-native run-android --variant=royodispatcherDebug --appIdSuffix=royodispatcher",
-    "royodispatcherRelease": "cd android && ./gradlew assembleRoyodispatcherRelease",
+    "royodispatcher": "react-native run-android --variant=royodispatcherDebug",
+    "royodispatcherRelease": "cd android && ./gradlew assembleroyodispatcherRelease",
+    "runrundispatcher": "react-native run-android --variant=runrunDebug",
+    "runrundispatcherRelease": "cd android && ./gradlew assemblerunrunRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
