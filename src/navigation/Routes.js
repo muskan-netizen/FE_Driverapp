@@ -46,7 +46,7 @@ export default function Routes() {
         // theme={scheme == 'dark' ? DarkTheme : DefaultTheme}
         ref={navigationRef}>
         <Stack.Navigator>
-          {/* {shortCode(Stack)} */}
+          {shortCode(Stack)}
           {userData && userData?.access_token ? (
             <Stack.Screen
               name={navigationStrings.DRAWER_ROUTES}

@@ -16,10 +16,8 @@
 		8463FB4926FCA52F0058D010 /* RoyoDriverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E4480626E87ED800452095 /* RoyoDriverApp.swift */; };
 		8463FB4A26FCA52F0058D010 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		8463FB4E26FCA52F0058D010 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		8463FB5026FCA52F0058D010 /* RoyoDispatcher(Prod).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 84E4481826E8C73F00452095 /* RoyoDispatcher(Prod).xcconfig */; };
 		8463FB5126FCA52F0058D010 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		8463FB5226FCA52F0058D010 /* campton-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC426E9E6D20066EEEE /* campton-light.ttf */; };
-		8463FB5326FCA52F0058D010 /* RoyoDispatcher(Dev).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 84E4481426E8C71700452095 /* RoyoDispatcher(Dev).xcconfig */; };
 		8463FB5426FCA52F0058D010 /* campton-medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC626E9E6D20066EEEE /* campton-medium.ttf */; };
 		8463FB5526FCA52F0058D010 /* campton-book.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC526E9E6D20066EEEE /* campton-book.ttf */; };
 		8463FB5626FCA52F0058D010 /* campton-semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC326E9E6D20066EEEE /* campton-semibold.ttf */; };
@@ -37,7 +35,7 @@
 		84E4481526E8C71700452095 /* RoyoDispatcher(Dev).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 84E4481426E8C71700452095 /* RoyoDispatcher(Dev).xcconfig */; };
 		84E4481926E8C73F00452095 /* RoyoDispatcher(Prod).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 84E4481826E8C73F00452095 /* RoyoDispatcher(Prod).xcconfig */; };
 		84E4493A26E8DAA300452095 /* Plists in Resources */ = {isa = PBXBuildFile; fileRef = 84E4493926E8DAA300452095 /* Plists */; };
-		E683A78727C05F4E145E3A6D /* libPods-RoyoDriverApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 997B5E70DEACB2536E093E34 /* libPods-RoyoDriverApp.a */; };
+		E683A78727C05F4E145E3A6D /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,7 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E683A78727C05F4E145E3A6D /* libPods-RoyoDriverApp.a in Frameworks */,
+				E683A78727C05F4E145E3A6D /* (null) in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,10 +298,8 @@
 				8463FB7026FCA84F0058D010 /* Runrun(Prod).xcconfig in Resources */,
 				8463FB4E26FCA52F0058D010 /* LaunchScreen.storyboard in Resources */,
 				8463FB6A26FCA78B0058D010 /* Runrun(Dev).xcconfig in Resources */,
-				8463FB5026FCA52F0058D010 /* RoyoDispatcher(Prod).xcconfig in Resources */,
 				8463FB5126FCA52F0058D010 /* Images.xcassets in Resources */,
 				8463FB5226FCA52F0058D010 /* campton-light.ttf in Resources */,
-				8463FB5326FCA52F0058D010 /* RoyoDispatcher(Dev).xcconfig in Resources */,
 				8463FB5426FCA52F0058D010 /* campton-medium.ttf in Resources */,
 				8463FB5526FCA52F0058D010 /* campton-book.ttf in Resources */,
 				8463FB6626FCA6BA0058D010 /* Images.xcassets in Resources */,

@@ -1,5 +1,11 @@
 import React from 'react';
-import {DashBoard, TaskCancel, TaskDetail, TaskHistory} from '../Screens';
+import {
+  DashBoard,
+  TaskCancel,
+  TaskCompleteDocument,
+  TaskDetail,
+  TaskHistory,
+} from '../Screens';
 import navigationStrings from './navigationStrings';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
@@ -27,6 +33,12 @@ export default function () {
       <Stack.Screen
         name={navigationStrings.TASKCANCEL}
         component={TaskCancel}
+        options={{headerShown: false}}
+      />
+
+      <Stack.Screen
+        name={navigationStrings.TASKCOMPLETEDOCUMENT}
+        component={TaskCompleteDocument}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

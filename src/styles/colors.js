@@ -94,5 +94,6 @@ export default {
   circularOrnage:'#FDA223',
   circularRed:'#FF5353',
   backGround:'#F2F2F7',
-  lightGreyBg2:'rgba(0,0,0,0.44)'
+  lightGreyBg2:'rgba(0,0,0,0.44)',
+  lightGreyBg2:'#797979'
 };

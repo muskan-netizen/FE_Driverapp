@@ -13,7 +13,7 @@ import actions from '../../redux/actions';
 import colors from '../../styles/colors';
 import commonStylesFunc from '../../styles/commonStyles';
 import fontFamily from '../../styles/fontFamily';
-import {moderateScaleVertical} from '../../styles/responsiveSize';
+import {moderateScaleVertical, width} from '../../styles/responsiveSize';
 import TaskListCard from '../../Components/TaskListCard';
 import {showError} from '../../utils/helperFunctions';
 import ListEmptyComponent from '../../Components/ListEmptyComponent';
@@ -115,6 +115,7 @@ export default function DashBoard({route, navigation}) {
             isLoading: false,
           });
         }
+
         console.log(res, 'res>res');
       })
       .catch(errorMethod);
@@ -289,7 +290,7 @@ export default function DashBoard({route, navigation}) {
     });
   };
 
-  useEffect(() => {
+  const fitToMap = () => {
     if (markers && markers.length && enableMap) {
       let newArray = markers.map((i, inx) => {
         return {
@@ -298,12 +299,16 @@ export default function DashBoard({route, navigation}) {
         };
       });
       console.log(newArray, 'newArray');
-      animate(region);
+      // animate(region);
       setTimeout(() => {
         // animate(region);
         fitPadding(newArray);
       }, 500);
     }
+  };
+
+  useEffect(() => {
+    fitToMap();
   }, [markers, enableMap]);
 
   const offDutyView = () => {
@@ -324,7 +329,7 @@ export default function DashBoard({route, navigation}) {
 
   const fitPadding = newArray => {
     mapRef.current.fitToCoordinates(newArray, {
-      edgePadding: {top: 100, right: 100, bottom: 100, left: 100},
+      edgePadding: {top: 40, right: 40, bottom: 40, left: 40},
       animated: true,
     });
   };
@@ -337,7 +342,10 @@ export default function DashBoard({route, navigation}) {
           //   provider={PROVIDER_GOOGLE} // remove if not using Google Maps
           style={styles.map}
           region={region}
-          initialRegion={region}
+          // initialRegion={region}
+          showsUserLocation={true}
+          showsMyLocationButton={true}
+          // onLayout={() => fitToMap()}
           //   customMapStyle={mapStyle}
           onRegionChangeComplete={_onRegionChange}>
           {markers.map((coordinate, index) => (

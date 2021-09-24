@@ -13,5 +13,6 @@ export default {
   PROFILESTACK: 'ProfileStack',
   DRAWER_ROUTES: 'DrawerRoutes',
   TASKDETAIL:"TaskDetail",
-  TASKCANCEL:"TaskCancel"
+  TASKCANCEL:"TaskCancel",
+  TASKCOMPLETEDOCUMENT:'TaskCompleteDocument'
 };

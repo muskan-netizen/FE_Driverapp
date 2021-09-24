@@ -52,5 +52,8 @@ export default {
   PLEASEINPUTSOMEREADY: 'Please enter the input reason',
   SELECTREASON: 'Please select any reason',
   OPENINAPPLEMAPS:'Open in Apple Maps',
-  OPENINGOOGLEMAPS:'Open in Google Maps'
+  OPENINGOOGLEMAPS:'Open in Google Maps',
+  UPLOADDOUCMENT:'Upload Document',
+  ATTACHMENTS:'Attachments',
+  REQUIREDDATA:'* Required Data'
 };

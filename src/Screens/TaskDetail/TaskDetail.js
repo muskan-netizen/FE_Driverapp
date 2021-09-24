@@ -63,9 +63,42 @@ export default function TaskDetail({route, navigation}) {
     taskStatus: taskDetail?.task_status ? Number(taskDetail?.task_status) : '',
     buttonPressComplete: 0,
     buttonText: '',
+    taskProofArray: [
+      {
+        id: 1,
+        title: 'Signature *',
+        imagePath: imagePath.signature,
+        imagePathActive: imagePath.signatureBlue,
+        type: 'signature',
+      },
+      {
+        id: 2,
+        title: 'Photo *',
+        imagePath: imagePath.photoInactive,
+        imagePathActive: imagePath.photoBlue,
+        type: 'photo',
+      },
+      {
+        id: 3,
+        title: 'Notes *',
+        imagePath: imagePath.notes,
+        imagePathActive: imagePath.notesBlue,
+        type: 'notes',
+      },
+      {
+        id: 4,
+        title: 'QR/Bar Code *',
+        imagePath: imagePath.codeInactive,
+        imagePathActive: imagePath.codeActive,
+        type: 'QR',
+      },
+    ],
+    updatedProofArray: [],
   });
 
   const {
+    updatedProofArray,
+    taskProofArray,
     taskStatus,
     isLoading,
     region,
@@ -80,6 +113,32 @@ export default function TaskDetail({route, navigation}) {
   const commonStyles = commonStylesFunc({fontFamily});
   const updateState = data => setState(state => ({...state, ...data}));
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
+
+  useEffect(() => {
+    const findDataToCheck = userData?.task_proof.find(
+      x => (x.id == taskDetail?.task_type_id) == 1,
+    );
+    console.log(findDataToCheck, 'findDataToCheck');
+    if (findDataToCheck) {
+      updateState({
+        updatedProofArray: taskProofArray
+          .map(i => {
+            if (
+              (i?.type == 'signature' && findDataToCheck?.signature) ||
+              (i?.type == 'photo' && findDataToCheck?.image) ||
+              (i?.type == 'notes' && findDataToCheck?.note) ||
+              (i?.type == 'QR' && findDataToCheck?.barcode)
+            ) {
+              return i;
+            }
+          })
+          .filter(x => x != null || x != undefined),
+      });
+      // updateState({
+
+      // })
+    }
+  }, [taskDetail]);
 
   useEffect(() => {
     getStatusName(taskStatus);
@@ -292,11 +351,16 @@ export default function TaskDetail({route, navigation}) {
     }
   };
 
+  const redirectToDoneScreen = () => {
+    console.log(taskDetail, 'TaskDetail');
+    moveToNewScreen(navigationStrings.TASKCOMPLETEDOCUMENT, taskDetail)();
+    // alert('213');
+  };
   const buttonView = () => {
     return (
       <View style={styles.container}>
         <TouchableWithoutFeedback
-          onPressIn={handlePressIn}
+          onPressIn={taskStatus == 3 ? redirectToDoneScreen : handlePressIn}
           onPressOut={handlePressOut}>
           <View style={styles.button} onLayout={getButtonWidthLayout}>
             <Animated.View style={[styles.bgFill, getProgressStyles()]} />
