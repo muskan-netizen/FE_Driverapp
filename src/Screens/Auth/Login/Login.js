@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Platform, View, Image, Text} from 'react-native';
 import DeviceInfo, { getBundleId } from 'react-native-device-info';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
@@ -41,6 +41,8 @@ export default function Login({navigation, route}) {
     phoneNumber: '8006066235',
   });
 
+  
+
   const {themeColors} = useSelector(state => state?.initBoot);
   //   const fontFamily = appStyle?.fontSizeData;
 
@@ -60,6 +62,18 @@ export default function Login({navigation, route}) {
     updateState({[key]: val});
   };
 
+  useEffect(()=>{
+    updateState({
+      callingCode: clientInfo?.get_country_set?.phonecode
+      ? clientInfo?.get_country_set?.phonecode
+      : '91',
+    cca2: clientInfo?.get_country_set?.code
+      ? clientInfo?.get_country_set?.code
+      : 'IN',
+    })
+
+  },[clientInfo])
+
   //Validate form
   const isValidData = () => {
     const error = validator({phoneNumber});
@@ -69,6 +83,8 @@ export default function Login({navigation, route}) {
     }
     return true;
   };
+
+
 
   //Login api fucntion
   const _onLogin = () => {

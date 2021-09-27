@@ -56,5 +56,8 @@ export default {
   UPLOADDOUCMENT:'Upload Document',
   ATTACHMENTS:'Attachments',
   REQUIREDDATA:'* Required Data',
-  AREYOUSURE:'Are you sure you want to logout?'
+  AREYOUSURE:'Are you sure you want to logout?',
+  ADDSIGNATURE:'Add Signature',
+  NOTE:'Note *',
+  SCANBARCODE:'Scan Barcode'
 };

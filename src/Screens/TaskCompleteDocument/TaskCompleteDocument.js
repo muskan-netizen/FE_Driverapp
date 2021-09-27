@@ -7,6 +7,7 @@ import {
   Image,
   ScrollView,
   Dimensions,
+  TextInput,
 } from 'react-native';
 import {useSelector} from 'react-redux';
 import Header from '../../Components/Header';
@@ -14,6 +15,7 @@ import {loaderOne} from '../../Components/Loaders/AnimatedLoaderFiles';
 import WrapperContainer from '../../Components/WrapperContainer';
 import imagePath from '../../constants/imagePath';
 import strings from '../../constants/lang';
+import navigationStrings from '../../navigation/navigationStrings';
 import actions from '../../redux/actions';
 // import store from '../../redux/store';
 import colors from '../../styles/colors';
@@ -21,6 +23,8 @@ import commonStylesFunc from '../../styles/commonStyles';
 import fontFamily from '../../styles/fontFamily';
 import {moderateScale} from '../../styles/responsiveSize';
 import {showError} from '../../utils/helperFunctions';
+import {cameraHandler} from '../../utils/commonFunction';
+
 import styles from './styles';
 
 const window = Dimensions.get('window');
@@ -59,9 +63,11 @@ export default function TaskCompleteDocument({route, navigation}) {
       },
     ],
     updatedProofArray: [],
+    showInputBox: false,
+    note: '',
   });
 
-  const {isLoading, taskProofArray} = state;
+  const {isLoading, taskProofArray, showInputBox, note} = state;
   const commonStyles = commonStylesFunc({fontFamily});
   const updateState = data => setState(state => ({...state, ...data}));
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
@@ -70,18 +76,6 @@ export default function TaskCompleteDocument({route, navigation}) {
   const moveToNewScreen = (screenName, data) => () => {
     navigation.navigate(screenName, {data});
   };
-  //   useEffect(() => {
-  //     const findDataToCheck = userData?.task_proof.find(
-  //       x => (x.id == taskDetail?.task_type_id) == 1,
-  //     );
-  //     console.log(findDataToCheck, 'findDataToCheck');
-  //     if(findDataToCheck){
-  //         updateState({
-
-  //         })
-  //     }
-  //   }, [taskDetail]);
-
   //Error handling in api
   const errorMethod = error => {
     updateState({isLoading: false, isRefreshing: false, isLoading: false});
@@ -90,6 +84,63 @@ export default function TaskCompleteDocument({route, navigation}) {
 
   const onImageLayout = e => {
     console.log(e.event, 'e.event');
+  };
+
+  const updateSignature = data => {
+    console.log(data, 'saved signature result');
+  };
+
+  const updateBarcodeScan = data => {
+    console.log(data, 'saved barcode result');
+  };
+  const onPressCategory = i => {
+    console.log(i, 'documnet type');
+
+    //Signature upload
+    if (i?.id == 1) {
+      updateState({showInputBox: false});
+      moveToNewScreen(navigationStrings.ADDSIGNATURE, {
+        updateSignature: data => {
+          updateSignature(data);
+        },
+      })();
+    }
+
+    //Photo upload
+    if (i?.id == 2) {
+      updateState({showInputBox: false});
+      cameraHandler(1, {
+        cropping: false,
+        compressImageQuality: 0.8,
+        cropperCircleOverlay: false,
+        mediaType: 'photo',
+      })
+        .then(res => {
+          if (res?.data) {
+            console.log(res, 'Photo repsonse');
+            updateState({isLoading: false});
+          } else {
+            updateState({isLoading: false});
+          }
+        })
+        .catch(err => {
+          updateState({isLoading: false});
+        });
+    }
+
+    //Add note
+    if (i?.id == 3) {
+      updateState({showInputBox: true});
+    }
+
+    if (i?.id == 4) {
+      updateState({showInputBox: false});
+      moveToNewScreen(navigationStrings.SCANNER, {
+        updateBarcodeScan: data => {
+          updateBarcodeScan(data);
+        },
+      })();
+    }
   };
 
   return (
@@ -116,18 +167,21 @@ export default function TaskCompleteDocument({route, navigation}) {
           marginHorizontal: moderateScale(10),
           marginTop: moderateScale(10),
         }}>
-        <Text style={styles.titleLabel}>{strings.ATTACHMENTS}</Text>
+        <Text style={styles.attachment}>{strings.ATTACHMENTS}</Text>
         <View
           style={{
             flexDirection: 'row',
             flexWrap: 'wrap',
-            justifyContent: 'center',
+            // justifyContent: 'center',
+            marginHorizontal: moderateScale(10),
           }}>
           {taskProofArray.map((i, inx) => {
             const {width, height} = Image.resolveAssetSource(i?.imagePath);
 
             return (
-              <View
+              <TouchableOpacity
+                activeOpacity={1}
+                onPress={() => onPressCategory(i)}
                 style={{
                   marginRight: moderateScale(10),
                   marginBottom: moderateScale(5),
@@ -136,15 +190,27 @@ export default function TaskCompleteDocument({route, navigation}) {
                   source={i?.imagePath}
                   onLayout={onImageLayout}
                   style={{
-                    width: width - 25,
-                    height: height - 25, //362 is actual height of image
+                    width: width - 40,
+                    height: height - 40, //362 is actual height of image
                   }}
                 />
-              </View>
+              </TouchableOpacity>
             );
           })}
         </View>
       </View>
+      {showInputBox && (
+        <View>
+          <Text style={styles.reason}>{strings.NOTE}</Text>
+          <TextInput
+            multiline={true}
+            value={note}
+            textAlignVertical={'top'}
+            style={styles.textInputStyle}
+            onChangeText={text => updateState({note: text})}
+          />
+        </View>
+      )}
     </WrapperContainer>
   );
 }

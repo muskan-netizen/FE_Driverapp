@@ -163,6 +163,7 @@ export default function TaskDetail({route, navigation}) {
   });
 
   const handlePressIn = () => {
+    ACTION_TIMER = 1500;
     Animated.timing(pressAction, {
       duration: ACTION_TIMER,
       toValue: 1,
@@ -308,6 +309,7 @@ export default function TaskDetail({route, navigation}) {
         console.log(res, 'updateTaskStatus>res>res');
         updateState({isLoading: false});
         if (res?.data) {
+          ACTION_TIMER = 100;
           updateState({
             buttonPressComplete: 0,
             taskStatus: Number(res?.data?.task_status),

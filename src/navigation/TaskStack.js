@@ -1,6 +1,8 @@
 import React from 'react';
 import {
+  AddSignature,
   DashBoard,
+  Scanner,
   TaskCancel,
   TaskCompleteDocument,
   TaskDetail,
@@ -41,6 +43,17 @@ export default function () {
         component={TaskCompleteDocument}
         options={{headerShown: false}}
       />
+      <Stack.Screen
+        name={navigationStrings.ADDSIGNATURE}
+        component={AddSignature}
+        options={{headerShown: false}}
+      />
+       <Stack.Screen
+        name={navigationStrings.SCANNER}
+        component={Scanner}
+        options={{headerShown: false}}
+      />
+      
     </Stack.Navigator>
   );
 }

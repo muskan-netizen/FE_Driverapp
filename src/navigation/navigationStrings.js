@@ -14,5 +14,7 @@ export default {
   DRAWER_ROUTES: 'DrawerRoutes',
   TASKDETAIL:"TaskDetail",
   TASKCANCEL:"TaskCancel",
-  TASKCOMPLETEDOCUMENT:'TaskCompleteDocument'
+  TASKCOMPLETEDOCUMENT:'TaskCompleteDocument',
+  ADDSIGNATURE:"AddSignature",
+  SCANNER:'Scanner'
 };

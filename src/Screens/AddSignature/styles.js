@@ -7,13 +7,12 @@ import {
   textScale,
   width,
 } from '../../styles/responsiveSize';
-
 export default StyleSheet.create({
-  cashCollected: {
-    fontSize: textScale(12),
-    fontFamily: fontFamily.semiBold,
-    color: colors.black,
-  },
+  signature: {
+    flex: 1,
+    borderWidth:0
+   
+},
   cashCollected: {
     fontSize: textScale(12),
     fontFamily: fontFamily.semiBold,
@@ -30,14 +29,6 @@ export default StyleSheet.create({
     fontSize: textScale(12),
     fontFamily: fontFamily.medium,
     color: colors.black,
-    marginHorizontal: moderateScale(20),
-  },
-  attachment: {
-    fontSize: textScale(12),
-    fontFamily: fontFamily.medium,
-    color: colors.black,
-    marginHorizontal: moderateScale(10),
-    marginVertical: moderateScale(10),
   },
   rowViewTaskCancel: {
     marginHorizontal: moderateScale(20),
@@ -46,6 +37,9 @@ export default StyleSheet.create({
     paddingVertical: moderateScale(15),
     flexDirection: 'row',
     justifyContent: 'space-between',
+  },
+  inputBottomView: {
+   
   },
   textInputStyle: {
     opacity: 0.7,
@@ -58,8 +52,13 @@ export default StyleSheet.create({
     textAlign: I18nManager.isRTL ? 'right' : 'left',
     marginHorizontal: moderateScale(20),
     backgroundColor: colors.backGround,
-    height: moderateScaleVertical(width / 8),
+    height: moderateScaleVertical(width / 3.5),
     borderRadius: moderateScale(4),
     marginVertical: moderateScale(10),
   },
+  clear:{
+    color: colors.textGrey,
+    fontFamily: fontFamily.regular,
+    fontSize: textScale(10),
+  }
 });

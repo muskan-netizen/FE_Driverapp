@@ -13,6 +13,7 @@ import {updateInternetConnection} from './src/redux/actions/init';
 import {moderateScaleVertical, width} from './src/styles/responsiveSize';
 import types from './src/redux/types';
 import {getItem, getUserData} from './src/utils/utils';
+import useInterval from './src/utils/useInterval';
 
 const App = () => {
   const [internetConnection, setInternet] = useState(true);
@@ -22,7 +23,7 @@ const App = () => {
       const {dispatch} = store;
 
       const userData = await getUserData();
-      console.log(userData,"userData");
+      console.log(userData, 'userData');
       if (userData && !!userData?.access_token) {
         dispatch({
           type: types.LOGIN,
@@ -50,6 +51,10 @@ const App = () => {
     return () => removeNetInfoSubscription();
   }, []);
 
+  // useInterval(() => {
+  //   console.log('Hello after every 3 seconds');
+  // }, 3000);
+
   return (
     <SafeAreaProvider>
       <Provider store={store}>
@@ -61,10 +66,7 @@ const App = () => {
         duration={2000}
         positionValue={moderateScaleVertical(20)}
       />
-      <FlashMessage
-        position="top"
-       
-      />
+      <FlashMessage position="top" />
       <NoInternetModal show={!internetConnection} />
     </SafeAreaProvider>
   );

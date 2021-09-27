@@ -8,4 +8,6 @@ export {default as TaskHistory} from './TaskHistory/TaskHistory';
 export {default as TaskDetail} from './TaskDetail/TaskDetail';
 export {default as TaskCancel} from './TaskCancel/TaskCancel';
 export {default as TaskCompleteDocument} from './TaskCompleteDocument/TaskCompleteDocument';
+export {default as AddSignature} from './AddSignature/AddSignature';
+export {default as Scanner} from './Scanner/Scanner';
 
