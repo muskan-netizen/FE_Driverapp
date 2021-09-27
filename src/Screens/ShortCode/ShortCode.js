@@ -20,16 +20,21 @@ import actions from '../../redux/actions';
 import {showError} from '../../utils/helperFunctions';
 import ModalView from '../../Components/ShortCodeConfirmModal';
 import {useSelector} from 'react-redux';
+import {appIds, shortCodes} from '../../utils/constants/DynamicAppKeys';
+import {getBundleId} from 'react-native-device-info';
+import {getItem} from '../../utils/utils';
 
 export default function ShortCode({route, navigation}) {
+  const shortCodeParam = route?.params?.shortCodeParam;
+
   const [state, setState] = useState({
     isLoading: false,
-    shortCode: 'cbec70',
-    shortCodeShow: 'cbec70',
-    changeInShortCode: true,
+    shortCode: null,
+    shortCodeShow: '',
+    changeInShortCode: false,
     shortCodeDataInfo: null,
     isModalVisibleForShortCodeDetail: false,
-    isShortcodePrefilled: false,
+    isShortcodePrefilled: true,
     viewWidth: null,
   });
 
@@ -50,6 +55,32 @@ export default function ShortCode({route, navigation}) {
     navigation.navigate(screenName, {data});
   };
 
+  useEffect(() => {
+    (async () => {
+      const saveShortCode = await getItem('saveShortCode');
+      switch (getBundleId()) {
+        case appIds.royoorder:
+          // updateState({shortCode: '245bae', isShortcodePrefilled: true});
+          if (saveShortCode && !shortCodeParam) {
+            updateState({
+              shortCode: saveShortCode,
+              isShortcodePrefilled: true,
+            });
+          } else {
+            updateState({shortCode: '', isShortcodePrefilled: false});
+          }
+          break;
+
+        case appIds.runrun:
+          updateState({
+            shortCode: shortCodes.runrun,
+            isShortcodePrefilled: true,
+          });
+          break;
+      }
+    })();
+  }, []);
+
   //Process init when code update
   useEffect(() => {
     if (shortCode && isShortcodePrefilled) {
@@ -68,11 +99,22 @@ export default function ShortCode({route, navigation}) {
         isLoading: true,
         shortCode: code,
         changeInShortCode: true,
-        isShortcodePrefilled: true,
+        // isShortcodePrefilled: true,
       });
       //
     })();
   };
+
+
+  useEffect(() => {
+    (async () => {
+      if(changeInShortCode){
+        initApiHit();
+      }
+    })();
+  }, [changeInShortCode]);
+
+
 
   //On click login button
   const _onSubmitShortCode = () => {
@@ -82,32 +124,48 @@ export default function ShortCode({route, navigation}) {
   };
 
   //short code And init api hit
-
   const initApiHit = () => {
-    actions
-      .initApp({shortCode: shortCode})
-      .then(res => {
-        updateState({
-          changeInShortCode: false,
-          isLoading: false,
-          shortCodeDataInfo: res?.data,
-          isModalVisibleForShortCodeDetail: true,
-        });
-        console.log(res, 'res>res>res');
-      })
-      .catch(errorMethod);
+    (async () => {
+      const saveShortCode = await getItem('saveShortCode');
+      actions
+        .initApp({shortCode: shortCode})
+        .then(res => {
+          if (getBundleId() == appIds.royoorder && res?.data) {
+            actions.saveShortCode(shortCode);
+          }
+          console.log(res, 'res>res>res');
+          updateState({
+            changeInShortCode: false,
+            isLoading: false,
+            shortCodeDataInfo: res?.data,
+          });
+
+          if (getBundleId() == appIds.royoorder) {
+            if (saveShortCode && !shortCodeParam) {
+              _redirectToLogin(res?.data);
+            } else {
+              updateState({
+                isModalVisibleForShortCodeDetail: true,
+              });
+            }
+          } else {
+            _redirectToLogin(res?.data);
+          }
+        })
+        .catch(errorMethod);
+    })();
   };
 
   //Error handling in screen
   const errorMethod = error => {
     console.log(error, 'error');
-    updateState({isLoading: false, isLoadingB: false, isRefreshing: false});
+    updateState({isLoading: false,shortCode:'',shortCodeShow:'',changeInShortCode:false, isLoadingB: false, isRefreshing: false});
     showError(error?.message || error?.error);
   };
 
   //Rediect to login
 
-  const _redirectToLogin = () => {
+  const _redirectToLogin = shortCodeDataInfo => {
     updateState({isModalVisibleForShortCodeDetail: false});
 
     // moveToNewScreen(navigationStrings.LOGIN, shortCodeDataInfo)();
@@ -157,7 +215,7 @@ export default function ShortCode({route, navigation}) {
           </TouchableOpacity>
           <TouchableOpacity
             activeOpacity={0}
-            onPress={() => _redirectToLogin()}
+            onPress={() => _redirectToLogin(shortCodeDataInfo)}
             style={[
               styles.confirmButtonView,
               {width: viewWidth ? viewWidth / 2 : width - (width / 1.5 - 20)},
@@ -175,71 +233,87 @@ export default function ShortCode({route, navigation}) {
       bgColor={colors.white}
       isLoadingB={isLoading}
       source={loaderOne}>
-      <View style={{flex: 1}}>
-        <View
-          style={{flex: 0.4, justifyContent: 'center', alignItems: 'center'}}>
-          <Image source={imagePath.logo} />
-        </View>
-        <View style={{flex: 0.6, marginHorizontal: moderateScale(20)}}>
-          <Text style={styles.loginUsing}>{strings.LOGINUSING}</Text>
-          <Text style={styles.loginUsing}>{strings.COMPANYCODE}</Text>
-          <Text style={styles.weneedCompany}>{strings.WENEDDCOMPNAYCODE}</Text>
-          <View style={{marginTop: moderateScale(20)}}>
-            <SmoothPinCodeInput
-              containerStyle={{alignSelf: 'center'}}
-              password
-              mask={<View style={styles.maskStyle} />}
-              cellSize={width / 8}
-              codeLength={6}
-              cellSpacing={10}
-              editable={true}
-              cellStyle={styles.cellStyle}
-              cellStyleFocused={styles.cellStyleFocused}
-              textStyle={styles.textStyleCodeInput}
-              textStyleFocused={styles.textStyleFocused}
-              inputProps={{
-                autoCapitalize: 'none',
-              }}
-              value={shortCodeShow}
-              autoFocus={false}
-              keyboardType={'default'}
-              onTextChange={shortCodeShow => updateState({shortCodeShow})}
-              onFulfill={code => onOtpInput(code)}
-            />
-          </View>
-          <View
-            style={{
-              marginTop: moderateScaleVertical(20),
-              justifyContent: 'flex-end',
-            }}>
-            <ButtonWithLoader
-              color={colors.black}
-              btnStyle={styles.buttonStyle}
-              btnTextStyle={{color: colors.textBlue}}
-              onPress={_onSubmitShortCode}
-              btnText={strings.LOGIN}
-              btnTextStyle={{
-                color: colors.white,
-              }}
-            />
+      {isShortcodePrefilled ? (
+        <View style={{flex: 1}}></View>
+      ) : (
+        <>
+          <View style={{flex: 1}}>
+            <View
+              style={{
+                flex: 0.4,
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}>
+              <Image source={imagePath.logo} />
+            </View>
+            <View style={{flex: 0.6, marginHorizontal: moderateScale(20)}}>
+              <Text style={styles.loginUsing}>{strings.LOGINUSING}</Text>
+              <Text style={styles.loginUsing}>{strings.COMPANYCODE}</Text>
+              <Text style={styles.weneedCompany}>
+                {strings.WENEDDCOMPNAYCODE}
+              </Text>
+              <View style={{marginTop: moderateScale(20)}}>
+                <SmoothPinCodeInput
+                  containerStyle={{alignSelf: 'center'}}
+                  password
+                  mask={<View style={styles.maskStyle} />}
+                  cellSize={width / 8}
+                  codeLength={6}
+                  cellSpacing={10}
+                  editable={true}
+                  cellStyle={styles.cellStyle}
+                  cellStyleFocused={styles.cellStyleFocused}
+                  textStyle={styles.textStyleCodeInput}
+                  textStyleFocused={styles.textStyleFocused}
+                  inputProps={{
+                    autoCapitalize: 'none',
+                  }}
+                  value={shortCodeShow}
+                  autoFocus={false}
+                  keyboardType={'default'}
+                  onTextChange={shortCodeShow => updateState({shortCodeShow})}
+                  onFulfill={code => onOtpInput(code)}
+                />
+              </View>
+              <View
+                style={{
+                  marginTop: moderateScaleVertical(20),
+                  justifyContent: 'flex-end',
+                }}>
+                <ButtonWithLoader
+                  color={colors.black}
+                  btnStyle={styles.buttonStyle}
+                  btnTextStyle={{color: colors.textBlue}}
+                  onPress={_onSubmitShortCode}
+                  btnText={strings.LOGIN}
+                  btnTextStyle={{
+                    color: colors.white,
+                  }}
+                />
 
-            <Text style={styles.whereCanIhelp}>{strings.WHEREICANSIGNUP}</Text>
+                <Text style={styles.whereCanIhelp}>
+                  {strings.WHEREICANSIGNUP}
+                </Text>
+              </View>
+            </View>
           </View>
-        </View>
-      </View>
 
-      <ModalView
-        data={shortCodeDataInfo}
-        isVisible={isModalVisibleForShortCodeDetail}
-        onClose={() => updateState({isModalVisibleForShortCodeDetail: false})}
-        mainViewStyle={{
-          // minHeight: height / 3,
-          maxHeight: height,
-          marginHorizontal: moderateScale(20),
-        }}
-        modalMainContent={modalMainContent}
-        // modalBottomContent={modalBottomContent}
-      />
+          <ModalView
+            data={shortCodeDataInfo}
+            isVisible={isModalVisibleForShortCodeDetail}
+            onClose={() =>
+              updateState({isModalVisibleForShortCodeDetail: false})
+            }
+            mainViewStyle={{
+              // minHeight: height / 3,
+              maxHeight: height,
+              marginHorizontal: moderateScale(20),
+            }}
+            modalMainContent={modalMainContent}
+            // modalBottomContent={modalBottomContent}
+          />
+        </>
+      )}
     </WrapperContainer>
   );
 }

@@ -114,7 +114,7 @@ export default function PhoneVerification({navigation, route}) {
         updateState({isLoading: false});
         if (res?.data) {
           showSuccess('Account verfied successfully.');
-          // moveToNewScreen(navigationStrings.SEND_OTP, res?.data)();
+          moveToNewScreen(navigationStrings.DRAWER_ROUTES)();
         }
       })
       .catch(errorMethod);

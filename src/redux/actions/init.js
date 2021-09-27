@@ -1,7 +1,7 @@
 import store from '../store';
 import types from '../types';
 const {dispatch} = store;
-import {apiGet, apiPost, setClientInfo} from '../../utils/utils';
+import {apiGet, apiPost, saveShortCodeData, setClientInfo} from '../../utils/utils';
 import {
   APP_INITIAL_SETTINGS,
   PRIVACYANDTERMSANDCONDITIONS,
@@ -45,3 +45,15 @@ export const updateInternetConnection = data => {
     payload: data,
   });
 };
+
+
+
+//Save your short code
+export function saveShortCode(data = {}) {
+  saveShortCodeData(data).then((suc) => {
+    dispatch({
+      type: types.SAVE_SHORT_CODE,
+      payload: data,
+    });
+  });
+}

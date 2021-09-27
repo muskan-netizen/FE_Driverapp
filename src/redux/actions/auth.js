@@ -1,4 +1,4 @@
-import {LOGIN_API, SEND_OTP} from '../../config/urls';
+import {LOGIN_API, LOGOUT_API,SEND_OTP} from '../../config/urls';
 import {apiGet, apiPost, setUserData} from '../../utils/utils';
 import store from '../store';
 import types from '../types';
@@ -40,6 +40,24 @@ export function verifyAccount(data = {}, headers = {}) {
       .then(async res => {
         setUserData(res.data).then(suc => {
           saveUserData(res.data);
+          resolve(res);
+        });
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+}
+
+
+//logout 
+
+export function logout(data = {}, headers = {}) {
+  return new Promise((resolve, reject) => {
+    apiGet(LOGOUT_API, data, headers)
+      .then(async res => {
+        setUserData(null).then(suc => {
+          saveUserData({});
           resolve(res);
         });
       })

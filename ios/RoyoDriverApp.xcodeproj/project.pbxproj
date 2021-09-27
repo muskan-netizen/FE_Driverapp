@@ -35,7 +35,8 @@
 		84E4481526E8C71700452095 /* RoyoDispatcher(Dev).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 84E4481426E8C71700452095 /* RoyoDispatcher(Dev).xcconfig */; };
 		84E4481926E8C73F00452095 /* RoyoDispatcher(Prod).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 84E4481826E8C73F00452095 /* RoyoDispatcher(Prod).xcconfig */; };
 		84E4493A26E8DAA300452095 /* Plists in Resources */ = {isa = PBXBuildFile; fileRef = 84E4493926E8DAA300452095 /* Plists */; };
-		E683A78727C05F4E145E3A6D /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		99486D33D6D9344846599127 /* libPods-RoyoDriverApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B4BF1A7966AB59797A11805E /* libPods-RoyoDriverApp.a */; };
+		E683A78727C05F4E145E3A6D /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		84E4481826E8C73F00452095 /* RoyoDispatcher(Prod).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "RoyoDispatcher(Prod).xcconfig"; sourceTree = "<group>"; };
 		84E4493926E8DAA300452095 /* Plists */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Plists; sourceTree = "<group>"; };
 		A70808A6269D397EE5B9FBA2 /* Pods-RoyoDriverApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoyoDriverApp.debug.xcconfig"; path = "Target Support Files/Pods-RoyoDriverApp/Pods-RoyoDriverApp.debug.xcconfig"; sourceTree = "<group>"; };
+		B4BF1A7966AB59797A11805E /* libPods-RoyoDriverApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RoyoDriverApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -73,7 +75,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E683A78727C05F4E145E3A6D /* (null) in Frameworks */,
+				E683A78727C05F4E145E3A6D /* BuildFile in Frameworks */,
+				99486D33D6D9344846599127 /* libPods-RoyoDriverApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +111,7 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				682B78B97A2EACDAF87E0C0C /* libPods-Runrun.a */,
+				B4BF1A7966AB59797A11805E /* libPods-RoyoDriverApp.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

@@ -22,7 +22,8 @@ const App = () => {
       const {dispatch} = store;
 
       const userData = await getUserData();
-      if (userData && !!userData.access_token) {
+      console.log(userData,"userData");
+      if (userData && !!userData?.access_token) {
         dispatch({
           type: types.LOGIN,
           payload: userData,

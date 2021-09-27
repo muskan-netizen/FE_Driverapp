@@ -55,5 +55,6 @@ export default {
   OPENINGOOGLEMAPS:'Open in Google Maps',
   UPLOADDOUCMENT:'Upload Document',
   ATTACHMENTS:'Attachments',
-  REQUIREDDATA:'* Required Data'
+  REQUIREDDATA:'* Required Data',
+  AREYOUSURE:'Are you sure you want to logout?'
 };

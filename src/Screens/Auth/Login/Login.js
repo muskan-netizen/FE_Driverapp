@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Platform, View, Image, Text} from 'react-native';
-import DeviceInfo from 'react-native-device-info';
+import DeviceInfo, { getBundleId } from 'react-native-device-info';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {useSelector} from 'react-redux';
 import GradientButton from '../../../Components/GradientButton';
@@ -22,25 +22,28 @@ import validator from '../../../utils/validations';
 import stylesFunc from './styles';
 import PhoneNumberInput from '../../../Components/PhoneNumberInput';
 import ScaledImage from 'react-native-scalable-image';
+import { appIds } from '../../../utils/constants/DynamicAppKeys';
+import Header from '../../../Components/Header';
 
 export default function Login({navigation, route}) {
   const paramData = route?.params?.data;
+  const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
+  console.log(clientInfo, 'clientInfo>clientInfo');
   console.log(paramData, 'paramData>paramData');
   const [state, setState] = useState({
     isLoading: false,
-    callingCode: paramData?.get_country_set?.phonecode
-      ? paramData?.get_country_set?.phonecode
+    callingCode: clientInfo?.get_country_set?.phonecode
+      ? clientInfo?.get_country_set?.phonecode
       : '91',
-    cca2: paramData?.get_country_set?.code
-      ? paramData?.get_country_set?.code
+    cca2: clientInfo?.get_country_set?.code
+      ? clientInfo?.get_country_set?.code
       : 'IN',
     phoneNumber: '8006066235',
   });
 
   const {themeColors} = useSelector(state => state?.initBoot);
   //   const fontFamily = appStyle?.fontSizeData;
-  const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
-  console.log(clientInfo, 'clientInfo>clientInfo');
+
   //Update states
   const updateState = data => setState(state => ({...state, ...data}));
   //Styles in app
@@ -107,13 +110,27 @@ export default function Login({navigation, route}) {
       source={loaderOne}
       statusBarColor={colors.white}
       bgColor={colors.white}>
+      {!!(getBundleId() == appIds.royoorder) && (
+        <Header
+          leftIcon={imagePath.backArrow}
+          // centerTitle={title}
+          onPressLeft={
+            () =>
+              navigation.push(navigationStrings.SHORT_CODE, {
+                shortCodeParam: true,
+              })
+            // navigation.goBack()
+          }
+          headerStyle={{backgroundColor: colors.white}}
+        />
+      )}
       <View style={{flex: 1, marginHorizontal: 20}}>
         <View style={styles.imageStyle}>
           <ScaledImage
             width={width / 2}
             source={
-              paramData && paramData?.logo
-                ? {uri: paramData?.logo}
+              clientInfo && clientInfo?.logo
+                ? {uri: clientInfo?.logo}
                 : imagePath.logo
             }
           />

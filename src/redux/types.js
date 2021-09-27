@@ -28,6 +28,7 @@ export default {
     CART_ITEM_TYPE_REMOVE: 'CART_ITEM_TYPE_REMOVE',
     THEME: 'theme',
     THEME_TOGGLE: 'toggle',
-    UPDATEUSER:'Updateuser'
+    UPDATEUSER:'Updateuser',
+    SAVE_SHORT_CODE:'SAVE_SHORT_CODE'
   };
   

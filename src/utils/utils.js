@@ -14,7 +14,7 @@ export async function getHeaders() {
   if (userData) {
     userData = JSON.parse(userData);
     return {
-      Authorization: `${userData.access_token}`,
+      Authorization: `${userData?.access_token}`,
     };
   }
   return {};
@@ -25,19 +25,11 @@ export function setUserData(data) {
   return AsyncStorage.setItem('userData', data);
 }
 
+
+
 export function setClientInfo(data) {
   data = JSON.stringify(data);
   return AsyncStorage.setItem('clientInfo', data);
-}
-
-export function saveUserAddress(data) {
-  data = JSON.stringify(data);
-  return AsyncStorage.setItem('saveUserAddress', data);
-}
-
-export function saveSelectedAddress(data) {
-  data = JSON.stringify(data);
-  return AsyncStorage.setItem('saveSelectedAddress', data);
 }
 
 export function saveShortCodeData(data) {
