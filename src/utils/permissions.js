@@ -68,7 +68,7 @@ export const locationPermission = () =>
       return PermissionsAndroid.request(
         PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
       )
-        .then((granted) => {
+        .then(granted => {
           if (granted === PermissionsAndroid.RESULTS.GRANTED) {
             //console.log('You can use the location');
             return resolve('granted');
@@ -78,7 +78,7 @@ export const locationPermission = () =>
             return reject('Location permission denied');
           }
         })
-        .catch((error) => {
+        .catch(error => {
           console.log('Ask Location permission error: ', error);
           return reject(error);
         });
@@ -93,7 +93,7 @@ export const chekLocationPermission = () =>
           ? PERMISSIONS.IOS.LOCATION_WHEN_IN_USE
           : PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION,
       )
-        .then((result) => {
+        .then(result => {
           switch (result) {
             case RESULTS.UNAVAILABLE:
               showError(strings.LOCATION_UNAVAILABLE);
@@ -104,10 +104,10 @@ export const chekLocationPermission = () =>
                   ? PERMISSIONS.IOS.LOCATION_WHEN_IN_USE
                   : PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION,
               )
-                .then((result) => {
+                .then(result => {
                   return resolve(result);
                 })
-                .catch((error) => {
+                .catch(error => {
                   return reject(error);
                 });
 
@@ -136,7 +136,67 @@ export const chekLocationPermission = () =>
               break;
           }
         })
-        .catch((error) => {
+        .catch(error => {
+          return reject(error);
+        });
+    } catch (error) {
+      return reject(error);
+    }
+  });
+
+//Check camera permission
+export const checkCameraPermission = () =>
+  new Promise(async (resolve, reject) => {
+    try {
+      check(
+        Platform.OS === 'ios'
+          ? PERMISSIONS.IOS.CAMERA
+          : PERMISSIONS.ANDROID.CAMERA,
+      )
+        .then(result => {
+          switch (result) {
+            case RESULTS.UNAVAILABLE:
+              showError(strings.LOCATION_UNAVAILABLE);
+              break;
+            case RESULTS.DENIED:
+              request(
+                Platform.OS === 'ios'
+                  ? PERMISSIONS.IOS.LOCATION_WHEN_IN_USE
+                  : PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION,
+              )
+                .then(result => {
+                  return resolve(result);
+                })
+                .catch(error => {
+                  return reject(error);
+                });
+
+              break;
+            case RESULTS.LIMITED:
+              showError(strings.LOCATION_LIMITED);
+              break;
+            case RESULTS.GRANTED:
+              return resolve(result);
+              break;
+            case RESULTS.BLOCKED:
+              Alert.alert('', strings.LOCATION_DISABLED_MSG, [
+                {
+                  text: 'Cancel',
+                  onPress: () => resolve('goback'),
+                },
+                {
+                  text: 'Confirm',
+                  onPress: () => {
+                    const locationPath = 'LOCATION_SERVICES';
+                    openAppSetting(locationPath);
+                  },
+                },
+              ]);
+
+              break;
+          }
+        })
+        .catch(error => {
           return reject(error);
         });
     } catch (error) {

@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {Image, Text, TouchableOpacity, View} from 'react-native';
 import {useSelector} from 'react-redux';
 import ButtonComponent from '../../Components/ButtonComponent';
@@ -38,6 +38,9 @@ export default function Scanner({route, navigation}) {
     navigation.navigate(screenName, {data});
   };
 
+  useEffect(() => {
+    camRef.current.pausePreview();
+  }, []);
   const capture = () => {};
   const barcodeReceived = event => {
     console.log('Type: ' + event.type + '\nData: ' + event.data);
@@ -51,6 +54,7 @@ export default function Scanner({route, navigation}) {
       }
     }
   };
+  const camRef = useRef();
 
   return (
     <WrapperContainer
@@ -73,6 +77,7 @@ export default function Scanner({route, navigation}) {
 
       <View style={{flex: 1}}>
         <QRScannerView
+          ref={camRef}
           onScanResult={barcodeReceived}
           //   renderHeaderView={this.renderTitleBar}
           renderFooterView={() => (
@@ -84,7 +89,7 @@ export default function Scanner({route, navigation}) {
           hintText={'Scan barcode to continue'}
         />
       </View>
-      
+
       {/* <View style={{flex: 1}}>
         
         <View style={{flex: 0.2,paddingVertical:moderateScale(20)}}>

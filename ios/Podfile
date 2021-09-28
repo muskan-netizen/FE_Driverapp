@@ -14,7 +14,8 @@ target 'RoyoDriverApp' do
   )
   pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
   pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
-  
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
+
 end
 
 
@@ -28,5 +29,6 @@ target 'Runrun' do
   )
   pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
   pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
-  
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
+
 end

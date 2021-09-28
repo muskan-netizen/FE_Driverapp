@@ -34,8 +34,8 @@ export default StyleSheet.create({
   },
   attachment: {
     fontSize: textScale(12),
-    fontFamily: fontFamily.medium,
-    color: colors.black,
+    fontFamily: fontFamily.bold,
+    color: colors.lightGreyBg2,
     marginHorizontal: moderateScale(10),
     marginVertical: moderateScale(10),
   },
@@ -62,4 +62,12 @@ export default StyleSheet.create({
     borderRadius: moderateScale(4),
     marginVertical: moderateScale(10),
   },
+  titleStyle:{
+    fontSize: textScale(10),
+    fontFamily: fontFamily.medium,
+    color: colors.black,
+    textAlign:'center',
+    marginTop:moderateScale(5)
+    
+  }
 });

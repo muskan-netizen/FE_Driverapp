@@ -26,6 +26,7 @@ import {showError} from '../../utils/helperFunctions';
 import {cameraHandler} from '../../utils/commonFunction';
 
 import styles from './styles';
+import { checkCameraPermission } from '../../utils/permissions';
 
 const window = Dimensions.get('window');
 
@@ -135,11 +136,18 @@ export default function TaskCompleteDocument({route, navigation}) {
 
     if (i?.id == 4) {
       updateState({showInputBox: false});
-      moveToNewScreen(navigationStrings.SCANNER, {
-        updateBarcodeScan: data => {
-          updateBarcodeScan(data);
-        },
-      })();
+
+      checkCameraPermission()
+        .then(result => {
+          console.log(result, 'result');
+        })
+        .catch(error => console.log('error while accessing location ', error));
+
+      // moveToNewScreen(navigationStrings.SCANNER, {
+      //   updateBarcodeScan: data => {
+      //     updateBarcodeScan(data);
+      //   },
+      // })();
     }
   };
 
@@ -194,6 +202,7 @@ export default function TaskCompleteDocument({route, navigation}) {
                     height: height - 40, //362 is actual height of image
                   }}
                 />
+                <Text style={styles.titleStyle}>{i?.title}</Text>
               </TouchableOpacity>
             );
           })}
@@ -211,6 +220,14 @@ export default function TaskCompleteDocument({route, navigation}) {
           />
         </View>
       )}
+
+      <View
+        style={{
+          marginHorizontal: moderateScale(10),
+          marginTop: moderateScale(10),
+        }}>
+        <Text style={styles.attachment}>{strings.REQUIREDDATA}</Text>
+      </View>
     </WrapperContainer>
   );
 }
