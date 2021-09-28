@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {
   Alert,
   Animated,
@@ -8,16 +8,16 @@ import {
   Text,
   TouchableOpacity,
   TouchableWithoutFeedback,
-  View
+  View,
 } from 'react-native';
 import ActionSheet from 'react-native-actionsheet';
 import Communications from 'react-native-communications';
 import MapView from 'react-native-maps';
 // import {createOpenLink} from '../../utils/CreateMapLinks';
-import { createOpenLink } from 'react-native-open-maps';
-import { useSelector } from 'react-redux';
+import {createOpenLink} from 'react-native-open-maps';
+import {useSelector} from 'react-redux';
 import Header from '../../Components/Header';
-import { loaderOne } from '../../Components/Loaders/AnimatedLoaderFiles';
+import {loaderOne} from '../../Components/Loaders/AnimatedLoaderFiles';
 import WrapperContainer from '../../Components/WrapperContainer';
 import imagePath from '../../constants/imagePath';
 import strings from '../../constants/lang';
@@ -27,10 +27,10 @@ import actions from '../../redux/actions';
 import colors from '../../styles/colors';
 import commonStylesFunc from '../../styles/commonStyles';
 import fontFamily from '../../styles/fontFamily';
-import { moderateScale, textScale } from '../../styles/responsiveSize';
+import {moderateScale, textScale} from '../../styles/responsiveSize';
 import {
   getColorCodeWithOpactiyNumber,
-  showError
+  showError,
 } from '../../utils/helperFunctions';
 import styles from './styles';
 
