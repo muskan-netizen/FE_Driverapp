@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {FlatList} from 'react-native';
+import {FlatList, NativeModules} from 'react-native';
 import {cloneDeep, debounce} from 'lodash';
 import {Image, Switch, View, RefreshControl} from 'react-native';
 import {useSelector} from 'react-redux';
@@ -24,6 +24,8 @@ import DeviceInfo from 'react-native-device-info';
 import navigationStrings from '../../navigation/navigationStrings';
 import {TouchableOpacity} from 'react-native';
 import {useFocusEffect} from '@react-navigation/native';
+import useInterval from '../../utils/useInterval';
+import {Platform} from 'react-native';
 
 export default function DashBoard({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
@@ -74,9 +76,41 @@ export default function DashBoard({route, navigation}) {
     isLoadingSwitch,
   } = state;
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
-  // useEffect(() => {
-  //   getTasks();
-  // }, [initial]);
+
+  // useInterval(() => {
+  //   let data = {};
+  //   data['device_type'] = Platform.OS;
+  //   data['os_version'] = DeviceInfo.getSystemVersion();
+  //   data['app_version'] = DeviceInfo.getVersion();
+  //   data['on_route'] = 'y';
+  //   data['battery_level'] = DeviceInfo.getBatteryLevel().then(batteryLevel => {
+  //     // 0.759999
+  //     console.log(batteryLevel, 'batteryLevel');
+  //     return batteryLevel;
+  //   });
+
+  //   console.log(data, 'data');
+  //   actions
+  //     .logsApi({}, {client: clientInfo?.database_name})
+  //     .then(res => {
+  //       console.log(res, 'res>res');
+  //     })
+  //     .catch(errorMethod);
+  //   console.log('Hello after every 3 seconds');
+  // }, null);
+
+  useEffect(() => {
+    (async () => {
+      let data = {};
+      data['device_type'] = Platform.OS;
+      data['os_version'] = DeviceInfo.getSystemVersion();
+      data['app_version'] = DeviceInfo.getVersion();
+      data['on_route'] = 'y';
+      data['battery_level'] = (await DeviceInfo.getBatteryLevel()) * 100;
+
+      console.log(data, 'data>data');
+    })();
+  });
 
   useFocusEffect(
     React.useCallback(() => {
@@ -207,7 +241,7 @@ export default function DashBoard({route, navigation}) {
 
   const _onPressTask = item => {
     console.log('Here it is', item);
-    moveToNewScreen(navigationStrings.TASKDETAIL, {item:item,})();
+    moveToNewScreen(navigationStrings.TASKDETAIL, {item: item})();
   };
 
   const renderTaskList = ({item, index}) => {

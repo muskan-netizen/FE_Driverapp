@@ -51,9 +51,7 @@ const App = () => {
     return () => removeNetInfoSubscription();
   }, []);
 
-  // useInterval(() => {
-  //   console.log('Hello after every 3 seconds');
-  // }, 3000);
+  
 
   return (
     <SafeAreaProvider>

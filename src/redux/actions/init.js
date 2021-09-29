@@ -1,10 +1,16 @@
 import store from '../store';
 import types from '../types';
 const {dispatch} = store;
-import {apiGet, apiPost, saveShortCodeData, setClientInfo} from '../../utils/utils';
+import {
+  apiGet,
+  apiPost,
+  saveShortCodeData,
+  setClientInfo,
+} from '../../utils/utils';
 import {
   APP_INITIAL_SETTINGS,
   PRIVACYANDTERMSANDCONDITIONS,
+  LOGSAPI,
 } from '../../config/urls';
 
 export function initApp(data = {}, headers = {}, reload = false) {
@@ -46,14 +52,27 @@ export const updateInternetConnection = data => {
   });
 };
 
-
-
 //Save your short code
 export function saveShortCode(data = {}) {
-  saveShortCodeData(data).then((suc) => {
+  saveShortCodeData(data).then(suc => {
     dispatch({
       type: types.SAVE_SHORT_CODE,
       payload: data,
     });
+  });
+}
+
+//Logs api hitting after  some  frequent interval
+
+//Save your short code
+export function logsApi(data = {}, headers = {}) {
+  return new Promise((resolve, reject) => {
+    apiPost(LOGSAPI, data, headers)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
   });
 }
