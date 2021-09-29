@@ -40,8 +40,12 @@ var COLORS = ['#8FEE90', '#27A468'];
 var _value = 0;
 export default function TaskDetail({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
-  let taskDetail = route?.params?.data;
+  let taskDetail = route?.params?.data?.item;
+  let fromHistory = route?.params?.data?.fromHistory;
+
   console.log(taskDetail, 'taskDetail');
+  console.log(fromHistory, 'fromHistory');
+
   const [state, setState] = useState({
     isLoading: false,
     region: {
@@ -361,11 +365,33 @@ export default function TaskDetail({route, navigation}) {
     moveToNewScreen(navigationStrings.TASKCOMPLETEDOCUMENT, {
       taskDetail: taskDetail,
       updatedProofArray: updatedProofArray,
-      findDataToCheck:findDataToCheck
+      findDataToCheck: findDataToCheck,
     })();
     // alert('213');
   };
   const buttonView = () => {
+    if (fromHistory) {
+      return (
+        <View style={styles.container}>
+          <TouchableWithoutFeedback>
+            <View
+              style={[
+                styles.button,
+                {
+                  backgroundColor:
+                    taskDetail?.task_status == '4' ? '#27A468' : colors.redB,
+                },
+              ]}>
+              <Text style={styles.text}>
+                {taskDetail?.task_status == '4'
+                  ? strings.TASKCOMPLTED
+                  : strings.TASKCANCEL}
+              </Text>
+            </View>
+          </TouchableWithoutFeedback>
+        </View>
+      );
+    }
     return (
       <View style={styles.container}>
         <TouchableWithoutFeedback
@@ -582,7 +608,7 @@ export default function TaskDetail({route, navigation}) {
         // onPressLeft={()=>navigation.goBack()}
         centerTitle={strings.TASK}
         customRight={() =>
-          !!(taskStatus != '1') && (
+          !!(taskStatus != '1' && !fromHistory) && (
             <TouchableOpacity onPress={cancelTask}>
               <Text
                 style={{

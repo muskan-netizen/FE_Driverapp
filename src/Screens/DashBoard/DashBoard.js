@@ -207,7 +207,7 @@ export default function DashBoard({route, navigation}) {
 
   const _onPressTask = item => {
     console.log('Here it is', item);
-    moveToNewScreen(navigationStrings.TASKDETAIL, item)();
+    moveToNewScreen(navigationStrings.TASKDETAIL, {item:item,})();
   };
 
   const renderTaskList = ({item, index}) => {

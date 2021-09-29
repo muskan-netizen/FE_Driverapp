@@ -24,6 +24,7 @@ import DatePicker from 'react-native-date-picker';
 import DatePickerModal from '../../Components/DatePickerModal';
 import {TouchableOpacity} from 'react-native';
 import moment from 'moment';
+import navigationStrings from '../../navigation/navigationStrings';
 export default function TaskHistory({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
   console.log(userData, 'userData');
@@ -103,8 +104,8 @@ export default function TaskHistory({route, navigation}) {
     trailing: false,
   });
 
-  const _onPressTask = () => {
-    console.log('Here it is');
+  const _onPressTask = (item) => {
+    moveToNewScreen(navigationStrings.TASKDETAIL, {item:item,fromHistory:true})();
   };
   const renderTaskList = ({item, index}) => {
     return (
@@ -113,7 +114,7 @@ export default function TaskHistory({route, navigation}) {
         index={index}
         allTasks={allTaskInHistory}
         showCurrency={true}
-        onPress={_onPressTask}
+        _onPressTask={() => _onPressTask(item)}
       />
     );
   };

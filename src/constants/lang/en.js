@@ -66,4 +66,6 @@ export default {
   PHOTOIMAGE: 'Photo is required',
   NOTEREQUIRED: 'Note is required',
   QRSCAN: 'QR/ Barcode is required',
+  TASKCANCEL:'Task Cancelled',
+  TASKCOMPLTED:'Task Completed'
 };

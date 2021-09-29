@@ -33,6 +33,7 @@ const window = Dimensions.get('window');
 export default function TaskCompleteDocument({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
   const taskDetail = route?.params?.data?.taskDetail;
+  console.log(taskDetail, 'taskDetail');
   const updatedProofArray = route?.params?.data?.updatedProofArray;
   const findDataToCheck = route?.params?.data?.findDataToCheck;
   const params = route?.params;
@@ -43,11 +44,15 @@ export default function TaskCompleteDocument({route, navigation}) {
     showInputBox: false,
     note: '',
     signatureImage: null,
+    signatureImageName:null,
     image: null,
+    imageName:null,
     qrcode: null,
   });
 
   const {
+    signatureImageName,
+    imageName,
     isLoading,
     image,
     taskProofArray,
@@ -79,6 +84,7 @@ export default function TaskCompleteDocument({route, navigation}) {
     console.log(data, 'saved signature result');
     if (data && data?.encoded) {
       const imageData = data?.encoded;
+    
       const imagePath = `${RNFS.TemporaryDirectoryPath}${Math.random()
         .toString(36)
         .replace(/[^a-z]+/g, '')
@@ -92,9 +98,9 @@ export default function TaskCompleteDocument({route, navigation}) {
             updateState({
               signatureImage: imagePath,
             });
-          setTimeout(() => {
-            unlinkDirectory(imagePath);
-          }, 3000);
+          // setTimeout(() => {
+          //   unlinkDirectory(imagePath);
+          // }, 3000);
         })
         .catch(err => {
           console.log(err, 'error>>>>');
@@ -233,7 +239,6 @@ export default function TaskCompleteDocument({route, navigation}) {
     ) {
       showError(strings.QRSCAN);
     } else {
-      alert('In Progress');
       updateState({isLoading: true});
       updateTaskStatus();
     }
@@ -241,13 +246,32 @@ export default function TaskCompleteDocument({route, navigation}) {
 
   const updateTaskStatus = () => {
     let data = {};
-    data['task_status'] = 4;
-    data['task_id'] = taskDetail?.id;
-    console.log(data, 'updateTaskStatus>>>DATA');
+    let formdata = new FormData();
+    formdata.append('task_status', 4);
+    formdata.append('task_id', taskDetail?.id);
+    if (note != '') {
+      formdata.append('note', note);
+    }
+    if (signatureImage) {
+      formdata.append('signature', {
+        type: 'image/jpeg',
+        uri: signatureImage,
+      });
+    }
+    if (image) {
+      formdata.append('image', {
+        type: 'image/jpeg',
+        uri: image,
+      });
+    }
+    console.log(formdata, 'updateTaskStatus>>>DATA');
 
     updateState({isLoading: true});
     actions
-      .updateTask(data, {client: clientInfo?.database_name})
+      .updateTask(
+        formdata,
+        {client: clientInfo?.database_name,ContentType: 'multipart/form-data'},
+      )
       .then(res => {
         console.log(res, 'updateTaskStatus>res>res');
         updateState({isLoading: false});
@@ -255,6 +279,7 @@ export default function TaskCompleteDocument({route, navigation}) {
           updateState({
             isLoading: false,
           });
+          unlinkDirectory(signatureImage)
           navigation.navigate(navigationStrings.DASHBOARD);
         }
       })
