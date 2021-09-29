@@ -154,15 +154,27 @@ export const checkCameraPermission = () =>
           : PERMISSIONS.ANDROID.CAMERA,
       )
         .then(result => {
+          console.log(result,"result")
           switch (result) {
             case RESULTS.UNAVAILABLE:
-              showError(strings.LOCATION_UNAVAILABLE);
+              // showError(strings.);
+               request(
+                Platform.OS === 'ios'
+                ? PERMISSIONS.IOS.CAMERA
+                : PERMISSIONS.ANDROID.CAMERA,
+              )
+                .then(result => {
+                  return resolve(result);
+                })
+                .catch(error => {
+                  return reject(error);
+                });
               break;
             case RESULTS.DENIED:
               request(
                 Platform.OS === 'ios'
-                  ? PERMISSIONS.IOS.LOCATION_WHEN_IN_USE
-                  : PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION,
+                ? PERMISSIONS.IOS.CAMERA
+                : PERMISSIONS.ANDROID.CAMERA,
               )
                 .then(result => {
                   return resolve(result);
@@ -187,7 +199,7 @@ export const checkCameraPermission = () =>
                 {
                   text: 'Confirm',
                   onPress: () => {
-                    const locationPath = 'LOCATION_SERVICES';
+                    const locationPath = '';
                     openAppSetting(locationPath);
                   },
                 },

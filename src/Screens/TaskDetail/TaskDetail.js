@@ -1,3 +1,4 @@
+import {cloneDeep} from 'lodash';
 import React, {useEffect, useRef, useState} from 'react';
 import {
   Alert,
@@ -93,9 +94,11 @@ export default function TaskDetail({route, navigation}) {
       },
     ],
     updatedProofArray: [],
+    findDataToCheck: null,
   });
 
   const {
+    findDataToCheck,
     updatedProofArray,
     taskProofArray,
     taskStatus,
@@ -115,12 +118,16 @@ export default function TaskDetail({route, navigation}) {
 
   useEffect(() => {
     const findDataToCheck = userData?.task_proof.find(
-      x => (x.id == taskDetail?.task_type_id) == 1,
+      x => x.id == taskDetail?.task_type_id,
     );
+    updateState({
+      findDataToCheck: findDataToCheck,
+    });
     console.log(findDataToCheck, 'findDataToCheck');
+    let newArray = cloneDeep(taskProofArray);
     if (findDataToCheck) {
       updateState({
-        updatedProofArray: taskProofArray
+        updatedProofArray: newArray
           .map(i => {
             if (
               (i?.type == 'signature' && findDataToCheck?.signature) ||
@@ -133,9 +140,6 @@ export default function TaskDetail({route, navigation}) {
           })
           .filter(x => x != null || x != undefined),
       });
-      // updateState({
-
-      // })
     }
   }, [taskDetail]);
 
@@ -354,7 +358,11 @@ export default function TaskDetail({route, navigation}) {
 
   const redirectToDoneScreen = () => {
     console.log(taskDetail, 'TaskDetail');
-    moveToNewScreen(navigationStrings.TASKCOMPLETEDOCUMENT, taskDetail)();
+    moveToNewScreen(navigationStrings.TASKCOMPLETEDOCUMENT, {
+      taskDetail: taskDetail,
+      updatedProofArray: updatedProofArray,
+      findDataToCheck:findDataToCheck
+    })();
     // alert('213');
   };
   const buttonView = () => {

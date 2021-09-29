@@ -38,11 +38,9 @@ export default function Scanner({route, navigation}) {
     navigation.navigate(screenName, {data});
   };
 
-  useEffect(() => {
-    camRef.current.pausePreview();
-  }, []);
   const capture = () => {};
   const barcodeReceived = event => {
+    console.log(event,"event>event>event");
     console.log('Type: ' + event.type + '\nData: ' + event.data);
     if (event && event?.data) {
       if (params && params?.updateBarcodeScan) {
@@ -56,12 +54,8 @@ export default function Scanner({route, navigation}) {
   };
   const camRef = useRef();
 
-  return (
-    <WrapperContainer
-      statusBarColor={colors.white}
-      bgColor={colors.white}
-      isLoading={isLoading}
-      source={loaderOne}>
+  const renderTitleBar = () => {
+    return (
       <Header
         headerStyle={{backgroundColor: colors.white}}
         leftIconStyle={{tintColor: colors.themeColor}}
@@ -70,14 +64,26 @@ export default function Scanner({route, navigation}) {
         customRight={() => (
           <TouchableOpacity>
             <Text style={styles.clear}>{strings.CLEAR}</Text>
+            {/* <Image source={}/> */}
           </TouchableOpacity>
         )}
       />
+    );
+  };
+
+  return (
+    <WrapperContainer
+      statusBarColor={colors.white}
+      bgColor={colors.white}
+      isLoading={isLoading}
+      source={loaderOne}>
       <View style={{...commonStyles.headerTopLine}} />
 
       <View style={{flex: 1}}>
         <QRScannerView
-          ref={camRef}
+          // ref={camRef}
+          torchOn={true}
+          renderHeaderView={renderTitleBar}
           onScanResult={barcodeReceived}
           //   renderHeaderView={this.renderTitleBar}
           renderFooterView={() => (
