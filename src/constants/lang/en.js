@@ -66,6 +66,19 @@ export default {
   PHOTOIMAGE: 'Photo is required',
   NOTEREQUIRED: 'Note is required',
   QRSCAN: 'QR/ Barcode is required',
-  TASKCANCEL:'Task Cancelled',
-  TASKCOMPLTED:'Task Completed'
+  TASKCANCEL: 'Task Cancelled',
+  TASKCOMPLTED: 'Task Completed',
+  SIGNUP: 'Signup',
+  PLATEORDER: 'Plate Number',
+  CAMERA: 'Camera',
+  GALLERY: 'Gallery',
+  EMPLOYEETYPE: 'Employee Type',
+  EMPLOYEE: 'Employee',
+  FREELANCER: 'Freelancer',
+  SELECTTRANSPORTATION: 'Please select transportation type',
+  SELECTEMPLOYEETYPE: 'Please select employee type',
+  PLEASEENTERMODELTYPE:'the model, make type of vehicle',
+  PLEASEENTERCOLOR:'the color of the vehicle',
+  PLEASEENTERPLATENUMBER:'the plate number of the vehicle',
+  SETIMAGE:'Please add one profile image'
 };

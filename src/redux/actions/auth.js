@@ -1,4 +1,4 @@
-import {LOGIN_API, LOGOUT_API,SEND_OTP} from '../../config/urls';
+import {LOGIN_API, LOGOUT_API,SEND_OTP, SIGNUP_API} from '../../config/urls';
 import {apiGet, apiPost, setUserData} from '../../utils/utils';
 import store from '../store';
 import types from '../types';
@@ -15,6 +15,19 @@ export function login(data = {}, headers = {}) {
   console.log(data, 'login>data>data>data');
   return new Promise((resolve, reject) => {
     apiPost(LOGIN_API, data, headers)
+      .then(async res => {
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+}
+
+export function signUp(data = {}, headers = {}) {
+  console.log(data, 'login>data>data>data');
+  return new Promise((resolve, reject) => {
+    apiPost(SIGNUP_API, data, headers)
       .then(async res => {
         resolve(res);
       })

@@ -22,15 +22,18 @@ const TaskListCard = ({
   index = null,
   _onPressTask = () => {},
   showCurrency = false,
+  previousData = null,
 }) => {
-  let dueDate = new Date(data?.order?.order_time).toUTCString();
-  //console.log(dueDate, 'dueDate');
-
-  var date = new Date(dueDate + ' UTC');
-  //console.log(date, 'date');
-
-  var getMilliseconds = new Date(data?.order?.order_time).getTime();
-  //console.log(getMilliseconds, 'getMilliseconds');
+  //Get Date
+  console.log(data?.order?.order_time,"data?.order?.order_time");
+  const getDate = () => {
+    // console.log(data?.order?.order_time,"data?.order?.order_time");
+    let dueDate = new Date(data?.order?.order_time).toUTCString();
+    console.log(dueDate, 'dueDate');
+    // return dueDate.toLocaleString('en-US');
+    // return moment(dueDate).format('MM/DD/YYYY HH:mm');
+    return null;
+  };
 
   //get BackGroundColor
   const getBackGroudColor = name => {
@@ -65,73 +68,106 @@ const TaskListCard = ({
     }
   };
 
-  const getRandomColor = () => {
+  /****GET DYNAMIC VALUES */
+  const getDynamicUpdateOnValues = () => {
     var colorData = colorArray;
-    return colorData[allTasks.indexOf(data) % colorData.length];
+
+    if (data?.order_id == previousData?.order_id) {
+      data['backgroundColor'] = previousData?.backgroundColor;
+      data['blur'] = 0.5;
+      data['click'] = true;
+      allTasks[allTasks.indexOf(data)] = data;
+      return {
+        backgroundColor: data?.backgroundColor,
+        blur: data?.blur,
+        click: data?.click,
+      };
+    } else {
+      data['backgroundColor'] =
+        colorData[allTasks.indexOf(data) % colorData.length];
+      data['blur'] = 1;
+      data['click'] = false;
+      allTasks[allTasks.indexOf(data)] = data;
+      return {
+        backgroundColor: data?.backgroundColor,
+        blur: data?.blur,
+        click: data?.click,
+      };
+      // return colorData[allTasks.indexOf(data) % colorData.length];
+    }
   };
 
   return (
-    <TouchableOpacity style={styles.shadowStyle} onPress={_onPressTask}>
-      <View style={[styles.borderLine, {backgroundColor: getRandomColor()}]} />
+    <TouchableOpacity
+      disabled={getDynamicUpdateOnValues().click}
+      onPress={_onPressTask}>
       <View
-        style={{
-          flex: 0.6,
-          justifyContent: 'center',
-          marginVertical: moderateScale(10),
-          marginLeft: moderateScale(10),
-        }}>
-        <Text style={styles.address} numberOfLines={2}>
-          {data?.location?.address}
-        </Text>
-        <View style={{flexDirection: 'row', marginTop: moderateScale(10)}}>
-          <Image source={imagePath.time} />
-          <Text style={styles.dateTimeStyle}>
-            {moment(date).format('MM/DD/YYYY HH:mm')}
-          </Text>
-        </View>
-
-        {!!showCurrency && (
-          <View style={{flexDirection: 'row', marginTop: moderateScale(5)}}>
-            <Image source={imagePath.dollor} />
-            <Text style={styles.dateTimeStyle}>
-              {data?.order?.amount
-                ? Number(data?.order?.amount).toFixed(2)
-                : Number(0).toFixed(2)}
-            </Text>
-          </View>
-        )}
-      </View>
-      <View
-        style={{
-          flex: 0.4,
-          alignItems: 'flex-end',
-          justifyContent: 'center',
-          margin: moderateScale(10),
-        }}>
-        <View
-          style={{
-            backgroundColor: colors.redB,
-            height: moderateScale(10),
-            width: moderateScale(10),
-            borderRadius: moderateScale(10 / 2),
-          }}
-        />
+        opacity={getDynamicUpdateOnValues().blur}
+        style={[styles.shadowStyle]}>
         <View
           style={[
-            styles.statusView,
-            {
-              backgroundColor: getBackGroudColor(data?.tasktype?.name),
-            },
-          ]}>
-          <Text
-            style={{
-              color: getTextColor(data?.tasktype?.name),
-              textAlign: 'center',
-              fontFamily: fontFamily.medium,
-              fontSize: textScale(10),
-            }}>
-            {data?.tasktype?.name}
+            styles.borderLine,
+            {backgroundColor: getDynamicUpdateOnValues().backgroundColor},
+          ]}
+        />
+        <View
+          style={{
+            flex: 0.6,
+            justifyContent: 'center',
+            marginVertical: moderateScale(10),
+            marginLeft: moderateScale(10),
+          }}>
+          <Text style={styles.address} numberOfLines={2}>
+            {data?.location?.address}
           </Text>
+          <View style={{flexDirection: 'row', marginTop: moderateScale(10)}}>
+            <Image source={imagePath.time} />
+            <Text style={styles.dateTimeStyle}>{getDate()}</Text>
+          </View>
+
+          {!!showCurrency && (
+            <View style={{flexDirection: 'row', marginTop: moderateScale(5)}}>
+              <Image source={imagePath.dollor} />
+              <Text style={styles.dateTimeStyle}>
+                {data?.order?.amount
+                  ? Number(data?.order?.amount).toFixed(2)
+                  : Number(0).toFixed(2)}
+              </Text>
+            </View>
+          )}
+        </View>
+        <View
+          style={{
+            flex: 0.4,
+            alignItems: 'flex-end',
+            justifyContent: 'center',
+            margin: moderateScale(10),
+          }}>
+          <View
+            style={{
+              backgroundColor: colors.redB,
+              height: moderateScale(10),
+              width: moderateScale(10),
+              borderRadius: moderateScale(10 / 2),
+            }}
+          />
+          <View
+            style={[
+              styles.statusView,
+              {
+                backgroundColor: getBackGroudColor(data?.tasktype?.name),
+              },
+            ]}>
+            <Text
+              style={{
+                color: getTextColor(data?.tasktype?.name),
+                textAlign: 'center',
+                fontFamily: fontFamily.medium,
+                fontSize: textScale(10),
+              }}>
+              {data?.tasktype?.name}
+            </Text>
+          </View>
         </View>
       </View>
     </TouchableOpacity>
@@ -152,9 +188,9 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginHorizontal: moderateScale(10),
     borderColor: colors.grey2,
-    backgroundColor: colors.white,
     borderRadius: 8,
     marginVertical: 5,
+    backgroundColor: colors.white,
     height: moderateScaleVertical(100),
     ...generateBoxShadowStyle(-2, 4, '#171717', 0.2, 3, 4, '#171717'),
   },

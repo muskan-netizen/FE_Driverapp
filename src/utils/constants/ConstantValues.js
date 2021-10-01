@@ -1,4 +1,5 @@
 import imagePath from "../../constants/imagePath";
+import strings from "../../constants/lang";
 
 const colorArray = [
   '#FF7E79',
@@ -37,5 +38,14 @@ const transportationArray=[
   },
   
 ]
+const employeetypeArray = [
+  {id: 1, activeIcon: imagePath.redioSelectedButton, inactiveIcon: imagePath.redioUnSelectedButton,typeName:strings.EMPLOYEE},
+  {
+    id: 2,
+    activeIcon: imagePath.redioSelectedButton,
+    inactiveIcon: imagePath.redioUnSelectedButton,
+    typeName:strings.FREELANCER
+  },
+]
 
-export {colorArray,transportationArray};
+export {colorArray,transportationArray,employeetypeArray};

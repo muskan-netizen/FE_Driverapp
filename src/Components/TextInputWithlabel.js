@@ -30,6 +30,7 @@ const TextInputWithlabel = ({
   secureTextEntry = false,
   label = '',
   labelStyle = {},
+  editable = false,
   ...props
 }) => {
   const inputRef = useRef();
@@ -52,7 +53,7 @@ const TextInputWithlabel = ({
           ...containerStyle,
         }}>
         <TextInput
-        editable={false}
+          editable={editable}
           selectionColor={colors.black}
           placeholder={placeholder}
           placeholderTextColor={colors.textGreyB}

@@ -54,9 +54,9 @@ export default {
   details:require('../assets/images/ic_details.png'),
   task:require('../assets/images/ic_task.png'),
   task_green_tik:require('../assets/images/ic_tick.png'),
-
-  
-
+  blue_tik:require('../assets/images/ic_tick2.png'),
+  redioUnSelectedButton:require('../assets/images/ic_radiobutton.png'),
+  redioSelectedButton:require('../assets/images/ic_radiocheck.png'),
   
   
 };

@@ -10,4 +10,5 @@ export {default as TaskCancel} from './TaskCancel/TaskCancel';
 export {default as TaskCompleteDocument} from './TaskCompleteDocument/TaskCompleteDocument';
 export {default as AddSignature} from './AddSignature/AddSignature';
 export {default as Scanner} from './Scanner/Scanner';
+export {default as Signup} from './Auth/Signup/Signup';
 

@@ -1,9 +1,11 @@
-export const API_BASE_URL = 'https://api.royodispatch.com/api';
+// export const API_BASE_URL = 'https://api.royodispatch.com/api';
+export const API_BASE_URL = 'https://api.rdstaging.com/api';
 
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;
 
 export const SEND_OTP = getApiUrl('/auth/login');
 export const LOGIN_API = getApiUrl('/auth/sendOtp');
+export const SIGNUP_API = getApiUrl('/auth/signup');
 export const LOGOUT_API = getApiUrl('/auth/logout');
 
 // export const SIGN_UP_API = getApiUrl('/auth/register');
@@ -17,5 +19,5 @@ export const UPDATEONOFFDUTYSTATUS = getApiUrl('/updateStatus');
 export const UPDATETASKSTATUS = getApiUrl('/updateTaskStatus');
 
 //Logs
-export const LOGSAPI = getApiUrl('/logs');
+export const LOGSAPI = getApiUrl('/agent/logs');
 

@@ -121,6 +121,16 @@ export default ({themeColors}) => {
       fontFamily: fontFamily.medium,
       color: colors.black,
     },
+    signUpView:{
+      justifyContent: 'center',
+      alignItems: 'center',
+      paddingTop: moderateScaleVertical(10),
+    },
+    signUpText:{
+      color: colors.themeColor,
+      fontFamily: fontFamily.bold,
+      fontSize: textScale(12),
+    }
   });
   return styles;
 };

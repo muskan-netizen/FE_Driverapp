@@ -2,7 +2,7 @@ import validator from 'is_js';
 import strings from '../constants/lang';
 const checkEmpty = (val, key) => {
   if (validator.empty(val.trim())) {
-    return `Please Enter ${key}`;
+    return `Please enter ${key}`;
   } else {
     return '';
   }
@@ -34,6 +34,9 @@ export default function (data) {
     pincode,
     states,
     country,
+    modelMake,
+    vehicleColor,
+    vehiclePlateNumber,
   } = data;
 
   if (username !== undefined) {
@@ -62,6 +65,30 @@ export default function (data) {
 
   if (address !== undefined) {
     let emptyValidationText = checkEmpty(address, strings.ENTER_NEW_ADDRESS);
+    if (emptyValidationText !== '') {
+      return emptyValidationText;
+    }
+  }
+  if (modelMake !== undefined) {
+    let emptyValidationText = checkEmpty(modelMake, strings.PLEASEENTERMODELTYPE);
+    if (emptyValidationText !== '') {
+      return emptyValidationText;
+    }
+  }
+  if (vehicleColor !== undefined) {
+    let emptyValidationText = checkEmpty(
+      vehicleColor,
+      strings.PLEASEENTERCOLOR,
+    );
+    if (emptyValidationText !== '') {
+      return emptyValidationText;
+    }
+  }
+  if (vehiclePlateNumber !== undefined) {
+    let emptyValidationText = checkEmpty(
+      vehiclePlateNumber,
+      strings.PLEASEENTERPLATENUMBER,
+    );
     if (emptyValidationText !== '') {
       return emptyValidationText;
     }

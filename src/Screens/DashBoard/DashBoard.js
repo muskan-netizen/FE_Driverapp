@@ -29,7 +29,7 @@ import {Platform} from 'react-native';
 
 export default function DashBoard({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
-
+  // console.log(userData, 'userData');
   const [state, setState] = useState({
     isLoading: false,
     isEnabled: true,
@@ -77,40 +77,36 @@ export default function DashBoard({route, navigation}) {
   } = state;
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
 
-  // useInterval(() => {
-  //   let data = {};
-  //   data['device_type'] = Platform.OS;
-  //   data['os_version'] = DeviceInfo.getSystemVersion();
-  //   data['app_version'] = DeviceInfo.getVersion();
-  //   data['on_route'] = 'y';
-  //   data['battery_level'] = DeviceInfo.getBatteryLevel().then(batteryLevel => {
-  //     // 0.759999
-  //     console.log(batteryLevel, 'batteryLevel');
-  //     return batteryLevel;
-  //   });
-
-  //   console.log(data, 'data');
-  //   actions
-  //     .logsApi({}, {client: clientInfo?.database_name})
-  //     .then(res => {
-  //       console.log(res, 'res>res');
-  //     })
-  //     .catch(errorMethod);
-  //   console.log('Hello after every 3 seconds');
-  // }, null);
-
-  useEffect(() => {
-    (async () => {
-      let data = {};
-      data['device_type'] = Platform.OS;
-      data['os_version'] = DeviceInfo.getSystemVersion();
-      data['app_version'] = DeviceInfo.getVersion();
-      data['on_route'] = 'y';
-      data['battery_level'] = (await DeviceInfo.getBatteryLevel()) * 100;
-
-      console.log(data, 'data>data');
-    })();
-  });
+  useInterval(
+    () => {
+      (async () => {
+        let data = {};
+        data['device_type'] = Platform.OS;
+        data['os_version'] = DeviceInfo.getSystemVersion();
+        data['app_version'] = DeviceInfo.getVersion();
+        data['on_route'] = 'y';
+        data['battery_level'] = (await DeviceInfo.getBatteryLevel()) * 100;
+        data['all'] = initial;
+        // data['current_speed'] = 'y';
+        // data['long'] = initial;
+        // data['lat'] = initial;
+        console.log(data, 'data>data');
+        //   console.log(data, 'data');
+        actions
+          .logsApi(data, {client: clientInfo?.database_name})
+          .then(res => {
+            console.log(userData, 'userData');
+            console.log(res, 'log api response');
+          })
+          .catch(errorMethod);
+      })();
+    },
+    userData && userData?.access_token
+      ? userData?.team?.location_frequency
+        ? Number(userData?.team?.location_frequency) * 60000
+        : 60000
+      : null,
+  );
 
   useFocusEffect(
     React.useCallback(() => {
@@ -218,7 +214,7 @@ export default function DashBoard({route, navigation}) {
         <Switch
           trackColor={{false: colors.backGround, true: colors.themeColor}}
           thumbColor={colors.white}
-          // ios_backgroundColor="#3e3e3e"
+          // ios_backgroundColor=#3e3e3e"
           onValueChange={toggleSwitch}
           value={isEnabled}
         />
@@ -245,11 +241,13 @@ export default function DashBoard({route, navigation}) {
   };
 
   const renderTaskList = ({item, index}) => {
+    let allData = selectedOption ? allTasks : todaysTasks;
     return (
       <TaskListCard
         data={item}
         index={index}
-        allTasks={selectedOption ? allTasks : todaysTasks}
+        previousData={index > 0 ? allData[index - 1] : null}
+        allTasks={allData}
         _onPressTask={() => _onPressTask(item)}
       />
     );

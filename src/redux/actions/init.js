@@ -6,6 +6,7 @@ import {
   apiPost,
   saveShortCodeData,
   setClientInfo,
+  setUserData,
 } from '../../utils/utils';
 import {
   APP_INITIAL_SETTINGS,
@@ -62,14 +63,23 @@ export function saveShortCode(data = {}) {
   });
 }
 
+export const saveUserData = data => {
+  dispatch({
+    type: types.LOGIN,
+    payload: data,
+  });
+};
+
 //Logs api hitting after  some  frequent interval
 
-//Save your short code
 export function logsApi(data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
     apiPost(LOGSAPI, data, headers)
       .then(res => {
-        resolve(res);
+        setUserData(res?.data?.user).then(suc => {
+          saveUserData(res?.data?.user);
+          resolve(res);
+        });
       })
       .catch(error => {
         reject(error);

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Login, PhoneVerification, Webview} from '../Screens';
+import {Login, PhoneVerification, Signup, Webview} from '../Screens';
 import navigationStrings from './navigationStrings';
 
 export default function (Stack) {
@@ -8,6 +8,11 @@ export default function (Stack) {
       <Stack.Screen
         name={navigationStrings.LOGIN}
         component={Login}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name={navigationStrings.SIGN_UP}
+        component={Signup}
         options={{headerShown: false}}
       />
       <Stack.Screen

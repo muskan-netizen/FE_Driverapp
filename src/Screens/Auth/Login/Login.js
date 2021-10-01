@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Platform, View, Image, Text} from 'react-native';
-import DeviceInfo, { getBundleId } from 'react-native-device-info';
+import DeviceInfo, {getBundleId} from 'react-native-device-info';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {useSelector} from 'react-redux';
 import GradientButton from '../../../Components/GradientButton';
@@ -22,8 +22,9 @@ import validator from '../../../utils/validations';
 import stylesFunc from './styles';
 import PhoneNumberInput from '../../../Components/PhoneNumberInput';
 import ScaledImage from 'react-native-scalable-image';
-import { appIds } from '../../../utils/constants/DynamicAppKeys';
+import {appIds} from '../../../utils/constants/DynamicAppKeys';
 import Header from '../../../Components/Header';
+import {TouchableOpacity} from 'react-native';
 
 export default function Login({navigation, route}) {
   const paramData = route?.params?.data;
@@ -40,8 +41,6 @@ export default function Login({navigation, route}) {
       : 'IN',
     phoneNumber: '8006066235',
   });
-
-  
 
   const {themeColors} = useSelector(state => state?.initBoot);
   //   const fontFamily = appStyle?.fontSizeData;
@@ -62,17 +61,16 @@ export default function Login({navigation, route}) {
     updateState({[key]: val});
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     updateState({
       callingCode: clientInfo?.get_country_set?.phonecode
-      ? clientInfo?.get_country_set?.phonecode
-      : '91',
-    cca2: clientInfo?.get_country_set?.code
-      ? clientInfo?.get_country_set?.code
-      : 'IN',
-    })
-
-  },[clientInfo])
+        ? clientInfo?.get_country_set?.phonecode
+        : '91',
+      cca2: clientInfo?.get_country_set?.code
+        ? clientInfo?.get_country_set?.code
+        : 'IN',
+    });
+  }, [clientInfo]);
 
   //Validate form
   const isValidData = () => {
@@ -83,8 +81,6 @@ export default function Login({navigation, route}) {
     }
     return true;
   };
-
-
 
   //Login api fucntion
   const _onLogin = () => {
@@ -120,6 +116,9 @@ export default function Login({navigation, route}) {
     return;
   };
 
+  const _signUp = () => {
+    navigation.navigate(navigationStrings.SIGN_UP);
+  };
   return (
     <WrapperContainer
       isLoadingB={isLoading}
@@ -186,6 +185,9 @@ export default function Login({navigation, route}) {
               colorsArray={[colors.themeColor, colors.themeColor]}
             />
 
+            <TouchableOpacity onPress={_signUp} style={styles.signUpView}>
+              <Text style={styles.signUpText}>{strings.SIGNUP}</Text>
+            </TouchableOpacity>
             <View
               style={{
                 marginTop: moderateScaleVertical(20),
