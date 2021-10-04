@@ -16,6 +16,7 @@ import moment from 'moment';
 import generateBoxShadowStyle from './generateBoxShadowStyle';
 import {getColorCodeWithOpactiyNumber} from '../utils/helperFunctions';
 import {colorArray} from '../utils/constants/ConstantValues';
+import { format } from 'date-fns'
 const TaskListCard = ({
   data = {},
   allTasks = [],
@@ -23,16 +24,14 @@ const TaskListCard = ({
   _onPressTask = () => {},
   showCurrency = false,
   previousData = null,
+  dueDate = moment().format('MM/DD/YYYY hh:mm'),
 }) => {
   //Get Date
-  console.log(data?.order?.order_time,"data?.order?.order_time");
+
   const getDate = () => {
-    // console.log(data?.order?.order_time,"data?.order?.order_time");
-    let dueDate = new Date(data?.order?.order_time).toUTCString();
-    console.log(dueDate, 'dueDate');
-    return dueDate.toLocaleString('en-US');
-    // return moment(dueDate).format('MM/DD/YYYY HH:mm');
-    // return null;
+    let dueDate = new Date(data?.order?.order_time + ' UTC');
+    // return format(new Date(dueDate), 'mm/dd/yyyy hh:mm')
+    return moment(new Date(dueDate)).format('MM/DD/YYYY hh:mm');
   };
 
   //get BackGroundColor
@@ -96,11 +95,10 @@ const TaskListCard = ({
       // return colorData[allTasks.indexOf(data) % colorData.length];
     }
   };
-  
 
   return (
     <TouchableOpacity
-    activeOpacity={1}
+      activeOpacity={1}
       disabled={getDynamicUpdateOnValues().click}
       onPress={_onPressTask}>
       <View

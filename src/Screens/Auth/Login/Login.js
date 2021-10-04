@@ -90,6 +90,7 @@ export default function Login({navigation, route}) {
     }
     let data = {};
     data['phone_number'] = `+${callingCode}${phoneNumber}`;
+
     updateState({isLoading: true});
     actions
       .login(data, {client: clientInfo?.database_name})

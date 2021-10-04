@@ -26,6 +26,8 @@ import {TouchableOpacity} from 'react-native';
 import {useFocusEffect} from '@react-navigation/native';
 import useInterval from '../../utils/useInterval';
 import {Platform} from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import moment from 'moment';
 
 export default function DashBoard({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
@@ -58,6 +60,8 @@ export default function DashBoard({route, navigation}) {
     enableMap: false,
     markers: [],
     isLoadingSwitch: false,
+    fcm_token: null,
+    statusChanged: false,
   });
   const {
     region,
@@ -74,8 +78,17 @@ export default function DashBoard({route, navigation}) {
     enableMap,
     markers,
     isLoadingSwitch,
+    fcm_token,
+    statusChanged,
   } = state;
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
+
+  useEffect(() => {
+    (async () => {
+      updateState({fcm_token: await AsyncStorage.getItem('fcmToken')});
+    })();
+    return () => {};
+  }, []);
 
   useInterval(
     () => {
@@ -153,12 +166,13 @@ export default function DashBoard({route, navigation}) {
   //Error handling in api
   const errorMethod = error => {
     console.log(error, 'error');
-    updateState({
-      isLoading: false,
-      isRefreshing: false,
-      isLoading: false,
-      isLoadingSwitch: false,
-    });
+    // updateState({
+    //   isLoading: false,
+    //   isRefreshing: false,
+    //   isLoading: false,
+    //   isLoadingSwitch: false,
+    //   statusChanged: false,
+    // });
     showError(error?.message || error?.error);
   };
 
@@ -172,11 +186,9 @@ export default function DashBoard({route, navigation}) {
   };
 
   const onOffDuty = () => {
-    // alert('213');
-    updateState({isLoadingSwitch: true});
     actions
       .onOffDuty(
-        `?device_token=${DeviceInfo.getUniqueId()}`,
+        `?device_token=${fcm_token}`,
         {},
         {client: clientInfo?.database_name},
       )
@@ -184,7 +196,7 @@ export default function DashBoard({route, navigation}) {
         console.log(res, 'onOffDuty>res>res');
         updateState({isLoadingSwitch: false});
         if (res?.data) {
-          // updateState({isEnabled: res?.data?.is_available});
+          updateState({statusChanged: false});
           let updatedUserData = {...userData};
           updatedUserData['is_available'] = res?.data?.is_available;
           actions.updataeUserData(updatedUserData);
@@ -194,13 +206,15 @@ export default function DashBoard({route, navigation}) {
   };
 
   const toggleSwitch = () => {
-    updateState({isEnabled: !isEnabled});
+    updateState({
+      statusChanged: true,
+      isEnabled: !isEnabled,
+      isLoadingSwitch: true,
+    });
+    setTimeout(() => {
+      onOffDuty();
+    }, 500);
   };
-
-  //OFF DUTY CALL ON STATE UPDATE
-  useEffect(() => {
-    onOffDuty();
-  }, [isEnabled]);
 
   const updateContent = value => {
     updateState({initial: value, isLoading: true});
@@ -242,6 +256,10 @@ export default function DashBoard({route, navigation}) {
 
   const renderTaskList = ({item, index}) => {
     let allData = selectedOption ? allTasks : todaysTasks;
+
+    let dueDate = new Date(item?.order?.order_time + ' UTC');
+    dueDate = moment(dueDate,"MM/DD/YYYY").format('MM/DD/YYYY hh:mm');
+
     return (
       <TaskListCard
         data={item}
@@ -249,6 +267,7 @@ export default function DashBoard({route, navigation}) {
         previousData={index > 0 ? allData[index - 1] : null}
         allTasks={allData}
         _onPressTask={() => _onPressTask(item)}
+        dueDate={dueDate}
       />
     );
   };
@@ -345,25 +364,27 @@ export default function DashBoard({route, navigation}) {
 
   const offDutyView = () => {
     return (
-      <>
+      <View style={{flex: 1}}>
         <ListEmptyComponent
-          isLoading={isLoading}
+          isLoading={isLoadingSwitch}
           message={strings.OFFDUTY}
           subMessage={strings.OFFDUTYMESSAGE}
           containerStyle={{backgroundColor: colors.backGround}}
           image={imagePath?.offDuty}
         />
-      </>
+      </View>
     );
   };
 
   const mapRef = useRef();
 
   const fitPadding = newArray => {
-    mapRef.current.fitToCoordinates(newArray, {
-      edgePadding: {top: 40, right: 40, bottom: 40, left: 40},
-      animated: true,
-    });
+    if (mapRef.current) {
+      mapRef.current.fitToCoordinates(newArray, {
+        edgePadding: {top: 40, right: 40, bottom: 40, left: 40},
+        animated: true,
+      });
+    }
   };
 
   const mapView = () => {
@@ -406,6 +427,23 @@ export default function DashBoard({route, navigation}) {
     );
   };
 
+  const renderComponents = () => {
+    switch (isEnabled) {
+      case true:
+        if (enableMap) {
+          console.log(enableMap, 'enableMap>enableMap');
+          return mapView();
+        } else {
+          return homeMainView();
+        }
+        break;
+
+      default:
+        return offDutyView();
+        break;
+    }
+  };
+
   return (
     <WrapperContainer
       statusBarColor={colors.white}
@@ -444,7 +482,9 @@ export default function DashBoard({route, navigation}) {
           <View style={{height: 35}} />
         )}
       </View>
-      {isEnabled ? (enableMap ? mapView() : homeMainView()) : offDutyView()}
+      <View style={{flex: 1}}>{renderComponents()}</View>
+
+      {/* {isEnabled ? (enableMap ? mapView() : homeMainView()) : offDutyView()} */}
     </WrapperContainer>
   );
 }

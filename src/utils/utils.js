@@ -91,7 +91,7 @@ export async function apiReq(
       ...getTokenHeader,
       ...headers,
     };
-    console.log(headers,"headers");
+    
     
     if (method === 'get' || method === 'delete') {
       data = {
@@ -100,7 +100,7 @@ export async function apiReq(
         headers,
       };
     }
-    console.log(headers,"headers");
+    
 
     axios[method](endPoint, data, {headers})
       .then(result => {

@@ -24,6 +24,8 @@ import PhoneNumberInput from '../../../Components/PhoneNumberInput';
 import Header from '../../../Components/Header';
 import SmoothPinCodeInput from 'react-native-smooth-pincode-input';
 import fontFamily from '../../../styles/fontFamily';
+import {getItem} from '../../../utils/utils';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function PhoneVerification({navigation, route}) {
   const paramData = route?.params?.data;
@@ -36,6 +38,7 @@ export default function PhoneVerification({navigation, route}) {
     otp: '87124',
     otpToShow: '',
     otpPrefilled: false,
+    fcm_token: null,
   });
 
   const {
@@ -46,6 +49,7 @@ export default function PhoneVerification({navigation, route}) {
     otp,
     otpToShow,
     otpPrefilled,
+    fcm_token,
   } = state;
   //   const fontFamily = appStyle?.fontSizeData;
   const {themeColors} = useSelector(state => state?.initBoot);
@@ -75,6 +79,12 @@ export default function PhoneVerification({navigation, route}) {
     }
     return true;
   };
+  useEffect(() => {
+    (async () => {
+      updateState({fcm_token: await AsyncStorage.getItem('fcmToken')});
+    })();
+    return () => {};
+  }, []);
 
   useEffect(() => {
     if (otp && otpPrefilled) {
@@ -103,9 +113,9 @@ export default function PhoneVerification({navigation, route}) {
     let data = {};
     data['phone_number'] = `${paramData?.phone_number}`;
     data['otp'] = otp;
-    data['device_token'] = DeviceInfo.getUniqueId();
+    data['device_token'] = fcm_token;
     data['device_type'] = Platform.OS;
-
+    console.log(data, 'data>data>data');
     updateState({isLoading: true});
     actions
       .verifyAccount(data, {client: clientInfo?.database_name})

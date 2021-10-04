@@ -14,9 +14,19 @@ import {moderateScaleVertical, width} from './src/styles/responsiveSize';
 import types from './src/redux/types';
 import {getItem, getUserData} from './src/utils/utils';
 import useInterval from './src/utils/useInterval';
+import {
+  notificationListener,
+  requestUserPermission,
+} from './src/utils/notificationServices';
+import ShowNotificationForeground from './src/utils/ShowNotificationForeground';
 
 const App = () => {
   const [internetConnection, setInternet] = useState(true);
+
+  const notificationConfig = () => {
+    requestUserPermission();
+    notificationListener();
+  };
 
   useEffect(() => {
     (async () => {
@@ -24,6 +34,8 @@ const App = () => {
 
       const userData = await getUserData();
       console.log(userData, 'userData');
+      notificationConfig();
+
       if (userData && !!userData?.access_token) {
         dispatch({
           type: types.LOGIN,
@@ -51,11 +63,10 @@ const App = () => {
     return () => removeNetInfoSubscription();
   }, []);
 
-  
-
   return (
     <SafeAreaProvider>
       <Provider store={store}>
+        <ShowNotificationForeground />
         <Routes />
       </Provider>
       <Container
