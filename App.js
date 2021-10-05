@@ -24,7 +24,7 @@ const App = () => {
   const [internetConnection, setInternet] = useState(true);
 
   const notificationConfig = () => {
-    requestUserPermission();
+    // requestUserPermission();
     notificationListener();
   };
 
@@ -34,8 +34,9 @@ const App = () => {
 
       const userData = await getUserData();
       console.log(userData, 'userData');
-      notificationConfig();
-
+      if (userData && !!userData?.access_token) {
+        notificationConfig();
+      }
       if (userData && !!userData?.access_token) {
         dispatch({
           type: types.LOGIN,

@@ -23,6 +23,7 @@ import {useSelector} from 'react-redux';
 import {appIds, shortCodes} from '../../utils/constants/DynamicAppKeys';
 import {getBundleId} from 'react-native-device-info';
 import {getItem} from '../../utils/utils';
+import { requestUserPermission } from '../../utils/notificationServices';
 
 export default function ShortCode({route, navigation}) {
   const shortCodeParam = route?.params?.shortCodeParam;
@@ -55,6 +56,9 @@ export default function ShortCode({route, navigation}) {
     navigation.navigate(screenName, {data});
   };
 
+  useEffect(()=>{
+    requestUserPermission();
+  },[])
   useEffect(() => {
     (async () => {
       const saveShortCode = await getItem('saveShortCode');

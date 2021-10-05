@@ -79,11 +79,10 @@ export default function PhoneVerification({navigation, route}) {
     }
     return true;
   };
-  useEffect(() => {
-    (async () => {
-      updateState({fcm_token: await AsyncStorage.getItem('fcmToken')});
-    })();
-    return () => {};
+  useEffect(async () => {
+    let token = await AsyncStorage.getItem('fcmToken');
+    console.log(token, 'token>token>token');
+    updateState({fcm_token: token});
   }, []);
 
   useEffect(() => {

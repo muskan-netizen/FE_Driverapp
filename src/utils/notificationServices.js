@@ -65,7 +65,7 @@ export const notificationListener = async () => {
         channelId: 'sound-channel-id', // (required)
         channelName: `Sound channel 2`, // (required)
         channelDescription: 'A sound channel 2', // (optional) default: undefined.
-        soundName: 'notification.wav', // (optional) See `soundName` parameter of `localNotification` function
+        soundName: 'notification.mp3', // (optional) See `soundName` parameter of `localNotification` function
         importance: Importance.HIGH, // (optional) default: Importance.HIGH. Int value of the Android notification importance
         vibrate: true, // (optional) default: true. Creates the default vibration pattern if true.
       },
