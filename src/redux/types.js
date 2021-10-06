@@ -29,6 +29,7 @@ export default {
     THEME: 'theme',
     THEME_TOGGLE: 'toggle',
     UPDATEUSER:'Updateuser',
-    SAVE_SHORT_CODE:'SAVE_SHORT_CODE'
+    SAVE_SHORT_CODE:'SAVE_SHORT_CODE',
+    MODAL_VISIBLE_ACCEPT_REJECT:'MODAL_VISIBLE_ACCEPT_REJECT'
   };
   

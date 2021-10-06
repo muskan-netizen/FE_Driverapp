@@ -3,6 +3,7 @@ import {Platform} from 'react-native';
 import PushNotificationIOS from '@react-native-community/push-notification-ios';
 import messaging from '@react-native-firebase/messaging';
 import PushNotification from 'react-native-push-notification';
+import actions from '../redux/actions';
 
 const ShowNotificationForeground = props => {
   useEffect(() => {
@@ -27,31 +28,25 @@ const ShowNotificationForeground = props => {
               playSound: true,
             });
       }
-
-      PushNotification.configure({
-        // This is hit in the following cases:
-        // Android - Notification clicked while app is in any state
-        // IOS - Any notification action (click, action, etc)
-        onNotification: message => {
-          console.log('Notification Received');
-          console.log(message);
-          // This basically just makes sure that the app is already loaded
-          // (Initial notifications are handled later on)
-          //
-          message.finish(PushNotificationIOS.FetchResult.NoData);
-        },
-        onAction: message => {
-          switch (
-            message.data.type
-            //
-          ) {
-          }
-        },
-      });
+      if (
+        Platform.OS == 'android' &&
+        notification.android.sound == 'notification'
+      ) {
+        actions.isModalVisibleForAcceptReject({
+          isModalVisibleForAcceptReject: true,
+          notificationData: remoteMessage,
+        });
+      }
+      if (Platform.OS == 'ios' && notification.sound == 'notification.mp3') {
+        console.log('here>>3');
+        actions.isModalVisibleForAcceptReject({
+          isModalVisibleForAcceptReject: true,
+          notificationData: remoteMessage,
+        });
+      }
     });
     return unsubscribe;
   }, []);
-
   return null;
 };
 

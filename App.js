@@ -19,6 +19,7 @@ import {
   requestUserPermission,
 } from './src/utils/notificationServices';
 import ShowNotificationForeground from './src/utils/ShowNotificationForeground';
+import NotificationModal from './src/Components/NotificationModal';
 
 const App = () => {
   const [internetConnection, setInternet] = useState(true);
@@ -69,6 +70,7 @@ const App = () => {
       <Provider store={store}>
         <ShowNotificationForeground />
         <Routes />
+        <NotificationModal />
       </Provider>
       <Container
         width={width - 20}

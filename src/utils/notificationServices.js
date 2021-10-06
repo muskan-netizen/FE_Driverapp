@@ -1,6 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import messaging from '@react-native-firebase/messaging';
 import PushNotification, {Importance} from 'react-native-push-notification';
+import actions from '../redux/actions';
 
 export async function requestUserPermission() {
   if (Platform.OS === 'ios') {
@@ -80,6 +81,14 @@ export const notificationListener = async () => {
       'Notification caused app to open from background state bla bla:',
       remoteMessage,
     );
+    const {notification} = remoteMessage;
+    if (notification?.sound == 'notification.mp3') {
+      console.log('here>>1');
+      actions.isModalVisibleForAcceptReject({
+        isModalVisibleForAcceptReject: true,
+        notificationData: remoteMessage,
+      });
+    }
   });
 
   //Kill or inactive
@@ -88,6 +97,18 @@ export const notificationListener = async () => {
     .then(remoteMessage => {
       if (remoteMessage) {
         console.log('remote message inital notification', remoteMessage);
+        const {notification} = remoteMessage;
+        console.log(
+          'Notification caused app to open from quit state:',
+          remoteMessage.notification,
+        );
+        if (notification?.sound == 'notification.mp3') {
+          console.log('here>>2');
+          actions.isModalVisibleForAcceptReject({
+            isModalVisibleForAcceptReject: true,
+            notificationData: remoteMessage,
+          });
+        }
       }
     });
 

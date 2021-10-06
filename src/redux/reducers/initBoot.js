@@ -32,6 +32,10 @@ const initial_state = {
   themeColor: false,
   themeToggle: false,
   clientInfo: null,
+  notificationData: {
+    isModalVisibleForAcceptReject: false,
+    notificationData: null,
+  },
   //internetConnection: false,
 };
 
@@ -47,6 +51,13 @@ export default function (state = initial_state, action) {
     case types.NO_INTERNET: {
       const internetConnection = action.payload;
       return {...state, internetConnection};
+    }
+    case types.MODAL_VISIBLE_ACCEPT_REJECT: {
+      const data = action.payload;
+      return {
+        ...state,
+        notificationData: data,
+      };
     }
     default: {
       return {...state};

@@ -3,7 +3,7 @@ import {StyleSheet, View} from 'react-native';
 import Modal from 'react-native-modal';
 import imagePath from '../constants/imagePath';
 import colors from '../styles/colors';
-import {moderateScale, moderateScaleVertical} from '../styles/responsiveSize';
+import {moderateScaleVertical} from '../styles/responsiveSize';
 import Header from './Header';
 
 export default function ModalView({
@@ -23,13 +23,9 @@ export default function ModalView({
   modalBottomContent = () => {},
   mainViewStyle = {},
   topCustomComponent = () => {},
-  animationIn = 'bounceIn',
-  animationOut = 'bounceOut',
 }) {
   return (
     <Modal
-      animationIn={animationIn}
-      animationOut={animationOut}
       isVisible={isVisible}
       onBackButtonPress={onClose}
       onBackdropPress={onClose}
@@ -40,10 +36,22 @@ export default function ModalView({
         style={{
           // flex: 1,
           backgroundColor: colors.white,
-          borderRadius: moderateScale(15),
-          //   paddingTop: moderateScaleVertical(30),
+          borderRadius: 15,
+          paddingTop: moderateScaleVertical(30),
           ...mainViewStyle,
         }}>
+        {/* //Header */}
+        {topCustomComponent ? (
+          topCustomComponent()
+        ) : (
+          <Header
+            leftIcon={leftIcon}
+            centerTitle={centerTitle}
+            rightIcon={rightIcon}
+            onPressLeft={onPressLeft}
+          />
+        )}
+
         {/* center content */}
         <>{modalMainContent()}</>
 

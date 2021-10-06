@@ -80,5 +80,7 @@ export default {
   PLEASEENTERMODELTYPE:'the model, make type of vehicle',
   PLEASEENTERCOLOR:'the color of the vehicle',
   PLEASEENTERPLATENUMBER:'the plate number of the vehicle',
-  SETIMAGE:'Please add one profile image'
+  SETIMAGE:'Please add one profile image',
+  TASKDATE:'Task date',
+  ACCEPT:'Accept'
 };
