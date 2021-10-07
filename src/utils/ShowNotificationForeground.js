@@ -16,7 +16,10 @@ const ShowNotificationForeground = props => {
               id: messageId,
               body: data?.message || '',
               title: data?.type || '',
-              sound: notification.sound,
+              sound:
+                notification.sound == 'notification.mp3'
+                  ? 'notification.mp3'
+                  : 'default',
             })
           : PushNotification.localNotification({
               channelId: notification.android.channelId,
@@ -32,17 +35,21 @@ const ShowNotificationForeground = props => {
         Platform.OS == 'android' &&
         notification.android.sound == 'notification'
       ) {
-        actions.isModalVisibleForAcceptReject({
-          isModalVisibleForAcceptReject: true,
-          notificationData: remoteMessage,
-        });
+        if (data?.type != 'N') {
+          actions.isModalVisibleForAcceptReject({
+            isModalVisibleForAcceptReject: true,
+            notificationData: remoteMessage,
+          });
+        }
       }
       if (Platform.OS == 'ios' && notification.sound == 'notification.mp3') {
         console.log('here>>3');
-        actions.isModalVisibleForAcceptReject({
-          isModalVisibleForAcceptReject: true,
-          notificationData: remoteMessage,
-        });
+        if (data?.type != 'N') {
+          actions.isModalVisibleForAcceptReject({
+            isModalVisibleForAcceptReject: true,
+            notificationData: remoteMessage,
+          });
+        }
       }
     });
     return unsubscribe;

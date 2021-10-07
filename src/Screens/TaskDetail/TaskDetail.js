@@ -29,6 +29,8 @@ import colors from '../../styles/colors';
 import commonStylesFunc from '../../styles/commonStyles';
 import fontFamily from '../../styles/fontFamily';
 import {moderateScale, textScale} from '../../styles/responsiveSize';
+import moment from 'moment';
+
 import {
   getColorCodeWithOpactiyNumber,
   showError,
@@ -406,6 +408,12 @@ export default function TaskDetail({route, navigation}) {
     );
   };
 
+  const getDate = date => {
+    const local = moment.utc(date).local().format('DD MMM YYYY hh:mm:a');
+
+    return local;
+  };
+
   const taskDetailView = () => {
     return (
       <ScrollView>
@@ -511,7 +519,7 @@ export default function TaskDetail({route, navigation}) {
             <View style={{marginLeft: moderateScale(7)}}>
               <Text style={styles.taskLable}>{strings.TASKTIMINGS}</Text>
               <Text style={styles.taskValue}>
-                {taskDetail?.order?.order_time}
+                {getDate(taskDetail?.order?.order_time)}
               </Text>
             </View>
           </View>

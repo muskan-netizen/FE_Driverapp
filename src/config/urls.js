@@ -17,6 +17,7 @@ export const GETTASKS = getApiUrl('/taskList');
 export const GETTASKHISTORY = getApiUrl('/task/history');
 export const UPDATEONOFFDUTYSTATUS = getApiUrl('/updateStatus');
 export const UPDATETASKSTATUS = getApiUrl('/updateTaskStatus');
+export const ACCEPTREJECTSTATUS = getApiUrl('/task/accecpt/reject');
 
 //Logs
 export const LOGSAPI = getApiUrl('/agent/logs');

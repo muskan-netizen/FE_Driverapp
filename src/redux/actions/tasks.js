@@ -1,4 +1,5 @@
 import {
+  ACCEPTREJECTSTATUS,
   GETTASKHISTORY,
   GETTASKS,
   UPDATEONOFFDUTYSTATUS,
@@ -73,3 +74,18 @@ export function updateTask(data = {}, headers = {}) {
       });
   });
 }
+
+
+export function acceptRejectTask(data = {}, headers = {}) {
+  return new Promise((resolve, reject) => {
+    apiPost(ACCEPTREJECTSTATUS, data, headers)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+}
+
+

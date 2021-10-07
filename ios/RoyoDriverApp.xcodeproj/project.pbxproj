@@ -26,8 +26,8 @@
 		8463FB6A26FCA78B0058D010 /* Runrun(Dev).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 8463FB6926FCA78B0058D010 /* Runrun(Dev).xcconfig */; };
 		8463FB7026FCA84F0058D010 /* Runrun(Prod).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 8463FB6F26FCA84F0058D010 /* Runrun(Prod).xcconfig */; };
 		8463FB7526FCA85C0058D010 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8463FB6126FCA68D0058D010 /* GoogleService-Info.plist */; };
-		8484008F270AFBCC00018F38 /* notification.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8484008E270AFBCC00018F38 /* notification.wav */; };
-		84840090270AFBCC00018F38 /* notification.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8484008E270AFBCC00018F38 /* notification.wav */; };
+		84C27C3F270EFAF100C30CA4 /* notification.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84C27C3E270EFAF100C30CA4 /* notification.mp3 */; };
+		84C27C40270EFAF100C30CA4 /* notification.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84C27C3E270EFAF100C30CA4 /* notification.mp3 */; };
 		84CE2BC726E9E6D20066EEEE /* campton-semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC326E9E6D20066EEEE /* campton-semibold.ttf */; };
 		84CE2BC826E9E6D20066EEEE /* campton-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC426E9E6D20066EEEE /* campton-light.ttf */; };
 		84CE2BC926E9E6D20066EEEE /* campton-book.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC526E9E6D20066EEEE /* campton-book.ttf */; };
@@ -58,7 +58,7 @@
 		8463FB6926FCA78B0058D010 /* Runrun(Dev).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Runrun(Dev).xcconfig"; sourceTree = "<group>"; };
 		8463FB6F26FCA84F0058D010 /* Runrun(Prod).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Runrun(Prod).xcconfig"; sourceTree = "<group>"; };
 		847EFFCC270AE8FA004251BE /* RoyoDriverAppRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = RoyoDriverAppRelease.entitlements; path = RoyoDriverApp/RoyoDriverAppRelease.entitlements; sourceTree = "<group>"; };
-		8484008E270AFBCC00018F38 /* notification.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = notification.wav; sourceTree = "<group>"; };
+		84C27C3E270EFAF100C30CA4 /* notification.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = notification.mp3; sourceTree = "<group>"; };
 		84CE2BC326E9E6D20066EEEE /* campton-semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "campton-semibold.ttf"; sourceTree = "<group>"; };
 		84CE2BC426E9E6D20066EEEE /* campton-light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "campton-light.ttf"; sourceTree = "<group>"; };
 		84CE2BC526E9E6D20066EEEE /* campton-book.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "campton-book.ttf"; sourceTree = "<group>"; };
@@ -131,7 +131,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				8484008E270AFBCC00018F38 /* notification.wav */,
+				84C27C3E270EFAF100C30CA4 /* notification.mp3 */,
 				84E4480626E87ED800452095 /* RoyoDriverApp.swift */,
 				13B07FAE1A68108700A75B9A /* RoyoDriverApp */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -293,11 +293,11 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				84E4481126E8C63B00452095 /* Images.xcassets in Resources */,
 				84E4481926E8C73F00452095 /* RoyoDispatcher(Prod).xcconfig in Resources */,
-				8484008F270AFBCC00018F38 /* notification.wav in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				84CE2BC826E9E6D20066EEEE /* campton-light.ttf in Resources */,
 				84E4481526E8C71700452095 /* RoyoDispatcher(Dev).xcconfig in Resources */,
 				84CE2BCA26E9E6D20066EEEE /* campton-medium.ttf in Resources */,
+				84C27C3F270EFAF100C30CA4 /* notification.mp3 in Resources */,
 				84CE2BC926E9E6D20066EEEE /* campton-book.ttf in Resources */,
 				84CE2BC726E9E6D20066EEEE /* campton-semibold.ttf in Resources */,
 				84E4493A26E8DAA300452095 /* Plists in Resources */,
@@ -311,8 +311,8 @@
 				8463FB7026FCA84F0058D010 /* Runrun(Prod).xcconfig in Resources */,
 				8463FB4E26FCA52F0058D010 /* LaunchScreen.storyboard in Resources */,
 				8463FB6A26FCA78B0058D010 /* Runrun(Dev).xcconfig in Resources */,
-				84840090270AFBCC00018F38 /* notification.wav in Resources */,
 				8463FB5126FCA52F0058D010 /* Images.xcassets in Resources */,
+				84C27C40270EFAF100C30CA4 /* notification.mp3 in Resources */,
 				8463FB5226FCA52F0058D010 /* campton-light.ttf in Resources */,
 				8463FB5426FCA52F0058D010 /* campton-medium.ttf in Resources */,
 				8463FB5526FCA52F0058D010 /* campton-book.ttf in Resources */,

@@ -82,5 +82,6 @@ export default {
   PLEASEENTERPLATENUMBER:'the plate number of the vehicle',
   SETIMAGE:'Please add one profile image',
   TASKDATE:'Task date',
-  ACCEPT:'Accept'
+  ACCEPT:'Accept',
+  REJECT:'Reject'
 };

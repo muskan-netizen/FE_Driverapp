@@ -63,8 +63,8 @@ export const notificationListener = async () => {
     );
     PushNotification.createChannel(
       {
-        channelId: 'sound-channel-id', // (required)
-        channelName: `Sound channel 2`, // (required)
+        channelId: 'Royo Delivery', // (required)
+        channelName: `Royo Delivery`, // (required)
         channelDescription: 'A sound channel 2', // (optional) default: undefined.
         soundName: 'notification.mp3', // (optional) See `soundName` parameter of `localNotification` function
         importance: Importance.HIGH, // (optional) default: Importance.HIGH. Int value of the Android notification importance
@@ -82,7 +82,10 @@ export const notificationListener = async () => {
       remoteMessage,
     );
     const {notification} = remoteMessage;
-    if (notification?.sound == 'notification.mp3') {
+    if (
+      notification?.sound == 'notification.mp3' ||
+      notification?.android?.sound == 'notification'
+    ) {
       console.log('here>>1');
       actions.isModalVisibleForAcceptReject({
         isModalVisibleForAcceptReject: true,
@@ -102,7 +105,10 @@ export const notificationListener = async () => {
           'Notification caused app to open from quit state:',
           remoteMessage.notification,
         );
-        if (notification?.sound == 'notification.mp3') {
+        if (
+          notification?.sound == 'notification.mp3' ||
+          notification?.android?.sound == 'notification'
+        ) {
           console.log('here>>2');
           actions.isModalVisibleForAcceptReject({
             isModalVisibleForAcceptReject: true,

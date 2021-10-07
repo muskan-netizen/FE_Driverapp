@@ -82,7 +82,9 @@ export default function DashBoard({route, navigation}) {
     statusChanged,
   } = state;
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
-
+  const refreshHomeData = useSelector(
+    state => state?.initBoot?.refreshHomeData,
+  );
   useEffect(() => {
     (async () => {
       updateState({fcm_token: await AsyncStorage.getItem('fcmToken')});
@@ -133,6 +135,12 @@ export default function DashBoard({route, navigation}) {
     }
   }, [isLoading, isRefreshing]);
 
+  useEffect(() => {
+    if (refreshHomeData) {
+      getTasks();
+    }
+  }, [refreshHomeData]);
+
   //get all tasks
   const getTasks = () => {
     actions
@@ -142,6 +150,7 @@ export default function DashBoard({route, navigation}) {
         {client: clientInfo?.database_name},
       )
       .then(res => {
+        actions.updateHomepage(false);
         // updateState({isRefreshing: false});
         if (selectedOption) {
           updateState({
@@ -166,6 +175,7 @@ export default function DashBoard({route, navigation}) {
   //Error handling in api
   const errorMethod = error => {
     console.log(error, 'error');
+    actions.updateHomepage(false);
     // updateState({
     //   isLoading: false,
     //   isRefreshing: false,
@@ -256,10 +266,7 @@ export default function DashBoard({route, navigation}) {
 
   const renderTaskList = ({item, index}) => {
     let allData = selectedOption ? allTasks : todaysTasks;
-
-    let dueDate = new Date(item?.order?.order_time + ' UTC');
-    dueDate = moment(dueDate,"MM/DD/YYYY").format('MM/DD/YYYY hh:mm');
-
+   
     return (
       <TaskListCard
         data={item}
@@ -267,7 +274,6 @@ export default function DashBoard({route, navigation}) {
         previousData={index > 0 ? allData[index - 1] : null}
         allTasks={allData}
         _onPressTask={() => _onPressTask(item)}
-        dueDate={dueDate}
       />
     );
   };

@@ -16,7 +16,7 @@ import moment from 'moment';
 import generateBoxShadowStyle from './generateBoxShadowStyle';
 import {getColorCodeWithOpactiyNumber} from '../utils/helperFunctions';
 import {colorArray} from '../utils/constants/ConstantValues';
-import { format } from 'date-fns'
+import {format} from 'date-fns';
 const TaskListCard = ({
   data = {},
   allTasks = [],
@@ -24,14 +24,14 @@ const TaskListCard = ({
   _onPressTask = () => {},
   showCurrency = false,
   previousData = null,
-  dueDate = moment().format('MM/DD/YYYY hh:mm'),
 }) => {
   //Get Date
 
-  const getDate = () => {
-    let dueDate = new Date(data?.order?.order_time + ' UTC');
-    // return format(new Date(dueDate), 'mm/dd/yyyy hh:mm')
-    return moment(new Date(dueDate)).format('MM/DD/YYYY hh:mm');
+  const getDate = date => {
+
+    const local = moment.utc(date).local().format('DD MMM YYYY hh:mm:a');
+
+    return local;
   };
 
   //get BackGroundColor
@@ -122,7 +122,9 @@ const TaskListCard = ({
           </Text>
           <View style={{flexDirection: 'row', marginTop: moderateScale(10)}}>
             <Image source={imagePath.time} />
-            <Text style={styles.dateTimeStyle}>{getDate()}</Text>
+            <Text style={styles.dateTimeStyle}>
+              {getDate(data?.order?.order_time)}
+            </Text>
           </View>
 
           {!!showCurrency && (

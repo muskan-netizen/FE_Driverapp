@@ -95,4 +95,12 @@ export function isModalVisibleForAcceptReject(data = false) {
   });
 }
 
+export function updateHomepage(data = false) {
+  console.log(data, 'data');
+  dispatch({
+      type: types.UPDATE_HOME_PAGE,
+      payload: data,
+  });
+}
+
 

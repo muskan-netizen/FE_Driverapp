@@ -36,6 +36,7 @@ const initial_state = {
     isModalVisibleForAcceptReject: false,
     notificationData: null,
   },
+  refreshHomeData:false
   //internetConnection: false,
 };
 
@@ -59,6 +60,14 @@ export default function (state = initial_state, action) {
         notificationData: data,
       };
     }
+    case types.UPDATE_HOME_PAGE: {
+      const data = action.payload;
+      return {
+        ...state,
+        refreshHomeData: data,
+      };
+    }
+    
     default: {
       return {...state};
     }

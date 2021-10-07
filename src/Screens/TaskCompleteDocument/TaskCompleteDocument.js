@@ -44,9 +44,9 @@ export default function TaskCompleteDocument({route, navigation}) {
     showInputBox: false,
     note: '',
     signatureImage: null,
-    signatureImageName:null,
+    signatureImageName: null,
     image: null,
-    imageName:null,
+    imageName: null,
     qrcode: null,
   });
 
@@ -84,7 +84,7 @@ export default function TaskCompleteDocument({route, navigation}) {
     console.log(data, 'saved signature result');
     if (data && data?.encoded) {
       const imageData = data?.encoded;
-    
+
       const imagePath = `${RNFS.TemporaryDirectoryPath}${Math.random()
         .toString(36)
         .replace(/[^a-z]+/g, '')
@@ -268,10 +268,10 @@ export default function TaskCompleteDocument({route, navigation}) {
 
     updateState({isLoading: true});
     actions
-      .updateTask(
-        formdata,
-        {client: clientInfo?.database_name,ContentType: 'multipart/form-data'},
-      )
+      .updateTask(formdata, {
+        client: clientInfo?.database_name,
+        ContentType: 'multipart/form-data',
+      })
       .then(res => {
         console.log(res, 'updateTaskStatus>res>res');
         updateState({isLoading: false});
@@ -279,7 +279,10 @@ export default function TaskCompleteDocument({route, navigation}) {
           updateState({
             isLoading: false,
           });
-          unlinkDirectory(signatureImage)
+          if (signatureImage) {
+            unlinkDirectory(signatureImage);
+          }
+
           navigation.navigate(navigationStrings.DASHBOARD);
         }
       })

@@ -1,4 +1,5 @@
 //import liraries
+import {useNavigation} from '@react-navigation/native';
 import React, {useEffect, useState} from 'react';
 import {
   FlatList,
@@ -23,8 +24,9 @@ import {
   textScale,
   width,
 } from '../styles/responsiveSize';
+import {showError} from '../utils/helperFunctions';
 import ModalView from './ShortCodeConfirmModal';
-
+import moment from 'moment';
 const NotificationModal = () => {
   const [state, setState] = useState({
     pageActive: 1,
@@ -38,6 +40,7 @@ const NotificationModal = () => {
     state => state?.initBoot?.notificationData,
   );
   console.log(notificationData, 'notificationData');
+  const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
 
   const {
     pageActive,
@@ -92,6 +95,12 @@ const NotificationModal = () => {
       );
     }
   };
+
+  const getDate = date => {
+    const local = moment.utc(date).local().format('DD MMM YYYY hh:mm:a');
+    return local;
+  };
+
   const modalMainContent = () => {
     let data = notificationData?.notificationData?.data;
     return (
@@ -104,7 +113,7 @@ const NotificationModal = () => {
           <Text style={[styles.dateTimeStyle, {marginTop: moderateScale(10)}]}>
             {strings.TASKDATE}
           </Text>
-          <Text style={styles.address}>{'06 Oct, 2021 11:55'}</Text>
+          <Text style={styles.address}>{getDate(data?.created_at)}</Text>
 
           {!!data?.cash_to_be_collected && (
             <View>
@@ -118,38 +127,102 @@ const NotificationModal = () => {
             </View>
           )}
         </View>
-        <View
-          style={{
-            borderRadius: 10,
-            height: 40,
-            // backgroundColor: 'red',
-            flexDirection: 'row',
-            alignSelf: 'flex-end',
-            // borderBottomRadius: moderateScale(10),
-          }}>
+        {data?.type == 'AR' ? (
           <View
             style={{
-              flex: 0.5,
-              borderBottomLeftRadius: moderateScale(15),
-              alignItems: 'center',
-              justifyContent: 'center',
-              backgroundColor: 'red',
+              borderRadius: 10,
+              height: 40,
+              // backgroundColor: 'red',
+              flexDirection: 'row',
+              alignSelf: 'flex-end',
+              // borderBottomRadius: moderateScale(10),
             }}>
-            <Text style={styles.text}>{strings.CANCEL}</Text>
+            <TouchableOpacity
+              onPress={() => aceptRejectTask(2)}
+              style={{
+                flex: 0.5,
+                borderBottomLeftRadius: moderateScale(15),
+                
+                alignItems: 'center',
+                justifyContent: 'center',
+                backgroundColor: 'red',
+              }}>
+              <Text style={styles.text}>{strings.REJECT}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => aceptRejectTask(1)}
+              style={{
+                flex: 0.5,
+                borderBottomRightRadius: moderateScale(15),
+                alignItems: 'center',
+                justifyContent: 'center',
+                backgroundColor: 'green',
+              }}>
+              <Text style={styles.text}>{strings.ACCEPT}</Text>
+            </TouchableOpacity>
           </View>
+        ) : (
           <View
             style={{
-              flex: 0.5,
-              borderBottomRightRadius: moderateScale(15),
-              alignItems: 'center',
-              justifyContent: 'center',
-              backgroundColor: 'green',
+              borderRadius: 10,
+              height: 40,
+              // backgroundColor: 'red',
+              flexDirection: 'row',
+              alignSelf: 'flex-end',
+              // borderBottomRadius: moderateScale(10),
             }}>
-            <Text style={styles.text}>{strings.ACCEPT}</Text>
+            <TouchableOpacity
+              onPress={() => {
+                actions.isModalVisibleForAcceptReject({
+                  isModalVisibleForAcceptReject: false,
+                  notificationData: null,
+                });
+                actions.updateHomepage(true);
+              }}
+              style={{
+                flex: 1,
+                borderBottomLeftRadius: moderateScale(15),
+                borderBottomRightRadius: moderateScale(15),
+                alignItems: 'center',
+                justifyContent: 'center',
+                backgroundColor: 'green',
+              }}>
+              <Text style={styles.text}>{strings.DONE}</Text>
+            </TouchableOpacity>
           </View>
-        </View>
+        )}
       </View>
     );
+  };
+
+  const aceptRejectTask = status => {
+    let notifData = notificationData?.notificationData?.data;
+
+    let data = {};
+    data['order_id'] = notifData?.order_id;
+    data['driver_id'] = notifData?.driver_id;
+    data['status'] = status;
+
+    console.log(data, 'data accept reject');
+    actions
+      .acceptRejectTask(data, {client: clientInfo?.database_name})
+      .then(res => {
+        console.log(res, 'submitReason>res>res');
+        updateState({isLoading: false});
+        actions.isModalVisibleForAcceptReject({
+          isModalVisibleForAcceptReject: false,
+          notificationData: null,
+        });
+        actions.updateHomepage(true);
+      })
+      .catch(errorMethod);
+  };
+
+  //Error handling in api
+  const errorMethod = error => {
+    console.log(error, 'error');
+    updateState({isLoading: false, isRefreshing: false, isLoading: false});
+    showError(error?.message || error?.error);
   };
 
   return (
