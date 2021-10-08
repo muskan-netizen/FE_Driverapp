@@ -7,6 +7,7 @@ import {sessionHandler} from './helperFunctions';
 import navigationStrings from '../navigation/navigationStrings';
 import * as NavigationService from '../navigation/NavigationService';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+// import { useNavigation } from '@react-navigation/native';
 
 export async function getHeaders() {
   let userData = await AsyncStorage.getItem('userData');
@@ -24,8 +25,6 @@ export function setUserData(data) {
   data = JSON.stringify(data);
   return AsyncStorage.setItem('userData', data);
 }
-
-
 
 export function setClientInfo(data) {
   data = JSON.stringify(data);
@@ -85,14 +84,14 @@ export async function apiReq(
   headers,
   requestOptions = {},
 ) {
+
   return new Promise(async (res, rej) => {
     const getTokenHeader = await getHeaders();
     headers = {
       ...getTokenHeader,
       ...headers,
     };
-    
-    
+
     if (method === 'get' || method === 'delete') {
       data = {
         ...requestOptions,
@@ -100,7 +99,6 @@ export async function apiReq(
         headers,
       };
     }
-    
 
     axios[method](endPoint, data, {headers})
       .then(result => {
@@ -111,22 +109,26 @@ export async function apiReq(
         return res(data);
       })
       .catch(error => {
+        console.log(error, 'all error');
         if (error && error.response && error.response.status === 401) {
           sessionHandler(error.response.data.message);
-          return rej(error);
-        }
-        if (error && error.response && error.response.data) {
-          if (!error.response.data.error) {
-            return rej({
-              ...error.response.data,
-              error: error.response.data.error || 'Network Error',
-            });
-          }
-          return rej(error.response.data);
+          // return rej(error);
         } else {
-          return rej({error: 'Network Error', message: 'Network Error'});
+          console.log(error, 'all error>>>>>>');
+          if (error && error.response && error.response.data) {
+            if (!error.response.data.error) {
+              return rej({
+                ...error.response.data,
+                error: error.response.data.error || 'Network Error',
+              });
+            }
+            return rej(error.response.data);
+          } else {
+            return rej({error: 'Network Error', message: 'Network Error'});
+          }
         }
-        return rej(error);
+
+        // return rej(error);
       });
   });
 }

@@ -324,7 +324,6 @@ export default function TaskCompleteDocument({route, navigation}) {
             }}>
             {taskProofArray.map((i, inx) => {
               const {width, height} = Image.resolveAssetSource(i?.imagePath);
-
               return (
                 <TouchableOpacity
                   activeOpacity={1}

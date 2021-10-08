@@ -21,4 +21,5 @@ export const ACCEPTREJECTSTATUS = getApiUrl('/task/accecpt/reject');
 
 //Logs
 export const LOGSAPI = getApiUrl('/agent/logs');
+export const SIGNUPDOC = getApiUrl('/send-documents');
 

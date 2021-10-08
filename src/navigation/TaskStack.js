@@ -18,7 +18,7 @@ export default function () {
       <Stack.Screen
         name={navigationStrings.DASHBOARD}
         component={DashBoard}
-        options={{headerShown: false}}
+        options={{headerShown: false, gestureEnabled: false}}
       />
       <Stack.Screen
         name={navigationStrings.TASKHISTORY}
@@ -48,12 +48,11 @@ export default function () {
         component={AddSignature}
         options={{headerShown: false}}
       />
-       <Stack.Screen
+      <Stack.Screen
         name={navigationStrings.SCANNER}
         component={Scanner}
         options={{headerShown: false}}
       />
-      
     </Stack.Navigator>
   );
 }

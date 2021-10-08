@@ -62,6 +62,7 @@ export default function Login({navigation, route}) {
   };
 
   useEffect(() => {
+    // actions.sessionLogoutUser(false);
     updateState({
       callingCode: clientInfo?.get_country_set?.phonecode
         ? clientInfo?.get_country_set?.phonecode
@@ -90,7 +91,7 @@ export default function Login({navigation, route}) {
     }
     let data = {};
     data['phone_number'] = `+${callingCode}${phoneNumber}`;
-
+    // actions.sessionLogoutUser(false);
     updateState({isLoading: true});
     actions
       .login(data, {client: clientInfo?.database_name})

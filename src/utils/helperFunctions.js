@@ -7,11 +7,14 @@ import imagePath from '../constants/imagePath';
 import {Toast} from '../library/toastify-react-native';
 import * as NavigationService from '../navigation/NavigationService';
 import navigationStrings from '../navigation/navigationStrings';
+import store from '../redux/store';
+import types from '../redux/types';
 import colors from '../styles/colors';
 import fontFamily from '../styles/fontFamily';
-import { textScale } from '../styles/responsiveSize';
-// import actions from '../redux/actions';
+import {textScale} from '../styles/responsiveSize';
+import actions from '../redux/actions';
 import strings from './../constants/lang/index';
+import {setUserData} from './utils';
 
 const getCurrentLocation = type =>
   new Promise((resolve, reject) => {
@@ -87,14 +90,14 @@ const showError = message => {
   console.log(message, 'THIS IS MESSAGE');
 
   showMessage({
-    message: 'Error!!',
+    message: 'Error',
     description: message,
     type: 'default',
     backgroundColor: colors.themeColor, // background color
     textStyle: {
       color: colors.white, // text color
       fontFamily: fontFamily.medium,
-      fontSize:textScale(12)
+      fontSize: textScale(12),
     },
   });
   // Toast.error(message);
@@ -102,7 +105,7 @@ const showError = message => {
 
 const showSuccess = message => {
   showMessage({
-    message: 'Success!!',
+    message: 'Success',
     description: message,
     type: 'default',
     backgroundColor: colors.themeColor, // background color
@@ -110,7 +113,7 @@ const showSuccess = message => {
     textStyle: {
       color: colors.white, // text color
       fontFamily: fontFamily.medium,
-      fontSize:textScale(12)
+      fontSize: textScale(12),
     },
   });
 
@@ -271,18 +274,24 @@ export function getAddressComponent(details, update) {
   return data;
 }
 
+// const {dispatch} = store;
+
+export const saveUserData = data => {
+  store.dispatch({
+    type: types.LOGIN,
+    payload: data,
+  });
+};
+
 export const sessionHandler = error => {
-  actions.userLogout();
-  NavigationService.navigate(navigationStrings.OUTER_SCREEN, {}),
-    Alert.alert(error, '', [
-      {
-        text: 'Ok',
-        // cancelable: false,
-        onPress: () => console.log('okay Pressed'),
-        //   onPress: () =>
-        //     NavigationService.navigate(navigationStrings.OUTER_SCREEN, {}),
-      },
-    ]);
+  // actions.sessionLogoutUser(true);
+  console.log(error,"error>error>");
+  setUserData(null).then(suc => {
+    saveUserData({});
+  });
+  showError(error);
+  NavigationService.navigate(navigationStrings.LOGIN);
+  
 };
 
 export const getScaleTransformationStyle = (

@@ -36,7 +36,8 @@ const initial_state = {
     isModalVisibleForAcceptReject: false,
     notificationData: null,
   },
-  refreshHomeData:false
+  refreshHomeData: false,
+  sessionLogoutUser: false,
   //internetConnection: false,
 };
 
@@ -67,7 +68,15 @@ export default function (state = initial_state, action) {
         refreshHomeData: data,
       };
     }
-    
+
+    case types.SESSIONLOGOUT: {
+      const data = action.payload;
+      return {
+        ...state,
+        sessionLogoutUser: data,
+      };
+    }
+
     default: {
       return {...state};
     }

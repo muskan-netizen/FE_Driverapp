@@ -82,6 +82,10 @@ export default function DashBoard({route, navigation}) {
     statusChanged,
   } = state;
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
+  const sessionLogoutUser = useSelector(
+    state => state?.initBoot?.sessionLogoutUser,
+  );
+console.log(sessionLogoutUser,"sessionLogoutUser");
   const refreshHomeData = useSelector(
     state => state?.initBoot?.refreshHomeData,
   );
@@ -91,6 +95,13 @@ export default function DashBoard({route, navigation}) {
     })();
     return () => {};
   }, []);
+
+  // useEffect(() => {
+  //   console.log(sessionLogoutUser,"sessionLogoutUser");
+  //   if (sessionLogoutUser) {
+  //     navigation.navigate(navigationStrings.LOGIN);
+  //   }
+  // }, [sessionLogoutUser]);
 
   useInterval(
     () => {
@@ -174,8 +185,8 @@ export default function DashBoard({route, navigation}) {
   };
   //Error handling in api
   const errorMethod = error => {
-    console.log(error, 'error');
-    actions.updateHomepage(false);
+    console.log(error, 'error>>>>>>>>>>>>>>>>>>>>>');
+    // actions.updateHomepage(false);
     // updateState({
     //   isLoading: false,
     //   isRefreshing: false,
@@ -266,7 +277,7 @@ export default function DashBoard({route, navigation}) {
 
   const renderTaskList = ({item, index}) => {
     let allData = selectedOption ? allTasks : todaysTasks;
-   
+
     return (
       <TaskListCard
         data={item}

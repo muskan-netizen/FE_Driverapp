@@ -90,17 +90,24 @@ export function logsApi(data = {}, headers = {}) {
 export function isModalVisibleForAcceptReject(data = false) {
   console.log(data, 'data');
   dispatch({
-      type: types.MODAL_VISIBLE_ACCEPT_REJECT,
-      payload: data,
+    type: types.MODAL_VISIBLE_ACCEPT_REJECT,
+    payload: data,
   });
 }
 
 export function updateHomepage(data = false) {
   console.log(data, 'data');
   dispatch({
-      type: types.UPDATE_HOME_PAGE,
-      payload: data,
+    type: types.UPDATE_HOME_PAGE,
+    payload: data,
   });
 }
 
-
+//sessionLogoutUser logout key
+export function sessionLogoutUser(data = false) {
+  console.log(data, 'data');
+  dispatch({
+    type: types.SESSIONLOGOUT,
+    payload: data,
+  });
+}

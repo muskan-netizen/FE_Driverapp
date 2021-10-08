@@ -12,6 +12,7 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		4BF45AA8F5AA2D6B3AE5FAD5 /* libPods-Runrun.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 682B78B97A2EACDAF87E0C0C /* libPods-Runrun.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		8460C3BE27102AAC001B0D07 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8460C3BD27102AAC001B0D07 /* GoogleService-Info.plist */; };
 		8463FB4826FCA52F0058D010 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		8463FB4926FCA52F0058D010 /* RoyoDriverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E4480626E87ED800452095 /* RoyoDriverApp.swift */; };
 		8463FB4A26FCA52F0058D010 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -52,6 +53,7 @@
 		682B78B97A2EACDAF87E0C0C /* libPods-Runrun.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Runrun.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7489ACDE502CA2CAB5E3E464 /* Pods-RoyoDriverApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoyoDriverApp.release.xcconfig"; path = "Target Support Files/Pods-RoyoDriverApp/Pods-RoyoDriverApp.release.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = RoyoDriverApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8460C3BD27102AAC001B0D07 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8463FB5D26FCA52F0058D010 /* Runrun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Runrun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8463FB6126FCA68D0058D010 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8463FB6526FCA6BA0058D010 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 		84E4480B26E8C53200452095 /* RoyoDispatcher */ = {
 			isa = PBXGroup;
 			children = (
+				8460C3BD27102AAC001B0D07 /* GoogleService-Info.plist */,
 				84E4481026E8C63B00452095 /* Images.xcassets */,
 				84E4481426E8C71700452095 /* RoyoDispatcher(Dev).xcconfig */,
 				84E4481826E8C73F00452095 /* RoyoDispatcher(Prod).xcconfig */,
@@ -295,6 +298,7 @@
 				84E4481926E8C73F00452095 /* RoyoDispatcher(Prod).xcconfig in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				84CE2BC826E9E6D20066EEEE /* campton-light.ttf in Resources */,
+				8460C3BE27102AAC001B0D07 /* GoogleService-Info.plist in Resources */,
 				84E4481526E8C71700452095 /* RoyoDispatcher(Dev).xcconfig in Resources */,
 				84CE2BCA26E9E6D20066EEEE /* campton-medium.ttf in Resources */,
 				84C27C3F270EFAF100C30CA4 /* notification.mp3 in Resources */,

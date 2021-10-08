@@ -16,5 +16,6 @@ export default {
   TASKCANCEL:"TaskCancel",
   TASKCOMPLETEDOCUMENT:'TaskCompleteDocument',
   ADDSIGNATURE:"AddSignature",
-  SCANNER:'Scanner'
+  SCANNER:'Scanner',
+  AUTHSTACK:'AuthStack'
 };

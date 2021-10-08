@@ -39,6 +39,7 @@ export default function DrawerRoutes(props) {
         component={TaskStack}
         name={navigationStrings.TASKSTACK}
         options={{
+         
           drawerLabel: strings.TASKHISTORY,
           drawerIcon: ({focused}) => (
             <Image
