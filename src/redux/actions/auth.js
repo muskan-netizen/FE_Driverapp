@@ -1,4 +1,10 @@
-import {LOGIN_API, LOGOUT_API,SEND_OTP, SIGNUP_API} from '../../config/urls';
+import {
+  LOGIN_API,
+  LOGOUT_API,
+  SEND_OTP,
+  SIGNUPDOC,
+  SIGNUP_API,
+} from '../../config/urls';
 import {apiGet, apiPost, setUserData} from '../../utils/utils';
 import store from '../store';
 import types from '../types';
@@ -62,8 +68,7 @@ export function verifyAccount(data = {}, headers = {}) {
   });
 }
 
-
-//logout 
+//logout
 
 export function logout(data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
@@ -73,6 +78,20 @@ export function logout(data = {}, headers = {}) {
           saveUserData({});
           resolve(res);
         });
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+}
+
+//Get Signup documents
+
+export function signupDoc(data = {}, headers = {}) {
+  return new Promise((resolve, reject) => {
+    apiPost(SIGNUPDOC, data, headers)
+      .then(async res => {
+        resolve(res);
       })
       .catch(error => {
         reject(error);

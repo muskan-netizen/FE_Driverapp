@@ -23,7 +23,7 @@ import {useSelector} from 'react-redux';
 import {appIds, shortCodes} from '../../utils/constants/DynamicAppKeys';
 import {getBundleId} from 'react-native-device-info';
 import {getItem} from '../../utils/utils';
-import { requestUserPermission } from '../../utils/notificationServices';
+import {requestUserPermission} from '../../utils/notificationServices';
 
 export default function ShortCode({route, navigation}) {
   const shortCodeParam = route?.params?.shortCodeParam;
@@ -56,9 +56,9 @@ export default function ShortCode({route, navigation}) {
     navigation.navigate(screenName, {data});
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     requestUserPermission();
-  },[])
+  }, []);
   useEffect(() => {
     (async () => {
       const saveShortCode = await getItem('saveShortCode');
@@ -109,16 +109,13 @@ export default function ShortCode({route, navigation}) {
     })();
   };
 
-
   useEffect(() => {
     (async () => {
-      if(changeInShortCode){
+      if (changeInShortCode) {
         initApiHit();
       }
     })();
   }, [changeInShortCode]);
-
-
 
   //On click login button
   const _onSubmitShortCode = () => {
@@ -137,6 +134,7 @@ export default function ShortCode({route, navigation}) {
           if (getBundleId() == appIds.royoorder && res?.data) {
             actions.saveShortCode(shortCode);
           }
+          actions.saveShortCode(shortCode);
           console.log(res, 'res>res>res');
           updateState({
             changeInShortCode: false,
@@ -163,7 +161,14 @@ export default function ShortCode({route, navigation}) {
   //Error handling in screen
   const errorMethod = error => {
     console.log(error, 'error');
-    updateState({isLoading: false,shortCode:'',shortCodeShow:'',changeInShortCode:false, isLoadingB: false, isRefreshing: false});
+    updateState({
+      isLoading: false,
+      shortCode: '',
+      shortCodeShow: '',
+      changeInShortCode: false,
+      isLoadingB: false,
+      isRefreshing: false,
+    });
     showError(error?.message || error?.error);
   };
 
@@ -295,9 +300,9 @@ export default function ShortCode({route, navigation}) {
                   }}
                 />
 
-                <Text style={styles.whereCanIhelp}>
+                {/* <Text style={styles.whereCanIhelp}>
                   {strings.WHEREICANSIGNUP}
-                </Text>
+                </Text> */}
               </View>
             </View>
           </View>

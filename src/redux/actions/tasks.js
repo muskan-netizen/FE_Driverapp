@@ -1,5 +1,6 @@
 import {
   ACCEPTREJECTSTATUS,
+  DRIVEROTP,
   GETTASKHISTORY,
   GETTASKS,
   UPDATEONOFFDUTYSTATUS,
@@ -87,5 +88,20 @@ export function acceptRejectTask(data = {}, headers = {}) {
       });
   });
 }
+
+
+export function sendOtpToDriver(data = {}, headers = {}) {
+  return new Promise((resolve, reject) => {
+    apiPost(DRIVEROTP, data, headers)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+}
+
+
 
 

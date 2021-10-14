@@ -121,31 +121,35 @@ export default function TaskDetail({route, navigation}) {
   const commonStyles = commonStylesFunc({fontFamily});
   const updateState = data => setState(state => ({...state, ...data}));
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
+  // const userData = useSelector(state => state?.auth?.userData);
 
   useEffect(() => {
-    const findDataToCheck = userData?.task_proof.find(
-      x => x.id == taskDetail?.task_type_id,
-    );
-    updateState({
-      findDataToCheck: findDataToCheck,
-    });
-    console.log(findDataToCheck, 'findDataToCheck');
-    let newArray = cloneDeep(taskProofArray);
-    if (findDataToCheck) {
+    if (userData?.task_proof) {
+      console.log(userData?.task_proof, ' userData?.task_proof');
+      const findDataToCheck = userData?.task_proof.find(
+        x => x.id == taskDetail?.task_type_id,
+      );
       updateState({
-        updatedProofArray: newArray
-          .map(i => {
-            if (
-              (i?.type == 'signature' && findDataToCheck?.signature) ||
-              (i?.type == 'photo' && findDataToCheck?.image) ||
-              (i?.type == 'notes' && findDataToCheck?.note) ||
-              (i?.type == 'QR' && findDataToCheck?.barcode)
-            ) {
-              return i;
-            }
-          })
-          .filter(x => x != null || x != undefined),
+        findDataToCheck: findDataToCheck,
       });
+      console.log(findDataToCheck, 'findDataToCheck');
+      let newArray = cloneDeep(taskProofArray);
+      if (findDataToCheck) {
+        updateState({
+          updatedProofArray: newArray
+            .map(i => {
+              if (
+                (i?.type == 'signature' && findDataToCheck?.signature) ||
+                (i?.type == 'photo' && findDataToCheck?.image) ||
+                (i?.type == 'notes' && findDataToCheck?.note) ||
+                (i?.type == 'QR' && findDataToCheck?.barcode)
+              ) {
+                return i;
+              }
+            })
+            .filter(x => x != null || x != undefined),
+        });
+      }
     }
   }, [taskDetail]);
 
@@ -363,14 +367,73 @@ export default function TaskDetail({route, navigation}) {
   };
 
   const redirectToDoneScreen = () => {
-    console.log(taskDetail, 'TaskDetail');
-    moveToNewScreen(navigationStrings.TASKCOMPLETEDOCUMENT, {
-      taskDetail: taskDetail,
-      updatedProofArray: updatedProofArray,
-      findDataToCheck: findDataToCheck,
-    })();
+    console.log(taskDetail?.id, 'TaskDetail');
+    updateState({isLoading: true});
+    let data = {};
+    data['task_id'] = taskDetail?.id;
+    actions
+      .sendOtpToDriver(data, {client: clientInfo?.database_name})
+      .then(res => {
+        console.log(res, 'sendOtpToDriver>res>res');
+        if (res?.status == 200) {
+          console.log(updatedProofArray, 'updatedProofArray');
+          if (updatedProofArray.length) {
+            updateState({isLoading: false});
+            moveToNewScreen(navigationStrings.TASKCOMPLETEDOCUMENT, {
+              taskDetail: taskDetail,
+              updatedProofArray: updatedProofArray,
+              findDataToCheck: findDataToCheck,
+            })();
+          } else {
+            if (res?.data?.otpEnabled && res?.data?.otpRequired) {
+              updateState({isLoading: false});
+              moveToNewScreen(navigationStrings.TASKCOMPLETEDOCUMENT, {
+                taskDetail: taskDetail,
+                updatedProofArray: updatedProofArray,
+                findDataToCheck: findDataToCheck,
+                otpEnabled: res?.data?.otpEnabled,
+                otpRequired: res?.data?.otpRequired,
+                otp: res?.data?.otp,
+              })();
+            } else {
+              let formdata = new FormData();
+              formdata.append('task_status', 4);
+              formdata.append('task_id', taskDetail?.id);
+              completeTask(formdata);
+            }
+          }
+        }
+      })
+      .catch(errorMethod);
+
+    // moveToNewScreen(navigationStrings.TASKCOMPLETEDOCUMENT, {
+    //   taskDetail: taskDetail,
+    //   updatedProofArray: updatedProofArray,
+    //   findDataToCheck: findDataToCheck,
+    // })();
     // alert('213');
   };
+
+  const completeTask = formdata => {
+    updateState({isLoading: true});
+    actions
+      .updateTask(formdata, {
+        client: clientInfo?.database_name,
+        ContentType: 'multipart/form-data',
+      })
+      .then(res => {
+        console.log(res, 'updateTaskStatus>res>res');
+        updateState({isLoading: false});
+        if (res?.data) {
+          updateState({
+            isLoading: false,
+          });
+          navigation.navigate(navigationStrings.DASHBOARD);
+        }
+      })
+      .catch(errorMethod);
+  };
+
   const buttonView = () => {
     if (fromHistory) {
       return (

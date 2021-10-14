@@ -83,5 +83,9 @@ export default {
   SETIMAGE:'Please add one profile image',
   TASKDATE:'Task date',
   ACCEPT:'Accept',
-  REJECT:'Reject'
+  REJECT:'Reject',
+  UPLOAD:'Upload',
+  OTP:'Otp*',
+  OTPREQUIRED:'Otp field is required',
+  OTPNOTVALID:'Otp is invalid'
 };

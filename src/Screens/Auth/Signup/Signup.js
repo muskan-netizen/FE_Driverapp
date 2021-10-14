@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useRef, useState, useEffect} from 'react';
 import {Image, ScrollView, Text, TouchableOpacity, View} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {useSelector} from 'react-redux';
@@ -28,28 +28,44 @@ import ActionSheet from 'react-native-actionsheet';
 import {cameraHandler} from '../../../utils/commonFunction';
 import {androidCameraPermission} from '../../../utils/permissions';
 import validator from '../../../utils/validations';
-import {showError, showSuccess} from '../../../utils/helperFunctions';
+import {
+  getColorCodeWithOpactiyNumber,
+  showError,
+  showSuccess,
+} from '../../../utils/helperFunctions';
 import PhoneNumberInput from '../../../Components/PhoneNumberInput';
 import validations from '../../../utils/validations';
 import actions from '../../../redux/actions';
+import {personaltoken} from '../../../config/urls';
+import {getItem} from '../../../utils/utils';
+import {cloneDeep} from 'lodash';
+import DocumentPicker from 'react-native-document-picker';
 
 export default function Signup({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
-  console.log(userData, 'userData');
+
   const [state, setState] = useState({
     isLoading: false,
-    fullName: '',
-    phoneNumber: '',
+    fullName: 'sandeep das',
+    phoneNumber: '7845121245',
     callingCode: '91',
     cca2: 'IN',
     allTransportation: transportationArray,
     allEmployeeTypes: employeetypeArray,
     selectedVehicleType: null,
-    modelMake: '',
-    vehicleColor: '',
-    vehiclePlateNumber: '',
+    modelMake: '2321',
+    vehicleColor: 'red',
+    vehiclePlateNumber: '12312sada',
     userImage: null,
     selectedEpmloyeetype: null,
+    documentData: [],
+    addtionalTextInputs: [],
+    addtionalImages: [],
+    addtionalPdfs: [],
+    dataToSet: [],
+    profilePic: true,
+    addtionSelectedImage: null,
+    addtionSelectedImageIndex: null,
   });
 
   const {
@@ -66,11 +82,21 @@ export default function Signup({route, navigation}) {
     vehicleColor,
     allEmployeeTypes,
     selectedEpmloyeetype,
+    documentData,
+    addtionalTextInputs,
+    addtionalImages,
+    addtionalPdfs,
+    dataToSet,
+    profilePic,
+    addtionSelectedImage,
+    addtionSelectedImageIndex,
   } = state;
   const commonStyles = commonStylesFunc({fontFamily});
 
   const updateState = data => setState(state => ({...state, ...data}));
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
+
+  console.log(clientInfo, 'clientInfo');
   //Naviagtion to specific screen
   const moveToNewScreen = (screenName, data) => () => {
     navigation.navigate(screenName, {data});
@@ -83,12 +109,49 @@ export default function Signup({route, navigation}) {
   };
 
   let actionSheet = useRef();
-  const showActionSheet = () => {
-    actionSheet.current.show();
+  const showActionSheet = value => {
+    console.log(value, 'value>value');
+    updateState({profilePic: value});
+    setTimeout(() => {
+      actionSheet.current.show();
+    }, 500);
+  };
+
+  useEffect(() => {
+    getRequiredDatas();
+  }, []);
+
+  const getRequiredDatas = () => {
+    (async () => {
+      const saveShortCode = await getItem('saveShortCode');
+      actions
+        .signupDoc({}, {shortcode: saveShortCode, personaltoken: personaltoken})
+        .then(res => {
+          console.log(res, 'getRequiredDatas data');
+          if (res?.data && res?.data.length) {
+            updateState({
+              addtionalTextInputs: res?.data.filter(
+                x => x?.file_type == 'Text',
+              ),
+              addtionalImages: res?.data.filter(x => x?.file_type == 'Image'),
+              addtionalPdfs: res?.data.filter(x => x?.file_type == 'Pdf'),
+              dataToSet: res?.data?.map((i, inx) => {
+                return {
+                  type: i?.file_type,
+                  value: '',
+                };
+              }),
+            });
+          }
+          updateState({isLoading: false, documentData: res?.data});
+        })
+        .catch(errorMethod);
+    })();
   };
 
   // this funtion use for camera handle
   const cameraHandle = async index => {
+    // alert(addtionSelectedImageIndex);
     const permissionStatus = await androidCameraPermission();
     if (permissionStatus) {
       if (index == 0 || index == 1) {
@@ -100,13 +163,29 @@ export default function Signup({route, navigation}) {
           mediaType: 'photo',
         })
           .then(res => {
-            console.log(res, 'ress>>>>>>');
-            updateState({userImage: res?.sourceURL || res?.path});
+            console.log(res, 'res');
+            if (profilePic) {
+              updateState({userImage: res?.sourceURL || res?.path});
+            } else {
+              let data = cloneDeep(addtionalImages);
+              data[addtionSelectedImageIndex].value =
+                res?.sourceURL || res?.path;
+              data[addtionSelectedImageIndex].filename1 =
+                addtionSelectedImage?.name;
+              data[addtionSelectedImageIndex].file_type =
+                addtionSelectedImage?.file_type;
+              data[addtionSelectedImageIndex].id = addtionSelectedImage?.id;
+              data[addtionSelectedImageIndex].mime = res?.mime;
+              console.log(data, 'data>>>>');
+
+              updateState({addtionalImages: data});
+            }
           })
           .catch(err => {});
       }
     }
   };
+
   const isValidData = () => {
     const error = validator({phoneNumber});
     if (error) {
@@ -163,7 +242,43 @@ export default function Signup({route, navigation}) {
         .substr(0, 5)}.jpg`,
       uri: userImage,
     });
-    console.log(formdata, 'formdata');
+
+    if (addtionalTextInputs.length) {
+      addtionalTextInputs.map((i, inx) => {
+        if (i?.contents != '') {
+          formdata.append(`files_text[${inx}][file_type]`, i?.file_type);
+          formdata.append(`files_text[${inx}][id]`, i?.id);
+          formdata.append(`files_text[${inx}][contents]`, i?.contents);
+          formdata.append(`files_text[${inx}][label_name]`, i?.label_name);
+        }
+      });
+    }
+
+    let concatinatedArray = addtionalImages.concat(addtionalPdfs);
+
+    if (concatinatedArray.length) {
+      concatinatedArray.map((i, inx) => {
+        if (i?.value) {
+          formdata.append(`other[${inx}][file_type]`, i?.file_type);
+          formdata.append(`other[${inx}][id]`, i?.id);
+          formdata.append(`other[${inx}][filename1]`, i?.filename1);
+        }
+      });
+    }
+
+    if (concatinatedArray.length) {
+      concatinatedArray.map((i, inx) => {
+        if (i?.value) {
+          formdata.append(`uploaded_file[${inx}]`, {
+            name: i?.filename1,
+            type: i?.mime,
+            uri: i?.value,
+          });
+        }
+      });
+    }
+    console.log(formdata, 'formdata>formdata');
+
     updateState({isLoading: true});
     actions
       .signUp(formdata, {client: clientInfo?.database_name})
@@ -190,6 +305,120 @@ export default function Signup({route, navigation}) {
     });
   };
 
+  //Get TextInput
+  const getTextInputField = (type, index) => {
+    return (
+      <TextInputWithlabel
+        editable={true}
+        label={type?.name}
+        value={addtionalTextInputs[index]?.contents}
+        onChangeText={text => updateArray(text, index, type)}
+      />
+    );
+  };
+
+  //Update Images
+  const updateImages = (type, index) => {
+    updateState({addtionSelectedImage: type, addtionSelectedImageIndex: index});
+    showActionSheet(false);
+  };
+
+  //Get Upload image view
+
+  const getImageFieldView = (type, index) => {
+    console.log(' addtionalImages[index]', addtionalImages[index]);
+    return (
+      <View
+        style={{marginRight: moderateScale(20), marginTop: moderateScale(10)}}>
+        <Text style={[styles.label3]}>{type?.name}</Text>
+        <TouchableOpacity
+          onPress={() => updateImages(type, index)}
+          style={styles.imageUpload}>
+          {addtionalImages[index].value != undefined &&
+          addtionalImages[index].value != null &&
+          addtionalImages[index].value != '' ? (
+            <Image
+              source={{uri: addtionalImages[index].value}}
+              style={styles.imageStyle2}
+            />
+          ) : (
+            <Image source={imagePath?.photoInactive} />
+          )}
+        </TouchableOpacity>
+      </View>
+    );
+  };
+
+  const getDoc = async (value, index) => {
+    try {
+      const res = await DocumentPicker.pick({
+        type: [DocumentPicker.types.pdf],
+      });
+      console.log(res, 'res>res');
+      let data = cloneDeep(addtionalPdfs);
+      if (res) {
+        data[index].value = res[0].uri;
+        data[index].filename = res[0].name;
+        data[index].filename1 = value?.name;
+        data[index].file_type = value?.file_type;
+        data[index].id = value?.id;
+        data[index].mime = res[0].type;
+
+        console.log(data, 'addtionalPdfs>>>data');
+
+        updateState({addtionalPdfs: data});
+      }
+
+      // console.log(
+      //   res.uri,
+      //   res.type, // mime type
+      //   res.name,
+      //   res.size,
+      // );
+    } catch (err) {
+      if (DocumentPicker.isCancel(err)) {
+        // User cancelled the picker, exit any dialogs or menus and move on
+      } else {
+        throw err;
+      }
+    }
+  };
+
+  //Get Pdf view
+
+  const getPdfView = (type, index) => {
+    return (
+      <View
+        style={{marginRight: moderateScale(20), marginTop: moderateScale(20)}}>
+        <Text style={[styles.label3]}>{type?.name}</Text>
+        <TouchableOpacity
+          onPress={() => getDoc(type, index)}
+          style={styles.imageUpload}>
+          <Text style={styles.uploadStyle}>
+            {addtionalPdfs[index].value != undefined &&
+            addtionalPdfs[index].value != null &&
+            addtionalPdfs[index].value != ''
+              ? `${addtionalPdfs[index].filename}`
+              : `+ ${strings.UPLOAD}`}
+          </Text>
+        </TouchableOpacity>
+      </View>
+    );
+  };
+
+  //Update Array for PDF
+
+  //Update Array for image
+  const updateArray = (text, index, type) => {
+    let data = cloneDeep(addtionalTextInputs);
+    data[index].contents = text;
+    data[index].id = type?.id;
+    data[index].file_type = type?.file_type;
+    data[index].label_name = type?.name;
+    console.log(data, 'data>>>data');
+    updateState({addtionalTextInputs: data});
+  };
+
   return (
     <WrapperContainer
       statusBarColor={colors.white}
@@ -214,11 +443,11 @@ export default function Signup({route, navigation}) {
           alwaysBounceHorizontal={false}>
           <View style={styles.imageViewStyle}>
             {userImage ? (
-              <TouchableOpacity onPress={showActionSheet}>
+              <TouchableOpacity onPress={() => showActionSheet(true)}>
                 <Image source={{uri: userImage}} style={styles.imageStyle} />
               </TouchableOpacity>
             ) : (
-              <TouchableOpacity onPress={showActionSheet}>
+              <TouchableOpacity onPress={() => showActionSheet(true)}>
                 <Image
                   source={imagePath?.photoInactive}
                   style={styles.imageStyle}
@@ -374,6 +603,27 @@ export default function Signup({route, navigation}) {
                 onChangeText={text => updateState({vehiclePlateNumber: text})}
               />
             </View>
+
+            {!!(addtionalTextInputs && addtionalTextInputs.length) &&
+              addtionalTextInputs.map((item, index) => {
+                return getTextInputField(item, index);
+              })}
+
+            {!!(addtionalImages && addtionalImages.length) && (
+              <View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
+                {addtionalImages.map((item, index) => {
+                  return getImageFieldView(item, index);
+                })}
+              </View>
+            )}
+
+            {!!(addtionalPdfs && addtionalPdfs.length) && (
+              <View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
+                {addtionalPdfs.map((item, index) => {
+                  return getPdfView(item, index);
+                })}
+              </View>
+            )}
           </View>
           <GradientButton
             onPress={_onSignup}

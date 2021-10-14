@@ -285,6 +285,8 @@ PODS:
     - React-Core
   - react-native-date-picker (4.0.0):
     - React-Core
+  - react-native-document-picker (7.1.0):
+    - React-Core
   - react-native-geocoder (0.5.0):
     - React
   - react-native-geolocation-service (5.3.0-beta.2):
@@ -458,6 +460,7 @@ DEPENDENCIES:
   - react-native-appearance (from `../node_modules/react-native-appearance`)
   - react-native-camera (from `../node_modules/react-native-camera`)
   - react-native-date-picker (from `../node_modules/react-native-date-picker`)
+  - react-native-document-picker (from `../node_modules/react-native-document-picker`)
   - react-native-geocoder (from `../node_modules/react-native-geocoder`)
   - react-native-geolocation-service (from `../node_modules/react-native-geolocation-service`)
   - react-native-maps (from `../node_modules/react-native-maps`)
@@ -556,6 +559,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-camera"
   react-native-date-picker:
     :path: "../node_modules/react-native-date-picker"
+  react-native-document-picker:
+    :path: "../node_modules/react-native-document-picker"
   react-native-geocoder:
     :path: "../node_modules/react-native-geocoder"
   react-native-geolocation-service:
@@ -661,6 +666,7 @@ SPEC CHECKSUMS:
   react-native-appearance: 0f0e5fc2fcef70e03d48c8fe6b00b9158c2ba8aa
   react-native-camera: 3eae183c1d111103963f3dd913b65d01aef8110f
   react-native-date-picker: da6c4f85945a2c087c569c7ac52851819ed24218
+  react-native-document-picker: bf12b9ca87790f9b723106ffde0eff239928e515
   react-native-geocoder: 757427682892bb256f3b3745858cc90eba148a8e
   react-native-geolocation-service: 94c7d2ffdbbf4dd431241e0c8e37d491ebd41430
   react-native-maps: 41d01d8e0afcebe32bec9eea3bd945adc1b18f7a

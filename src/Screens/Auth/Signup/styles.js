@@ -7,6 +7,7 @@ import {
   moderateScaleVertical,
   textScale,
 } from '../../../styles/responsiveSize';
+import {getColorCodeWithOpactiyNumber} from '../../../utils/helperFunctions';
 
 export default StyleSheet.create({
   imageView: {
@@ -65,5 +66,32 @@ export default StyleSheet.create({
     fontSize: textScale(12),
     fontFamily: fontFamily.medium,
     color: colors.lightGreyBg2,
+  },
+  label3: {
+    marginBottom: moderateScaleVertical(10),
+
+    fontSize: textScale(12),
+    fontFamily: fontFamily.medium,
+    color: colors.lightGreyBg2,
+  },
+  imageUpload: {
+    height: 100,
+    width: 100,
+    borderRadius: moderateScale(4),
+    borderWidth: 1,
+    borderColor: colors.blue,
+    borderStyle: 'dashed',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: moderateScaleVertical(10),
+  },
+  imageStyle2: {
+    height: 100,
+    width: 100,
+    borderRadius: moderateScale(4),
+  },
+  uploadStyle: {
+    color: colors.blue,
+    fontFamily: fontFamily.medium,
   },
 });

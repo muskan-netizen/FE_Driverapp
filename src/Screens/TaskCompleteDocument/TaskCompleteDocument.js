@@ -37,6 +37,7 @@ export default function TaskCompleteDocument({route, navigation}) {
   const updatedProofArray = route?.params?.data?.updatedProofArray;
   const findDataToCheck = route?.params?.data?.findDataToCheck;
   const params = route?.params;
+  console.log(params, 'params>params');
   const [state, setState] = useState({
     isLoading: false,
     taskProofArray: updatedProofArray,
@@ -48,6 +49,7 @@ export default function TaskCompleteDocument({route, navigation}) {
     image: null,
     imageName: null,
     qrcode: null,
+    otpField: '',
   });
 
   const {
@@ -60,6 +62,7 @@ export default function TaskCompleteDocument({route, navigation}) {
     note,
     qrcode,
     signatureImage,
+    otpField,
   } = state;
   const commonStyles = commonStylesFunc({fontFamily});
   const updateState = data => setState(state => ({...state, ...data}));
@@ -238,6 +241,20 @@ export default function TaskCompleteDocument({route, navigation}) {
       !qrcode
     ) {
       showError(strings.QRSCAN);
+    } else if (
+      params?.data?.otpEnabled &&
+      params?.data?.otpRequired &&
+      otpField.trim() == ''
+    ) {
+      updateState({otpField:''})
+      showError(strings.OTPREQUIRED);
+    } else if (
+      params?.data?.otpEnabled &&
+      params?.data?.otpRequired &&
+      otpField != '' &&
+      JSON.parse(otpField) != params?.data?.otp
+    ) {
+      showError(strings.OTPNOTVALID);
     } else {
       updateState({isLoading: true});
       updateTaskStatus();
@@ -263,6 +280,9 @@ export default function TaskCompleteDocument({route, navigation}) {
         type: 'image/jpeg',
         uri: image,
       });
+    }
+    if (params?.data?.otpEnabled && params?.data?.otpRequired) {
+      formdata.append('otp', otpField);
     }
     console.log(formdata, 'updateTaskStatus>>>DATA');
 
@@ -309,98 +329,136 @@ export default function TaskCompleteDocument({route, navigation}) {
       />
       <View style={{...commonStyles.headerTopLine}} />
       <View style={{flex: 0.8}}>
-        <View
-          style={{
-            marginHorizontal: moderateScale(10),
-            marginTop: moderateScale(10),
-          }}>
-          <Text style={styles.attachment}>{strings.ATTACHMENTS}</Text>
+        {params?.data?.otpEnabled && params?.data?.otpRequired && (
           <View
             style={{
-              flexDirection: 'row',
-              flexWrap: 'wrap',
-              // justifyContent: 'center',
               marginHorizontal: moderateScale(10),
+              marginTop: moderateScale(10),
             }}>
-            {taskProofArray.map((i, inx) => {
-              const {width, height} = Image.resolveAssetSource(i?.imagePath);
-              return (
-                <TouchableOpacity
-                  activeOpacity={1}
-                  onPress={() => onPressCategory(i)}
-                  style={{
-                    marginRight: moderateScale(10),
-                    marginBottom: moderateScale(5),
-                  }}>
-                  <Image
-                    source={getImage(i)}
-                    onLayout={onImageLayout}
-                    style={{
-                      width: width - 40,
-                      height: height - 40, //362 is actual height of image
-                    }}
-                    resizeMode={'contain'}
-                  />
-                  <Text style={styles.titleStyle}>{i?.title}</Text>
-                </TouchableOpacity>
-              );
-            })}
-          </View>
-        </View>
-        {showInputBox && (
-          <View>
-            <Text style={styles.reason}>{strings.NOTE}</Text>
+            <Text style={styles.attachment}>{strings.OTP}</Text>
             <TextInput
               multiline={true}
-              value={note}
+              value={otpField}
               textAlignVertical={'top'}
               returnKeyType={'done'}
-              style={styles.textInputStyle}
-              onChangeText={text => updateState({note: text})}
+              maxLength={6}
+              keyboardType={'numeric'}
+              style={[
+                styles.textInputStyle,
+                {
+                  width: width / 2,
+                  marginHorizontal: moderateScale(10),
+                  alignItems: 'center',
+                  paddingVertical: moderateScale(10),
+                },
+              ]}
+              onChangeText={text => updateState({otpField: text})}
               onSubmitEditing={() => Keyboard.dismiss()}
             />
           </View>
         )}
 
-        <View
-          style={{
-            marginHorizontal: moderateScale(10),
-            marginTop: moderateScale(10),
-          }}>
-          <Text style={styles.attachment}>{strings.REQUIREDDATA}</Text>
-
-          <View
-            style={{
-              flexDirection: 'row',
-              flexWrap: 'wrap',
-            }}>
-            {/* signature image */}
-            {!!signatureImage && (
-              <Image
-                source={{
-                  uri: signatureImage,
-                }}
+        {!!(
+          params?.data?.updatedProofArray &&
+          params?.data?.updatedProofArray.length
+        ) && (
+          <View>
+            <View
+              style={{
+                marginHorizontal: moderateScale(10),
+                marginTop: moderateScale(10),
+              }}>
+              <Text style={styles.attachment}>{strings.ATTACHMENTS}</Text>
+              <View
                 style={{
-                  width: width / 3.5,
-                  height: width / 3.5, //362 is actual height of image
-                }}
-              />
+                  flexDirection: 'row',
+                  flexWrap: 'wrap',
+                  // justifyContent: 'center',
+                  marginHorizontal: moderateScale(10),
+                }}>
+                {taskProofArray.map((i, inx) => {
+                  const {width, height} = Image.resolveAssetSource(
+                    i?.imagePath,
+                  );
+                  return (
+                    <TouchableOpacity
+                      activeOpacity={1}
+                      onPress={() => onPressCategory(i)}
+                      style={{
+                        marginRight: moderateScale(10),
+                        marginBottom: moderateScale(5),
+                      }}>
+                      <Image
+                        source={getImage(i)}
+                        onLayout={onImageLayout}
+                        style={{
+                          width: width - 40,
+                          height: height - 40, //362 is actual height of image
+                        }}
+                        resizeMode={'contain'}
+                      />
+                      <Text style={styles.titleStyle}>{i?.title}</Text>
+                    </TouchableOpacity>
+                  );
+                })}
+              </View>
+            </View>
+            {showInputBox && (
+              <View>
+                <Text style={styles.reason}>{strings.NOTE}</Text>
+                <TextInput
+                  multiline={true}
+                  value={note}
+                  textAlignVertical={'top'}
+                  returnKeyType={'done'}
+                  style={styles.textInputStyle}
+                  onChangeText={text => updateState({note: text})}
+                  onSubmitEditing={() => Keyboard.dismiss()}
+                />
+              </View>
             )}
 
-            {/* signature image */}
-            {!!image && (
-              <Image
-                source={{
-                  uri: image,
-                }}
+            <View
+              style={{
+                marginHorizontal: moderateScale(10),
+                marginTop: moderateScale(10),
+              }}>
+              <Text style={styles.attachment}>{strings.REQUIREDDATA}</Text>
+
+              <View
                 style={{
-                  width: width / 3.5,
-                  height: width / 3.5, //362 is actual height of image
-                }}
-              />
-            )}
+                  flexDirection: 'row',
+                  flexWrap: 'wrap',
+                }}>
+                {/* signature image */}
+                {!!signatureImage && (
+                  <Image
+                    source={{
+                      uri: signatureImage,
+                    }}
+                    style={{
+                      width: width / 3.5,
+                      height: width / 3.5, //362 is actual height of image
+                    }}
+                  />
+                )}
+
+                {/* signature image */}
+                {!!image && (
+                  <Image
+                    source={{
+                      uri: image,
+                    }}
+                    style={{
+                      width: width / 3.5,
+                      height: width / 3.5, //362 is actual height of image
+                    }}
+                  />
+                )}
+              </View>
+            </View>
           </View>
-        </View>
+        )}
       </View>
 
       <View style={{flex: 0.2, paddingVertical: moderateScale(20)}}>
