@@ -134,6 +134,7 @@ export default function TaskDetail({route, navigation}) {
       });
       console.log(findDataToCheck, 'findDataToCheck');
       let newArray = cloneDeep(taskProofArray);
+      console.log(newArray,"newArray>newArray");
       if (findDataToCheck) {
         updateState({
           updatedProofArray: newArray
@@ -151,7 +152,11 @@ export default function TaskDetail({route, navigation}) {
         });
       }
     }
-  }, [taskDetail]);
+  }, [taskDetail,userData]);
+
+  useEffect(()=>{
+    console.log(updatedProofArray,"updated updatedProofArray");
+  },[updatedProofArray])
 
   useEffect(() => {
     getStatusName(taskStatus);
@@ -383,6 +388,9 @@ export default function TaskDetail({route, navigation}) {
               taskDetail: taskDetail,
               updatedProofArray: updatedProofArray,
               findDataToCheck: findDataToCheck,
+              otpEnabled: res?.data?.otpEnabled,
+              otpRequired: res?.data?.otpRequired,
+              otp: res?.data?.otp,
             })();
           } else {
             if (res?.data?.otpEnabled) {
