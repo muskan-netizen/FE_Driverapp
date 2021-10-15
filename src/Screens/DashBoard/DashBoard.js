@@ -123,6 +123,12 @@ export default function DashBoard({route, navigation}) {
           .then(res => {
             console.log(userData, 'userData');
             console.log(res, 'log api response');
+            if (selectedOption == 1) {
+              updateState({allTasks: res?.data?.tasks});
+            } else {
+              updateState({todaysTasks: res?.data?.tasks});
+            }
+           
           })
           .catch(errorMethod);
       })();
@@ -314,7 +320,7 @@ export default function DashBoard({route, navigation}) {
             }}
             contentContainerStyle={{
               flexGrow: 1,
-              marginVertical: moderateScaleVertical(20),
+              // marginVertical: moderateScaleVertical(20),
             }}
             refreshing={isRefreshing}
             refreshControl={

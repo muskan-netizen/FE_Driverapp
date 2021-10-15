@@ -46,16 +46,16 @@ export default function Signup({route, navigation}) {
 
   const [state, setState] = useState({
     isLoading: false,
-    fullName: 'sandeep das',
-    phoneNumber: '7845121245',
+    fullName: '',
+    phoneNumber: '',
     callingCode: '91',
     cca2: 'IN',
     allTransportation: transportationArray,
     allEmployeeTypes: employeetypeArray,
     selectedVehicleType: null,
-    modelMake: '2321',
-    vehicleColor: 'red',
-    vehiclePlateNumber: '12312sada',
+    modelMake: '',
+    vehicleColor: '',
+    vehiclePlateNumber: '',
     userImage: null,
     selectedEpmloyeetype: null,
     documentData: [],
@@ -277,7 +277,7 @@ export default function Signup({route, navigation}) {
         }
       });
     }
-    console.log(formdata, 'formdata>formdata');
+    console.log(JSON.stringify(formdata), 'formdata>formdata');
 
     updateState({isLoading: true});
     actions

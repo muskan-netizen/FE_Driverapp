@@ -385,7 +385,7 @@ export default function TaskDetail({route, navigation}) {
               findDataToCheck: findDataToCheck,
             })();
           } else {
-            if (res?.data?.otpEnabled && res?.data?.otpRequired) {
+            if (res?.data?.otpEnabled) {
               updateState({isLoading: false});
               moveToNewScreen(navigationStrings.TASKCOMPLETEDOCUMENT, {
                 taskDetail: taskDetail,

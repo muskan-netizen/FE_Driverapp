@@ -281,7 +281,7 @@ export default function TaskCompleteDocument({route, navigation}) {
         uri: image,
       });
     }
-    if (params?.data?.otpEnabled && params?.data?.otpRequired) {
+    if (params?.data?.otpEnabled) {
       formdata.append('otp', otpField);
     }
     console.log(formdata, 'updateTaskStatus>>>DATA');
@@ -329,7 +329,7 @@ export default function TaskCompleteDocument({route, navigation}) {
       />
       <View style={{...commonStyles.headerTopLine}} />
       <View style={{flex: 0.8}}>
-        {params?.data?.otpEnabled && params?.data?.otpRequired && (
+        {!!(params?.data?.otpEnabled) && (
           <View
             style={{
               marginHorizontal: moderateScale(10),
