@@ -28,6 +28,9 @@ import useInterval from '../../utils/useInterval';
 import {Platform} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import moment from 'moment';
+import {chekLocationPermission} from '../../utils/permissions';
+navigator.geolocation = require('react-native-geolocation-service');
+import Geocoder from 'react-native-geocoding';
 
 export default function DashBoard({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
@@ -91,10 +94,34 @@ export default function DashBoard({route, navigation}) {
   );
   useEffect(() => {
     (async () => {
+      currentLocation();
       updateState({fcm_token: await AsyncStorage.getItem('fcmToken')});
     })();
     return () => {};
   }, []);
+
+  const currentLocation = () => {
+    chekLocationPermission()
+      .then(result => {
+        if (result !== 'goback') {
+          getCurrentPosition();
+        }
+      })
+      .catch(error => console.log('error while accessing location ', error));
+  };
+
+  const getCurrentPosition = () => {
+    return navigator.geolocation.default.getCurrentPosition(
+      position => {
+        updateState({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+        });
+      },
+      error => console.log(error.message),
+      {enableHighAccuracy: true, timeout: 20000},
+    );
+  };
 
   // useEffect(() => {
   //   console.log(sessionLogoutUser,"sessionLogoutUser");
@@ -128,7 +155,6 @@ export default function DashBoard({route, navigation}) {
             } else {
               updateState({todaysTasks: res?.data?.tasks});
             }
-           
           })
           .catch(errorMethod);
       })();

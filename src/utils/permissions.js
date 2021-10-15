@@ -154,14 +154,14 @@ export const checkCameraPermission = () =>
           : PERMISSIONS.ANDROID.CAMERA,
       )
         .then(result => {
-          console.log(result,"result")
+          console.log(result, 'result');
           switch (result) {
             case RESULTS.UNAVAILABLE:
               // showError(strings.);
-               request(
+              request(
                 Platform.OS === 'ios'
-                ? PERMISSIONS.IOS.CAMERA
-                : PERMISSIONS.ANDROID.CAMERA,
+                  ? PERMISSIONS.IOS.CAMERA
+                  : PERMISSIONS.ANDROID.CAMERA,
               )
                 .then(result => {
                   return resolve(result);
@@ -173,8 +173,8 @@ export const checkCameraPermission = () =>
             case RESULTS.DENIED:
               request(
                 Platform.OS === 'ios'
-                ? PERMISSIONS.IOS.CAMERA
-                : PERMISSIONS.ANDROID.CAMERA,
+                  ? PERMISSIONS.IOS.CAMERA
+                  : PERMISSIONS.ANDROID.CAMERA,
               )
                 .then(result => {
                   return resolve(result);
