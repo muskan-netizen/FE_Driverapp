@@ -17,5 +17,7 @@ export default {
   TASKCOMPLETEDOCUMENT:'TaskCompleteDocument',
   ADDSIGNATURE:"AddSignature",
   SCANNER:'Scanner',
-  AUTHSTACK:'AuthStack'
+  AUTHSTACK:'AuthStack',
+  SETTINGS:'Settings',
+  APPSETTINGSSTACK:'AppsettingStack'
 };

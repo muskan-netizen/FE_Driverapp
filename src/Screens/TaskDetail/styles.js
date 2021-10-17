@@ -33,7 +33,7 @@ export default StyleSheet.create({
   },
   statusView: {
     minWidth: moderateScale(50),
-    maxWidth: moderateScale(75),
+    maxWidth: moderateScale(100),
     padding: moderateScale(3),
     marginTop: moderateScale(10),
     borderRadius: moderateScale(10),

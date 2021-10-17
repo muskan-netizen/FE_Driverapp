@@ -8,8 +8,8 @@ const shortCodes = {
 
 const appIds = {
   royoorder: Platform.select({
-    ios: 'com.codebrew.royodispatcher',
-    android: 'com.royodriverapp.royodispatcher',
+    ios: 'com.CodeBrew.Royo.Driver',
+    android: 'com.codebew.royodispatcher',
   }),
   runrun: Platform.select({
     ios: 'com.RunrunOne.Dispatch',

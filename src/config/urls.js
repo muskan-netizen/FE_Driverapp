@@ -5,7 +5,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/api';
 // export const API_BASE_URL = 'http://192.168.96.23:8005/api';
 //1da2e9
 
-export const personaltoken = '2BOSUpgYKhSAzMhPPWHptpCUFtonnh';
+export const personaltoken = 'TMJdbQlNWkYl1JzMONzRgF4zQFuP8s';
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;
 
 export const SEND_OTP = getApiUrl('/auth/login');

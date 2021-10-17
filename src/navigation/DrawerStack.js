@@ -4,6 +4,7 @@ import {Image, StyleSheet} from 'react-native';
 import CustomDrawerContent from '../Components/CustomDrawerContent';
 import imagePath from '../constants/imagePath';
 import strings from '../constants/lang';
+import { Settings } from '../Screens';
 import colors from '../styles/colors';
 import fontFamily from '../styles/fontFamily';
 import {
@@ -12,6 +13,7 @@ import {
   textScale,
   width,
 } from '../styles/responsiveSize';
+import AppSettingStack from './AppSettingStack';
 import navigationStrings from './navigationStrings';
 import ProfileStack from './ProfileStack';
 import TaskStack from './TaskStack';
@@ -39,7 +41,6 @@ export default function DrawerRoutes(props) {
         component={TaskStack}
         name={navigationStrings.TASKSTACK}
         options={{
-         
           drawerLabel: strings.TASKHISTORY,
           drawerIcon: ({focused}) => (
             <Image
@@ -53,6 +54,20 @@ export default function DrawerRoutes(props) {
       <Drawer.Screen
         component={ProfileStack}
         name={navigationStrings.PROFILESTACK}
+        options={{
+          drawerLabel: strings.SETTING,
+          drawerIcon: ({focused}) => (
+            <Image
+              style={{tintColor: focused ? colors.blackShade2 : colors.grey2}}
+              source={imagePath.settingsIcon}
+            />
+          ),
+        }}
+      />
+
+      <Drawer.Screen
+        component={Settings}
+        name={navigationStrings.SETTINGS}
         options={{
           drawerLabel: strings.SETTING,
           drawerIcon: ({focused}) => (

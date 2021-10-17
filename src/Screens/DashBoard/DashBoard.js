@@ -65,8 +65,12 @@ export default function DashBoard({route, navigation}) {
     isLoadingSwitch: false,
     fcm_token: null,
     statusChanged: false,
+    longitude: null,
+    latitude: null,
   });
   const {
+    longitude,
+    latitude,
     region,
     coordinate,
     todaysTasks,
@@ -113,6 +117,7 @@ export default function DashBoard({route, navigation}) {
   const getCurrentPosition = () => {
     return navigator.geolocation.default.getCurrentPosition(
       position => {
+        console.log(position, 'position');
         updateState({
           latitude: position.coords.latitude,
           longitude: position.coords.longitude,
@@ -132,32 +137,35 @@ export default function DashBoard({route, navigation}) {
 
   useInterval(
     () => {
-      (async () => {
-        let data = {};
-        data['device_type'] = Platform.OS;
-        data['os_version'] = DeviceInfo.getSystemVersion();
-        data['app_version'] = DeviceInfo.getVersion();
-        data['on_route'] = 'y';
-        data['battery_level'] = (await DeviceInfo.getBatteryLevel()) * 100;
-        data['all'] = initial;
-        // data['current_speed'] = 'y';
-        // data['long'] = initial;
-        // data['lat'] = initial;
-        console.log(data, 'data>data');
-        //   console.log(data, 'data');
-        actions
-          .logsApi(data, {client: clientInfo?.database_name})
-          .then(res => {
-            console.log(userData, 'userData');
-            console.log(res, 'log api response');
-            if (selectedOption == 1) {
-              updateState({allTasks: res?.data?.tasks});
-            } else {
-              updateState({todaysTasks: res?.data?.tasks});
-            }
-          })
-          .catch(errorMethod);
-      })();
+      getCurrentPosition();
+      setTimeout(() => {
+        (async () => {
+          let data = {};
+          data['device_type'] = Platform.OS;
+          data['os_version'] = DeviceInfo.getSystemVersion();
+          data['app_version'] = DeviceInfo.getVersion();
+          data['on_route'] = 'y';
+          data['battery_level'] = (await DeviceInfo.getBatteryLevel()) * 100;
+          data['all'] = initial;
+          // data['current_speed'] = 'y';
+          data['long'] = longitude;
+          data['lat'] = latitude;
+          console.log(data, 'data>data');
+          //   console.log(data, 'data');
+          actions
+            .logsApi(data, {client: clientInfo?.database_name})
+            .then(res => {
+              console.log(userData, 'userData');
+              console.log(res, 'log api response');
+              if (selectedOption == 1) {
+                updateState({allTasks: res?.data?.tasks});
+              } else {
+                updateState({todaysTasks: res?.data?.tasks});
+              }
+            })
+            .catch(errorMethod);
+        })();
+      }, 2000);
     },
     userData && userData?.access_token
       ? userData?.team?.location_frequency

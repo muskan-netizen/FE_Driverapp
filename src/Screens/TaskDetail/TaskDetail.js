@@ -134,7 +134,7 @@ export default function TaskDetail({route, navigation}) {
       });
       console.log(findDataToCheck, 'findDataToCheck');
       let newArray = cloneDeep(taskProofArray);
-      console.log(newArray,"newArray>newArray");
+      console.log(newArray, 'newArray>newArray');
       if (findDataToCheck) {
         updateState({
           updatedProofArray: newArray
@@ -152,11 +152,11 @@ export default function TaskDetail({route, navigation}) {
         });
       }
     }
-  }, [taskDetail,userData]);
+  }, [taskDetail, userData]);
 
-  useEffect(()=>{
-    console.log(updatedProofArray,"updated updatedProofArray");
-  },[updatedProofArray])
+  useEffect(() => {
+    console.log(updatedProofArray, 'updated updatedProofArray');
+  }, [updatedProofArray]);
 
   useEffect(() => {
     getStatusName(taskStatus);
@@ -371,6 +371,18 @@ export default function TaskDetail({route, navigation}) {
     }
   };
 
+  const redirectNextScreen = res => {
+    updateState({isLoading: false});
+    moveToNewScreen(navigationStrings.TASKCOMPLETEDOCUMENT, {
+      taskDetail: taskDetail,
+      updatedProofArray: updatedProofArray,
+      findDataToCheck: findDataToCheck,
+      otpEnabled: res?.data?.otpEnabled,
+      otpRequired: res?.data?.otpRequired,
+      otp: res?.data?.otp,
+    })();
+  };
+
   const redirectToDoneScreen = () => {
     console.log(taskDetail?.id, 'TaskDetail');
     updateState({isLoading: true});
@@ -383,26 +395,10 @@ export default function TaskDetail({route, navigation}) {
         if (res?.status == 200) {
           console.log(updatedProofArray, 'updatedProofArray');
           if (updatedProofArray.length) {
-            updateState({isLoading: false});
-            moveToNewScreen(navigationStrings.TASKCOMPLETEDOCUMENT, {
-              taskDetail: taskDetail,
-              updatedProofArray: updatedProofArray,
-              findDataToCheck: findDataToCheck,
-              otpEnabled: res?.data?.otpEnabled,
-              otpRequired: res?.data?.otpRequired,
-              otp: res?.data?.otp,
-            })();
+            redirectNextScreen(res);
           } else {
             if (res?.data?.otpEnabled) {
-              updateState({isLoading: false});
-              moveToNewScreen(navigationStrings.TASKCOMPLETEDOCUMENT, {
-                taskDetail: taskDetail,
-                updatedProofArray: updatedProofArray,
-                findDataToCheck: findDataToCheck,
-                otpEnabled: res?.data?.otpEnabled,
-                otpRequired: res?.data?.otpRequired,
-                otp: res?.data?.otp,
-              })();
+              redirectNextScreen(res);
             } else {
               let formdata = new FormData();
               formdata.append('task_status', 4);
@@ -413,13 +409,6 @@ export default function TaskDetail({route, navigation}) {
         }
       })
       .catch(errorMethod);
-
-    // moveToNewScreen(navigationStrings.TASKCOMPLETEDOCUMENT, {
-    //   taskDetail: taskDetail,
-    //   updatedProofArray: updatedProofArray,
-    //   findDataToCheck: findDataToCheck,
-    // })();
-    // alert('213');
   };
 
   const completeTask = formdata => {
@@ -481,7 +470,6 @@ export default function TaskDetail({route, navigation}) {
 
   const getDate = date => {
     const local = moment.utc(date).local().format('DD MMM YYYY hh:mm:a');
-
     return local;
   };
 

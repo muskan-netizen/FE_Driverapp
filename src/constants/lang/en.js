@@ -87,5 +87,6 @@ export default {
   UPLOAD:'Upload',
   OTP:'Otp*',
   OTPREQUIRED:'Otp field is required',
-  OTPNOTVALID:'Otp is invalid'
+  OTPNOTVALID:'Otp is invalid',
+  SETTINGS:'Setting'
 };
