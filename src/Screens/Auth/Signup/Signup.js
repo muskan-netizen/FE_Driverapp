@@ -43,13 +43,18 @@ import DocumentPicker from 'react-native-document-picker';
 
 export default function Signup({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
+  const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
 
   const [state, setState] = useState({
     isLoading: false,
     fullName: '',
     phoneNumber: '',
-    callingCode: '91',
-    cca2: 'IN',
+    callingCode: clientInfo?.get_country_set?.phonecode
+      ? clientInfo?.get_country_set?.phonecode
+      : '91',
+    cca2: clientInfo?.get_country_set?.code
+      ? clientInfo?.get_country_set?.code
+      : 'IN',
     allTransportation: transportationArray,
     allEmployeeTypes: employeetypeArray,
     selectedVehicleType: null,
@@ -94,7 +99,6 @@ export default function Signup({route, navigation}) {
   const commonStyles = commonStylesFunc({fontFamily});
 
   const updateState = data => setState(state => ({...state, ...data}));
-  const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
 
   console.log(clientInfo, 'clientInfo');
   //Naviagtion to specific screen
@@ -124,8 +128,9 @@ export default function Signup({route, navigation}) {
   const getRequiredDatas = () => {
     (async () => {
       const saveShortCode = await getItem('saveShortCode');
+      console.log(saveShortCode, 'saveShortCode');
       actions
-        .signupDoc({}, {shortcode: saveShortCode, personaltoken: personaltoken})
+        .signupDoc({}, {client: clientInfo?.database_name})
         .then(res => {
           console.log(res, 'getRequiredDatas data');
           if (res?.data && res?.data.length) {

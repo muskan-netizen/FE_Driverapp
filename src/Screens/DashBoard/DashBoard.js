@@ -34,16 +34,16 @@ import Geocoder from 'react-native-geocoding';
 
 export default function DashBoard({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
-  // console.log(userData, 'userData');
+  console.log(userData, 'userData');
   const [state, setState] = useState({
     isLoading: false,
-    isEnabled: true,
+    isEnabled: userData && userData?.is_available ? true : false,
     options: [
       {label: strings.TODAYSTASK, value: 0, testID: '1'},
       {label: strings.ALLTASKS, value: 1, testID: '2'},
     ],
     initial: 0,
-    selectedOption: userData?.is_available,
+    selectedOption: 0,
     todaysTasks: [],
     allTasks: [],
     isRefreshing: false,
@@ -127,13 +127,6 @@ export default function DashBoard({route, navigation}) {
       {enableHighAccuracy: true, timeout: 20000},
     );
   };
-
-  // useEffect(() => {
-  //   console.log(sessionLogoutUser,"sessionLogoutUser");
-  //   if (sessionLogoutUser) {
-  //     navigation.navigate(navigationStrings.LOGIN);
-  //   }
-  // }, [sessionLogoutUser]);
 
   useInterval(
     () => {
@@ -266,6 +259,7 @@ export default function DashBoard({route, navigation}) {
       .catch(errorMethod);
   };
 
+  console.log(isEnabled, 'isEnabled');
   const toggleSwitch = () => {
     updateState({
       statusChanged: true,

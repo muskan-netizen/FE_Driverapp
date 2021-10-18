@@ -4,6 +4,7 @@ import {getBundleId} from 'react-native-device-info';
 const shortCodes = {
   runrun: 'cbec70',
   royoorder: '8e3eef',
+  deliverstat:'e6b31c'
 };
 
 const appIds = {
@@ -14,6 +15,10 @@ const appIds = {
   runrun: Platform.select({
     ios: 'com.RunrunOne.Dispatch',
     android: 'com.Runrun.royodispatcher',
+  }),
+  deliverstat: Platform.select({
+    ios: 'com.Deliverstat.Dispatch',
+    android: 'com.Deliverstat.royodispatcher',
   }),
 };
 

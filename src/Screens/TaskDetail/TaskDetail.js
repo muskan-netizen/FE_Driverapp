@@ -168,6 +168,7 @@ export default function TaskDetail({route, navigation}) {
 
   //Error handling in api
   const errorMethod = error => {
+    console.log(error,"error");
     updateState({isLoading: false, isRefreshing: false, isLoading: false});
     showError(error?.message || error?.error);
   };
@@ -388,6 +389,7 @@ export default function TaskDetail({route, navigation}) {
     updateState({isLoading: true});
     let data = {};
     data['task_id'] = taskDetail?.id;
+    console.log(data,"data");
     actions
       .sendOtpToDriver(data, {client: clientInfo?.database_name})
       .then(res => {

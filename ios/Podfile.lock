@@ -431,8 +431,6 @@ PODS:
   - RNScreens (3.6.0):
     - React-Core
     - React-RCTImage
-  - RNVectorIcons (8.1.0):
-    - React-Core
   - TOCropViewController (2.6.0)
   - Yoga (1.14.0)
 
@@ -496,7 +494,6 @@ DEPENDENCIES:
   - RNPermissions (from `../node_modules/react-native-permissions`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
-  - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -630,8 +627,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-reanimated"
   RNScreens:
     :path: "../node_modules/react-native-screens"
-  RNVectorIcons:
-    :path: "../node_modules/react-native-vector-icons"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -705,10 +700,9 @@ SPEC CHECKSUMS:
   RNPermissions: 7043bacbf928eae25808275cfe73799b8f618911
   RNReanimated: d29057cf85e771be4f0180ba1d00a7185e423a7d
   RNScreens: eb0dfb2d6b21d2d7f980ad46b14eb306d2f1062e
-  RNVectorIcons: 31cebfcf94e8cf8686eb5303ae0357da64d7a5a4
   TOCropViewController: 3105367e808b7d3d886a74ff59bf4804e7d3ab38
   Yoga: aa0cb45287ebe1004c02a13f279c55a95f1572f4
 
-PODFILE CHECKSUM: 3edd3ba8aecb09de99326b9e050b15dcb2edafe4
+PODFILE CHECKSUM: dc5a8143df0d516e14d6a9928aa6b3077660a670
 
 COCOAPODS: 1.11.2

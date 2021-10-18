@@ -59,13 +59,13 @@ export default function DrawerRoutes(props) {
           drawerIcon: ({focused}) => (
             <Image
               style={{tintColor: focused ? colors.blackShade2 : colors.grey2}}
-              source={imagePath.settingsIcon}
+              source={imagePath.profileImage}
             />
           ),
         }}
       />
 
-      <Drawer.Screen
+      {/* <Drawer.Screen
         component={Settings}
         name={navigationStrings.SETTINGS}
         options={{
@@ -77,7 +77,7 @@ export default function DrawerRoutes(props) {
             />
           ),
         }}
-      />
+      /> */}
     </Drawer.Navigator>
   );
 }

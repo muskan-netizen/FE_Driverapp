@@ -57,6 +57,7 @@ export default {
   blue_tik:require('../assets/images/ic_tick2.png'),
   redioUnSelectedButton:require('../assets/images/ic_radiobutton.png'),
   redioSelectedButton:require('../assets/images/ic_radiocheck.png'),
-  
+  profileImage:require('../assets/images/ic_profile.png'),
+
   
 };

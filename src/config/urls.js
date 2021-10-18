@@ -26,5 +26,5 @@ export const ACCEPTREJECTSTATUS = getApiUrl('/task/accecpt/reject');
 
 //Logs
 export const LOGSAPI = getApiUrl('/agent/logs');
-export const SIGNUPDOC = getApiUrl('/send-documents');
+export const SIGNUPDOC = getApiUrl('/auth/new-send-documents');
 export const DRIVEROTP = getApiUrl('/checkOTPRequried');

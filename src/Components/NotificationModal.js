@@ -104,7 +104,7 @@ const NotificationModal = () => {
   const modalMainContent = () => {
     let data = notificationData?.notificationData?.data;
     return (
-      <View style={{overflow: 'hidden'}}>
+      <View style={{overflow: 'hidden', borderRadius: moderateScale(10)}}>
         <View>{!!region && mapView()}</View>
         <View style={{padding: 10}}>
           <Text style={styles.address}>{data?.address}</Text>
@@ -142,7 +142,7 @@ const NotificationModal = () => {
               style={{
                 flex: 0.5,
                 borderBottomLeftRadius: moderateScale(15),
-                
+
                 alignItems: 'center',
                 justifyContent: 'center',
                 backgroundColor: 'red',

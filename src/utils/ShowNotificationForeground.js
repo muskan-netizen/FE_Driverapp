@@ -8,7 +8,7 @@ import actions from '../redux/actions';
 const ShowNotificationForeground = props => {
   useEffect(() => {
     const unsubscribe = messaging().onMessage(async remoteMessage => {
-      console.log('remote message foreground', remoteMessage);
+      console.log('remote message foreground', JSON.stringify(remoteMessage));
       const {data, messageId, notification} = remoteMessage;
       {
         Platform.OS == 'ios'

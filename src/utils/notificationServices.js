@@ -79,7 +79,7 @@ export const notificationListener = async () => {
   messaging().onNotificationOpenedApp(async remoteMessage => {
     console.log(
       'Notification caused app to open from background state bla bla:',
-      remoteMessage,
+      JSON.stringify(remoteMessage),
     );
     const {notification} = remoteMessage;
     if (
@@ -99,7 +99,7 @@ export const notificationListener = async () => {
     .getInitialNotification()
     .then(remoteMessage => {
       if (remoteMessage) {
-        console.log('remote message inital notification', remoteMessage);
+        console.log('remote message inital notification',JSON.stringify(remoteMessage));
         const {notification} = remoteMessage;
         console.log(
           'Notification caused app to open from quit state:',

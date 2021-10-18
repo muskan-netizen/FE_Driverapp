@@ -10,7 +10,6 @@ import colors from '../../styles/colors';
 import commonStylesFunc from '../../styles/commonStyles';
 import fontFamily from '../../styles/fontFamily';
 import {moderateScale} from '../../styles/responsiveSize';
-import { Dropdown } from 'react-native-material-dropdown-v2-fixed';
 
 export default function Settings({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
@@ -58,8 +57,7 @@ export default function Settings({route, navigation}) {
           marginHorizontal: moderateScale(20),
           marginVertical: moderateScale(20),
         }}>
-        <Dropdown  icon='chevron-down'
-        iconColor='#E1E1E1' label="Select Language" data={allLanguages} />
+      
       </View>
     </WrapperContainer>
   );

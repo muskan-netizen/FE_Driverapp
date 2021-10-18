@@ -194,6 +194,7 @@ export default function Login({navigation, route}) {
               style={{
                 marginTop: moderateScaleVertical(20),
                 flexDirection: 'row',
+                justifyContent:'center'
               }}>
               <Text style={styles.byContinue}>{`${strings.BYCONTINUE} `}</Text>
             </View>
@@ -202,6 +203,7 @@ export default function Login({navigation, route}) {
               style={{
                 marginTop: moderateScaleVertical(5),
                 flexDirection: 'row',
+                justifyContent:'center'
               }}>
               <Text
                 onPress={() =>
