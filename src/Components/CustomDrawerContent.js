@@ -37,13 +37,13 @@ export default function CustomDrawerContent({
         key: navigationStrings.PROFILESTACK,
         // subRoute:navigationStrings.MYPROFILE
       },
-      // {
-      //   id: 2,
-      //   label: strings.SETTINGS,
-      //   image: imagePath.settingsIcon,
-      //   key: navigationStrings.SETTINGS,
-      //   // subRoute:navigationStrings.MYPROFILE
-      // },
+      {
+        id: 2,
+        label: strings.SETTINGS,
+        image: imagePath.settingsIcon,
+        key: navigationStrings.SETTINGS,
+        // subRoute:navigationStrings.MYPROFILE
+      },
       {
         id: 3,
         label: strings.LOGOUT,
@@ -60,8 +60,8 @@ export default function CustomDrawerContent({
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
   console.log(clientInfo, 'clientInfo>clientInfo');
 
-   //Naviagtion to specific screen
-   const moveToNewScreen = (screenName, data) => () => {
+  //Naviagtion to specific screen
+  const moveToNewScreen = (screenName, data) => () => {
     navigation.navigate(screenName, {data});
   };
 

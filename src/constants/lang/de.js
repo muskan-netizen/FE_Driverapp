@@ -1,10 +1,13 @@
 export default {
-  LOGINUSING:'Login Using',
-  COMPANYCODE:'Company Code',
-  WENEDDCOMPNAYCODE:'We need your company code to setup login',
+  LOGINUSING: 'Login Using',
+  COMPANYCODE: 'Company Code',
+  WENEDDCOMPNAYCODE: 'We need your company code to setup login',
   LOGIN: 'Login',
-  WHEREICANSIGNUP:'Where can i sign up?',
-  EMPLOYEETYPE:'Employee Type',
-  EMPLOYEE:'Employee',
-  FREELANCER:'Freelancer'
+  WHEREICANSIGNUP: 'Where can i sign up?',
+  EMPLOYEETYPE: 'Employee Type',
+  EMPLOYEE: 'Employee',
+  FREELANCER: 'Freelancer',
+  LANGUAGE: 'Language',
+  CANCEL1: 'CANCEL',
+  OK: 'OK',
 };

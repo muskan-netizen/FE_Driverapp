@@ -37,6 +37,7 @@ export default function MyProfile({route, navigation}) {
       : null,
     modelMake: userData?.make_model ? userData?.make_model : '',
     vehicleColor: userData?.color ? userData?.color : '',
+    plateNumber: userData?.plate_number ? userData?.plate_number : '',
   });
 
   const {
@@ -49,6 +50,7 @@ export default function MyProfile({route, navigation}) {
     selectedVehicleType,
     modelMake,
     vehicleColor,
+    plateNumber,
   } = state;
   const commonStyles = commonStylesFunc({fontFamily});
 
@@ -83,7 +85,10 @@ export default function MyProfile({route, navigation}) {
           marginHorizontal: moderateScale(20),
           marginVertical: moderateScale(20),
         }}>
-        <KeyboardAwareScrollView bounces={false} alwaysBounceHorizontal={false}>
+        <KeyboardAwareScrollView
+          showsVerticalScrollIndicator={false}
+          bounces={false}
+          alwaysBounceHorizontal={false}>
           <View style={styles.imageViewStyle}>
             {userData && userData?.image_url && (
               <Image
@@ -138,8 +143,11 @@ export default function MyProfile({route, navigation}) {
             </View>
             <View style={{marginTop: moderateScaleVertical(20)}}>
               <TextInputWithlabel label={strings.MODELMAKE} value={modelMake} />
-
               <TextInputWithlabel label={strings.COLOR} value={vehicleColor} />
+              <TextInputWithlabel
+                label={strings.PLATEORDER}
+                value={plateNumber}
+              />
             </View>
           </View>
         </KeyboardAwareScrollView>

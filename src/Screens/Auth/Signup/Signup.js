@@ -334,8 +334,14 @@ export default function Signup({route, navigation}) {
     console.log(' addtionalImages[index]', addtionalImages[index]);
     return (
       <View
-        style={{marginRight: moderateScale(20), marginTop: moderateScale(10)}}>
-        <Text style={[styles.label3]}>{type?.name}</Text>
+        style={{
+          marginRight: moderateScale(20),
+          marginTop: moderateScale(10),
+          width: moderateScale(100),
+        }}>
+        <Text numberOfLines={2} style={[styles.label3]}>
+          {type?.name}
+        </Text>
         <TouchableOpacity
           onPress={() => updateImages(type, index)}
           style={styles.imageUpload}>
@@ -615,7 +621,11 @@ export default function Signup({route, navigation}) {
               })}
 
             {!!(addtionalImages && addtionalImages.length) && (
-              <View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  flexWrap: 'wrap',
+                }}>
                 {addtionalImages.map((item, index) => {
                   return getImageFieldView(item, index);
                 })}

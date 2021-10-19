@@ -6,6 +6,7 @@ import {
   apiPost,
   saveShortCodeData,
   setClientInfo,
+  setDefaultSelectedLanguage,
   setUserData,
 } from '../../utils/utils';
 import {
@@ -109,5 +110,14 @@ export function sessionLogoutUser(data = false) {
   dispatch({
     type: types.SESSIONLOGOUT,
     payload: data,
+  });
+}
+
+export function setDefaultLanguage(data = {}) {
+  setDefaultSelectedLanguage(data).then(suc => {
+    dispatch({
+      type: types.DEFAULTLANGUAGE,
+      payload: data,
+    });
   });
 }

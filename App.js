@@ -34,6 +34,7 @@ const App = () => {
       const {dispatch} = store;
 
       const userData = await getUserData();
+      const defaultLanguage = await getItem('defaultLanguage');
       console.log(userData, 'userData');
       if (userData && !!userData?.access_token) {
         notificationConfig();
@@ -42,6 +43,12 @@ const App = () => {
         dispatch({
           type: types.LOGIN,
           payload: userData,
+        });
+      }
+      if (defaultLanguage) {
+        dispatch({
+          type: types.DEFAULTLANGUAGE,
+          payload: defaultLanguage,
         });
       }
 
