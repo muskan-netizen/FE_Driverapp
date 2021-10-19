@@ -82,13 +82,25 @@ export default function ShortCode({route, navigation}) {
           });
           break;
 
-          case appIds.deliverstat:
-            updateState({
-              shortCode: shortCodes.deliverstat,
-              isShortcodePrefilled: true,
-            });
-            break;
+        case appIds.deliverstat:
+          updateState({
+            shortCode: shortCodes.deliverstat,
+            isShortcodePrefilled: true,
+          });
+          break;
 
+        case appIds.africanVillageMarket:
+          updateState({
+            shortCode: shortCodes.africanVillageMarket,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.africanize:
+          updateState({
+            shortCode: shortCodes.africanize,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, []);

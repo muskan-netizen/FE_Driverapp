@@ -226,6 +226,26 @@ android {
             applicationId 'com.Deliverstat.royodispatcher'
             resValue "string", "app_name", "Deliverstat"
         } 
+        africanVillageMarket {
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.AfricanVillageMarket.royodispatcher'
+            resValue "string", "app_name", "Deliverstat"
+        } 
+          africanize {
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.africanize.royodispatcher'
+            resValue "string", "app_name", "Deliverstat"
+        } 
     }
 }
 
