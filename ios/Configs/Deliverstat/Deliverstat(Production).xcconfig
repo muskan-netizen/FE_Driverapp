@@ -1,8 +1,8 @@
-#include "Pods/Target Support Files/Pods-Deliverstat/Pods-Deliverstat.debug.xcconfig"
+#include "Pods/Target Support Files/Pods-Deliverstat/Pods-Deliverstat.release.xcconfig"
 
 PROJECT_BUNDLE_ID = com.Deliverstat.Dispatch
 PROJECT_APP_VERSION = 1.0
-PROJECT_BUILD_NUMBER = 4
+PROJECT_BUILD_NUMBER = 5
 PROJECT_APP_NAME = Deliverstat
 PROJECT_PLIST = DeliverstatInfo
 PROJECT_ENTITLEMENT=RoyoDriverAppRelease

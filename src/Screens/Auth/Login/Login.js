@@ -39,7 +39,7 @@ export default function Login({navigation, route}) {
     cca2: clientInfo?.get_country_set?.code
       ? clientInfo?.get_country_set?.code
       : 'IN',
-    phoneNumber: '8006066235',
+    phoneNumber: '',
   });
 
   const {themeColors} = useSelector(state => state?.initBoot);
