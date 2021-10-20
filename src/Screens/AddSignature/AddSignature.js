@@ -87,7 +87,7 @@ export default function AddSignature({route, navigation}) {
           ref={signRef}
           onSaveEvent={_onSaveEvent}
           onDragEvent={_onDragEvent}
-          saveImageFileInExtStorage={false}
+          saveImageFileInExtStorage={true}
           showNativeButtons={false}
           showTitleLabel={false}
           // backgroundColor="#ff0fff"

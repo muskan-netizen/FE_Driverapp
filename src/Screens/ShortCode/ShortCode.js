@@ -101,6 +101,30 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.tranzit:
+          updateState({
+            shortCode: shortCodes.tranzit,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.hemptify:
+          updateState({
+            shortCode: shortCodes.hemptify,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.goody:
+          updateState({
+            shortCode: shortCodes.goody,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.yogofood:
+          updateState({
+            shortCode: shortCodes.yogofood,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, []);

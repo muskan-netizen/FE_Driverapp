@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Platform, View, Image, Text} from 'react-native';
+import {Platform, View, Image,BackHandler, Text} from 'react-native';
 import DeviceInfo, {getBundleId} from 'react-native-device-info';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {useSelector} from 'react-redux';
@@ -41,6 +41,14 @@ export default function Login({navigation, route}) {
       : 'IN',
     phoneNumber: '',
   });
+
+  useEffect(() => {
+    const backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      () => true,
+    );
+    return () => backHandler.remove();
+  }, []);
 
   const {themeColors} = useSelector(state => state?.initBoot);
   //   const fontFamily = appStyle?.fontSizeData;

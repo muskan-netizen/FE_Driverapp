@@ -99,7 +99,10 @@ export const notificationListener = async () => {
     .getInitialNotification()
     .then(remoteMessage => {
       if (remoteMessage) {
-        console.log('remote message inital notification',JSON.stringify(remoteMessage));
+        console.log(
+          'remote message inital notification',
+          JSON.stringify(remoteMessage),
+        );
         const {notification} = remoteMessage;
         console.log(
           'Notification caused app to open from quit state:',
