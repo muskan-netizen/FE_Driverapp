@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {Platform} from 'react-native';
 import {Keyboard} from 'react-native';
 import {
   Dimensions,
@@ -88,7 +89,7 @@ export default function TaskCompleteDocument({route, navigation}) {
     if (data && data?.encoded) {
       const imageData = data?.encoded;
 
-      const imagePath = `${RNFS.TemporaryDirectoryPath}${Math.random()
+      const imagePath = `${RNFS.DocumentDirectoryPath}${Math.random()
         .toString(36)
         .replace(/[^a-z]+/g, '')
         .substr(0, 5)}.jpg`;
@@ -97,9 +98,12 @@ export default function TaskCompleteDocument({route, navigation}) {
       RNFS.writeFile(imagePath, imageData, 'base64')
         .then(res => {
           console.log(res, 'res>>>>res');
-          console.log('Image converted to jpg and saved at ' + imagePath),
+          console.log('Image converted to jpg and saved at ' + data?.pathName),
             updateState({
-              signatureImage: imagePath,
+              signatureImage:
+                Platform.OS == 'ios'
+                  ? data?.pathName
+                  : `file://${data?.pathName}`,
             });
           // setTimeout(() => {
           //   unlinkDirectory(imagePath);
@@ -246,7 +250,7 @@ export default function TaskCompleteDocument({route, navigation}) {
       params?.data?.otpRequired &&
       otpField.trim() == ''
     ) {
-      updateState({otpField:''})
+      updateState({otpField: ''});
       showError(strings.OTPREQUIRED);
     } else if (
       params?.data?.otpEnabled &&
@@ -329,7 +333,7 @@ export default function TaskCompleteDocument({route, navigation}) {
       />
       <View style={{...commonStyles.headerTopLine}} />
       <View style={{flex: 0.8}}>
-        {!!(params?.data?.otpEnabled) && (
+        {!!params?.data?.otpEnabled && (
           <View
             style={{
               marginHorizontal: moderateScale(10),

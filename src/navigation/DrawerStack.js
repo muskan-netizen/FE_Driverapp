@@ -65,7 +65,7 @@ export default function DrawerRoutes(props) {
         }}
       />
 
-      <Drawer.Screen
+      {/* <Drawer.Screen
         component={Settings}
         name={navigationStrings.SETTINGS}
         options={{
@@ -77,7 +77,7 @@ export default function DrawerRoutes(props) {
             />
           ),
         }}
-      />
+      /> */}
     </Drawer.Navigator>
   );
 }

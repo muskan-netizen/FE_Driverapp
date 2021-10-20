@@ -246,6 +246,49 @@ android {
             applicationId 'com.africanize.royodispatcher'
             resValue "string", "app_name", "Deliverstat"
         } 
+          tranzit {
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.tranzit.royodispatcher'
+            resValue "string", "app_name", "Tranzit Dispatch"
+        } 
+         hemptify {
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.HemptiFy.royodispatcher'
+            resValue "string", "app_name", "HemptyFy Dispatch"
+        } 
+
+         goody {
+                dimension "appType"
+                versionCode 1
+                versionName "1.0"
+                minSdkVersion rootProject.ext.minSdkVersion
+                targetSdkVersion rootProject.ext.targetSdkVersion
+                // applicationIdSuffix ".royoorder"
+                applicationId 'com.Goody.royodispatcher'
+                resValue "string", "app_name", "Goody Dispatch"
+            } 
+              yogofood {
+                dimension "appType"
+                versionCode 1
+                versionName "1.0"
+                minSdkVersion rootProject.ext.minSdkVersion
+                targetSdkVersion rootProject.ext.targetSdkVersion
+                // applicationIdSuffix ".royoorder"
+                applicationId 'com.yogofood.royodispatcher'
+                resValue "string", "app_name", "YogoFood Dispatch"
+            } 
+
+
     }
 }
 

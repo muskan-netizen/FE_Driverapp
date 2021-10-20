@@ -37,13 +37,13 @@ export default function CustomDrawerContent({
         key: navigationStrings.PROFILESTACK,
         // subRoute:navigationStrings.MYPROFILE
       },
-      {
-        id: 2,
-        label: strings.SETTINGS,
-        image: imagePath.settingsIcon,
-        key: navigationStrings.SETTINGS,
-        // subRoute:navigationStrings.MYPROFILE
-      },
+      // {
+      //   id: 2,
+      //   label: strings.SETTINGS,
+      //   image: imagePath.settingsIcon,
+      //   key: navigationStrings.SETTINGS,
+      //   // subRoute:navigationStrings.MYPROFILE
+      // },
       {
         id: 3,
         label: strings.LOGOUT,
