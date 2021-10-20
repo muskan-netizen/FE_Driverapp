@@ -101,6 +101,12 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.tranzit:
+          updateState({
+            shortCode: shortCodes.tranzit,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, []);

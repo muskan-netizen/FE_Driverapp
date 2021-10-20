@@ -6,7 +6,8 @@ const shortCodes = {
   royoorder: '8e3eef',
   deliverstat:'e6b31c',
   africanVillageMarket:'6c786d',
-  africanize:'a98da0'
+  africanize:'a98da0',
+  tranzit:'f84785'
 };
 
 const appIds = {
@@ -28,6 +29,10 @@ const appIds = {
   }),
   africanize: Platform.select({
     ios: 'com.Africanize.Dispatch',
+    android: 'com.africanize.royodispatcher',
+  }),
+  tranzit: Platform.select({
+    ios: 'com.Tranzit.Dispatch',
     android: 'com.africanize.royodispatcher',
   }),
 };
