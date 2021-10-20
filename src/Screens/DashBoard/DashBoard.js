@@ -96,6 +96,9 @@ export default function DashBoard({route, navigation}) {
   const refreshHomeData = useSelector(
     state => state?.initBoot?.refreshHomeData,
   );
+  const defaultLanguagae = useSelector(
+    state => state?.initBoot?.defaultLanguage,
+  );
   useEffect(() => {
     (async () => {
       currentLocation();

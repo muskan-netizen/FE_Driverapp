@@ -21,10 +21,11 @@ import {
   width,
 } from '../../styles/responsiveSize';
 import {showSuccess} from '../../utils/helperFunctions';
-import styles from './styles';
+import stylesFunc from './styles';
 
 export default function Settings({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
+
   const defaultLanguagae = useSelector(
     state => state?.initBoot?.defaultLanguage,
   );
@@ -32,6 +33,8 @@ export default function Settings({route, navigation}) {
     defaultLanguagae,
     'defaultLanguagaedefaultLanguagaedefaultLanguagae',
   );
+
+  const styles = stylesFunc({defaultLanguagae});
   const [state, setState] = useState({
     isLoading: false,
     allLanguages: [
@@ -70,12 +73,20 @@ export default function Settings({route, navigation}) {
     updateState({
       selectedLangauge: language,
     });
-    actions.setDefaultLanguage(language);
   };
 
   const onModalVisiblity = () => {
     updateState({
-      isModalVisibleForLanguage: isModalVisibleForLanguage ? false : true,
+      isModalVisibleForLanguage: true,
+    });
+  };
+
+  const setFinalSelectedLanguage = type => {
+    if (type === 'ok') {
+      actions.setDefaultLanguage(selectedLangauge);
+    }
+    updateState({
+      isModalVisibleForLanguage: false,
     });
   };
 
@@ -92,25 +103,13 @@ export default function Settings({route, navigation}) {
           ]}>
           {strings.LANGUAGE}
         </Text>
-        <View
-          style={{
-            height: (0.5).toExponential,
-            backgroundColor: colors.textGreyLight,
-            marginTop: moderateScaleVertical(10),
-          }}
-        />
+        <View style={styles.lineViewstyle} />
 
         <View style={{height: height / 1.8}}>
           {allLanguages.map((item, index) => {
             return (
               <TouchableOpacity onPress={() => _selecLangauge(item)}>
-                <View
-                  style={{
-                    marginVertical: moderateScaleVertical(20),
-                    paddingHorizontal: moderateScale(20),
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                  }}>
+                <View style={styles.languageListItemContainer}>
                   <TouchableOpacity onPress={() => _selecLangauge(item)}>
                     <Image
                       source={
@@ -136,40 +135,13 @@ export default function Settings({route, navigation}) {
           })}
         </View>
 
-        <View
-          style={{
-            height: 0.5,
-            backgroundColor: colors.textGreyLight,
-            marginTop: moderateScaleVertical(10),
-            flexDirection: 'row',
-          }}
-        />
-        <View
-          style={{
-            marginTop: moderateScaleVertical(16),
-            width: width / 2,
-            flexDirection: 'row',
-            alignSelf: 'flex-end',
-          }}>
-          <TouchableOpacity onPress={() => onModalVisiblity()}>
-            <Text
-              style={{
-                textAlign: 'right',
-                marginHorizontal: moderateScale(30),
-                color: colors.themeColor,
-              }}>
-              {strings.CANCEL1}
-            </Text>
+        <View style={styles.modealBottomContainer} />
+        <View style={styles.modalBottomButtonContainer}>
+          <TouchableOpacity onPress={() => setFinalSelectedLanguage('cancel')}>
+            <Text style={styles.modalText}>{strings.CANCEL1}</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => onModalVisiblity()}>
-            <Text
-              style={{
-                textAlign: 'right',
-                marginHorizontal: moderateScale(30),
-                color: colors.themeColor,
-              }}>
-              {strings.OK}
-            </Text>
+          <TouchableOpacity onPress={() => setFinalSelectedLanguage('ok')}>
+            <Text style={styles.modalText}>{strings.OK}</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -197,7 +169,10 @@ export default function Settings({route, navigation}) {
             <Text style={styles.selectedLanguageText}>
               {defaultLanguagae?.label}
             </Text>
-            <Image source={imagePath.forwordArrow} />
+            <Image
+              style={styles.arrowIconStyle}
+              source={imagePath.forwordArrow}
+            />
           </View>
         </TouchableOpacity>
       </View>

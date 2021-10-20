@@ -1,6 +1,7 @@
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import React from 'react';
+import React, {useRef} from 'react';
 import {Image, StyleSheet} from 'react-native';
+import {useSelector} from 'react-redux';
 import CustomDrawerContent from '../Components/CustomDrawerContent';
 import imagePath from '../constants/imagePath';
 import strings from '../constants/lang';
@@ -20,21 +21,28 @@ import TaskStack from './TaskStack';
 
 const Drawer = createDrawerNavigator();
 export default function DrawerRoutes(props) {
+  const defaultLanguagae = useSelector(
+    state => state?.initBoot?.defaultLanguage,
+  );
+
+  let _drawer = React.useRef();
+
   return (
     <Drawer.Navigator
-      drawerPosition={'left'}
       backBehavior={'initialRoute'}
-      drawerType={'front'}
       overlayColor={'rgba(0,0,0,0.6)'}
       screenOptions={{
         headerShown: false,
         swipeEnabled: true,
         gestureEnabled: true,
+        drawerPosition: defaultLanguagae?.value === 'ar' ? 'right' : 'left',
+
         drawerStyle: {
           paddingTop: moderateScaleVertical(width / 6),
         },
       }}
       // hideStatusBar={true}
+
       drawerStyle={{width: '75%', backgroundColor: colors.blueHeaderColor}}
       drawerContent={props => <CustomDrawerContent {...props} />}>
       <Drawer.Screen

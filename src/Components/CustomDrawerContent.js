@@ -59,6 +59,9 @@ export default function CustomDrawerContent({
   const {routes, selectedDrawerItem, logoutAlert, isLoading} = states;
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
   console.log(clientInfo, 'clientInfo>clientInfo');
+  const defaultLanguagae = useSelector(
+    state => state?.initBoot?.defaultLanguage,
+  );
 
   //Naviagtion to specific screen
   const moveToNewScreen = (screenName, data) => () => {
@@ -145,14 +148,18 @@ export default function CustomDrawerContent({
                 style={{
                   margin: moderateScale(10),
                   // alignItems: 'center',
-                  flexDirection: 'row',
+                  flexDirection:
+                    defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
                   alignItems: 'center',
                 }}>
                 {/* {options.drawerIcon({focused: isFocused})} */}
                 <Image source={route.image} />
                 <Text
                   style={{
-                    paddingLeft: moderateScale(20),
+                    paddingLeft:
+                      defaultLanguagae?.value === 'ar' ? 0 : moderateScale(20),
+                    paddingRight:
+                      defaultLanguagae?.value === 'ar' ? moderateScale(20) : 0,
                     fontSize: textScale(14),
                     fontFamily: fontFamily?.medium,
                     ...props.labelStyle,

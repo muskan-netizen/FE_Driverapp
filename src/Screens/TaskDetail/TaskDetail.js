@@ -28,14 +28,18 @@ import actions from '../../redux/actions';
 import colors from '../../styles/colors';
 import commonStylesFunc from '../../styles/commonStyles';
 import fontFamily from '../../styles/fontFamily';
-import {moderateScale, textScale} from '../../styles/responsiveSize';
+import {
+  moderateScale,
+  moderateScaleVertical,
+  textScale,
+} from '../../styles/responsiveSize';
 import moment from 'moment';
 
 import {
   getColorCodeWithOpactiyNumber,
   showError,
 } from '../../utils/helperFunctions';
-import styles from './styles';
+import stylesFunc from './styles';
 
 var ACTION_TIMER = 1500;
 var COLORS = ['#8FEE90', '#27A468'];
@@ -121,6 +125,12 @@ export default function TaskDetail({route, navigation}) {
   const commonStyles = commonStylesFunc({fontFamily});
   const updateState = data => setState(state => ({...state, ...data}));
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
+
+  const defaultLanguagae = useSelector(
+    state => state?.initBoot?.defaultLanguage,
+  );
+
+  const styles = stylesFunc({defaultLanguagae});
   // const userData = useSelector(state => state?.auth?.userData);
 
   useEffect(() => {
@@ -168,7 +178,7 @@ export default function TaskDetail({route, navigation}) {
 
   //Error handling in api
   const errorMethod = error => {
-    console.log(error,"error");
+    console.log(error, 'error');
     updateState({isLoading: false, isRefreshing: false, isLoading: false});
     showError(error?.message || error?.error);
   };
@@ -389,7 +399,7 @@ export default function TaskDetail({route, navigation}) {
     updateState({isLoading: true});
     let data = {};
     data['task_id'] = taskDetail?.id;
-    console.log(data,"data");
+    console.log(data, 'data');
     actions
       .sendOtpToDriver(data, {client: clientInfo?.database_name})
       .then(res => {
@@ -484,26 +494,20 @@ export default function TaskDetail({route, navigation}) {
               styles.statusView,
               {
                 backgroundColor: getBackGroudColor(taskDetail?.tasktype?.name),
+                marginVertical: moderateScaleVertical(5),
               },
             ]}>
             <Text
-              style={{
-                color: getTextColor(taskDetail?.tasktype?.name),
-                textAlign: 'center',
-                fontFamily: fontFamily.medium,
-                fontSize: textScale(10),
-                paddingBottom: moderateScale(5),
-              }}>
+              style={[
+                styles.taskNameTextstyle,
+                {color: getTextColor(taskDetail?.tasktype?.name)},
+              ]}>
               {taskDetail?.tasktype?.name}
             </Text>
           </View>
 
           <View>
-            <View
-              style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-              }}>
+            <View style={styles.addressContainer}>
               <View style={{flex: 0.8}}>
                 <Text style={styles.address}>
                   {taskDetail?.location?.address}
@@ -512,10 +516,7 @@ export default function TaskDetail({route, navigation}) {
 
               <TouchableOpacity
                 onPress={Platform?.OS == 'android' ? openGoogleMap : openMaps}
-                style={{
-                  flex: 0.2,
-                  alignItems: 'center',
-                }}>
+                style={styles.pathImageStyle}>
                 <Image source={imagePath?.path} />
               </TouchableOpacity>
             </View>
@@ -532,12 +533,7 @@ export default function TaskDetail({route, navigation}) {
         <View style={{padding: moderateScale(15)}}>
           <View style={styles.labelView}>
             <Image source={imagePath.customer} />
-            <View
-              style={{
-                marginLeft: moderateScale(7),
-                justifyContent: 'space-between',
-                flexDirection: 'row',
-              }}>
+            <View style={styles.customerNameContainer}>
               <View style={{flex: 0.7}}>
                 <Text style={styles.taskLable}>{strings.CUSTOMER}</Text>
                 <Text style={styles.taskValue}>
@@ -545,12 +541,7 @@ export default function TaskDetail({route, navigation}) {
                 </Text>
               </View>
 
-              <View
-                style={{
-                  flex: 0.3,
-                  flexDirection: 'row',
-                  justifyContent: 'center',
-                }}>
+              <View style={styles.callImageContainer}>
                 <TouchableOpacity
                   onPress={() =>
                     taskDetail?.order?.recipient_phone
@@ -577,7 +568,7 @@ export default function TaskDetail({route, navigation}) {
 
           <View style={styles.labelView}>
             <Image source={imagePath.task} />
-            <View style={{marginLeft: moderateScale(7)}}>
+            <View style={styles.taskTimingContainer}>
               <Text style={styles.taskLable}>{strings.TASKTIMINGS}</Text>
               <Text style={styles.taskValue}>
                 {getDate(taskDetail?.order?.order_time)}

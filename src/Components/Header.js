@@ -45,17 +45,28 @@ const Header = ({
   const fontFamily = appStyle?.fontSizeData;
   const styles = stylesFunc({fontFamily});
   const navigation = useNavigation();
+  const defaultLanguagae = useSelector(
+    state => state?.initBoot?.defaultLanguage,
+  );
+
   return (
     <>
       <View
         style={{
           ...headerStyle,
           ...styles.headerStyle,
-          flexDirection: 'row',
+          flexDirection:
+            defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
           alignItems: 'center',
           justifyContent: 'space-between',
         }}>
-        <View style={{alignItems: 'flex-start', flex: 0.2, ...rightViewStyle}}>
+        <View
+          style={{
+            alignItems:
+              defaultLanguagae?.value === 'ar' ? 'flex-end' : 'flex-start',
+            flex: 0.2,
+            ...rightViewStyle,
+          }}>
           {!noLeftIcon &&
             (customLeft ? (
               customLeft()
@@ -74,7 +85,9 @@ const Header = ({
                   resizeMode="contain"
                   source={leftIcon}
                   style={{
-                    transform: [{scaleX: I18nManager.isRTL ? -1 : 1}],
+                    transform: [
+                      {scaleX: defaultLanguagae?.value === 'ar' ? -1 : 1},
+                    ],
                     ...leftIconStyle,
                   }}
                 />
@@ -114,7 +127,12 @@ const Header = ({
           )}
         </View>
 
-        <View style={{flex: 0.2, alignItems: 'flex-end'}}>
+        <View
+          style={{
+            flex: 0.2,
+            alignItems:
+              defaultLanguagae?.value === 'ar' ? 'flex-start' : 'flex-end',
+          }}>
           {!!rightIcon ? (
             <TouchableOpacity onPress={onPressRight}>
               <Image style={rightIconStyle} source={rightIcon} />

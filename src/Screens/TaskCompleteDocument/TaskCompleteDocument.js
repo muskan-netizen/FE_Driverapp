@@ -26,7 +26,7 @@ import {moderateScale, width} from '../../styles/responsiveSize';
 import {cameraHandler} from '../../utils/commonFunction';
 import {showError, showSuccess} from '../../utils/helperFunctions';
 import {checkCameraPermission} from '../../utils/permissions';
-import styles from './styles';
+import stylesFunc from './styles';
 
 const window = Dimensions.get('window');
 
@@ -67,6 +67,12 @@ export default function TaskCompleteDocument({route, navigation}) {
   const commonStyles = commonStylesFunc({fontFamily});
   const updateState = data => setState(state => ({...state, ...data}));
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
+
+  const defaultLanguagae = useSelector(
+    state => state?.initBoot?.defaultLanguage,
+  );
+
+  const styles = stylesFunc({defaultLanguagae});
 
   //Naviagtion to specific screen
   const moveToNewScreen = (screenName, data) => () => {
@@ -246,7 +252,7 @@ export default function TaskCompleteDocument({route, navigation}) {
       params?.data?.otpRequired &&
       otpField.trim() == ''
     ) {
-      updateState({otpField:''})
+      updateState({otpField: ''});
       showError(strings.OTPREQUIRED);
     } else if (
       params?.data?.otpEnabled &&
@@ -321,20 +327,16 @@ export default function TaskCompleteDocument({route, navigation}) {
         customLeft={() => (
           <TouchableOpacity
             onPress={() => navigation.goBack()}
-            style={{flexDirection: 'row', alignItems: 'center'}}>
-            <Image source={imagePath.backArrow} />
+            style={styles.headerCustomleftView}>
+            <Image style={styles.arrowstyle} source={imagePath.backArrow} />
             <Text style={styles.textStyle}>{strings.TASK}</Text>
           </TouchableOpacity>
         )}
       />
       <View style={{...commonStyles.headerTopLine}} />
       <View style={{flex: 0.8}}>
-        {!!(params?.data?.otpEnabled) && (
-          <View
-            style={{
-              marginHorizontal: moderateScale(10),
-              marginTop: moderateScale(10),
-            }}>
+        {!!params?.data?.otpEnabled && (
+          <View style={styles.otpContainer}>
             <Text style={styles.attachment}>{strings.OTP}</Text>
             <TextInput
               multiline={true}
@@ -346,7 +348,7 @@ export default function TaskCompleteDocument({route, navigation}) {
               style={[
                 styles.textInputStyle,
                 {
-                  width: width / 2,
+                  width: width / 3.5,
                   marginHorizontal: moderateScale(10),
                   alignItems: 'center',
                   paddingVertical: moderateScale(10),
