@@ -38,6 +38,7 @@ const initial_state = {
   },
   refreshHomeData: false,
   sessionLogoutUser: false,
+  defaultLanguage: {},
   //internetConnection: false,
 };
 
@@ -74,6 +75,13 @@ export default function (state = initial_state, action) {
       return {
         ...state,
         sessionLogoutUser: data,
+      };
+    }
+    case types.DEFAULTLANGUAGE: {
+      const data = action.payload;
+      return {
+        ...state,
+        defaultLanguage: data,
       };
     }
 

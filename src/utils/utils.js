@@ -26,6 +26,11 @@ export function setUserData(data) {
   return AsyncStorage.setItem('userData', data);
 }
 
+export function setDefaultSelectedLanguage(data) {
+  data = JSON.stringify(data);
+  return AsyncStorage.setItem('defaultLanguage', data);
+}
+
 export function setClientInfo(data) {
   data = JSON.stringify(data);
   return AsyncStorage.setItem('clientInfo', data);
@@ -84,7 +89,6 @@ export async function apiReq(
   headers,
   requestOptions = {},
 ) {
-
   return new Promise(async (res, rej) => {
     const getTokenHeader = await getHeaders();
     headers = {

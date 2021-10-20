@@ -4,7 +4,7 @@ import {Image, StyleSheet} from 'react-native';
 import CustomDrawerContent from '../Components/CustomDrawerContent';
 import imagePath from '../constants/imagePath';
 import strings from '../constants/lang';
-import { Settings } from '../Screens';
+import {Settings} from '../Screens';
 import colors from '../styles/colors';
 import fontFamily from '../styles/fontFamily';
 import {
@@ -65,7 +65,7 @@ export default function DrawerRoutes(props) {
         }}
       />
 
-      {/* <Drawer.Screen
+      <Drawer.Screen
         component={Settings}
         name={navigationStrings.SETTINGS}
         options={{
@@ -77,7 +77,7 @@ export default function DrawerRoutes(props) {
             />
           ),
         }}
-      /> */}
+      />
     </Drawer.Navigator>
   );
 }
