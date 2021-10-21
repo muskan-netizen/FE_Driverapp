@@ -21,7 +21,7 @@ target 'RoyoDriverApp' do
 end
 
 
-#RoyoDriverApp Target
+#Runrun Target
 target 'Runrun' do
   permissions_path = '../node_modules/react-native-permissions/ios'
   config = use_native_modules!
@@ -36,7 +36,7 @@ target 'Runrun' do
 
 end
   
-  #RoyoDriverApp Target
+  #Deliverstat Target
   target 'Deliverstat' do
     permissions_path = '../node_modules/react-native-permissions/ios'
     config = use_native_modules!
@@ -54,7 +54,7 @@ end
 end
 
 
-#RoyoDriverApp Target
+#AfricanVillageMarket Target
 target 'AfricanVillageMarket' do
   permissions_path = '../node_modules/react-native-permissions/ios'
   config = use_native_modules!
@@ -72,7 +72,7 @@ target 'AfricanVillageMarket' do
 end
 
 
-#RoyoDriverApp Target
+#Africanize Target
 target 'Africanize' do
   permissions_path = '../node_modules/react-native-permissions/ios'
   config = use_native_modules!
@@ -89,7 +89,7 @@ target 'Africanize' do
 end
 
 
-#RoyoDriverApp Target
+#Tranzit Target
 target 'Tranzit' do
   permissions_path = '../node_modules/react-native-permissions/ios'
   config = use_native_modules!
@@ -107,7 +107,7 @@ end
 
 
 
-#RoyoDriverApp Target
+#Hemptify Target
 target 'Hemptify' do
   permissions_path = '../node_modules/react-native-permissions/ios'
   config = use_native_modules!
@@ -124,7 +124,7 @@ target 'Hemptify' do
 end
 
 
-#RoyoDriverApp Target
+#Goody Target
 target 'Goody' do
   permissions_path = '../node_modules/react-native-permissions/ios'
   config = use_native_modules!
@@ -139,3 +139,74 @@ target 'Goody' do
 
 
 end
+
+
+#YogoFood Target
+target 'YogoFood' do
+  permissions_path = '../node_modules/react-native-permissions/ios'
+  config = use_native_modules!
+  use_react_native!(
+    :path => config[:reactNativePath],
+    :hermes_enabled => false
+  )
+  pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
+  pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
+  pod 'RNFS', :path => '../node_modules/react-native-fs'
+
+
+end
+
+
+
+#Arena_Grub Target
+target 'Arena_Grub' do
+  permissions_path = '../node_modules/react-native-permissions/ios'
+  config = use_native_modules!
+  use_react_native!(
+    :path => config[:reactNativePath],
+    :hermes_enabled => false
+  )
+  pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
+  pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
+  pod 'RNFS', :path => '../node_modules/react-native-fs'
+
+
+end
+
+
+
+#BottomsUp Target
+target 'BottomsUp' do
+  permissions_path = '../node_modules/react-native-permissions/ios'
+  config = use_native_modules!
+  use_react_native!(
+    :path => config[:reactNativePath],
+    :hermes_enabled => false
+  )
+  pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
+  pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
+  pod 'RNFS', :path => '../node_modules/react-native-fs'
+
+
+end
+
+
+#BlipDelivery Target
+target 'BlipDelivery' do
+  permissions_path = '../node_modules/react-native-permissions/ios'
+  config = use_native_modules!
+  use_react_native!(
+    :path => config[:reactNativePath],
+    :hermes_enabled => false
+  )
+  pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
+  pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
+  pod 'RNFS', :path => '../node_modules/react-native-fs'
+
+
+end
+

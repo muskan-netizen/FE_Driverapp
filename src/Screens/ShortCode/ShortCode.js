@@ -124,6 +124,22 @@ export default function ShortCode({route, navigation}) {
             shortCode: shortCodes.yogofood,
             isShortcodePrefilled: true,
           });
+        case appIds.arenaGrub:
+          updateState({
+            shortCode: shortCodes.arenaGrub,
+            isShortcodePrefilled: true,
+          });
+        case appIds.blipDelivery:
+          updateState({
+            shortCode: shortCodes.blipDelivery,
+            isShortcodePrefilled: true,
+          });
+          break;
+          case appIds.bottomsUp:
+          updateState({
+            shortCode: shortCodes.bottomsUp,
+            isShortcodePrefilled: true,
+          });
           break;
       }
     })();

@@ -287,6 +287,36 @@ android {
                 applicationId 'com.yogofood.royodispatcher'
                 resValue "string", "app_name", "YogoFood Dispatch"
             } 
+             arenagrub {
+                dimension "appType"
+                versionCode 1
+                versionName "1.0"
+                minSdkVersion rootProject.ext.minSdkVersion
+                targetSdkVersion rootProject.ext.targetSdkVersion
+                // applicationIdSuffix ".royoorder"
+                applicationId 'com.arenagrub.royodispatcher'
+                resValue "string", "app_name", "ArenaGrub Dispatch"
+            } 
+              blipDelivery {
+                dimension "appType"
+                versionCode 1
+                versionName "1.0"
+                minSdkVersion rootProject.ext.minSdkVersion
+                targetSdkVersion rootProject.ext.targetSdkVersion
+                // applicationIdSuffix ".royoorder"
+                applicationId 'com.BlipDelivery.royodispatcher'
+                resValue "string", "app_name", "Blip Delivery Dispatch"
+            } 
+            bottomsUp {
+                dimension "appType"
+                versionCode 1
+                versionName "1.0"
+                minSdkVersion rootProject.ext.minSdkVersion
+                targetSdkVersion rootProject.ext.targetSdkVersion
+                // applicationIdSuffix ".royoorder"
+                applicationId 'com.BottomsUp.royodispatcher'
+                resValue "string", "app_name", " Bottoms Up Dispatch"
+            } 
 
 
     }
