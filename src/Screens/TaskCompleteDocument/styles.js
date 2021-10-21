@@ -2,6 +2,7 @@ import {StyleSheet, I18nManager} from 'react-native';
 import colors from '../../styles/colors';
 import fontFamily from '../../styles/fontFamily';
 import {
+  height,
   moderateScale,
   moderateScaleVertical,
   textScale,
@@ -39,6 +40,7 @@ export default ({defaultLanguagae}) => {
       color: colors.lightGreyBg2,
       marginHorizontal: moderateScale(10),
       marginVertical: moderateScale(10),
+      textAlign: defaultLanguagae?.value === 'ar' ? 'right' : 'left',
     },
     rowViewTaskCancel: {
       marginHorizontal: moderateScale(20),
@@ -83,6 +85,21 @@ export default ({defaultLanguagae}) => {
       marginHorizontal: moderateScale(10),
       marginTop: moderateScale(10),
       alignItems: defaultLanguagae?.value === 'ar' ? 'flex-end' : 'flex-start',
+    },
+    documentContainer: {
+      marginHorizontal: moderateScale(10),
+      marginTop: moderateScale(10),
+    },
+
+    documentListContainer: {
+      flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
+      flexWrap: 'wrap',
+      // justifyContent: 'center',
+      marginHorizontal: moderateScale(10),
+    },
+    documentContainerView: {
+      marginRight: moderateScale(10),
+      marginBottom: moderateScale(5),
     },
   });
 

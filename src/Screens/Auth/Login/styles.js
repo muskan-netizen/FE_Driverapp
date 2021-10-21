@@ -9,7 +9,7 @@ import {
   textScale,
 } from '../../../styles/responsiveSize';
 
-export default ({themeColors}) => {
+export default ({defaultLanguagae}) => {
   const commonStyles = commonStylesFunc({fontFamily});
   const styles = StyleSheet.create({
     header: {
@@ -26,12 +26,12 @@ export default ({themeColors}) => {
       marginTop: moderateScaleVertical(15),
     },
     socialRow: {
-      flexDirection: 'row',
+      flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
       alignItems: 'center',
       justifyContent: 'center',
     },
     socialRowBtn: {
-      flexDirection: 'row',
+      flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
       justifyContent: 'space-between',
       marginTop: moderateScaleVertical(40),
       alignSelf: 'center',
@@ -69,8 +69,9 @@ export default ({themeColors}) => {
       fontSize: textScale(14),
     },
     forgotContainer: {
-      flexDirection: 'row',
-      justifyContent: 'flex-end',
+      flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
+      justifyContent:
+        defaultLanguagae?.value === 'ar' ? 'flex-start' : 'flex-end',
       marginBottom: moderateScaleVertical(8),
     },
     headerContainer: {
@@ -94,43 +95,52 @@ export default ({themeColors}) => {
       fontSize: textScale(10),
       lineHeight: moderateScaleVertical(14),
       fontFamily: fontFamily.medium,
-    
     },
     byContinue: {
       color: colors.black,
       fontSize: textScale(10),
       lineHeight: moderateScaleVertical(14),
       fontFamily: fontFamily.medium,
-    
     },
     termsAndConditions: {
       color: colors.white,
       fontSize: textScale(10),
       lineHeight: moderateScaleVertical(14),
       fontFamily: fontFamily.regular,
-    
     },
     loginUsing: {
       fontSize: textScale(18),
       fontFamily: fontFamily.bold,
       color: colors.black,
+      textAlign: defaultLanguagae?.value === 'ar' ? 'right' : 'left',
     },
     weneedCompany: {
       marginTop: moderateScaleVertical(20),
       fontSize: textScale(12),
       fontFamily: fontFamily.medium,
       color: colors.black,
+      textAlign: defaultLanguagae?.value === 'ar' ? 'right' : 'left',
     },
-    signUpView:{
+    signUpView: {
       justifyContent: 'center',
       alignItems: 'center',
       paddingTop: moderateScaleVertical(10),
     },
-    signUpText:{
+    signUpText: {
       color: colors.themeColor,
       fontFamily: fontFamily.bold,
       fontSize: textScale(12),
-    }
+    },
+    byContinueTextContainer: {
+      marginTop: moderateScaleVertical(20),
+      flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
+      justifyContent: 'center',
+    },
+    webLinkContainer: {
+      marginTop: moderateScaleVertical(5),
+      flexDirection: 'row',
+      justifyContent: 'center',
+    },
   });
   return styles;
 };

@@ -6,92 +6,133 @@ import {
   moderateScale,
   moderateScaleVertical,
   textScale,
+  width,
 } from '../../../styles/responsiveSize';
 import {getColorCodeWithOpactiyNumber} from '../../../utils/helperFunctions';
 
-export default StyleSheet.create({
-  imageView: {
-    height: 100,
-    width: 100,
-    borderRadius: 100 / 2,
-    backgroundColor: colors.white,
-    borderWidth: StyleSheet.hairlineWidth,
-    justifyContent: 'center',
-    alignItems: 'center',
-    alignSelf: 'center',
-    borderColor: colors.textGreyJ,
-    position: 'absolute',
-    top: -50,
-  },
-  imageViewStyle: {
-    // backgroundColor: colors.lightGreyBg,
-    height: moderateScale(121),
-    width: moderateScale(121),
-    borderRadius: moderateScale(121 / 2),
-    justifyContent: 'center',
-    alignItems: 'center',
-    alignSelf: 'center',
-  },
-  imageStyle: {
-    height: moderateScale(121),
-    width: moderateScale(121),
-    borderRadius: moderateScale(121 / 2),
-  },
-  label: {
-    fontSize: textScale(14),
-    fontFamily: fontFamily.semiBold,
-    color: colors.black,
-    // textAlign: 'center',
-  },
-  shadowStyle: {
-    flexDirection: 'row',
-    borderWidth: 1,
-    marginHorizontal: moderateScale(2),
-    borderColor: colors.grey2,
-    backgroundColor: colors.white,
-    borderRadius: 8,
-    marginVertical: 5,
-    // height: moderateScaleVertical(100),
-    ...generateBoxShadowStyle(-2, 4, '#171717', 0.2, 3, 4, '#171717'),
-  },
-  employeetypeHeadingtext: {
-    fontSize: textScale(12),
-    fontFamily: fontFamily.medium,
-    color: colors.lightGreyBg2,
-    marginVertical: moderateScaleVertical(10),
-  },
-  label2: {
-    marginBottom: moderateScaleVertical(10),
+export default ({defaultLanguagae}) => {
+  const style = StyleSheet.create({
+    imageView: {
+      height: 100,
+      width: 100,
+      borderRadius: 100 / 2,
+      backgroundColor: colors.white,
+      borderWidth: StyleSheet.hairlineWidth,
+      justifyContent: 'center',
+      alignItems: 'center',
+      alignSelf: 'center',
+      borderColor: colors.textGreyJ,
+      position: 'absolute',
+      top: -50,
+    },
+    imageViewStyle: {
+      // backgroundColor: colors.lightGreyBg,
+      height: moderateScale(121),
+      width: moderateScale(121),
+      borderRadius: moderateScale(121 / 2),
+      justifyContent: 'center',
+      alignItems: 'center',
+      alignSelf: 'center',
+    },
+    imageStyle: {
+      height: moderateScale(121),
+      width: moderateScale(121),
+      borderRadius: moderateScale(121 / 2),
+    },
+    label: {
+      fontSize: textScale(14),
+      fontFamily: fontFamily.semiBold,
+      color: colors.black,
+      // textAlign: 'center',
+      textAlign: defaultLanguagae?.value === 'ar' ? 'right' : 'left',
+    },
+    shadowStyle: {
+      flexDirection: 'row',
+      borderWidth: 1,
+      marginHorizontal: moderateScale(2),
+      borderColor: colors.grey2,
+      backgroundColor: colors.white,
+      borderRadius: 8,
+      marginVertical: 5,
+      // height: moderateScaleVertical(100),
+      ...generateBoxShadowStyle(-2, 4, '#171717', 0.2, 3, 4, '#171717'),
+    },
+    employeetypeHeadingtext: {
+      fontSize: textScale(12),
+      fontFamily: fontFamily.medium,
+      color: colors.lightGreyBg2,
+      marginVertical: moderateScaleVertical(10),
+      textAlign: defaultLanguagae?.value === 'ar' ? 'right' : 'left',
+    },
+    label2: {
+      marginBottom: moderateScaleVertical(10),
 
-    fontSize: textScale(12),
-    fontFamily: fontFamily.medium,
-    color: colors.lightGreyBg2,
-  },
-  label3: {
-    marginBottom: moderateScaleVertical(10),
+      fontSize: textScale(12),
+      fontFamily: fontFamily.medium,
+      color: colors.lightGreyBg2,
+      textAlign: defaultLanguagae?.value === 'ar' ? 'right' : 'left',
+    },
+    label3: {
+      marginBottom: moderateScaleVertical(10),
 
-    fontSize: textScale(12),
-    fontFamily: fontFamily.medium,
-    color: colors.lightGreyBg2,
-  },
-  imageUpload: {
-    height: 100,
-    width: 100,
-    borderRadius: moderateScale(4),
-    borderWidth: 1,
-    borderColor: colors.blue,
-    borderStyle: 'dashed',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: moderateScaleVertical(10),
-  },
-  imageStyle2: {
-    height: 100,
-    width: 100,
-    borderRadius: moderateScale(4),
-  },
-  uploadStyle: {
-    color: colors.blue,
-    fontFamily: fontFamily.medium,
-  },
-});
+      fontSize: textScale(12),
+      fontFamily: fontFamily.medium,
+      color: colors.lightGreyBg2,
+    },
+    imageUpload: {
+      height: 100,
+      width: 100,
+      borderRadius: moderateScale(4),
+      borderWidth: 1,
+      borderColor: colors.blue,
+      borderStyle: 'dashed',
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginBottom: moderateScaleVertical(10),
+    },
+    imageStyle2: {
+      height: 100,
+      width: 100,
+      borderRadius: moderateScale(4),
+    },
+    uploadStyle: {
+      color: colors.blue,
+      fontFamily: fontFamily.medium,
+    },
+    textInputlabel: {
+      textAlign: defaultLanguagae?.value === 'ar' ? 'right' : 'left',
+    },
+    transportationContainer: {
+      // backgroundColor: 'red',
+      width: width / 6,
+      borderRightColor: colors.borderLight,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    transporationOuterContainer: {
+      height: moderateScaleVertical(70),
+      // marginHorizontal: moderateScale(-20),
+      transform:
+        defaultLanguagae?.value === 'ar' ? [{scaleX: -1}] : [{scaleX: 1}],
+    },
+    mainallEmployeeTypeStyle: {
+      height: moderateScaleVertical(50),
+      // marginHorizontal: moderateScale(-20),
+      flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
+    },
+    employeeInnerContainer: {
+      flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
+    },
+    employeeImageContainer: {
+      flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
+      marginHorizontal: moderateScale(30),
+      marginVertical: moderateScaleVertical(10),
+      alignItems: 'center',
+    },
+    viewStyleForUploadImage: {
+      flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
+      flexWrap: 'wrap',
+    },
+  });
+  return style;
+};

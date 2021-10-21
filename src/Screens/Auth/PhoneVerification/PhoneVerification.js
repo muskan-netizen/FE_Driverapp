@@ -19,7 +19,7 @@ import {
 } from '../../../styles/responsiveSize';
 import {showError, showSuccess} from '../../../utils/helperFunctions';
 import validator from '../../../utils/validations';
-import stylesFunc from './styles';
+import stylesFunction from './styles';
 import PhoneNumberInput from '../../../Components/PhoneNumberInput';
 import Header from '../../../Components/Header';
 import SmoothPinCodeInput from 'react-native-smooth-pincode-input';
@@ -58,7 +58,11 @@ export default function PhoneVerification({navigation, route}) {
   //Update states
   const updateState = data => setState(state => ({...state, ...data}));
   //Styles in app
-  const styles = stylesFunc({themeColors});
+  const defaultLanguagae = useSelector(
+    state => state?.initBoot?.defaultLanguage,
+  );
+
+  const styles = stylesFunction({defaultLanguagae});
   //all states used in this screen
 
   //Naviagtion to specific screen
@@ -190,13 +194,14 @@ export default function PhoneVerification({navigation, route}) {
           textStyleFocused={styles.textStyleFocused}
           inputProps={{
             autoCapitalize: 'none',
-            autoFocus:true
+            autoFocus: true,
           }}
           value={otpToShow}
           keyboardType={'default'}
           onTextChange={otpToShow => updateState({otpToShow})}
           onFulfill={code => onOtpInput(code)}
         />
+
         <Text style={styles.didntgetOtp}>
           {`${strings.DIDNTRECIEVEANYCODE}`}
           <Text

@@ -19,12 +19,12 @@ import {
 } from '../../styles/responsiveSize';
 import {transportationArray} from '../../utils/constants/ConstantValues';
 import {showError} from '../../utils/helperFunctions';
-import styles from './styles';
 import DatePicker from 'react-native-date-picker';
 import DatePickerModal from '../../Components/DatePickerModal';
 import {TouchableOpacity} from 'react-native';
 import moment from 'moment';
 import navigationStrings from '../../navigation/navigationStrings';
+import stylesFunction from './styles';
 export default function TaskHistory({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
   console.log(userData, 'userData');
@@ -52,6 +52,12 @@ export default function TaskHistory({route, navigation}) {
   const commonStyles = commonStylesFunc({fontFamily});
   const updateState = data => setState(state => ({...state, ...data}));
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
+
+  const defaultLanguagae = useSelector(
+    state => state?.initBoot?.defaultLanguage,
+  );
+
+  const styles = stylesFunction({defaultLanguagae});
 
   //Naviagtion to specific screen
   const moveToNewScreen = (screenName, data) => () => {
@@ -104,8 +110,11 @@ export default function TaskHistory({route, navigation}) {
     trailing: false,
   });
 
-  const _onPressTask = (item) => {
-    moveToNewScreen(navigationStrings.TASKDETAIL, {item:item,fromHistory:true})();
+  const _onPressTask = item => {
+    moveToNewScreen(navigationStrings.TASKDETAIL, {
+      item: item,
+      fromHistory: true,
+    })();
   };
   const renderTaskList = ({item, index}) => {
     return (
@@ -138,10 +147,10 @@ export default function TaskHistory({route, navigation}) {
         selectedDate: savedDate,
         isLoading: true,
       });
-    }else{
+    } else {
       updateState({
         selectedDate: new Date(),
-        savedDate:new Date(),
+        savedDate: new Date(),
         isLoading: true,
       });
     }
@@ -162,24 +171,18 @@ export default function TaskHistory({route, navigation}) {
       />
       <View style={{...commonStyles.headerTopLine}} />
 
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          padding: 10,
-          backgroundColor: colors.white,
-        }}>
-        <View style={{flexDirection: 'row', flex: 0.5, alignItems: 'center'}}>
+      <View style={styles.cashCollectionContainer}>
+        <View style={styles.cashTextView}>
           <Text style={styles.cashCollected}>{`${
             strings.CASHCOLLECTED
           } :- ${totalCashCollected.toFixed(2)}`}</Text>
         </View>
-        <View style={{flex: 0.5, flexDirection: 'row'}}>
+        <View style={styles.clearViewStyle}>
           <TouchableOpacity
             onPress={() =>
               updateState({
                 selectedDate: null,
-                savedDate:null,
+                savedDate: null,
                 isLoading: true,
               })
             }
@@ -188,10 +191,7 @@ export default function TaskHistory({route, navigation}) {
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => updateState({isModalVisibleForDateTime: true})}
-            style={{
-              justifyContent: 'center',
-              marginHorizontal: moderateScale(10),
-            }}>
+            style={styles.dateSelectView}>
             <Text style={styles.selectedDate}>
               {selectedDate
                 ? moment(selectedDate).format('DD-MM-YYYY')
@@ -237,7 +237,7 @@ export default function TaskHistory({route, navigation}) {
       <DatePickerModal
         isVisible={isModalVisibleForDateTime}
         date={savedDate}
-        onclose={()=>updateState({isModalVisibleForDateTime:false})}
+        onclose={() => updateState({isModalVisibleForDateTime: false})}
         onSelectDate={() => onSelectDate()}
         onDateChange={value => onDateChange(value)}
       />

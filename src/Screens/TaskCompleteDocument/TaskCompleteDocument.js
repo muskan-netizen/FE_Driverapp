@@ -369,19 +369,9 @@ export default function TaskCompleteDocument({route, navigation}) {
           params?.data?.updatedProofArray.length
         ) && (
           <View>
-            <View
-              style={{
-                marginHorizontal: moderateScale(10),
-                marginTop: moderateScale(10),
-              }}>
+            <View style={styles.documentContainer}>
               <Text style={styles.attachment}>{strings.ATTACHMENTS}</Text>
-              <View
-                style={{
-                  flexDirection: 'row',
-                  flexWrap: 'wrap',
-                  // justifyContent: 'center',
-                  marginHorizontal: moderateScale(10),
-                }}>
+              <View style={styles.documentListContainer}>
                 {taskProofArray.map((i, inx) => {
                   const {width, height} = Image.resolveAssetSource(
                     i?.imagePath,
@@ -390,16 +380,14 @@ export default function TaskCompleteDocument({route, navigation}) {
                     <TouchableOpacity
                       activeOpacity={1}
                       onPress={() => onPressCategory(i)}
-                      style={{
-                        marginRight: moderateScale(10),
-                        marginBottom: moderateScale(5),
-                      }}>
+                      style={styles.documentContainerView}>
                       <Image
                         source={getImage(i)}
                         onLayout={onImageLayout}
                         style={{
                           width: width - 40,
                           height: height - 40, //362 is actual height of image
+                          alignSelf: 'center',
                         }}
                         resizeMode={'contain'}
                       />

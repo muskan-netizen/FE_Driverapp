@@ -21,7 +21,7 @@ export default ({themeColors}) => {
       fontFamily: fontFamily.regular,
       fontSize: textScale(12),
       color: colors.black,
-      marginTop:moderateScaleVertical(10)
+      marginTop: moderateScaleVertical(10),
     },
     cellStyle: {
       borderBottomWidth: 1,
@@ -47,7 +47,7 @@ export default ({themeColors}) => {
       fontFamily: fontFamily.regular,
       fontSize: textScale(10),
       color: colors.black,
-      marginTop:moderateScaleVertical(30)
+      marginTop: moderateScaleVertical(30),
     },
   });
   return styles;

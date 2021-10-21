@@ -23,7 +23,7 @@ import {
   transportationArray,
   employeetypeArray,
 } from '../../../utils/constants/ConstantValues';
-import styles from './styles';
+import stylesFunction from './styles';
 import ActionSheet from 'react-native-actionsheet';
 import {cameraHandler} from '../../../utils/commonFunction';
 import {androidCameraPermission} from '../../../utils/permissions';
@@ -105,6 +105,12 @@ export default function Signup({route, navigation}) {
   const moveToNewScreen = (screenName, data) => () => {
     navigation.navigate(screenName, {data});
   };
+
+  const defaultLanguagae = useSelector(
+    state => state?.initBoot?.defaultLanguage,
+  );
+
+  const styles = stylesFunction({defaultLanguagae});
 
   //On country change
   const _onCountryChange = data => {
@@ -314,6 +320,7 @@ export default function Signup({route, navigation}) {
   const getTextInputField = (type, index) => {
     return (
       <TextInputWithlabel
+        labelStyle={styles.textInputlabel}
         editable={true}
         label={type?.name}
         value={addtionalTextInputs[index]?.contents}
@@ -474,6 +481,7 @@ export default function Signup({route, navigation}) {
                 label={strings.FULLNAME}
                 value={fullName}
                 onChangeText={text => updateState({fullName: text})}
+                labelStyle={styles.textInputlabel}
               />
               <View>
                 <Text style={styles.label2}>{strings.PHONENUMBER}</Text>
@@ -508,21 +516,14 @@ export default function Signup({route, navigation}) {
               <ScrollView
                 horizontal
                 alwaysBounceHorizontal={false}
-                style={{
-                  height: moderateScaleVertical(70),
-                  // marginHorizontal: moderateScale(-20),
-                }}>
+                style={styles.transporationOuterContainer}>
                 {allTransportation.map((i, inx) => {
                   return (
                     <TouchableOpacity
-                      style={{
-                        ...styles.shadowStyle,
-                        // backgroundColor: 'red',
-                        width: width / 6,
-                        borderRightColor: colors.borderLight,
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                      }}
+                      style={[
+                        styles.transportationContainer,
+                        {...styles.shadowStyle},
+                      ]}
                       onPress={() => {
                         _selectedTransportation(i);
                       }}>
@@ -552,22 +553,15 @@ export default function Signup({route, navigation}) {
               <ScrollView
                 horizontal
                 alwaysBounceHorizontal={false}
-                style={{
-                  height: moderateScaleVertical(50),
-                  // marginHorizontal: moderateScale(-20),
-                }}>
+                style={styles.mainallEmployeeTypeStyle}
+                containerStyle={styles.employeeInnerContainer}>
                 {allEmployeeTypes.map((i, inx) => {
                   return (
                     <TouchableOpacity
                       onPress={() => {
                         _selectedEpmloyeetype(i);
                       }}
-                      style={{
-                        flexDirection: 'row',
-                        marginHorizontal: moderateScale(30),
-                        marginVertical: moderateScaleVertical(10),
-                        alignItems: 'center',
-                      }}>
+                      style={styles.employeeImageContainer}>
                       <Image
                         source={
                           selectedEpmloyeetype == i
@@ -594,6 +588,7 @@ export default function Signup({route, navigation}) {
             </View>
             <View style={{marginTop: moderateScaleVertical(10)}}>
               <TextInputWithlabel
+                labelStyle={styles.textInputlabel}
                 editable={true}
                 label={strings.MODELMAKE}
                 value={modelMake}
@@ -601,6 +596,7 @@ export default function Signup({route, navigation}) {
               />
 
               <TextInputWithlabel
+                labelStyle={styles.textInputlabel}
                 editable={true}
                 label={strings.COLOR}
                 value={vehicleColor}
@@ -608,6 +604,7 @@ export default function Signup({route, navigation}) {
               />
 
               <TextInputWithlabel
+                labelStyle={styles.textInputlabel}
                 editable={true}
                 label={strings.PLATEORDER}
                 value={vehiclePlateNumber}
@@ -621,11 +618,7 @@ export default function Signup({route, navigation}) {
               })}
 
             {!!(addtionalImages && addtionalImages.length) && (
-              <View
-                style={{
-                  flexDirection: 'row',
-                  flexWrap: 'wrap',
-                }}>
+              <View style={styles.viewStyleForUploadImage}>
                 {addtionalImages.map((item, index) => {
                   return getImageFieldView(item, index);
                 })}
@@ -633,7 +626,7 @@ export default function Signup({route, navigation}) {
             )}
 
             {!!(addtionalPdfs && addtionalPdfs.length) && (
-              <View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
+              <View style={styles.viewStyleForUploadImage}>
                 {addtionalPdfs.map((item, index) => {
                   return getPdfView(item, index);
                 })}

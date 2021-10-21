@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Platform, View, Image,BackHandler, Text} from 'react-native';
+import {Platform, View, Image, BackHandler, Text} from 'react-native';
 import DeviceInfo, {getBundleId} from 'react-native-device-info';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {useSelector} from 'react-redux';
@@ -55,8 +55,13 @@ export default function Login({navigation, route}) {
 
   //Update states
   const updateState = data => setState(state => ({...state, ...data}));
+
+  const defaultLanguagae = useSelector(
+    state => state?.initBoot?.defaultLanguage,
+  );
   //Styles in app
-  const styles = stylesFunc({themeColors});
+  const styles = stylesFunc({defaultLanguagae});
+
   //all states used in this screen
   const {phoneNumber, cca2, callingCode, isLoading} = state;
 
@@ -171,21 +176,25 @@ export default function Login({navigation, route}) {
               {strings.WENEDDPHONENUMBER}
             </Text>
             <View style={{marginTop: moderateScale(20)}} />
-            <PhoneNumberInput
-              onCountryChange={_onCountryChange}
-              onChangePhone={phoneNumber =>
-                updateState({phoneNumber: phoneNumber.replace(/[^0-9]/g, '')})
-              }
-              cca2={cca2}
-              phoneNumber={phoneNumber}
-              callingCode={state.callingCode}
-              placeholder={strings.YOUR_PHONE_NUMBER}
-              keyboardType={'phone-pad'}
-              returnKeyType={'done'}
-              color={colors.black}
-              borderColor={colors.themeColor}
-              // color={isDarkMode ? MyDarkTheme.colors.text : null}
-            />
+            <View>
+              <PhoneNumberInput
+                onCountryChange={_onCountryChange}
+                onChangePhone={phoneNumber =>
+                  updateState({phoneNumber: phoneNumber.replace(/[^0-9]/g, '')})
+                }
+                cca2={cca2}
+                phoneNumber={phoneNumber}
+                callingCode={state.callingCode}
+                placeholder={strings.YOUR_PHONE_NUMBER}
+                keyboardType={'phone-pad'}
+                returnKeyType={'done'}
+                color={colors.black}
+                borderColor={colors.themeColor}
+                callingCodeTextStyle={styles.callingCodeTextStyle}
+
+                // color={isDarkMode ? MyDarkTheme.colors.text : null}
+              />
+            </View>
 
             <GradientButton
               containerStyle={{marginTop: moderateScaleVertical(40)}}
@@ -198,21 +207,11 @@ export default function Login({navigation, route}) {
             <TouchableOpacity onPress={_signUp} style={styles.signUpView}>
               <Text style={styles.signUpText}>{strings.SIGNUP}</Text>
             </TouchableOpacity>
-            <View
-              style={{
-                marginTop: moderateScaleVertical(20),
-                flexDirection: 'row',
-                justifyContent:'center'
-              }}>
+            <View style={styles.byContinueTextContainer}>
               <Text style={styles.byContinue}>{`${strings.BYCONTINUE} `}</Text>
             </View>
 
-            <View
-              style={{
-                marginTop: moderateScaleVertical(5),
-                flexDirection: 'row',
-                justifyContent:'center'
-              }}>
+            <View style={styles.webLinkContainer}>
               <Text
                 onPress={() =>
                   navigation.navigate(navigationStrings.WEBLINKS, {id: 1})

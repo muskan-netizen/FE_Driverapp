@@ -20,7 +20,7 @@ import {
 } from '../../styles/responsiveSize';
 import imagePath from '../../constants/imagePath';
 import {transportationArray} from '../../utils/constants/ConstantValues';
-import styles from './styles';
+import stylesFunction from './styles';
 
 export default function MyProfile({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
@@ -56,6 +56,12 @@ export default function MyProfile({route, navigation}) {
 
   const updateState = data => setState(state => ({...state, ...data}));
 
+  const defaultLanguagae = useSelector(
+    state => state?.initBoot?.defaultLanguage,
+  );
+
+  const styles = stylesFunction({defaultLanguagae});
+
   //Naviagtion to specific screen
   const moveToNewScreen = (screenName, data) => () => {
     navigation.navigate(screenName, {data});
@@ -80,11 +86,7 @@ export default function MyProfile({route, navigation}) {
         centerTitle={strings.PROFILE}
       />
       <View style={{...commonStyles.headerTopLine}} />
-      <View
-        style={{
-          marginHorizontal: moderateScale(20),
-          marginVertical: moderateScale(20),
-        }}>
+      <View style={styles.rootContainer}>
         <KeyboardAwareScrollView
           showsVerticalScrollIndicator={false}
           bounces={false}
@@ -97,38 +99,34 @@ export default function MyProfile({route, navigation}) {
               />
             )}
           </View>
-          <View style={{marginTop: moderateScale(20)}}>
+          <View style={styles.personalInfoContainer}>
             <Text style={styles.label}>{strings.PERSONAL}</Text>
-            <View style={{marginTop: moderateScaleVertical(20)}}>
-              <TextInputWithlabel label={strings.FULLNAME} value={fullName} />
+            <View style={styles.personalInfoContainer}>
               <TextInputWithlabel
+                labelStyle={styles.textInputStyle}
+                label={strings.FULLNAME}
+                value={fullName}
+                textInputStyle={styles.textInputStyle}
+              />
+              <TextInputWithlabel
+                labelStyle={styles.textInputStyle}
                 label={strings.PHONENUMBER}
                 value={phoneNumber}
+                textInputStyle={styles.textInputStyle}
               />
             </View>
 
-            <View style={{marginVertical: moderateScaleVertical(20)}}>
+            <View style={styles.personalInfoContainer}>
               <Text style={styles.label}>{strings.TRASNPORTATION}</Text>
             </View>
             <View>
               <ScrollView
                 horizontal
                 alwaysBounceHorizontal={false}
-                style={{
-                  height: moderateScaleVertical(60),
-                  marginHorizontal: moderateScale(-20),
-                }}>
+                style={styles.transportationViewStyle}>
                 {allTransportation.map((i, inx) => {
                   return (
-                    <View
-                      style={{
-                        // backgroundColor: 'red',
-                        width: width / 5,
-                        borderRightWidth: 1,
-                        borderRightColor: colors.borderLight,
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                      }}>
+                    <View style={styles.transportationImageStyle}>
                       <Image
                         source={
                           selectedVehicleType == inx
@@ -141,12 +139,24 @@ export default function MyProfile({route, navigation}) {
                 })}
               </ScrollView>
             </View>
-            <View style={{marginTop: moderateScaleVertical(20)}}>
-              <TextInputWithlabel label={strings.MODELMAKE} value={modelMake} />
-              <TextInputWithlabel label={strings.COLOR} value={vehicleColor} />
+            <View style={styles.carInfoStyle}>
               <TextInputWithlabel
+                labelStyle={styles.textInputStyle}
+                label={strings.MODELMAKE}
+                value={modelMake}
+                textInputStyle={styles.textInputStyle}
+              />
+              <TextInputWithlabel
+                labelStyle={styles.textInputStyle}
+                label={strings.COLOR}
+                value={vehicleColor}
+                textInputStyle={styles.textInputStyle}
+              />
+              <TextInputWithlabel
+                labelStyle={styles.textInputStyle}
                 label={strings.PLATEORDER}
                 value={plateNumber}
+                textInputStyle={styles.textInputStyle}
               />
             </View>
           </View>

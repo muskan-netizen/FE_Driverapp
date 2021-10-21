@@ -35,13 +35,18 @@ export default function PhoneNumberInput({
   borderColor = colors.black,
   label = null,
   labelStyle = {},
-  borderLeftColor=null
+  borderLeftColor = null,
+  callingCodeTextStyle = {},
+  textinputStyle,
 }) {
   const [state, setState] = useState({
     countryPickerModalVisible: false,
   });
 
   const {appStyle} = useSelector(state => state?.initBoot);
+  const defaultLanguagae = useSelector(
+    state => state?.initBoot?.defaultLanguage,
+  );
 
   const fontFamily = appStyle?.fontSizeData;
 
@@ -65,7 +70,8 @@ export default function PhoneNumberInput({
       )}
       <View
         style={{
-          flexDirection: 'row',
+          flexDirection:
+            defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
           borderBottomWidth: 1,
           borderRadius: 13,
           borderColor: borderColor ? borderColor : colors.white,
@@ -74,7 +80,8 @@ export default function PhoneNumberInput({
         }}>
         <TouchableOpacity
           style={{
-            flexDirection: 'row',
+            flexDirection:
+              defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
             justifyContent: 'center',
             alignItems: 'center',
             width: moderateScale(88),
@@ -84,12 +91,15 @@ export default function PhoneNumberInput({
             <Flag countryCode={cca2} />
           </View>
           <Text
-            style={{
-              fontFamily: fontFamily.medium,
-              color: color ? color : colors.white,
-              marginStart: 2,
-              fontSize: textScale(14),
-            }}>
+            style={[
+              {
+                fontFamily: fontFamily.medium,
+                color: color ? color : colors.white,
+                marginStart: 2,
+                fontSize: textScale(14),
+              },
+              callingCodeTextStyle,
+            ]}>
             +{callingCode}
           </Text>
 
@@ -102,7 +112,20 @@ export default function PhoneNumberInput({
           value={phoneNumber}
           placeholderTextColor={color ? color : colors.textGreyOpcaity7}
           onChangeText={onChangePhone}
-          style={[styles.textInputStyle,{  borderLeftColor:borderLeftColor?borderLeftColor: colors?.themeColor,}]}
+          style={[
+            styles.textInputStyle,
+            {
+              borderLeftColor: borderLeftColor
+                ? borderLeftColor
+                : colors?.themeColor,
+              textAlign: defaultLanguagae?.value === 'ar' ? 'right' : 'left',
+              borderRightWidth: defaultLanguagae?.value === 'ar' ? 1 : 0,
+              borderLeftWidth: defaultLanguagae?.value === 'ar' ? 0 : 1,
+              borderRightColor: borderLeftColor
+                ? borderLeftColor
+                : colors?.themeColor,
+            },
+          ]}
           returnKeyType={returnKeyType}
         />
         {countryPickerModalVisible && (
@@ -130,7 +153,7 @@ const styles = StyleSheet.create({
     fontFamily: fontFamily.medium,
     color: colors.black,
     fontSize: textScale(14),
-  
+
     // opacity: 0.7,
     paddingTop: 0,
     paddingBottom: 0,
