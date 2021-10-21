@@ -88,7 +88,6 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
-
         case appIds.africanVillageMarket:
           updateState({
             shortCode: shortCodes.africanVillageMarket,
@@ -122,6 +121,36 @@ export default function ShortCode({route, navigation}) {
         case appIds.yogofood:
           updateState({
             shortCode: shortCodes.yogofood,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.arenaGrub:
+          updateState({
+            shortCode: shortCodes.arenaGrub,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.blipDelivery:
+          updateState({
+            shortCode: shortCodes.blipDelivery,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.bottomsUp:
+          updateState({
+            shortCode: shortCodes.bottomsUp,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.bustanFakieh:
+          updateState({
+            shortCode: shortCodes.bustanFakieh,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.codiner:
+          updateState({
+            shortCode: shortCodes.codiner,
             isShortcodePrefilled: true,
           });
           break;

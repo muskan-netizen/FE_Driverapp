@@ -10,7 +10,12 @@ const shortCodes = {
   tranzit: 'f84785',
   hemptify: '33eba1',
   goody: 'da11cf',
-  yogofood:'883082'
+  yogofood: '883082',
+  arenaGrub: 'b2c1f8',
+  blipDelivery: 'f336de',
+  bottomsUp: '0678b2',
+  bustanFakieh: 'c2373f',
+  codiner: '0d257f',
 };
 
 // Goody Dispatch
@@ -48,8 +53,28 @@ const appIds = {
     android: 'com.Goody.royodispatcher',
   }),
   yogofood: Platform.select({
-    ios: 'com.Yogofood.Dispatch',
+    ios: 'com.YogoFood.Dispatch',
     android: 'com.yogofood.royodispatcher',
+  }),
+  arenaGrub: Platform.select({
+    ios: 'com.ArenaGrub.Dispatch',
+    android: 'com.arenagrub.royodispatcher',
+  }),
+  blipDelivery: Platform.select({
+    ios: 'com.BlipDelivery.Dispatch',
+    android: 'com.BlipDelivery.royodispatcher',
+  }),
+  bottomsUp: Platform.select({
+    ios: 'com.BottomsUp.Dispatch',
+    android: 'com.BottomsUp.royodispatcher',
+  }),
+  bustanFakieh: Platform.select({
+    ios: 'com.BustanFakieh.Dispatch',
+    android: 'com.BustanFakieh.royodispatcher',
+  }),
+  codiner: Platform.select({
+    ios: 'com.app.Codiner.Dispatch',
+    android: 'com.app.Codiner.Dispatch',
   }),
 };
 

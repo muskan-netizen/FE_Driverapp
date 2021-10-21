@@ -1,0 +1,10 @@
+#include "Pods/Target Support Files/Pods-Codiner/Pods-Codiner.debug.xcconfig"
+
+
+PROJECT_BUNDLE_ID = com.app.Codiner.Dispatch
+PROJECT_APP_VERSION = 1.0
+PROJECT_BUILD_NUMBER = 1
+PROJECT_APP_NAME =Codiner Dispatcher
+PROJECT_PLIST = CodinerInfo
+PROJECT_ENTITLEMENT=RoyoDriverAppRelease
+

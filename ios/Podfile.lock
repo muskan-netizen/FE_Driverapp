@@ -299,6 +299,8 @@ PODS:
     - React-Core
   - react-native-signature-capture (0.4.12):
     - React
+  - react-native-splash-screen (3.2.0):
+    - React
   - react-native-webview (11.13.0):
     - React-Core
   - React-perflogger (0.65.1)
@@ -467,6 +469,7 @@ DEPENDENCIES:
   - "react-native-netinfo (from `../node_modules/@react-native-community/netinfo`)"
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - react-native-signature-capture (from `../node_modules/react-native-signature-capture`)
+  - react-native-splash-screen (from `../node_modules/react-native-splash-screen`)
   - react-native-webview (from `../node_modules/react-native-webview`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
@@ -573,6 +576,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-safe-area-context"
   react-native-signature-capture:
     :path: "../node_modules/react-native-signature-capture"
+  react-native-splash-screen:
+    :path: "../node_modules/react-native-splash-screen"
   react-native-webview:
     :path: "../node_modules/react-native-webview"
   React-perflogger:
@@ -673,6 +678,7 @@ SPEC CHECKSUMS:
   react-native-netinfo: 8917788f12f8c422d16a56f840a1b06faa56e2b6
   react-native-safe-area-context: 5cf05f49df9d17261e40e518481f2e334c6cd4b5
   react-native-signature-capture: 73f2077f43a3fae9979b76e8cbf703c735bf44f4
+  react-native-splash-screen: 200d11d188e2e78cea3ad319964f6142b6384865
   react-native-webview: b176c6404ad40d10cfc818be41c053f85a72d751
   React-perflogger: fd28ee1f2b5b150b00043f0301d96bd417fdc339
   React-RCTActionSheet: 7f3fa0855c346aa5d7c60f9ced16e067db6d29fa
@@ -703,6 +709,6 @@ SPEC CHECKSUMS:
   TOCropViewController: 3105367e808b7d3d886a74ff59bf4804e7d3ab38
   Yoga: aa0cb45287ebe1004c02a13f279c55a95f1572f4
 
-PODFILE CHECKSUM: ae4ff4dc3b54b2b8fe75f44f7cda2c48751b0a5b
+PODFILE CHECKSUM: aa6dc5ae79792f9b970d3c12b46fd88dc65a45ea
 
 COCOAPODS: 1.11.2
