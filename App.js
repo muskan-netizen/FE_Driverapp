@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import FlashMessage from 'react-native-flash-message';
 import NetInfo from '@react-native-community/netinfo';
+import SplashScreen from 'react-native-splash-screen';
 
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 // import SplashScreen from 'react-native-splash-screen';
@@ -28,6 +29,12 @@ const App = () => {
     // requestUserPermission();
     notificationListener();
   };
+  useEffect(() => {
+    //stop splahs screen from loading
+    setTimeout(() => {
+      SplashScreen.hide();
+    }, 1500);
+  }, []);
 
   useEffect(() => {
     (async () => {

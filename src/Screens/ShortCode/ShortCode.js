@@ -135,9 +135,14 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
-          case appIds.bottomsUp:
+        case appIds.bottomsUp:
           updateState({
             shortCode: shortCodes.bottomsUp,
+            isShortcodePrefilled: true,
+          });
+        case appIds.bustanFakieh:
+          updateState({
+            shortCode: shortCodes.bustanFakieh,
             isShortcodePrefilled: true,
           });
           break;
