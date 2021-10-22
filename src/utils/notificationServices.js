@@ -63,7 +63,7 @@ export const notificationListener = async () => {
     );
     PushNotification.createChannel(
       {
-        channelId: 'Royo Delivery', // (required)
+        channelId: 'Royo-Delivery', // (required)
         channelName: `Royo Delivery`, // (required)
         channelDescription: 'A sound channel 2', // (optional) default: undefined.
         soundName: 'notification.mp3', // (optional) See `soundName` parameter of `localNotification` function

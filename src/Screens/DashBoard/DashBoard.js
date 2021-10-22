@@ -151,13 +151,13 @@ export default function DashBoard({route, navigation}) {
           // data['current_speed'] = 'y';
           data['long'] = longitude;
           data['lat'] = latitude;
-          console.log(data, 'data>data');
+          // console.log(data, 'data>data');
           //   console.log(data, 'data');
           actions
             .logsApi(data, {client: clientInfo?.database_name})
             .then(res => {
-              console.log(userData, 'userData');
-              console.log(res, 'log api response');
+              // console.log(userData, 'userData');
+              // console.log(res, 'log api response');
               if (selectedOption == 1) {
                 updateState({allTasks: res?.data?.tasks});
               } else {

@@ -203,7 +203,7 @@ export default function ShortCode({route, navigation}) {
     (async () => {
       const saveShortCode = await getItem('saveShortCode');
       actions
-        .initApp({shortCode: shortCode})
+        .initApp({shortCode: '745e3f'})
         .then(res => {
           if (getBundleId() == appIds.royoorder && res?.data) {
             actions.saveShortCode(shortCode);

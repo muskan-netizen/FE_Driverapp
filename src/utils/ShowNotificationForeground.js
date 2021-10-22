@@ -10,6 +10,8 @@ const ShowNotificationForeground = props => {
     const unsubscribe = messaging().onMessage(async remoteMessage => {
       console.log('remote message foreground', JSON.stringify(remoteMessage));
       const {data, messageId, notification} = remoteMessage;
+
+      
       {
         Platform.OS == 'ios'
           ? PushNotificationIOS.addNotificationRequest({

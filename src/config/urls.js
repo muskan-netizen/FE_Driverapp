@@ -1,9 +1,11 @@
 // export const API_BASE_URL = 'https://api.royodispatch.com/api';
-export const API_BASE_URL = 'https://api.rdstaging.com/api';
+// export const API_BASE_URL = 'https://api.rdstaging.com/api';
 // export const API_BASE_URL = 'https://sales.winhires.com/api';
 
-// export const API_BASE_URL = 'http://192.168.96.23:8005/api';
+export const API_BASE_URL = 'http://192.168.96.146:8080/api';
 //1da2e9
+// 745e3f
+//+919781316158
 
 export const personaltoken = 'TMJdbQlNWkYl1JzMONzRgF4zQFuP8s';
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;
