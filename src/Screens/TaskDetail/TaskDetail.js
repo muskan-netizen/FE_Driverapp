@@ -76,28 +76,28 @@ export default function TaskDetail({route, navigation}) {
     taskProofArray: [
       {
         id: 1,
-        title: 'Signature *',
+        title: strings.SIGNATURE,
         imagePath: imagePath.signature,
         imagePathActive: imagePath.signatureBlue,
         type: 'signature',
       },
       {
         id: 2,
-        title: 'Photo *',
+        title: strings.PHOTO,
         imagePath: imagePath.photoInactive,
         imagePathActive: imagePath.photoBlue,
         type: 'photo',
       },
       {
         id: 3,
-        title: 'Notes *',
+        title: strings.NOTES,
         imagePath: imagePath.notes,
         imagePathActive: imagePath.notesBlue,
         type: 'notes',
       },
       {
         id: 4,
-        title: 'QR/Bar Code *',
+        title: strings.QRCODE,
         imagePath: imagePath.codeInactive,
         imagePathActive: imagePath.codeActive,
         type: 'QR',

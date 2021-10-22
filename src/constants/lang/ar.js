@@ -17,4 +17,9 @@ export default {
   HOLDTOSTART: 'Hold to Start',
   HOLDTOARRIVE: 'Hold to Arrive',
   HOLDTOCOMPLETE: ' Hold to Complete',
+  SIGNATURE: 'Signature',
+  PHOTO: 'Photo',
+  NOTES: 'Notes',
+
+  QRCODE: 'QR/Bar Code',
 };

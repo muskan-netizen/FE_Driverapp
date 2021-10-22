@@ -101,4 +101,9 @@ export default {
   HOLDTOSTART: 'Mantenga presionado para comenzar',
   HOLDTOARRIVE: 'Espera para llegar',
   HOLDTOCOMPLETE: ' Mantenga presionado para completar',
+  SIGNATURE: 'Firma *',
+  PHOTO: 'Foto *',
+  NOTES: 'Notes *',
+
+  QRCODE: 'QR/code of barras *',
 };

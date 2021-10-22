@@ -22,6 +22,7 @@ import {
 import ShowNotificationForeground from './src/utils/ShowNotificationForeground';
 import NotificationModal from './src/Components/NotificationModal';
 import strings from './src/constants/lang';
+import PushNotification from 'react-native-push-notification';
 
 const App = () => {
   const [internetConnection, setInternet] = useState(true);
@@ -31,11 +32,18 @@ const App = () => {
     notificationListener();
   };
   useEffect(() => {
+    checkExistChannel();
     //stop splahs screen from loading
     setTimeout(() => {
       SplashScreen.hide();
     }, 1500);
   }, []);
+
+  const checkExistChannel = () => {
+    PushNotification.getChannels(function (channel_ids) {
+      console.log('exist channels', channel_ids); // ['channel_id_1']
+    });
+  };
 
   useEffect(() => {
     (async () => {
@@ -44,9 +52,10 @@ const App = () => {
       const userData = await getUserData();
       const defaultLanguage = await getItem('defaultLanguage');
       console.log(userData, 'userData');
-      if (userData && !!userData?.access_token) {
-        notificationConfig();
-      }
+      // if (userData && !!userData?.access_token) {
+      //   notificationConfig();
+      // }
+      notificationConfig();
       if (userData && !!userData?.access_token) {
         dispatch({
           type: types.LOGIN,

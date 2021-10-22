@@ -36,6 +36,10 @@ export default function TaskCompleteDocument({route, navigation}) {
   const taskDetail = route?.params?.data?.taskDetail;
   console.log(taskDetail, 'taskDetail');
   const updatedProofArray = route?.params?.data?.updatedProofArray;
+  console.log(
+    updatedProofArray,
+    'updatedProofArrayupdatedProofArrayupdatedProofArray',
+  );
   const findDataToCheck = route?.params?.data?.findDataToCheck;
   const params = route?.params;
   console.log(params, 'params>params');
