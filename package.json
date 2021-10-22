@@ -29,6 +29,8 @@
     "bottomsUpdispatcherRelease": "cd android && ./gradlew assemblebottomsUpRelease",
     "bustanFakiehdispatcher": "react-native run-android --variant=bustanFakiehDebug",
     "bustanFakiehdispatcherRelease": "cd android && ./gradlew assemblebustanFakiehRelease",
+    "elogdispatcher": "react-native run-android --variant=elogDebug",
+    "elogdispatcherRelease": "cd android && ./gradlew assembleelogRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",

@@ -10,11 +10,12 @@ const shortCodes = {
   tranzit: 'f84785',
   hemptify: '33eba1',
   goody: 'da11cf',
-  yogofood:'883082',
-  arenaGrub:'b2c1f8',
-  blipDelivery :'f336de',
-  bottomsUp:'0678b2',
-  bustanFakieh:'c2373f'
+  yogofood: '883082',
+  arenaGrub: 'b2c1f8',
+  blipDelivery: 'f336de',
+  bottomsUp: '0678b2',
+  bustanFakieh: 'c2373f',
+  elog: 'fffa75',
 };
 
 // Goody Dispatch
@@ -71,8 +72,10 @@ const appIds = {
     ios: 'com.BustanFakieh.Dispatch',
     android: 'com.BustanFakieh.royodispatcher',
   }),
+  elog: Platform.select({
+    ios: 'com.Elog.Dispatch',
+    android: 'com.Elog.royodispatcher',
+  }),
 };
-
-
 
 export {appIds, shortCodes};

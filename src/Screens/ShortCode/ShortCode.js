@@ -124,11 +124,13 @@ export default function ShortCode({route, navigation}) {
             shortCode: shortCodes.yogofood,
             isShortcodePrefilled: true,
           });
+          break;
         case appIds.arenaGrub:
           updateState({
             shortCode: shortCodes.arenaGrub,
             isShortcodePrefilled: true,
           });
+          break;
         case appIds.blipDelivery:
           updateState({
             shortCode: shortCodes.blipDelivery,
@@ -140,12 +142,19 @@ export default function ShortCode({route, navigation}) {
             shortCode: shortCodes.bottomsUp,
             isShortcodePrefilled: true,
           });
+          break;
         case appIds.bustanFakieh:
           updateState({
             shortCode: shortCodes.bustanFakieh,
             isShortcodePrefilled: true,
           });
           break;
+          case appIds.elog:
+            updateState({
+              shortCode: shortCodes.elog,
+              isShortcodePrefilled: true,
+            });
+            break;
       }
     })();
   }, []);
