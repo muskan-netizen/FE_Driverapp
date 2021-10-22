@@ -366,16 +366,16 @@ export default function TaskDetail({route, navigation}) {
     console.log(taskStatus, 'getStatusName');
     switch (taskStatus) {
       case 1:
-        updateState({buttonText: 'Hold to start'});
+        updateState({buttonText: strings.HOLDTOSTART});
         break;
       case 2:
-        updateState({buttonText: 'Hold to arrive'});
+        updateState({buttonText: strings.HOLDTOARRIVE});
         break;
       case 3:
-        updateState({buttonText: 'Hold to complete'});
+        updateState({buttonText: strings.HOLDTOCOMPLETE});
         break;
       case 4:
-        updateState({buttonText: 'Hold to complete'});
+        updateState({buttonText: strings.HOLDTOCOMPLETE});
         break;
       default:
         break;
@@ -609,12 +609,12 @@ export default function TaskDetail({route, navigation}) {
   const cancelTask = () => {
     Alert.alert('', strings.CANCELMESSAGE, [
       {
-        text: 'Cancel',
+        text: strings.CANCEL,
         onPress: () => console.log('Cancel Pressed'),
         style: 'cancel',
       },
       {
-        text: 'OK',
+        text: strings.OK,
         onPress: () =>
           moveToNewScreen(navigationStrings.TASKCANCEL, taskDetail)(),
       },

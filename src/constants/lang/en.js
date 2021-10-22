@@ -92,4 +92,11 @@ export default {
   LANGUAGE: 'Language',
   CANCEL1: 'CANCEL',
   OK: 'OK',
+  OTPSENDSUCCESS: 'Otp send successfuly.',
+  ACCOUNTVERIFYSUCESS: 'Account verfied successfully.',
+  SUCCESS: 'Success',
+  LOADING: 'Loading',
+  HOLDTOSTART: 'Hold to Start',
+  HOLDTOARRIVE: 'Hold to Arrive',
+  HOLDTOCOMPLETE: ' Hold to Complete',
 };

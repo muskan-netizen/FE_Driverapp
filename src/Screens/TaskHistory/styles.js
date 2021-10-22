@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 import colors from '../../styles/colors';
 import fontFamily from '../../styles/fontFamily';
-import {moderateScale, textScale} from '../../styles/responsiveSize';
+import {moderateScale, textScale, width} from '../../styles/responsiveSize';
 
 export default ({defaultLanguagae}) => {
   const styles = StyleSheet.create({
@@ -11,7 +11,7 @@ export default ({defaultLanguagae}) => {
       color: colors.black,
     },
     viewStyle: {
-      width: 50,
+      width: 55,
       alignItems: 'center',
       backgroundColor: colors.themeColor,
       padding: 5,
@@ -27,6 +27,8 @@ export default ({defaultLanguagae}) => {
       fontSize: textScale(12),
       fontFamily: fontFamily.regular,
       color: colors.lightGreyBg2,
+      width: 100,
+      justifyContent: 'center',
     },
     cashCollectionContainer: {
       flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',

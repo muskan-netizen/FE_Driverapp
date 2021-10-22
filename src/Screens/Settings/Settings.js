@@ -7,7 +7,7 @@ import {loaderOne} from '../../Components/Loaders/AnimatedLoaderFiles';
 import ModalView from '../../Components/Modal';
 import WrapperContainer from '../../Components/WrapperContainer';
 import imagePath from '../../constants/imagePath';
-import strings from '../../constants/lang';
+import strings, {changeLaguage} from '../../constants/lang';
 import actions from '../../redux/actions';
 // import store from '../../redux/store';
 import colors from '../../styles/colors';
@@ -22,6 +22,7 @@ import {
 } from '../../styles/responsiveSize';
 import {showSuccess} from '../../utils/helperFunctions';
 import stylesFunc from './styles';
+import RNRestart from 'react-native-restart';
 
 export default function Settings({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
@@ -46,15 +47,21 @@ export default function Settings({route, navigation}) {
       {
         id: 2,
         label: 'Spanish',
-        value: 'sp',
+        value: 'es',
       },
-      {
-        id: 3,
-        label: 'Arabic',
-        value: 'ar',
-      },
+      // {
+      //   id: 3,
+      //   label: 'Arabic',
+      //   value: 'ar',
+      // },
     ],
-    selectedLangauge: defaultLanguagae,
+    selectedLangauge: defaultLanguagae?.label
+      ? defaultLanguagae
+      : {
+          id: 1,
+          label: 'English',
+          value: 'en',
+        },
     isModalVisibleForLanguage: false,
   });
 
@@ -83,7 +90,10 @@ export default function Settings({route, navigation}) {
 
   const setFinalSelectedLanguage = type => {
     if (type === 'ok') {
+      console.log(selectedLangauge?.value, 'selectedLangauge?.value');
+      changeLaguage(selectedLangauge?.value);
       actions.setDefaultLanguage(selectedLangauge);
+      RNRestart.Restart();
     }
     updateState({
       isModalVisibleForLanguage: false,
@@ -162,20 +172,24 @@ export default function Settings({route, navigation}) {
       />
       <View style={{...commonStyles.headerTopLine}} />
       <View style={styles.spaceViewStyle}></View>
-      <View style={styles.languageContainer}>
-        <Text style={styles.languageTitleTextStyle}>{strings.LANGUAGE}</Text>
-        <TouchableOpacity onPress={() => onModalVisiblity()}>
-          <View style={styles.selectedLanguageViewContainer}>
-            <Text style={styles.selectedLanguageText}>
-              {defaultLanguagae?.label}
-            </Text>
-            <Image
-              style={styles.arrowIconStyle}
-              source={imagePath.forwordArrow}
-            />
-          </View>
-        </TouchableOpacity>
-      </View>
+      <TouchableOpacity onPress={() => onModalVisiblity()}>
+        <View style={styles.languageContainer}>
+          <Text style={styles.languageTitleTextStyle}>{strings.LANGUAGE}</Text>
+          <TouchableOpacity onPress={() => onModalVisiblity()}>
+            <View style={styles.selectedLanguageViewContainer}>
+              <Text style={styles.selectedLanguageText}>
+                {defaultLanguagae?.label
+                  ? defaultLanguagae?.label
+                  : selectedLangauge?.label}
+              </Text>
+              <Image
+                style={styles.arrowIconStyle}
+                source={imagePath.forwordArrow}
+              />
+            </View>
+          </TouchableOpacity>
+        </View>
+      </TouchableOpacity>
       <ModalView
         isVisible={isModalVisibleForLanguage}
         mainViewStyle={{

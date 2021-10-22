@@ -21,6 +21,7 @@ import {
 } from './src/utils/notificationServices';
 import ShowNotificationForeground from './src/utils/ShowNotificationForeground';
 import NotificationModal from './src/Components/NotificationModal';
+import strings from './src/constants/lang';
 
 const App = () => {
   const [internetConnection, setInternet] = useState(true);
@@ -53,6 +54,7 @@ const App = () => {
         });
       }
       if (defaultLanguage) {
+        strings.setLanguage(defaultLanguage?.value);
         dispatch({
           type: types.DEFAULTLANGUAGE,
           payload: defaultLanguage,

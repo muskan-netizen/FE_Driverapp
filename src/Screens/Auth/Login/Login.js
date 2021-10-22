@@ -112,7 +112,7 @@ export default function Login({navigation, route}) {
         console.log(res, 'login data');
         updateState({isLoading: false});
         if (res?.data) {
-          showSuccess('Otp send successfuly.');
+          showSuccess(strings.OTPSENDSUCCESS);
           moveToNewScreen(navigationStrings.SEND_OTP, res?.data)();
         }
       })

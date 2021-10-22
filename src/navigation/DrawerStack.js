@@ -63,7 +63,7 @@ export default function DrawerRoutes(props) {
         component={ProfileStack}
         name={navigationStrings.PROFILESTACK}
         options={{
-          drawerLabel: strings.SETTING,
+          drawerLabel: strings.PROFILE,
           drawerIcon: ({focused}) => (
             <Image
               style={{tintColor: focused ? colors.blackShade2 : colors.grey2}}
@@ -73,7 +73,7 @@ export default function DrawerRoutes(props) {
         }}
       />
 
-      {/* <Drawer.Screen
+      <Drawer.Screen
         component={Settings}
         name={navigationStrings.SETTINGS}
         options={{
@@ -85,7 +85,7 @@ export default function DrawerRoutes(props) {
             />
           ),
         }}
-      /> */}
+      />
     </Drawer.Navigator>
   );
 }

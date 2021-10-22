@@ -37,13 +37,13 @@ export default function CustomDrawerContent({
         key: navigationStrings.PROFILESTACK,
         // subRoute:navigationStrings.MYPROFILE
       },
-      // {
-      //   id: 2,
-      //   label: strings.SETTINGS,
-      //   image: imagePath.settingsIcon,
-      //   key: navigationStrings.SETTINGS,
-      //   // subRoute:navigationStrings.MYPROFILE
-      // },
+      {
+        id: 2,
+        label: strings.SETTING,
+        image: imagePath.settingsIcon,
+        key: navigationStrings.SETTINGS,
+        // subRoute:navigationStrings.MYPROFILE
+      },
       {
         id: 3,
         label: strings.LOGOUT,
@@ -75,12 +75,12 @@ export default function CustomDrawerContent({
     navigation.toggleDrawer();
     Alert.alert('', strings.AREYOUSURE, [
       {
-        text: 'Cancel',
+        text: strings.CANCEL,
         onPress: () => console.log('Cancel Pressed'),
         style: 'cancel',
       },
       {
-        text: 'OK',
+        text: strings.OK,
         onPress: () => {
           console.log('progress');
           logout();

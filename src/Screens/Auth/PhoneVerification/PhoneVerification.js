@@ -126,7 +126,7 @@ export default function PhoneVerification({navigation, route}) {
         console.log(res, 'res loginuser info');
         updateState({isLoading: false});
         if (res?.data) {
-          showSuccess('Account verfied successfully.');
+          showSuccess(strings.ACCOUNTVERIFYSUCESS);
           moveToNewScreen(navigationStrings.DRAWER_ROUTES)();
         }
       })

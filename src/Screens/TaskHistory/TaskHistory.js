@@ -1,6 +1,13 @@
 import {debounce} from 'lodash';
 import React, {useState, useEffect} from 'react';
-import {View, Text, Image, RefreshControl, FlatList} from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  RefreshControl,
+  FlatList,
+  ScrollView,
+} from 'react-native';
 import {useSelector} from 'react-redux';
 import Header, {stylesFunc} from '../../Components/Header';
 import {loaderOne} from '../../Components/Loaders/AnimatedLoaderFiles';
@@ -16,6 +23,7 @@ import fontFamily from '../../styles/fontFamily';
 import {
   moderateScale,
   moderateScaleVertical,
+  width,
 } from '../../styles/responsiveSize';
 import {transportationArray} from '../../utils/constants/ConstantValues';
 import {showError} from '../../utils/helperFunctions';
@@ -189,6 +197,7 @@ export default function TaskHistory({route, navigation}) {
             style={styles.viewStyle}>
             <Text style={styles.clear}>{strings.CLEAR}</Text>
           </TouchableOpacity>
+
           <TouchableOpacity
             onPress={() => updateState({isModalVisibleForDateTime: true})}
             style={styles.dateSelectView}>
@@ -205,6 +214,7 @@ export default function TaskHistory({route, navigation}) {
           </TouchableOpacity>
         </View>
       </View>
+
       <View style={{backgroundColor: colors.backGround, flex: 1}}>
         <FlatList
           data={allTaskInHistory}

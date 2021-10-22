@@ -1,7 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {FlatList, NativeModules} from 'react-native';
 import {cloneDeep, debounce} from 'lodash';
-import {Image, Switch, View, RefreshControl,BackHandler} from 'react-native';
+import {Image, Switch, View, RefreshControl, BackHandler} from 'react-native';
 import {useSelector} from 'react-redux';
 import Header from '../../Components/Header';
 import {loaderOne} from '../../Components/Loaders/AnimatedLoaderFiles';
@@ -99,6 +99,12 @@ export default function DashBoard({route, navigation}) {
   const defaultLanguagae = useSelector(
     state => state?.initBoot?.defaultLanguage,
   );
+
+  console.log(
+    defaultLanguagae,
+    'defaultLanguagaedefaultLanguagaedefaultLanguagae',
+  );
+
   useEffect(() => {
     (async () => {
       currentLocation();

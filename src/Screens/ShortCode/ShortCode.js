@@ -3,7 +3,7 @@ import {Text, View, Image, StyleSheet, TouchableOpacity} from 'react-native';
 import {loaderOne} from '../../Components/Loaders/AnimatedLoaderFiles';
 import WrapperContainer from '../../Components/WrapperContainer';
 import imagePath from '../../constants/imagePath';
-import strings from '../../constants/lang';
+import strings, {changeLaguage} from '../../constants/lang';
 // import store from '../../redux/store';
 import colors from '../../styles/colors';
 import {
@@ -55,6 +55,12 @@ export default function ShortCode({route, navigation}) {
   const moveToNewScreen = (screenName, data) => () => {
     navigation.navigate(screenName, {data});
   };
+
+  const defaultLanguagae = useSelector(
+    state => state?.initBoot?.defaultLanguage,
+  );
+
+  console.log(defaultLanguagae, 'defaultLanguagaedefaultLanguagae');
 
   useEffect(() => {
     requestUserPermission();
@@ -154,6 +160,12 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.elog:
+          updateState({
+            shortCode: shortCodes.elog,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, []);
@@ -226,6 +238,8 @@ export default function ShortCode({route, navigation}) {
           } else {
             _redirectToLogin(res?.data);
           }
+
+          changeLaguage(defaultLanguagae?.value);
         })
         .catch(errorMethod);
     })();

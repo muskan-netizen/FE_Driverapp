@@ -295,6 +295,8 @@ PODS:
     - React-Core
   - react-native-netinfo (6.0.2):
     - React-Core
+  - react-native-restart (0.0.22):
+    - React-Core
   - react-native-safe-area-context (3.3.2):
     - React-Core
   - react-native-signature-capture (0.4.12):
@@ -467,6 +469,7 @@ DEPENDENCIES:
   - react-native-geolocation-service (from `../node_modules/react-native-geolocation-service`)
   - react-native-maps (from `../node_modules/react-native-maps`)
   - "react-native-netinfo (from `../node_modules/@react-native-community/netinfo`)"
+  - react-native-restart (from `../node_modules/react-native-restart`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - react-native-signature-capture (from `../node_modules/react-native-signature-capture`)
   - react-native-splash-screen (from `../node_modules/react-native-splash-screen`)
@@ -572,6 +575,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-maps"
   react-native-netinfo:
     :path: "../node_modules/@react-native-community/netinfo"
+  react-native-restart:
+    :path: "../node_modules/react-native-restart"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
   react-native-signature-capture:
@@ -676,6 +681,7 @@ SPEC CHECKSUMS:
   react-native-geolocation-service: 94c7d2ffdbbf4dd431241e0c8e37d491ebd41430
   react-native-maps: 41d01d8e0afcebe32bec9eea3bd945adc1b18f7a
   react-native-netinfo: 8917788f12f8c422d16a56f840a1b06faa56e2b6
+  react-native-restart: d4ea7637e193da7558d229b3704d500ec0d75f9c
   react-native-safe-area-context: 5cf05f49df9d17261e40e518481f2e334c6cd4b5
   react-native-signature-capture: 73f2077f43a3fae9979b76e8cbf703c735bf44f4
   react-native-splash-screen: 200d11d188e2e78cea3ad319964f6142b6384865
@@ -709,6 +715,6 @@ SPEC CHECKSUMS:
   TOCropViewController: 3105367e808b7d3d886a74ff59bf4804e7d3ab38
   Yoga: aa0cb45287ebe1004c02a13f279c55a95f1572f4
 
-PODFILE CHECKSUM: aa6dc5ae79792f9b970d3c12b46fd88dc65a45ea
+PODFILE CHECKSUM: 3bd5b4b8a3621e967421485e303e6ed0620ab88d
 
 COCOAPODS: 1.11.2

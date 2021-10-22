@@ -105,7 +105,7 @@ const showError = message => {
 
 const showSuccess = message => {
   showMessage({
-    message: 'Success',
+    message: strings.SUCCESS,
     description: message,
     type: 'default',
     backgroundColor: colors.themeColor, // background color
@@ -285,13 +285,12 @@ export const saveUserData = data => {
 
 export const sessionHandler = error => {
   // actions.sessionLogoutUser(true);
-  console.log(error,"error>error>");
+  console.log(error, 'error>error>');
   setUserData(null).then(suc => {
     saveUserData({});
   });
   showError(error);
   NavigationService.navigate(navigationStrings.LOGIN);
-  
 };
 
 export const getScaleTransformationStyle = (

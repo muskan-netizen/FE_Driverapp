@@ -16,6 +16,7 @@ const shortCodes = {
   bottomsUp: '0678b2',
   bustanFakieh: 'c2373f',
   codiner: '0d257f',
+  elog: 'fffa75',
 };
 
 // Goody Dispatch
@@ -74,7 +75,11 @@ const appIds = {
   }),
   codiner: Platform.select({
     ios: 'com.app.Codiner.Dispatch',
-    android: 'com.app.Codiner.Dispatch',
+    android: 'com.app.Codiner.Dispatch'
+  }),
+  elog: Platform.select({
+    ios: 'com.Elog.Dispatch',
+    android: 'com.Elog.royodispatcher',
   }),
 };
 
