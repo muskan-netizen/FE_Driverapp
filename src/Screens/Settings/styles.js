@@ -56,6 +56,7 @@ export default ({defaultLanguagae}) => {
       flexDirection: defaultLanguagae?.value == 'ar' ? 'row-reverse' : 'row',
       alignItems: 'center',
       justifyContent: 'space-between',
+      elevation: 5,
     },
     languageTitleTextStyle: {
       fontSize: textScale(14),

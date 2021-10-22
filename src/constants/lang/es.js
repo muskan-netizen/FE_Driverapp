@@ -104,6 +104,5 @@ export default {
   SIGNATURE: 'Firma *',
   PHOTO: 'Foto *',
   NOTES: 'Notes *',
-
   QRCODE: 'QR/code of barras *',
 };

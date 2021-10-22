@@ -19,6 +19,7 @@ import DatePicker from 'react-native-date-picker';
 import Modal from 'react-native-modal';
 import imagePath from '../constants/imagePath';
 import fontFamily from '../styles/fontFamily';
+import {useSelector} from 'react-redux';
 const DatePickerModal = ({
   isVisible = false,
   animationType = 'none',
@@ -29,11 +30,14 @@ const DatePickerModal = ({
   onclose,
   onSelectDate,
   closeIcon,
-  closeText = 'Done',
+  closeText = strings.DONE,
   showHeader = false,
   ...props
 }) => {
   const inputRef = useRef();
+  const defaultLanguagae = useSelector(
+    state => state?.initBoot?.defaultLanguage,
+  );
 
   return (
     <Modal
@@ -68,8 +72,9 @@ const DatePickerModal = ({
 
           <View style={{alignItems: 'center', height: height / 3}}>
             <DatePicker
-              date={date?date:new Date()}
+              date={date ? date : new Date()}
               mode={mode}
+              locale={defaultLanguagae?.value}
               // minimumDate={undefined}
               maximumDate={new Date()}
               style={{width: width - 20, height: height / 4}}
