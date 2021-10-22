@@ -33,6 +33,8 @@
     "codinerdispatcherRelease": "cd android && ./gradlew assemblecodinerRelease",
     "elogdispatcher": "react-native run-android --variant=elogDebug",
     "elogdispatcherRelease": "cd android && ./gradlew assembleelogRelease",
+    "cabdelivrdispatcher": "react-native run-android --variant=cabdelivrDebug",
+    "cabdelivrdispatcherRelease": "cd android && ./gradlew assemblecabdelivrRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",

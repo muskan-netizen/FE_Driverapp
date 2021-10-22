@@ -17,6 +17,7 @@ const shortCodes = {
   bustanFakieh: 'c2373f',
   codiner: '0d257f',
   elog: 'fffa75',
+  cabdelivr:'d8e244'
 };
 
 // Goody Dispatch
@@ -81,6 +82,12 @@ const appIds = {
     ios: 'com.Elog.Dispatch',
     android: 'com.Elog.royodispatcher',
   }),
+  cabdelivr: Platform.select({
+    ios: 'com.Cabdelivr.Dispatch',
+    android: 'com.cabdelivr.royodispatcher',
+  }),
+  
+  
 };
 
 export {appIds, shortCodes};

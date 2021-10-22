@@ -348,6 +348,17 @@ android {
                 applicationId 'com.Elog.royodispatcher'
                 resValue "string", "app_name", "Elog Dispatch"
             } 
+               cabdelivr {
+                dimension "appType"
+                versionCode 1
+                versionName "1.0"
+                minSdkVersion rootProject.ext.minSdkVersion
+                targetSdkVersion rootProject.ext.targetSdkVersion
+                // applicationIdSuffix ".royoorder"
+                applicationId 'com.cabdelivr.royodispatcher'
+                resValue "string", "app_name", "Cabdelivr Dispatch"
+            } 
+
 
 
     }
