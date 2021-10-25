@@ -89,23 +89,3 @@ export default function DrawerRoutes(props) {
     </Drawer.Navigator>
   );
 }
-
-const styles = StyleSheet.create({
-  cartItemCountView: {
-    position: 'absolute',
-    zIndex: 100,
-    top: -5,
-    right: -5,
-    backgroundColor: colors.cartItemPrice,
-    width: moderateScale(18),
-    height: moderateScale(18),
-    borderRadius: 50,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  cartItemCountNumber: {
-    fontFamily: fontFamily.futuraBtHeavy,
-    color: colors.white,
-    fontSize: textScale(8),
-  },
-});

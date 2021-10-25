@@ -105,5 +105,5 @@ export default {
   PHOTO: 'Foto *',
   NOTES: 'Notes *',
   QRCODE: 'QR/code of barras *',
-  SUCCESSSIGNUP: 'SignUp successfuly.',
+  SUCCESSSIGNUP: 'Registries correctly.',
 };
