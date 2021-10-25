@@ -23,7 +23,7 @@ export default {
   SETTING: 'Configuración',
   LOGOUT: 'Cerrar sesión',
   NOTASK: 'No hay tareas asignadas todavía',
-  NOTASKASIGNED:
+  NOTASKASSIGNED:
     'No tiene tareas asignadas o todas sus tareas se completaron. Le notificaremos cuando lleguen nuevas tareas. ',
   OFFDUTY: 'Fuera de servicio',
   OFFDUTYMESSAGE:
@@ -105,4 +105,5 @@ export default {
   PHOTO: 'Foto *',
   NOTES: 'Notes *',
   QRCODE: 'QR/code of barras *',
+  SUCCESSSIGNUP: 'SignUp successfuly.',
 };

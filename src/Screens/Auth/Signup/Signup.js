@@ -292,10 +292,13 @@ export default function Signup({route, navigation}) {
 
     updateState({isLoading: true});
     actions
-      .signUp(formdata, {client: clientInfo?.database_name})
+      .signUp(formdata, {
+        client: clientInfo?.database_name,
+        language: defaultLanguagae?.value,
+      })
       .then(res => {
         updateState({isLoading: false});
-        showSuccess('SignUp successfuly.');
+        showSuccess(strings.SUCCESSSIGNUP);
         navigation.goBack();
       })
       .catch(errorMethod);

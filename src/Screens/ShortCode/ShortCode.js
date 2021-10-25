@@ -166,6 +166,48 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.cabdelivr:
+          updateState({
+            shortCode: shortCodes.cabdelivr,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.drivree:
+          updateState({
+            shortCode: shortCodes.drivree,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.seaChangeVending:
+          updateState({
+            shortCode: shortCodes.seaChangeVending,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.rxnow:
+          updateState({
+            shortCode: shortCodes.rxnow,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.checkout:
+          updateState({
+            shortCode: shortCodes.ordercheckout,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.noki:
+          updateState({
+            shortCode: shortCodes.noki,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.ored:
+          updateState({
+            shortCode: shortCodes.ored,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, []);
@@ -213,8 +255,20 @@ export default function ShortCode({route, navigation}) {
   const initApiHit = () => {
     (async () => {
       const saveShortCode = await getItem('saveShortCode');
+      console.log(defaultLanguagae?.value, 'Language in init screen');
+      let header = {};
+      if (defaultLanguagae?.id) {
+        header = {
+          language: defaultLanguagae?.value,
+        };
+      } else {
+        header = {
+          language: 'en',
+        };
+      }
+
       actions
-        .initApp({shortCode: shortCode})
+        .initApp({shortCode: shortCode}, header)
         .then(res => {
           if (getBundleId() == appIds.royoorder && res?.data) {
             actions.saveShortCode(shortCode);
@@ -238,8 +292,6 @@ export default function ShortCode({route, navigation}) {
           } else {
             _redirectToLogin(res?.data);
           }
-
-          changeLaguage(defaultLanguagae?.value);
         })
         .catch(errorMethod);
     })();

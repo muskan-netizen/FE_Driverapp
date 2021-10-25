@@ -62,7 +62,7 @@ const App = () => {
           payload: userData,
         });
       }
-      if (defaultLanguage) {
+      if (defaultLanguage?.value) {
         strings.setLanguage(defaultLanguage?.value);
         dispatch({
           type: types.DEFAULTLANGUAGE,

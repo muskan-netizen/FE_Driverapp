@@ -17,6 +17,13 @@ const shortCodes = {
   bustanFakieh: 'c2373f',
   codiner: '0d257f',
   elog: 'fffa75',
+  cabdelivr: 'd8e244',
+  drivree: 'ae5cfa',
+  seaChangeVending: '9fa45f',
+  rxnow: 'c24fb0',
+  ordercheckout: 'f775f5',
+  noki: 'e0f607',
+  ored: '86b79c',
 };
 
 // Goody Dispatch
@@ -75,11 +82,39 @@ const appIds = {
   }),
   codiner: Platform.select({
     ios: 'com.app.Codiner.Dispatch',
-    android: 'com.app.Codiner.Dispatch'
+    android: 'com.app.Codiner.Dispatch',
   }),
   elog: Platform.select({
     ios: 'com.Elog.Dispatch',
     android: 'com.Elog.royodispatcher',
+  }),
+  cabdelivr: Platform.select({
+    ios: 'com.Cabdelivr.Dispatch',
+    android: 'com.cabdelivr.royodispatcher',
+  }),
+  drivree: Platform.select({
+    ios: 'com.drivree.Dispatch',
+    android: 'com.drivree.royodispatcher',
+  }),
+  seaChangeVending: Platform.select({
+    ios: 'com.seaChangeVending.royodispatcher',
+    android: 'com.seaChangeVending.royodispatcher',
+  }),
+  rxnow: Platform.select({
+    ios: 'com.rxnow.royodispatcher',
+    android: 'com.rxnow.royodispatcher',
+  }),
+  checkout: Platform.select({
+    ios: 'com.checkout.royodispatcher',
+    android: 'com.checkout.royodispatcher',
+  }),
+  noki: Platform.select({
+    ios: 'com.noki.royodispatcher',
+    android: 'com.noki.royodispatcher',
+  }),
+  ored: Platform.select({
+    ios: 'com.ored.royodispatcher',
+    android: 'com.ored.royodispatcher',
   }),
 };
 

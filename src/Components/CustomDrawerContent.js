@@ -13,6 +13,7 @@ import fontFamily from '../styles/fontFamily';
 import {height, moderateScale, textScale} from '../styles/responsiveSize';
 import {showError, showSuccess} from '../utils/helperFunctions';
 import Loader from './Loader';
+import {useFocusEffect} from '@react-navigation/native';
 
 export default function CustomDrawerContent({
   state,
@@ -37,13 +38,13 @@ export default function CustomDrawerContent({
         key: navigationStrings.PROFILESTACK,
         // subRoute:navigationStrings.MYPROFILE
       },
-      {
-        id: 2,
-        label: strings.SETTING,
-        image: imagePath.settingsIcon,
-        key: navigationStrings.SETTINGS,
-        // subRoute:navigationStrings.MYPROFILE
-      },
+      // {
+      //   id: 2,
+      //   label: strings.SETTING,
+      //   image: imagePath.settingsIcon,
+      //   key: navigationStrings.SETTINGS,
+      //   // subRoute:navigationStrings.MYPROFILE
+      // },
       {
         id: 3,
         label: strings.LOGOUT,

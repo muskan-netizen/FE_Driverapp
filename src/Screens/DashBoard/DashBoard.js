@@ -108,7 +108,9 @@ export default function DashBoard({route, navigation}) {
   useEffect(() => {
     (async () => {
       currentLocation();
-      updateState({fcm_token: await AsyncStorage.getItem('fcmToken')});
+      updateState({
+        fcm_token: await AsyncStorage.getItem('fcmToken'),
+      });
     })();
     return () => {};
   }, []);
@@ -120,6 +122,17 @@ export default function DashBoard({route, navigation}) {
     );
     return () => backHandler.remove();
   }, []);
+
+  useFocusEffect(
+    React.useCallback(() => {
+      updateState({
+        options: [
+          {label: strings.TODAYSTASK, value: 0, testID: '1'},
+          {label: strings.ALLTASKS, value: 1, testID: '2'},
+        ],
+      });
+    }, []),
+  );
 
   const currentLocation = () => {
     chekLocationPermission()

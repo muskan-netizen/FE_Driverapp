@@ -27,14 +27,15 @@ export default ({defaultLanguagae}) => {
       fontSize: textScale(12),
       fontFamily: fontFamily.regular,
       color: colors.lightGreyBg2,
-      width: 100,
       justifyContent: 'center',
+      width: 100,
     },
     cashCollectionContainer: {
       flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
       justifyContent: 'space-between',
       padding: 10,
       backgroundColor: colors.white,
+      //paddingRight: defaultLanguagae?.value === 'en' ? 0 : moderateScale(45),
     },
     cashTextView: {
       flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
