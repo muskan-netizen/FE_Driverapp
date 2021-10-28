@@ -24,6 +24,7 @@ const shortCodes = {
   ordercheckout: 'f775f5',
   noki: 'e0f607',
   ored: '86b79c',
+  yourLaundryApp:'ba202e'
 };
 
 // Goody Dispatch
@@ -116,6 +117,11 @@ const appIds = {
     ios: 'com.ored.royodispatcher',
     android: 'com.ored.royodispatcher',
   }),
+  yourLaundryApp: Platform.select({
+    ios: 'com.YourLaundryApp.Dispatch',
+    android: 'com.YourLaundryApp.royodispatcher',
+  }),
+  
 };
 
 export {appIds, shortCodes};

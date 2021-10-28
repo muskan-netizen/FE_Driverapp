@@ -28,10 +28,11 @@ const App = () => {
   const [internetConnection, setInternet] = useState(true);
 
   const notificationConfig = () => {
-    // requestUserPermission();
+    requestUserPermission();
     notificationListener();
   };
   useEffect(() => {
+    notificationConfig();
     checkExistChannel();
     //stop splahs screen from loading
     setTimeout(() => {
@@ -55,7 +56,6 @@ const App = () => {
       // if (userData && !!userData?.access_token) {
       //   notificationConfig();
       // }
-      notificationConfig();
       if (userData && !!userData?.access_token) {
         dispatch({
           type: types.LOGIN,

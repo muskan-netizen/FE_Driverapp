@@ -215,6 +215,7 @@ export default function DashBoard({route, navigation}) {
     }
   }, [refreshHomeData]);
 
+  
   //get all tasks
   const getTasks = () => {
     actions
