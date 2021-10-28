@@ -208,6 +208,18 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.yummidash:
+          updateState({
+            shortCode: shortCodes.yummidash,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.zuzuclean:
+          updateState({
+            shortCode: shortCodes.zuzuclean,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, []);

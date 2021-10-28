@@ -90,7 +90,6 @@ export default function Settings({route, navigation}) {
 
   const setFinalSelectedLanguage = type => {
     if (type === 'ok') {
-      console.log(selectedLangauge?.value, 'selectedLangauge?.value');
       changeLaguage(selectedLangauge?.value);
       actions.setDefaultLanguage(selectedLangauge);
       RNRestart.Restart();

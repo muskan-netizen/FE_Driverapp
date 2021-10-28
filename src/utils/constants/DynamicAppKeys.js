@@ -24,6 +24,8 @@ const shortCodes = {
   ordercheckout: 'f775f5',
   noki: 'e0f607',
   ored: '86b79c',
+  yummidash: '31a72f',
+  zuzuclean: 'a4ead8',
 };
 
 // Goody Dispatch
@@ -115,6 +117,14 @@ const appIds = {
   ored: Platform.select({
     ios: 'com.ored.royodispatcher',
     android: 'com.ored.royodispatcher',
+  }),
+  yummidash: Platform.select({
+    ios: 'com.app.yummiidash.Dispatch',
+    android: 'com.app.yummiidash.Dispatch',
+  }),
+  zuzuclean: Platform.select({
+    ios: 'com.zuzuclean.royodispatcher',
+    android: 'com.zuzuclean.royodispatcher',
   }),
 };
 

@@ -100,11 +100,6 @@ export default function DashBoard({route, navigation}) {
     state => state?.initBoot?.defaultLanguage,
   );
 
-  console.log(
-    defaultLanguagae,
-    'defaultLanguagaedefaultLanguagaedefaultLanguagae',
-  );
-
   useEffect(() => {
     (async () => {
       currentLocation();
