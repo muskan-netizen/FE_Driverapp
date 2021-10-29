@@ -5,7 +5,7 @@ import {useSelector} from 'react-redux';
 import CustomDrawerContent from '../Components/CustomDrawerContent';
 import imagePath from '../constants/imagePath';
 import strings from '../constants/lang';
-import {Settings} from '../Screens';
+import {Settings, Wallet} from '../Screens';
 import colors from '../styles/colors';
 import fontFamily from '../styles/fontFamily';
 import {
@@ -62,6 +62,20 @@ export default function DrawerRoutes(props) {
       <Drawer.Screen
         component={ProfileStack}
         name={navigationStrings.PROFILESTACK}
+        options={{
+          drawerLabel: strings.PROFILE,
+          drawerIcon: ({focused}) => (
+            <Image
+              style={{tintColor: focused ? colors.blackShade2 : colors.grey2}}
+              source={imagePath.profileImage}
+            />
+          ),
+        }}
+      />
+
+      <Drawer.Screen
+        component={Wallet}
+        name={navigationStrings.WALLET}
         options={{
           drawerLabel: strings.PROFILE,
           drawerIcon: ({focused}) => (

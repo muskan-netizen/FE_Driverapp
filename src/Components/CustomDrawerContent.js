@@ -45,8 +45,15 @@ export default function CustomDrawerContent({
       //   key: navigationStrings.SETTINGS,
       //   // subRoute:navigationStrings.MYPROFILE
       // },
+      // {
+      //   id: 3,
+      //   label: strings.WALLET,
+      //   image: imagePath.wallet,
+      //   key: navigationStrings.WALLET,
+      //   // subRoute:navigationStrings.MYPROFILE
+      // },
       {
-        id: 3,
+        id: 4,
         label: strings.LOGOUT,
         image: imagePath.logout,
         // key: navigationStrings.PROFILESTACK,

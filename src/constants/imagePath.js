@@ -58,6 +58,7 @@ export default {
   redioUnSelectedButton:require('../assets/images/ic_radiobutton.png'),
   redioSelectedButton:require('../assets/images/ic_radiocheck.png'),
   profileImage:require('../assets/images/ic_profile.png'),
+  wallet:require('../assets/images/ic_wallet.png'),
 
   
 };

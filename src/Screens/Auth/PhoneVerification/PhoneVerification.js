@@ -182,6 +182,7 @@ export default function PhoneVerification({navigation, route}) {
         <SmoothPinCodeInput
           containerStyle={{alignSelf: 'center'}}
           password
+          
           autoFocus={true}
           mask={<View style={styles.maskStyle} />}
           cellSize={width / 8}
@@ -195,9 +196,11 @@ export default function PhoneVerification({navigation, route}) {
           inputProps={{
             autoCapitalize: 'none',
             autoFocus: true,
+          
+            
           }}
           value={otpToShow}
-          keyboardType={'default'}
+          keyboardType={'numeric'}
           onTextChange={otpToShow => updateState({otpToShow})}
           onFulfill={code => onOtpInput(code)}
         />
