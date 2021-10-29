@@ -27,7 +27,11 @@ const shortCodes = {
   yourLaundryApp:'ba202e',
   yummidash: '31a72f',
   zuzuclean: 'a4ead8',
-  loopWhole:'5aca0c'
+  loopWhole:'5aca0c',
+  maxis: '07b461',
+  donepacked: 'b3b91d',
+  careWorks: '3554f0',
+  thubaeRides: 'af635b',
 };
 
 // Goody Dispatch
@@ -138,6 +142,22 @@ const appIds = {
     android: 'com.loopwhole.royodispatcher',
   }),
   
+  maxis: Platform.select({
+    ios: 'com.maxis.royodispatcher',
+    android: 'com.maxis.royodispatcher',
+  }),
+  donepacked: Platform.select({
+    ios: 'com.donepacked.royodispatcher',
+    android: 'com.donepacked.royodispatcher',
+  }),
+  careWorks: Platform.select({
+    ios: 'com.CareWorks.Dispatch',
+    android: 'com.CareWorks.royodispatcher',
+  }),
+  thubaeRides: Platform.select({
+    ios: 'com.ThubaeRides.Dispatch',
+    android: 'com.ThubaeRides.royodispatcher',
+  }),
 };
 
 export {appIds, shortCodes};

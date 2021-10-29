@@ -236,7 +236,7 @@ android {
             applicationId 'com.AfricanVillageMarket.royodispatcher'
             resValue "string", "app_name", "Deliverstat"
         } 
-          africanize {
+        africanize {
             dimension "appType"
             versionCode 1
             versionName "1.0"
@@ -246,7 +246,7 @@ android {
             applicationId 'com.africanize.royodispatcher'
             resValue "string", "app_name", "Deliverstat"
         } 
-          tranzit {
+        tranzit {
             dimension "appType"
             versionCode 1
             versionName "1.0"
@@ -256,7 +256,7 @@ android {
             applicationId 'com.tranzit.royodispatcher'
             resValue "string", "app_name", "Tranzit Dispatch"
         } 
-         hemptify {
+        hemptify {
             dimension "appType"
             versionCode 1
             versionName "1.0"
@@ -267,7 +267,7 @@ android {
             resValue "string", "app_name", "HemptiFy Dispatch"
         } 
 
-         goody {
+        goody {
                 dimension "appType"
                 versionCode 1
                 versionName "1.0"
@@ -277,7 +277,7 @@ android {
                 applicationId 'com.Goody.royodispatcher'
                 resValue "string", "app_name", "Goody Dispatch"
             } 
-              yogofood {
+         yogofood {
                 dimension "appType"
                 versionCode 1
                 versionName "1.0"
@@ -287,177 +287,210 @@ android {
                 applicationId 'com.yogofood.royodispatcher'
                 resValue "string", "app_name", "YogoFood Dispatch"
             } 
-             arenagrub {
-                dimension "appType"
-                versionCode 1
-                versionName "1.0"
-                minSdkVersion rootProject.ext.minSdkVersion
-                targetSdkVersion rootProject.ext.targetSdkVersion
-                // applicationIdSuffix ".royoorder"
-                applicationId 'com.arenagrub.royodispatcher'
-                resValue "string", "app_name", "ArenaGrub Dispatch"
-            } 
-              blipDelivery {
-                dimension "appType"
-                versionCode 1
-                versionName "1.0"
-                minSdkVersion rootProject.ext.minSdkVersion
-                targetSdkVersion rootProject.ext.targetSdkVersion
-                // applicationIdSuffix ".royoorder"
-                applicationId 'com.BlipDelivery.royodispatcher'
-                resValue "string", "app_name", "Blip Delivery Dispatch"
-            } 
-            bottomsUp {
-                dimension "appType"
-                versionCode 1
-                versionName "1.0"
-                minSdkVersion rootProject.ext.minSdkVersion
-                targetSdkVersion rootProject.ext.targetSdkVersion
-                // applicationIdSuffix ".royoorder"
-                applicationId 'com.BottomsUp.royodispatcher'
-                resValue "string", "app_name", "Bottoms Up Dispatch"
-            } 
-            bustanFakieh {
-                dimension "appType"
-                versionCode 1
-                versionName "1.0"
-                minSdkVersion rootProject.ext.minSdkVersion
-                targetSdkVersion rootProject.ext.targetSdkVersion
-                // applicationIdSuffix ".royoorder"
-                applicationId 'com.BustanFakieh.royodispatcher'
-                resValue "string", "app_name", "Bustan Fakieh Dispatch"
-            } 
+            arenagrub {
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.arenagrub.royodispatcher'
+            resValue "string", "app_name", "ArenaGrub Dispatch"
+        } 
+            blipDelivery {
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.BlipDelivery.royodispatcher'
+            resValue "string", "app_name", "Blip Delivery Dispatch"
+        } 
+        bottomsUp {
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.BottomsUp.royodispatcher'
+            resValue "string", "app_name", "Bottoms Up Dispatch"
+        } 
+        bustanFakieh {
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.BustanFakieh.royodispatcher'
+            resValue "string", "app_name", "Bustan Fakieh Dispatch"
+        } 
 
-             codiner {
-               dimension "appType"
-                versionCode 3
-                versionName "1.0"
-                minSdkVersion rootProject.ext.minSdkVersion
-                targetSdkVersion rootProject.ext.targetSdkVersion
-                // applicationIdSuffix ".royoorder"
-                  applicationId 'com.app.Codiner.Dispatch'
-                resValue "string", "app_name", "Codiner Dispatcher"
-             }
-            elog {
-                dimension "appType"
-                versionCode 1
-                versionName "1.0"
-                minSdkVersion rootProject.ext.minSdkVersion
-                targetSdkVersion rootProject.ext.targetSdkVersion
-                // applicationIdSuffix ".royoorder"
-                applicationId 'com.Elog.royodispatcher'
-                resValue "string", "app_name", "Elog Dispatch"
-            } 
-               cabdelivr {
-                dimension "appType"
-                versionCode 1
-                versionName "1.0"
-                minSdkVersion rootProject.ext.minSdkVersion
-                targetSdkVersion rootProject.ext.targetSdkVersion
-                // applicationIdSuffix ".royoorder"
-                applicationId 'com.cabdelivr.royodispatcher'
-                resValue "string", "app_name", "Cabdelivr Dispatch"
-            } 
+            codiner {
+            dimension "appType"
+            versionCode 3
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+                applicationId 'com.app.Codiner.Dispatch'
+            resValue "string", "app_name", "Codiner Dispatcher"
+            }
+        elog {
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Elog.royodispatcher'
+            resValue "string", "app_name", "Elog Dispatch"
+        } 
+            cabdelivr {
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.cabdelivr.royodispatcher'
+            resValue "string", "app_name", "Cabdelivr Dispatch"
+        } 
 
-           drivree {
-                dimension "appType"
-                versionCode 1
-                versionName "1.0"
-                minSdkVersion rootProject.ext.minSdkVersion
-                targetSdkVersion rootProject.ext.targetSdkVersion
-                // applicationIdSuffix ".royoorder"
-                applicationId 'com.drivree.royodispatcher'
-                resValue "string", "app_name", "Drivree Dispatch"
-            } 
-
-
-           seaChangeVending {
-                dimension "appType"
-                versionCode 1
-                versionName "1.0"
-                minSdkVersion rootProject.ext.minSdkVersion
-                targetSdkVersion rootProject.ext.targetSdkVersion
-                // applicationIdSuffix ".royoorder"
-                applicationId 'com.seaChangeVending.royodispatcher'
-                resValue "string", "app_name", "seaChangeVending Dispatch"
-            } 
-            rxnow {
-                dimension "appType"
-                versionCode 1
-                versionName "1.0"
-                minSdkVersion rootProject.ext.minSdkVersion
-                targetSdkVersion rootProject.ext.targetSdkVersion
-                // applicationIdSuffix ".royoorder"
-                applicationId 'com.rxnow.royodispatcher'
-                resValue "string", "app_name", "RXNOW Dispatch"
-            } 
-              ordercheckout {
-                dimension "appType"
-                versionCode 1
-                versionName "1.0"
-                minSdkVersion rootProject.ext.minSdkVersion
-                targetSdkVersion rootProject.ext.targetSdkVersion
-                // applicationIdSuffix ".royoorder"
-                applicationId 'com.checkout.royodispatcher'
-                resValue "string", "app_name", "Ordercheckout Dispatch"
-            } 
-             noki {
-                dimension "appType"
-                versionCode 1
-                versionName "1.0"
-                minSdkVersion rootProject.ext.minSdkVersion
-                targetSdkVersion rootProject.ext.targetSdkVersion
-                // applicationIdSuffix ".royoorder"
-                applicationId 'com.noki.royodispatcher'
-                resValue "string", "app_name", "Noki Dispatch"
-            } 
-
-            ored {
-                dimension "appType"
-                versionCode 1
-                versionName "1.0"
-                minSdkVersion rootProject.ext.minSdkVersion
-                targetSdkVersion rootProject.ext.targetSdkVersion
-                // applicationIdSuffix ".royoorder"
-                applicationId 'com.ored.royodispatcher'
-                resValue "string", "app_name", "Ored Dispatch"
-            } 
-            yourLaundryApp {
-                dimension "appType"
-                versionCode 1
-                versionName "1.0"
-                minSdkVersion rootProject.ext.minSdkVersion
-                targetSdkVersion rootProject.ext.targetSdkVersion
-                // applicationIdSuffix ".royoorder"
-                applicationId 'com.YourLaundryApp.royodispatcher'
-                resValue "string", "app_name", "Ored Dispatch"
-            } 
-
-               yummiidash {
-                dimension "appType"
-                versionCode 1
-                versionName "1.0"
-                minSdkVersion rootProject.ext.minSdkVersion
-                targetSdkVersion rootProject.ext.targetSdkVersion
-                // applicationIdSuffix ".royoorder"
-                applicationId 'com.app.yummiidash.Dispatch'
-                resValue "string", "app_name", "YummiidashDispatcher"
-            } 
+        drivree {
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.drivree.royodispatcher'
+            resValue "string", "app_name", "Drivree Dispatch"
+        } 
 
 
+        seaChangeVending {
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.seaChangeVending.royodispatcher'
+            resValue "string", "app_name", "seaChangeVending Dispatch"
+        } 
+        rxnow {
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.rxnow.royodispatcher'
+            resValue "string", "app_name", "RXNOW Dispatch"
+        } 
+            ordercheckout {
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.checkout.royodispatcher'
+            resValue "string", "app_name", "Ordercheckout Dispatch"
+        } 
+            noki {
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.noki.royodispatcher'
+            resValue "string", "app_name", "Noki Dispatch"
+        } 
 
-               zuzuclean {
+        ored {
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            applicationId 'com.ored.royodispatcher'
+            resValue "string", "app_name", "Ored Dispatch"
+        } 
+        yourLaundryApp {
                 dimension "appType"
-                versionCode 1
-                versionName "1.0"
-                minSdkVersion rootProject.ext.minSdkVersion
-                targetSdkVersion rootProject.ext.targetSdkVersion
-                // applicationIdSuffix ".royoorder"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            applicationId 'com.YourLaundryApp.royodispatcher'
+            resValue "string", "app_name", "YourLaundryApp Dispatch"
+        }
+        maxis {
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            applicationId 'com.maxis.royodispatcher'
+            resValue "string", "app_name", "Maxis Delivery"
+            
+        } 
+
+        yummiidash {
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            applicationId 'com.app.yummiidash.Dispatch'
+            resValue "string", "app_name", "YummiidashDispatcher"
+            
+        } 
+        donepacked {
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+                applicationId 'com.donepacked.royodispatcher'
+            resValue "string", "app_name", "Donepacked"
+            
+        } 
+
+         zuzuclean {
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
                 applicationId 'com.zuzuclean.royodispatcher'
-                resValue "string", "app_name", "zuzucleanDispatcher"
-            } 
-
-
+            resValue "string", "app_name", "zuzucleanDispatcher"
+        }
+        careWorks {
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+                applicationId 'com.CareWorks.royodispatcher'
+            resValue "string", "app_name", "CareWorks"
+        } 
+        thubaeRides {
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.ThubaeRides.royodispatcher'
+            resValue "string", "app_name", "ThubaeRides"
+        }
 
 
     }
