@@ -34,7 +34,7 @@ export default {
   MODELMAKE: 'Model, Make',
   LICENSEPLATE: 'License Plate',
   COLOR: 'Color',
-  CASHCOLLECTED: 'Cash Collected',
+  CASHCOLLECTED: 'Earnings',
   CLEAR: 'Clear',
   SELECTADATE: 'Select a date',
   SELECTDATEANDTIME: 'Select Date and Time',

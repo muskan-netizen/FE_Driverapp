@@ -211,7 +211,7 @@ export default function ShortCode({route, navigation}) {
         case appIds.yourLaundryApp:
           updateState({
             shortCode: shortCodes.yourLaundryApp,
-          })
+          });
           break;
         case appIds.yummidash:
           updateState({
@@ -222,6 +222,12 @@ export default function ShortCode({route, navigation}) {
         case appIds.zuzuclean:
           updateState({
             shortCode: shortCodes.zuzuclean,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.loopWhole:
+          updateState({
+            shortCode: shortCodes.loopWhole,
             isShortcodePrefilled: true,
           });
           break;

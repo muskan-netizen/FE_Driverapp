@@ -27,6 +27,7 @@ const shortCodes = {
   yourLaundryApp:'ba202e',
   yummidash: '31a72f',
   zuzuclean: 'a4ead8',
+  loopWhole:'5aca0c'
 };
 
 // Goody Dispatch
@@ -129,9 +130,14 @@ const appIds = {
     android: 'com.app.yummiidash.Dispatch',
   }),
   zuzuclean: Platform.select({
-    ios: 'com.zuzuclean.royodispatcher',
+    ios: 'com.ZuzuClean.Dispatch',
     android: 'com.zuzuclean.royodispatcher',
   }),
+  loopWhole: Platform.select({
+    ios: 'com.LoopWhole.Dispatch',
+    android: 'com.loopwhole.royodispatcher',
+  }),
+  
 };
 
 export {appIds, shortCodes};
