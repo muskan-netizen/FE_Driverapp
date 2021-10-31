@@ -22,4 +22,8 @@ export default {
   NOTES: 'Notes *',
   QRCODE: 'QR/Bar Code *',
   SUCCESSSIGNUP: 'SignUp successfuly.',
+  WALLET:'Wallet',
+  WALLETAMOUNT:'Amount',
+  TOTALREVNUE:'Total Revenue',
+  TRANSACTIONHISTORY:'Transaction History'
 };

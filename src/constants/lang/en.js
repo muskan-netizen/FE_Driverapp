@@ -105,5 +105,7 @@ export default {
   QRCODE: 'QR/Bar Code *',
   SUCCESSSIGNUP: 'SignUp successfuly.',
   WALLET:'Wallet',
-  WALLETAMOUNT:'Amount'
+  WALLETAMOUNT:'Amount',
+  TOTALREVNUE:'Total Revenue',
+  TRANSACTIONHISTORY:'Transaction History'
 };

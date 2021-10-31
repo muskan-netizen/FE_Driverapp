@@ -77,7 +77,7 @@ export default function DrawerRoutes(props) {
         component={Wallet}
         name={navigationStrings.WALLET}
         options={{
-          drawerLabel: strings.PROFILE,
+          drawerLabel: strings.WALLET,
           drawerIcon: ({focused}) => (
             <Image
               style={{tintColor: focused ? colors.blackShade2 : colors.grey2}}
@@ -87,7 +87,7 @@ export default function DrawerRoutes(props) {
         }}
       />
 
-      {/* <Drawer.Screen
+      <Drawer.Screen
         component={Settings}
         name={navigationStrings.SETTINGS}
         options={{
@@ -99,7 +99,7 @@ export default function DrawerRoutes(props) {
             />
           ),
         }}
-      /> */}
+      />
     </Drawer.Navigator>
   );
 }

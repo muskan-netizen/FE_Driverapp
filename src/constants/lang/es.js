@@ -106,4 +106,8 @@ export default {
   NOTES: 'Notes *',
   QRCODE: 'QR/code of barras *',
   SUCCESSSIGNUP: 'Registries correctly.',
+  WALLET:'Wallet',
+  WALLETAMOUNT:'Amount',
+  TOTALREVNUE:'Total Revenue',
+  TRANSACTIONHISTORY:'Transaction History'
 };

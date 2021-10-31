@@ -23,9 +23,14 @@ import fontFamily from '../../styles/fontFamily';
 import {
   moderateScale,
   moderateScaleVertical,
+  textScale,
   width,
 } from '../../styles/responsiveSize';
-import {transportationArray} from '../../utils/constants/ConstantValues';
+import LinearGradient from 'react-native-linear-gradient';
+import {
+  colorArray,
+  transportationArray,
+} from '../../utils/constants/ConstantValues';
 import {showError} from '../../utils/helperFunctions';
 import DatePicker from 'react-native-date-picker';
 import DatePickerModal from '../../Components/DatePickerModal';
@@ -39,7 +44,106 @@ export default function Wallet({route, navigation}) {
   const [state, setState] = useState({
     isLoading: true,
     totalCashCollected: 0,
-    allTaskInHistory: [],
+    allTaskInHistory: [
+      {
+        id: 1,
+        message: 'UTC1231 Payment done',
+        dateTime: '31 Oct, 17:16',
+        amount: '651.80',
+        status: -1,
+      },
+      {
+        id: 2,
+        message: 'Jio mobility',
+        dateTime: '31 Oct, 17:16',
+        amount: '101.00',
+        status: -1,
+      },
+      {
+        id: 1,
+        message: 'BillDesk Payment done',
+        dateTime: '31 Oct, 17:16',
+        amount: '651.80',
+        status: -1,
+      },
+      {
+        id: 1,
+        message: 'Sandeep Das',
+        dateTime: '31 Oct, 17:16',
+        amount: '651.80',
+        status: 1,
+      },
+      {
+        id: 1,
+        message: 'UTC1231 Payment done',
+        dateTime: '31 Oct, 17:16',
+        amount: '651.80',
+        status: 1,
+      },
+      {
+        id: 1,
+        message: 'UTC1231 Payment done',
+        dateTime: '31 Oct, 17:16',
+        amount: '651.80',
+        status: -1,
+      },
+      {
+        id: 1,
+        message: 'Punjab Payment done',
+        dateTime: '31 Oct, 17:16',
+        amount: '651.80',
+        status: 1,
+      },
+      {
+        id: 1,
+        message: 'UTC1231 Payment done',
+        dateTime: '31 Oct, 17:16',
+        amount: '651.80',
+        status: -1,
+      },
+      {
+        id: 2,
+        message: 'Jio mobility',
+        dateTime: '31 Oct, 17:16',
+        amount: '101.00',
+        status: -1,
+      },
+      {
+        id: 1,
+        message: 'BillDesk Payment done',
+        dateTime: '31 Oct, 17:16',
+        amount: '651.80',
+        status: -1,
+      },
+      {
+        id: 1,
+        message: 'Sandeep Das',
+        dateTime: '31 Oct, 17:16',
+        amount: '651.80',
+        status: 1,
+      },
+      {
+        id: 1,
+        message: 'UTC1231 Payment done',
+        dateTime: '31 Oct, 17:16',
+        amount: '651.80',
+        status: 1,
+      },
+      {
+        id: 1,
+        message: 'UTC1231 Payment done',
+        dateTime: '31 Oct, 17:16',
+        amount: '651.80',
+        status: -1,
+      },
+      {
+        id: 1,
+        message: 'Punjab Payment done',
+        dateTime: '31 Oct, 17:16',
+        amount: '651.80',
+        status: 1,
+      },
+    ],
     isRefreshing: false,
     pageNo: 1,
     isModalVisibleForDateTime: false,
@@ -79,27 +183,31 @@ export default function Wallet({route, navigation}) {
   }, [isLoading, isRefreshing]);
 
   const getAllTaskHistory = () => {
-    let url = '';
-    if (selectedDate) {
-      url = `?from_date=${moment(selectedDate).format(
-        'YYYY-MM-DD',
-      )}&to_date=${moment(selectedDate).format('YYYY-MM-DD')}`;
-    } else {
-      url = `?from_date=&to_date=`;
-    }
-    console.log(url, 'url');
-    actions
-      .getListOfTaskHistory(url, {}, {client: clientInfo?.database_name})
-      .then(res => {
-        console.log(res, 'getAllTaskHistory>>>getAllTaskHistory data');
-        updateState({
-          isLoading: false,
-          isRefreshing: false,
-          totalCashCollected: res?.data?.totalCashCollected,
-          allTaskInHistory: res?.data?.tasks,
-        });
-      })
-      .catch(errorMethod);
+    // let url = '';
+    // if (selectedDate) {
+    //   url = `?from_date=${moment(selectedDate).format(
+    //     'YYYY-MM-DD',
+    //   )}&to_date=${moment(selectedDate).format('YYYY-MM-DD')}`;
+    // } else {
+    //   url = `?from_date=&to_date=`;
+    // }
+    // console.log(url, 'url');
+    // actions
+    //   .getListOfTaskHistory(url, {}, {client: clientInfo?.database_name})
+    //   .then(res => {
+    //     console.log(res, 'getAllTaskHistory>>>getAllTaskHistory data');
+    //     updateState({
+    //       isLoading: false,
+    //       isRefreshing: false,
+    //       totalCashCollected: res?.data?.totalCashCollected,
+    //       allTaskInHistory: res?.data?.tasks,
+    //     });
+    //   })
+    //   .catch(errorMethod);
+    updateState({
+      isLoading: false,
+      isRefreshing: false,
+    });
   };
 
   //Error handling in api
@@ -124,15 +232,52 @@ export default function Wallet({route, navigation}) {
       fromHistory: true,
     })();
   };
+
+  const getDynamicUpdateOnValues = data => {
+    var colorData = colorArray;
+    return colorData[allTaskInHistory.indexOf(data) % colorData.length];
+  };
   const renderTaskList = ({item, index}) => {
     return (
-      <TaskListCard
-        data={item}
-        index={index}
-        allTasks={allTaskInHistory}
-        showCurrency={true}
-        _onPressTask={() => _onPressTask(item)}
-      />
+      <View
+        style={{
+          flexDirection: 'row',
+          marginBottom: moderateScale(15),
+          marginHorizontal: moderateScale(10),
+        }}>
+        <View style={{flex: 0.2}}>
+          <View
+            style={[
+              styles.circleView,
+              {
+                backgroundColor: getDynamicUpdateOnValues(item),
+              },
+            ]}>
+            <Text style={styles.messageInitial}>
+              {item.message.slice(0, 1)}
+            </Text>
+          </View>
+        </View>
+
+        <View style={{flex: 0.6, justifyContent: 'center'}}>
+          <Text numberOfLines={2} style={styles.message}>
+            {item.message}
+          </Text>
+          <Text numberOfLines={1} style={styles.dateTime}>
+            {item.dateTime}
+          </Text>
+        </View>
+
+        <View style={{flex: 0.2, justifyContent: 'center'}}>
+          <Text
+            style={[
+              styles.amount,
+              {color: item?.status > 0 ? colors.green : colors.black},
+            ]}>
+            {`${item?.status > 0 ? '+' : '-'}${item.amount}`}
+          </Text>
+        </View>
+      </View>
     );
   };
 
@@ -164,6 +309,18 @@ export default function Wallet({route, navigation}) {
     }
   };
 
+  const revenueView = () => {
+    return (
+      <LinearGradient
+        style={styles.gradientStyle}
+        start={{x: 0, y: 0}}
+        end={{x: 1, y: 0}}
+        colors={[ '#0892d0', '#0892d0',colors?.themeColor,]}>
+        <Text style={styles.totalRevenue}>{strings.TOTALREVNUE}</Text>
+        <Text style={styles.amountText}>{'0.00'}</Text>
+      </LinearGradient>
+    );
+  };
   return (
     <WrapperContainer
       statusBarColor={colors.white}
@@ -213,9 +370,24 @@ export default function Wallet({route, navigation}) {
             <Image source={imagePath.taskHistory} />
           </TouchableOpacity>
         </View>
-    
       </View>
 
+      <View
+        style={{
+          marginHorizontal: moderateScale(10),
+          marginVertical: moderateScale(10),
+        }}>
+        {revenueView()}
+      </View>
+      <View
+        style={{
+          marginHorizontal: moderateScale(10),
+          marginVertical: moderateScale(10),
+        }}>
+        <Text style={styles.transactionHistory}>
+          {strings.TRANSACTIONHISTORY}
+        </Text>
+      </View>
       <View style={{backgroundColor: colors.backGround, flex: 1}}>
         <FlatList
           data={allTaskInHistory}
@@ -226,10 +398,11 @@ export default function Wallet({route, navigation}) {
           showsVerticalScrollIndicator={false}
           style={{
             flex: 1,
+            backgroundColor: colors.white,
           }}
           contentContainerStyle={{
             flexGrow: 1,
-            marginVertical: moderateScaleVertical(20),
+            marginVertical: moderateScaleVertical(10),
           }}
           refreshControl={
             <RefreshControl

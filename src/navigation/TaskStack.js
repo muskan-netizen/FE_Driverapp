@@ -7,6 +7,7 @@ import {
   TaskCompleteDocument,
   TaskDetail,
   TaskHistory,
+  Wallet,
 } from '../Screens';
 import navigationStrings from './navigationStrings';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -51,6 +52,11 @@ export default function () {
       <Stack.Screen
         name={navigationStrings.SCANNER}
         component={Scanner}
+        options={{headerShown: false}}
+      />
+       <Stack.Screen
+        name={navigationStrings.WALLET}
+        component={Wallet}
         options={{headerShown: false}}
       />
     </Stack.Navigator>
