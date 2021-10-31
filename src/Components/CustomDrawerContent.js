@@ -14,6 +14,7 @@ import {height, moderateScale, textScale} from '../styles/responsiveSize';
 import {showError, showSuccess} from '../utils/helperFunctions';
 import Loader from './Loader';
 import {useFocusEffect} from '@react-navigation/native';
+import {cloneDeep} from 'lodash';
 
 export default function CustomDrawerContent({
   state,
@@ -72,6 +73,50 @@ export default function CustomDrawerContent({
   const defaultLanguagae = useSelector(
     state => state?.initBoot?.defaultLanguage,
   );
+
+  useEffect(() => {
+    updateState({
+      routes: [
+        {
+          id: 0,
+          label: strings.TASKHISTORY,
+          image: imagePath.taskHistory,
+          key: navigationStrings.TASKSTACK,
+          subRoute: navigationStrings.TASKHISTORY,
+        },
+        {
+          id: 1,
+          label: strings.PROFILE,
+          image: imagePath.profileImage,
+          key: navigationStrings.PROFILESTACK,
+          // subRoute:navigationStrings.MYPROFILE
+        },
+        {
+          id: 2,
+          label: strings.SETTING,
+          image: imagePath.settingsIcon,
+          key: navigationStrings.SETTINGS,
+          // subRoute:navigationStrings.MYPROFILE
+        },
+        {
+          id: 3,
+          label: strings.WALLET,
+          image: imagePath.wallet,
+          key: navigationStrings.TASKSTACK,
+          subRoute: navigationStrings.WALLET,
+          // key: navigationStrings.WALLET,
+          // subRoute:navigationStrings.MYPROFILE
+        },
+        {
+          id: 4,
+          label: strings.LOGOUT,
+          image: imagePath.logout,
+          // key: navigationStrings.PROFILESTACK,
+          // subRoute:navigationStrings.MYPROFILE
+        },
+      ],
+    });
+  }, [defaultLanguagae]);
 
   //Naviagtion to specific screen
   const moveToNewScreen = (screenName, data) => () => {
@@ -158,18 +203,15 @@ export default function CustomDrawerContent({
                 style={{
                   margin: moderateScale(10),
                   // alignItems: 'center',
-                  flexDirection:
-                    defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
+                  flexDirection: 'row',
                   alignItems: 'center',
                 }}>
                 {/* {options.drawerIcon({focused: isFocused})} */}
                 <Image source={route.image} />
                 <Text
                   style={{
-                    paddingLeft:
-                      defaultLanguagae?.value === 'ar' ? 0 : moderateScale(20),
-                    paddingRight:
-                      defaultLanguagae?.value === 'ar' ? moderateScale(20) : 0,
+                    paddingLeft: moderateScale(20),
+                    paddingRight: 0,
                     fontSize: textScale(14),
                     fontFamily: fontFamily?.medium,
                     ...props.labelStyle,

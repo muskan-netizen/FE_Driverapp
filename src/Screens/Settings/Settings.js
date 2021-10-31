@@ -49,11 +49,21 @@ export default function Settings({route, navigation}) {
         label: 'Spanish',
         value: 'es',
       },
-      // {
-      //   id: 3,
-      //   label: 'Arabic',
-      //   value: 'ar',
-      // },
+      {
+        id: 3,
+        label: 'Arabic',
+        value: 'ar',
+      },
+      {
+        id: 4,
+        label: 'German',
+        value: 'de',
+      },
+      {
+        id: 5,
+        label: 'French',
+        value: 'fr',
+      },
     ],
     selectedLangauge: defaultLanguagae?.label
       ? defaultLanguagae
@@ -90,9 +100,15 @@ export default function Settings({route, navigation}) {
 
   const setFinalSelectedLanguage = type => {
     if (type === 'ok') {
-      changeLaguage(selectedLangauge?.value);
-      actions.setDefaultLanguage(selectedLangauge);
-      RNRestart.Restart();
+      updateState({isLoading: true});
+      setTimeout(() => {
+        showSuccess(strings.LANGUAGECHANGED)
+        changeLaguage(selectedLangauge?.value);
+        actions.setDefaultLanguage(selectedLangauge);
+        updateState({isLoading: false});
+      }, 2000);
+
+      // RNRestart.Restart();
     }
     updateState({
       isModalVisibleForLanguage: false,
@@ -147,7 +163,7 @@ export default function Settings({route, navigation}) {
         <View style={styles.modealBottomContainer} />
         <View style={styles.modalBottomButtonContainer}>
           <TouchableOpacity onPress={() => setFinalSelectedLanguage('cancel')}>
-            <Text style={styles.modalText}>{strings.CANCEL1}</Text>
+            <Text style={styles.modalText}>{strings.CANCEL}</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => setFinalSelectedLanguage('ok')}>
             <Text style={styles.modalText}>{strings.OK}</Text>
@@ -161,7 +177,7 @@ export default function Settings({route, navigation}) {
     <WrapperContainer
       statusBarColor={colors.white}
       bgColor={colors.white}
-      isLoadingB={isLoading}
+      isLoading={isLoading}
       source={loaderOne}>
       <Header
         headerStyle={{backgroundColor: colors.white}}

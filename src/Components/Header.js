@@ -40,6 +40,7 @@ const Header = ({
   onPressCenterTitle,
   leftIconStyle,
   customCenter,
+  reverse=true
 }) => {
   const {appStyle} = useSelector(state => state?.initBoot);
   const fontFamily = appStyle?.fontSizeData;
@@ -56,14 +57,14 @@ const Header = ({
           ...headerStyle,
           ...styles.headerStyle,
           flexDirection:
-            defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
+            defaultLanguagae?.value === 'ar' && reverse ? 'row-reverse' : 'row',
           alignItems: 'center',
           justifyContent: 'space-between',
         }}>
         <View
           style={{
             alignItems:
-              defaultLanguagae?.value === 'ar' ? 'flex-end' : 'flex-start',
+              defaultLanguagae?.value === 'ar' && reverse ? 'flex-end' : 'flex-start',
             flex: 0.2,
             ...rightViewStyle,
           }}>
@@ -86,7 +87,7 @@ const Header = ({
                   source={leftIcon}
                   style={{
                     transform: [
-                      {scaleX: defaultLanguagae?.value === 'ar' ? -1 : 1},
+                      {scaleX: defaultLanguagae?.value === 'ar' && reverse ? -1 : 1},
                     ],
                     ...leftIconStyle,
                   }}
@@ -131,7 +132,7 @@ const Header = ({
           style={{
             flex: 0.2,
             alignItems:
-              defaultLanguagae?.value === 'ar' ? 'flex-start' : 'flex-end',
+              defaultLanguagae?.value === 'ar' && reverse ? 'flex-start' : 'flex-end',
           }}>
           {!!rightIcon ? (
             <TouchableOpacity onPress={onPressRight}>

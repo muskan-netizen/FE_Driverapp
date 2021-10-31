@@ -210,7 +210,6 @@ export default function DashBoard({route, navigation}) {
     }
   }, [refreshHomeData]);
 
-  
   //get all tasks
   const getTasks = () => {
     actions
@@ -528,6 +527,7 @@ export default function DashBoard({route, navigation}) {
       isLoading={isLoading || isLoadingSwitch}
       source={loaderOne}>
       <Header
+        reverse={false}
         headerStyle={{backgroundColor: colors.white}}
         leftIcon={imagePath.menu}
         onPressLeft={() => navigation.toggleDrawer()}
