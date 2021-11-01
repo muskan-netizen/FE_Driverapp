@@ -106,8 +106,12 @@ export default {
   NOTES: 'Notes *',
   QRCODE: 'QR/code of barras *',
   SUCCESSSIGNUP: 'Registries correctly.',
-  WALLET:'Wallet',
-  WALLETAMOUNT:'Amount',
-  TOTALREVNUE:'Total Revenue',
-  TRANSACTIONHISTORY:'Transaction History'
+  "WALLET": "Billetera",
+  "WALLETAMOUNT": "Importe",
+  "TOTALREVNUE": "Ingresos totales",
+  "TRANSACTIONHISTORY": "Historial de transacciones",
+  "LANGUAGECHANGED": "Idioma cambiado correctamente",
+  "CONTACT":"Contact",
+  "GETINTOUCH":"Get in touch",
+  "WANTTOGET":"Want to get in touch? we'd love to hear from you,Here's how you can reach us."
 };

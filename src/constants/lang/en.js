@@ -106,7 +106,11 @@ export default {
   "SUCCESSSIGNUP": "SignUp successfuly.",
   "WALLET":"Wallet",
   "WALLETAMOUNT":"Amount",
-  "TOTALREVNUE":"Total Revenue",
+  "TOTALREVNUE":"Current balance",
   "TRANSACTIONHISTORY":"Transaction History",
-  "LANGUAGECHANGED":"Language changed successfully"
+  "LANGUAGECHANGED":"Language changed successfully",
+  "LIFETIMEEARNING":"Lifetime Earning",
+  "CONTACT":"Contact",
+  "GETINTOUCH":"Get in touch",
+  "WANTTOGET":"Want to get in touch? we'd love to hear from you, here's how you can reach us."
 };

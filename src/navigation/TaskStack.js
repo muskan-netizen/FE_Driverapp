@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   AddSignature,
+  ContactUs,
   DashBoard,
   Scanner,
   TaskCancel,
@@ -59,6 +60,13 @@ export default function () {
         component={Wallet}
         options={{headerShown: false}}
       />
+       <Stack.Screen
+        name={navigationStrings.CONTACTUS}
+        component={ContactUs}
+        options={{headerShown: false}}
+      />
+
+
     </Stack.Navigator>
   );
 }

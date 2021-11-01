@@ -644,7 +644,7 @@
 		84232640272164480063F4AF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84232669272164700063F4AF /* BustanFakieh(Development).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "BustanFakieh(Development).xcconfig"; sourceTree = "<group>"; };
 		84232678272164860063F4AF /* BustanFakieh(Production).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "BustanFakieh(Production).xcconfig"; sourceTree = "<group>"; };
-		842CB827272A884F00D00B2C /* Yummiidash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Yummiidash.app; path = YummiidashDispatcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		842CB827272A884F00D00B2C /* YummiidashDispatcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YummiidashDispatcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		842CB857272A896A00D00B2C /* YummiidashInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = YummiidashInfo.plist; sourceTree = "<group>"; };
 		842CB8D1272A8A0D00D00B2C /* Yummiidash(Development).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Yummiidash(Development).xcconfig"; sourceTree = "<group>"; };
 		842CB8EA272A8A2500D00B2C /* Yummiidash(Production).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Yummiidash(Production).xcconfig"; sourceTree = "<group>"; };
@@ -1214,7 +1214,7 @@
 				8463719927241B8700F68342 /* Noki.app */,
 				846373432724224000F68342 /* Ored.app */,
 				84946D7B272A9F500020EA5C /* YourLaundryApp.app */,
-				842CB827272A884F00D00B2C /* Yummiidash.app */,
+				842CB827272A884F00D00B2C /* YummiidashDispatcher.app */,
 				84946FD6272AC47B0020EA5C /* ZuzuClean.app */,
 				84ECEDBB272BC796002B37A6 /* LoopWhole.app */,
 				847241F5272A744000643BEA /* Maxis.app */,
@@ -1935,7 +1935,7 @@
 			);
 			name = Yummiidash;
 			productName = RoyoDriverApp;
-			productReference = 842CB827272A884F00D00B2C /* Yummiidash.app */;
+			productReference = 842CB827272A884F00D00B2C /* YummiidashDispatcher.app */;
 			productType = "com.apple.product-type.application";
 		};
 		84379B39271D921600717DC5 /* Deliverstat */ = {
@@ -7889,6 +7889,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = RoyoDriverApp/RoyoDriverAppRelease.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
@@ -7911,6 +7913,7 @@
 				PROJECT_BUNDLE_ID = "$(PROJECT_BUNDLE_ID)";
 				PROJECT_NAME = "${PROJECT_NAME}";
 				PROJECT_PLIST = "$(PROJECT_PLIST)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "RoyoDriverApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
