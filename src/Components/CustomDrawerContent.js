@@ -46,31 +46,31 @@ export default function CustomDrawerContent({
         key: navigationStrings.PROFILESTACK,
         // subRoute:navigationStrings.MYPROFILE
       },
-      // {
-      //   id: 2,
-      //   label: strings.SETTING,
-      //   image: imagePath.settingsIcon,
-      //   key: navigationStrings.SETTINGS,
-      //   // subRoute:navigationStrings.MYPROFILE
-      // },
-      // {
-      //   id: 3,
-      //   label: strings.WALLET,
-      //   image: imagePath.wallet,
-      //   key: navigationStrings.TASKSTACK,
-      //   subRoute: navigationStrings.WALLET,
-      //   // key: navigationStrings.WALLET,
-      //   // subRoute:navigationStrings.MYPROFILE
-      // },
-      // {
-      //   id: 4,
-      //   label: strings.CONTACT,
-      //   image: imagePath.contact2,
-      //   key: navigationStrings.TASKSTACK,
-      //   subRoute: navigationStrings.CONTACTUS,
-      //   // key: navigationStrings.WALLET,
-      //   // subRoute:navigationStrings.MYPROFILE
-      // },
+      {
+        id: 2,
+        label: strings.SETTING,
+        image: imagePath.settingsIcon,
+        key: navigationStrings.SETTINGS,
+        // subRoute:navigationStrings.MYPROFILE
+      },
+      {
+        id: 3,
+        label: strings.WALLET,
+        image: imagePath.wallet,
+        key: navigationStrings.TASKSTACK,
+        subRoute: navigationStrings.WALLET,
+        // key: navigationStrings.WALLET,
+        // subRoute:navigationStrings.MYPROFILE
+      },
+      {
+        id: 4,
+        label: strings.CONTACT,
+        image: imagePath.contact2,
+        key: navigationStrings.TASKSTACK,
+        subRoute: navigationStrings.CONTACTUS,
+        // key: navigationStrings.WALLET,
+        // subRoute:navigationStrings.MYPROFILE
+      },
       {
         id: 5,
         label: strings.LOGOUT,
@@ -107,31 +107,31 @@ export default function CustomDrawerContent({
           key: navigationStrings.PROFILESTACK,
           // subRoute:navigationStrings.MYPROFILE
         },
-        // {
-        //   id: 2,
-        //   label: strings.SETTING,
-        //   image: imagePath.settingsIcon,
-        //   key: navigationStrings.SETTINGS,
-        //   // subRoute:navigationStrings.MYPROFILE
-        // },
-        // {
-        //   id: 3,
-        //   label: strings.WALLET,
-        //   image: imagePath.wallet,
-        //   key: navigationStrings.TASKSTACK,
-        //   subRoute: navigationStrings.WALLET,
-        //   // key: navigationStrings.WALLET,
-        //   // subRoute:navigationStrings.MYPROFILE
-        // },
-        // {
-        //   id: 4,
-        //   label: strings.CONTACT,
-        //   image: imagePath.contact2,
-        //   key: navigationStrings.TASKSTACK,
-        //   subRoute: navigationStrings.CONTACTUS,
-        //   // key: navigationStrings.WALLET,
-        //   // subRoute:navigationStrings.MYPROFILE
-        // },
+        {
+          id: 2,
+          label: strings.SETTING,
+          image: imagePath.settingsIcon,
+          key: navigationStrings.SETTINGS,
+          // subRoute:navigationStrings.MYPROFILE
+        },
+        {
+          id: 3,
+          label: strings.WALLET,
+          image: imagePath.wallet,
+          key: navigationStrings.TASKSTACK,
+          subRoute: navigationStrings.WALLET,
+          // key: navigationStrings.WALLET,
+          // subRoute:navigationStrings.MYPROFILE
+        },
+        {
+          id: 4,
+          label: strings.CONTACT,
+          image: imagePath.contact2,
+          key: navigationStrings.TASKSTACK,
+          subRoute: navigationStrings.CONTACTUS,
+          // key: navigationStrings.WALLET,
+          // subRoute:navigationStrings.MYPROFILE
+        },
         {
           id: 5,
           label: strings.LOGOUT,

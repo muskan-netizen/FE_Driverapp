@@ -102,10 +102,10 @@ export default function ContactUs({route, navigation}) {
         }}>
         <TouchableOpacity
           activeOpacity={1}
-          onPress={() => Communications.phonecall('+911234321234', true)}
+          onPress={() => Communications.phonecall(`+${clientInfo?.get_country_set?.phonecode}${clientInfo?.phone_number}`, true)}
           style={styles.emailCallView}>
           <Image source={imagePath?.call} />
-          <Text style={styles.phoneEmailStyle}>{'+911234321234'}</Text>
+          <Text style={styles.phoneEmailStyle}>{`+${clientInfo?.get_country_set?.phonecode}-${clientInfo?.phone_number}`}</Text>
         </TouchableOpacity>
 
         {/* email  View*/}
@@ -114,7 +114,7 @@ export default function ContactUs({route, navigation}) {
           activeOpacity={1}
           onPress={() =>
             Communications.email(
-              ['abcd@gmail.com', 'abcd@gmail.com'],
+              [clientInfo?.email, clientInfo?.email],
               null,
               null,
               '',
@@ -128,7 +128,7 @@ export default function ContactUs({route, navigation}) {
             },
           ]}>
           <Image source={imagePath?.chatBlue} />
-          <Text style={styles.phoneEmailStyle}>{'abcd@gmail.com'}</Text>
+          <Text style={styles.phoneEmailStyle}>{clientInfo?.email}</Text>
         </TouchableOpacity>
       </View>
       {/* email  View*/}

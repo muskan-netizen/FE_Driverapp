@@ -44,114 +44,20 @@ export default function Wallet({route, navigation}) {
   const [state, setState] = useState({
     isLoading: true,
     totalCashCollected: 0,
-    allTaskInHistory: [
-      {
-        id: 1,
-        message: 'UTC1231 Payment done',
-        dateTime: '31 Oct, 17:16',
-        amount: '651.80',
-        status: -1,
-      },
-      {
-        id: 2,
-        message: 'Jio mobility',
-        dateTime: '31 Oct, 17:16',
-        amount: '101.00',
-        status: -1,
-      },
-      {
-        id: 1,
-        message: 'BillDesk Payment done',
-        dateTime: '31 Oct, 17:16',
-        amount: '651.80',
-        status: -1,
-      },
-      {
-        id: 1,
-        message: 'Sandeep Das',
-        dateTime: '31 Oct, 17:16',
-        amount: '651.80',
-        status: 1,
-      },
-      {
-        id: 1,
-        message: 'UTC1231 Payment done',
-        dateTime: '31 Oct, 17:16',
-        amount: '651.80',
-        status: 1,
-      },
-      {
-        id: 1,
-        message: 'UTC1231 Payment done',
-        dateTime: '31 Oct, 17:16',
-        amount: '651.80',
-        status: -1,
-      },
-      {
-        id: 1,
-        message: 'Punjab Payment done',
-        dateTime: '31 Oct, 17:16',
-        amount: '651.80',
-        status: 1,
-      },
-      {
-        id: 1,
-        message: 'UTC1231 Payment done',
-        dateTime: '31 Oct, 17:16',
-        amount: '651.80',
-        status: -1,
-      },
-      {
-        id: 2,
-        message: 'Jio mobility',
-        dateTime: '31 Oct, 17:16',
-        amount: '101.00',
-        status: -1,
-      },
-      {
-        id: 1,
-        message: 'BillDesk Payment done',
-        dateTime: '31 Oct, 17:16',
-        amount: '651.80',
-        status: -1,
-      },
-      {
-        id: 1,
-        message: 'Sandeep Das',
-        dateTime: '31 Oct, 17:16',
-        amount: '651.80',
-        status: 1,
-      },
-      {
-        id: 1,
-        message: 'UTC1231 Payment done',
-        dateTime: '31 Oct, 17:16',
-        amount: '651.80',
-        status: 1,
-      },
-      {
-        id: 1,
-        message: 'UTC1231 Payment done',
-        dateTime: '31 Oct, 17:16',
-        amount: '651.80',
-        status: -1,
-      },
-      {
-        id: 1,
-        message: 'Punjab Payment done',
-        dateTime: '31 Oct, 17:16',
-        amount: '651.80',
-        status: 1,
-      },
-    ],
+    allTaskInHistory:[],
+   
     isRefreshing: false,
     pageNo: 1,
     isModalVisibleForDateTime: false,
     selectedDate: null,
     savedDate: null,
+    lifetimeAmount: 0.0,
+    currentAmount: 0.0,
   });
 
   const {
+    lifetimeAmount,
+    currentAmount,
     isLoading,
     totalCashCollected,
     allTaskInHistory,
@@ -177,37 +83,27 @@ export default function Wallet({route, navigation}) {
   };
 
   useEffect(() => {
-    {
-      (isLoading || isRefreshing) && getAllTaskHistory();
-    }
-  }, [isLoading, isRefreshing]);
+    getWalletDataOfDriver();
+  }, [isLoading]);
 
-  const getAllTaskHistory = () => {
-    // let url = '';
-    // if (selectedDate) {
-    //   url = `?from_date=${moment(selectedDate).format(
-    //     'YYYY-MM-DD',
-    //   )}&to_date=${moment(selectedDate).format('YYYY-MM-DD')}`;
-    // } else {
-    //   url = `?from_date=&to_date=`;
-    // }
-    // console.log(url, 'url');
-    // actions
-    //   .getListOfTaskHistory(url, {}, {client: clientInfo?.database_name})
-    //   .then(res => {
-    //     console.log(res, 'getAllTaskHistory>>>getAllTaskHistory data');
-    //     updateState({
-    //       isLoading: false,
-    //       isRefreshing: false,
-    //       totalCashCollected: res?.data?.totalCashCollected,
-    //       allTaskInHistory: res?.data?.tasks,
-    //     });
-    //   })
-    //   .catch(errorMethod);
-    updateState({
-      isLoading: false,
-      isRefreshing: false,
-    });
+  const getWalletDataOfDriver = () => {
+    actions
+      .getWalletData(
+        `/${userData?.id}`,
+        {},
+        {client: clientInfo?.database_name},
+      )
+      .then(res => {
+        console.log(res, 'getWalletDataOfDriver>>>getWalletDataOfDriver data');
+        updateState({
+          lifetimeAmount: res?.driver_cost,
+          currentAmount: Number(res?.final_balance),
+          allTaskInHistory:res?.payments,
+          isLoading: false,
+          isRefreshing: false,
+        });
+      })
+      .catch(errorMethod);
   };
 
   //Error handling in api
@@ -254,17 +150,22 @@ export default function Wallet({route, navigation}) {
               },
             ]}>
             <Text style={styles.messageInitial}>
-              {item.message.slice(0, 1)}
+            {item?.cr
+              ? `C`
+              : `D`}
             </Text>
           </View>
         </View>
 
         <View style={{flex: 0.6, justifyContent: 'center'}}>
           <Text numberOfLines={2} style={styles.message}>
-            {item.message}
+            {item?.cr
+              ? `Payment Credited`
+              : `Payment Debited`}
           </Text>
           <Text numberOfLines={1} style={styles.dateTime}>
-            {item.dateTime}
+            {/* {item.dateTime} */}
+            {moment(item?.created_at).format('lll')}
           </Text>
         </View>
 
@@ -274,7 +175,9 @@ export default function Wallet({route, navigation}) {
               styles.amount,
               {color: item?.status > 0 ? colors.green : colors.black},
             ]}>
-            {`${item?.status > 0 ? '+' : '-'}${item.amount}`}
+            {item?.cr
+              ? `+ ${(item?.cr)}`
+              : `- ${(item?.dr)}`}
           </Text>
         </View>
       </View>
@@ -317,7 +220,7 @@ export default function Wallet({route, navigation}) {
         end={{x: 1, y: 0}}
         colors={['#0892d0', '#0892d0', colors?.themeColor]}>
         <Text style={styles.totalRevenue}>{strings.TOTALREVNUE}</Text>
-        <Text style={styles.amountText}>{'0.00'}</Text>
+        <Text style={styles.amountText}>{currentAmount.toFixed(2)}</Text>
       </LinearGradient>
     );
   };
@@ -340,7 +243,7 @@ export default function Wallet({route, navigation}) {
         <View style={styles.cashTextView}>
           <Text style={styles.cashCollected}>{`${
             strings.LIFETIMEEARNING
-          } :- ${totalCashCollected.toFixed(2)}`}</Text>
+          } :- ${lifetimeAmount.toFixed(2)}`}</Text>
         </View>
       </View>
 
@@ -376,13 +279,13 @@ export default function Wallet({route, navigation}) {
             flexGrow: 1,
             marginVertical: moderateScaleVertical(10),
           }}
-          refreshControl={
-            <RefreshControl
-              refreshing={isRefreshing}
-              onRefresh={handleRefresh}
-              tintColor={colors.themeColor}
-            />
-          }
+          // refreshControl={
+          //   <RefreshControl
+          //     refreshing={isRefreshing}
+          //     onRefresh={handleRefresh}
+          //     tintColor={colors.themeColor}
+          //   />
+          // }
           onEndReached={onEndReachedDelayed}
           onEndReachedThreshold={0.5}
           ListFooterComponent={() => (

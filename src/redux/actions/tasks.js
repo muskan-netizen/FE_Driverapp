@@ -3,6 +3,7 @@ import {
   DRIVEROTP,
   GETTASKHISTORY,
   GETTASKS,
+  GETWALLETDATA,
   UPDATEONOFFDUTYSTATUS,
   UPDATETASKSTATUS,
 } from '../../config/urls';
@@ -76,7 +77,6 @@ export function updateTask(data = {}, headers = {}) {
   });
 }
 
-
 export function acceptRejectTask(data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
     apiPost(ACCEPTREJECTSTATUS, data, headers)
@@ -88,7 +88,6 @@ export function acceptRejectTask(data = {}, headers = {}) {
       });
   });
 }
-
 
 export function sendOtpToDriver(data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
@@ -102,6 +101,14 @@ export function sendOtpToDriver(data = {}, headers = {}) {
   });
 }
 
-
-
-
+export function getWalletData(uri = '', data = {}, headers = {}) {
+  return new Promise((resolve, reject) => {
+    apiGet(GETWALLETDATA + uri, data, headers)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+}
