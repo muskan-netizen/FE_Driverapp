@@ -108,5 +108,9 @@ export default {
   "WALLETAMOUNT":"Amount",
   "TOTALREVNUE":"Total Revenue",
   "TRANSACTIONHISTORY":"Transaction History",
-  "LANGUAGECHANGED":"Language changed successfully"
+  "LANGUAGECHANGED":"Language changed successfully",
+  "LIFETIMEEARNING":"Lifetime Earning",
+  "CONTACT":"Contact",
+  "GETINTOUCH":"Get in touch",
+  "WANTTOGET":"Want to get in touch? we'd love to hear from you,Here's how you can reach us."
 };

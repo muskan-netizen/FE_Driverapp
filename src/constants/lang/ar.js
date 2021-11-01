@@ -121,5 +121,10 @@ export default {
   "WALLET": "محفظة",
   "WALLETAMOUNT": "مبلغ",
   "TOTALREVNUE": "إجمالي الإيرادات",
-  "TRANSACTIONHISTORY": "سجل الحركة"
+  "TRANSACTIONHISTORY": "سجل الحركة",
+  "LANGUAGECHANGED":"Language changed successfully",
+  "LIFETIMEEARNING":"Lifetime Earning",
+  "CONTACT":"Contact",
+  "GETINTOUCH":"Get in touch",
+  "WANTTOGET":"Want to get in touch? we'd love to hear from you,Here's how you can reach us."
 };

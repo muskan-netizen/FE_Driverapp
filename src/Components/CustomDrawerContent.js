@@ -10,11 +10,18 @@ import navigationStrings from '../navigation/navigationStrings';
 import actions from '../redux/actions';
 import colors from '../styles/colors';
 import fontFamily from '../styles/fontFamily';
-import {height, moderateScale, textScale} from '../styles/responsiveSize';
+import {
+  height,
+  moderateScale,
+  textScale,
+  width,
+} from '../styles/responsiveSize';
 import {showError, showSuccess} from '../utils/helperFunctions';
 import Loader from './Loader';
 import {useFocusEffect} from '@react-navigation/native';
 import {cloneDeep} from 'lodash';
+import ScaledImage from 'react-native-scalable-image';
+import DeviceInfo from 'react-native-device-info';
 
 export default function CustomDrawerContent({
   state,
@@ -39,24 +46,33 @@ export default function CustomDrawerContent({
         key: navigationStrings.PROFILESTACK,
         // subRoute:navigationStrings.MYPROFILE
       },
+      // {
+      //   id: 2,
+      //   label: strings.SETTING,
+      //   image: imagePath.settingsIcon,
+      //   key: navigationStrings.SETTINGS,
+      //   // subRoute:navigationStrings.MYPROFILE
+      // },
+      // {
+      //   id: 3,
+      //   label: strings.WALLET,
+      //   image: imagePath.wallet,
+      //   key: navigationStrings.TASKSTACK,
+      //   subRoute: navigationStrings.WALLET,
+      //   // key: navigationStrings.WALLET,
+      //   // subRoute:navigationStrings.MYPROFILE
+      // },
+      // {
+      //   id: 4,
+      //   label: strings.CONTACT,
+      //   image: imagePath.contact2,
+      //   key: navigationStrings.TASKSTACK,
+      //   subRoute: navigationStrings.CONTACTUS,
+      //   // key: navigationStrings.WALLET,
+      //   // subRoute:navigationStrings.MYPROFILE
+      // },
       {
-        id: 2,
-        label: strings.SETTING,
-        image: imagePath.settingsIcon,
-        key: navigationStrings.SETTINGS,
-        // subRoute:navigationStrings.MYPROFILE
-      },
-      {
-        id: 3,
-        label: strings.WALLET,
-        image: imagePath.wallet,
-        key: navigationStrings.TASKSTACK,
-        subRoute: navigationStrings.WALLET,
-        // key: navigationStrings.WALLET,
-        // subRoute:navigationStrings.MYPROFILE
-      },
-      {
-        id: 4,
+        id: 5,
         label: strings.LOGOUT,
         image: imagePath.logout,
         // key: navigationStrings.PROFILESTACK,
@@ -91,24 +107,33 @@ export default function CustomDrawerContent({
           key: navigationStrings.PROFILESTACK,
           // subRoute:navigationStrings.MYPROFILE
         },
+        // {
+        //   id: 2,
+        //   label: strings.SETTING,
+        //   image: imagePath.settingsIcon,
+        //   key: navigationStrings.SETTINGS,
+        //   // subRoute:navigationStrings.MYPROFILE
+        // },
+        // {
+        //   id: 3,
+        //   label: strings.WALLET,
+        //   image: imagePath.wallet,
+        //   key: navigationStrings.TASKSTACK,
+        //   subRoute: navigationStrings.WALLET,
+        //   // key: navigationStrings.WALLET,
+        //   // subRoute:navigationStrings.MYPROFILE
+        // },
+        // {
+        //   id: 4,
+        //   label: strings.CONTACT,
+        //   image: imagePath.contact2,
+        //   key: navigationStrings.TASKSTACK,
+        //   subRoute: navigationStrings.CONTACTUS,
+        //   // key: navigationStrings.WALLET,
+        //   // subRoute:navigationStrings.MYPROFILE
+        // },
         {
-          id: 2,
-          label: strings.SETTING,
-          image: imagePath.settingsIcon,
-          key: navigationStrings.SETTINGS,
-          // subRoute:navigationStrings.MYPROFILE
-        },
-        {
-          id: 3,
-          label: strings.WALLET,
-          image: imagePath.wallet,
-          key: navigationStrings.TASKSTACK,
-          subRoute: navigationStrings.WALLET,
-          // key: navigationStrings.WALLET,
-          // subRoute:navigationStrings.MYPROFILE
-        },
-        {
-          id: 4,
+          id: 5,
           label: strings.LOGOUT,
           image: imagePath.logout,
           // key: navigationStrings.PROFILESTACK,
@@ -169,9 +194,28 @@ export default function CustomDrawerContent({
       <View
         style={{
           height: height,
-          marginTop: moderateScale(100),
+          marginTop: moderateScale(10),
         }}
         colors={[colors.white, colors.white]}>
+        {/* client logo */}
+        <View
+          style={{
+            // height: height / 3,
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginBottom: moderateScale(30),
+            // backgroundColor:'red'
+          }}>
+          <ScaledImage
+            width={width / 2}
+            source={
+              clientInfo && clientInfo?.logo
+                ? {uri: clientInfo?.logo}
+                : imagePath.logo
+            }
+          />
+        </View>
+
         {routes.map((route, index) => {
           // const {options} = descriptors[route.key];
           const isFocused = selectedDrawerItem?.index === index;
@@ -212,8 +256,8 @@ export default function CustomDrawerContent({
                   style={{
                     paddingLeft: moderateScale(20),
                     paddingRight: 0,
-                    fontSize: textScale(14),
-                    fontFamily: fontFamily?.medium,
+                    fontSize: textScale(15),
+                    fontFamily: fontFamily?.regular,
                     ...props.labelStyle,
                     color: colors.black,
                   }}>
@@ -223,6 +267,25 @@ export default function CustomDrawerContent({
             </Fragment>
           );
         })}
+        <View
+          style={{
+            alignItems: 'center',
+            position: 'absolute',
+            left: 0,
+            right: 0,
+            top: height - 150,
+          }}>
+          <Text
+            numberOfLines={2}
+            style={{
+              fontFamily: fontFamily.regular,
+              color: colors.lightGreyBg2,
+              fontSize: textScale(12),
+            }}>
+            {`Version ${DeviceInfo.getVersion()} `}
+            <Text>{`(${DeviceInfo.getBuildNumber()})`}</Text>
+          </Text>
+        </View>
       </View>
       <Loader isLoading={isLoading} withModal={true} />
     </>

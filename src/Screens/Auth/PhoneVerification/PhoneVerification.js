@@ -86,7 +86,7 @@ export default function PhoneVerification({navigation, route}) {
   useEffect(async () => {
     let token = await AsyncStorage.getItem('fcmToken');
     console.log(token, 'token>token>token');
-    updateState({fcm_token: token});
+    updateState({fcm_token: token ? token : DeviceInfo.getDeviceToken()});
   }, []);
 
   useEffect(() => {
@@ -182,7 +182,6 @@ export default function PhoneVerification({navigation, route}) {
         <SmoothPinCodeInput
           containerStyle={{alignSelf: 'center'}}
           password
-          
           autoFocus={true}
           mask={<View style={styles.maskStyle} />}
           cellSize={width / 8}
@@ -196,8 +195,6 @@ export default function PhoneVerification({navigation, route}) {
           inputProps={{
             autoCapitalize: 'none',
             autoFocus: true,
-          
-            
           }}
           value={otpToShow}
           keyboardType={'numeric'}

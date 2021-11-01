@@ -267,7 +267,7 @@ export default function DashBoard({route, navigation}) {
   const onOffDuty = () => {
     actions
       .onOffDuty(
-        `?device_token=${fcm_token}`,
+        `?device_token=${fcm_token ? fcm_token : DeviceInfo.getDeviceToken()}`,
         {},
         {client: clientInfo?.database_name},
       )

@@ -315,7 +315,7 @@ export default function Wallet({route, navigation}) {
         style={styles.gradientStyle}
         start={{x: 0, y: 0}}
         end={{x: 1, y: 0}}
-        colors={[ '#0892d0', '#0892d0',colors?.themeColor,]}>
+        colors={['#0892d0', '#0892d0', colors?.themeColor]}>
         <Text style={styles.totalRevenue}>{strings.TOTALREVNUE}</Text>
         <Text style={styles.amountText}>{'0.00'}</Text>
       </LinearGradient>
@@ -339,36 +339,8 @@ export default function Wallet({route, navigation}) {
       <View style={styles.cashCollectionContainer}>
         <View style={styles.cashTextView}>
           <Text style={styles.cashCollected}>{`${
-            strings.WALLETAMOUNT
+            strings.LIFETIMEEARNING
           } :- ${totalCashCollected.toFixed(2)}`}</Text>
-        </View>
-        <View style={styles.clearViewStyle}>
-          <TouchableOpacity
-            onPress={() =>
-              updateState({
-                selectedDate: null,
-                savedDate: null,
-                isLoading: true,
-              })
-            }
-            style={styles.viewStyle}>
-            <Text style={styles.clear}>{strings.CLEAR}</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            onPress={() => updateState({isModalVisibleForDateTime: true})}
-            style={styles.dateSelectView}>
-            <Text style={styles.selectedDate}>
-              {selectedDate
-                ? moment(selectedDate).format('DD-MM-YYYY')
-                : strings.SELECTADATE}
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => updateState({isModalVisibleForDateTime: true})}
-            style={{justifyContent: 'center'}}>
-            <Image source={imagePath.taskHistory} />
-          </TouchableOpacity>
         </View>
       </View>
 
