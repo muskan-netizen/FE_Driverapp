@@ -256,6 +256,12 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+          case appIds.menus:
+            updateState({
+              shortCode: shortCodes.menus,
+              isShortcodePrefilled: true,
+            });
+            break;
       }
     })();
   }, []);

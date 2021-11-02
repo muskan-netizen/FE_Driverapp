@@ -32,6 +32,7 @@ const shortCodes = {
   donepacked: 'b3b91d',
   careWorks: '3554f0',
   thubaeRides: 'af635b',
+  menus: '4d1ec2',
 };
 
 // Goody Dispatch
@@ -158,6 +159,11 @@ const appIds = {
     ios: 'com.ThubaeRides.Dispatch',
     android: 'com.ThubaeRides.royodispatcher',
   }),
+  menus: Platform.select({
+    ios: 'com.Menus.Dispatch',
+    android: 'com.Menus.royodispatcher',
+  }),
+  
 };
 
 export {appIds, shortCodes};

@@ -491,7 +491,7 @@ android {
             applicationId 'com.ThubaeRides.royodispatcher'
             resValue "string", "app_name", "ThubaeRides"
         }
-         loopWhole {
+        loopWhole {
             dimension "appType"
             versionCode 1
             versionName "1.0"
@@ -500,6 +500,16 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.loopwhole.royodispatcher'
             resValue "string", "app_name", "LoopWhole Dispatch"
+        }
+        menus {
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Menus.royodispatcher'
+            resValue "string", "app_name", "Menus Dispatch"
         }
 
 

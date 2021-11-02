@@ -63,6 +63,8 @@
     "thubaeRidesdispatcherRelease": "cd android && ./gradlew assemblethubaeRidesRelease",
     "loopWholedispatcher": "react-native run-android --variant=loopWholeDebug",
     "loopWholedispatcherRelease": "cd android && ./gradlew assembleloopWholeRelease",
+    "menusdispatcher": "react-native run-android --variant=menusDebug",
+    "menusdispatcherRelease": "cd android && ./gradlew assemblemenusRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
