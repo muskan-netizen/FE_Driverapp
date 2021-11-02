@@ -231,37 +231,43 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
-            
-          case appIds.maxis:
+
+        case appIds.maxis:
           updateState({
             shortCode: shortCodes.maxis,
             isShortcodePrefilled: true,
           });
           break;
-          case appIds.donepacked:
+        case appIds.donepacked:
           updateState({
             shortCode: shortCodes.donepacked,
             isShortcodePrefilled: true,
           });
           break;
-          case appIds.careWorks:
+        case appIds.careWorks:
           updateState({
             shortCode: shortCodes.careWorks,
             isShortcodePrefilled: true,
           });
           break;
-          case appIds.thubaeRides:
+        case appIds.thubaeRides:
           updateState({
             shortCode: shortCodes.thubaeRides,
             isShortcodePrefilled: true,
           });
           break;
-          case appIds.menus:
-            updateState({
-              shortCode: shortCodes.menus,
-              isShortcodePrefilled: true,
-            });
-            break;
+        case appIds.menus:
+          updateState({
+            shortCode: shortCodes.menus,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.maxisdelivery:
+          updateState({
+            shortCode: shortCodes.maxisdelivery,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, []);

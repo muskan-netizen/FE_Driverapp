@@ -24,15 +24,16 @@ const shortCodes = {
   ordercheckout: 'f775f5',
   noki: 'e0f607',
   ored: '86b79c',
-  yourLaundryApp:'ba202e',
+  yourLaundryApp: 'ba202e',
   yummidash: '31a72f',
   zuzuclean: 'a4ead8',
-  loopWhole:'5aca0c',
+  loopWhole: '5aca0c',
   maxis: '07b461',
   donepacked: 'b3b91d',
   careWorks: '3554f0',
   thubaeRides: 'af635b',
   menus: '4d1ec2',
+  maxisdelivery: '07b461',
 };
 
 // Goody Dispatch
@@ -129,7 +130,7 @@ const appIds = {
     ios: 'com.YourLaundryApp.Dispatch',
     android: 'com.YourLaundryApp.royodispatcher',
   }),
-  
+
   yummidash: Platform.select({
     ios: 'com.app.yummiidash.Dispatch',
     android: 'com.app.yummiidash.Dispatch',
@@ -142,7 +143,7 @@ const appIds = {
     ios: 'com.LoopWhole.Dispatch',
     android: 'com.loopwhole.royodispatcher',
   }),
-  
+
   maxis: Platform.select({
     ios: 'com.maxis.royodispatcher',
     android: 'com.maxis.royodispatcher',
@@ -163,7 +164,10 @@ const appIds = {
     ios: 'com.Menus.Dispatch',
     android: 'com.Menus.royodispatcher',
   }),
-  
+  maxisdelivery: Platform.select({
+    ios: 'com.Maxisdelivery.Dispatch',
+    android: 'com.Maxisdelivery.royodispatcher',
+  }),
 };
 
 export {appIds, shortCodes};

@@ -65,6 +65,8 @@
     "loopWholedispatcherRelease": "cd android && ./gradlew assembleloopWholeRelease",
     "menusdispatcher": "react-native run-android --variant=menusDebug",
     "menusdispatcherRelease": "cd android && ./gradlew assemblemenusRelease",
+    "maxisdeliverydispatcher": "react-native run-android --variant=maxisdeliveryDebug",
+    "maxisdeliverydispatcherRelease": "cd android && ./gradlew assemblemaxisdeliveryRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
