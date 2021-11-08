@@ -60,6 +60,9 @@ export default {
   profileImage:require('../assets/images/ic_profile.png'),
   wallet:require('../assets/images/ic_wallet.png'),
   contact2:require('../assets/images/ic_call_2.png'),
+  lifeTimeEarn:require('../assets/images/ic_lifetimearning.png'),
+  currentBalance:require('../assets/images/ic_currentbalance.png'),
+  location:require('../assets/images/ic_location.png'),
 
   
 };

@@ -54,16 +54,32 @@ export default function Settings({route, navigation}) {
         label: 'Arabic',
         value: 'ar',
       },
-      // {
-      //   id: 4,
-      //   label: 'German',
-      //   value: 'de',
-      // },
-      // {
-      //   id: 5,
-      //   label: 'French',
-      //   value: 'fr',
-      // },
+      {
+        id: 4,
+        label: 'German',
+        value: 'de',
+      },
+      {
+        id: 5,
+        label: 'French',
+        value: 'fr',
+      },
+      {
+        id: 6,
+        label: 'Chinese',
+        value: 'zh',
+      },
+      {
+        id: 7,
+        label: 'Russian',
+        value: 'Ru',
+      },
+      {
+        id: 8,
+        label: 'Portuguese - B',
+        value: 'ptBr',
+      },
+    
     ],
     selectedLangauge: defaultLanguagae?.label
       ? defaultLanguagae

@@ -499,7 +499,7 @@ target 'CareWorks' do
 
 end
 
-#ThubaeRides Target
+#ThubaeRides Targetfz
 target 'ThubaeRides' do
   permissions_path = '../node_modules/react-native-permissions/ios'
   config = use_native_modules!

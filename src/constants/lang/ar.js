@@ -122,9 +122,12 @@ export default {
   "WALLETAMOUNT": "مبلغ",
   "TOTALREVNUE": "إجمالي الإيرادات",
   "TRANSACTIONHISTORY": "سجل الحركة",
-  "LANGUAGECHANGED":"Language changed successfully",
-  "LIFETIMEEARNING":"Lifetime Earning",
-  "CONTACT":"Contact",
-  "GETINTOUCH":"Get in touch",
-  "WANTTOGET":"Want to get in touch? we'd love to hear from you,Here's how you can reach us."
+  "LANGUAGECHANGED": "تغيرت اللغة بنجاح",
+  "LIFETIMEEARNING": "كسب مدى الحياة",
+  "CONTACT": "الاتصال",
+  "GETINTOUCH": "تواصل معنا",
+  "WANTTOGET": "هل تريد الاتصال بنا؟ نود أن نسمع منك، وإليك كيف يمكنك الوصول إلينا.",
+  "CASHCOLLECTEDCAPS": "النقدية المحصلة",
+  "ORDEREARNING": "كسب الطلب",
+  "NET": "صافي"
 };

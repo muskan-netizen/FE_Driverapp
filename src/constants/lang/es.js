@@ -1,6 +1,6 @@
 export default {
-  LOGINUSING: 'Iniciar sesión con',
-  COMPANYCODE: 'Código de empresa',
+  "LOGINUSING": 'Iniciar sesión con',
+  "COMPANYCODE": 'Código de empresa',
   PHONENUMBER: 'Número de teléfono',
   WENEDDCOMPNAYCODE:
     'Necesitamos el código de su empresa para configurar el inicio de sesión',
@@ -111,7 +111,10 @@ export default {
   "TOTALREVNUE": "Ingresos totales",
   "TRANSACTIONHISTORY": "Historial de transacciones",
   "LANGUAGECHANGED": "Idioma cambiado correctamente",
-  "CONTACT":"Contact",
-  "GETINTOUCH":"Get in touch",
-  "WANTTOGET":"Want to get in touch? we'd love to hear from you,Here's how you can reach us."
+  "CONTACT": "Contacto",
+  "GETINTOUCH": "Ponte en contacto con nosotros",
+  "WANTTOGET": "¿Quieres ponerte en contacto? nos encantaría saber de usted, así es como puede comunicarse con nosotros.",
+  "CASHCOLLECTEDCAPS": "EFECTIVO RECAUDADO",
+  "ORDEREARNING": "GANANCIA DE PEDIDOS",
+  "NET": "RED"
 };
