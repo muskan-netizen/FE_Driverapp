@@ -76,7 +76,7 @@ export default function Settings({route, navigation}) {
       },
       {
         id: 8,
-        label: 'Portuguese - B',
+        label: 'Portuguese - (Brazil)',
         value: 'ptBr',
       },
     
@@ -118,10 +118,11 @@ export default function Settings({route, navigation}) {
     if (type === 'ok') {
       updateState({isLoading: true});
       setTimeout(() => {
-        showSuccess(strings.LANGUAGECHANGED)
+      
         changeLaguage(selectedLangauge?.value);
         actions.setDefaultLanguage(selectedLangauge);
         updateState({isLoading: false});
+        showSuccess(strings.LANGUAGECHANGED)
       }, 2000);
 
       // RNRestart.Restart();

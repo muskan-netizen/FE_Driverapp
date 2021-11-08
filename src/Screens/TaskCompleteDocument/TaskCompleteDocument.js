@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Platform} from 'react-native';
 import {Keyboard} from 'react-native';
 import {
@@ -8,6 +8,7 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+  Alert,
 } from 'react-native';
 import RNFS from 'react-native-fs';
 import {useSelector} from 'react-redux';
@@ -28,11 +29,26 @@ import {cameraHandler} from '../../utils/commonFunction';
 import {showError, showSuccess} from '../../utils/helperFunctions';
 import {checkCameraPermission} from '../../utils/permissions';
 import stylesFunc from './styles';
+import ImagePicker from 'react-native-image-crop-picker';
+import FaceSDK, {
+  Enum,
+  FaceCaptureResponse,
+  LivenessResponse,
+  MatchFacesResponse,
+  MatchFacesRequest,
+  Image as FaceImage,
+} from '@regulaforensics/react-native-face-api-beta';
+import RNFetchBlob from 'rn-fetch-blob';
+
+var image1 = new FaceImage();
+var image2 = new FaceImage();
+var request = new MatchFacesRequest();
 
 const window = Dimensions.get('window');
 
 export default function TaskCompleteDocument({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
+  console.log(userData, 'userData');
   const taskDetail = route?.params?.data?.taskDetail;
   console.log(taskDetail, 'taskDetail');
   const updatedProofArray = route?.params?.data?.updatedProofArray;
@@ -55,9 +71,15 @@ export default function TaskCompleteDocument({route, navigation}) {
     imageName: null,
     qrcode: null,
     otpField: '',
+    img1: null,
+    img2: null,
+    similarity: 'nil',
+    liveness: 'nil',
   });
 
   const {
+    img1,
+    img2,
     signatureImageName,
     imageName,
     isLoading,
@@ -68,6 +90,8 @@ export default function TaskCompleteDocument({route, navigation}) {
     qrcode,
     signatureImage,
     otpField,
+    similarity,
+    liveness,
   } = state;
   const commonStyles = commonStylesFunc({fontFamily});
   const updateState = data => setState(state => ({...state, ...data}));
@@ -83,6 +107,35 @@ export default function TaskCompleteDocument({route, navigation}) {
   const moveToNewScreen = (screenName, data) => () => {
     navigation.navigate(screenName, {data});
   };
+
+  useEffect(() => {
+    // RNFS.readFile(userData?.image_url, 'base64').then(res => {
+    //   console.log(res, 'readFile>readFile');
+    // });
+
+    const fs = RNFetchBlob.fs;
+    let imagePath = null;
+    RNFetchBlob.config({
+      fileCache: true,
+    })
+      .fetch('GET', userData?.image_url)
+      // the image is now dowloaded to device's storage
+      .then(resp => {
+        // the image path you can use it directly with Image component
+        imagePath = resp.path();
+        return resp.readFile('base64');
+      })
+      .then(base64Data => {
+        // here's base64 encoded image
+        console.log(base64Data);
+        // image1.bitmap = base64Data;
+        // image1.imageType = Enum.ImageType.IMAGE_TYPE_PRINTED;
+        setImage(true, base64Data, Enum.ImageType.IMAGE_TYPE_PRINTED);
+        // remove the file from storage
+        return fs.unlink(imagePath);
+      });
+  }, []);
+
   //Error handling in api
   const errorMethod = error => {
     updateState({isLoading: false, isRefreshing: false, isLoading: false});
@@ -99,7 +152,7 @@ export default function TaskCompleteDocument({route, navigation}) {
     if (data && data?.encoded) {
       const imageData = data?.encoded;
 
-      const imagePath = `${RNFS.DocumentDirectoryPath}${Math.random()
+      const imagePath = `${RNFS.DocumentDirectoryPath}/${Math.random()
         .toString(36)
         .replace(/[^a-z]+/g, '')
         .substr(0, 5)}.jpg`;
@@ -111,9 +164,7 @@ export default function TaskCompleteDocument({route, navigation}) {
           console.log('Image converted to jpg and saved at ' + data?.pathName),
             updateState({
               signatureImage:
-                Platform.OS == 'ios'
-                  ? data?.pathName
-                  : `file://${data?.pathName}`,
+                Platform.OS == 'ios' ? imagePath : `file://${data?.pathName}`,
             });
           // setTimeout(() => {
           //   unlinkDirectory(imagePath);
@@ -158,11 +209,12 @@ export default function TaskCompleteDocument({route, navigation}) {
     //Signature upload
     if (i?.id == 1) {
       updateState({showInputBox: false});
-      moveToNewScreen(navigationStrings.ADDSIGNATURE, {
-        updateSignature: data => {
-          updateSignature(data);
-        },
-      })();
+      pickImage(false);
+      // moveToNewScreen(navigationStrings.ADDSIGNATURE, {
+      //   updateSignature: data => {
+      //     updateSignature(data);
+      //   },
+      // })();
     }
 
     //Photo upload
@@ -321,6 +373,118 @@ export default function TaskCompleteDocument({route, navigation}) {
         }
       })
       .catch(errorMethod);
+  };
+
+  /******Face detection *********/
+  const faceDetection = () => {};
+
+  const pickImage = first => {
+    Alert.alert(
+      'Select option',
+      '',
+      [
+        {
+          text: 'Use gallery',
+          onPress: () => {
+            // options['includeBase64'] = true;
+            ImagePicker.openPicker({includeBase64: true})
+              .then(image => {
+                console.log(image, 'image');
+                console.log(
+                  Enum.ImageType.IMAGE_TYPE_PRINTED,
+                  'Enum.ImageType.IMAGE_TYPE_PRINTED',
+                );
+                setImage(first, image.data, Enum.ImageType.IMAGE_TYPE_PRINTED);
+                // return image;
+              })
+              .catch(err => {
+                return err;
+              });
+          },
+          // launchImageLibrary({includeBase64: true}, response => {
+          //   setImage(
+          //     first,
+          //     response.base64,
+          //     Enum.ImageType.IMAGE_TYPE_PRINTED,
+          //   );
+          // }),
+        },
+        {
+          text: 'Use camera',
+          onPress: () =>
+            FaceSDK.presentFaceCaptureActivity(
+              result => {
+                console.log(result, 'FaceSDK Result');
+                setImage(
+                  first,
+                  FaceCaptureResponse.fromJson(JSON.parse(result)).image.bitmap,
+                  Enum.ImageType.IMAGE_TYPE_LIVE,
+                );
+              },
+              e => {},
+            ),
+        },
+      ],
+      {cancelable: true},
+    );
+  };
+
+  const setImage = (first, base64, type) => {
+    console.log(first, 'first');
+    console.log(base64, 'base64');
+    console.log(type, 'type');
+    if (base64 == null) return;
+    updateState({similarity: 'nil'});
+    if (first) {
+      image1.bitmap = base64;
+      image1.imageType = type;
+      updateState({img1: {uri: 'data:image/png;base64,' + base64}});
+      updateState({liveness: 'nil'});
+    } else {
+      image2.bitmap = base64;
+      image2.imageType = type;
+      matchFaces();
+      updateState({img2: {uri: 'data:image/png;base64,' + base64}});
+    }
+  };
+
+  const matchFaces = () => {
+    console.log(image1, 'image1');
+    console.log(image2, 'image2');
+    if (
+      image1 == null ||
+      image1.bitmap == null ||
+      image1.bitmap == '' ||
+      image2 == null ||
+      image2.bitmap == null ||
+      image2.bitmap == ''
+    )
+      return;
+    request.images = [image1, image2];
+    console.log(request, 'request>request');
+    // alert('213');
+    FaceSDK.matchFaces(
+      JSON.stringify(request),
+      response => {
+        response = MatchFacesResponse.fromJson(JSON.parse(response));
+        matchedFaces = response.matchedFaces;
+        console.log(matchedFaces,"matchedFaces");
+        // console.log(
+        //   `${(matchedFaces[0].similarity * 100).toFixed(2) + '%'}`,
+        //   'similarity',
+        // );
+        // updateState({
+        //   similarity:
+        //     matchedFaces.length > 0
+        //       ? (matchedFaces[0].similarity * 100).toFixed(2) + '%'
+        //       : 'error',
+        // });
+      },
+      e => {
+        console.log(e,"error");
+        // this.setState({similarity: e});
+      },
+    );
   };
 
   return (
