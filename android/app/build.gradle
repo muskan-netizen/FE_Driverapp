@@ -330,12 +330,12 @@ android {
 
             codiner {
             dimension "appType"
-            versionCode 3
+            versionCode 5
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-                applicationId 'com.app.Codiner.Dispatch'
+            applicationId 'com.app.Codiner.Dispatch'
             resValue "string", "app_name", "Codiner Dispatcher"
             }
         elog {
@@ -348,7 +348,7 @@ android {
             applicationId 'com.Elog.royodispatcher'
             resValue "string", "app_name", "Elog Dispatch"
         } 
-            cabdelivr {
+        cabdelivr {
             dimension "appType"
             versionCode 1
             versionName "1.0"
@@ -358,7 +358,6 @@ android {
             applicationId 'com.cabdelivr.royodispatcher'
             resValue "string", "app_name", "Cabdelivr Dispatch"
         } 
-
         drivree {
             dimension "appType"
             versionCode 1
@@ -369,8 +368,6 @@ android {
             applicationId 'com.drivree.royodispatcher'
             resValue "string", "app_name", "Drivree Dispatch"
         } 
-
-
         seaChangeVending {
             dimension "appType"
             versionCode 1
@@ -391,7 +388,7 @@ android {
             applicationId 'com.rxnow.royodispatcher'
             resValue "string", "app_name", "RXNOW Dispatch"
         } 
-            ordercheckout {
+        ordercheckout {
             dimension "appType"
             versionCode 1
             versionName "1.0"
@@ -401,7 +398,7 @@ android {
             applicationId 'com.checkout.royodispatcher'
             resValue "string", "app_name", "Ordercheckout Dispatch"
         } 
-            noki {
+        noki {
             dimension "appType"
             versionCode 1
             versionName "1.0"
@@ -411,7 +408,6 @@ android {
             applicationId 'com.noki.royodispatcher'
             resValue "string", "app_name", "Noki Dispatch"
         } 
-
         ored {
             dimension "appType"
             versionCode 1
@@ -443,7 +439,7 @@ android {
 
         yummiidash {
             dimension "appType"
-            versionCode 1
+            versionCode 2
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
@@ -490,6 +486,36 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.ThubaeRides.royodispatcher'
             resValue "string", "app_name", "ThubaeRides"
+        }
+        loopWhole {
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.loopwhole.royodispatcher'
+            resValue "string", "app_name", "LoopWhole Dispatch"
+        }
+        menus {
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Menus.royodispatcher'
+            resValue "string", "app_name", "Menus Dispatch"
+        }
+        maxisdelivery {
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Maxisdelivery.royodispatcher'
+            resValue "string", "app_name", "Maxis Delivery"
         }
 
 

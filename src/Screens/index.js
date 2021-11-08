@@ -12,4 +12,6 @@ export {default as AddSignature} from './AddSignature/AddSignature';
 export {default as Scanner} from './Scanner/Scanner';
 export {default as Signup} from './Auth/Signup/Signup';
 export {default as Settings} from './Settings/Settings';
+export {default as Wallet} from './Wallet/Wallet';
+export {default as ContactUs} from './ContactUs/ContactUs';
 

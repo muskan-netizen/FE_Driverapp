@@ -5,7 +5,7 @@ import {useSelector} from 'react-redux';
 import CustomDrawerContent from '../Components/CustomDrawerContent';
 import imagePath from '../constants/imagePath';
 import strings from '../constants/lang';
-import {Settings} from '../Screens';
+import {ContactUs, Settings, Wallet} from '../Screens';
 import colors from '../styles/colors';
 import fontFamily from '../styles/fontFamily';
 import {
@@ -35,8 +35,8 @@ export default function DrawerRoutes(props) {
         headerShown: false,
         swipeEnabled: true,
         gestureEnabled: true,
-        drawerPosition: defaultLanguagae?.value === 'ar' ? 'right' : 'left',
-
+        // drawerPosition: defaultLanguagae?.value === 'ar' ? 'right' : 'left',
+        drawerPosition:'left',
         drawerStyle: {
           paddingTop: moderateScaleVertical(width / 6),
         },
@@ -73,7 +73,21 @@ export default function DrawerRoutes(props) {
         }}
       />
 
-      {/* <Drawer.Screen
+      <Drawer.Screen
+        component={Wallet}
+        name={navigationStrings.WALLET}
+        options={{
+          drawerLabel: strings.WALLET,
+          drawerIcon: ({focused}) => (
+            <Image
+              style={{tintColor: focused ? colors.blackShade2 : colors.grey2}}
+              source={imagePath.profileImage}
+            />
+          ),
+        }}
+      />
+
+      <Drawer.Screen
         component={Settings}
         name={navigationStrings.SETTINGS}
         options={{
@@ -85,7 +99,20 @@ export default function DrawerRoutes(props) {
             />
           ),
         }}
-      /> */}
+      />
+        <Drawer.Screen
+        component={ContactUs}
+        name={navigationStrings.CONTACTUS}
+        options={{
+          drawerLabel: strings.SETTING,
+          drawerIcon: ({focused}) => (
+            <Image
+              style={{tintColor: focused ? colors.blackShade2 : colors.grey2}}
+              source={imagePath.settingsIcon}
+            />
+          ),
+        }}
+      />
     </Drawer.Navigator>
   );
 }

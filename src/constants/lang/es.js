@@ -1,6 +1,6 @@
 export default {
-  LOGINUSING: 'Iniciar sesión con',
-  COMPANYCODE: 'Código de empresa',
+  "LOGINUSING": 'Iniciar sesión con',
+  "COMPANYCODE": 'Código de empresa',
   PHONENUMBER: 'Número de teléfono',
   WENEDDCOMPNAYCODE:
     'Necesitamos el código de su empresa para configurar el inicio de sesión',
@@ -106,4 +106,18 @@ export default {
   NOTES: 'Notes *',
   QRCODE: 'QR/code of barras *',
   SUCCESSSIGNUP: 'Registries correctly.',
+  "WALLET": "Billetera",
+  "WALLETAMOUNT": "Importe",
+  "TOTALREVNUE": "Ingresos totales",
+  "TRANSACTIONHISTORY": "Historial de transacciones",
+  "LANGUAGECHANGED": "Idioma cambiado correctamente",
+  "CONTACT": "Contacto",
+  "GETINTOUCH": "Ponte en contacto con nosotros",
+  "WANTTOGET": "¿Quieres ponerte en contacto? nos encantaría saber de usted, así es como puede comunicarse con nosotros.",
+  "CASHCOLLECTEDCAPS": "EFECTIVO RECAUDADO",
+  "ORDEREARNING": "GANANCIA DE PEDIDOS",
+  "NET": "RED",
+  "PAYMENTCREDITED": "Pago acreditado",
+  "PAYMENTDEBITED": "Pago debitado",
+  "TASK": "Tarea"
 };

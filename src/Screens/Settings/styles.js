@@ -81,7 +81,7 @@ export default ({defaultLanguagae}) => {
     },
     modalBottomButtonContainer: {
       marginTop: moderateScaleVertical(16),
-      width: width / 2,
+      // width: width / 2,
       flexDirection: 'row',
       alignSelf: 'flex-end',
     },

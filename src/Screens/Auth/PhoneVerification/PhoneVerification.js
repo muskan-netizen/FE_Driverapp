@@ -86,7 +86,7 @@ export default function PhoneVerification({navigation, route}) {
   useEffect(async () => {
     let token = await AsyncStorage.getItem('fcmToken');
     console.log(token, 'token>token>token');
-    updateState({fcm_token: token});
+    updateState({fcm_token: token ? token : DeviceInfo.getDeviceToken()});
   }, []);
 
   useEffect(() => {
@@ -197,7 +197,7 @@ export default function PhoneVerification({navigation, route}) {
             autoFocus: true,
           }}
           value={otpToShow}
-          keyboardType={'default'}
+          keyboardType={'numeric'}
           onTextChange={otpToShow => updateState({otpToShow})}
           onFulfill={code => onOtpInput(code)}
         />

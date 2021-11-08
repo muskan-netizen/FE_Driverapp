@@ -40,11 +40,12 @@ import {personaltoken} from '../../../config/urls';
 import {getItem} from '../../../utils/utils';
 import {cloneDeep} from 'lodash';
 import DocumentPicker from 'react-native-document-picker';
+import {shortCodes} from '../../../utils/constants/DynamicAppKeys';
 
 export default function Signup({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
-
+  console.log(clientInfo, 'clientInfo');
   const [state, setState] = useState({
     isLoading: false,
     fullName: '',
@@ -71,6 +72,7 @@ export default function Signup({route, navigation}) {
     profilePic: true,
     addtionSelectedImage: null,
     addtionSelectedImageIndex: null,
+    savedShortCode: null,
   });
 
   const {
@@ -95,6 +97,7 @@ export default function Signup({route, navigation}) {
     profilePic,
     addtionSelectedImage,
     addtionSelectedImageIndex,
+    savedShortCode,
   } = state;
   const commonStyles = commonStylesFunc({fontFamily});
 
@@ -126,6 +129,16 @@ export default function Signup({route, navigation}) {
       actionSheet.current.show();
     }, 500);
   };
+
+  useEffect(() => {
+    (async () => {
+      const savedCode = await getItem('saveShortCode');
+      if (savedCode == shortCodes?.loopWhole) {
+        updateState({selectedEpmloyeetype:allEmployeeTypes[0]});
+      }
+      updateState({savedShortCode: savedCode});
+    })();
+  }, [selectedEpmloyeetype]);
 
   useEffect(() => {
     getRequiredDatas();
@@ -386,7 +399,6 @@ export default function Signup({route, navigation}) {
         data[index].mime = res[0].type;
 
         console.log(data, 'addtionalPdfs>>>data');
-
         updateState({addtionalPdfs: data});
       }
 
@@ -438,6 +450,58 @@ export default function Signup({route, navigation}) {
     data[index].label_name = type?.name;
     console.log(data, 'data>>>data');
     updateState({addtionalTextInputs: data});
+  };
+
+  const getEmployeeViewBasedOnClient = code => {
+    switch (code) {
+      case shortCodes.loopWhole:
+        return null;
+        break;
+      default:
+        return (
+          <View style={{marginTop: moderateScaleVertical(10)}}>
+            <Text style={styles.employeetypeHeadingtext}>
+              {strings.EMPLOYEETYPE}
+            </Text>
+            <ScrollView
+              horizontal
+              alwaysBounceHorizontal={false}
+              style={styles.mainallEmployeeTypeStyle}
+              containerStyle={styles.employeeInnerContainer}>
+              {allEmployeeTypes.map((i, inx) => {
+                return (
+                  <TouchableOpacity
+                    onPress={() => {
+                      _selectedEpmloyeetype(i);
+                    }}
+                    style={styles.employeeImageContainer}>
+                    <Image
+                      source={
+                        selectedEpmloyeetype == i
+                          ? imagePath.redioSelectedButton
+                          : imagePath.redioUnSelectedButton
+                      }
+                    />
+                    <Text
+                      style={{
+                        marginHorizontal: moderateScale(10),
+                        fontSize: textScale(12),
+                        fontFamily: fontFamily.medium,
+                        color:
+                          selectedEpmloyeetype == i
+                            ? colors.themeColor
+                            : colors.lightGreyBg2,
+                      }}>
+                      {i?.typeName}
+                    </Text>
+                  </TouchableOpacity>
+                );
+              })}
+            </ScrollView>
+          </View>
+        );
+        break;
+    }
   };
 
   return (
@@ -549,46 +613,7 @@ export default function Signup({route, navigation}) {
                 })}
               </ScrollView>
             </View>
-            <View style={{marginTop: moderateScaleVertical(10)}}>
-              <Text style={styles.employeetypeHeadingtext}>
-                {strings.EMPLOYEETYPE}
-              </Text>
-              <ScrollView
-                horizontal
-                alwaysBounceHorizontal={false}
-                style={styles.mainallEmployeeTypeStyle}
-                containerStyle={styles.employeeInnerContainer}>
-                {allEmployeeTypes.map((i, inx) => {
-                  return (
-                    <TouchableOpacity
-                      onPress={() => {
-                        _selectedEpmloyeetype(i);
-                      }}
-                      style={styles.employeeImageContainer}>
-                      <Image
-                        source={
-                          selectedEpmloyeetype == i
-                            ? imagePath.redioSelectedButton
-                            : imagePath.redioUnSelectedButton
-                        }
-                      />
-                      <Text
-                        style={{
-                          marginHorizontal: moderateScale(10),
-                          fontSize: textScale(12),
-                          fontFamily: fontFamily.medium,
-                          color:
-                            selectedEpmloyeetype == i
-                              ? colors.themeColor
-                              : colors.lightGreyBg2,
-                        }}>
-                        {i?.typeName}
-                      </Text>
-                    </TouchableOpacity>
-                  );
-                })}
-              </ScrollView>
-            </View>
+            {getEmployeeViewBasedOnClient(savedShortCode)}
             <View style={{marginTop: moderateScaleVertical(10)}}>
               <TextInputWithlabel
                 labelStyle={styles.textInputlabel}

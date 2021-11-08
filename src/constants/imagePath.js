@@ -21,7 +21,7 @@ export default {
   listMenu:require('../assets/images/ic_list.png'),
   locationOff:require('../assets/images/ic_location_off.png'),
   locationOn:require('../assets/images/ic_location_on.png'),
-  logout:require('../assets/images/ic_Logout.png'),
+  logout:require('../assets/images/ic_logout.png'),
   map:require('../assets/images/ic_map.png'),
   menu:require('../assets/images/ic_menu.png'),
   notesBlue:require('../assets/images/ic_notes_blue.png'),
@@ -36,7 +36,7 @@ export default {
   signatureBlue:require('../assets/images/ic_signature_blue.png'),
   signature:require('../assets/images/ic_signature.png'),
   support:require('../assets/images/ic_support.png'),
-  taskHistory:require('../assets/images/ic_task_history.png'),
+  taskHistory:require('../assets/images/ic_task_2.png'),
   noTask:require('../assets/images/ic_task_no.png'),
   taskSelected:require('../assets/images/ic_task_selected.png'),
   tickGreen:require('../assets/images/ic_tick_green.png'),
@@ -58,6 +58,11 @@ export default {
   redioUnSelectedButton:require('../assets/images/ic_radiobutton.png'),
   redioSelectedButton:require('../assets/images/ic_radiocheck.png'),
   profileImage:require('../assets/images/ic_profile.png'),
+  wallet:require('../assets/images/ic_wallet.png'),
+  contact2:require('../assets/images/ic_call_2.png'),
+  lifeTimeEarn:require('../assets/images/ic_lifetimearning.png'),
+  currentBalance:require('../assets/images/ic_currentbalance.png'),
+  location:require('../assets/images/ic_location.png'),
 
   
 };

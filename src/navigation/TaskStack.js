@@ -1,12 +1,14 @@
 import React from 'react';
 import {
   AddSignature,
+  ContactUs,
   DashBoard,
   Scanner,
   TaskCancel,
   TaskCompleteDocument,
   TaskDetail,
   TaskHistory,
+  Wallet,
 } from '../Screens';
 import navigationStrings from './navigationStrings';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -53,6 +55,18 @@ export default function () {
         component={Scanner}
         options={{headerShown: false}}
       />
+       <Stack.Screen
+        name={navigationStrings.WALLET}
+        component={Wallet}
+        options={{headerShown: false}}
+      />
+       <Stack.Screen
+        name={navigationStrings.CONTACTUS}
+        component={ContactUs}
+        options={{headerShown: false}}
+      />
+
+
     </Stack.Navigator>
   );
 }

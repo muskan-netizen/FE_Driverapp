@@ -210,7 +210,6 @@ export default function DashBoard({route, navigation}) {
     }
   }, [refreshHomeData]);
 
-  
   //get all tasks
   const getTasks = () => {
     actions
@@ -268,7 +267,7 @@ export default function DashBoard({route, navigation}) {
   const onOffDuty = () => {
     actions
       .onOffDuty(
-        `?device_token=${fcm_token}`,
+        `?device_token=${fcm_token ? fcm_token : DeviceInfo.getDeviceToken()}`,
         {},
         {client: clientInfo?.database_name},
       )
@@ -528,6 +527,7 @@ export default function DashBoard({route, navigation}) {
       isLoading={isLoading || isLoadingSwitch}
       source={loaderOne}>
       <Header
+        reverse={false}
         headerStyle={{backgroundColor: colors.white}}
         leftIcon={imagePath.menu}
         onPressLeft={() => navigation.toggleDrawer()}
