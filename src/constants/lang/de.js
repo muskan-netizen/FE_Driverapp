@@ -112,5 +112,8 @@ export default {
   "LIFETIMEEARNING":"Lifetime Earning",
   "CONTACT":"Contact",
   "GETINTOUCH":"Get in touch",
-  "WANTTOGET":"Want to get in touch? we'd love to hear from you,Here's how you can reach us."
+  "WANTTOGET":"Want to get in touch? we'd love to hear from you,Here's how you can reach us.",
+  "PAYMENTCREDITED":"Payment Credited",
+  "PAYMENTDEBITED":"Payment Debited",
+  "TASK":"Task"
 };

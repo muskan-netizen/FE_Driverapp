@@ -113,6 +113,9 @@ export default {
   "WANTTOGET": "想联系吗？我们很想听听你的话，下面是你联系我们的能力。",
   "CASHCOLLECTEDCAPS": "收集的现金",
   "ORDEREARNING": "订单收入",
-  "NET": "网"
+  "NET": "网",
+  "PAYMENTCREDITED": "付款贷记",
+  "PAYMENTDEBITED": "付款借记",
+  "TASK": "任务"
   };
   

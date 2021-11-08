@@ -113,6 +113,9 @@ export default {
 "WANTTOGET": "Quer entrar em contato? Adoraríamos ouvir de você, aqui está como você pode chegar até nós.",
 "CASHCOLLECTEDCAPS": "DINHEIRO COLETADO",
 "ORDEREARNING": "ORDEM DE GANHO",
-"NET": "REDE"
+"NET": "REDE",
+"PAYMENTCREDITED": "Pagamento Creditado",
+"PAYMENTDEBITED": "Pagamento Debitado",
+"TASK": "Tarefa"
 };
   

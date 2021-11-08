@@ -129,5 +129,8 @@ export default {
   "WANTTOGET": "هل تريد الاتصال بنا؟ نود أن نسمع منك، وإليك كيف يمكنك الوصول إلينا.",
   "CASHCOLLECTEDCAPS": "النقدية المحصلة",
   "ORDEREARNING": "كسب الطلب",
-  "NET": "صافي"
+  "NET": "صافي",
+  "PAYMENTCREDITED": "الدفع الدائن",
+  "PAYMENTDEBITED": "الدفع المدين",
+  "TASK": "مهمة"
 };

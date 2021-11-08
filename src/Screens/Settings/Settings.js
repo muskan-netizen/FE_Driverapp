@@ -54,11 +54,11 @@ export default function Settings({route, navigation}) {
         label: 'Arabic',
         value: 'ar',
       },
-      {
-        id: 4,
-        label: 'German',
-        value: 'de',
-      },
+      // {
+      //   id: 4,
+      //   label: 'German',
+      //   value: 'de',
+      // },
       {
         id: 5,
         label: 'French',

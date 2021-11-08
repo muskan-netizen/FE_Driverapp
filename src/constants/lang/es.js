@@ -116,5 +116,8 @@ export default {
   "WANTTOGET": "¿Quieres ponerte en contacto? nos encantaría saber de usted, así es como puede comunicarse con nosotros.",
   "CASHCOLLECTEDCAPS": "EFECTIVO RECAUDADO",
   "ORDEREARNING": "GANANCIA DE PEDIDOS",
-  "NET": "RED"
+  "NET": "RED",
+  "PAYMENTCREDITED": "Pago acreditado",
+  "PAYMENTDEBITED": "Pago debitado",
+  "TASK": "Tarea"
 };

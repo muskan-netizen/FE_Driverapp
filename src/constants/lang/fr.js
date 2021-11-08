@@ -113,5 +113,8 @@ export default {
   "WANTTOGET": "Vous voulez nous contacter? nous aimerions avoir de vos nouvelles, voici comment vous pouvez nous joindre.",
   "CASHCOLLECTEDCAPS": "ARGENT COLLECTÉ",
   "ORDEREARNING": "GAIN DE COMMANDE",
-  "NET": "FILET"
+  "NET": "FILET",
+  "PAYMENTCREDITED": "Pagamento Creditado",
+  "PAYMENTDEBITED": "Pagamento Debitado",
+  "TASK": "Tarefa"
 };
