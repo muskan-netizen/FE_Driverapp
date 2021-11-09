@@ -1,0 +1,9 @@
+#include "Pods/Target Support Files/Pods-HMC/Pods-HMC.release.xcconfig"
+
+
+PROJECT_BUNDLE_ID = com.HMC.Dispatch
+PROJECT_APP_VERSION = 1.0
+PROJECT_BUILD_NUMBER = 3
+PROJECT_APP_NAME =HMC Dispatch
+PROJECT_PLIST =HmcInfo
+PROJECT_ENTITLEMENT=RoyoDriverAppRelease

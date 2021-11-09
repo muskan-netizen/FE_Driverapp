@@ -518,6 +518,51 @@ android {
             resValue "string", "app_name", "Maxis Delivery"
         }
 
+         wh {
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.wh.dispatcher'
+            resValue "string", "app_name", "WH Delivery"
+        }
+
+           elcheregio {
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.ElCheRegio.Dispatch'
+            resValue "string", "app_name", "Elcheregio"
+        }
+
+          hmc {
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.HMC.royodispatcher'
+            resValue "string", "app_name", "HMC Dispatch"
+        }
+
+        express_deliverys_llc {
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.ExpressDeliverysLLC.royodispatcher'
+            resValue "string", "app_name", "ExpressDeliverysLLC Dispatch"
+        }
+
+
 
     }
 }

@@ -34,6 +34,10 @@ const shortCodes = {
   thubaeRides: 'af635b',
   menus: '4d1ec2',
   maxisdelivery: '07b461',
+  wh: '8e0c3d',
+  elcheregio: '956701',
+  hmc: '1a3d96',
+  expressdeliverys: '3911a0',
 };
 
 // Goody Dispatch
@@ -167,6 +171,22 @@ const appIds = {
   maxisdelivery: Platform.select({
     ios: 'com.Maxisdelivery.Dispatch',
     android: 'com.Maxisdelivery.royodispatcher',
+  }),
+  wh: Platform.select({
+    ios: 'com.wh.dispatcher',
+    android: 'com.wh.dispatcher',
+  }),
+  elcheregio: Platform.select({
+    ios: 'com.ElCheRegio.Dispatch',
+    android: 'com.ElCheRegio.Dispatch',
+  }),
+  hmc: Platform.select({
+    ios: 'com.HMC.Dispatch',
+    android: 'com.HMC.royodispatcher',
+  }),
+  expressdeliverys: Platform.select({
+    ios: 'com.ExpressDeliverysLLC.Dispatch',
+    android: 'com.ExpressDeliverysLLC.royodispatcher',
   }),
 };
 
