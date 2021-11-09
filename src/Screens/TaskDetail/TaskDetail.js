@@ -47,10 +47,8 @@ var _value = 0;
 export default function TaskDetail({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
   let taskDetail = route?.params?.data?.item;
-  let fromHistory = route?.params?.data?.fromHistory;
-
   console.log(taskDetail, 'taskDetail');
-  console.log(fromHistory, 'fromHistory');
+  let fromHistory = route?.params?.data?.fromHistory;
 
   const [state, setState] = useState({
     isLoading: false,
@@ -101,6 +99,13 @@ export default function TaskDetail({route, navigation}) {
         imagePath: imagePath.codeInactive,
         imagePathActive: imagePath.codeActive,
         type: 'QR',
+      },
+      {
+        id: 5,
+        title: strings.FACEDETECTION,
+        imagePath: imagePath.faceInactive,
+        imagePathActive: imagePath.faceActive,
+        type: 'face',
       },
     ],
     updatedProofArray: [],
@@ -153,7 +158,8 @@ export default function TaskDetail({route, navigation}) {
                 (i?.type == 'signature' && findDataToCheck?.signature) ||
                 (i?.type == 'photo' && findDataToCheck?.image) ||
                 (i?.type == 'notes' && findDataToCheck?.note) ||
-                (i?.type == 'QR' && findDataToCheck?.barcode)
+                (i?.type == 'QR' && findDataToCheck?.barcode) ||
+                (i?.type == 'face' && findDataToCheck?.face)
               ) {
                 return i;
               }
@@ -163,10 +169,6 @@ export default function TaskDetail({route, navigation}) {
       }
     }
   }, [taskDetail, userData]);
-
-  useEffect(() => {
-    console.log(updatedProofArray, 'updated updatedProofArray');
-  }, [updatedProofArray]);
 
   useEffect(() => {
     getStatusName(taskStatus);

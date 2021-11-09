@@ -107,6 +107,7 @@ export default {
   NOTES: 'Notes *',
   QRCODE: 'QR/code of barras *',
   SUCCESSSIGNUP: 'Registries correctly.',
+<<<<<<< HEAD
   WALLET: 'Billetera',
   WALLETAMOUNT: 'Importe',
   TOTALREVNUE: 'Ingresos totales',
@@ -116,4 +117,24 @@ export default {
   GETINTOUCH: 'Get in touch',
   WANTTOGET:
     "Want to get in touch? we'd love to hear from you,Here's how you can reach us.",
+=======
+  "WALLET": "Billetera",
+  "WALLETAMOUNT": "Importe",
+  "TOTALREVNUE": "Ingresos totales",
+  "TRANSACTIONHISTORY": "Historial de transacciones",
+  "LANGUAGECHANGED": "Idioma cambiado correctamente",
+  "CONTACT": "Contacto",
+  "GETINTOUCH": "Ponte en contacto con nosotros",
+  "WANTTOGET": "¿Quieres ponerte en contacto? nos encantaría saber de usted, así es como puede comunicarse con nosotros.",
+  "CASHCOLLECTEDCAPS": "EFECTIVO RECAUDADO",
+  "ORDEREARNING": "GANANCIA DE PEDIDOS",
+  "NET": "RED",
+  "PAYMENTCREDITED": "Pago acreditado",
+  "PAYMENTDEBITED": "Pago debitado",
+  "TASK": "Tarea",
+  "IMAGEMATCHED": "Imagen emparejada correctamente",
+  "FACEIMAGENOTFOUND": "La imagen no coincide con su imagen de perfil.\nPor favor, cargue la imagen de la cara adecuada",
+  "FACEDETECTION": "Detección de rostros",
+  "FACEIMAGEREQUIRED": "Se requiere detección de rostros"
+>>>>>>> 08520e58f6241c485862e9491bdf9b869fdb72a3
 };

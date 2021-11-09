@@ -92,7 +92,6 @@ export default function DashBoard({route, navigation}) {
   const sessionLogoutUser = useSelector(
     state => state?.initBoot?.sessionLogoutUser,
   );
-  console.log(sessionLogoutUser, 'sessionLogoutUser');
   const refreshHomeData = useSelector(
     state => state?.initBoot?.refreshHomeData,
   );

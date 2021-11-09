@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Platform} from 'react-native';
 import {Keyboard} from 'react-native';
 import {
@@ -8,6 +8,7 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+  Alert,
 } from 'react-native';
 import RNFS from 'react-native-fs';
 import {useSelector} from 'react-redux';
@@ -28,21 +29,31 @@ import {cameraHandler} from '../../utils/commonFunction';
 import {showError, showSuccess} from '../../utils/helperFunctions';
 import {checkCameraPermission} from '../../utils/permissions';
 import stylesFunc from './styles';
+import ImagePicker from 'react-native-image-crop-picker';
+import FaceSDK, {
+  Enum,
+  FaceCaptureResponse,
+  LivenessResponse,
+  MatchFacesResponse,
+  MatchFacesRequest,
+  Image as FaceImage,
+} from '@regulaforensics/react-native-face-api-beta';
+import RNFetchBlob from 'rn-fetch-blob';
+import {showMessage} from 'react-native-flash-message';
+
+var image1 = new FaceImage();
+var image2 = new FaceImage();
+var request = new MatchFacesRequest();
 
 const window = Dimensions.get('window');
 
 export default function TaskCompleteDocument({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
   const taskDetail = route?.params?.data?.taskDetail;
-  console.log(taskDetail, 'taskDetail');
   const updatedProofArray = route?.params?.data?.updatedProofArray;
-  console.log(
-    updatedProofArray,
-    'updatedProofArrayupdatedProofArrayupdatedProofArray',
-  );
+  console.log(updatedProofArray, 'updatedProofArray');
   const findDataToCheck = route?.params?.data?.findDataToCheck;
   const params = route?.params;
-  console.log(params, 'params>params');
   const [state, setState] = useState({
     isLoading: false,
     taskProofArray: updatedProofArray,
@@ -53,11 +64,21 @@ export default function TaskCompleteDocument({route, navigation}) {
     signatureImageName: null,
     image: null,
     imageName: null,
+    faceImage: null,
+    faceImageName: null,
     qrcode: null,
     otpField: '',
+    img1: null,
+    img2: null,
+    similarity: null,
+    liveness: null,
   });
 
   const {
+    faceImage,
+    faceImageName,
+    img1,
+    img2,
     signatureImageName,
     imageName,
     isLoading,
@@ -68,6 +89,8 @@ export default function TaskCompleteDocument({route, navigation}) {
     qrcode,
     signatureImage,
     otpField,
+    similarity,
+    liveness,
   } = state;
   const commonStyles = commonStylesFunc({fontFamily});
   const updateState = data => setState(state => ({...state, ...data}));
@@ -83,6 +106,35 @@ export default function TaskCompleteDocument({route, navigation}) {
   const moveToNewScreen = (screenName, data) => () => {
     navigation.navigate(screenName, {data});
   };
+
+  useEffect(() => {
+    // RNFS.readFile(userData?.image_url, 'base64').then(res => {
+    //   console.log(res, 'readFile>readFile');
+    // });
+
+    const fs = RNFetchBlob.fs;
+    let imagePath = null;
+    RNFetchBlob.config({
+      fileCache: true,
+    })
+      .fetch('GET', userData?.image_url)
+      // the image is now dowloaded to device's storage
+      .then(resp => {
+        // the image path you can use it directly with Image component
+        imagePath = resp.path();
+        return resp.readFile('base64');
+      })
+      .then(base64Data => {
+        // here's base64 encoded image
+        console.log(base64Data);
+        // image1.bitmap = base64Data;
+        // image1.imageType = Enum.ImageType.IMAGE_TYPE_PRINTED;
+        setImage(true, base64Data, Enum.ImageType.IMAGE_TYPE_PRINTED);
+        // remove the file from storage
+        return fs.unlink(imagePath);
+      });
+  }, []);
+
   //Error handling in api
   const errorMethod = error => {
     updateState({isLoading: false, isRefreshing: false, isLoading: false});
@@ -90,7 +142,7 @@ export default function TaskCompleteDocument({route, navigation}) {
   };
 
   const onImageLayout = e => {
-    console.log(e.event, 'e.event');
+    // console.log(e.event, 'e.event');
   };
 
   /*****Update Signatur****** */
@@ -99,7 +151,7 @@ export default function TaskCompleteDocument({route, navigation}) {
     if (data && data?.encoded) {
       const imageData = data?.encoded;
 
-      const imagePath = `${RNFS.DocumentDirectoryPath}${Math.random()
+      const imagePath = `${RNFS.DocumentDirectoryPath}/${Math.random()
         .toString(36)
         .replace(/[^a-z]+/g, '')
         .substr(0, 5)}.jpg`;
@@ -111,9 +163,7 @@ export default function TaskCompleteDocument({route, navigation}) {
           console.log('Image converted to jpg and saved at ' + data?.pathName),
             updateState({
               signatureImage:
-                Platform.OS == 'ios'
-                  ? data?.pathName
-                  : `file://${data?.pathName}`,
+                Platform.OS == 'ios' ? imagePath : `file://${data?.pathName}`,
             });
           // setTimeout(() => {
           //   unlinkDirectory(imagePath);
@@ -158,6 +208,7 @@ export default function TaskCompleteDocument({route, navigation}) {
     //Signature upload
     if (i?.id == 1) {
       updateState({showInputBox: false});
+      // pickImage(false);
       moveToNewScreen(navigationStrings.ADDSIGNATURE, {
         updateSignature: data => {
           updateSignature(data);
@@ -207,6 +258,11 @@ export default function TaskCompleteDocument({route, navigation}) {
         })
         .catch(error => console.log('error while accessing location ', error));
     }
+
+    if (i?.id == 5) {
+      updateState({showInputBox: false});
+      pickImage(false);
+    }
   };
   /****** */
 
@@ -223,6 +279,9 @@ export default function TaskCompleteDocument({route, navigation}) {
         break;
       case 4:
         return qrcode ? imagePath?.codeActive : imagePath?.codeInactive;
+        break;
+      case 5:
+        return faceImage ? imagePath?.faceActive : imagePath?.faceInactive;
         break;
       default:
         break;
@@ -255,6 +314,12 @@ export default function TaskCompleteDocument({route, navigation}) {
       !qrcode
     ) {
       showError(strings.QRSCAN);
+    } else if (
+      findDataToCheck?.face &&
+      findDataToCheck?.face_requried &&
+      !faceImage
+    ) {
+      showError(strings.FACEIMAGEREQUIRED);
     } else if (
       params?.data?.otpEnabled &&
       params?.data?.otpRequired &&
@@ -295,6 +360,13 @@ export default function TaskCompleteDocument({route, navigation}) {
         uri: image,
       });
     }
+    if (faceImage) {
+      formdata.append('proof_face', {
+        type: 'image/jpeg',
+        uri: faceImage?.uri,
+      });
+    }
+
     if (params?.data?.otpEnabled) {
       formdata.append('otp', otpField);
     }
@@ -322,6 +394,130 @@ export default function TaskCompleteDocument({route, navigation}) {
       })
       .catch(errorMethod);
   };
+
+  /******Face detection *********/
+  const faceDetection = () => {};
+
+  const pickImage = first => {
+    Alert.alert(
+      'Select option',
+      '',
+      [
+        {
+          text: 'Use gallery',
+          onPress: () => {
+            // options['includeBase64'] = true;
+            ImagePicker.openPicker({includeBase64: true})
+              .then(image => {
+                console.log(image, 'image');
+                console.log(
+                  Enum.ImageType.IMAGE_TYPE_PRINTED,
+                  'Enum.ImageType.IMAGE_TYPE_PRINTED',
+                );
+                setImage(first, image.data, Enum.ImageType.IMAGE_TYPE_PRINTED);
+                // return image;
+              })
+              .catch(err => {
+                return err;
+              });
+          },
+        },
+        {
+          text: 'Use camera',
+          onPress: () =>
+            FaceSDK.presentFaceCaptureActivity(
+              result => {
+                console.log(result, 'FaceSDK Result');
+                setImage(
+                  first,
+                  FaceCaptureResponse.fromJson(JSON.parse(result)).image.bitmap,
+                  Enum.ImageType.IMAGE_TYPE_LIVE,
+                );
+              },
+              e => {},
+            ),
+        },
+      ],
+      {cancelable: true},
+    );
+  };
+
+  const setImage = (first, base64, type) => {
+    if (base64 == null) return;
+    updateState({similarity: null});
+    if (first) {
+      image1.bitmap = base64;
+      image1.imageType = type;
+      updateState({img1: {uri: 'data:image/png;base64,' + base64}});
+    } else {
+      image2.bitmap = base64;
+      image2.imageType = type;
+      matchFaces();
+      updateState({img2: {uri: 'data:image/png;base64,' + base64}});
+    }
+  };
+
+  // Match the faces
+  const matchFaces = () => {
+    if (
+      image1 == null ||
+      image1.bitmap == null ||
+      image1.bitmap == '' ||
+      image2 == null ||
+      image2.bitmap == null ||
+      image2.bitmap == ''
+    )
+      return;
+    request.images = [image1, image2];
+    updateState({isLoading: true});
+    FaceSDK.matchFaces(
+      JSON.stringify(request),
+      response => {
+        response = MatchFacesResponse.fromJson(JSON.parse(response));
+        console.log(response, 'response>response');
+        if (response?.unmatchedFaces && response?.unmatchedFaces.length) {
+          showError(
+            response?.unmatchedFaces[0]?.exception?.message ||
+              response?.unmatchedFaces[0]?.exception?.message,
+          );
+          updateState({isLoading: false});
+        } else if (response?.matchedFaces && response?.matchedFaces.length) {
+          let matchedFaces = response.matchedFaces;
+          console.log(matchedFaces, 'matchedFaces');
+          updateState({
+            isLoading: false,
+          });
+          let similarValue =
+            matchedFaces.length > 0
+              ? (matchedFaces[0].similarity * 100).toFixed(2)
+              : 0;
+
+          console.log(similarValue, 'similarValue>>>UPDATED');
+          if (similarValue && similarValue >= 90) {
+            updateState({
+              faceImage: {uri: 'data:image/png;base64,' + image2.bitmap},
+            });
+            showSuccess(strings.IMAGEMATCHED);
+          } else if (similarValue && similarValue != null) {
+            updateState({
+              faceImage: null,
+            });
+            showSuccess(strings.FACEIMAGENOTFOUND);
+          } else {
+          }
+        }
+      },
+      e => {
+        console.log(e, 'error');
+        updateState({isLoading: false});
+        // this.setState({similarity: e});
+      },
+    );
+  };
+
+  useEffect(() => {
+    console.log(faceImage, 'faceImage');
+  }, [faceImage]);
 
   return (
     <WrapperContainer
@@ -391,7 +587,7 @@ export default function TaskCompleteDocument({route, navigation}) {
                         style={{
                           width: width - 40,
                           height: height - 40, //362 is actual height of image
-                          alignSelf: 'center',
+                          // alignSelf: 'center',
                         }}
                         resizeMode={'contain'}
                       />
@@ -441,11 +637,24 @@ export default function TaskCompleteDocument({route, navigation}) {
                   />
                 )}
 
-                {/* signature image */}
+                {/* image */}
                 {!!image && (
                   <Image
                     source={{
                       uri: image,
+                    }}
+                    style={{
+                      width: width / 3.5,
+                      height: width / 3.5, //362 is actual height of image
+                    }}
+                  />
+                )}
+
+                {/* faceImage */}
+                {!!faceImage && (
+                  <Image
+                    source={{
+                      uri: faceImage.uri,
                     }}
                     style={{
                       width: width / 3.5,

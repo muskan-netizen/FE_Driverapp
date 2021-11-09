@@ -44,8 +44,8 @@ export default function Wallet({route, navigation}) {
   const [state, setState] = useState({
     isLoading: true,
     totalCashCollected: 0,
-    allTaskInHistory:[],
-   
+    allTaskInHistory: [],
+
     isRefreshing: false,
     pageNo: 1,
     isModalVisibleForDateTime: false,
@@ -53,6 +53,7 @@ export default function Wallet({route, navigation}) {
     savedDate: null,
     lifetimeAmount: 0.0,
     currentAmount: 0.0,
+    limit: 50,
   });
 
   const {
@@ -66,6 +67,7 @@ export default function Wallet({route, navigation}) {
     isRefreshing,
     pageNo,
     isModalVisibleForDateTime,
+    limit,
   } = state;
   const commonStyles = commonStylesFunc({fontFamily});
   const updateState = data => setState(state => ({...state, ...data}));
@@ -89,7 +91,8 @@ export default function Wallet({route, navigation}) {
   const getWalletDataOfDriver = () => {
     actions
       .getWalletData(
-        `/${userData?.id}`,
+        // `/${userData?.id}`,
+        `/5?page=${pageNo}&limit=${limit}`,
         {},
         {client: clientInfo?.database_name},
       )
@@ -98,7 +101,10 @@ export default function Wallet({route, navigation}) {
         updateState({
           lifetimeAmount: res?.driver_cost,
           currentAmount: Number(res?.final_balance),
-          allTaskInHistory:res?.payments,
+          allTaskInHistory:
+            pageNo == 1
+              ? res?.payments.data
+              : [...allTaskInHistory, ...res?.payments?.data],
           isLoading: false,
           isRefreshing: false,
         });
@@ -137,49 +143,114 @@ export default function Wallet({route, navigation}) {
     return (
       <View
         style={{
-          flexDirection: 'row',
+          backgroundColor: colors.lightGreyBg3,
           marginBottom: moderateScale(15),
           marginHorizontal: moderateScale(10),
+          borderRadius: moderateScale(10),
+          padding: moderateScale(20),
         }}>
-        <View style={{flex: 0.2}}>
+        <View
+          style={{
+            flexDirection: 'row',
+          }}>
+          <View style={{flex: 0.2}}>
+            <View
+              style={[
+                styles.circleView,
+                {
+                  backgroundColor: getDynamicUpdateOnValues(item),
+                },
+              ]}>
+              <Text style={styles.messageInitial}>
+                {item?.task_type_id ? `T` : item?.cr ? `C` : `D`}
+              </Text>
+            </View>
+          </View>
+
+          <View style={{flex: 0.6, justifyContent: 'center'}}>
+            <Text numberOfLines={2} style={styles.message}>
+              {item?.cr ? `Payment Credited` : `Payment Debited`}
+            </Text>
+            <Text numberOfLines={1} style={styles.dateTime}>
+              {/* {item.dateTime} */}
+              {moment(item?.created_at).format('lll')}
+            </Text>
+          </View>
+
           <View
-            style={[
-              styles.circleView,
-              {
-                backgroundColor: getDynamicUpdateOnValues(item),
-              },
-            ]}>
-            <Text style={styles.messageInitial}>
-            {item?.cr
-              ? `C`
-              : `D`}
+            style={{
+              flex: 0.2,
+              justifyContent: 'center',
+              alignItems: 'flex-end',
+            }}>
+            <Text
+              style={[
+                styles.amount,
+                {
+                  color:
+                    item?.status > 0
+                      ? colors.green
+                      : item?.task_type_id
+                      ? colors.lightGreyBg2
+                      : colors.black,
+                },
+              ]}>
+              {item?.task_type_id
+                ? `Task# ${item?.id}`
+                : item?.cr
+                ? `+ ${item?.cr}`
+                : `- ${item?.dr}`}
             </Text>
           </View>
         </View>
 
-        <View style={{flex: 0.6, justifyContent: 'center'}}>
-          <Text numberOfLines={2} style={styles.message}>
-            {item?.cr
-              ? `Payment Credited`
-              : `Payment Debited`}
-          </Text>
-          <Text numberOfLines={1} style={styles.dateTime}>
-            {/* {item.dateTime} */}
-            {moment(item?.created_at).format('lll')}
-          </Text>
-        </View>
+        {!!item?.task_type_id && (
+          <View style={styles.moneyViewTransaction}>
+            <View
+              style={{
+                flex: 0.33,
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}>
+              <Text style={styles.currency}>{'+150.00'}</Text>
+              <Text style={styles.earningBottomTextLable}>
+                {strings.CASHCOLLECTEDCAPS}
+              </Text>
+            </View>
+            <View
+              style={{
+                flex: 0.33,
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}>
+              <Text style={styles.currency}>{'+50.00'}</Text>
+              <Text style={styles.earningBottomTextLable}>
+                {strings.ORDEREARNING}
+              </Text>
+            </View>
+            <View
+              style={{
+                flex: 0.33,
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}>
+              <Text style={styles.amountToReturn}>{'-100.00'}</Text>
+              <Text style={styles.earningBottomTextLable}>{strings.NET}</Text>
+            </View>
+          </View>
+        )}
 
-        <View style={{flex: 0.2, justifyContent: 'center'}}>
-          <Text
-            style={[
-              styles.amount,
-              {color: item?.status > 0 ? colors.green : colors.black},
-            ]}>
-            {item?.cr
-              ? `+ ${(item?.cr)}`
-              : `- ${(item?.dr)}`}
-          </Text>
-        </View>
+        {/* address view */}
+        {!!item?.task_type_id && (
+          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            <Image source={imagePath?.location} />
+            <Text
+              style={[styles.address, {marginLeft: moderateScale(10)}]}
+              numberOfLines={2}>
+              {item?.location ? item?.location?.address : 'Chandigarh, India'}
+            </Text>
+          </View>
+        )}
       </View>
     );
   };
@@ -212,16 +283,35 @@ export default function Wallet({route, navigation}) {
     }
   };
 
+  /*****TOP HEADER REVENUE VIEW***** */
   const revenueView = () => {
     return (
-      <LinearGradient
-        style={styles.gradientStyle}
-        start={{x: 0, y: 0}}
-        end={{x: 1, y: 0}}
-        colors={['#0892d0', '#0892d0', colors?.themeColor]}>
-        <Text style={styles.totalRevenue}>{strings.TOTALREVNUE}</Text>
-        <Text style={styles.amountText}>{currentAmount.toFixed(2)}</Text>
-      </LinearGradient>
+      <View style={{flexDirection: 'row', justifyContent: 'center'}}>
+        <LinearGradient
+          style={[styles.gradientStyle, {marginRight: moderateScale(20)}]}
+          start={{x: 0, y: 0}}
+          end={{x: 1, y: 0}}
+          colors={[colors?.orangeC, colors?.orangeC, colors?.orangeC]}>
+          <Image
+            source={imagePath.lifeTimeEarn}
+            style={{marginBottom: moderateScale(10)}}
+          />
+          <Text style={styles.totalRevenue}>{strings.LIFETIMEEARNING}</Text>
+          <Text style={styles.amountText}>{currentAmount.toFixed(2)}</Text>
+        </LinearGradient>
+        <LinearGradient
+          style={styles.gradientStyle}
+          start={{x: 0, y: 0}}
+          end={{x: 1, y: 0}}
+          colors={[colors?.themeColor, colors?.themeColor, colors?.themeColor]}>
+          <Image
+            source={imagePath.currentBalance}
+            style={{marginBottom: moderateScale(10)}}
+          />
+          <Text style={styles.totalRevenue}>{strings.TOTALREVNUE}</Text>
+          <Text style={styles.amountText}>{currentAmount.toFixed(2)}</Text>
+        </LinearGradient>
+      </View>
     );
   };
   return (
@@ -237,15 +327,7 @@ export default function Wallet({route, navigation}) {
         // onPressLeft={()=>navigation.goBack()}
         centerTitle={strings.WALLET}
       />
-      <View style={{...commonStyles.headerTopLine}} />
-
-      <View style={styles.cashCollectionContainer}>
-        <View style={styles.cashTextView}>
-          <Text style={styles.cashCollected}>{`${
-            strings.LIFETIMEEARNING
-          } :- ${lifetimeAmount.toFixed(2)}`}</Text>
-        </View>
-      </View>
+      {/* <View style={{...commonStyles.headerTopLine}} /> */}
 
       <View
         style={{
