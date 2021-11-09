@@ -540,7 +540,7 @@ android {
             resValue "string", "app_name", "Elcheregio"
         }
 
-          hmc {
+        hmc {
             dimension "appType"
             versionCode 1
             versionName "1.0"
@@ -561,53 +561,53 @@ android {
             applicationId 'com.ExpressDeliverysLLC.royodispatcher'
             resValue "string", "app_name", "ExpressDeliverysLLC Dispatch"
         }
-            pinkJet {
-                        dimension "appType"
-                        versionCode 1
-                        versionName "1.0"
-                        minSdkVersion rootProject.ext.minSdkVersion
-                        targetSdkVersion rootProject.ext.targetSdkVersion
-                        // applicationIdSuffix ".royoorder"
-                        applicationId 'com.PinkJet.royodispatcher'
-                        resValue "string", "app_name", "pinkJet"
-                    }
-                    botSeat {
-                            dimension "appType"
-                            versionCode 1
-                            versionName "1.0"
-                            minSdkVersion rootProject.ext.minSdkVersion
-                            targetSdkVersion rootProject.ext.targetSdkVersion
-                            // applicationIdSuffix ".royoorder"
-                            applicationId 'com.BotSeat.royodispatcher'
-                            resValue "string", "app_name", "BotSeat"
+        pinkJet {
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.PinkJet.royodispatcher'
+            resValue "string", "app_name", "pinkJet"
+        }
+        botSeat {
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.BotSeat.royodispatcher'
+            resValue "string", "app_name", "BotSeat"
 
-                        }
+        }
 
-                            mokabFix {
+        mokabFix {
 
-                            dimension "appType"
-                            versionCode 1
-                            versionName "1.0"
-                            minSdkVersion rootProject.ext.minSdkVersion
-                            targetSdkVersion rootProject.ext.targetSdkVersion
-                            // applicationIdSuffix ".royoorder"
-                            applicationId 'com.MokabFix.royodispatcher'
-                            resValue "string", "app_name", "MokabFix"
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.MokabFix.royodispatcher'
+            resValue "string", "app_name", "MokabFix"
 
-                            }
+        }
 
-                            spidbi {
+        spidbi {
 
-                            dimension "appType"
-                            versionCode 1
-                            versionName "1.0"
-                            minSdkVersion rootProject.ext.minSdkVersion
-                            targetSdkVersion rootProject.ext.targetSdkVersion
-                            // applicationIdSuffix ".royoorder"
-                            applicationId 'com.spidbi.royodispatcher'
-                            resValue "string", "app_name", "spidibi"
-                            
-                            }
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.spidbi.royodispatcher'
+            resValue "string", "app_name", "spidibi"
+        
+        }
 
 
 
