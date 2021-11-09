@@ -30,10 +30,14 @@ const shortCodes = {
   loopWhole: '5aca0c',
   maxis: '07b461',
   donepacked: 'b3b91d',
-  careWorks: '3554f0',
+  careWorks:'3554f0',
   thubaeRides: 'af635b',
   menus: '4d1ec2',
   maxisdelivery: '07b461',
+  pinkJet: 'f139cb',
+  botSeat: 'd2e9b6',
+  mokabFix: 'e5a878',
+  spidbi: '954b3d',
 };
 
 // Goody Dispatch
@@ -167,6 +171,22 @@ const appIds = {
   maxisdelivery: Platform.select({
     ios: 'com.Maxisdelivery.Dispatch',
     android: 'com.Maxisdelivery.royodispatcher',
+  }),
+  pinkJet: Platform.select({
+    ios: 'com.PinkJet.Dispatch',
+    android: 'com.PinkJet.royodispatcher',
+  }),
+  botSeat: Platform.select({
+    ios: 'com.BotSeat.Dispatch',
+    android: 'com.BotSeat.royodispatcher',
+  }),
+  mokabFix: Platform.select({
+    ios: 'com.MokabFix.Dispatch',
+    android: 'com.MokabFix.royodispatcher',
+  }),
+  spidbi: Platform.select({
+    ios: 'com.Spidbi.Dispatch',
+    android: 'com.spidbi.royodispatcher',
   }),
 };
 

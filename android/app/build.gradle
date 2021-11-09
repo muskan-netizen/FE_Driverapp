@@ -517,7 +517,46 @@ android {
             applicationId 'com.Maxisdelivery.royodispatcher'
             resValue "string", "app_name", "Maxis Delivery"
         }
-
+        pinkJet {
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.PinkJet.royodispatcher'
+            resValue "string", "app_name", "pinkJet"
+        }
+        botSeat {
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.BotSeat.royodispatcher'
+            resValue "string", "app_name", "BotSeat"
+        }
+        mokabFix {
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.MokabFix.royodispatcher'
+            resValue "string", "app_name", "MokabFix"
+        }
+        spidbi {
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.spidbi.royodispatcher'
+            resValue "string", "app_name", "spidibi"
+        }
 
     }
 }

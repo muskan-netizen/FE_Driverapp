@@ -268,6 +268,30 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.pinkJet:
+          updateState({
+            shortCode: shortCodes.pinkJet,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.botSeat:
+          updateState({
+            shortCode: shortCodes.botSeat,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.mokabFix:
+          updateState({
+            shortCode: shortCodes.mokabFix,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.spidbi:
+          updateState({
+            shortCode: shortCodes.spidbi,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, []);

@@ -1,0 +1,11 @@
+#include "Pods/Target Support Files/Pods-BotSeat/Pods-BotSeat.release.xcconfig"
+
+
+PROJECT_BUNDLE_ID = com.BotSeat.Dispatch
+PROJECT_APP_VERSION = 1.0
+PROJECT_BUILD_NUMBER = 1
+PROJECT_APP_NAME =BotSeat
+PROJECT_PLIST =BotSeatInfo
+PROJECT_ENTITLEMENT=RoyoDriverAppRelease
+
+
