@@ -121,6 +121,7 @@ export default {
   "PAYMENTDEBITED": "Pago debitado",
   "TASK": "Tarea",
   "IMAGEMATCHED": "Imagen emparejada correctamente",
-  "FACEIMAGENOTFOUND": "La imagen no coincide con su imagen de perfil.\nPor favor, cargue la imagen de la cara adecuada"
-  
+  "FACEIMAGENOTFOUND": "La imagen no coincide con su imagen de perfil.\nPor favor, cargue la imagen de la cara adecuada",
+  "FACEDETECTION": "Detección de rostros",
+  "FACEIMAGEREQUIRED": "Se requiere detección de rostros"
 };

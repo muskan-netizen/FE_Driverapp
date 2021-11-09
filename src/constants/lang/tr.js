@@ -120,5 +120,7 @@ export default {
   "PAYMENTDEBITED":"Payment Debited",
   "TASK":"Task",
   "IMAGEMATCHED":"Image matched successfully",
-  "FACEIMAGENOTFOUND":"Image not matched with your profile image.\nPlease upload the proper face image"
+  "FACEIMAGENOTFOUND":"Image not matched with your profile image.\nPlease upload the proper face image",
+  "FACEDETECTION":"Face Detection",
+  "FACEIMAGEREQUIRED": "Face detection is required"
 };

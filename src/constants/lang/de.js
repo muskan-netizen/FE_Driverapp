@@ -117,5 +117,7 @@ export default {
   "PAYMENTDEBITED":"Payment Debited",
   "TASK":"Task",
   "IMAGEMATCHED": "Bild erfolgreich abgeglichen",
-  "FACEIMAGENOTFOUND": "Bild stimmt nicht mit Ihrem Profilbild überein.\nBitte laden Sie das richtige Gesichtsbild hoch"
+  "FACEIMAGENOTFOUND": "Bild stimmt nicht mit Ihrem Profilbild überein.\nBitte laden Sie das richtige Gesichtsbild hoch",
+  "FACEDETECTION": "Gesichtserkennung",
+  "FACEIMAGEREQUIRED": "Gesichtserkennung ist erforderlich"
 };

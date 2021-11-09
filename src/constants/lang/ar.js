@@ -134,5 +134,7 @@ export default {
   "PAYMENTDEBITED": "الدفع المدين",
   "TASK": "مهمة",
   "IMAGEMATCHED": "تطابق الصورة بنجاح",
-  "FACEIMAGENOTFOUND": "الصورة غير متطابقة مع صورة ملفك الشخصي.\nالرجاء تحميل صورة الوجه المناسبة"
+  "FACEIMAGENOTFOUND": "الصورة غير متطابقة مع صورة ملفك الشخصي.\nالرجاء تحميل صورة الوجه المناسبة",
+  "FACEDETECTION": "كشف الوجه",
+  "FACEIMAGEREQUIRED": "مطلوب الكشف عن الوجه"
 };

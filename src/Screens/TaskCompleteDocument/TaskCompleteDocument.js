@@ -51,6 +51,7 @@ export default function TaskCompleteDocument({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
   const taskDetail = route?.params?.data?.taskDetail;
   const updatedProofArray = route?.params?.data?.updatedProofArray;
+  console.log(updatedProofArray, 'updatedProofArray');
   const findDataToCheck = route?.params?.data?.findDataToCheck;
   const params = route?.params;
   const [state, setState] = useState({
@@ -63,6 +64,8 @@ export default function TaskCompleteDocument({route, navigation}) {
     signatureImageName: null,
     image: null,
     imageName: null,
+    faceImage: null,
+    faceImageName: null,
     qrcode: null,
     otpField: '',
     img1: null,
@@ -72,6 +75,8 @@ export default function TaskCompleteDocument({route, navigation}) {
   });
 
   const {
+    faceImage,
+    faceImageName,
     img1,
     img2,
     signatureImageName,
@@ -203,12 +208,12 @@ export default function TaskCompleteDocument({route, navigation}) {
     //Signature upload
     if (i?.id == 1) {
       updateState({showInputBox: false});
-      pickImage(false);
-      // moveToNewScreen(navigationStrings.ADDSIGNATURE, {
-      //   updateSignature: data => {
-      //     updateSignature(data);
-      //   },
-      // })();
+      // pickImage(false);
+      moveToNewScreen(navigationStrings.ADDSIGNATURE, {
+        updateSignature: data => {
+          updateSignature(data);
+        },
+      })();
     }
 
     //Photo upload
@@ -253,6 +258,11 @@ export default function TaskCompleteDocument({route, navigation}) {
         })
         .catch(error => console.log('error while accessing location ', error));
     }
+
+    if (i?.id == 5) {
+      updateState({showInputBox: false});
+      pickImage(false);
+    }
   };
   /****** */
 
@@ -269,6 +279,9 @@ export default function TaskCompleteDocument({route, navigation}) {
         break;
       case 4:
         return qrcode ? imagePath?.codeActive : imagePath?.codeInactive;
+        break;
+      case 5:
+        return faceImage ? imagePath?.faceActive : imagePath?.faceInactive;
         break;
       default:
         break;
@@ -301,6 +314,12 @@ export default function TaskCompleteDocument({route, navigation}) {
       !qrcode
     ) {
       showError(strings.QRSCAN);
+    } else if (
+      findDataToCheck?.face &&
+      findDataToCheck?.face_requried &&
+      !faceImage
+    ) {
+      showError(strings.FACEIMAGEREQUIRED);
     } else if (
       params?.data?.otpEnabled &&
       params?.data?.otpRequired &&
@@ -341,6 +360,13 @@ export default function TaskCompleteDocument({route, navigation}) {
         uri: image,
       });
     }
+    if (faceImage) {
+      formdata.append('proof_face', {
+        type: 'image/jpeg',
+        uri: faceImage?.uri,
+      });
+    }
+
     if (params?.data?.otpEnabled) {
       formdata.append('otp', otpField);
     }
@@ -395,13 +421,6 @@ export default function TaskCompleteDocument({route, navigation}) {
                 return err;
               });
           },
-          // launchImageLibrary({includeBase64: true}, response => {
-          //   setImage(
-          //     first,
-          //     response.base64,
-          //     Enum.ImageType.IMAGE_TYPE_PRINTED,
-          //   );
-          // }),
         },
         {
           text: 'Use camera',
@@ -424,19 +443,13 @@ export default function TaskCompleteDocument({route, navigation}) {
   };
 
   const setImage = (first, base64, type) => {
-    console.log(first, 'first');
-    console.log(base64, 'base64');
-    console.log(type, 'type');
     if (base64 == null) return;
     updateState({similarity: null});
     if (first) {
       image1.bitmap = base64;
       image1.imageType = type;
       updateState({img1: {uri: 'data:image/png;base64,' + base64}});
-      updateState({liveness: null});
     } else {
-      // image1.bitmap = base64;
-      // image1.imageType = type;
       image2.bitmap = base64;
       image2.imageType = type;
       matchFaces();
@@ -444,9 +457,8 @@ export default function TaskCompleteDocument({route, navigation}) {
     }
   };
 
+  // Match the faces
   const matchFaces = () => {
-    console.log(image1, 'image1');
-    console.log(image2, 'image2');
     if (
       image1 == null ||
       image1.bitmap == null ||
@@ -457,8 +469,6 @@ export default function TaskCompleteDocument({route, navigation}) {
     )
       return;
     request.images = [image1, image2];
-    console.log(request, 'request>request');
-    // alert('213');
     updateState({isLoading: true});
     FaceSDK.matchFaces(
       JSON.stringify(request),
@@ -472,15 +482,29 @@ export default function TaskCompleteDocument({route, navigation}) {
           );
           updateState({isLoading: false});
         } else if (response?.matchedFaces && response?.matchedFaces.length) {
-          matchedFaces = response.matchedFaces;
+          let matchedFaces = response.matchedFaces;
           console.log(matchedFaces, 'matchedFaces');
           updateState({
             isLoading: false,
-            similarity:
-              matchedFaces.length > 0
-                ? (matchedFaces[0].similarity * 100).toFixed(2)
-                : 'error',
           });
+          let similarValue =
+            matchedFaces.length > 0
+              ? (matchedFaces[0].similarity * 100).toFixed(2)
+              : 0;
+
+          console.log(similarValue, 'similarValue>>>UPDATED');
+          if (similarValue && similarValue >= 90) {
+            updateState({
+              faceImage: {uri: 'data:image/png;base64,' + image2.bitmap},
+            });
+            showSuccess(strings.IMAGEMATCHED);
+          } else if (similarValue && similarValue != null) {
+            updateState({
+              faceImage: null,
+            });
+            showSuccess(strings.FACEIMAGENOTFOUND);
+          } else {
+          }
         }
       },
       e => {
@@ -492,14 +516,8 @@ export default function TaskCompleteDocument({route, navigation}) {
   };
 
   useEffect(() => {
-    console.log(similarity, 'similarity>>>UPDATED');
-    if (similarity && similarity >= 90) {
-      showSuccess(strings.IMAGEMATCHED);
-    } else if (similarity && similarity != null) {
-      showSuccess(strings.FACEIMAGENOTFOUND);
-    } else {
-    }
-  }, [similarity]);
+    console.log(faceImage, 'faceImage');
+  }, [faceImage]);
 
   return (
     <WrapperContainer
@@ -569,7 +587,7 @@ export default function TaskCompleteDocument({route, navigation}) {
                         style={{
                           width: width - 40,
                           height: height - 40, //362 is actual height of image
-                          alignSelf: 'center',
+                          // alignSelf: 'center',
                         }}
                         resizeMode={'contain'}
                       />
@@ -619,11 +637,24 @@ export default function TaskCompleteDocument({route, navigation}) {
                   />
                 )}
 
-                {/* signature image */}
+                {/* image */}
                 {!!image && (
                   <Image
                     source={{
                       uri: image,
+                    }}
+                    style={{
+                      width: width / 3.5,
+                      height: width / 3.5, //362 is actual height of image
+                    }}
+                  />
+                )}
+
+                {/* faceImage */}
+                {!!faceImage && (
+                  <Image
+                    source={{
+                      uri: faceImage.uri,
                     }}
                     style={{
                       width: width / 3.5,

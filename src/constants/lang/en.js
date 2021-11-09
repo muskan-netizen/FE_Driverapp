@@ -85,14 +85,14 @@ export default {
   "ACCEPT": "Accept",
   "REJECT": "Reject",
   "UPLOAD": "Upload",
-  "OTP": "Otp*",
-  "OTPREQUIRED": "Otp field is required",
-  "OTPNOTVALID": "Otp is invalid",
+  "OTP": "OTP*",
+  "OTPREQUIRED": "OTP field is required",
+  "OTPNOTVALID": "OTP is invalid",
   "SETTINGS": "Setting",
   "LANGUAGE": "Language",
   "CANCEL1": "CANCEL",
   "OK": "OK",
-  "OTPSENDSUCCESS": "Otp send successfuly.",
+  "OTPSENDSUCCESS": "OTP send successfuly.",
   "ACCOUNTVERIFYSUCESS": "Account verfied successfully.",
   "SUCCESS": "Success",
   "LOADING": "Loading",
@@ -120,5 +120,8 @@ export default {
   "PAYMENTDEBITED":"Payment Debited",
   "TASK":"Task",
   "IMAGEMATCHED":"Image matched successfully",
-  "FACEIMAGENOTFOUND":"Image not matched with your profile image.\nPlease upload the proper face image"
+  "FACEIMAGENOTFOUND":"Image not matched with your profile image.\nPlease upload the proper face image",
+  "FACEDETECTION":"Face Detection*",
+  "FACEIMAGEREQUIRED": "Face detection is required",
+
 };

@@ -118,6 +118,8 @@ export default {
   "PAYMENTDEBITED": "付款借记",
   "TASK": "任务",
   "IMAGEMATCHED": "图像匹配成功",
-  "FACEIMAGENOTFOUND": "图像与个人资料图像不匹配。\n请上传正确的面部图像"
+  "FACEIMAGENOTFOUND": "图像与个人资料图像不匹配。\n请上传正确的面部图像",
+  "FACEDETECTION": "人脸检测",
+  "FACEIMAGEREQUIRED": "需要人脸检测"
   };
   

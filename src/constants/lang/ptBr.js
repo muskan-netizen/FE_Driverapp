@@ -118,6 +118,8 @@ export default {
 "PAYMENTDEBITED": "Pagamento Debitado",
 "TASK": "Tarefa",
 "IMAGEMATCHED": "Imagem combinada com sucesso",
-"FACEIMAGENOTFOUND": "A imagem não corresponde à sua imagem de perfil.\nPor favor, carregue a imagem facial adequada"
+"FACEIMAGENOTFOUND": "A imagem não corresponde à sua imagem de perfil.\nPor favor, carregue a imagem facial adequada",
+"FACEDETECTION": "Detecção facial",
+"FACEIMAGEREQUIRED": "A detecção facial é necessária"
 };
   
