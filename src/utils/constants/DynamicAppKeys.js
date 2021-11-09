@@ -30,7 +30,7 @@ const shortCodes = {
   loopWhole: '5aca0c',
   maxis: '07b461',
   donepacked: 'b3b91d',
-  careWorks:'3554f0',
+  careWorks: '3554f0',
   thubaeRides: 'af635b',
   menus: '4d1ec2',
   maxisdelivery: '07b461',
@@ -38,6 +38,10 @@ const shortCodes = {
   botSeat: 'd2e9b6',
   mokabFix: 'e5a878',
   spidbi: '954b3d',
+  wh: '8e0c3d',
+  elcheregio: '956701',
+  hmc: '1a3d96',
+  expressdeliverys: '3911a0',
 };
 
 // Goody Dispatch
@@ -187,6 +191,22 @@ const appIds = {
   spidbi: Platform.select({
     ios: 'com.Spidbi.Dispatch',
     android: 'com.spidbi.royodispatcher',
+  }),
+  wh: Platform.select({
+    ios: 'com.wh.dispatcher',
+    android: 'com.wh.dispatcher',
+  }),
+  elcheregio: Platform.select({
+    ios: 'com.ElCheRegio.Dispatch',
+    android: 'com.ElCheRegio.Dispatch',
+  }),
+  hmc: Platform.select({
+    ios: 'com.HMC.Dispatch',
+    android: 'com.HMC.royodispatcher',
+  }),
+  expressdeliverys: Platform.select({
+    ios: 'com.ExpressDeliverysLLC.Dispatch',
+    android: 'com.ExpressDeliverysLLC.royodispatcher',
   }),
 };
 

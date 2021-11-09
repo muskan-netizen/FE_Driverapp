@@ -545,44 +545,104 @@ target 'MaxisDelivery' do
 end
 
 
+#WH Target
+target 'WH' do
+  permissions_path = '../node_modules/react-native-permissions/ios'
+  config = use_native_modules!
+  use_react_native!(
+    :path => config[:reactNativePath],
+    :hermes_enabled => false
+  )
+  pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
+  pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
+  pod 'RNFS', :path => '../node_modules/react-native-fs'
+end
+
+#Elcheregio Target
+target 'Elcheregio' do
+  permissions_path = '../node_modules/react-native-permissions/ios'
+  config = use_native_modules!
+  use_react_native!(
+    :path => config[:reactNativePath],
+    :hermes_enabled => false
+  )
+  pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
+  pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
+  pod 'RNFS', :path => '../node_modules/react-native-fs'
+end
+
+#Hmc Target
+target 'Hmc' do
+  permissions_path = '../node_modules/react-native-permissions/ios'
+  config = use_native_modules!
+  use_react_native!(
+    :path => config[:reactNativePath],
+    :hermes_enabled => false
+  )
+  pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
+  pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
+  pod 'RNFS', :path => '../node_modules/react-native-fs'
+end
+
+#ExpressDeliverys Target
+target 'ExpressDeliverys' do
+  permissions_path = '../node_modules/react-native-permissions/ios'
+  config = use_native_modules!
+  use_react_native!(
+    :path => config[:reactNativePath],
+    :hermes_enabled => false
+  )
+  pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
+  pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
+  pod 'RNFS', :path => '../node_modules/react-native-fs'
+end
+
 #BotSeat Delivery Target
 target 'BotSeat' do
   permissions_path = '../node_modules/react-native-permissions/ios'
   config = use_native_modules!
   use_react_native!(
-    :path => config[:reactNativePath],
-    :hermes_enabled => false
+  :path => config[:reactNativePath],
+  :hermes_enabled => false
   )
   pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
   pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
   pod 'RNFS', :path => '../node_modules/react-native-fs'
-end
-
-#MokabFix Delivery Target
-target 'MokabFix' do
+  end
+  
+  #MokabFix Delivery Target
+  target 'MokabFix' do
   permissions_path = '../node_modules/react-native-permissions/ios'
   config = use_native_modules!
   use_react_native!(
-    :path => config[:reactNativePath],
-    :hermes_enabled => false
+  :path => config[:reactNativePath],
+  :hermes_enabled => false
   )
   pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
   pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
   pod 'RNFS', :path => '../node_modules/react-native-fs'
-end
-
-#PinkJet Delivery Target
-target 'PinkJet' do
+  end
+  
+  #PinkJet Delivery Target
+  target 'PinkJet' do
   permissions_path = '../node_modules/react-native-permissions/ios'
   config = use_native_modules!
   use_react_native!(
-    :path => config[:reactNativePath],
-    :hermes_enabled => false
+  :path => config[:reactNativePath],
+  :hermes_enabled => false
   )
   pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
   pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
   pod 'RNFS', :path => '../node_modules/react-native-fs'
-end
+  end
+  
+
+
+

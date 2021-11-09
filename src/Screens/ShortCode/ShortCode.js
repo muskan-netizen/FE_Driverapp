@@ -292,6 +292,30 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.wh:
+          updateState({
+            shortCode: shortCodes.wh,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.elcheregio:
+          updateState({
+            shortCode: shortCodes.elcheregio,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.hmc:
+          updateState({
+            shortCode: shortCodes.hmc,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.expressdeliverys:
+          updateState({
+            shortCode: shortCodes.expressdeliverys,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, []);

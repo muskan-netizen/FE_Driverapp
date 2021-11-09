@@ -3,17 +3,18 @@ export default {
   "COMPANYCODE": 'Código de empresa',
   PHONENUMBER: 'Número de teléfono',
   WENEDDCOMPNAYCODE:
-    'Necesitamos el código de su empresa para configurar el inicio de sesión',
-  WENEDDPHONENUMBER: 'Necesitamos su número de teléfono para identificarlo',
-  INICIARSESIÓN: 'Iniciar sesión',
-  WHEREICANSIGNUP: '¿Dónde puedo registrarme?',
-  BYLOGGING: 'Al iniciar sesión, acepta nuestro',
-  TERMSANDCONDITIONS: 'Términos de servicio',
-  CONTACTNUMBER: 'Contact No.',
-  PRIVACYPOLICY: 'Política de privacidad',
-  CONFIRM: 'Confirmar',
-  CANCEL: 'Cancelar',
-  BYCONTINUE: 'Al continuar, estás de acuerdo con nuestro',
+    'Wir benötigen Ihren Firmencode, um das Login einzurichten',
+  WENEDDPHONENUMBER:
+    'Wir benötigen Ihre Telefonnummer, um Sie zu identifizieren',
+  LOGIN: 'Login',
+  WHEREICANSIGNUP: 'Wo kann ich mich anmelden?',
+  BYLOGGING: 'Mit dem Einloggen erklären Sie sich mit unseren',
+  TERMSANDCONDITIONS: 'Allgemeine Geschäftsbedingungen (AGB)',
+  CONTACTNUMBER: 'Kontakt-Nr.',
+  PRIVACYPOLICY: 'Datenschutzrichtlinie',
+  CONFIRM: 'Bestätigen',
+  CANCEL: 'Abbrechen',
+  BYCONTINUE: 'Indem Sie fortfahren, stimmen Sie unseren',
   AND: 'y',
   VERIFICATION: 'Verificación',
   CODESENTTO: 'Código enviado a',
@@ -106,6 +107,7 @@ export default {
   NOTES: 'Notes *',
   QRCODE: 'QR/code of barras *',
   SUCCESSSIGNUP: 'Registries correctly.',
+<<<<<<< HEAD
   "WALLET": "Billetera",
   "WALLETAMOUNT": "Importe",
   "TOTALREVNUE": "Ingresos totales",
@@ -120,4 +122,15 @@ export default {
   "PAYMENTCREDITED": "Pago acreditado",
   "PAYMENTDEBITED": "Pago debitado",
   "TASK": "Tarea"
+=======
+  WALLET: 'Billetera',
+  WALLETAMOUNT: 'Importe',
+  TOTALREVNUE: 'Ingresos totales',
+  TRANSACTIONHISTORY: 'Historial de transacciones',
+  LANGUAGECHANGED: 'Idioma cambiado correctamente',
+  CONTACT: 'Contact',
+  GETINTOUCH: 'Get in touch',
+  WANTTOGET:
+    "Want to get in touch? we'd love to hear from you,Here's how you can reach us.",
+>>>>>>> c1a3545dafdec34d8f0b41774f7dca97f9c93528
 };
