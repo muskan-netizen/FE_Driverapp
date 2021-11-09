@@ -39,6 +39,7 @@ import FaceSDK, {
   Image as FaceImage,
 } from '@regulaforensics/react-native-face-api-beta';
 import RNFetchBlob from 'rn-fetch-blob';
+import {showMessage} from 'react-native-flash-message';
 
 var image1 = new FaceImage();
 var image2 = new FaceImage();
@@ -48,17 +49,10 @@ const window = Dimensions.get('window');
 
 export default function TaskCompleteDocument({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
-  console.log(userData, 'userData');
   const taskDetail = route?.params?.data?.taskDetail;
-  console.log(taskDetail, 'taskDetail');
   const updatedProofArray = route?.params?.data?.updatedProofArray;
-  console.log(
-    updatedProofArray,
-    'updatedProofArrayupdatedProofArrayupdatedProofArray',
-  );
   const findDataToCheck = route?.params?.data?.findDataToCheck;
   const params = route?.params;
-  console.log(params, 'params>params');
   const [state, setState] = useState({
     isLoading: false,
     taskProofArray: updatedProofArray,
@@ -73,8 +67,8 @@ export default function TaskCompleteDocument({route, navigation}) {
     otpField: '',
     img1: null,
     img2: null,
-    similarity: 'nil',
-    liveness: 'nil',
+    similarity: null,
+    liveness: null,
   });
 
   const {
@@ -143,7 +137,7 @@ export default function TaskCompleteDocument({route, navigation}) {
   };
 
   const onImageLayout = e => {
-    console.log(e.event, 'e.event');
+    // console.log(e.event, 'e.event');
   };
 
   /*****Update Signatur****** */
@@ -434,13 +428,15 @@ export default function TaskCompleteDocument({route, navigation}) {
     console.log(base64, 'base64');
     console.log(type, 'type');
     if (base64 == null) return;
-    updateState({similarity: 'nil'});
+    updateState({similarity: null});
     if (first) {
       image1.bitmap = base64;
       image1.imageType = type;
       updateState({img1: {uri: 'data:image/png;base64,' + base64}});
-      updateState({liveness: 'nil'});
+      updateState({liveness: null});
     } else {
+      // image1.bitmap = base64;
+      // image1.imageType = type;
       image2.bitmap = base64;
       image2.imageType = type;
       matchFaces();
@@ -463,29 +459,47 @@ export default function TaskCompleteDocument({route, navigation}) {
     request.images = [image1, image2];
     console.log(request, 'request>request');
     // alert('213');
+    updateState({isLoading: true});
     FaceSDK.matchFaces(
       JSON.stringify(request),
       response => {
         response = MatchFacesResponse.fromJson(JSON.parse(response));
-        matchedFaces = response.matchedFaces;
-        console.log(matchedFaces,"matchedFaces");
-        // console.log(
-        //   `${(matchedFaces[0].similarity * 100).toFixed(2) + '%'}`,
-        //   'similarity',
-        // );
-        // updateState({
-        //   similarity:
-        //     matchedFaces.length > 0
-        //       ? (matchedFaces[0].similarity * 100).toFixed(2) + '%'
-        //       : 'error',
-        // });
+        console.log(response, 'response>response');
+        if (response?.unmatchedFaces && response?.unmatchedFaces.length) {
+          showError(
+            response?.unmatchedFaces[0]?.exception?.message ||
+              response?.unmatchedFaces[0]?.exception?.message,
+          );
+          updateState({isLoading: false});
+        } else if (response?.matchedFaces && response?.matchedFaces.length) {
+          matchedFaces = response.matchedFaces;
+          console.log(matchedFaces, 'matchedFaces');
+          updateState({
+            isLoading: false,
+            similarity:
+              matchedFaces.length > 0
+                ? (matchedFaces[0].similarity * 100).toFixed(2)
+                : 'error',
+          });
+        }
       },
       e => {
-        console.log(e,"error");
+        console.log(e, 'error');
+        updateState({isLoading: false});
         // this.setState({similarity: e});
       },
     );
   };
+
+  useEffect(() => {
+    console.log(similarity, 'similarity>>>UPDATED');
+    if (similarity && similarity >= 90) {
+      showSuccess(strings.IMAGEMATCHED);
+    } else if (similarity && similarity != null) {
+      showSuccess(strings.FACEIMAGENOTFOUND);
+    } else {
+    }
+  }, [similarity]);
 
   return (
     <WrapperContainer

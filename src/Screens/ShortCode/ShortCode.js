@@ -60,7 +60,6 @@ export default function ShortCode({route, navigation}) {
     state => state?.initBoot?.defaultLanguage,
   );
 
-  console.log(defaultLanguagae, 'defaultLanguagaedefaultLanguagae');
 
   useEffect(() => {
     requestUserPermission();

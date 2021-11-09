@@ -116,6 +116,8 @@ export default {
 "NET": "REDE",
 "PAYMENTCREDITED": "Pagamento Creditado",
 "PAYMENTDEBITED": "Pagamento Debitado",
-"TASK": "Tarefa"
+"TASK": "Tarefa",
+"IMAGEMATCHED": "Imagem combinada com sucesso",
+"FACEIMAGENOTFOUND": "A imagem não corresponde à sua imagem de perfil.\nPor favor, carregue a imagem facial adequada"
 };
   

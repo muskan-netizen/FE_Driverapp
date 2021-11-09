@@ -30,10 +30,7 @@ export default function Settings({route, navigation}) {
   const defaultLanguagae = useSelector(
     state => state?.initBoot?.defaultLanguage,
   );
-  console.log(
-    defaultLanguagae,
-    'defaultLanguagaedefaultLanguagaedefaultLanguagae',
-  );
+  
 
   const styles = stylesFunc({defaultLanguagae});
   const [state, setState] = useState({

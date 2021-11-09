@@ -115,5 +115,7 @@ export default {
   "WANTTOGET":"Want to get in touch? we'd love to hear from you,Here's how you can reach us.",
   "PAYMENTCREDITED":"Payment Credited",
   "PAYMENTDEBITED":"Payment Debited",
-  "TASK":"Task"
+  "TASK":"Task",
+  "IMAGEMATCHED": "Bild erfolgreich abgeglichen",
+  "FACEIMAGENOTFOUND": "Bild stimmt nicht mit Ihrem Profilbild überein.\nBitte laden Sie das richtige Gesichtsbild hoch"
 };

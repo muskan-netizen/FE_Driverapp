@@ -118,5 +118,7 @@ export default {
   "NET":"NET",
   "PAYMENTCREDITED":"Payment Credited",
   "PAYMENTDEBITED":"Payment Debited",
-  "TASK":"Task"
+  "TASK":"Task",
+  "IMAGEMATCHED":"Image matched successfully",
+  "FACEIMAGENOTFOUND":"Image not matched with your profile image.\nPlease upload the proper face image"
 };

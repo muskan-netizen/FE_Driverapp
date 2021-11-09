@@ -116,5 +116,8 @@ export default {
   "NET": "FILET",
   "PAYMENTCREDITED": "Pagamento Creditado",
   "PAYMENTDEBITED": "Pagamento Debitado",
-  "TASK": "Tarefa"
+  "TASK": "Tarefa",
+  "IMAGEMATCHED": "Image mise en correspondance avec succès",
+  "FACEIMAGENOTFOUND": "Image ne correspondant pas à votre image de profil.\nVeuillez télécharger l’image de visage appropriée"
+
 };

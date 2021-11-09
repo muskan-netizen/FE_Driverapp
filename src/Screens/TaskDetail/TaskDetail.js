@@ -49,9 +49,6 @@ export default function TaskDetail({route, navigation}) {
   let taskDetail = route?.params?.data?.item;
   let fromHistory = route?.params?.data?.fromHistory;
 
-  console.log(taskDetail, 'taskDetail');
-  console.log(fromHistory, 'fromHistory');
-
   const [state, setState] = useState({
     isLoading: false,
     region: {
@@ -164,9 +161,7 @@ export default function TaskDetail({route, navigation}) {
     }
   }, [taskDetail, userData]);
 
-  useEffect(() => {
-    console.log(updatedProofArray, 'updated updatedProofArray');
-  }, [updatedProofArray]);
+
 
   useEffect(() => {
     getStatusName(taskStatus);
