@@ -266,6 +266,30 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.pinkJet:
+          updateState({
+            shortCode: shortCodes.pinkJet,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.botSeat:
+          updateState({
+            shortCode: shortCodes.botSeat,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.mokabFix:
+          updateState({
+            shortCode: shortCodes.mokabFix,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.spidbi:
+          updateState({
+            shortCode: shortCodes.spidbi,
+            isShortcodePrefilled: true,
+          });
+          break;
         case appIds.wh:
           updateState({
             shortCode: shortCodes.wh,
@@ -290,9 +314,27 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+<<<<<<< HEAD
+        case appIds.fleety:
+          updateState({
+            shortCode: shortCodes.fleety,
+            isShortcodePrefilled: true,
+          });
+          break;
+          case appIds.dishefs:
+          updateState({
+            shortCode: shortCodes.dishefs,
+            isShortcodePrefilled: true,
+          });
+          break;
+          case appIds.gumastas:
+          updateState({
+            shortCode: shortCodes.gumastas,
+=======
         case appIds.govachow:
           updateState({
             shortCode: shortCodes.govachow,
+>>>>>>> f050a9fc2119c93a8a70306548898cfa9c0e1dce
             isShortcodePrefilled: true,
           });
           break;

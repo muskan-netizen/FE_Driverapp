@@ -34,10 +34,17 @@ const shortCodes = {
   thubaeRides: 'af635b',
   menus: '4d1ec2',
   maxisdelivery: '07b461',
+  pinkJet: 'f139cb',
+  botSeat: 'd2e9b6',
+  mokabFix: 'e5a878',
+  spidbi: '954b3d',
   wh: '8e0c3d',
   elcheregio: '956701',
   hmc: '1a3d96',
   expressdeliverys: '3911a0',
+  fleety: '7c9566',
+  gumastas: '28efb0',
+  dishefs: '44c2bf',
   govachow: 'd8ac18',
 };
 
@@ -173,6 +180,22 @@ const appIds = {
     ios: 'com.Maxisdelivery.Dispatch',
     android: 'com.Maxisdelivery.royodispatcher',
   }),
+  pinkJet: Platform.select({
+    ios: 'com.PinkJet.Dispatch',
+    android: 'com.PinkJet.royodispatcher',
+  }),
+  botSeat: Platform.select({
+    ios: 'com.BotSeat.Dispatch',
+    android: 'com.BotSeat.royodispatcher',
+  }),
+  mokabFix: Platform.select({
+    ios: 'com.MokabFix.Dispatch',
+    android: 'com.MokabFix.royodispatcher',
+  }),
+  spidbi: Platform.select({
+    ios: 'com.Spidbi.Dispatch',
+    android: 'com.spidbi.royodispatcher',
+  }),
   wh: Platform.select({
     ios: 'com.wh.dispatcher',
     android: 'com.wh.dispatcher',
@@ -188,6 +211,18 @@ const appIds = {
   expressdeliverys: Platform.select({
     ios: 'com.ExpressDeliverysLLC.Dispatch',
     android: 'com.ExpressDeliverysLLC.royodispatcher',
+  }),
+  fleety: Platform.select({
+    ios: 'com.Fleety.Dispatch',
+    android: 'com.fleety.royodispatcher',
+  }),
+  gumastas: Platform.select({
+    ios: 'com.Gumastas.Dispatch',
+    android: 'com.Gumastas.royodispatcher',
+  }),
+  dishefs: Platform.select({
+    ios: 'com.Dishefs.Dispatch',
+    android: 'com.Dishefs.royodispatcher',
   }),
   govachow: Platform.select({
     ios: 'com.Govachow.Dispatch',

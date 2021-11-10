@@ -603,6 +603,62 @@ target 'ExpressDeliverys' do
   pod 'RNFS', :path => '../node_modules/react-native-fs'
 end
 
+#BotSeat Delivery Target
+target 'BotSeat' do
+  permissions_path = '../node_modules/react-native-permissions/ios'
+  config = use_native_modules!
+  use_react_native!(
+  :path => config[:reactNativePath],
+  :hermes_enabled => false
+  )
+  pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
+  pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
+  pod 'RNFS', :path => '../node_modules/react-native-fs'
+  end
+  
+  #MokabFix Delivery Target
+  target 'MokabFix' do
+  permissions_path = '../node_modules/react-native-permissions/ios'
+    config = use_native_modules!
+    use_react_native!(
+    :path => config[:reactNativePath],
+    :hermes_enabled => false
+  )
+  pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
+  pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
+  pod 'RNFS', :path => '../node_modules/react-native-fs'
+  end
+  
+  #PinkJet Delivery Target
+  target 'PinkJet' do
+  permissions_path = '../node_modules/react-native-permissions/ios'
+    config = use_native_modules!
+    use_react_native!(
+    :path => config[:reactNativePath],
+    :hermes_enabled => false
+  )
+  pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
+  pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
+  pod 'RNFS', :path => '../node_modules/react-native-fs'
+  end
+  
+#Spidbi Delivery Target
+  target 'Spidbi' do
+    permissions_path = '../node_modules/react-native-permissions/ios'
+    config = use_native_modules!
+    use_react_native!(
+    :path => config[:reactNativePath],
+    :hermes_enabled => false
+  )
+  pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
+  pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
+  pod 'RNFS', :path => '../node_modules/react-native-fs'
+  end
+  
 #Govachow Target
 target 'Govachow' do
   permissions_path = '../node_modules/react-native-permissions/ios'
@@ -619,3 +675,16 @@ end
 
 
 
+#Fleety Delivery Target
+  target 'Fleety' do
+  permissions_path = '../node_modules/react-native-permissions/ios'
+    config = use_native_modules!
+    use_react_native!(
+    :path => config[:reactNativePath],
+    :hermes_enabled => false
+  )
+  pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
+  pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
+  pod 'RNFS', :path => '../node_modules/react-native-fs'
+  end
