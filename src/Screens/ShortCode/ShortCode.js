@@ -60,7 +60,6 @@ export default function ShortCode({route, navigation}) {
     state => state?.initBoot?.defaultLanguage,
   );
 
-
   useEffect(() => {
     requestUserPermission();
   }, []);
@@ -288,6 +287,12 @@ export default function ShortCode({route, navigation}) {
         case appIds.expressdeliverys:
           updateState({
             shortCode: shortCodes.expressdeliverys,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.govachow:
+          updateState({
+            shortCode: shortCodes.govachow,
             isShortcodePrefilled: true,
           });
           break;

@@ -38,6 +38,7 @@ const shortCodes = {
   elcheregio: '956701',
   hmc: '1a3d96',
   expressdeliverys: '3911a0',
+  govachow: 'd8ac18',
 };
 
 // Goody Dispatch
@@ -187,6 +188,10 @@ const appIds = {
   expressdeliverys: Platform.select({
     ios: 'com.ExpressDeliverysLLC.Dispatch',
     android: 'com.ExpressDeliverysLLC.royodispatcher',
+  }),
+  govachow: Platform.select({
+    ios: 'com.Govachow.Dispatch',
+    android: 'com.govachow.royodispatcher',
   }),
 };
 

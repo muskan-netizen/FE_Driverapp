@@ -191,7 +191,6 @@ export default function Login({navigation, route}) {
                 color={colors.black}
                 borderColor={colors.themeColor}
                 callingCodeTextStyle={styles.callingCodeTextStyle}
-
                 // color={isDarkMode ? MyDarkTheme.colors.text : null}
               />
             </View>
