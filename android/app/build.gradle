@@ -287,7 +287,7 @@ android {
                 applicationId 'com.yogofood.royodispatcher'
                 resValue "string", "app_name", "YogoFood Dispatch"
             } 
-            arenagrub {
+        arenagrub {
             dimension "appType"
             versionCode 1
             versionName "1.0"
@@ -328,7 +328,7 @@ android {
             resValue "string", "app_name", "Bustan Fakieh Dispatch"
         } 
 
-            codiner {
+        codiner {
             dimension "appType"
             versionCode 5
             versionName "1.0"
@@ -529,7 +529,7 @@ android {
             resValue "string", "app_name", "WH Delivery"
         }
 
-           elcheregio {
+        elcheregio {
             dimension "appType"
             versionCode 1
             versionName "1.0"
@@ -608,7 +608,43 @@ android {
             resValue "string", "app_name", "spidibi"
         
         }
+    
+        fleety {
 
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.fleety.royodispatcher'
+            resValue "string", "app_name", "fleety"
+        
+        }
+        dishefs {
+
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Dishefs.royodispatcher'
+            resValue "string", "app_name", "Dishefs"
+        
+        }
+        gumastas {
+
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Gumastas.royodispatcher'
+            resValue "string", "app_name", "Gumastas"
+        
+        }
 
 
     }

@@ -42,6 +42,9 @@ const shortCodes = {
   elcheregio: '956701',
   hmc: '1a3d96',
   expressdeliverys: '3911a0',
+  fleety: '7c9566',
+  gumastas: '28efb0',
+  dishefs: '44c2bf',
 };
 
 // Goody Dispatch
@@ -207,6 +210,18 @@ const appIds = {
   expressdeliverys: Platform.select({
     ios: 'com.ExpressDeliverysLLC.Dispatch',
     android: 'com.ExpressDeliverysLLC.royodispatcher',
+  }),
+  fleety: Platform.select({
+    ios: 'com.Fleety.Dispatch',
+    android: 'com.fleety.royodispatcher',
+  }),
+  gumastas: Platform.select({
+    ios: 'com.Gumastas.Dispatch',
+    android: 'com.Gumastas.royodispatcher',
+  }),
+  dishefs: Platform.select({
+    ios: 'com.Dishefs.Dispatch',
+    android: 'com.Dishefs.royodispatcher',
   }),
 };
 
