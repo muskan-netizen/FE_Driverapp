@@ -190,8 +190,8 @@ const appIds = {
     android: 'com.ExpressDeliverysLLC.royodispatcher',
   }),
   govachow: Platform.select({
-    ios: 'com.Govachow.Dispatch',
-    android: 'com.govachow.royodispatcher',
+    ios: 'com.application.Govachow.Dispatch',
+    android: 'com.app.govachow.Dispatcher',
   }),
 };
 

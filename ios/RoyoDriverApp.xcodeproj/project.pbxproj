@@ -445,6 +445,7 @@
 		8463FB5426FCA52F0058D010 /* campton-medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC626E9E6D20066EEEE /* campton-medium.ttf */; };
 		8463FB5526FCA52F0058D010 /* campton-book.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC526E9E6D20066EEEE /* campton-book.ttf */; };
 		8463FB5626FCA52F0058D010 /* campton-semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC326E9E6D20066EEEE /* campton-semibold.ttf */; };
+		846A3143273C02B800077379 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 846A3142273C02B800077379 /* GoogleService-Info.plist */; };
 		847241CD272A744000643BEA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		847241CE272A744000643BEA /* RoyoDriverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E4480626E87ED800452095 /* RoyoDriverApp.swift */; };
 		847241CF272A744000643BEA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -539,7 +540,6 @@
 		84B3FF5F273BA90F00958A3A /* Govachow(Development).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 84B3FF5E273BA90F00958A3A /* Govachow(Development).xcconfig */; };
 		84B3FFAB273BA93600958A3A /* Govachow(Production).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 84B3FFAA273BA93600958A3A /* Govachow(Production).xcconfig */; };
 		84B3FFD2273BA94700958A3A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84B3FFD1273BA94700958A3A /* Images.xcassets */; };
-		84B3FFF9273BA9E700958A3A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84B3FFF8273BA9E700958A3A /* GoogleService-Info.plist */; };
 		84C27C3F270EFAF100C30CA4 /* notification.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84C27C3E270EFAF100C30CA4 /* notification.mp3 */; };
 		84C27C40270EFAF100C30CA4 /* notification.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84C27C3E270EFAF100C30CA4 /* notification.mp3 */; };
 		84CE2BC726E9E6D20066EEEE /* campton-semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC326E9E6D20066EEEE /* campton-semibold.ttf */; };
@@ -894,6 +894,7 @@
 		8463FB6526FCA6BA0058D010 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8463FB6926FCA78B0058D010 /* Runrun(Development).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Runrun(Development).xcconfig"; sourceTree = "<group>"; };
 		8463FB6F26FCA84F0058D010 /* Runrun(Production).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Runrun(Production).xcconfig"; sourceTree = "<group>"; };
+		846A3142273C02B800077379 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		847241F5272A744000643BEA /* Maxis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maxis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84724210272A758000643BEA /* Maxis(Development).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Maxis(Development).xcconfig"; sourceTree = "<group>"; };
 		84724240272A759E00643BEA /* Maxis(Production).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Maxis(Production).xcconfig"; sourceTree = "<group>"; };
@@ -925,7 +926,6 @@
 		84B3FF5E273BA90F00958A3A /* Govachow(Development).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Govachow(Development).xcconfig"; sourceTree = "<group>"; };
 		84B3FFAA273BA93600958A3A /* Govachow(Production).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Govachow(Production).xcconfig"; sourceTree = "<group>"; };
 		84B3FFD1273BA94700958A3A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		84B3FFF8273BA9E700958A3A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84C27C3E270EFAF100C30CA4 /* notification.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = notification.mp3; sourceTree = "<group>"; };
 		84CE2BC326E9E6D20066EEEE /* campton-semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "campton-semibold.ttf"; sourceTree = "<group>"; };
 		84CE2BC426E9E6D20066EEEE /* campton-light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "campton-light.ttf"; sourceTree = "<group>"; };
@@ -1882,7 +1882,7 @@
 		84B3FF5D273BA8AC00958A3A /* Govachow */ = {
 			isa = PBXGroup;
 			children = (
-				84B3FFF8273BA9E700958A3A /* GoogleService-Info.plist */,
+				846A3142273C02B800077379 /* GoogleService-Info.plist */,
 				84B3FF5E273BA90F00958A3A /* Govachow(Development).xcconfig */,
 				84B3FFAA273BA93600958A3A /* Govachow(Production).xcconfig */,
 				84B3FFD1273BA94700958A3A /* Images.xcassets */,
@@ -3623,9 +3623,9 @@
 				84B3FFD2273BA94700958A3A /* Images.xcassets in Resources */,
 				84B3FE47273BA7D700958A3A /* campton-medium.ttf in Resources */,
 				84B3FE48273BA7D700958A3A /* HmcInfo.plist in Resources */,
-				84B3FFF9273BA9E700958A3A /* GoogleService-Info.plist in Resources */,
 				84B3FE49273BA7D700958A3A /* notification.mp3 in Resources */,
 				84B3FF5F273BA90F00958A3A /* Govachow(Development).xcconfig in Resources */,
+				846A3143273C02B800077379 /* GoogleService-Info.plist in Resources */,
 				84B3FE4D273BA7D700958A3A /* campton-book.ttf in Resources */,
 				84B3FE4E273BA7D700958A3A /* RoyoDispatcher(Development).xcconfig in Resources */,
 				84B3FE4F273BA7D700958A3A /* RoyoDispatcher(Production).xcconfig in Resources */,
