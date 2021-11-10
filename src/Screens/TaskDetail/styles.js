@@ -102,7 +102,7 @@ export default ({defaultLanguagae}) => {
       overflow: 'hidden',
     },
     container: {
-      flex: 1,
+      // flex: 1,
       // flexDirection: 'column',
       justifyContent: 'flex-end',
       // marginBottom: -15,

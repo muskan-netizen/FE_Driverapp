@@ -688,8 +688,9 @@ export default function TaskDetail({route, navigation}) {
       {mapView()}
       <View style={styles.mainContainer}>
         {taskDetailView()}
-        {buttonView()}
+      
       </View>
+      {buttonView()}
       <ActionSheet
         ref={actionSheet}
         // title={'Choose one option'}
