@@ -45,6 +45,7 @@ const shortCodes = {
   fleety: '7c9566',
   gumastas: '28efb0',
   dishefs: '44c2bf',
+  govachow: 'd8ac18',
 };
 
 // Goody Dispatch
@@ -222,6 +223,10 @@ const appIds = {
   dishefs: Platform.select({
     ios: 'com.Dishefs.Dispatch',
     android: 'com.Dishefs.royodispatcher',
+  }),
+  govachow: Platform.select({
+    ios: 'com.Govachow.Dispatch',
+    android: 'com.govachow.royodispatcher',
   }),
 };
 

@@ -610,7 +610,6 @@ android {
         }
     
         fleety {
-
             dimension "appType"
             versionCode 1
             versionName "1.0"
@@ -619,6 +618,20 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.fleety.royodispatcher'
             resValue "string", "app_name", "fleety"
+
+            
+        }
+
+
+        govachow {
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+           applicationId 'com.govachow.royodispatcher'
+            resValue "string", "app_name", "Govachow Dispatch"
         
         }
         dishefs {
@@ -645,6 +658,7 @@ android {
             resValue "string", "app_name", "Gumastas"
         
         }
+           
 
 
     }

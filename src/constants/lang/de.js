@@ -1,9 +1,11 @@
 export default {
-  LOGINUSING: 'Login Using',
-  COMPANYCODE: 'Company Code',
-  PHONENUMBER: 'Phone Number',
-  WENEDDCOMPNAYCODE: 'We need your company code to setup login',
-  WENEDDPHONENUMBER: 'We need your Phone number to identify you',
+  LOGINUSING: 'Login mit',
+  COMPANYCODE: 'Firmencode',
+  PHONENUMBER: 'Telefonnummer',
+  WENEDDCOMPNAYCODE:
+    'Wir benötigen Ihren Firmencode, um das Login einzurichten',
+  WENEDDPHONENUMBER:
+    'Wir benötigen Ihre Telefonnummer, um Sie zu identifizieren',
   LOGIN: 'Login',
   WHEREICANSIGNUP: 'Where can i sign up?',
   BYLOGGING: 'By logging in you agree to our',
@@ -115,7 +117,4 @@ export default {
   GETINTOUCH: 'Get in touch',
   WANTTOGET:
     "Want to get in touch? we'd love to hear from you,Here's how you can reach us.",
-  PAYMENTCREDITED: 'Payment Credited',
-  PAYMENTDEBITED: 'Payment Debited',
-  TASK: 'Task',
 };

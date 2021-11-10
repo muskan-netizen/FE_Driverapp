@@ -60,8 +60,6 @@ export default function ShortCode({route, navigation}) {
     state => state?.initBoot?.defaultLanguage,
   );
 
-  console.log(defaultLanguagae, 'defaultLanguagaedefaultLanguagae');
-
   useEffect(() => {
     requestUserPermission();
   }, []);
@@ -316,6 +314,7 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+<<<<<<< HEAD
         case appIds.fleety:
           updateState({
             shortCode: shortCodes.fleety,
@@ -331,6 +330,11 @@ export default function ShortCode({route, navigation}) {
           case appIds.gumastas:
           updateState({
             shortCode: shortCodes.gumastas,
+=======
+        case appIds.govachow:
+          updateState({
+            shortCode: shortCodes.govachow,
+>>>>>>> f050a9fc2119c93a8a70306548898cfa9c0e1dce
             isShortcodePrefilled: true,
           });
           break;

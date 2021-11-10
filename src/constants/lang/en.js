@@ -115,10 +115,4 @@ export default {
   GETINTOUCH: 'Get in touch',
   WANTTOGET:
     "Want to get in touch? we'd love to hear from you, here's how you can reach us.",
-  CASHCOLLECTEDCAPS: 'CASH COLLECTED',
-  ORDEREARNING: 'ORDER EARNING',
-  NET: 'NET',
-  PAYMENTCREDITED: 'Payment Credited',
-  PAYMENTDEBITED: 'Payment Debited',
-  TASK: 'Task',
 };

@@ -132,5 +132,9 @@ export default {
   "NET": "صافي",
   "PAYMENTCREDITED": "الدفع الدائن",
   "PAYMENTDEBITED": "الدفع المدين",
-  "TASK": "مهمة"
+  "TASK": "مهمة",
+  "IMAGEMATCHED": "تطابق الصورة بنجاح",
+  "FACEIMAGENOTFOUND": "الصورة غير متطابقة مع صورة ملفك الشخصي.\nالرجاء تحميل صورة الوجه المناسبة",
+  "FACEDETECTION": "كشف الوجه",
+  "FACEIMAGEREQUIRED": "مطلوب الكشف عن الوجه"
 };

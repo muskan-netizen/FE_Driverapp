@@ -89,6 +89,8 @@
     "dishefsdispatcherRelease": "cd android && ./gradlew assembledishefsRelease",
     "gumastasdispatcher": "react-native run-android --variant=gumastasDebug",
     "gumastasdispatcherRelease": "cd android && ./gradlew assemblegumastasRelease",
+    "govachowdispatcher": "react-native run-android --variant=govachowDebug",
+    "govachowRelease": "cd android && ./gradlew assemblegovachowRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
@@ -107,6 +109,7 @@
     "@react-navigation/drawer": "^6.1.4",
     "@react-navigation/native": "^6.0.2",
     "@react-navigation/native-stack": "^6.1.0",
+    "@regulaforensics/react-native-face-api-beta": "^0.0.38",
     "axios": "^0.21.4",
     "country-data": "^0.0.31",
     "crypto-js": "^4.1.1",
@@ -159,6 +162,7 @@
     "react-redux": "^7.2.2",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
+    "rn-fetch-blob": "^0.12.0",
     "toastify-react-native": "^2.0.0"
   },
   "devDependencies": {
