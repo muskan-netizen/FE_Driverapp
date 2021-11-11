@@ -47,6 +47,7 @@ const shortCodes = {
   dishefs: '44c2bf',
   govachow: 'd8ac18',
   jetrider: '387dd4',
+  bilionza: 'd97efd',
 };
 
 // Goody Dispatch
@@ -229,9 +230,15 @@ const appIds = {
     ios: 'com.application.Govachow.Dispatcher',
     android: 'com.app.govachow.Dispatcher',
   }),
+<<<<<<< HEAD
   jetrider: Platform.select({
     ios: 'com.JetRider.Dispatch',
     android: 'com.JetRider.royodispatcher',
+=======
+  bilionza: Platform.select({
+    ios: 'com.Bilionza.Dispatch',
+    android: 'com.Bilionza.royodispatcher',
+>>>>>>> b97d13b07d09031b92cc39ee4dab8298ddfe9665
   }),
 };
 

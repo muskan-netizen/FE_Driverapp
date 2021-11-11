@@ -656,8 +656,19 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.Gumastas.royodispatcher'
             resValue "string", "app_name", "Gumastas"
+        }
+        bilionza:{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Bilionza.royodispatcher'
+            resValue "string", "app_name", "bilionza"
         
         }
+<<<<<<< HEAD
         jet_rider {
 
             dimension "appType"
@@ -671,6 +682,8 @@ android {
         
         }
            
+=======
+>>>>>>> b97d13b07d09031b92cc39ee4dab8298ddfe9665
 
 
     }

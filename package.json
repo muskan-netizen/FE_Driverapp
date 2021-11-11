@@ -93,6 +93,8 @@
     "govachowRelease": "cd android && ./gradlew assemblegovachowRelease",
     "jetriderdispatcher": "react-native run-android --variant=jet_riderDebug",
     "jetriderRelease": "cd android && ./gradlew assemblejet_riderRelease",
+    "bilionzadispatcher": "react-native run-android --variant=bilionzaDebug",
+    "bilionzadispatcherRelease": "cd android && ./gradlew assemblebilionzaRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
