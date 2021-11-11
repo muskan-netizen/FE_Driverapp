@@ -290,6 +290,7 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+
         case appIds.govachow:
           updateState({
             shortCode: shortCodes.govachow,
