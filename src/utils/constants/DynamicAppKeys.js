@@ -225,8 +225,8 @@ const appIds = {
     android: 'com.Dishefs.royodispatcher',
   }),
   govachow: Platform.select({
-    ios: 'com.Govachow.Dispatch',
-    android: 'com.govachow.royodispatcher',
+    ios: 'com.application.Govachow.Dispatcher',
+    android: 'com.app.govachow.Dispatcher',
   }),
 };
 

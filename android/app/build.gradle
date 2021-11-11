@@ -630,7 +630,7 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-           applicationId 'com.govachow.royodispatcher'
+            applicationId 'com.app.govachow.Dispatcher'
             resValue "string", "app_name", "Govachow Dispatch"
         
         }
