@@ -22,6 +22,7 @@ import {useFocusEffect} from '@react-navigation/native';
 import {cloneDeep} from 'lodash';
 import ScaledImage from 'react-native-scalable-image';
 import DeviceInfo from 'react-native-device-info';
+import ZendeskChat from 'react-native-zendesk-chat';
 
 export default function CustomDrawerContent({
   state,
@@ -71,6 +72,13 @@ export default function CustomDrawerContent({
         // key: navigationStrings.WALLET,
         // subRoute:navigationStrings.MYPROFILE
       },
+      // {
+      //   id: 6,
+      //   label: 'Support',
+      //   image: imagePath.logout,
+      //   // key: navigationStrings.PROFILESTACK,
+      //   // subRoute:navigationStrings.MYPROFILE
+      // },
       {
         id: 5,
         label: strings.LOGOUT,
@@ -91,6 +99,8 @@ export default function CustomDrawerContent({
   );
 
   useEffect(() => {
+    ZendeskChat.init('oPDUTCv5ROQI8UbvxmUTuTmaHpxxDJVP');
+
     updateState({
       routes: [
         {
@@ -132,6 +142,14 @@ export default function CustomDrawerContent({
           // key: navigationStrings.WALLET,
           // subRoute:navigationStrings.MYPROFILE
         },
+        // {
+        //   id: 6,
+        //   label: 'Support',
+        //   support: true,
+        //   image: imagePath.logout,
+        //   // key: navigationStrings.PROFILESTACK,
+        //   // subRoute:navigationStrings.MYPROFILE
+        // },
         {
           id: 5,
           label: strings.LOGOUT,
@@ -229,6 +247,29 @@ export default function CustomDrawerContent({
               } else {
                 navigation.navigate(route.key);
               }
+            } else if (route?.support) {
+              ZendeskChat.startChat({
+                name: 'Dinesh',
+                email: 'dkdenni07@gmail.com',
+                phone: '8006066235',
+                tags: ['tag1', 'tag2'],
+                department: 'Your department',
+                // The behaviorFlags are optional, and each default to 'true' if omitted
+                behaviorFlags: {
+                  showAgentAvailability: true,
+                  showChatTranscriptPrompt: true,
+                  showPreChatForm: true,
+                  showOfflineForm: true,
+                },
+                // The preChatFormOptions are optional & each defaults to "optional" if omitted
+                preChatFormOptions: {
+                  name: 'Dinesh' ? 'required' : 'optional',
+                  email: 'optional',
+                  phone: 'optional',
+                  department: 'required',
+                },
+                localizedDismissButtonTitle: 'Dismiss',
+              });
             } else {
               onLogoutPress();
             }

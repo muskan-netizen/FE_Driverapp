@@ -17,7 +17,7 @@ import MapView, {
   AnimatedRegion,
   Marker,
   PROVIDER_GOOGLE,
-} from 'react-native-maps';// import {createOpenLink} from '../../utils/CreateMapLinks';
+} from 'react-native-maps'; // import {createOpenLink} from '../../utils/CreateMapLinks';
 import {createOpenLink} from 'react-native-open-maps';
 import {useSelector} from 'react-redux';
 import Header from '../../Components/Header';
@@ -45,7 +45,7 @@ import {
 } from '../../utils/helperFunctions';
 import stylesFunc from './styles';
 import ButtonComponent from '../../Components/ButtonComponent';
-import { mapStyle } from '../../utils/constants/MapStyle';
+import {mapStyle} from '../../utils/constants/MapStyle';
 
 var ACTION_TIMER = 1500;
 var COLORS = ['#8FEE90', '#27A468'];
@@ -249,7 +249,7 @@ export default function TaskDetail({route, navigation}) {
   const mapView = () => {
     return (
       <MapView
-        provider={PROVIDER_GOOGLE} // remove if not using Google Maps
+        // provider={PROVIDER_GOOGLE} // remove if not using Google Maps
         style={styles.map}
         region={region}
         initialRegion={region}
@@ -495,7 +495,9 @@ export default function TaskDetail({route, navigation}) {
 
   const taskDetailView = () => {
     return (
-      <ScrollView style={{marginTop: moderateScale(10)}} showsVerticalScrollIndicator={false}>
+      <ScrollView
+        style={{marginTop: moderateScale(10)}}
+        showsVerticalScrollIndicator={false}>
         {/* User Detail  */}
         <View
           style={{
@@ -537,7 +539,7 @@ export default function TaskDetail({route, navigation}) {
                 <TouchableOpacity
                   onPress={() =>
                     Communications.email(
-                      [JSON.stringify(taskDetail?.order?.Recipient_email), ''],
+                      [taskDetail?.order?.Recipient_email, ''],
                       null,
                       null,
                       '',
@@ -562,7 +564,7 @@ export default function TaskDetail({route, navigation}) {
                 <TouchableOpacity
                   onPress={() =>
                     Communications.phonecall(
-                      JSON.stringify(taskDetail?.order?.recipient_phone),
+                      taskDetail?.order?.recipient_phone,
                       true,
                     )
                   }
@@ -655,7 +657,7 @@ export default function TaskDetail({route, navigation}) {
               onPress={Platform?.OS == 'android' ? openGoogleMap : openMaps}
               buttonTitle={strings.NAVIGATE}
               imagevalue={imagePath?.navigate}
-              imageStyle={{marginHorizontal: moderateScale(10)}}
+              imageStyle={{marginHorizontal: moderateScale(2)}}
             />
           </View>
         </View>
@@ -691,7 +693,7 @@ export default function TaskDetail({route, navigation}) {
                 <TouchableOpacity
                   onPress={() =>
                     Communications.email(
-                      [JSON.stringify(taskDetail?.order?.customer?.email), ''],
+                      [taskDetail?.order?.customer?.email, ''],
                       null,
                       null,
                       '',
@@ -717,7 +719,7 @@ export default function TaskDetail({route, navigation}) {
                 <TouchableOpacity
                   onPress={() =>
                     Communications.phonecall(
-                      JSON.stringify(taskDetail?.order?.customer?.phone_number),
+                      taskDetail?.order?.customer?.phone_number,
                       true,
                     )
                   }
@@ -805,6 +807,7 @@ export default function TaskDetail({route, navigation}) {
                     style={{
                       flexDirection: 'row',
                       flexWrap: 'wrap',
+                      marginTop: moderateScale(5),
                     }}>
                     {taskDetail?.order?.task_images.map((i, inx) => {
                       return (
@@ -813,10 +816,10 @@ export default function TaskDetail({route, navigation}) {
                             source={imagePath?.placeHolder}
                             style={{
                               position: 'absolute',
-                              marginRight: moderateScale(10),
+                              marginRight: moderateScale(15),
                               zIndex: -100,
-                              width: width / 3.5,
-                              height: width / 3.5, //362 is actual height of image
+                              width: width / 5,
+                              height: width / 5, //362 is actual height of image
                             }}
                           />
                           <Image
@@ -824,10 +827,10 @@ export default function TaskDetail({route, navigation}) {
                               uri: i,
                             }}
                             style={{
-                              marginRight: moderateScale(10),
+                              marginRight: moderateScale(15),
                               zIndex: 100,
-                              width: width / 3.5,
-                              height: width / 3.5, //362 is actual height of image
+                              width: width / 5,
+                              height: width / 5, //362 is actual height of image
                             }}
                           />
                         </>
@@ -902,7 +905,7 @@ export default function TaskDetail({route, navigation}) {
         leftIconStyle={{tintColor: colors.themeColor}}
         // hideRight={true}
         // onPressLeft={()=>navigation.goBack()}
-        centerTitle={`${strings.TASK} #1234`}
+        centerTitle={`${strings.TASK} #${taskDetail?.id}`}
         customRight={() =>
           !!(taskStatus != '1' && !fromHistory) && (
             <TouchableOpacity onPress={cancelTask}>
@@ -923,6 +926,7 @@ export default function TaskDetail({route, navigation}) {
       <ScrollView showsVerticalScrollIndicator={false}>
         {mapView()}
         <View style={styles.mainContainer}>{taskDetailView()}</View>
+        <View style={{height: moderateScale(45)}} />
       </ScrollView>
       {buttonView()}
       <ActionSheet

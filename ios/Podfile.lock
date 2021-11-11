@@ -468,8 +468,22 @@ PODS:
   - RNScreens (3.6.0):
     - React-Core
     - React-RCTImage
+  - RNZendeskChat (0.4.1):
+    - React-Core
+    - ZendeskChatSDK (~> 2.9)
   - TOCropViewController (2.6.0)
   - Yoga (1.14.0)
+  - ZendeskChatProvidersSDK (2.11.1)
+  - ZendeskChatSDK (2.11.1):
+    - ZendeskChatProvidersSDK (~> 2.11.1)
+    - ZendeskMessagingSDK (~> 3.8.2)
+  - ZendeskCommonUISDK (6.1.1)
+  - ZendeskMessagingAPISDK (3.8.2):
+    - ZendeskSDKConfigurationsSDK (~> 1.1.8)
+  - ZendeskMessagingSDK (3.8.2):
+    - ZendeskCommonUISDK (~> 6.1.1)
+    - ZendeskMessagingAPISDK (~> 3.8.2)
+  - ZendeskSDKConfigurationsSDK (1.1.8)
 
 DEPENDENCIES:
   - BVLinearGradient (from `../node_modules/react-native-linear-gradient`)
@@ -536,7 +550,10 @@ DEPENDENCIES:
   - RNPermissions (from `../node_modules/react-native-permissions`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
+  - RNZendeskChat (from `../node_modules/react-native-zendesk-chat`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
+  - ZendeskChatProvidersSDK
+  - ZendeskChatSDK
 
 SPEC REPOS:
   trunk:
@@ -557,6 +574,12 @@ SPEC REPOS:
     - PromisesObjC
     - RegulaCommon
     - TOCropViewController
+    - ZendeskChatProvidersSDK
+    - ZendeskChatSDK
+    - ZendeskCommonUISDK
+    - ZendeskMessagingAPISDK
+    - ZendeskMessagingSDK
+    - ZendeskSDKConfigurationsSDK
 
 EXTERNAL SOURCES:
   BVLinearGradient:
@@ -683,6 +706,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-reanimated"
   RNScreens:
     :path: "../node_modules/react-native-screens"
+  RNZendeskChat:
+    :path: "../node_modules/react-native-zendesk-chat"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -765,9 +790,16 @@ SPEC CHECKSUMS:
   RNPermissions: 7043bacbf928eae25808275cfe73799b8f618911
   RNReanimated: d29057cf85e771be4f0180ba1d00a7185e423a7d
   RNScreens: eb0dfb2d6b21d2d7f980ad46b14eb306d2f1062e
+  RNZendeskChat: c3835f664be1746b121b69736d5c95e236cae382
   TOCropViewController: 3105367e808b7d3d886a74ff59bf4804e7d3ab38
   Yoga: aa0cb45287ebe1004c02a13f279c55a95f1572f4
+  ZendeskChatProvidersSDK: 37901c1c7529722d71ffade971bb984edd74a5e1
+  ZendeskChatSDK: e312c1899c52eff0ef2b7219385c5aaac3d9e76e
+  ZendeskCommonUISDK: 5808802951ad2bb424f0bed4259dc3c0ce9b52ec
+  ZendeskMessagingAPISDK: 144e0fb0e633a3c4e73149b781ab65338938d5a8
+  ZendeskMessagingSDK: 500e83d9413481e95180c37ddca0d4ef9d515600
+  ZendeskSDKConfigurationsSDK: 8371b468db0d09e9198f6c5a97818826943ee1ee
 
-PODFILE CHECKSUM: 439b5f07454dc80bbfbf5783c9fe175d4909628d
+PODFILE CHECKSUM: b37d4994833371445b0f487fce44e032760d619a
 
 COCOAPODS: 1.11.2
