@@ -116,7 +116,7 @@ export default function PhoneVerification({navigation, route}) {
     let data = {};
     data['phone_number'] = `${paramData?.phone_number}`;
     data['otp'] = otp;
-    data['device_token'] = fcm_token;
+    data['device_token'] = fcm_token ? fcm_token : DeviceInfo.getDeviceToken();
     data['device_type'] = Platform.OS;
     console.log(data, 'data>data>data');
     updateState({isLoading: true});
