@@ -1,6 +1,6 @@
 //export const API_BASE_URL = 'https://api.royodispatch.com/api';
-export const API_BASE_URL = 'https://api.rdstaging.com/api';
-//export const API_BASE_URL = 'https://api.winhires.com/api';
+// export const API_BASE_URL = 'https://api.rdstaging.com/api';
+export const API_BASE_URL = 'https://api.winhires.com/api';
 
 // export const API_BASE_URL = 'http://192.168.103.73:8005';
 //export const API_BASE_URL = 'https://api.williamherrick.com/api';

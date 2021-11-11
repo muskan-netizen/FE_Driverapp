@@ -7,16 +7,17 @@ platform :ios, '11.0'
 #RoyoDriverApp Target
 target 'RoyoDriverApp' do
   permissions_path = '../node_modules/react-native-permissions/ios'
+  rn_maps_path = '../node_modules/react-native-maps'
   config = use_native_modules!
   use_react_native!(
     :path => config[:reactNativePath],
     :hermes_enabled => false
   )
+  pod 'react-native-google-maps', :path => rn_maps_path
   pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
   pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
   pod 'RNFS', :path => '../node_modules/react-native-fs'
-
   pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
 
 end
@@ -25,30 +26,36 @@ end
 #Runrun Target
 target 'Runrun' do
   permissions_path = '../node_modules/react-native-permissions/ios'
+  rn_maps_path = '../node_modules/react-native-maps'
   config = use_native_modules!
   use_react_native!(
     :path => config[:reactNativePath],
     :hermes_enabled => false
   )
+  pod 'react-native-google-maps', :path => rn_maps_path
   pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
   pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
   pod 'RNFS', :path => '../node_modules/react-native-fs'
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
 
 end
   
   #Deliverstat Target
   target 'Deliverstat' do
     permissions_path = '../node_modules/react-native-permissions/ios'
+    rn_maps_path = '../node_modules/react-native-maps'
     config = use_native_modules!
     use_react_native!(
       :path => config[:reactNativePath],
       :hermes_enabled => false
     )
+    pod 'react-native-google-maps', :path => rn_maps_path
     pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
     pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
     pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
     pod 'RNFS', :path => '../node_modules/react-native-fs'
+    pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
 
     
 
@@ -58,15 +65,18 @@ end
 #AfricanVillageMarket Target
 target 'AfricanVillageMarket' do
   permissions_path = '../node_modules/react-native-permissions/ios'
+  rn_maps_path = '../node_modules/react-native-maps'
   config = use_native_modules!
   use_react_native!(
     :path => config[:reactNativePath],
     :hermes_enabled => false
   )
+  pod 'react-native-google-maps', :path => rn_maps_path
   pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
   pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
   pod 'RNFS', :path => '../node_modules/react-native-fs'
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
 
   
 
@@ -76,15 +86,18 @@ end
 #Africanize Target
 target 'Africanize' do
   permissions_path = '../node_modules/react-native-permissions/ios'
+  rn_maps_path = '../node_modules/react-native-maps'
   config = use_native_modules!
   use_react_native!(
     :path => config[:reactNativePath],
     :hermes_enabled => false
   )
+  pod 'react-native-google-maps', :path => rn_maps_path
   pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
   pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
   pod 'RNFS', :path => '../node_modules/react-native-fs'
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
 
 
 end
@@ -93,15 +106,18 @@ end
 #Tranzit Target
 target 'Tranzit' do
   permissions_path = '../node_modules/react-native-permissions/ios'
+  rn_maps_path = '../node_modules/react-native-maps'
   config = use_native_modules!
   use_react_native!(
     :path => config[:reactNativePath],
     :hermes_enabled => false
   )
+  pod 'react-native-google-maps', :path => rn_maps_path
   pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
   pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
   pod 'RNFS', :path => '../node_modules/react-native-fs'
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
 
 
 end
@@ -111,15 +127,18 @@ end
 #Hemptify Target
 target 'Hemptify' do
   permissions_path = '../node_modules/react-native-permissions/ios'
+  rn_maps_path = '../node_modules/react-native-maps'
   config = use_native_modules!
   use_react_native!(
     :path => config[:reactNativePath],
     :hermes_enabled => false
   )
+  pod 'react-native-google-maps', :path => rn_maps_path
   pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
   pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
   pod 'RNFS', :path => '../node_modules/react-native-fs'
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
 
 
 end
@@ -128,15 +147,18 @@ end
 #Goody Target
 target 'Goody' do
   permissions_path = '../node_modules/react-native-permissions/ios'
+  rn_maps_path = '../node_modules/react-native-maps'
   config = use_native_modules!
   use_react_native!(
     :path => config[:reactNativePath],
     :hermes_enabled => false
   )
+  pod 'react-native-google-maps', :path => rn_maps_path
   pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
   pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
   pod 'RNFS', :path => '../node_modules/react-native-fs'
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
 
 
 end
@@ -145,15 +167,18 @@ end
 #YogoFood Target
 target 'YogoFood' do
   permissions_path = '../node_modules/react-native-permissions/ios'
+  rn_maps_path = '../node_modules/react-native-maps'
   config = use_native_modules!
   use_react_native!(
     :path => config[:reactNativePath],
     :hermes_enabled => false
   )
+  pod 'react-native-google-maps', :path => rn_maps_path
   pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
   pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
   pod 'RNFS', :path => '../node_modules/react-native-fs'
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
 
 
 end
@@ -163,15 +188,18 @@ end
 #Arena_Grub Target
 target 'Arena_Grub' do
   permissions_path = '../node_modules/react-native-permissions/ios'
+  rn_maps_path = '../node_modules/react-native-maps'
   config = use_native_modules!
   use_react_native!(
     :path => config[:reactNativePath],
     :hermes_enabled => false
   )
+  pod 'react-native-google-maps', :path => rn_maps_path
   pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
   pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
   pod 'RNFS', :path => '../node_modules/react-native-fs'
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
 
 
 end
@@ -181,15 +209,18 @@ end
 #BottomsUp Target
 target 'BottomsUp' do
   permissions_path = '../node_modules/react-native-permissions/ios'
+  rn_maps_path = '../node_modules/react-native-maps'
   config = use_native_modules!
   use_react_native!(
     :path => config[:reactNativePath],
     :hermes_enabled => false
   )
+  pod 'react-native-google-maps', :path => rn_maps_path
   pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
   pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
   pod 'RNFS', :path => '../node_modules/react-native-fs'
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
 
 
 end
@@ -198,15 +229,18 @@ end
 #BlipDelivery Target
 target 'BlipDelivery' do
   permissions_path = '../node_modules/react-native-permissions/ios'
+  rn_maps_path = '../node_modules/react-native-maps'
   config = use_native_modules!
   use_react_native!(
     :path => config[:reactNativePath],
     :hermes_enabled => false
   )
+  pod 'react-native-google-maps', :path => rn_maps_path
   pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
   pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
   pod 'RNFS', :path => '../node_modules/react-native-fs'
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
 
 
 end
@@ -216,15 +250,18 @@ end
 #BustanFakieh Target
 target 'BustanFakieh' do
   permissions_path = '../node_modules/react-native-permissions/ios'
+  rn_maps_path = '../node_modules/react-native-maps'
   config = use_native_modules!
   use_react_native!(
     :path => config[:reactNativePath],
     :hermes_enabled => false
   )
+  pod 'react-native-google-maps', :path => rn_maps_path
   pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
   pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
   pod 'RNFS', :path => '../node_modules/react-native-fs'
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
 
 
 end
@@ -233,15 +270,18 @@ end
 #Codiner Target
 target 'Codiner' do
   permissions_path = '../node_modules/react-native-permissions/ios'
+  rn_maps_path = '../node_modules/react-native-maps'
   config = use_native_modules!
   use_react_native!(
     :path => config[:reactNativePath],
     :hermes_enabled => false
   )
+  pod 'react-native-google-maps', :path => rn_maps_path
   pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
   pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
   pod 'RNFS', :path => '../node_modules/react-native-fs'
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
 
 
 end
@@ -249,15 +289,18 @@ end
 #BustanFakieh Target
 target 'Elog' do
   permissions_path = '../node_modules/react-native-permissions/ios'
+  rn_maps_path = '../node_modules/react-native-maps'
   config = use_native_modules!
   use_react_native!(
     :path => config[:reactNativePath],
     :hermes_enabled => false
   )
+  pod 'react-native-google-maps', :path => rn_maps_path
   pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
   pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
   pod 'RNFS', :path => '../node_modules/react-native-fs'
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
 
 
 end
@@ -266,15 +309,18 @@ end
 #Cabdelivr Target
 target 'Cabdelivr' do
   permissions_path = '../node_modules/react-native-permissions/ios'
+  rn_maps_path = '../node_modules/react-native-maps'
   config = use_native_modules!
   use_react_native!(
     :path => config[:reactNativePath],
     :hermes_enabled => false
   )
+  pod 'react-native-google-maps', :path => rn_maps_path
   pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
   pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
   pod 'RNFS', :path => '../node_modules/react-native-fs'
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
 
 
 end
@@ -283,15 +329,18 @@ end
 #Drivree Target
 target 'Drivree' do
   permissions_path = '../node_modules/react-native-permissions/ios'
+  rn_maps_path = '../node_modules/react-native-maps'
   config = use_native_modules!
   use_react_native!(
     :path => config[:reactNativePath],
     :hermes_enabled => false
   )
+  pod 'react-native-google-maps', :path => rn_maps_path
   pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
   pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
   pod 'RNFS', :path => '../node_modules/react-native-fs'
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
 
 
 end
@@ -300,15 +349,18 @@ end
 #SeaChangeVending Target
 target 'SeaChangeVending' do
   permissions_path = '../node_modules/react-native-permissions/ios'
+  rn_maps_path = '../node_modules/react-native-maps'
   config = use_native_modules!
   use_react_native!(
     :path => config[:reactNativePath],
     :hermes_enabled => false
   )
+  pod 'react-native-google-maps', :path => rn_maps_path
   pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
   pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
   pod 'RNFS', :path => '../node_modules/react-native-fs'
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
 
 
 end
@@ -317,15 +369,18 @@ end
 #Rxnow Target
 target 'Rxnow' do
   permissions_path = '../node_modules/react-native-permissions/ios'
+  rn_maps_path = '../node_modules/react-native-maps'
   config = use_native_modules!
   use_react_native!(
     :path => config[:reactNativePath],
     :hermes_enabled => false
   )
+  pod 'react-native-google-maps', :path => rn_maps_path
   pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
   pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
   pod 'RNFS', :path => '../node_modules/react-native-fs'
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
 
 
 end
@@ -334,15 +389,18 @@ end
 #OrderChekcout Target
 target 'Ordercheckout' do
   permissions_path = '../node_modules/react-native-permissions/ios'
+  rn_maps_path = '../node_modules/react-native-maps'
   config = use_native_modules!
   use_react_native!(
     :path => config[:reactNativePath],
     :hermes_enabled => false
   )
+  pod 'react-native-google-maps', :path => rn_maps_path
   pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
   pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
   pod 'RNFS', :path => '../node_modules/react-native-fs'
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
 
 
 end
@@ -350,15 +408,18 @@ end
 #Noki Target
 target 'Noki' do
   permissions_path = '../node_modules/react-native-permissions/ios'
+  rn_maps_path = '../node_modules/react-native-maps'
   config = use_native_modules!
   use_react_native!(
     :path => config[:reactNativePath],
     :hermes_enabled => false
   )
+  pod 'react-native-google-maps', :path => rn_maps_path
   pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
   pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
   pod 'RNFS', :path => '../node_modules/react-native-fs'
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
 
 
 end
@@ -367,15 +428,18 @@ end
 #Ored Target
 target 'Ored' do
   permissions_path = '../node_modules/react-native-permissions/ios'
+  rn_maps_path = '../node_modules/react-native-maps'
   config = use_native_modules!
   use_react_native!(
     :path => config[:reactNativePath],
     :hermes_enabled => false
   )
+  pod 'react-native-google-maps', :path => rn_maps_path
   pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
   pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
   pod 'RNFS', :path => '../node_modules/react-native-fs'
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
 
 
 end
@@ -384,15 +448,18 @@ end
 #Yummidash Target
 target 'Yummiidash' do
   permissions_path = '../node_modules/react-native-permissions/ios'
+  rn_maps_path = '../node_modules/react-native-maps'
   config = use_native_modules!
   use_react_native!(
     :path => config[:reactNativePath],
     :hermes_enabled => false
   )
+  pod 'react-native-google-maps', :path => rn_maps_path
   pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
   pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
   pod 'RNFS', :path => '../node_modules/react-native-fs'
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
 
 
 end
@@ -401,15 +468,18 @@ end
 #YourLaundryApp Target
 target 'YourLaundryApp' do
   permissions_path = '../node_modules/react-native-permissions/ios'
+  rn_maps_path = '../node_modules/react-native-maps'
   config = use_native_modules!
   use_react_native!(
     :path => config[:reactNativePath],
     :hermes_enabled => false
   )
+  pod 'react-native-google-maps', :path => rn_maps_path
   pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
   pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
   pod 'RNFS', :path => '../node_modules/react-native-fs'
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
 
 
 end
@@ -418,15 +488,18 @@ end
 #ZuzuClean Target
 target 'ZuzuClean' do
   permissions_path = '../node_modules/react-native-permissions/ios'
+  rn_maps_path = '../node_modules/react-native-maps'
   config = use_native_modules!
   use_react_native!(
     :path => config[:reactNativePath],
     :hermes_enabled => false
   )
+  pod 'react-native-google-maps', :path => rn_maps_path
   pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
   pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
   pod 'RNFS', :path => '../node_modules/react-native-fs'
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
 
 
 end
@@ -436,15 +509,18 @@ end
 #LoopWhole Target
 target 'LoopWhole' do
   permissions_path = '../node_modules/react-native-permissions/ios'
+  rn_maps_path = '../node_modules/react-native-maps'
   config = use_native_modules!
   use_react_native!(
     :path => config[:reactNativePath],
     :hermes_enabled => false
   )
+  pod 'react-native-google-maps', :path => rn_maps_path
   pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
   pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
   pod 'RNFS', :path => '../node_modules/react-native-fs'
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
 
 
 end
@@ -453,15 +529,18 @@ end
 #Maxis Target
 target 'Maxis' do
   permissions_path = '../node_modules/react-native-permissions/ios'
+  rn_maps_path = '../node_modules/react-native-maps'
   config = use_native_modules!
   use_react_native!(
     :path => config[:reactNativePath],
     :hermes_enabled => false
   )
+  pod 'react-native-google-maps', :path => rn_maps_path
   pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
   pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
   pod 'RNFS', :path => '../node_modules/react-native-fs'
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
 
 
 end
@@ -471,15 +550,18 @@ end
 #Donepacked Target
 target 'Donepacked' do
   permissions_path = '../node_modules/react-native-permissions/ios'
+  rn_maps_path = '../node_modules/react-native-maps'
   config = use_native_modules!
   use_react_native!(
     :path => config[:reactNativePath],
     :hermes_enabled => false
   )
+  pod 'react-native-google-maps', :path => rn_maps_path
   pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
   pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
   pod 'RNFS', :path => '../node_modules/react-native-fs'
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
 
 
 end
@@ -488,15 +570,18 @@ end
 #CareWorks Target
 target 'CareWorks' do
   permissions_path = '../node_modules/react-native-permissions/ios'
+  rn_maps_path = '../node_modules/react-native-maps'
   config = use_native_modules!
   use_react_native!(
     :path => config[:reactNativePath],
     :hermes_enabled => false
   )
+  pod 'react-native-google-maps', :path => rn_maps_path
   pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
   pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
   pod 'RNFS', :path => '../node_modules/react-native-fs'
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
 
 
 end
@@ -504,15 +589,18 @@ end
 #ThubaeRides Targetfz
 target 'ThubaeRides' do
   permissions_path = '../node_modules/react-native-permissions/ios'
+  rn_maps_path = '../node_modules/react-native-maps'
   config = use_native_modules!
   use_react_native!(
     :path => config[:reactNativePath],
     :hermes_enabled => false
   )
+  pod 'react-native-google-maps', :path => rn_maps_path
   pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
   pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
   pod 'RNFS', :path => '../node_modules/react-native-fs'
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
 
 
 end
@@ -521,86 +609,104 @@ end
 #Menus Target
 target 'Menus' do
   permissions_path = '../node_modules/react-native-permissions/ios'
+  rn_maps_path = '../node_modules/react-native-maps'
   config = use_native_modules!
   use_react_native!(
     :path => config[:reactNativePath],
     :hermes_enabled => false
   )
+  pod 'react-native-google-maps', :path => rn_maps_path
   pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
   pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
   pod 'RNFS', :path => '../node_modules/react-native-fs'
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
 end
 
 #Maxis Delivery Target
 target 'MaxisDelivery' do
   permissions_path = '../node_modules/react-native-permissions/ios'
+  rn_maps_path = '../node_modules/react-native-maps'
   config = use_native_modules!
   use_react_native!(
     :path => config[:reactNativePath],
     :hermes_enabled => false
   )
+  pod 'react-native-google-maps', :path => rn_maps_path
   pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
   pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
   pod 'RNFS', :path => '../node_modules/react-native-fs'
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
 end
 
 
 #WH Target
 target 'WH' do
   permissions_path = '../node_modules/react-native-permissions/ios'
+  rn_maps_path = '../node_modules/react-native-maps'
   config = use_native_modules!
   use_react_native!(
     :path => config[:reactNativePath],
     :hermes_enabled => false
   )
+  pod 'react-native-google-maps', :path => rn_maps_path
   pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
   pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
   pod 'RNFS', :path => '../node_modules/react-native-fs'
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
 end
 
 #Elcheregio Target
 target 'Elcheregio' do
   permissions_path = '../node_modules/react-native-permissions/ios'
+  rn_maps_path = '../node_modules/react-native-maps'
   config = use_native_modules!
   use_react_native!(
     :path => config[:reactNativePath],
     :hermes_enabled => false
   )
+  pod 'react-native-google-maps', :path => rn_maps_path
   pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
   pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
   pod 'RNFS', :path => '../node_modules/react-native-fs'
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
 end
 
 #Hmc Target
 target 'Hmc' do
   permissions_path = '../node_modules/react-native-permissions/ios'
+  rn_maps_path = '../node_modules/react-native-maps'
   config = use_native_modules!
   use_react_native!(
     :path => config[:reactNativePath],
     :hermes_enabled => false
   )
+  pod 'react-native-google-maps', :path => rn_maps_path
   pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
   pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
   pod 'RNFS', :path => '../node_modules/react-native-fs'
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
 end
 
 #ExpressDeliverys Target
 target 'ExpressDeliverys' do
   permissions_path = '../node_modules/react-native-permissions/ios'
+  rn_maps_path = '../node_modules/react-native-maps'
   config = use_native_modules!
   use_react_native!(
     :path => config[:reactNativePath],
     :hermes_enabled => false
   )
+  pod 'react-native-google-maps', :path => rn_maps_path
   pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
   pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
   pod 'RNFS', :path => '../node_modules/react-native-fs'
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
 end
 
 #BotSeat Delivery Target
@@ -662,15 +768,18 @@ target 'BotSeat' do
 #Govachow Target
 target 'Govachow' do
   permissions_path = '../node_modules/react-native-permissions/ios'
+  rn_maps_path = '../node_modules/react-native-maps'
   config = use_native_modules!
   use_react_native!(
     :path => config[:reactNativePath],
     :hermes_enabled => false
   )
+  pod 'react-native-google-maps', :path => rn_maps_path
   pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
   pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
   pod 'RNFS', :path => '../node_modules/react-native-fs'
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
 end
 
 

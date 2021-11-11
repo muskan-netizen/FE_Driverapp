@@ -43,10 +43,31 @@ PODS:
     - nanopb (~> 2.30908.0)
   - fmt (6.2.1)
   - glog (0.3.5)
+  - Google-Maps-iOS-Utils (2.1.0):
+    - Google-Maps-iOS-Utils/Clustering (= 2.1.0)
+    - Google-Maps-iOS-Utils/Geometry (= 2.1.0)
+    - Google-Maps-iOS-Utils/Heatmap (= 2.1.0)
+    - Google-Maps-iOS-Utils/QuadTree (= 2.1.0)
+    - GoogleMaps
+  - Google-Maps-iOS-Utils/Clustering (2.1.0):
+    - Google-Maps-iOS-Utils/QuadTree
+    - GoogleMaps
+  - Google-Maps-iOS-Utils/Geometry (2.1.0):
+    - GoogleMaps
+  - Google-Maps-iOS-Utils/Heatmap (2.1.0):
+    - Google-Maps-iOS-Utils/QuadTree
+    - GoogleMaps
+  - Google-Maps-iOS-Utils/QuadTree (2.1.0):
+    - GoogleMaps
   - GoogleDataTransport (9.1.2):
     - GoogleUtilities/Environment (~> 7.2)
     - nanopb (~> 2.30908.0)
     - PromisesObjC (< 3.0, >= 1.2)
+  - GoogleMaps (3.5.0):
+    - GoogleMaps/Maps (= 3.5.0)
+  - GoogleMaps/Base (3.5.0)
+  - GoogleMaps/Maps (3.5.0):
+    - GoogleMaps/Base
   - GoogleUtilities/AppDelegateSwizzler (7.6.0):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
@@ -293,6 +314,10 @@ PODS:
     - React
   - react-native-geolocation-service (5.3.0-beta.2):
     - React
+  - react-native-google-maps (0.29.3):
+    - Google-Maps-iOS-Utils (= 2.1.0)
+    - GoogleMaps (= 3.5.0)
+    - React-Core
   - react-native-maps (0.29.3):
     - React-Core
   - react-native-netinfo (6.0.2):
@@ -475,6 +500,7 @@ DEPENDENCIES:
   - react-native-document-picker (from `../node_modules/react-native-document-picker`)
   - react-native-geocoder (from `../node_modules/react-native-geocoder`)
   - react-native-geolocation-service (from `../node_modules/react-native-geolocation-service`)
+  - react-native-google-maps (from `../node_modules/react-native-maps`)
   - react-native-maps (from `../node_modules/react-native-maps`)
   - "react-native-netinfo (from `../node_modules/@react-native-community/netinfo`)"
   - react-native-restart (from `../node_modules/react-native-restart`)
@@ -522,7 +548,9 @@ SPEC REPOS:
     - FirebaseInstallations
     - FirebaseMessaging
     - fmt
+    - Google-Maps-iOS-Utils
     - GoogleDataTransport
+    - GoogleMaps
     - GoogleUtilities
     - lottie-ios
     - nanopb
@@ -583,6 +611,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-geocoder"
   react-native-geolocation-service:
     :path: "../node_modules/react-native-geolocation-service"
+  react-native-google-maps:
+    :path: "../node_modules/react-native-maps"
   react-native-maps:
     :path: "../node_modules/react-native-maps"
   react-native-netinfo:
@@ -670,7 +700,9 @@ SPEC CHECKSUMS:
   FirebaseMessaging: 419b5c9d84f294a753c6501d8cfb9ced1ce37304
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   glog: 5337263514dd6f09803962437687240c5dc39aa4
+  Google-Maps-iOS-Utils: c32891ff472eaaa1fca032beedafa1a013af7875
   GoogleDataTransport: 629c20a4d363167143f30ea78320d5a7eb8bd940
+  GoogleMaps: 32ca02de09de357a10ac773f2c70f1986751392d
   GoogleUtilities: 684ee790a24f73ebb2d1d966e9711c203f2a4237
   lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
   lottie-react-native: 96361a9891cf651534ea35c4f85f33d4cf14ed13
@@ -696,6 +728,7 @@ SPEC CHECKSUMS:
   react-native-document-picker: bf12b9ca87790f9b723106ffde0eff239928e515
   react-native-geocoder: 757427682892bb256f3b3745858cc90eba148a8e
   react-native-geolocation-service: 94c7d2ffdbbf4dd431241e0c8e37d491ebd41430
+  react-native-google-maps: d6a30377b40a338bd09d6ad36ce48dc5d12b5792
   react-native-maps: 41d01d8e0afcebe32bec9eea3bd945adc1b18f7a
   react-native-netinfo: 92e6e4476eb8bf6fc2d7c0a6ca0a1406f663d73a
   react-native-restart: 733a51ad137f15b0f8dc34c4082e55af7da00979
@@ -735,6 +768,6 @@ SPEC CHECKSUMS:
   TOCropViewController: 3105367e808b7d3d886a74ff59bf4804e7d3ab38
   Yoga: aa0cb45287ebe1004c02a13f279c55a95f1572f4
 
-PODFILE CHECKSUM: 43a13019846a79aadc98e7680df42afd26246408
+PODFILE CHECKSUM: 439b5f07454dc80bbfbf5783c9fe175d4909628d
 
 COCOAPODS: 1.11.2
