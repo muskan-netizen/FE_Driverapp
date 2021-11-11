@@ -338,6 +338,12 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.jetrider:
+          updateState({
+            shortCode: shortCodes.jetrider,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, []);
