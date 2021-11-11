@@ -657,7 +657,7 @@ android {
             applicationId 'com.Gumastas.royodispatcher'
             resValue "string", "app_name", "Gumastas"
         }
-        bilionza:{
+        bilionza{
             dimension "appType"
             versionCode 1
             versionName "1.0"
@@ -668,7 +668,39 @@ android {
             resValue "string", "app_name", "bilionza"
         
         }
-
+        gokab{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Gokab.royodispatcher'
+            resValue "string", "app_name", "Gokab"
+        
+        }
+        bezalio{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Bezalio.royodispatcher'
+            resValue "string", "app_name", "Bezalio"
+        
+        }
+        doleyPharmacy{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.DoleyPharmacy.royodispatcher'
+            resValue "string", "app_name", "doley Pharmacy"
+        
+        }
 
     }
 }
