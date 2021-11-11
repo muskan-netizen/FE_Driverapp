@@ -91,6 +91,8 @@
     "gumastasdispatcherRelease": "cd android && ./gradlew assemblegumastasRelease",
     "govachowdispatcher": "react-native run-android --variant=govachowDebug",
     "govachowRelease": "cd android && ./gradlew assemblegovachowRelease",
+    "bilionzadispatcher": "react-native run-android --variant=bilionzaDebug",
+    "bilionzadispatcherRelease": "cd android && ./gradlew assemblebilionzaRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
