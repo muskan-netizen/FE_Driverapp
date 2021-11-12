@@ -668,6 +668,17 @@ android {
             resValue "string", "app_name", "bilionza"
         
         }
+        jet_rider {
+           dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.JetRider.royodispatcher'
+            resValue "string", "app_name", "Jet Rider Dispatch"
+        
+        }
         gokab{
             dimension "appType"
             versionCode 1
@@ -675,8 +686,17 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.Gokab.royodispatcher'
+              applicationId 'com.Gokab.royodispatcher'
             resValue "string", "app_name", "Gokab"
+        }
+        baytukom{
+              dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            applicationId "com.Baytukom.royodispatcher"
+            resValue "string", "app_name", "Baytukom Dispatch"
         
         }
         bezalio{

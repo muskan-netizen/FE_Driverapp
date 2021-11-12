@@ -46,7 +46,9 @@ const shortCodes = {
   gumastas: '28efb0',
   dishefs: '44c2bf',
   govachow: 'd8ac18',
+  jetrider: '387dd4',
   bilionza: 'd97efd',
+  baytukom: '7df249',
   gokab: '362d14',
   bezalio: '2c0bf4',
   doleyPharmacy: '72d02d',
@@ -234,9 +236,17 @@ const appIds = {
     ios: 'com.application.Govachow.Dispatcher',
     android: 'com.app.govachow.Dispatcher',
   }),
+  jetrider: Platform.select({
+    ios: 'com.JetRider.Dispatch',
+    android: 'com.JetRider.royodispatcher',
+  }),
   bilionza: Platform.select({
     ios: 'com.Bilionza.Dispatch',
     android: 'com.Bilionza.royodispatcher',
+  }),
+  baytukom: Platform.select({
+    ios: 'com.Baytukom.Dispatch',
+    android: 'com.Baytukom.royodispatcher',
   }),
   gokab:  Platform.select({
     ios: 'com.GoKab.Dispatch',

@@ -338,9 +338,21 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.jetrider:
+          updateState({
+            shortCode: shortCodes.jetrider,
+            isShortcodePrefilled: true,
+          });
+          break;
         case appIds.bilionza:
           updateState({
             shortCode: shortCodes.bilionza,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.baytukom:
+          updateState({
+            shortCode: shortCodes.baytukom,
             isShortcodePrefilled: true,
           });
           break;
