@@ -397,6 +397,37 @@ export default function ShortCode({route, navigation}) {
             shortCode: shortCodes.somame,
             isShortcodePrefilled: true,
           });
+        case appIds.equamd:
+          updateState({
+            shortCode: shortCodes.equamd,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.drus:
+          updateState({
+            shortCode: shortCodes.drus,
+            isShortcodePrefilled: true,
+          });
+          break;
+
+        case appIds.shariff:
+          updateState({
+            shortCode: shortCodes.shariff,
+            isShortcodePrefilled: true,
+          });
+          break;
+
+        case appIds.youChillax:
+          updateState({
+            shortCode: shortCodes.youChillax,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.instaShop:
+          updateState({
+            shortCode: shortCodes.instaShop,
+            isShortcodePrefilled: true,
+          });
           break;
       }
     })();

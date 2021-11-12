@@ -722,38 +722,65 @@ android {
         
         }
          taquick{
+               dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+               applicationId 'com.TaQuick.royodispatcher'
+            resValue "string", "app_name", "TaQuick Dispatch"
+         }
+        equamd{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.TaQuick.royodispatcher'
-            resValue "string", "app_name", "TaQuick Dispatch"
+           applicationId "com.equamd.royodispatcher"
+            resValue "string", "app_name", "Equamd"
         
         }
 
         sirvu{
-            dimension "appType"
+             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.sirvu.royodispatcher'
+           applicationId 'com.sirvu.royodispatcher'
             resValue "string", "app_name", "SirVU Dispatch"
         
         }
-         klickmat{
+        drus{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.klickmat.royodispatcher'
-            resValue "string", "app_name", "Klickmat Dispatch"
+           applicationId "com.drus.royodispatcher"
+            resValue "string", "app_name", "Drus"
         
+        }
+         klickmat{
+           dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+              applicationId 'com.klickmat.royodispatcher'
+            resValue "string", "app_name", "Klickmat Dispatch"
+        }
+        shariff{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+           applicationId "com.shariff.royodispatcher"
+            resValue "string", "app_name", "Shariff"
         }
         somame{
             dimension "appType"
@@ -766,10 +793,33 @@ android {
             resValue "string", "app_name", "Somame Dispatch"
         
         }
+        instaShop {
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+             applicationId "com.InstaShop.royodispatcher"
+            resValue "string", "app_name", "InstaShop"
+        
+        }
 
 
         
 
+            
+        youChillax{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId "com.YouChillax.royodispatcher"
+            resValue "string", "app_name", "YouChillax"
+        
+        }
     }
 }
 
