@@ -356,6 +356,24 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.gokab:
+          updateState({
+            shortCode: shortCodes.gokab,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.bezalio:
+          updateState({
+            shortCode: shortCodes.bezalio,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.doleyPharmacy:
+          updateState({
+            shortCode: shortCodes.doleyPharmacy,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, []);

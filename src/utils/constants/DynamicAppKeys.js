@@ -49,6 +49,9 @@ const shortCodes = {
   jetrider: '387dd4',
   bilionza: 'd97efd',
   baytukom: '7df249',
+  gokab: '362d14',
+  bezalio: '2c0bf4',
+  doleyPharmacy: '72d02d',
 };
 
 // Goody Dispatch
@@ -242,6 +245,18 @@ const appIds = {
   baytukom: Platform.select({
     ios: 'com.Baytukom.Dispatch',
     android: 'com.Baytukom.royodispatcher',
+  }),
+  gokab:  Platform.select({
+    ios: 'com.GoKab.Dispatch',
+    android: 'com.Gokab.royodispatcher',
+  }),
+  bezalio: Platform.select({
+    ios: 'com.Bezalio.Dispatch',
+    android: 'com.Bezalio.royodispatcher',
+  }),
+  doleyPharmacy: Platform.select({
+    ios: 'com.DoleyPharmacy.Dispatch',
+    android: 'com.DoleyPharmacy.royodispatcher',
   }),
 };
 
