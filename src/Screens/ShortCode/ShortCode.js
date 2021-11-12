@@ -381,9 +381,16 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
-          case appIds.drus:
+        case appIds.drus:
           updateState({
             shortCode: shortCodes.drus,
+            isShortcodePrefilled: true,
+          });
+          break;
+
+        case appIds.shariff:
+          updateState({
+            shortCode: shortCodes.shariff,
             isShortcodePrefilled: true,
           });
           break;

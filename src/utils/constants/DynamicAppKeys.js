@@ -54,6 +54,7 @@ const shortCodes = {
   doleyPharmacy: '72d02d',
   equamd: 'dd39d8',
   drus: '63ef33',
+  shariff: '010494',
 };
 
 // Goody Dispatch
@@ -267,6 +268,10 @@ const appIds = {
   drus: Platform.select({
     ios: 'com.Drus.Dispatch',
     android: "com.drus.royodispatcher",
+  }),
+  shariff: Platform.select({
+    ios: 'com.Shariff.Dispatch',
+    android:"com.shariff.royodispatcher",
   }),
 };
 

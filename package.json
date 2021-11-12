@@ -107,6 +107,8 @@
     "equamddispatcherRelease": "cd android && ./gradlew assembleequamdRelease",
     "drusdispatcher": "react-native run-android --variant=drusDebug",
     "drusdispatcherRelease": "cd android && ./gradlew assembledrusRelease",
+    "shariffdispatcher": "react-native run-android --variant=shariffDebug",
+    "shariffdispatcherRelease": "cd android && ./gradlew assembleshariffRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
