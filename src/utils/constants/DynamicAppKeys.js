@@ -55,6 +55,9 @@ const shortCodes = {
   equamd: 'dd39d8',
   drus: '63ef33',
   shariff: '010494',
+  youChillax: 'd42ce5',
+  instaShop: '0cab0a',
+
 };
 
 // Goody Dispatch
@@ -272,6 +275,14 @@ const appIds = {
   shariff: Platform.select({
     ios: 'com.Shariff.Dispatch',
     android:"com.shariff.royodispatcher",
+  }),
+  youChillax: Platform.select({
+    ios: 'com.YouChillax.Dispatch',
+    android:"com.YouChillax.royodispatcher",
+  }),
+  instaShop: Platform.select({
+    ios: 'com.InstaShop.Dispatch',
+    android:"com.InstaShop.royodispatcher",
   }),
 };
 

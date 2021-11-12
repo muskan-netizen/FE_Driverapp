@@ -754,6 +754,28 @@ android {
             resValue "string", "app_name", "Shariff"
         
         }
+        instaShop {
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId "com.InstaShop.royodispatcher"
+            resValue "string", "app_name", "InstaShop"
+        
+        }  
+        youChillax{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId "com.YouChillax.royodispatcher"
+            resValue "string", "app_name", "YouChillax"
+        
+        }
     }
 }
 

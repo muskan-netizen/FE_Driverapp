@@ -394,6 +394,19 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+
+        case appIds.youChillax:
+          updateState({
+            shortCode: shortCodes.youChillax,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.instaShop:
+          updateState({
+            shortCode: shortCodes.instaShop,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, []);
