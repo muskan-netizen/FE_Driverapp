@@ -50,6 +50,8 @@ const shortCodes = {
   gokab: '362d14',
   bezalio: '2c0bf4',
   doleyPharmacy: '72d02d',
+  equamd: 'dd39d8',
+  drus: '63ef33',
 };
 
 // Goody Dispatch
@@ -247,6 +249,14 @@ const appIds = {
   doleyPharmacy: Platform.select({
     ios: 'com.DoleyPharmacy.Dispatch',
     android: 'com.DoleyPharmacy.royodispatcher',
+  }),
+  equamd: Platform.select({
+    ios: 'com.EquaMD.Dispatch',
+    android: "com.equamd.royodispatcher",
+  }),
+  drus: Platform.select({
+    ios: 'com.Drus.Dispatch',
+    android: "com.drus.royodispatcher",
   }),
 };
 
