@@ -551,7 +551,6 @@ target 'ZuzuClean' do
     pod 'ZendeskChatSDK'
     pod'ZendeskChatProvidersSDK'
 
-
 end
 
 
@@ -573,7 +572,6 @@ target 'LoopWhole' do
    pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
     pod 'ZendeskChatSDK'
     pod'ZendeskChatProvidersSDK'
-
 
 end
 
@@ -864,6 +862,109 @@ target 'BotSeat' do
 #Fleety Delivery Target
   target 'Fleety' do
   permissions_path = '../node_modules/react-native-permissions/ios'
+    config = use_native_modules!
+    use_react_native!(
+    :path => config[:reactNativePath],
+    :hermes_enabled => true
+  )
+  pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
+  pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
+  pod 'RNFS', :path => '../node_modules/react-native-fs'
+  end
+
+
+#Gumastas Delivery Target
+  target 'Gumastas' do
+  permissions_path = '../node_modules/react-native-permissions/ios'
+    config = use_native_modules!
+    use_react_native!(
+    :path => config[:reactNativePath],
+    :hermes_enabled => true
+  )
+  pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
+  pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
+  pod 'RNFS', :path => '../node_modules/react-native-fs'
+  end
+
+#Dishefs Delivery Target
+  target 'Dishefs' do
+  permissions_path = '../node_modules/react-native-permissions/ios'
+    config = use_native_modules!
+    use_react_native!(
+    :path => config[:reactNativePath],
+    :hermes_enabled => true
+  )
+  pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
+  pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
+  pod 'RNFS', :path => '../node_modules/react-native-fs'
+  end
+
+# #Govachow Target
+#   target 'Govachow' do
+#   permissions_path = '../node_modules/react-native-permissions/ios'
+#     config = use_native_modules!
+#     use_react_native!(
+#     :path => config[:reactNativePath],
+#     :hermes_enabled => true
+#   )
+#   pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
+#   pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
+#   pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
+#   pod 'RNFS', :path => '../node_modules/react-native-fs'
+#   end
+
+
+
+#Bilionza Target
+  target 'Bilionza' do
+  permissions_path = '../node_modules/react-native-permissions/ios'
+    config = use_native_modules!
+    use_react_native!(
+    :path => config[:reactNativePath],
+    :hermes_enabled => true
+  )
+  pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
+  pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
+  pod 'RNFS', :path => '../node_modules/react-native-fs'
+  end
+
+
+#GoKab Target
+  target 'GoKab' do
+  permissions_path = '../node_modules/react-native-permissions/ios'
+    config = use_native_modules!
+    use_react_native!(
+    :path => config[:reactNativePath],
+    :hermes_enabled => true
+  )
+  pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
+  pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
+  pod 'RNFS', :path => '../node_modules/react-native-fs'
+  end
+
+
+#Bezalio Target
+  target 'Bezalio' do
+  permissions_path = '../node_modules/react-native-permissions/ios'
+    config = use_native_modules!
+    use_react_native!(
+    :path => config[:reactNativePath],
+    :hermes_enabled => true
+  )
+  pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
+  pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
+  pod 'RNFS', :path => '../node_modules/react-native-fs'
+  end
+
+#DoleyPharmacy Target
+  target 'DoleyPharmacy' do
+  permissions_path = '../node_modules/react-native-permissions/ios'
   rn_maps_path = '../node_modules/react-native-maps'
     config = use_native_modules!
     use_react_native!(
@@ -880,3 +981,18 @@ target 'BotSeat' do
    pod'ZendeskChatProvidersSDK'
 
   end
+
+#Jetrider Target
+  target 'Jetrider' do
+  permissions_path = '../node_modules/react-native-permissions/ios'
+    config = use_native_modules!
+    use_react_native!(
+    :path => config[:reactNativePath],
+    :hermes_enabled => true
+  )
+  pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
+  pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
+  pod 'RNFS', :path => '../node_modules/react-native-fs'
+  end
+
