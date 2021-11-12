@@ -428,7 +428,6 @@ target 'ZuzuClean' do
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
   pod 'RNFS', :path => '../node_modules/react-native-fs'
 
-
 end
 
 
@@ -445,7 +444,6 @@ target 'LoopWhole' do
   pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
   pod 'RNFS', :path => '../node_modules/react-native-fs'
-
 
 end
 
