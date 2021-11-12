@@ -721,6 +721,54 @@ android {
             resValue "string", "app_name", "doley Pharmacy"
         
         }
+         taquick{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.TaQuick.royodispatcher'
+            resValue "string", "app_name", "TaQuick Dispatch"
+        
+        }
+
+        sirvu{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.sirvu.royodispatcher'
+            resValue "string", "app_name", "SirVU Dispatch"
+        
+        }
+         klickmat{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.klickmat.royodispatcher'
+            resValue "string", "app_name", "Klickmat Dispatch"
+        
+        }
+        somame{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Somame.royodispatcher'
+            resValue "string", "app_name", "Somame Dispatch"
+        
+        }
+
+
+        
 
     }
 }

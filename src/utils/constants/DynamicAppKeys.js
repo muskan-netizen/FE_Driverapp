@@ -52,6 +52,10 @@ const shortCodes = {
   gokab: '362d14',
   bezalio: '2c0bf4',
   doleyPharmacy: '72d02d',
+  taquick: '7c335c',
+  sirvu: 'b4ca5b',
+  klickmat: '2b7166',
+  somame: '843986',
 };
 
 // Goody Dispatch
@@ -246,7 +250,7 @@ const appIds = {
     ios: 'com.Baytukom.Dispatch',
     android: 'com.Baytukom.royodispatcher',
   }),
-  gokab:  Platform.select({
+  gokab: Platform.select({
     ios: 'com.GoKab.Dispatch',
     android: 'com.Gokab.royodispatcher',
   }),
@@ -257,6 +261,22 @@ const appIds = {
   doleyPharmacy: Platform.select({
     ios: 'com.DoleyPharmacy.Dispatch',
     android: 'com.DoleyPharmacy.royodispatcher',
+  }),
+  taquick: Platform.select({
+    ios: 'com.TaQuick.Dispatch',
+    android: 'com.TaQuick.royodispatcher',
+  }),
+  sirvu: Platform.select({
+    ios: 'com.SirVU.Dispatch',
+    android: 'com.sirvu.royodispatcher',
+  }),
+  klickmat: Platform.select({
+    ios: 'com.Klickmat.Dispatch',
+    android: 'com.klickmat.royodispatcher',
+  }),
+  somame: Platform.select({
+    ios: 'com.Somame.Dispatch',
+    android: 'com.Somame.royodispatcher',
   }),
 };
 

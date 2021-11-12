@@ -374,6 +374,30 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.taquick:
+          updateState({
+            shortCode: shortCodes.taquick,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.sirvu:
+          updateState({
+            shortCode: shortCodes.sirvu,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.klickmat:
+          updateState({
+            shortCode: shortCodes.klickmat,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.somame:
+          updateState({
+            shortCode: shortCodes.somame,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, []);
