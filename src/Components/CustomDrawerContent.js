@@ -54,15 +54,15 @@ export default function CustomDrawerContent({
         key: navigationStrings.SETTINGS,
         // subRoute:navigationStrings.MYPROFILE
       },
-      // {
-      //   id: 3,
-      //   label: strings.WALLET,
-      //   image: imagePath.wallet,
-      //   key: navigationStrings.TASKSTACK,
-      //   subRoute: navigationStrings.WALLET,
-      //   // key: navigationStrings.WALLET,
-      //   // subRoute:navigationStrings.MYPROFILE
-      // },
+      {
+        id: 3,
+        label: strings.WALLET,
+        image: imagePath.wallet,
+        key: navigationStrings.TASKSTACK,
+        subRoute: navigationStrings.WALLET,
+        // key: navigationStrings.WALLET,
+        // subRoute:navigationStrings.MYPROFILE
+      },
       {
         id: 4,
         label: strings.CONTACT,
@@ -74,13 +74,13 @@ export default function CustomDrawerContent({
         key: navigationStrings.WALLET,
         // subRoute:navigationStrings.MYPROFILE
       },
-      // {
-      //   id: 6,
-      //   label: 'Support',
-      //   image: imagePath.logout,
-      //   // key: navigationStrings.PROFILESTACK,
-      //   // subRoute:navigationStrings.MYPROFILE
-      // },
+      {
+        id: 6,
+        label: 'Support',
+        image: imagePath.logout,
+        // key: navigationStrings.PROFILESTACK,
+        // subRoute:navigationStrings.MYPROFILE
+      },
       {
         id: 5,
         label: strings.LOGOUT,
@@ -126,15 +126,15 @@ export default function CustomDrawerContent({
           key: navigationStrings.SETTINGS,
           // subRoute:navigationStrings.MYPROFILE
         },
-        // {
-        //   id: 3,
-        //   label: strings.WALLET,
-        //   image: imagePath.wallet,
-        //   key: navigationStrings.TASKSTACK,
-        //   subRoute: navigationStrings.WALLET,
-        //   // key: navigationStrings.WALLET,
-        //   // subRoute:navigationStrings.MYPROFILE
-        // },
+        {
+          id: 3,
+          label: strings.WALLET,
+          image: imagePath.wallet,
+          key: navigationStrings.TASKSTACK,
+          subRoute: navigationStrings.WALLET,
+          // key: navigationStrings.WALLET,
+          // subRoute:navigationStrings.MYPROFILE
+        },
         {
           id: 4,
           label: strings.CONTACT,
@@ -144,14 +144,14 @@ export default function CustomDrawerContent({
           // key: navigationStrings.WALLET,
           // subRoute:navigationStrings.MYPROFILE
         },
-        // {
-        //   id: 6,
-        //   label: 'Support',
-        //   support: true,
-        //   image: imagePath.logout,
-        //   // key: navigationStrings.PROFILESTACK,
-        //   // subRoute:navigationStrings.MYPROFILE
-        // },
+        {
+          id: 6,
+          label: 'Support',
+          support: true,
+          image: imagePath.logout,
+          // key: navigationStrings.PROFILESTACK,
+          // subRoute:navigationStrings.MYPROFILE
+        },
         {
           id: 5,
           label: strings.LOGOUT,
