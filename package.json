@@ -95,6 +95,8 @@
     "jetriderRelease": "cd android && ./gradlew assemblejet_riderRelease",
     "bilionzadispatcher": "react-native run-android --variant=bilionzaDebug",
     "bilionzadispatcherRelease": "cd android && ./gradlew assemblebilionzaRelease",
+    "baytukomdispatcher": "react-native run-android --variant=baytukomDebug",
+    "baytukomdispatcherRelease": "cd android && ./gradlew assemblebaytukomRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",

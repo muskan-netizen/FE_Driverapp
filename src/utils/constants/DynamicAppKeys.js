@@ -48,6 +48,7 @@ const shortCodes = {
   govachow: 'd8ac18',
   jetrider: '387dd4',
   bilionza: 'd97efd',
+  baytukom: '7df249',
 };
 
 // Goody Dispatch
@@ -237,6 +238,10 @@ const appIds = {
   bilionza: Platform.select({
     ios: 'com.Bilionza.Dispatch',
     android: 'com.Bilionza.royodispatcher',
+  }),
+  baytukom: Platform.select({
+    ios: 'com.Baytukom.Dispatch',
+    android: 'com.Baytukom.royodispatcher',
   }),
 };
 
