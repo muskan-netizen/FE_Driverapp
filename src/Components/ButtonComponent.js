@@ -8,6 +8,7 @@ import {
   TextInput,
   View,
   Text,
+  Image,
   TouchableWithoutFeedback,
 } from 'react-native';
 import fontFamily from '../styles/fontFamily';
@@ -16,11 +17,22 @@ import {
   textScale,
   width,
 } from '../styles/responsiveSize';
-const ButtonComponent = ({onPress, buttonTitle = '', buttonStyle={}}) => {
+const ButtonComponent = ({
+  onPress,
+  buttonTitle = '',
+  buttonStyle = {},
+  imagevalue = false,
+  imageStyle={}
+}) => {
   return (
     <View style={styles.container}>
       <TouchableWithoutFeedback onPress={onPress}>
-        <View style={[styles.button,buttonStyle]}>
+        <View style={[styles.button, buttonStyle]}>
+          {imagevalue && (
+            <View>
+              <Image style={imageStyle} source={imagevalue} />
+            </View>
+          )}
           <Text style={styles.text}>{buttonTitle}</Text>
         </View>
       </TouchableWithoutFeedback>

@@ -65,4 +65,12 @@ export default {
   location: require('../assets/images/ic_location.png'),
   faceInactive: require('../assets/images/ic_face1.png'),
   faceActive: require('../assets/images/ic_face2.png'),
+  barcode2: require('../assets/images/ic_barcode.png'),
+  mail2: require('../assets/images/ic_mail.png'),
+  location2: require('../assets/images/ic_location_2.png'),
+  phone2: require('../assets/images/ic_phone.png'),
+  quantity: require('../assets/images/ic_quantity.png'),
+  postal: require('../assets/images/ic_postal.png'),
+  navigate: require('../assets/images/ic_navigate.png'),
+  placeHolder: require('../assets/images/placeholder.png'),
 };

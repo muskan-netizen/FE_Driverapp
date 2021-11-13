@@ -61,6 +61,8 @@ const shortCodes = {
   shariff: '010494',
   youChillax: 'd42ce5',
   instaShop: '0cab0a',
+  helpNowRightNow: '0e7801',
+  agriOnline: '3ae391',
 };
 
 // Goody Dispatch
@@ -302,6 +304,14 @@ const appIds = {
   instaShop: Platform.select({
     ios: 'com.InstaShop.Dispatch',
     android: 'com.InstaShop.royodispatcher',
+  }),
+  helpNowRightNow: Platform.select({
+    ios: 'com.HelpNowRightNow.Dispatch',
+    android: "com.helpnowrightnow.royodispatcher",
+  }),
+  agriOnline: Platform.select({
+    ios: 'com.AgriOnline.Dispatch',
+    android: "com.AgriOnline.royodispatcher",
   }),
 };
 

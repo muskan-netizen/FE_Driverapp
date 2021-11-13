@@ -96,5 +96,7 @@ export default {
   backGround:'#F2F2F7',
   lightGreyBg2:'rgba(0,0,0,0.44)',
   orangeC:'#F7AE3D',
-  lightGreyBg3:'#F3F3F3'
+  lightGreyBg3:'#F3F3F3',
+  greyLight3:'#DEDEDE',
+  lightSkyE:'#F7FAFF'
 };

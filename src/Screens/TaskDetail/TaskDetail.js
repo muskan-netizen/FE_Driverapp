@@ -13,8 +13,11 @@ import {
 } from 'react-native';
 import ActionSheet from 'react-native-actionsheet';
 import Communications from 'react-native-communications';
-import MapView from 'react-native-maps';
-// import {createOpenLink} from '../../utils/CreateMapLinks';
+import MapView, {
+  AnimatedRegion,
+  Marker,
+  PROVIDER_GOOGLE,
+} from 'react-native-maps'; // import {createOpenLink} from '../../utils/CreateMapLinks';
 import {createOpenLink} from 'react-native-open-maps';
 import {useSelector} from 'react-redux';
 import Header from '../../Components/Header';
@@ -32,6 +35,7 @@ import {
   moderateScale,
   moderateScaleVertical,
   textScale,
+  width,
 } from '../../styles/responsiveSize';
 import moment from 'moment';
 
@@ -40,6 +44,8 @@ import {
   showError,
 } from '../../utils/helperFunctions';
 import stylesFunc from './styles';
+import ButtonComponent from '../../Components/ButtonComponent';
+import {mapStyle} from '../../utils/constants/MapStyle';
 
 var ACTION_TIMER = 1500;
 var COLORS = ['#8FEE90', '#27A468'];
@@ -243,11 +249,11 @@ export default function TaskDetail({route, navigation}) {
   const mapView = () => {
     return (
       <MapView
-        //   provider={PROVIDER_GOOGLE} // remove if not using Google Maps
+        // provider={PROVIDER_GOOGLE} // remove if not using Google Maps
         style={styles.map}
         region={region}
         initialRegion={region}
-        //   customMapStyle={mapStyle}
+        customMapStyle={mapStyle}
         onRegionChangeComplete={_onRegionChange}>
         <MapView.Marker
           tracksViewChanges={false}
@@ -489,120 +495,351 @@ export default function TaskDetail({route, navigation}) {
 
   const taskDetailView = () => {
     return (
-      <ScrollView>
-        <View style={{padding: moderateScale(15)}}>
-          <View
-            style={[
-              styles.statusView,
-              {
-                backgroundColor: getBackGroudColor(taskDetail?.tasktype?.name),
-                marginVertical: moderateScaleVertical(5),
-              },
-            ]}>
-            <Text
+      <ScrollView
+        style={{marginTop: moderateScale(10)}}
+        showsVerticalScrollIndicator={false}>
+        {/* User Detail  */}
+        <View
+          style={{
+            padding: moderateScale(10),
+            backgroundColor: colors.transactionHistoryBg,
+          }}>
+          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+            <View
               style={[
-                styles.taskNameTextstyle,
-                {color: getTextColor(taskDetail?.tasktype?.name)},
+                styles.statusView,
+                {
+                  backgroundColor: colors.greyLight3,
+                  // backgroundColor: getBackGroudColor(taskDetail?.tasktype?.name),
+                  marginVertical: moderateScaleVertical(5),
+                },
               ]}>
-              {taskDetail?.tasktype?.name}
-            </Text>
-          </View>
-
-          <View>
-            <View style={styles.addressContainer}>
-              <View style={{flex: 0.8}}>
-                <Text style={styles.address}>
-                  {taskDetail?.location?.address}
-                </Text>
-              </View>
-
-              <TouchableOpacity
-                onPress={Platform?.OS == 'android' ? openGoogleMap : openMaps}
-                style={styles.pathImageStyle}>
-                <Image source={imagePath?.path} />
-              </TouchableOpacity>
-            </View>
-
-            <Text style={styles.shortName}>
-              {taskDetail?.location?.short_name}
-            </Text>
-          </View>
-        </View>
-        <View style={styles.taskDetailView}>
-          <Text style={styles.taskText}>{strings.TASKDETAIL}</Text>
-        </View>
-
-        <View style={{padding: moderateScale(15)}}>
-          <View style={styles.labelView}>
-            <Image source={imagePath.customer} />
-            <View style={styles.customerNameContainer}>
-              <View style={{flex: 0.7}}>
-                <Text style={styles.taskLable}>{strings.CUSTOMER}</Text>
-                <Text style={styles.taskValue}>
-                  {taskDetail?.order?.customer?.name}
-                </Text>
-              </View>
-
-              <View style={styles.callImageContainer}>
-                <TouchableOpacity
-                  onPress={() =>
-                    taskDetail?.order?.recipient_phone
-                      ? Communications.phonecall(
-                          taskDetail?.order?.recipient_phone,
-                          true,
-                        )
-                      : console.log()
-                  }>
-                  <Image source={imagePath?.call} />
-                </TouchableOpacity>
-                <TouchableOpacity
-                  onPress={() =>
-                    taskDetail?.order?.recipient_phone
-                      ? Communications.text(taskDetail?.order?.recipient_phone)
-                      : console.log()
-                  }
-                  style={{marginLeft: moderateScale(10)}}>
-                  <Image source={imagePath?.chatBlue} />
-                </TouchableOpacity>
-              </View>
-            </View>
-          </View>
-
-          <View style={styles.labelView}>
-            <Image source={imagePath.task} />
-            <View style={styles.taskTimingContainer}>
-              <Text style={styles.taskLable}>{strings.TASKTIMINGS}</Text>
-              <Text style={styles.taskValue}>
-                {getDate(taskDetail?.order?.order_time)}
+              <Text
+                style={[
+                  styles.taskNameTextstyle,
+                  // {color: getTextColor(taskDetail?.tasktype?.name)},
+                  {color: colors.black},
+                ]}>
+                {`${(taskDetail?.tasktype?.name).toUpperCase()}`}
               </Text>
             </View>
+            <View style={{justifyContent: 'center'}}>
+              <Image source={imagePath?.barcode2} />
+            </View>
           </View>
 
-          {!!taskDetail?.order?.cash_to_be_collected && (
-            <View style={styles.labelView}>
-              <Image source={imagePath.details} />
-              <View style={{marginLeft: moderateScale(7)}}>
-                <Text style={styles.taskLable}>
-                  {strings.CASHTOBECOLLECTED}
-                </Text>
-                <Text style={styles.taskValue}>
-                  {Number(taskDetail?.order?.cash_to_be_collected).toFixed(2)}
-                </Text>
-              </View>
+          {/* Phone and email view */}
+          {!!(
+            taskDetail?.order?.Recipient_email ||
+            taskDetail?.order?.recipient_phone
+          ) && (
+            <View
+              style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+              {!!taskDetail?.order?.Recipient_email && (
+                <TouchableOpacity
+                  onPress={() =>
+                    Communications.email(
+                      [taskDetail?.order?.Recipient_email, ''],
+                      null,
+                      null,
+                      '',
+                      '',
+                    )
+                  }
+                  style={{
+                    flexDirection: 'row',
+                    marginTop: moderateScale(10),
+                    alignItems: 'center',
+                  }}>
+                  <Image
+                    source={imagePath.mail2}
+                    style={{marginRight: moderateScale(5)}}
+                  />
+                  <Text style={styles.emailAndPhone}>
+                    {taskDetail?.order?.Recipient_email}
+                  </Text>
+                </TouchableOpacity>
+              )}
+              {!!taskDetail?.order?.recipient_phone && (
+                <TouchableOpacity
+                  onPress={() =>
+                    Communications.phonecall(
+                      taskDetail?.order?.recipient_phone,
+                      true,
+                    )
+                  }
+                  style={{
+                    flexDirection: 'row',
+                    marginTop: moderateScale(10),
+                    alignItems: 'center',
+                  }}>
+                  <Image
+                    source={imagePath.phone2}
+                    style={{marginRight: moderateScale(5)}}
+                  />
+                  <Text style={styles.emailAndPhone}>
+                    {taskDetail?.order?.recipient_phone}
+                  </Text>
+                </TouchableOpacity>
+              )}
             </View>
           )}
 
+          {/* location and address */}
+          {!!taskDetail?.location?.address && (
+            <View
+              style={{
+                flexDirection: 'row',
+                marginTop: moderateScale(10),
+                alignItems: 'center',
+              }}>
+              <Image
+                source={imagePath?.location2}
+                style={{marginRight: moderateScale(5)}}
+              />
+              <Text numberOfLines={2} style={styles.emailAndPhone}>
+                {taskDetail?.location?.address}
+              </Text>
+            </View>
+          )}
+
+          {/* Quantity and post code */}
+          <View
+            style={{
+              flexDirection: 'row',
+              marginTop: moderateScale(10),
+              justifyContent: 'space-between',
+            }}>
+            {!!taskDetail?.quantity && (
+              <View
+                style={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                }}>
+                <Image
+                  source={imagePath?.quantity}
+                  style={{marginRight: moderateScale(5)}}
+                />
+                <Text style={styles.emailAndPhone} numberOfLines={1}>
+                  {taskDetail?.quantity}
+                </Text>
+              </View>
+            )}
+
+            {!!taskDetail?.location?.post_code && (
+              <View
+                style={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                }}>
+                <Image
+                  source={imagePath?.postal}
+                  style={{marginRight: moderateScale(5)}}
+                />
+                <Text style={styles.emailAndPhone} numberOfLines={1}>
+                  {taskDetail?.location?.post_code}
+                </Text>
+              </View>
+            )}
+          </View>
+
+          {/* Button  component */}
+          <View style={{marginVertical: moderateScale(10)}}>
+            <ButtonComponent
+              buttonStyle={{
+                flexDirection: 'row',
+                justifyContent: 'center',
+                alignItems: 'center',
+                padding: moderateScale(10),
+                borderRadius: moderateScale(5),
+                marginTop: moderateScale(10),
+              }}
+              onPress={Platform?.OS == 'android' ? openGoogleMap : openMaps}
+              buttonTitle={strings.NAVIGATE}
+              imagevalue={imagePath?.navigate}
+              imageStyle={{marginHorizontal: moderateScale(2)}}
+            />
+          </View>
+        </View>
+
+        {/* Task Detail Text */}
+        <View style={styles.taskDetailView}>
+          <Text style={styles.taskText}>
+            {strings.TASKDETAIL.toUpperCase()}
+          </Text>
+        </View>
+
+        {/* Task Detail View */}
+
+        <View
+          style={{
+            padding: moderateScale(10),
+            backgroundColor: colors.lightSkyE,
+          }}>
+          {taskDetail?.order?.customer?.name && (
+            <Text style={styles.customerName}>
+              {taskDetail?.order?.customer?.name}
+            </Text>
+          )}
+
+          {/* Phone and email view customer*/}
+          {!!(
+            taskDetail?.order?.customer?.email ||
+            taskDetail?.order?.customer?.phone_number
+          ) && (
+            <View
+              style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+              {!!taskDetail?.order?.customer?.email && (
+                <TouchableOpacity
+                  onPress={() =>
+                    Communications.email(
+                      [taskDetail?.order?.customer?.email, ''],
+                      null,
+                      null,
+                      '',
+                      '',
+                    )
+                  }
+                  style={{
+                    flex: 0.6,
+                    flexDirection: 'row',
+                    marginTop: moderateScale(10),
+                    alignItems: 'center',
+                  }}>
+                  <Image
+                    source={imagePath.mail2}
+                    style={{marginRight: moderateScale(5)}}
+                  />
+                  <Text numberOfLines={1} style={styles.emailAndPhone}>
+                    {taskDetail?.order?.customer?.email}
+                  </Text>
+                </TouchableOpacity>
+              )}
+              {!!taskDetail?.order?.customer?.phone_number && (
+                <TouchableOpacity
+                  onPress={() =>
+                    Communications.phonecall(
+                      taskDetail?.order?.customer?.phone_number,
+                      true,
+                    )
+                  }
+                  style={{
+                    flex: 0.4,
+                    flexDirection: 'row',
+                    marginTop: moderateScale(10),
+                    alignItems: 'center',
+                    justifyContent: 'flex-end',
+                  }}>
+                  <Image
+                    source={imagePath.phone2}
+                    style={{marginRight: moderateScale(5)}}
+                  />
+                  <Text style={styles.emailAndPhone}>
+                    {taskDetail?.order?.customer?.phone_number}
+                  </Text>
+                </TouchableOpacity>
+              )}
+            </View>
+          )}
+
+          {/* seperator */}
+          <View
+            style={{
+              ...commonStyles.headerTopLine,
+              marginVertical: moderateScale(10),
+            }}
+          />
+
+          {/* Time and cash to be collected */}
+          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+            <View style={{flex: 0.5}}>
+              <Text style={styles.taskLable}>
+                {strings.TIMINGS.toUpperCase()}
+              </Text>
+              <Text
+                numberOfLines={1}
+                style={[styles.emailAndPhone, {marginTop: moderateScale(5)}]}>
+                {getDate(taskDetail?.order?.order_time)}
+              </Text>
+            </View>
+
+            {!!taskDetail?.order?.cash_to_be_collected && (
+              <View style={{flex: 0.5}}>
+                <Text style={styles.taskLable}>
+                  {strings.CASHTOBECOLLECTED.toUpperCase()}
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  style={[styles.emailAndPhone, {marginTop: moderateScale(5)}]}>
+                  {Number(taskDetail?.order?.cash_to_be_collected).toFixed(2)}
+                </Text>
+              </View>
+            )}
+          </View>
+
+          {/* Description */}
           {!!taskDetail?.order?.task_description && (
-            <View style={styles.labelView}>
-              <Image source={imagePath.details} />
-              <View style={{marginLeft: moderateScale(7)}}>
-                <Text style={styles.taskLable}>{strings.TASKDETAIL}</Text>
-                <Text style={styles.taskValue}>
+            <View style={{flexDirection: 'row', marginTop: moderateScale(15)}}>
+              <View>
+                <Text style={styles.taskLable}>
+                  {strings.TASKDESCRIPTION.toUpperCase()}
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  style={[styles.emailAndPhone, {marginTop: moderateScale(5)}]}>
                   {taskDetail?.order?.task_description}
                 </Text>
               </View>
             </View>
           )}
+
+          {/* Images */}
+          {!!taskDetail?.order?.task_images &&
+            taskDetail?.order?.task_images.length && (
+              <View
+                style={{flexDirection: 'row', marginTop: moderateScale(15)}}>
+                <View>
+                  <Text style={styles.taskLable}>
+                    {strings.IMAGES.toUpperCase()}
+                  </Text>
+
+                  <View
+                    style={{
+                      flexDirection: 'row',
+                      flexWrap: 'wrap',
+                      marginTop: moderateScale(5),
+                    }}>
+                    {taskDetail?.order?.task_images.map((i, inx) => {
+                      return (
+                        <>
+                          <Image
+                            source={imagePath?.placeHolder}
+                            style={{
+                              position: 'absolute',
+                              marginRight: moderateScale(15),
+                              zIndex: -100,
+                              width: width / 5,
+                              height: width / 5, //362 is actual height of image
+                            }}
+                          />
+                          <Image
+                            source={{
+                              uri: i,
+                            }}
+                            style={{
+                              marginRight: moderateScale(15),
+                              zIndex: 100,
+                              width: width / 5,
+                              height: width / 5, //362 is actual height of image
+                            }}
+                          />
+                        </>
+                      );
+                    })}
+                  </View>
+                </View>
+              </View>
+            )}
         </View>
       </ScrollView>
     );
@@ -668,7 +905,7 @@ export default function TaskDetail({route, navigation}) {
         leftIconStyle={{tintColor: colors.themeColor}}
         // hideRight={true}
         // onPressLeft={()=>navigation.goBack()}
-        centerTitle={strings.TASK}
+        centerTitle={`${strings.TASK} #${taskDetail?.id}`}
         customRight={() =>
           !!(taskStatus != '1' && !fromHistory) && (
             <TouchableOpacity onPress={cancelTask}>
@@ -684,12 +921,14 @@ export default function TaskDetail({route, navigation}) {
           )
         }
       />
-      <View style={{...commonStyles.headerTopLine}} />
-      {mapView()}
-      <View style={styles.mainContainer}>
-        {taskDetailView()}
-        {buttonView()}
-      </View>
+      {/* <View style={{...commonStyles.headerTopLine}} /> */}
+
+      <ScrollView showsVerticalScrollIndicator={false}>
+        {mapView()}
+        <View style={styles.mainContainer}>{taskDetailView()}</View>
+        <View style={{height: moderateScale(45)}} />
+      </ScrollView>
+      {buttonView()}
       <ActionSheet
         ref={actionSheet}
         // title={'Choose one option'}

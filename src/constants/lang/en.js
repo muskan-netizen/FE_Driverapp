@@ -118,5 +118,9 @@ export default {
   "IMAGEMATCHED":"Image successfully mapped",
   "FACEIMAGENOTFOUND":"The image does not match your profile picture.\nPlease upload the correct face image",
   "FACEDETECTION":"Face recognition",
-  "FACEIMAGEREQUIRED":"Face recognition required"
+  "FACEIMAGEREQUIRED":"Face recognition required",
+  "NAVIGATE":"Navigate",
+  "TIMINGS":"Timings",
+  "TASKDESCRIPTION":"Task Description",
+  "IMAGES":"Images"
 }

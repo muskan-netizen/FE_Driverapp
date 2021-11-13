@@ -44,7 +44,7 @@ export default {
   ALLTASKS: 'All Tasks',
   TASK: 'Task',
   CANCEL: 'Cancel',
-  TASKDETAIL: 'Task Details',
+  TASKDETAIL: 'Task Description',
   CUSTOMER: 'Customer',
   TASKTIMINGS: 'Task Timings',
   RECIPIENT: 'Recipient Notes',
