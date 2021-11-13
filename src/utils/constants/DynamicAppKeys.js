@@ -63,6 +63,7 @@ const shortCodes = {
   instaShop: '0cab0a',
   helpNowRightNow: '0e7801',
   agriOnline: '3ae391',
+  clickeat: '5a90a2',
 };
 
 // Goody Dispatch
@@ -307,11 +308,15 @@ const appIds = {
   }),
   helpNowRightNow: Platform.select({
     ios: 'com.HelpNowRightNow.Dispatch',
-    android: "com.helpnowrightnow.royodispatcher",
+    android: 'com.helpnowrightnow.royodispatcher',
   }),
   agriOnline: Platform.select({
     ios: 'com.AgriOnline.Dispatch',
-    android: "com.AgriOnline.royodispatcher",
+    android: 'com.AgriOnline.royodispatcher',
+  }),
+  clickeat: Platform.select({
+    ios: 'com.ClickEat.Dispatch',
+    android: 'com.clickEat.royodispatcher',
   }),
 };
 
