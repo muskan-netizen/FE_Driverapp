@@ -835,7 +835,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId "com.AgriOnline.royodispatcher"
-            resValue "string", "app_name", "AgriOnline"
+            resValue "string", "app_name", "AgriOnline Order"
         
         }
         click_eat{
