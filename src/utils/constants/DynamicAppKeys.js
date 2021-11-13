@@ -52,6 +52,20 @@ const shortCodes = {
   gokab: '362d14',
   bezalio: '2c0bf4',
   doleyPharmacy: '72d02d',
+  taquick: '7c335c',
+  sirvu: 'b4ca5b',
+  klickmat: '2b7166',
+  somame: '843986',
+  equamd: 'dd39d8',
+  drus: '63ef33',
+  shariff: '010494',
+  youChillax: 'd42ce5',
+  instaShop: '0cab0a',
+  helpNowRightNow: '0e7801',
+  agriOnline: '3ae391',
+  clickeat: '5a90a2',
+  tranzet: 'b35edf',
+  grub: 'b68843',
 };
 
 // Goody Dispatch
@@ -246,7 +260,7 @@ const appIds = {
     ios: 'com.Baytukom.Dispatch',
     android: 'com.Baytukom.royodispatcher',
   }),
-  gokab:  Platform.select({
+  gokab: Platform.select({
     ios: 'com.GoKab.Dispatch',
     android: 'com.Gokab.royodispatcher',
   }),
@@ -257,6 +271,62 @@ const appIds = {
   doleyPharmacy: Platform.select({
     ios: 'com.DoleyPharmacy.Dispatch',
     android: 'com.DoleyPharmacy.royodispatcher',
+  }),
+  taquick: Platform.select({
+    ios: 'com.TaQuick.Dispatch',
+    android: 'com.TaQuick.royodispatcher',
+  }),
+  sirvu: Platform.select({
+    ios: 'com.SirVU.Dispatch',
+    android: 'com.sirvu.royodispatcher',
+  }),
+  klickmat: Platform.select({
+    ios: 'com.Klickmat.Dispatch',
+    android: 'com.klickmat.royodispatcher',
+  }),
+  somame: Platform.select({
+    ios: 'com.Somame.Dispatch',
+    android: 'com.Somame.royodispatcher',
+  }),
+  equamd: Platform.select({
+    ios: 'com.EquaMD.Dispatch',
+    android: 'com.equamd.royodispatcher',
+  }),
+  drus: Platform.select({
+    ios: 'com.Drus.Dispatch',
+    android: 'com.drus.royodispatcher',
+  }),
+  shariff: Platform.select({
+    ios: 'com.Shariff.Dispatch',
+    android: 'com.shariff.royodispatcher',
+  }),
+  youChillax: Platform.select({
+    ios: 'com.YouChillax.Dispatch',
+    android: 'com.YouChillax.royodispatcher',
+  }),
+  instaShop: Platform.select({
+    ios: 'com.InstaShop.Dispatch',
+    android: 'com.InstaShop.royodispatcher',
+  }),
+  helpNowRightNow: Platform.select({
+    ios: 'com.HelpNowRightNow.Dispatch',
+    android: 'com.helpnowrightnow.royodispatcher',
+  }),
+  agriOnline: Platform.select({
+    ios: 'com.AgriOnline.Dispatch',
+    android: 'com.AgriOnline.royodispatcher',
+  }),
+  clickeat: Platform.select({
+    ios: 'com.ClickEat.Dispatch',
+    android: 'com.clickEat.royodispatcher',
+  }),
+  tranzet: Platform.select({
+    ios: 'com.Tranznet.Dispatch',
+    android: 'com.TranzNet.royodispatcher',
+  }),
+  grub: Platform.select({
+    ios: 'com.Grub.Dispatch',
+    android: "com.Grub.royodispatcher",
   }),
 };
 

@@ -374,6 +374,91 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.taquick:
+          updateState({
+            shortCode: shortCodes.taquick,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.sirvu:
+          updateState({
+            shortCode: shortCodes.sirvu,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.klickmat:
+          updateState({
+            shortCode: shortCodes.klickmat,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.somame:
+          updateState({
+            shortCode: shortCodes.somame,
+            isShortcodePrefilled: true,
+          });
+        case appIds.equamd:
+          updateState({
+            shortCode: shortCodes.equamd,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.drus:
+          updateState({
+            shortCode: shortCodes.drus,
+            isShortcodePrefilled: true,
+          });
+          break;
+
+        case appIds.shariff:
+          updateState({
+            shortCode: shortCodes.shariff,
+            isShortcodePrefilled: true,
+          });
+          break;
+
+        case appIds.youChillax:
+          updateState({
+            shortCode: shortCodes.youChillax,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.instaShop:
+          updateState({
+            shortCode: shortCodes.instaShop,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.helpNowRightNow:
+          updateState({
+            shortCode: shortCodes.helpNowRightNow,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.agriOnline:
+          updateState({
+            shortCode: shortCodes.agriOnline,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.clickeat:
+          updateState({
+            shortCode: shortCodes.clickeat,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.tranzet:
+          updateState({
+            shortCode: shortCodes.tranzet,
+            isShortcodePrefilled: true,
+          });
+          break;
+          case appIds.grub:
+          updateState({
+            shortCode: shortCodes.grub,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, []);
