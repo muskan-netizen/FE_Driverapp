@@ -1,5 +1,5 @@
 //live
-//export const API_BASE_URL = 'https://api.royodispatch.com/api';
+// export const API_BASE_URL = 'https://api.royodispatch.com/api';
 
 //Staging
 export const API_BASE_URL = 'https://api.rdstaging.com/api';

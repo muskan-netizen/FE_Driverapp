@@ -526,7 +526,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.wh.dispatcher'
-            resValue "string", "app_name", "WH Delivery"
+            resValue "string", "app_name", "WH Delivery Dispatch"
         }
 
         elcheregio {
@@ -537,7 +537,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.ElCheRegio.Dispatch'
-            resValue "string", "app_name", "Elcheregio"
+            resValue "string", "app_name", "Elcheregio Dispatch"
         }
 
         hmc {
@@ -569,7 +569,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.PinkJet.royodispatcher'
-            resValue "string", "app_name", "pinkJet"
+            resValue "string", "app_name", "pinkJet Dispatch"
         }
         botSeat {
             dimension "appType"
@@ -579,7 +579,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.BotSeat.royodispatcher'
-            resValue "string", "app_name", "BotSeat"
+            resValue "string", "app_name", "BotSeat Dispatch"
 
         }
 
@@ -592,7 +592,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.MokabFix.royodispatcher'
-            resValue "string", "app_name", "MokabFix"
+            resValue "string", "app_name", "MokabFix Dispatch"
 
         }
 
@@ -605,7 +605,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.spidbi.royodispatcher'
-            resValue "string", "app_name", "spidibi"
+            resValue "string", "app_name", "spidibi Dispatch"
         
         }
     
@@ -617,7 +617,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.fleety.royodispatcher'
-            resValue "string", "app_name", "fleety"
+            resValue "string", "app_name", "fleety Dispatch"
 
             
         }
@@ -643,7 +643,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.Dishefs.royodispatcher'
-            resValue "string", "app_name", "Dishefs"
+            resValue "string", "app_name", "Dishefs Dispatch"
         
         }
         gumastas {
@@ -655,7 +655,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.Gumastas.royodispatcher'
-            resValue "string", "app_name", "Gumastas"
+            resValue "string", "app_name", "Gumastas Dispatch"
         }
         bilionza{
             dimension "appType"
@@ -665,13 +665,13 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.Bilionza.royodispatcher'
-            resValue "string", "app_name", "bilionza"
+            resValue "string", "app_name", "bilionza Dispatch"
         
         }
         jet_rider {
            dimension "appType"
             versionCode 1
-            versionName "1.0"
+            versionName "1.0" 
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
@@ -687,7 +687,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
               applicationId 'com.Gokab.royodispatcher'
-            resValue "string", "app_name", "Gokab"
+            resValue "string", "app_name", "Gokab Dispatch"
         }
         baytukom{
               dimension "appType"
@@ -707,7 +707,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.Bezalio.royodispatcher'
-            resValue "string", "app_name", "Bezalio"
+            resValue "string", "app_name", "Bezalio Dispatch"
         
         }
         doleyPharmacy{
@@ -718,7 +718,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.DoleyPharmacy.royodispatcher'
-            resValue "string", "app_name", "doley Pharmacy"
+            resValue "string", "app_name", "doley Pharmacy Dispatch"
         
         }
          taquick{
@@ -738,7 +738,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
            applicationId "com.equamd.royodispatcher"
-            resValue "string", "app_name", "Equamd"
+            resValue "string", "app_name", "Equamd Dispatch"
         
         }
 
@@ -760,7 +760,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
            applicationId "com.drus.royodispatcher"
-            resValue "string", "app_name", "Drus"
+            resValue "string", "app_name", "Drus Dispatch"
         
         }
          klickmat{
@@ -780,7 +780,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
            applicationId "com.shariff.royodispatcher"
-            resValue "string", "app_name", "Shariff"
+            resValue "string", "app_name", "Shariff Dispatch"
         }
         somame{
             dimension "appType"
@@ -801,7 +801,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
              applicationId "com.InstaShop.royodispatcher"
-            resValue "string", "app_name", "InstaShop"
+            resValue "string", "app_name", "InstaShop Dispatch"
         
         }
             
@@ -813,7 +813,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId "com.YouChillax.royodispatcher"
-            resValue "string", "app_name", "YouChillax"
+            resValue "string", "app_name", "YouChillax Dispatch"
         
         }
         helpNowRightNow{
@@ -824,7 +824,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId "com.helpnowrightnow.royodispatcher"
-            resValue "string", "app_name", "help now right now"
+            resValue "string", "app_name", "help now right now Dispatch"
         
         }
         agriOnline{
@@ -835,7 +835,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId "com.AgriOnline.royodispatcher"
-            resValue "string", "app_name", "AgriOnline Order"
+            resValue "string", "app_name", "AgriOnline Rider Dispatch"
         
         }
         click_eat{
@@ -850,14 +850,23 @@ android {
         
         }
          tranznet{
+                dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+              applicationId "com.TranzNet.royodispatcher"
+            resValue "string", "app_name", "Tranznet Dispatch"
+         }
+        grub{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId "com.TranzNet.royodispatcher"
-            resValue "string", "app_name", "Tranznet Dispatch"
+            applicationId "com.Grub.royodispatcher"
+            resValue "string", "app_name", "Grub Dispatch"
         
         }
     }

@@ -65,6 +65,7 @@ const shortCodes = {
   agriOnline: '3ae391',
   clickeat: '5a90a2',
   tranzet: 'b35edf',
+  grub: 'b68843',
 };
 
 // Goody Dispatch
@@ -322,6 +323,10 @@ const appIds = {
   tranzet: Platform.select({
     ios: 'com.Tranznet.Dispatch',
     android: 'com.TranzNet.royodispatcher',
+  }),
+  grub: Platform.select({
+    ios: 'com.Grub.Dispatch',
+    android: "com.Grub.royodispatcher",
   }),
 };
 
