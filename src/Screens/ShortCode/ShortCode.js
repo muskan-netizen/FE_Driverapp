@@ -447,6 +447,12 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.tranzet:
+          updateState({
+            shortCode: shortCodes.tranzet,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, []);

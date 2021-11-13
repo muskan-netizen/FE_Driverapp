@@ -18,7 +18,7 @@ export default {
   CODESENTTO: 'Code send to',
   DIDNTRECIEVEANYCODE: "Didn't recieve the code yet? ",
   RESENTCODE: 'Resend code',
-  TASKHISTORY: 'Task History',
+  TASKHISTORY: 'Historique des tâches',
   SETTING: 'Settings',
   LOGOUT: 'Logout',
   NOTASK: 'No Tasks Assigned Yet',

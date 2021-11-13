@@ -127,6 +127,8 @@
     "agriOnlinedispatcherRelease": "cd android && ./gradlew assembleagriOnlineRelease",
     "clickeatdispatcher": "react-native run-android --variant=click_eatDebug",
     "clickeatdispatcherRelease": "cd android && ./gradlew assembleClick_eatRelease",
+    "tranznetdispatcher": "react-native run-android --variant=tranznetDebug",
+    "tranznetdispatcherRelease": "cd android && ./gradlew assembleTranznetRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
