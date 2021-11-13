@@ -804,10 +804,6 @@ android {
             resValue "string", "app_name", "InstaShop"
         
         }
-
-
-        
-
             
         youChillax{
             dimension "appType"
@@ -818,6 +814,28 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId "com.YouChillax.royodispatcher"
             resValue "string", "app_name", "YouChillax"
+        
+        }
+        helpNowRightNow{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId "com.helpnowrightnow.royodispatcher"
+            resValue "string", "app_name", "help now right now"
+        
+        }
+        agriOnline{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId "com.AgriOnline.royodispatcher"
+            resValue "string", "app_name", "AgriOnline"
         
         }
     }

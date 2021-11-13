@@ -429,6 +429,18 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.helpNowRightNow:
+          updateState({
+            shortCode: shortCodes.helpNowRightNow,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.agriOnline:
+          updateState({
+            shortCode: shortCodes.agriOnline,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, []);
