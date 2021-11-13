@@ -43,10 +43,31 @@ PODS:
     - nanopb (~> 2.30908.0)
   - fmt (6.2.1)
   - glog (0.3.5)
+  - Google-Maps-iOS-Utils (2.1.0):
+    - Google-Maps-iOS-Utils/Clustering (= 2.1.0)
+    - Google-Maps-iOS-Utils/Geometry (= 2.1.0)
+    - Google-Maps-iOS-Utils/Heatmap (= 2.1.0)
+    - Google-Maps-iOS-Utils/QuadTree (= 2.1.0)
+    - GoogleMaps
+  - Google-Maps-iOS-Utils/Clustering (2.1.0):
+    - Google-Maps-iOS-Utils/QuadTree
+    - GoogleMaps
+  - Google-Maps-iOS-Utils/Geometry (2.1.0):
+    - GoogleMaps
+  - Google-Maps-iOS-Utils/Heatmap (2.1.0):
+    - Google-Maps-iOS-Utils/QuadTree
+    - GoogleMaps
+  - Google-Maps-iOS-Utils/QuadTree (2.1.0):
+    - GoogleMaps
   - GoogleDataTransport (9.1.0):
     - GoogleUtilities/Environment (~> 7.2)
     - nanopb (~> 2.30908.0)
     - PromisesObjC (< 3.0, >= 1.2)
+  - GoogleMaps (3.5.0):
+    - GoogleMaps/Maps (= 3.5.0)
+  - GoogleMaps/Base (3.5.0)
+  - GoogleMaps/Maps (3.5.0):
+    - GoogleMaps/Base
   - GoogleUtilities/AppDelegateSwizzler (7.5.2):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
@@ -293,6 +314,10 @@ PODS:
     - React
   - react-native-geolocation-service (5.3.0-beta.2):
     - React
+  - react-native-google-maps (0.29.3):
+    - Google-Maps-iOS-Utils (= 2.1.0)
+    - GoogleMaps (= 3.5.0)
+    - React-Core
   - react-native-maps (0.29.3):
     - React-Core
   - react-native-netinfo (6.0.2):
@@ -443,8 +468,22 @@ PODS:
   - RNScreens (3.6.0):
     - React-Core
     - React-RCTImage
+  - RNZendeskChat (0.4.1):
+    - React-Core
+    - ZendeskChatSDK (~> 2.9)
   - TOCropViewController (2.6.0)
   - Yoga (1.14.0)
+  - ZendeskChatProvidersSDK (2.11.1)
+  - ZendeskChatSDK (2.11.1):
+    - ZendeskChatProvidersSDK (~> 2.11.1)
+    - ZendeskMessagingSDK (~> 3.8.2)
+  - ZendeskCommonUISDK (6.1.1)
+  - ZendeskMessagingAPISDK (3.8.2):
+    - ZendeskSDKConfigurationsSDK (~> 1.1.8)
+  - ZendeskMessagingSDK (3.8.2):
+    - ZendeskCommonUISDK (~> 6.1.1)
+    - ZendeskMessagingAPISDK (~> 3.8.2)
+  - ZendeskSDKConfigurationsSDK (1.1.8)
 
 DEPENDENCIES:
   - BVLinearGradient (from `../node_modules/react-native-linear-gradient`)
@@ -475,6 +514,7 @@ DEPENDENCIES:
   - react-native-document-picker (from `../node_modules/react-native-document-picker`)
   - react-native-geocoder (from `../node_modules/react-native-geocoder`)
   - react-native-geolocation-service (from `../node_modules/react-native-geolocation-service`)
+  - react-native-google-maps (from `../node_modules/react-native-maps`)
   - react-native-maps (from `../node_modules/react-native-maps`)
   - "react-native-netinfo (from `../node_modules/@react-native-community/netinfo`)"
   - react-native-restart (from `../node_modules/react-native-restart`)
@@ -510,7 +550,10 @@ DEPENDENCIES:
   - RNPermissions (from `../node_modules/react-native-permissions`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
+  - RNZendeskChat (from `../node_modules/react-native-zendesk-chat`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
+  - ZendeskChatProvidersSDK
+  - ZendeskChatSDK
 
 SPEC REPOS:
   trunk:
@@ -522,13 +565,21 @@ SPEC REPOS:
     - FirebaseInstallations
     - FirebaseMessaging
     - fmt
+    - Google-Maps-iOS-Utils
     - GoogleDataTransport
+    - GoogleMaps
     - GoogleUtilities
     - lottie-ios
     - nanopb
     - PromisesObjC
     - RegulaCommon
     - TOCropViewController
+    - ZendeskChatProvidersSDK
+    - ZendeskChatSDK
+    - ZendeskCommonUISDK
+    - ZendeskMessagingAPISDK
+    - ZendeskMessagingSDK
+    - ZendeskSDKConfigurationsSDK
 
 EXTERNAL SOURCES:
   BVLinearGradient:
@@ -583,6 +634,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-geocoder"
   react-native-geolocation-service:
     :path: "../node_modules/react-native-geolocation-service"
+  react-native-google-maps:
+    :path: "../node_modules/react-native-maps"
   react-native-maps:
     :path: "../node_modules/react-native-maps"
   react-native-netinfo:
@@ -653,6 +706,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-reanimated"
   RNScreens:
     :path: "../node_modules/react-native-screens"
+  RNZendeskChat:
+    :path: "../node_modules/react-native-zendesk-chat"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -670,7 +725,9 @@ SPEC CHECKSUMS:
   FirebaseMessaging: 419b5c9d84f294a753c6501d8cfb9ced1ce37304
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   glog: 5337263514dd6f09803962437687240c5dc39aa4
+  Google-Maps-iOS-Utils: c32891ff472eaaa1fca032beedafa1a013af7875
   GoogleDataTransport: 85fd18ff3019bb85d3f2c551d04c481dedf71fc9
+  GoogleMaps: 32ca02de09de357a10ac773f2c70f1986751392d
   GoogleUtilities: 8de2a97a17e15b6b98e38e8770e2d129a57c0040
   lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
   lottie-react-native: 96361a9891cf651534ea35c4f85f33d4cf14ed13
@@ -696,6 +753,7 @@ SPEC CHECKSUMS:
   react-native-document-picker: bf12b9ca87790f9b723106ffde0eff239928e515
   react-native-geocoder: 757427682892bb256f3b3745858cc90eba148a8e
   react-native-geolocation-service: 94c7d2ffdbbf4dd431241e0c8e37d491ebd41430
+  react-native-google-maps: d6a30377b40a338bd09d6ad36ce48dc5d12b5792
   react-native-maps: 41d01d8e0afcebe32bec9eea3bd945adc1b18f7a
   react-native-netinfo: 92e6e4476eb8bf6fc2d7c0a6ca0a1406f663d73a
   react-native-restart: 733a51ad137f15b0f8dc34c4082e55af7da00979
@@ -732,9 +790,16 @@ SPEC CHECKSUMS:
   RNPermissions: 7043bacbf928eae25808275cfe73799b8f618911
   RNReanimated: d29057cf85e771be4f0180ba1d00a7185e423a7d
   RNScreens: eb0dfb2d6b21d2d7f980ad46b14eb306d2f1062e
+  RNZendeskChat: c3835f664be1746b121b69736d5c95e236cae382
   TOCropViewController: 3105367e808b7d3d886a74ff59bf4804e7d3ab38
   Yoga: aa0cb45287ebe1004c02a13f279c55a95f1572f4
+  ZendeskChatProvidersSDK: 37901c1c7529722d71ffade971bb984edd74a5e1
+  ZendeskChatSDK: e312c1899c52eff0ef2b7219385c5aaac3d9e76e
+  ZendeskCommonUISDK: 5808802951ad2bb424f0bed4259dc3c0ce9b52ec
+  ZendeskMessagingAPISDK: 144e0fb0e633a3c4e73149b781ab65338938d5a8
+  ZendeskMessagingSDK: 500e83d9413481e95180c37ddca0d4ef9d515600
+  ZendeskSDKConfigurationsSDK: 8371b468db0d09e9198f6c5a97818826943ee1ee
 
-PODFILE CHECKSUM: aa10fccd8ea7f280a082b9a24ec1506eed1922e3
+PODFILE CHECKSUM: a05f5cc657263df3ad896d218a4106f99cf996a2
 
 COCOAPODS: 1.11.0
