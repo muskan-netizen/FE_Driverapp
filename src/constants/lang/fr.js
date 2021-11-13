@@ -116,4 +116,18 @@ export default {
   GETINTOUCH: 'Contactez-nous',
   WANTTOGET:
     "Want to get in touch? we'd love to hear from you,Here's how you can reach us.",
+    "CASHCOLLECTEDCAPS":"CASH COLLECTION",
+  "ORDEREARNING":"EARNINGS OF THE ORDER",
+  "NET":"NET",
+  "PAYMENTCREDITED":"Payment credited",
+  "PAYMENTDEBITED":"Payment debited",
+  "IMAGEMATCHED":"Image successfully mapped",
+  "FACEIMAGENOTFOUND":"The image does not match your profile picture.\nPlease upload the correct face image",
+  "FACEDETECTION":"Face recognition",
+  "FACEIMAGEREQUIRED":"Face recognition required",
+  "NAVIGATE":"Navigate",
+  "TIMINGS":"Timings",
+  "TASKDESCRIPTION":"Task Description",
+  "IMAGES":"Images",
+  "FACESNOTMATCHED":"Faces not matched"
 };

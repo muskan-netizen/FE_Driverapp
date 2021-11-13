@@ -120,6 +120,12 @@ export default {
 "IMAGEMATCHED": "Imagem combinada com sucesso",
 "FACEIMAGENOTFOUND": "A imagem não corresponde à sua imagem de perfil.\nPor favor, carregue a imagem facial adequada",
 "FACEDETECTION": "Detecção facial",
-"FACEIMAGEREQUIRED": "A detecção facial é necessária"
+"FACEIMAGEREQUIRED": "A detecção facial é necessária",
+"NAVIGATE":"Navigate",
+"TIMINGS":"Timings",
+"TASKDESCRIPTION":"Task Description",
+"IMAGES":"Images",
+"FACESNOTMATCHED":"Faces not matched"
+
 };
   

@@ -120,6 +120,12 @@ export default {
     "IMAGEMATCHED": "Изображение успешно сопоставлено",
     "FACEIMAGENOTFOUND": "Изображение не соответствует изображению вашего профиля.\nПожалуйста, загрузите правильное изображение лица",
     "FACEDETECTION": "Распознавание лиц",
-    "FACEIMAGEREQUIRED": "Требуется распознавание лиц"
+    "FACEIMAGEREQUIRED": "Требуется распознавание лиц",
+    "NAVIGATE":"Navigate",
+    "TIMINGS":"Timings",
+    "TASKDESCRIPTION":"Task Description",
+    "IMAGES":"Images",
+    "FACESNOTMATCHED":"Faces not matched",
+    
   };
   

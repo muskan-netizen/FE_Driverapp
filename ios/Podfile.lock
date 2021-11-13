@@ -85,8 +85,6 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (7.6.0):
     - GoogleUtilities/Logger
-  - hermes-engine (0.8.1)
-  - libevent (2.1.12)
   - lottie-ios (3.2.3)
   - lottie-react-native (4.0.3):
     - lottie-ios (~> 3.2.3)
@@ -114,12 +112,6 @@ PODS:
     - DoubleConversion
     - fmt (~> 6.2.1)
     - glog
-  - RCT-Folly/Futures (2021.04.26.00):
-    - boost-for-react-native
-    - DoubleConversion
-    - fmt (~> 6.2.1)
-    - glog
-    - libevent
   - RCTRequired (0.65.1)
   - RCTTypeSafety (0.65.1):
     - FBLazyVector (= 0.65.1)
@@ -285,17 +277,6 @@ PODS:
     - React-jsinspector (= 0.65.1)
     - React-perflogger (= 0.65.1)
     - React-runtimeexecutor (= 0.65.1)
-  - React-hermes (0.65.1):
-    - DoubleConversion
-    - glog
-    - hermes-engine
-    - RCT-Folly (= 2021.04.26.00)
-    - RCT-Folly/Futures (= 2021.04.26.00)
-    - React-cxxreact (= 0.65.1)
-    - React-jsi (= 0.65.1)
-    - React-jsiexecutor (= 0.65.1)
-    - React-jsinspector (= 0.65.1)
-    - React-perflogger (= 0.65.1)
   - React-jsi (0.65.1):
     - boost-for-react-native (= 1.63.0)
     - DoubleConversion
@@ -510,8 +491,6 @@ DEPENDENCIES:
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
   - FBReactNativeSpec (from `../node_modules/react-native/React/FBReactNativeSpec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
-  - hermes-engine (~> 0.8.1)
-  - libevent (~> 2.1.12)
   - lottie-react-native (from `../node_modules/lottie-react-native`)
   - Permission-Camera (from `../node_modules/react-native-permissions/ios/Camera`)
   - Permission-LocationAlways (from `../node_modules/react-native-permissions/ios/LocationAlways`)
@@ -526,7 +505,6 @@ DEPENDENCIES:
   - React-Core/RCTWebSocket (from `../node_modules/react-native/`)
   - React-CoreModules (from `../node_modules/react-native/React/CoreModules`)
   - React-cxxreact (from `../node_modules/react-native/ReactCommon/cxxreact`)
-  - React-hermes (from `../node_modules/react-native/ReactCommon/hermes`)
   - React-jsi (from `../node_modules/react-native/ReactCommon/jsi`)
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
@@ -591,8 +569,6 @@ SPEC REPOS:
     - GoogleDataTransport
     - GoogleMaps
     - GoogleUtilities
-    - hermes-engine
-    - libevent
     - lottie-ios
     - nanopb
     - PromisesObjC
@@ -640,8 +616,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/React/CoreModules"
   React-cxxreact:
     :path: "../node_modules/react-native/ReactCommon/cxxreact"
-  React-hermes:
-    :path: "../node_modules/react-native/ReactCommon/hermes"
   React-jsi:
     :path: "../node_modules/react-native/ReactCommon/jsi"
   React-jsiexecutor:
@@ -755,8 +729,6 @@ SPEC CHECKSUMS:
   GoogleDataTransport: 629c20a4d363167143f30ea78320d5a7eb8bd940
   GoogleMaps: 32ca02de09de357a10ac773f2c70f1986751392d
   GoogleUtilities: 684ee790a24f73ebb2d1d966e9711c203f2a4237
-  hermes-engine: 7dcd1dbd908e6353bd7e4a4add72dba7bf76bf84
-  libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
   lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
   lottie-react-native: 96361a9891cf651534ea35c4f85f33d4cf14ed13
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
@@ -772,7 +744,6 @@ SPEC CHECKSUMS:
   React-Core: 001e21bad5ca41e59e9d90df5c0b53da04c3ce8e
   React-CoreModules: 0a0410ab296a62ab38e2f8d321e822d1fcc2fe49
   React-cxxreact: 8d904967134ae8ff0119c5357c42eaae976806f8
-  React-hermes: ae17bfbf550cefc6331b9544f00b66ad1d9b9d99
   React-jsi: 12913c841713a15f64eabf5c9ad98592c0ec5940
   React-jsiexecutor: 43f2542aed3c26e42175b339f8d37fe3dd683765
   React-jsinspector: 41e58e5b8e3e0bf061fdf725b03f2144014a8fb0
@@ -829,6 +800,6 @@ SPEC CHECKSUMS:
   ZendeskMessagingSDK: 500e83d9413481e95180c37ddca0d4ef9d515600
   ZendeskSDKConfigurationsSDK: 8371b468db0d09e9198f6c5a97818826943ee1ee
 
-PODFILE CHECKSUM: 46aca1b59656bfd62ff22ce0bb73ee44958c96f5
+PODFILE CHECKSUM: 27656559a4e5bc7a1d03e42119446a44c6aee1c6
 
 COCOAPODS: 1.11.2

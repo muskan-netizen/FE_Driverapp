@@ -122,5 +122,6 @@ export default {
   "NAVIGATE":"Navigate",
   "TIMINGS":"Timings",
   "TASKDESCRIPTION":"Task Description",
-  "IMAGES":"Images"
+  "IMAGES":"Images",
+  "FACESNOTMATCHED":"Faces not matched"
 }

@@ -121,4 +121,13 @@ export default {
   PAYMENTCREDITED: "Pago acreditado",
   PAYMENTDEBITED: "Pago debitado",
   TASK: "Tarea",
+  "IMAGEMATCHED":"Image successfully mapped",
+  "FACEIMAGENOTFOUND":"The image does not match your profile picture.\nPlease upload the correct face image",
+  "FACEDETECTION":"Face recognition",
+  "FACEIMAGEREQUIRED":"Face recognition required",
+  "NAVIGATE":"Navigate",
+  "TIMINGS":"Timings",
+  "TASKDESCRIPTION":"Task Description",
+  "IMAGES":"Images",
+  "FACESNOTMATCHED":"Faces not matched"
 };

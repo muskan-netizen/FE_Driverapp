@@ -136,5 +136,10 @@ export default {
   "IMAGEMATCHED": "تطابق الصورة بنجاح",
   "FACEIMAGENOTFOUND": "الصورة غير متطابقة مع صورة ملفك الشخصي.\nالرجاء تحميل صورة الوجه المناسبة",
   "FACEDETECTION": "كشف الوجه",
-  "FACEIMAGEREQUIRED": "مطلوب الكشف عن الوجه"
+  "FACEIMAGEREQUIRED": "مطلوب الكشف عن الوجه",
+  "NAVIGATE":"Navigate",
+  "TIMINGS":"Timings",
+  "TASKDESCRIPTION":"Task Description",
+  "IMAGES":"Images",
+  "FACESNOTMATCHED":"Faces not matched"
 };
