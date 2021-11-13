@@ -64,6 +64,7 @@ const shortCodes = {
   helpNowRightNow: '0e7801',
   agriOnline: '3ae391',
   clickeat: '5a90a2',
+  grub: 'b68843',
 };
 
 // Goody Dispatch
@@ -317,6 +318,10 @@ const appIds = {
   clickeat: Platform.select({
     ios: 'com.ClickEat.Dispatch',
     android: 'com.clickEat.royodispatcher',
+  }),
+  grub: Platform.select({
+    ios: 'com.Grub.Dispatch',
+    android: "com.Grub.royodispatcher",
   }),
 };
 

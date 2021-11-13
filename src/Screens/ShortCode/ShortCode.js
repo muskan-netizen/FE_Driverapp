@@ -447,6 +447,12 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+          case appIds.grub:
+          updateState({
+            shortCode: shortCodes.grub,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, []);
