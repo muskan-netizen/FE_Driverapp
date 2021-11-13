@@ -441,6 +441,12 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.clickeat:
+          updateState({
+            shortCode: shortCodes.clickeat,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, []);

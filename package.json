@@ -125,6 +125,8 @@
     "helpNowRightNowdispatcherRelease": "cd android && ./gradlew assemblehelpNowRightNowRelease",
     "agriOnlinedispatcher": "react-native run-android --variant=agriOnlineDebug",
     "agriOnlinedispatcherRelease": "cd android && ./gradlew assembleagriOnlineRelease",
+    "clickeatdispatcher": "react-native run-android --variant=click_eatDebug",
+    "clickeatdispatcherRelease": "cd android && ./gradlew assembleClick_eatRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
