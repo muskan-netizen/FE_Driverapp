@@ -123,5 +123,7 @@ export default {
   "TIMINGS":"Timings",
   "TASKDESCRIPTION":"Task Description",
   "IMAGES":"Images",
-  "FACESNOTMATCHED":"Faces not matched"
+  "FACESNOTMATCHED":"Faces not matched",
+  "VERSION":"Version",
+  "SUPPORT":"Support"
 }

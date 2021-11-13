@@ -121,11 +121,12 @@ export default {
     "FACEIMAGENOTFOUND": "Изображение не соответствует изображению вашего профиля.\nПожалуйста, загрузите правильное изображение лица",
     "FACEDETECTION": "Распознавание лиц",
     "FACEIMAGEREQUIRED": "Требуется распознавание лиц",
-    "NAVIGATE":"Navigate",
-    "TIMINGS":"Timings",
-    "TASKDESCRIPTION":"Task Description",
-    "IMAGES":"Images",
-    "FACESNOTMATCHED":"Faces not matched",
-    
+    "NAVIGATE": "Управлять",
+    "TIMINGS": "Таймингов",
+    "TASKDESCRIPTION": "Описание задачи",
+    "IMAGES": "Изображения",
+    "FACESNOTMATCHED": "Лица не совпадают",
+    "VERSION": "Версия",
+    "SUPPORT": "Поддержка"
   };
   
