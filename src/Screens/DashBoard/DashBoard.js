@@ -168,12 +168,12 @@ export default function DashBoard({route, navigation}) {
           data['long'] = longitude;
           data['lat'] = latitude;
           // console.log(data, 'data>data');
-          //   console.log(data, 'data');
+          console.log(longitude, 'sending data data', latitude);
           actions
             .logsApi(data, {client: clientInfo?.database_name})
             .then(res => {
               // console.log(userData, 'userData');
-              // console.log(res, 'log api response');
+              console.log(res, 'log api response');
               if (selectedOption == 1) {
                 updateState({allTasks: res?.data?.tasks});
               } else {
@@ -186,8 +186,8 @@ export default function DashBoard({route, navigation}) {
     },
     userData && userData?.access_token
       ? userData?.team?.location_frequency
-        ? Number(userData?.team?.location_frequency) * 60000
-        : 60000
+        ? Number(userData?.team?.location_frequency) * 3000
+        : 3000
       : null,
   );
 

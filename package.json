@@ -131,6 +131,8 @@
     "tranznetdispatcherRelease": "cd android && ./gradlew assembleTranznetRelease",
     "grubdispatcher": "react-native run-android --variant=grubDebug",
     "grubdispatcherRelease": "cd android && ./gradlew assemblegrubRelease",
+    "punnetdispatcher": "react-native run-android --variant=punnetDebug",
+    "punnetdispatcherRelease": "cd android && ./gradlew assemblePunnetRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",

@@ -453,9 +453,15 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
-          case appIds.grub:
+        case appIds.grub:
           updateState({
             shortCode: shortCodes.grub,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.punnet:
+          updateState({
+            shortCode: shortCodes.punnet,
             isShortcodePrefilled: true,
           });
           break;

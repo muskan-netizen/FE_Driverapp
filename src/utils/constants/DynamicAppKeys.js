@@ -66,6 +66,7 @@ const shortCodes = {
   clickeat: '5a90a2',
   tranzet: 'b35edf',
   grub: 'b68843',
+  punnet: '87444d',
 };
 
 // Goody Dispatch
@@ -326,7 +327,11 @@ const appIds = {
   }),
   grub: Platform.select({
     ios: 'com.Grub.Dispatch',
-    android: "com.Grub.royodispatcher",
+    android: 'com.Grub.royodispatcher',
+  }),
+  punnet: Platform.select({
+    ios: 'com.Punnet.Dispatch',
+    android: 'com.Punnet.royodispatcher',
   }),
 };
 

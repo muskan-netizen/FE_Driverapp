@@ -97,38 +97,46 @@ export default function PhoneVerification({navigation, route}) {
 
   //Opt input function
   const onOtpInput = code => {
-    (async () => {
-      updateState({
-        isLoading: true,
-        otp: code,
-        otpPrefilled: true,
-      });
-    })();
+    updateState({
+      isLoading: true,
+      otp: code,
+      otpPrefilled: true,
+    });
+    // (() => {
+
+    // })();
+    console.log();
+    //  code?.length == 6 && verfifyAccount();
   };
 
   //Code input
   useEffect(() => {
-    otp.length == 6 && verfifyAccount();
+    if (otp.length == 6) verfifyAccount();
+    //  alert('res loginuser info');
   }, [otp]);
 
   //VerifyAccount
-  const verfifyAccount = () => {
+  const verfifyAccount = async () => {
     let data = {};
     data['phone_number'] = `${paramData?.phone_number}`;
     data['otp'] = otp;
-    data['device_token'] = fcm_token ? fcm_token : DeviceInfo.getDeviceToken();
+    data['device_token'] = fcm_token
+      ? fcm_token
+      : await DeviceInfo.getDeviceToken();
     data['device_type'] = Platform.OS;
-    console.log(data, 'data>data>data');
+
+    await console.log('datadatadatadatadatadata>>>>>>>');
     updateState({isLoading: true});
     actions
       .verifyAccount(data, {client: clientInfo?.database_name})
       .then(res => {
-        console.log(res, 'res loginuser info');
         updateState({isLoading: false});
-        if (res?.data) {
-          showSuccess(strings.ACCOUNTVERIFYSUCESS);
-          moveToNewScreen(navigationStrings.DRAWER_ROUTES)();
-        }
+        setTimeout(() => {
+          if (res?.data) {
+            showSuccess(strings.ACCOUNTVERIFYSUCESS);
+            moveToNewScreen(navigationStrings.DRAWER_ROUTES)();
+          }
+        }, 50);
       })
       .catch(errorMethod);
   };
