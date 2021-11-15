@@ -137,6 +137,8 @@
     "gustodispatcherRelease": "cd android && ./gradlew assemblegustoRelease",
     "click2Deliverdispatcher": "react-native run-android --variant=click2DeliverDebug",
     "click2DeliverdispatcherRelease": "cd android && ./gradlew assembleclick2DeliverRelease",
+    "truckTireNowdispatcher": "react-native run-android --variant=truckTireNowDebug",
+    "truckTireNowdispatcherRelease": "cd android && ./gradlew assembletruckTireNowRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",

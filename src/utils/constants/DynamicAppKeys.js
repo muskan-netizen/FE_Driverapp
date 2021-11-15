@@ -69,6 +69,7 @@ const shortCodes = {
   shooraFresh: '1fac68',
   gusto: '057ff8',
   click2Deliver: '208939',
+  truckTireNow: '4be0a5',
 };
 
 // Goody Dispatch
@@ -342,6 +343,10 @@ const appIds = {
   click2Deliver: Platform.select({
     ios: 'com.Click2Deliver.Dispatch',
     android: "com.Click2Deliver.royodispatcher",
+  }),
+  truckTireNow: Platform.select({
+    ios: 'com.TruckTireNow.Dispatch',
+    android: "com.TruckTireNow.royodispatcher",
   }),
 };
 
