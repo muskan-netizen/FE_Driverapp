@@ -869,6 +869,39 @@ android {
             resValue "string", "app_name", "Grub Dispatch"
         
         }
+        shooraFresh{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId "com.ShooraFresh.royodispatcher"
+            resValue "string", "app_name", "Shoora Fresh"
+        
+        }
+        gusto{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId "com.Gusto.royodispatcher"
+            resValue "string", "app_name", "Gusto"
+        
+        }
+        click2Deliver{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId "com.Click2Deliver.royodispatcher"
+            resValue "string", "app_name", "Click2Deliver"
+        
+        }
     }
 }
 

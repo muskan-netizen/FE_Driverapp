@@ -66,6 +66,9 @@ const shortCodes = {
   clickeat: '5a90a2',
   tranzet: 'b35edf',
   grub: 'b68843',
+  shooraFresh: '1fac68',
+  gusto: '057ff8',
+  click2Deliver: '208939',
 };
 
 // Goody Dispatch
@@ -327,6 +330,18 @@ const appIds = {
   grub: Platform.select({
     ios: 'com.Grub.Dispatch',
     android: "com.Grub.royodispatcher",
+  }),
+  shooraFresh: Platform.select({
+    ios: 'com.ShooraFresh.Dispatch',
+    android: "com.ShooraFresh.royodispatcher",
+  }),
+  gusto: Platform.select({
+    ios: 'com.Gusto.Dispatch',
+    android: "com.Gusto.royodispatcher",
+  }),
+  click2Deliver: Platform.select({
+    ios: 'com.Click2Deliver.Dispatch',
+    android: "com.Click2Deliver.royodispatcher",
   }),
 };
 

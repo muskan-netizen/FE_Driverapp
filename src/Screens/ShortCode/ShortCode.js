@@ -453,9 +453,27 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
-          case appIds.grub:
+        case appIds.grub:
           updateState({
             shortCode: shortCodes.grub,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.shooraFresh:
+          updateState({
+            shortCode: shortCodes.shooraFresh,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.gusto:
+          updateState({
+            shortCode: shortCodes.gusto,
+            isShortcodePrefilled: true,
+          });
+          break;
+          case appIds.click2Deliver:
+          updateState({
+            shortCode: shortCodes.click2Deliver,
             isShortcodePrefilled: true,
           });
           break;
