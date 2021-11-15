@@ -68,6 +68,10 @@ const shortCodes = {
   grub: 'b68843',
   punnet: '87444d',
   suel: 'b11cb2',
+  shooraFresh: '1fac68',
+  gusto: '057ff8',
+  click2Deliver: '208939',
+  truckTireNow: '4be0a5',
 };
 
 // Goody Dispatch
@@ -337,6 +341,22 @@ const appIds = {
   suel: Platform.select({
     ios: 'com.Suel.royodispatcher',
     android: 'com.Punnet.royodispatcher',
+  }),
+  shooraFresh: Platform.select({
+    ios: 'com.ShooraFresh.Dispatch',
+    android: 'com.ShooraFresh.royodispatcher',
+  }),
+  gusto: Platform.select({
+    ios: 'com.Gusto.Dispatch',
+    android: 'com.Gusto.royodispatcher',
+  }),
+  click2Deliver: Platform.select({
+    ios: 'com.Click2Deliver.Dispatch',
+    android: 'com.Click2Deliver.royodispatcher',
+  }),
+  truckTireNow: Platform.select({
+    ios: 'com.TruckTireNow.Dispatch',
+    android: 'com.TruckTireNow.royodispatcher',
   }),
 };
 

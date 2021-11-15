@@ -870,26 +870,68 @@ android {
         
         }
          punnet{
+                 dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+              applicationId "com.Punnet.royodispatcher"
+            resValue "string", "app_name", "Punnet Dispatch"
+         }
+        shooraFresh{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId "com.Punnet.royodispatcher"
-            resValue "string", "app_name", "Punnet Dispatch"
+           applicationId "com.ShooraFresh.royodispatcher"
+            resValue "string", "app_name", "Shoora Fresh"
         
         }
           suel{
+           dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+           applicationId "com.Suel.royodispatcher"
+            resValue "string", "app_name", "Suel Dispatch"
+        
+        }
+        gusto{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId "com.Suel.royodispatcher"
-            resValue "string", "app_name", "Suel Dispatch"
+            applicationId "com.Gusto.royodispatcher"
+            resValue "string", "app_name", "Gusto"
         
+        }
+            
+        click2Deliver{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId "com.Click2Deliver.royodispatcher"
+            resValue "string", "app_name", "Click2Deliver"
+        
+        }
+        truckTireNow{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId "com.TruckTireNow.royodispatcher"
+            resValue "string", "app_name", "TruckTireNow"
         }
     }
 }
