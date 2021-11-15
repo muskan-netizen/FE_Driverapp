@@ -121,4 +121,15 @@ export default {
   PAYMENTCREDITED: "Pago acreditado",
   PAYMENTDEBITED: "Pago debitado",
   TASK: "Tarea",
+  "IMAGEMATCHED": "Imagen asignada correctamente",
+  "FACEIMAGENOTFOUND": "La imagen no coincide con tu foto de perfil.\nPor favor, cargue la imagen de la cara correcta",
+  "FACEDETECTION": "Reconocimiento facial",
+  "FACEIMAGEREQUIRED": "Se requiere reconocimiento facial",
+  "NAVIGATE": "Navegar",
+  "TIMINGS": "Sincronizaciones",
+  "TASKDESCRIPTION": "Descripción de la tarea",
+  "IMAGES": "Imágenes",
+  "FACESNOTMATCHED": "Caras no coincidentes",
+  "VERSION": "Versión",
+  "SUPPORT": "Apoyo"
 };

@@ -115,5 +115,21 @@ export default {
   CONTACT: 'Contact',
   GETINTOUCH: 'Contactez-nous',
   WANTTOGET:
-    "Want to get in touch? we'd love to hear from you,Here's how you can reach us.",
+  "Want to get in touch? we'd love to hear from you,Here's how you can reach us.",
+  "CASHCOLLECTEDCAPS": "COLLECTE D’ESPÈCES",
+  "ORDEREARNING": "GAINS DE L’ORDRE",
+  "NET": "FILET",
+  "PAYMENTCREDITED": "Paiement crédité",
+  "PAYMENTDEBITED": "Paiement débité",
+  "IMAGEMATCHED": "Image mappée avec succès",
+  "FACEIMAGENOTFOUND": "L’image ne correspond pas à votre photo de profil.\nVeuillez télécharger l’image correcte du visage",
+  "FACEDETECTION": "Reconnaissance faciale",
+  "FACEIMAGEREQUIRED": "Reconnaissance faciale requise",
+  "NAVIGATE": "Naviguer",
+  "TIMINGS": "Horaires",
+  "TASKDESCRIPTION": "Description de la tâche",
+  "IMAGES": "Images",
+  "FACESNOTMATCHED": "Visages non assortis",
+  "VERSION":"Version",
+  "SUPPORT": "Soutien"
 };
