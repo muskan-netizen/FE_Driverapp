@@ -73,4 +73,6 @@ export default {
   postal: require('../assets/images/ic_postal.png'),
   navigate: require('../assets/images/ic_navigate.png'),
   placeHolder: require('../assets/images/placeholder.png'),
+  support2: require('../assets/images/ic_support_2.png'),
+
 };

@@ -69,15 +69,15 @@ export default function CustomDrawerContent({
         image: imagePath.contact2,
         key: navigationStrings.TASKSTACK,
         subRoute: navigationStrings.CONTACTUS,
-        // 
-        
+        //
+
         key: navigationStrings.WALLET,
         // subRoute:navigationStrings.MYPROFILE
       },
       {
         id: 6,
-        label: 'Support',
-        image: imagePath.logout,
+        label: strings.SUPPORT,
+        image: imagePath.support2,
         // key: navigationStrings.PROFILESTACK,
         // subRoute:navigationStrings.MYPROFILE
       },
@@ -146,9 +146,9 @@ export default function CustomDrawerContent({
         },
         {
           id: 6,
-          label: 'Support',
+          label: strings.SUPPORT,
           support: true,
-          image: imagePath.logout,
+          image: imagePath.support2,
           // key: navigationStrings.PROFILESTACK,
           // subRoute:navigationStrings.MYPROFILE
         },
@@ -253,24 +253,7 @@ export default function CustomDrawerContent({
               ZendeskChat.startChat({
                 name: 'Dinesh',
                 email: 'dkdenni07@gmail.com',
-                phone: '8006066235',
-                tags: ['tag1', 'tag2'],
-                department: 'Your department',
-                // The behaviorFlags are optional, and each default to 'true' if omitted
-                behaviorFlags: {
-                  showAgentAvailability: true,
-                  showChatTranscriptPrompt: true,
-                  showPreChatForm: true,
-                  showOfflineForm: true,
-                },
-                // The preChatFormOptions are optional & each defaults to "optional" if omitted
-                preChatFormOptions: {
-                  name: 'Dinesh' ? 'required' : 'optional',
-                  email: 'optional',
-                  phone: 'optional',
-                  department: 'required',
-                },
-                localizedDismissButtonTitle: 'Dismiss',
+                phone: '9832421234',
               });
             } else {
               onLogoutPress();
@@ -294,18 +277,23 @@ export default function CustomDrawerContent({
                   alignItems: 'center',
                 }}>
                 {/* {options.drawerIcon({focused: isFocused})} */}
-                <Image source={route.image} />
-                <Text
-                  style={{
-                    paddingLeft: moderateScale(20),
-                    paddingRight: 0,
-                    fontSize: textScale(15),
-                    fontFamily: fontFamily?.regular,
-                    ...props.labelStyle,
-                    color: colors.black,
-                  }}>
-                  {label}
-                </Text>
+                <View style={{flex: 0.15}}>
+                  <Image source={route.image} />
+                </View>
+
+                <View style={{flex: 0.85}}>
+                  <Text
+                    style={{
+                      // paddingLeft: moderateScale(5),
+                      paddingRight: 0,
+                      fontSize: textScale(15),
+                      fontFamily: fontFamily?.regular,
+                      ...props.labelStyle,
+                      color: colors.black,
+                    }}>
+                    {label}
+                  </Text>
+                </View>
               </TouchableOpacity>
             </Fragment>
           );

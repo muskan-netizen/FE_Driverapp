@@ -120,6 +120,13 @@ export default {
   "IMAGEMATCHED": "图像匹配成功",
   "FACEIMAGENOTFOUND": "图像与个人资料图像不匹配。\n请上传正确的面部图像",
   "FACEDETECTION": "人脸检测",
-  "FACEIMAGEREQUIRED": "需要人脸检测"
+  "FACEIMAGEREQUIRED": "需要人脸检测",
+  "NAVIGATE": "导航",
+  "TIMINGS": "计时",
+  "TASKDESCRIPTION": "任务说明",
+  "IMAGES": "图像",
+  "FACESNOTMATCHED": "不匹配的面孔",
+  "VERSION": "版本",
+  "SUPPORT": "支持"
   };
   

@@ -478,7 +478,7 @@ export default function TaskCompleteDocument({route, navigation}) {
         if (response?.unmatchedFaces && response?.unmatchedFaces.length) {
           showError(
             response?.unmatchedFaces[0]?.exception?.message ||
-              response?.unmatchedFaces[0]?.exception?.message,
+              strings.FACESNOTMATCHED,
           );
           updateState({isLoading: false});
         } else if (response?.matchedFaces && response?.matchedFaces.length) {
