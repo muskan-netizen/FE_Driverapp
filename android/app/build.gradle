@@ -880,6 +880,17 @@ android {
             resValue "string", "app_name", "Punnet Dispatch"
         
         }
+          suel{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId "com.Suel.royodispatcher"
+            resValue "string", "app_name", "Suel Dispatch"
+        
+        }
     }
 }
 

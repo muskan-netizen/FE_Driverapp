@@ -133,6 +133,8 @@
     "grubdispatcherRelease": "cd android && ./gradlew assemblegrubRelease",
     "punnetdispatcher": "react-native run-android --variant=punnetDebug",
     "punnetdispatcherRelease": "cd android && ./gradlew assemblePunnetRelease",
+    "sueldispatcher": "react-native run-android --variant=suelDebug",
+    "sueldispatcherRelease": "cd android && ./gradlew assembleSuelRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",

@@ -67,6 +67,7 @@ const shortCodes = {
   tranzet: 'b35edf',
   grub: 'b68843',
   punnet: '87444d',
+  suel: 'b11cb2',
 };
 
 // Goody Dispatch
@@ -331,6 +332,10 @@ const appIds = {
   }),
   punnet: Platform.select({
     ios: 'com.Punnet.Dispatch',
+    android: 'com.Punnet.royodispatcher',
+  }),
+  suel: Platform.select({
+    ios: 'com.Suel.royodispatcher',
     android: 'com.Punnet.royodispatcher',
   }),
 };
