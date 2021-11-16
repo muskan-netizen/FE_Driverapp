@@ -933,6 +933,36 @@ android {
             applicationId "com.TruckTireNow.royodispatcher"
             resValue "string", "app_name", "TruckTireNow"
         }
+        ace{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId "com.Ace.royodispatcher"
+            resValue "string", "app_name", "Ace"
+        }
+        zest{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId  "com.Zest.royodispatcher"
+            resValue "string", "app_name", "Zest"
+        }
+        homeric{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId  "com.Homeric.royodispatcher"
+            resValue "string", "app_name", "Homeric"
+        }
     }
 }
 

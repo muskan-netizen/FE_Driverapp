@@ -72,6 +72,9 @@ const shortCodes = {
   gusto: '057ff8',
   click2Deliver: '208939',
   truckTireNow: '4be0a5',
+  ace: '3c58a1',
+  zest: 'ddceeb',
+  homeric: '66951f',
 };
 
 // Goody Dispatch
@@ -357,6 +360,18 @@ const appIds = {
   truckTireNow: Platform.select({
     ios: 'com.TruckTireNow.Dispatch',
     android: 'com.TruckTireNow.royodispatcher',
+  }),
+  zest: Platform.select({
+    ios: 'com.Zest.Dispatch',
+    android: "com.Zest.royodispatcher",
+  }),
+  ace: Platform.select({
+    ios: 'com.Ace.Dispatch',
+    android: "com.Ace.royodispatcher",
+  }),
+  homeric: Platform.select({
+    ios: 'com.Homeric.Dispatch',
+    android: "com.Homeric.royodispatcher",
   }),
 };
 
