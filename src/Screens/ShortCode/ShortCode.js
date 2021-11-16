@@ -525,6 +525,30 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.share:
+          updateState({
+            shortCode: shortCodes.share,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.yeboy:
+          updateState({
+            shortCode: shortCodes.yeboy,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.moboErrandsService:
+          updateState({
+            shortCode: shortCodes.moboErrandsService,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.Kel360:
+          updateState({
+            shortCode: shortCodes.Kel360,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, []);

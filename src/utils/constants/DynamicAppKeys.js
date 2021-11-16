@@ -77,6 +77,10 @@ const shortCodes = {
   ace: '3c58a1',
   zest: 'ddceeb',
   homeric: '66951f',
+  share: 'eb1244',
+  yeboy: '604a5f',
+  moboErrandsService: 'cb01c8',
+  Kel360: 'c54206',
 };
 
 // Goody Dispatch
@@ -382,6 +386,22 @@ const appIds = {
   homeric: Platform.select({
     ios: 'com.Homeric.Dispatch',
     android: "com.Homeric.royodispatcher",
+  }),
+  share: Platform.select({
+    ios: 'com.Share.Dispatch',
+    android: "com.Share.royodispatcher",
+  }),
+  yeboy: Platform.select({
+    ios: 'com.Yeboy.Dispatch',
+    android: "com.Yeboy.royodispatcher", 
+  }),
+  moboErrandsService: Platform.select({
+    ios: 'com.MoboErrandsService.Dispatch',
+    android: "com.MoboErrandsService.royodispatcher",
+  }),
+  Kel360: Platform.select({
+    ios: 'com.360Kel.Dispatch',
+    android: "com.Kel360.royodispatcher",
   }),
 };
 
