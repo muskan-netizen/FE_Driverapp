@@ -933,6 +933,26 @@ android {
             applicationId "com.TruckTireNow.royodispatcher"
             resValue "string", "app_name", "TruckTireNow"
         }
+         voltaic{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId "com.Voltaic.royodispatcher"
+            resValue "string", "app_name", "Voltaic Dispatch"
+        }
+        elixir{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId "com.Elixir.royodispatcher"
+            resValue "string", "app_name", "Elixir Dispatch"
+        }
     }
 }
 

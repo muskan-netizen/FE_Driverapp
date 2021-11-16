@@ -109,7 +109,7 @@ export default function PhoneVerification({navigation, route}) {
     //  code?.length == 6 && verfifyAccount();
   };
 
-  //Code input
+  // //Code input
   useEffect(() => {
     if (otp.length == 6) verfifyAccount();
     //  alert('res loginuser info');
@@ -125,7 +125,6 @@ export default function PhoneVerification({navigation, route}) {
       : await DeviceInfo.getDeviceToken();
     data['device_type'] = Platform.OS;
 
-    await console.log('datadatadatadatadatadata>>>>>>>');
     updateState({isLoading: true});
     actions
       .verifyAccount(data, {client: clientInfo?.database_name})

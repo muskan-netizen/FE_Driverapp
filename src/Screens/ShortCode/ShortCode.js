@@ -459,7 +459,6 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
-<<<<<<< HEAD
         case appIds.punnet:
           updateState({
             shortCode: shortCodes.punnet,
@@ -469,7 +468,9 @@ export default function ShortCode({route, navigation}) {
         case appIds.suel:
           updateState({
             shortCode: shortCodes.suel,
-=======
+            isShortcodePrefilled: true,
+          });
+          break;
         case appIds.shooraFresh:
           updateState({
             shortCode: shortCodes.shooraFresh,
@@ -482,16 +483,27 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
-          case appIds.click2Deliver:
+        case appIds.click2Deliver:
           updateState({
             shortCode: shortCodes.click2Deliver,
             isShortcodePrefilled: true,
           });
           break;
-          case appIds.truckTireNow:
+        case appIds.truckTireNow:
           updateState({
             shortCode: shortCodes.truckTireNow,
->>>>>>> f88f530c4162c1f843de78158d4ff931f62e84d0
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.voltaic:
+          updateState({
+            shortCode: shortCodes.voltaic,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.elixir:
+          updateState({
+            shortCode: shortCodes.elixir,
             isShortcodePrefilled: true,
           });
           break;

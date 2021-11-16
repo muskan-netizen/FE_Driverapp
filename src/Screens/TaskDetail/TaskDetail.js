@@ -523,9 +523,11 @@ export default function TaskDetail({route, navigation}) {
                 {`${(taskDetail?.tasktype?.name).toUpperCase()}`}
               </Text>
             </View>
-            <View style={{justifyContent: 'center'}}>
-              <Image source={imagePath?.barcode2} />
-            </View>
+            {taskDetail?.barcode && (
+              <View style={{justifyContent: 'center'}}>
+                <Image source={imagePath?.barcode2} />
+              </View>
+            )}
           </View>
 
           {/* Phone and email view */}
@@ -813,16 +815,6 @@ export default function TaskDetail({route, navigation}) {
                       return (
                         <>
                           <Image
-                            source={imagePath?.placeHolder}
-                            style={{
-                              position: 'absolute',
-                              marginRight: moderateScale(15),
-                              zIndex: -100,
-                              width: width / 5,
-                              height: width / 5, //362 is actual height of image
-                            }}
-                          />
-                          <Image
                             source={{
                               uri: i,
                             }}
@@ -870,6 +862,9 @@ export default function TaskDetail({route, navigation}) {
   const appleCoordinate = {
     latitude: Number(taskDetail?.location?.latitude),
     longitude: Number(taskDetail?.location?.longitude),
+    end: `${taskDetail?.location?.address}`,
+    start: 'My Location',
+    travelType: 'drive',
   };
   const openAppleMap = createOpenLink(appleCoordinate);
   /**** */
@@ -880,8 +875,13 @@ export default function TaskDetail({route, navigation}) {
     longitude: Number(taskDetail?.location?.longitude),
     provider: 'google',
     zoom: 10,
+    end: `${taskDetail?.location?.address}`,
+    start: 'My Location',
+    travelType: 'drive',
   };
+
   const openGoogleMap = createOpenLink(googleCoordinate);
+
   /**** */
 
   // this funtion use for camera handle

@@ -72,6 +72,8 @@ const shortCodes = {
   gusto: '057ff8',
   click2Deliver: '208939',
   truckTireNow: '4be0a5',
+  voltaic: '0ff16f',
+  elixir: 'cca668',
 };
 
 // Goody Dispatch
@@ -339,8 +341,8 @@ const appIds = {
     android: 'com.Punnet.royodispatcher',
   }),
   suel: Platform.select({
-    ios: 'com.Suel.royodispatcher',
-    android: 'com.Punnet.royodispatcher',
+    ios: 'com.Suel.Dispatch',
+    android: 'com.Suel.royodispatcher',
   }),
   shooraFresh: Platform.select({
     ios: 'com.ShooraFresh.Dispatch',
@@ -357,6 +359,14 @@ const appIds = {
   truckTireNow: Platform.select({
     ios: 'com.TruckTireNow.Dispatch',
     android: 'com.TruckTireNow.royodispatcher',
+  }),
+  voltaic: Platform.select({
+    ios: 'com.Voltaic.Dispatch',
+    android: 'com.Voltaic.royodispatcher',
+  }),
+  elixir: Platform.select({
+    ios: 'com.Elixir.Dispatch',
+    android: 'com.Elixir.royodispatcher',
   }),
 };
 
