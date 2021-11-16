@@ -507,6 +507,24 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.zest:
+          updateState({
+            shortCode: shortCodes.zest,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.ace:
+          updateState({
+            shortCode: shortCodes.ace,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.homeric:
+          updateState({
+            shortCode: shortCodes.homeric,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, []);
