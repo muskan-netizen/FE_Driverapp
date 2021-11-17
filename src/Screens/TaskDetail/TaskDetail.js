@@ -683,9 +683,12 @@ export default function TaskDetail({route, navigation}) {
             backgroundColor: colors.lightSkyE,
           }}>
           {taskDetail?.order?.customer?.name && (
+            <View style = {{flexDirection:'row' ,justifyContent:'space-between'}}>
             <Text style={styles.customerName}>
               {taskDetail?.order?.customer?.name}
             </Text>
+            <Text>Tracking id:-{taskDetail?.order?.unique_id}</Text>
+            </View>
           )}
 
           {/* Phone and email view customer*/}

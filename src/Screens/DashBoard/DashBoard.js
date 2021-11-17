@@ -99,6 +99,7 @@ export default function DashBoard({route, navigation}) {
     state => state?.initBoot?.defaultLanguage,
   );
 
+
   useEffect(() => {
     (async () => {
       currentLocation();
@@ -209,6 +210,7 @@ export default function DashBoard({route, navigation}) {
     }
   }, [refreshHomeData]);
 
+
   //get all tasks
   const getTasks = () => {
     actions
@@ -220,6 +222,7 @@ export default function DashBoard({route, navigation}) {
       .then(res => {
         actions.updateHomepage(false);
         // updateState({isRefreshing: false});
+        console.log(res,"allTasksallTasks");
         if (selectedOption) {
           updateState({
             allTasks: res?.data,
