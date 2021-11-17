@@ -40,6 +40,7 @@ import FaceSDK, {
 } from '@regulaforensics/react-native-face-api-beta';
 import RNFetchBlob from 'rn-fetch-blob';
 import {showMessage} from 'react-native-flash-message';
+import {openCamera} from '../../utils/imagePicker';
 
 var image1 = new FaceImage();
 var image2 = new FaceImage();
@@ -218,7 +219,17 @@ export default function TaskCompleteDocument({route, navigation}) {
 
     //Photo upload
     if (i?.id == 2) {
-      updateState({showInputBox: false});
+
+
+ Alert.alert(
+      'Select option',
+      '',
+      [
+        {
+          text: 'Use gallery',
+          onPress: () => {
+            // options['includeBase64'] = true;
+           updateState({showInputBox: false});
       cameraHandler(1, {
         cropping: false,
         compressImageQuality: 0.8,
@@ -236,6 +247,23 @@ export default function TaskCompleteDocument({route, navigation}) {
         .catch(err => {
           updateState({isLoading: false});
         });
+          },
+        },
+        {
+          text: 'Use camera',
+          onPress: () =>
+          {
+              openCamera().then(res=>
+                 updateState({isLoading: false, image: res?.path || res?.path})).catch(error=>updateState({isLoading: false}))
+          
+          }
+        },
+      ],
+      {cancelable: true},
+    );
+
+      
+    
     }
 
     //Add note
@@ -576,6 +604,7 @@ export default function TaskCompleteDocument({route, navigation}) {
                   const {width, height} = Image.resolveAssetSource(
                     i?.imagePath,
                   );
+                
                   return (
                     <TouchableOpacity
                       activeOpacity={1}

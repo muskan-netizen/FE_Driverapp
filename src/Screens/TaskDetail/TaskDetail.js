@@ -683,9 +683,12 @@ export default function TaskDetail({route, navigation}) {
             backgroundColor: colors.lightSkyE,
           }}>
           {taskDetail?.order?.customer?.name && (
+            <View style = {{flexDirection:'row' ,justifyContent:'space-between'}}>
             <Text style={styles.customerName}>
               {taskDetail?.order?.customer?.name}
             </Text>
+            <Text>Tracking id:-{taskDetail?.order?.unique_id}</Text>
+            </View>
           )}
 
           {/* Phone and email view customer*/}
@@ -805,9 +808,10 @@ export default function TaskDetail({route, navigation}) {
               <View
                 style={{flexDirection: 'row', marginTop: moderateScale(15)}}>
                 <View>
-                  <Text style={styles.taskLable}>
+                {taskDetail?.order?.task_images.length>=1 &&<Text style={styles.taskLable}>
                     {strings.IMAGES.toUpperCase()}
-                  </Text>
+                  </Text>}
+                  
 
                   <View
                     style={{
