@@ -983,6 +983,48 @@ android {
             applicationId  "com.Homeric.royodispatcher"
             resValue "string", "app_name", "Homeric"
         }
+
+        share{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId  "com.Share.royodispatcher"
+            resValue "string", "app_name", "Share"
+        }
+        kel360{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId  "com.Kel360.royodispatcher"
+            resValue "string", "app_name", "36 Kel"
+        }
+        moboErrandsService{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId  "com.MoboErrandsService.royodispatcher"
+            resValue "string", "app_name", "Mobo Errands Service"
+        }
+        yeboy{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId  "com.Yeboy.royodispatcher"
+            resValue "string", "app_name", "Yeboy"
+        }
+    
     }
 }
 
