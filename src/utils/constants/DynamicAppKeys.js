@@ -81,6 +81,12 @@ const shortCodes = {
   yeboy: '604a5f',
   moboErrandsService: 'cb01c8',
   Kel360: 'c54206',
+  travo: 'c92b12',
+  lastMinuteDress: '46e73a',
+  washvalley: '45f62f',
+  tajammul: 'b74129',
+  cabWay: 'edbdc8',
+  carroai: 'bfcc32',
 };
 
 // Goody Dispatch
@@ -377,31 +383,55 @@ const appIds = {
   }),
   zest: Platform.select({
     ios: 'com.Zest.Dispatch',
-    android: "com.Zest.royodispatcher",
+    android: 'com.Zest.royodispatcher',
   }),
   ace: Platform.select({
     ios: 'com.Ace.Dispatch',
-    android: "com.Ace.royodispatcher",
+    android: 'com.Ace.royodispatcher',
   }),
   homeric: Platform.select({
     ios: 'com.Homeric.Dispatch',
-    android: "com.Homeric.royodispatcher",
+    android: 'com.Homeric.royodispatcher',
   }),
   share: Platform.select({
     ios: 'com.Share.Dispatch',
-    android: "com.Share.royodispatcher",
+    android: 'com.Share.royodispatcher',
   }),
   yeboy: Platform.select({
     ios: 'com.Yeboy.Dispatch',
-    android: "com.Yeboy.royodispatcher", 
+    android: 'com.Yeboy.royodispatcher',
   }),
   moboErrandsService: Platform.select({
     ios: 'com.MoboErrandsService.Dispatch',
-    android: "com.MoboErrandsService.royodispatcher",
+    android: 'com.MoboErrandsService.royodispatcher',
   }),
   Kel360: Platform.select({
     ios: 'com.360Kel.Dispatch',
-    android: "com.Kel360.royodispatcher",
+    android: 'com.Kel360.royodispatcher',
+  }),
+  travo: Platform.select({
+    ios: 'com.Travo.Dispatch',
+    android: 'com.travo.royodispatcher',
+  }),
+  lastMinuteDress: Platform.select({
+    ios: 'com.LastMinuteDress.Dispatch',
+    android: 'com.LastMinuteDress.royodispatcher',
+  }),
+  washvalley: Platform.select({
+    ios: 'com.WashValley.Dispatch',
+    android: 'com.washvalley.royodispatcher',
+  }),
+  tajammul: Platform.select({
+    ios: 'com.Tajammul.Dispatch',
+    android: 'com.Tajammul.royodispatcher',
+  }),
+  cabWay: Platform.select({
+    ios: 'com.CabWay.Dispatch',
+    android: 'com.CabWay.royodispatcher',
+  }),
+  carroai: Platform.select({
+    ios: 'com.Carroai.Dispatch',
+    android: 'com.Carroai.royodispatcher',
   }),
 };
 

@@ -971,7 +971,7 @@ android {
             // applicationIdSuffix ".royoorder"
 
             applicationId  "com.Zest.royodispatcher"
-            resValue "string", "app_name", "Zest"
+            resValue "string", "app_name", "Zest Dispatcher"
         }
         homeric{
             dimension "appType"
@@ -981,7 +981,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId  "com.Homeric.royodispatcher"
-            resValue "string", "app_name", "Homeric"
+            resValue "string", "app_name", "Homeric Dispatcher"
         }
 
         share{
@@ -992,7 +992,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId  "com.Share.royodispatcher"
-            resValue "string", "app_name", "Share"
+            resValue "string", "app_name", "Share Dispatcher"
         }
         kel360{
             dimension "appType"
@@ -1002,7 +1002,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId  "com.Kel360.royodispatcher"
-            resValue "string", "app_name", "36 Kel"
+            resValue "string", "app_name", "36 Kel Dispatcher"
         }
         moboErrandsService{
             dimension "appType"
@@ -1012,7 +1012,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId  "com.MoboErrandsService.royodispatcher"
-            resValue "string", "app_name", "Mobo Errands Service"
+            resValue "string", "app_name", "Mobo Errands Service Dispatcher"
         }
         yeboy{
             dimension "appType"
@@ -1022,7 +1022,67 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId  "com.Yeboy.royodispatcher"
-            resValue "string", "app_name", "Yeboy"
+            resValue "string", "app_name", "Yeboy Dispatcher"
+        }
+        lastMinuteDress{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId  "com.LastMinuteDress.royodispatcher"
+            resValue "string", "app_name", "Last Minute Dress Dispatcher"
+        }
+        travo{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId  "com.travo.royodispatcher"
+            resValue "string", "app_name", "Travo Dispatcher"
+        }
+        washvalley{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId  "com.washvalley.royodispatcher"
+            resValue "string", "app_name", "Wash Valley Dispatcher"
+        }
+        cabWay{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId  'com.CabWay.royodispatcher'
+            resValue "string", "app_name", "CabWay Dispatcher"
+        }
+        tajammul{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId  "com.Tajammul.royodispatcher"
+            resValue "string", "app_name", "Tajammul Dispatcher"
+        }
+        carroai{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Carroai.royodispatcher'
+            resValue "string", "app_name", "Carroai Dispatcher"
         }
     
     }

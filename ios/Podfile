@@ -1596,3 +1596,122 @@ target '360Kel' do
    pod'ZendeskChatProvidersSDK'
 
   end
+
+#LastMinuteDress Target
+target 'LastMinuteDress' do
+  permissions_path = '../node_modules/react-native-permissions/ios'
+  rn_maps_path = '../node_modules/react-native-maps'
+    config = use_native_modules!
+    use_react_native!(
+    :path => config[:reactNativePath],
+    :hermes_enabled => false
+  )
+  pod 'react-native-google-maps', :path => rn_maps_path
+  pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
+  pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
+  pod 'RNFS', :path => '../node_modules/react-native-fs'
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
+   pod 'ZendeskChatSDK'
+   pod'ZendeskChatProvidersSDK'
+
+  end
+
+
+#Travo Target
+target 'Travo' do
+  permissions_path = '../node_modules/react-native-permissions/ios'
+  rn_maps_path = '../node_modules/react-native-maps'
+    config = use_native_modules!
+    use_react_native!(
+    :path => config[:reactNativePath],
+    :hermes_enabled => false
+  )
+  pod 'react-native-google-maps', :path => rn_maps_path
+  pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
+  pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
+  pod 'RNFS', :path => '../node_modules/react-native-fs'
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
+   pod 'ZendeskChatSDK'
+   pod'ZendeskChatProvidersSDK'
+
+  end
+
+
+#Carroai Target
+target 'Carroai' do
+  permissions_path = '../node_modules/react-native-permissions/ios'
+  rn_maps_path = '../node_modules/react-native-maps'
+    config = use_native_modules!
+    use_react_native!(
+    :path => config[:reactNativePath],
+    :hermes_enabled => false
+  )
+  pod 'react-native-google-maps', :path => rn_maps_path
+  pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
+  pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
+  pod 'RNFS', :path => '../node_modules/react-native-fs'
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
+   pod 'ZendeskChatSDK'
+   pod'ZendeskChatProvidersSDK'
+
+  end
+#WashValley Target
+target 'WashValley' do
+  permissions_path = '../node_modules/react-native-permissions/ios'
+  rn_maps_path = '../node_modules/react-native-maps'
+    config = use_native_modules!
+    use_react_native!(
+    :path => config[:reactNativePath],
+    :hermes_enabled => false
+  )
+  pod 'react-native-google-maps', :path => rn_maps_path
+  pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
+  pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
+  pod 'RNFS', :path => '../node_modules/react-native-fs'
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
+   pod 'ZendeskChatSDK'
+   pod'ZendeskChatProvidersSDK'
+
+  end
+#Tajammul Target
+target 'Tajammul' do
+  permissions_path = '../node_modules/react-native-permissions/ios'
+  rn_maps_path = '../node_modules/react-native-maps'
+    config = use_native_modules!
+    use_react_native!(
+    :path => config[:reactNativePath],
+    :hermes_enabled => false
+  )
+  pod 'react-native-google-maps', :path => rn_maps_path
+  pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
+  pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
+  pod 'RNFS', :path => '../node_modules/react-native-fs'
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
+   pod 'ZendeskChatSDK'
+   pod'ZendeskChatProvidersSDK'
+
+  end
+#CabWay Target
+target 'CabWay' do
+  permissions_path = '../node_modules/react-native-permissions/ios'
+  rn_maps_path = '../node_modules/react-native-maps'
+    config = use_native_modules!
+    use_react_native!(
+    :path => config[:reactNativePath],
+    :hermes_enabled => false
+  )
+  pod 'react-native-google-maps', :path => rn_maps_path
+  pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
+  pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
+  pod 'RNFS', :path => '../node_modules/react-native-fs'
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
+   pod 'ZendeskChatSDK'
+   pod'ZendeskChatProvidersSDK'
+
+  end
