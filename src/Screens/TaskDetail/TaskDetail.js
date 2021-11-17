@@ -808,9 +808,10 @@ export default function TaskDetail({route, navigation}) {
               <View
                 style={{flexDirection: 'row', marginTop: moderateScale(15)}}>
                 <View>
-                  <Text style={styles.taskLable}>
+                {taskDetail?.order?.task_images.length>=1 &&<Text style={styles.taskLable}>
                     {strings.IMAGES.toUpperCase()}
-                  </Text>
+                  </Text>}
+                  
 
                   <View
                     style={{
