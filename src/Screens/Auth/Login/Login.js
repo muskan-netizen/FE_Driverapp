@@ -102,6 +102,7 @@ export default function Login({navigation, route}) {
     if (!checkValid) {
       return;
     }
+    console.log(callingCode, phoneNumber, 'phoneNumberphoneNumber');
     let data = {};
     data['phone_number'] = `+${callingCode}${phoneNumber}`;
     // actions.sessionLogoutUser(false);

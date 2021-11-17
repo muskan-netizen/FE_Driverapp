@@ -4,6 +4,7 @@ import {
   Alert,
   Animated,
   Image,
+  Linking,
   Platform,
   ScrollView,
   Text,
@@ -18,7 +19,7 @@ import MapView, {
   Marker,
   PROVIDER_GOOGLE,
 } from 'react-native-maps'; // import {createOpenLink} from '../../utils/CreateMapLinks';
-import {createOpenLink} from 'react-native-open-maps';
+import {createMapLink, createOpenLink} from 'react-native-open-maps';
 import {useSelector} from 'react-redux';
 import Header from '../../Components/Header';
 import {loaderOne} from '../../Components/Loaders/AnimatedLoaderFiles';
@@ -31,6 +32,8 @@ import actions from '../../redux/actions';
 import colors from '../../styles/colors';
 import commonStylesFunc from '../../styles/commonStyles';
 import fontFamily from '../../styles/fontFamily';
+navigator.geolocation = require('react-native-geolocation-service');
+
 import {
   moderateScale,
   moderateScaleVertical,
@@ -41,6 +44,7 @@ import moment from 'moment';
 
 import {
   getColorCodeWithOpactiyNumber,
+  getCurrentLocation,
   showError,
 } from '../../utils/helperFunctions';
 import stylesFunc from './styles';
@@ -864,9 +868,45 @@ export default function TaskDetail({route, navigation}) {
     longitude: Number(taskDetail?.location?.longitude),
     end: `${taskDetail?.location?.address}`,
     start: 'My Location',
-    travelType: 'drive',
+    provider: 'apple',
+    //travelType: 'drive',
   };
-  const openAppleMap = createOpenLink(appleCoordinate);
+  // const openAppleMap = createOpenLink(appleCoordinate);
+
+  const getCurrentPosition = () => {
+    return new Promise((resolve, reject) => {
+      navigator.geolocation.default.getCurrentPosition(
+        position => {
+          console.log(position, 'position');
+          resolve(position);
+        },
+        error => reject(error.message),
+        {enableHighAccuracy: true, timeout: 20000},
+      );
+    });
+  };
+
+  // const openAppleMap = async () => {
+  //   console.log('checking location my location saddi location >>>');
+  //   getCurrentPosition()
+  //     .then(res => {
+  //       console.log(
+  //         'checking location my location saddi location >>>',
+  //         res.coords,
+  //       );
+
+  //       const link = createMapLink({
+  //         provider: 'apple',
+  //         start: 'My Location',
+  //         end: `${taskDetail?.location?.address}`,
+  //       });
+  //       createOpenLink({query: link});
+  //     })
+  //     .catch(err => {
+  //       console.log('checking location my location saddi location >>>', err);
+  //     });
+  // };
+
   /**** */
 
   /*****Google cordinate and call apple map */
@@ -887,7 +927,8 @@ export default function TaskDetail({route, navigation}) {
   // this funtion use for camera handle
   const onPressMapChoice = index => {
     if (index == 0) {
-      openAppleMap();
+      const url = 'maps:' + '?q=' + taskDetail?.location?.address;
+      Linking.openURL(url);
     }
     if (index == 1) {
       openGoogleMap();
