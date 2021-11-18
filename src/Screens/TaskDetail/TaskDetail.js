@@ -289,6 +289,8 @@ export default function TaskDetail({route, navigation}) {
     }
   };
 
+  console.log('bug fixed');
+
   //get Text color
   const getTextColor = name => {
     switch (name) {
@@ -683,11 +685,12 @@ export default function TaskDetail({route, navigation}) {
             backgroundColor: colors.lightSkyE,
           }}>
           {taskDetail?.order?.customer?.name && (
-            <View style = {{flexDirection:'row' ,justifyContent:'space-between'}}>
-            <Text style={styles.customerName}>
-              {taskDetail?.order?.customer?.name}
-            </Text>
-            <Text>Tracking id:-{taskDetail?.order?.unique_id}</Text>
+            <View
+              style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+              <Text style={styles.customerName}>
+                {taskDetail?.order?.customer?.name}
+              </Text>
+              <Text>Tracking id:-{taskDetail?.order?.unique_id}</Text>
             </View>
           )}
 
@@ -808,10 +811,11 @@ export default function TaskDetail({route, navigation}) {
               <View
                 style={{flexDirection: 'row', marginTop: moderateScale(15)}}>
                 <View>
-                {taskDetail?.order?.task_images.length>=1 &&<Text style={styles.taskLable}>
-                    {strings.IMAGES.toUpperCase()}
-                  </Text>}
-                  
+                  {taskDetail?.order?.task_images.length >= 1 && (
+                    <Text style={styles.taskLable}>
+                      {strings.IMAGES.toUpperCase()}
+                    </Text>
+                  )}
 
                   <View
                     style={{
