@@ -1085,26 +1085,67 @@ android {
             resValue "string", "app_name", "Carroai Dispatcher"
         }
         vici{
-            dimension "appType"
+             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.vici.royodispatcher'
+             applicationId 'com.vici.royodispatcher'
             resValue "string", "app_name", "VICI Dispatch"
         }
-         stonses{
+        ssuum{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.Stonses.royodispatcher'
+            applicationId 'com.Ssuum.royodispatcher'
+            resValue "string", "app_name", "Ssuum Dispatcher"
+        }
+         stonses{
+               dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+             applicationId 'com.Stonses.royodispatcher'
             resValue "string", "app_name", "Stonses Dispatch"
         }
+        ezMobileFuel{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.EzMobileFuel.royodispatcher'
+            resValue "string", "app_name", "EzMobile Fuel Dispatcher"
+        }
     
+          
+        
+        blacNetwork{    
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.BlacNetwork.royodispatcher'
+            resValue "string", "app_name", "Blac Network Dispatcher"
+        }
+        threadAgain{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.ThreadAgain.royodispatcher'
+            resValue "string", "app_name", "ThreadAgain Dispatcher"
+        }
     }
 }
 

@@ -598,6 +598,30 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.ssuum:
+          updateState({
+            shortCode: shortCodes.ssuum,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.ezMobileFuel:
+          updateState({
+            shortCode: shortCodes.ezMobileFuel,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.blacNetwork:
+          updateState({
+            shortCode: shortCodes.blacNetwork,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.threadAgain:
+          updateState({
+            shortCode: shortCodes.threadAgain,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, []);

@@ -89,6 +89,10 @@ const shortCodes = {
   carroai: 'bfcc32',
   vici: '52c9f9',
   stonses: '46eceb',
+  threadAgain: 'ef05d2',
+  blacNetwork: '9d76c0',
+  ezMobileFuel: '12cb37',
+  ssuum: 'd7adc3',
 };
 
 // Goody Dispatch
@@ -442,6 +446,22 @@ const appIds = {
   stonses: Platform.select({
     ios: 'com.Stonses.Dispatch',
     android: 'com.Stonses.royodispatcher',
+  }),
+  threadAgain: Platform.select({
+    ios: 'com.ThreadAgain.Dispatch',
+    android: 'com.ThreadAgain.royodispatcher',
+  }),
+  blacNetwork: Platform.select({
+    ios: 'com.BlacNetwork.Dispatch',
+    android: 'com.BlacNetwork.royodispatcher',
+  }),
+  ezMobileFuel: Platform.select({
+    ios: 'com.EzMobileFuel.Dispatch',
+    android: 'com.EzMobileFuel.royodispatcher',
+  }),
+  ssuum: Platform.select({
+    ios: 'com.Ssuum.Dispatch',
+    android: 'com.Ssuum.royodispatcher',
   }),
 };
 
