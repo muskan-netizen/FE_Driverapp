@@ -88,6 +88,7 @@ const shortCodes = {
   cabWay: 'edbdc8',
   carroai: 'bfcc32',
   vici: '52c9f9',
+  stonses: '46eceb',
 };
 
 // Goody Dispatch
@@ -437,6 +438,10 @@ const appIds = {
   vici: Platform.select({
     ios: 'com.VICI.Dispatch',
     android: 'com.vici.royodispatcher',
+  }),
+  stonses: Platform.select({
+    ios: 'com.Stonses.Dispatch',
+    android: 'com.Stonses.royodispatcher',
   }),
 };
 
