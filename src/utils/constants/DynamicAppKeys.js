@@ -87,6 +87,8 @@ const shortCodes = {
   tajammul: 'b74129',
   cabWay: 'edbdc8',
   carroai: 'bfcc32',
+  vici: '52c9f9',
+  stonses: '46eceb',
   threadAgain: 'ef05d2',
   blacNetwork: '9d76c0',
   ezMobileFuel: '12cb37',
@@ -440,6 +442,14 @@ const appIds = {
   carroai: Platform.select({
     ios: 'com.Carroai.Dispatch',
     android: 'com.Carroai.royodispatcher',
+  }),
+  vici: Platform.select({
+    ios: 'com.VICI.Dispatch',
+    android: 'com.vici.royodispatcher',
+  }),
+  stonses: Platform.select({
+    ios: 'com.Stonses.Dispatch',
+    android: 'com.Stonses.royodispatcher',
   }),
   threadAgain: Platform.select({
     ios: 'com.ThreadAgain.Dispatch',

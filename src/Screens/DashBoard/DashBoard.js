@@ -99,7 +99,6 @@ export default function DashBoard({route, navigation}) {
     state => state?.initBoot?.defaultLanguage,
   );
 
-
   useEffect(() => {
     (async () => {
       currentLocation();
@@ -174,7 +173,7 @@ export default function DashBoard({route, navigation}) {
             .logsApi(data, {client: clientInfo?.database_name})
             .then(res => {
               // console.log(userData, 'userData');
-              console.log(res, 'log api response');
+
               if (selectedOption == 1) {
                 updateState({allTasks: res?.data?.tasks});
               } else {
@@ -210,7 +209,6 @@ export default function DashBoard({route, navigation}) {
     }
   }, [refreshHomeData]);
 
-
   //get all tasks
   const getTasks = () => {
     actions
@@ -222,7 +220,7 @@ export default function DashBoard({route, navigation}) {
       .then(res => {
         actions.updateHomepage(false);
         // updateState({isRefreshing: false});
-        console.log(res,"allTasksallTasks");
+        console.log(res, 'allTasksallTasks');
         if (selectedOption) {
           updateState({
             allTasks: res?.data,

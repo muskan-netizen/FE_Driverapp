@@ -586,6 +586,18 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.vici:
+          updateState({
+            shortCode: shortCodes.vici,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.stonses:
+          updateState({
+            shortCode: shortCodes.stonses,
+            isShortcodePrefilled: true,
+          });
+          break;
         case appIds.ssuum:
           updateState({
             shortCode: shortCodes.ssuum,

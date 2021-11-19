@@ -396,7 +396,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.checkout.royodispatcher'
-            resValue "string", "app_name", "Ordercheckout Dispatch"
+            resValue "string", "app_name", "Orderchekout Dispatch"
         } 
         noki {
             dimension "appType"
@@ -951,7 +951,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
                applicationId "com.Ace.royodispatcher"
-            resValue "string", "app_name", "Ace"
+            resValue "string", "app_name", "Ace Dispatch"
         }
         elixir{
              dimension "appType"
@@ -971,7 +971,7 @@ android {
             // applicationIdSuffix ".royoorder"
 
             applicationId  "com.Zest.royodispatcher"
-            resValue "string", "app_name", "Zest Dispatcher"
+            resValue "string", "app_name", "Zest Dispatch"
         }
         homeric{
             dimension "appType"
@@ -1084,6 +1084,15 @@ android {
             applicationId 'com.Carroai.royodispatcher'
             resValue "string", "app_name", "Carroai Dispatcher"
         }
+        vici{
+             dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+             applicationId 'com.vici.royodispatcher'
+            resValue "string", "app_name", "VICI Dispatch"
+        }
         ssuum{
             dimension "appType"
             versionCode 1
@@ -1093,6 +1102,16 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.Ssuum.royodispatcher'
             resValue "string", "app_name", "Ssuum Dispatcher"
+        }
+         stonses{
+               dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+             applicationId 'com.Stonses.royodispatcher'
+            resValue "string", "app_name", "Stonses Dispatch"
         }
         ezMobileFuel{
             dimension "appType"
@@ -1104,6 +1123,9 @@ android {
             applicationId 'com.EzMobileFuel.royodispatcher'
             resValue "string", "app_name", "EzMobile Fuel Dispatcher"
         }
+    
+          
+        
         blacNetwork{    
             dimension "appType"
             versionCode 1
