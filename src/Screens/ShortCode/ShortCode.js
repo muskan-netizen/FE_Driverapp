@@ -610,6 +610,30 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.trucxi:
+          updateState({
+            shortCode: shortCodes.trucxi,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.swiftandValu:
+          updateState({
+            shortCode: shortCodes.swiftandValu,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.runaRound:
+          updateState({
+            shortCode: shortCodes.runaRound,
+            isShortcodePrefilled: true,
+          });
+          break;
+          case appIds.laundryOrders:
+          updateState({
+            shortCode: shortCodes.laundryOrders,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, []);

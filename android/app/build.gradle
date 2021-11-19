@@ -1124,6 +1124,46 @@ android {
             applicationId 'com.ThreadAgain.royodispatcher'
             resValue "string", "app_name", "ThreadAgain Dispatcher"
         }
+        swiftandValu{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.SwiftandValu.royodispatcher'
+            resValue "string", "app_name", "Swift and Valu Dispatcher"
+        }
+        runaRound{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.RunaRound.royodispatcher'
+            resValue "string", "app_name", "Run-a-Round Dispatcher"
+        }
+        trucxi{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Trucxi.royodispatcher'
+            resValue "string", "app_name", "Truchi Dispatcher"
+        }
+        laundryOrders{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.LaundryOrders.royodispatcher'
+            resValue "string", "app_name", "Laundry Orders Dispatcher"
+        }
     }
 }
 

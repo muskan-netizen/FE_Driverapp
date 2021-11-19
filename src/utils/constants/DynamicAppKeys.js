@@ -91,6 +91,10 @@ const shortCodes = {
   blacNetwork: '9d76c0',
   ezMobileFuel: '12cb37',
   ssuum: 'd7adc3',
+  swiftandValu: 'f2a167',
+  runaRound: '874658',
+  trucxi: '08b9ed',
+  laundryOrders: '048e86',
 };
 
 // Goody Dispatch
@@ -452,6 +456,22 @@ const appIds = {
   ssuum: Platform.select({
     ios: 'com.Ssuum.Dispatch',
     android: 'com.Ssuum.royodispatcher',
+  }),
+  swiftandValu: Platform.select({
+    ios: 'com.SwiftandValu.Dispatch',
+    android: 'com.SwiftandValu.royodispatcher',
+  }),
+  runaRound: Platform.select({
+    ios: 'com.RunaRound.Dispatch',
+    android: 'com.RunaRound.royodispatcher',
+  }),
+  trucxi: Platform.select({
+    ios: 'com.Trucxi.Dispatch',
+    android: 'com.Trucxi.royodispatcher',
+  }),
+  laundryOrders: Platform.select({
+    ios: 'com.LaundryOrders.Dispatch',
+    android: 'com.LaundryOrders.royodispatcher',
   }),
 };
 
