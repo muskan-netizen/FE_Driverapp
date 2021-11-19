@@ -70,7 +70,10 @@ export default function (data) {
     }
   }
   if (modelMake !== undefined) {
-    let emptyValidationText = checkEmpty(modelMake, strings.PLEASEENTERMODELTYPE);
+    let emptyValidationText = checkEmpty(
+      modelMake,
+      strings.PLEASEENTERMODELTYPE,
+    );
     if (emptyValidationText !== '') {
       return emptyValidationText;
     }
@@ -172,7 +175,7 @@ export default function (data) {
     if (emptyValidationText !== '') {
       return emptyValidationText;
     }
-    if (!/^[0][1-9]$|^[1-9]\d{8,14}$/.test(phoneNumber)) {
+    if (!/^[0][1-9]$|^[1-9]\d{4,14}$/.test(phoneNumber)) {
       return 'Please enter valid mobile number';
     }
   }

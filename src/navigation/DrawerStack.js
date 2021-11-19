@@ -36,7 +36,7 @@ export default function DrawerRoutes(props) {
         swipeEnabled: true,
         gestureEnabled: true,
         // drawerPosition: defaultLanguagae?.value === 'ar' ? 'right' : 'left',
-        drawerPosition:'left',
+        drawerPosition: 'left',
         drawerStyle: {
           paddingTop: moderateScaleVertical(width / 6),
         },
@@ -100,7 +100,7 @@ export default function DrawerRoutes(props) {
           ),
         }}
       />
-        <Drawer.Screen
+      <Drawer.Screen
         component={ContactUs}
         name={navigationStrings.CONTACTUS}
         options={{

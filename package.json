@@ -173,6 +173,8 @@
     "cabWaydispatcherRelease": "cd android && ./gradlew assemblecabWayRelease",
     "carroaidispatcher": "react-native run-android --variant=carroaiDebug",
     "carroaidispatcherRelease": "cd android && ./gradlew assemblecarroaiRelease",
+    "vicidispatcher": "react-native run-android --variant=viciDebug",
+    "vicidispatcherRelease": "cd android && ./gradlew assembleviciRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
