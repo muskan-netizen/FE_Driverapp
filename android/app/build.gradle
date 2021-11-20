@@ -330,7 +330,7 @@ android {
 
         codiner {
             dimension "appType"
-            versionCode 5
+            versionCode 6
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
@@ -439,7 +439,7 @@ android {
 
         yummiidash {
             dimension "appType"
-            versionCode 2
+            versionCode 4
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion

@@ -41,6 +41,7 @@ import FaceSDK, {
 import RNFetchBlob from 'rn-fetch-blob';
 import {showMessage} from 'react-native-flash-message';
 import {openCamera} from '../../utils/imagePicker';
+import {useFocusEffect} from '@react-navigation/native';
 
 var image1 = new FaceImage();
 var image2 = new FaceImage();
@@ -161,14 +162,16 @@ export default function TaskCompleteDocument({route, navigation}) {
       RNFS.writeFile(imagePath, imageData, 'base64')
         .then(res => {
           console.log(res, 'res>>>>res');
-          console.log('Image converted to jpg and saved at ' + data?.pathName),
+          console.log(
+            'Image converted to jpg and saved at ' + `file://${imagePath}`,
+          ),
             updateState({
               signatureImage:
-                Platform.OS == 'ios' ? imagePath : `file://${data?.pathName}`,
+                Platform.OS == 'ios' ? imagePath : `file://${imagePath}`,
             });
-          // setTimeout(() => {
-          //   unlinkDirectory(imagePath);
-          // }, 3000);
+          setTimeout(() => {
+            unlinkDirectory(data?.pathName);
+          }, 3000);
         })
         .catch(err => {
           console.log(err, 'error>>>>');
@@ -219,51 +222,53 @@ export default function TaskCompleteDocument({route, navigation}) {
 
     //Photo upload
     if (i?.id == 2) {
-
-
- Alert.alert(
-      'Select option',
-      '',
-      [
-        {
-          text: 'Use gallery',
-          onPress: () => {
-            // options['includeBase64'] = true;
-           updateState({showInputBox: false});
-      cameraHandler(1, {
-        cropping: false,
-        compressImageQuality: 0.8,
-        cropperCircleOverlay: false,
-        mediaType: 'photo',
-      })
-        .then(res => {
-          if (res?.data) {
-            console.log(res, 'Photo repsonse');
-            updateState({isLoading: false, image: res?.path || res?.path});
-          } else {
-            updateState({isLoading: false});
-          }
-        })
-        .catch(err => {
-          updateState({isLoading: false});
-        });
-          },
-        },
-        {
-          text: 'Use camera',
-          onPress: () =>
+      Alert.alert(
+        'Select option',
+        '',
+        [
           {
-              openCamera().then(res=>
-                 updateState({isLoading: false, image: res?.path || res?.path})).catch(error=>updateState({isLoading: false}))
-          
-          }
-        },
-      ],
-      {cancelable: true},
-    );
-
-      
-    
+            text: 'Use gallery',
+            onPress: () => {
+              // options['includeBase64'] = true;
+              updateState({showInputBox: false});
+              cameraHandler(1, {
+                cropping: false,
+                compressImageQuality: 0.8,
+                cropperCircleOverlay: false,
+                mediaType: 'photo',
+              })
+                .then(res => {
+                  if (res?.data) {
+                    console.log(res, 'Photo repsonse');
+                    updateState({
+                      isLoading: false,
+                      image: res?.path || res?.path,
+                    });
+                  } else {
+                    updateState({isLoading: false});
+                  }
+                })
+                .catch(err => {
+                  updateState({isLoading: false});
+                });
+            },
+          },
+          {
+            text: 'Use camera',
+            onPress: () => {
+              openCamera()
+                .then(res =>
+                  updateState({
+                    isLoading: false,
+                    image: res?.path || res?.path,
+                  }),
+                )
+                .catch(error => updateState({isLoading: false}));
+            },
+          },
+        ],
+        {cancelable: true},
+      );
     }
 
     //Add note
@@ -604,7 +609,7 @@ export default function TaskCompleteDocument({route, navigation}) {
                   const {width, height} = Image.resolveAssetSource(
                     i?.imagePath,
                   );
-                
+
                   return (
                     <TouchableOpacity
                       activeOpacity={1}

@@ -46,13 +46,13 @@ export default function AddSignature({route, navigation}) {
   };
 
   const _onSaveEvent = result => {
-   
+    console.log(result, 'resultresultresultresultresult');
     updateState({isLoading: true});
     if (params && params?.updateSignature) {
       params?.updateSignature(result);
       updateState({isLoading: false});
       navigation.goBack();
-    }else{
+    } else {
       updateState({isLoading: false});
     }
   };
@@ -97,7 +97,7 @@ export default function AddSignature({route, navigation}) {
           showBorder={false}
           viewMode={'portrait'}
         />
-        <View style={{flex: 0.2,paddingVertical:moderateScale(20)}}>
+        <View style={{flex: 0.2, paddingVertical: moderateScale(20)}}>
           <ButtonComponent buttonTitle={strings.DONE} onPress={saveSign} />
         </View>
       </View>
