@@ -97,6 +97,8 @@ const shortCodes = {
   runaRound: '874658',
   trucxi: '08b9ed',
   laundryOrders: '048e86',
+  groupy: 'c3ea28',
+  docta_transportation: '93b726',
 };
 
 // Goody Dispatch
@@ -482,6 +484,14 @@ const appIds = {
   laundryOrders: Platform.select({
     ios: 'com.LaundryOrders.Dispatch',
     android: 'com.LaundryOrders.royodispatcher',
+  }),
+  groupy: Platform.select({
+    ios: 'com.Groupy.Dispatch',
+    android: "com.Groupy.royodispatcher",
+  }),
+  docta_transportation: Platform.select({
+    ios: 'com.DoctaTransportation.Dispatch',
+    android: "com.DoctaTransportation.royodispatcher",
   }),
 };
 

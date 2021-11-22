@@ -640,9 +640,21 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
-          case appIds.laundryOrders:
+        case appIds.laundryOrders:
           updateState({
             shortCode: shortCodes.laundryOrders,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.groupy:
+          updateState({
+            shortCode: shortCodes.groupy,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.docta_transportation:
+          updateState({
+            shortCode: shortCodes.docta_transportation,
             isShortcodePrefilled: true,
           });
           break;
