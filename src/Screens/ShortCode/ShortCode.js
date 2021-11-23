@@ -658,6 +658,12 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.hairstonexpress:
+          updateState({
+            shortCode: shortCodes.hairstonexpress,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, []);

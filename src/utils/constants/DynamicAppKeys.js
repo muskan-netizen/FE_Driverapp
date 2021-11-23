@@ -99,6 +99,7 @@ const shortCodes = {
   laundryOrders: '048e86',
   groupy: 'c3ea28',
   docta_transportation: '93b726',
+  hairstonexpress: '38b573',
 };
 
 // Goody Dispatch
@@ -487,11 +488,15 @@ const appIds = {
   }),
   groupy: Platform.select({
     ios: 'com.Groupy.Dispatch',
-    android: "com.Groupy.royodispatcher",
+    android: 'com.Groupy.royodispatcher',
   }),
   docta_transportation: Platform.select({
     ios: 'com.DoctaTransportation.Dispatch',
-    android: "com.DoctaTransportation.royodispatcher",
+    android: 'com.DoctaTransportation.royodispatcher',
+  }),
+  hairstonexpress: Platform.select({
+    ios: 'com.HairstonExpress.Dispatch',
+    android: 'com.HairstonExpress.royodispatcher',
   }),
 };
 

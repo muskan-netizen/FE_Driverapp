@@ -197,6 +197,8 @@
     "expressdeliveryLLCRelease": "cd android && ./gradlew assembleExpress_deliverys_llcRelease",
     "doctaTransportationdispatcher": "react-native run-android --variant=docta_transportationDebug",
     "doctaTransportationRelease": "cd android && ./gradlew assembleDocta_transportationRelease",
+    "hairstonexpressndispatcher": "react-native run-android --variant=hairston_expressDebug",
+    "hairstonexpressRelease": "cd android && ./gradlew assembleHairston_expressRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
