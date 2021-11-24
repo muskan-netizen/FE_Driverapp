@@ -664,6 +664,30 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.paySic:
+          updateState({
+            shortCode: shortCodes.paySic,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.naDelivery:
+          updateState({
+            shortCode: shortCodes.naDelivery,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.iNeed:
+          updateState({
+            shortCode: shortCodes.iNeed,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.chipeTaxi:
+          updateState({
+            shortCode: shortCodes.chipeTaxi,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, []);

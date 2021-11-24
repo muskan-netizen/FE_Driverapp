@@ -100,6 +100,10 @@ const shortCodes = {
   groupy: 'c3ea28',
   docta_transportation: '93b726',
   hairstonexpress: '38b573',
+  iNeed: '7131a5',
+  naDelivery: '90f78b',
+  chipeTaxi: 'e99b4e',
+  paySic: '7ed055',
 };
 
 // Goody Dispatch
@@ -497,6 +501,22 @@ const appIds = {
   hairstonexpress: Platform.select({
     ios: 'com.HairstonExpress.Dispatch',
     android: 'com.HairstonExpress.royodispatcher',
+  }),
+  iNeed: Platform.select({
+    ios: 'com.INeed.Dispatch',
+    android: 'com.INeed.royodispatcher',
+  }),
+  naDelivery: Platform.select({
+    ios: 'com.NaDelivery.Dispatch',
+    android: 'com.NaDelivery.royodispatcher',
+  }),
+  chipeTaxi: Platform.select({
+    ios: 'com.ChipeTaxi.Dispatch',
+    android: 'com.ChipeTaxi.royodispatcher',
+  }),
+  paySic: Platform.select({
+    ios: 'com.PaySic.Dispatch',
+    android: 'com.PaySic.royodispatcher',
   }),
 };
 
