@@ -694,9 +694,15 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
-          case appIds.yoho:
+        case appIds.yoho:
           updateState({
             shortCode: shortCodes.yoho,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.marasym:
+          updateState({
+            shortCode: shortCodes.marasym,
             isShortcodePrefilled: true,
           });
           break;

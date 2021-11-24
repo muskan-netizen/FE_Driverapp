@@ -211,6 +211,8 @@
     "boozieDooziedispatcherRelease": "cd android && ./gradlew assembleboozie_doozieRelease",
     "yohodispatcher": "react-native run-android --variant=yohoDebug",
     "yohodispatcherRelease": "cd android && ./gradlew assembleyohoRelease",
+    "marasymdispatcher": "react-native run-android --variant=marasymDebug",
+    "marasymdispatcherRelease": "cd android && ./gradlew assemblemarasymRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",

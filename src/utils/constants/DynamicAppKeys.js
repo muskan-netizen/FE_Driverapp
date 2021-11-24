@@ -106,6 +106,7 @@ const shortCodes = {
   paySic: '7ed055',
   boozieDoozie: '5d0546',
   yoho: '577357',
+  marasym: '16e939',
 };
 
 // Goody Dispatch
@@ -527,6 +528,10 @@ const appIds = {
   yoho: Platform.select({
     ios: 'com.Yoho.Dispatch',
     android: "com.Yoho.royodispatcher",
+  }),
+  marasym: Platform.select({
+    ios: 'com.Marasym.Dispatch',
+    android: "com.Marasym.royodispatcher",
   }),
 };
 

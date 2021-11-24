@@ -31,7 +31,7 @@ import moment from 'moment';
 import {chekLocationPermission} from '../../utils/permissions';
 navigator.geolocation = require('react-native-geolocation-service');
 import Geocoder from 'react-native-geocoding';
-import BackgroundTimer from 'react-native-background-timer';
+// import BackgroundTimer from 'react-native-background-timer';
 
 
 
@@ -112,13 +112,16 @@ export default function DashBoard({route, navigation}) {
     return () => {};
   }, []);
   
-  useEffect(() => {
-      BackgroundTimer.runBackgroundTimer(() => {
-        console.log('this is background');
-        Vibration.vibrate(2000);
-        //code that will be called every 3 seconds
-      }, 3000);
-    }, []);
+  // useEffect(() => {
+  //     BackgroundTimer.runBackgroundTimer(() => {
+  //       console.log('this is background');
+  //       Vibration.vibrate(2000);
+  //       //code that will be called every 3 seconds
+  //     }, 3000);
+  //     //rest of code will be performing for iOS on background too
+
+  // BackgroundTimer.stopBackgroundTimer();
+  //   }, []);
   useEffect(() => {
     const backHandler = BackHandler.addEventListener(
       'hardwareBackPress',
