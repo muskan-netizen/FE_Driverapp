@@ -99,6 +99,7 @@ const shortCodes = {
   laundryOrders: '048e86',
   groupy: 'c3ea28',
   docta_transportation: '93b726',
+  hairstonexpress: '38b573',
   iNeed: '7131a5',
   naDelivery: '90f78b',
   chipeTaxi: 'e99b4e',
@@ -498,6 +499,10 @@ const appIds = {
   docta_transportation: Platform.select({
     ios: 'com.DoctaTransportation.Dispatch',
     android: 'com.DoctaTransportation.royodispatcher',
+  }),
+  hairstonexpress: Platform.select({
+    ios: 'com.HairstonExpress.Dispatch',
+    android: 'com.HairstonExpress.royodispatcher',
   }),
   iNeed: Platform.select({
     ios: 'com.INeed.Dispatch',
