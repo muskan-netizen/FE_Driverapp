@@ -688,6 +688,12 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.mobi:
+          updateState({
+            shortCode: shortCodes.mobi,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, []);

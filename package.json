@@ -207,6 +207,8 @@
     "chipeTaxidispatcherRelease": "cd android && ./gradlew assembleChipeTaxiRelease",
     "paySicdispatcher": "react-native run-android --variant=paySicDebug",
     "paySicdispatcherRelease": "cd android && ./gradlew assemblePaySicRelease",
+    "mobidispatcher": "react-native run-android --variant=mobiDebug",
+    "mobidispatcherRelease": "cd android && ./gradlew assembleMobiRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
