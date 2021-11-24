@@ -103,6 +103,8 @@ const shortCodes = {
   naDelivery: '90f78b',
   chipeTaxi: 'e99b4e',
   paySic: '7ed055',
+  boozieDoozie: '5d0546',
+  yoho: '577357',
 };
 
 // Goody Dispatch
@@ -512,6 +514,14 @@ const appIds = {
   paySic: Platform.select({
     ios: 'com.PaySic.Dispatch',
     android: 'com.PaySic.royodispatcher',
+  }),
+  boozieDoozie: Platform.select({
+    ios: 'com.BoozieDoozie.Dispatch',
+    android: "com.BoozieDoozie.royodispatcher",
+  }),
+  yoho: Platform.select({
+    ios: 'com.Yoho.Dispatch',
+    android: "com.Yoho.royodispatcher",
   }),
 };
 

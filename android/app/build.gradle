@@ -1246,6 +1246,26 @@ android {
             applicationId 'com.ChipeTaxi.royodispatcher'
             resValue "string", "app_name", "Chipe Taxi Dispatcher"
         }
+        boozie_doozie{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId "com.BoozieDoozie.royodispatcher"
+            resValue "string", "app_name", "Boozie Doozie Dispatcher"
+        }
+        yoho{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId "com.Yoho.royodispatcher"
+            resValue "string", "app_name", "Yoho Dispatcher"
+        }
     }
 }
 
