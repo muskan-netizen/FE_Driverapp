@@ -605,7 +605,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.spidbi.royodispatcher'
-            resValue "string", "app_name", "spidibi Dispatch"
+            resValue "string", "app_name", "Spidibi Dispatch"
         
         }
     
@@ -824,7 +824,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId "com.helpnowrightnow.royodispatcher"
-            resValue "string", "app_name", "help now right now Dispatch"
+            resValue "string", "app_name", "RightNow! Dispatch"
         
         }
         agriOnline{
@@ -1204,10 +1204,53 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId "com.DoctaTransportation.royodispatcher"
-            resValue "string", "app_name", "Docta transportation Dispatcher"
+            resValue "string", "app_name", "Docta Transportation Dispatcher"
+        }
+        paySic{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.PaySic.royodispatcher'
+            resValue "string", "app_name", "PaySic Dispatcher"
+        }
+        naDelivery{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.NaDelivery.royodispatcher'
+            resValue "string", "app_name", "Na DeliveryDispatcher"
+        }
+        iNeed{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.INeed.royodispatcher'
+            resValue "string", "app_name", "I Need Dispatcher"
+        }
+        chipeTaxi{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.ChipeTaxi.royodispatcher'
+            resValue "string", "app_name", "Chipe Taxi Dispatcher"
         }
     }
 }
+
+
+
 
 
 

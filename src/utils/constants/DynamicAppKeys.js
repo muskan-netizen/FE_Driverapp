@@ -99,6 +99,10 @@ const shortCodes = {
   laundryOrders: '048e86',
   groupy: 'c3ea28',
   docta_transportation: '93b726',
+  iNeed: '7131a5',
+  naDelivery: '90f78b',
+  chipeTaxi: 'e99b4e',
+  paySic: '7ed055',
 };
 
 // Goody Dispatch
@@ -487,11 +491,27 @@ const appIds = {
   }),
   groupy: Platform.select({
     ios: 'com.Groupy.Dispatch',
-    android: "com.Groupy.royodispatcher",
+    android: 'com.Groupy.royodispatcher',
   }),
   docta_transportation: Platform.select({
     ios: 'com.DoctaTransportation.Dispatch',
-    android: "com.DoctaTransportation.royodispatcher",
+    android: 'com.DoctaTransportation.royodispatcher',
+  }),
+  iNeed: Platform.select({
+    ios: 'com.INeed.Dispatch',
+    android: 'com.INeed.royodispatcher',
+  }),
+  naDelivery: Platform.select({
+    ios: 'com.NaDelivery.Dispatch',
+    android: 'com.NaDelivery.royodispatcher',
+  }),
+  chipeTaxi: Platform.select({
+    ios: 'com.ChipeTaxi.Dispatch',
+    android: 'com.ChipeTaxi.royodispatcher',
+  }),
+  paySic: Platform.select({
+    ios: 'com.PaySic.Dispatch',
+    android: 'com.PaySic.royodispatcher',
   }),
 };
 
