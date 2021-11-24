@@ -107,6 +107,7 @@ const shortCodes = {
   boozieDoozie: '5d0546',
   yoho: '577357',
   marasym: '16e939',
+  mobi: 'f6748f',
 };
 
 // Goody Dispatch
@@ -523,15 +524,19 @@ const appIds = {
   }),
   boozieDoozie: Platform.select({
     ios: 'com.BoozieDoozie.Dispatch',
-    android: "com.BoozieDoozie.royodispatcher",
+    android: 'com.BoozieDoozie.royodispatcher',
   }),
   yoho: Platform.select({
     ios: 'com.Yoho.Dispatch',
-    android: "com.Yoho.royodispatcher",
+    android: 'com.Yoho.royodispatcher',
   }),
   marasym: Platform.select({
     ios: 'com.Marasym.Dispatch',
-    android: "com.Marasym.royodispatcher",
+    android: 'com.Marasym.royodispatcher',
+  }),
+  mobi: Platform.select({
+    ios: 'com.MOBI.Dispatch',
+    android: 'com.Mobi.royodispatcher',
   }),
 };
 

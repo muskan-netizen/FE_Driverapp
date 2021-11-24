@@ -1278,6 +1278,17 @@ android {
             resValue "string", "app_name", "Yoho Dispatcher"
             
         }
+        mobi{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+             applicationId "com.Mobi.royodispatcher"
+            resValue "string", "app_name", "Hairston Express Dispatch"
+            
+        }
         marasym{
             dimension "appType"
             versionCode 1
@@ -1288,6 +1299,7 @@ android {
             applicationId "com.Marasym.royodispatcher"
             resValue "string", "app_name", "Marasym Dispatcher"
             
+           
         }
     }
 }

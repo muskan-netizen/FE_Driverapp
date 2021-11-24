@@ -213,6 +213,8 @@
     "yohodispatcherRelease": "cd android && ./gradlew assembleyohoRelease",
     "marasymdispatcher": "react-native run-android --variant=marasymDebug",
     "marasymdispatcherRelease": "cd android && ./gradlew assemblemarasymRelease",
+    "mobidispatcher": "react-native run-android --variant=mobiDebug",
+    "mobidispatcherRelease": "cd android && ./gradlew assembleMobiRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
