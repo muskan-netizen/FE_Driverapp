@@ -215,6 +215,8 @@
     "marasymdispatcherRelease": "cd android && ./gradlew assemblemarasymRelease",
     "mobidispatcher": "react-native run-android --variant=mobiDebug",
     "mobidispatcherRelease": "cd android && ./gradlew assembleMobiRelease",
+    "silvestredispatcher": "react-native run-android --variant=silvestreDebug",
+    "silvestredispatcherRelease": "cd android && ./gradlew assembleSilvestreRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",

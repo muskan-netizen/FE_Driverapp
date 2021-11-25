@@ -108,6 +108,7 @@ const shortCodes = {
   yoho: '577357',
   marasym: '16e939',
   mobi: 'f6748f',
+  silvestre: '269336',
 };
 
 // Goody Dispatch
@@ -537,6 +538,10 @@ const appIds = {
   mobi: Platform.select({
     ios: 'com.MOBI.Dispatch',
     android: 'com.Mobi.royodispatcher',
+  }),
+  silvestre: Platform.select({
+    ios: 'com.Silvestre.Dispatch',
+    android: 'com.Silvestre.royodispatcher',
   }),
 };
 

@@ -712,6 +712,12 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.silvestre:
+          updateState({
+            shortCode: shortCodes.silvestre,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, []);
