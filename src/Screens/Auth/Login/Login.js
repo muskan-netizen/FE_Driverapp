@@ -59,6 +59,7 @@ export default function Login({navigation, route}) {
   const defaultLanguagae = useSelector(
     state => state?.initBoot?.defaultLanguage,
   );
+
   //Styles in app
   const styles = stylesFunc({defaultLanguagae});
 

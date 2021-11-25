@@ -52,7 +52,7 @@ const App = () => {
 
       const userData = await getUserData();
       const defaultLanguage = await getItem('defaultLanguage');
-      console.log(userData, 'userData');
+
       // if (userData && !!userData?.access_token) {
       //   notificationConfig();
       // }

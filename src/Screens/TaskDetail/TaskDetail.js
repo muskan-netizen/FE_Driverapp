@@ -704,12 +704,21 @@ export default function TaskDetail({route, navigation}) {
               {!!taskDetail?.order?.customer?.email && (
                 <TouchableOpacity
                   onPress={() =>
-                    Communications.email(
-                      [taskDetail?.order?.customer?.email, ''],
-                      null,
-                      null,
-                      '',
-                      '',
+                    // Communications.email(
+                    //   [
+                    //     taskDetail?.order?.customer?.email,
+                    //     taskDetail?.order?.customer?.email,
+                    //   ],
+                    //   null,
+                    //   null,
+                    //   '',
+                    //   '',
+                    // )
+
+                    Linking.openURL(
+                      `mailto:${
+                        taskDetail?.order?.customer?.email
+                      }?subject=${''}&body=${''}`,
                     )
                   }
                   style={{

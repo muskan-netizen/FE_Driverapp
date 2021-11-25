@@ -12,19 +12,21 @@ export async function requestUserPermission() {
     authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
     authStatus === messaging.AuthorizationStatus.PROVISIONAL;
   if (enabled) {
-    console.log('Authorization status:', authStatus);
+    console.log('Authorization status:', enabled);
     getFcmToken();
   }
 }
 
 const getFcmToken = async () => {
   let fcmToken = await AsyncStorage.getItem('fcmToken');
+  actions.saveFcmToken(fcmToken);
   console.log(fcmToken, 'the old token');
   if (!fcmToken) {
     try {
       const fcmToken = await messaging().getToken();
       if (fcmToken) {
         console.log(fcmToken, 'the new genrated token');
+        actions.saveFcmToken(fcmToken);
         // user has a device token
         await AsyncStorage.setItem('fcmToken', fcmToken);
       }

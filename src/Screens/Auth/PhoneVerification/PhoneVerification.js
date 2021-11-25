@@ -38,7 +38,6 @@ export default function PhoneVerification({navigation, route}) {
     otp: '87124',
     otpToShow: '',
     otpPrefilled: false,
-    fcm_token: null,
   });
 
   const {
@@ -49,11 +48,11 @@ export default function PhoneVerification({navigation, route}) {
     otp,
     otpToShow,
     otpPrefilled,
-    fcm_token,
   } = state;
   //   const fontFamily = appStyle?.fontSizeData;
   const {themeColors} = useSelector(state => state?.initBoot);
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
+  const fcmToken = useSelector(state => state?.initBoot?.fcmToken);
 
   //Update states
   const updateState = data => setState(state => ({...state, ...data}));
@@ -83,11 +82,6 @@ export default function PhoneVerification({navigation, route}) {
     }
     return true;
   };
-  useEffect(async () => {
-    let token = await AsyncStorage.getItem('fcmToken');
-    console.log(token, 'token>token>token');
-    updateState({fcm_token: token ? token : DeviceInfo.getDeviceToken()});
-  }, []);
 
   useEffect(() => {
     if (otp && otpPrefilled) {
@@ -120,8 +114,8 @@ export default function PhoneVerification({navigation, route}) {
     let data = {};
     data['phone_number'] = `${paramData?.phone_number}`;
     data['otp'] = otp;
-    data['device_token'] = fcm_token
-      ? fcm_token
+    data['device_token'] = fcmToken
+      ? fcmToken
       : await DeviceInfo.getDeviceToken();
     data['device_type'] = Platform.OS;
 

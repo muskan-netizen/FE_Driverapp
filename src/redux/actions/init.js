@@ -121,3 +121,10 @@ export function setDefaultLanguage(data = {}) {
     });
   });
 }
+
+export const saveFcmToken = data => {
+  dispatch({
+    type: types.FCMTOKEN,
+    payload: data,
+  });
+};

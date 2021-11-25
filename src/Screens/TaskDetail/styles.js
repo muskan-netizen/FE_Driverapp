@@ -168,6 +168,7 @@ export default ({defaultLanguagae}) => {
       fontSize: textScale(12),
       color: colors.textGreyOpcaity7,
       // paddingBottom: moderateScale(5),
+      marginRight: moderateScale(10),
     },
     customerName: {
       fontFamily: fontFamily.bold,
