@@ -688,9 +688,33 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.boozieDoozie:
+          updateState({
+            shortCode: shortCodes.boozieDoozie,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.yoho:
+          updateState({
+            shortCode: shortCodes.yoho,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.marasym:
+          updateState({
+            shortCode: shortCodes.marasym,
+            isShortcodePrefilled: true,
+          });
+          break;
         case appIds.mobi:
           updateState({
             shortCode: shortCodes.mobi,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.silvestre:
+          updateState({
+            shortCode: shortCodes.silvestre,
             isShortcodePrefilled: true,
           });
           break;

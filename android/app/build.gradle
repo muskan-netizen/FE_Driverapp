@@ -1246,7 +1246,18 @@ android {
             applicationId 'com.ChipeTaxi.royodispatcher'
             resValue "string", "app_name", "Chipe Taxi Dispatcher"
         }
-          hairston_express{
+        boozie_doozie{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId "com.BoozieDoozie.royodispatcher"
+            resValue "string", "app_name", "Boozie Doozie Dispatcher"
+        }
+            
+        hairston_express{
             dimension "appType"
             versionCode 1
             versionName "1.0"
@@ -1256,15 +1267,51 @@ android {
             applicationId "com.HairstonExpress.royodispatcher"
             resValue "string", "app_name", "Hairston Express Dispatch"
         }
-          mobi{
+        yoho{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId "com.Mobi.royodispatcher"
+            applicationId "com.Yoho.royodispatcher"
+            resValue "string", "app_name", "Yoho Dispatcher"
+            
+        }
+        mobi{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+             applicationId "com.Mobi.royodispatcher"
             resValue "string", "app_name", "Hairston Express Dispatch"
+            
+        }
+        marasym{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId "com.Marasym.royodispatcher"
+            resValue "string", "app_name", "Marasym Dispatcher"
+            
+           
+        }
+        silvestre{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId "com.Silvestre.royodispatcher"
+            resValue "string", "app_name", "Silvestre Dispatcher"
+            
+           
         }
     }
 }
