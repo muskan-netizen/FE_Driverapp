@@ -455,7 +455,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
                 applicationId 'com.donepacked.royodispatcher'
-            resValue "string", "app_name", "Donepacked"
+            resValue "string", "app_name", "Donepacked Dispatch"
             
         } 
 
@@ -466,7 +466,7 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
                 applicationId 'com.zuzuclean.royodispatcher'
-            resValue "string", "app_name", "zuzucleanDispatcher"
+            resValue "string", "app_name", "ZuzuClean Dispatch"
         }
         careWorks {
             dimension "appType"
@@ -485,7 +485,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.ThubaeRides.royodispatcher'
-            resValue "string", "app_name", "ThubaeRides"
+            resValue "string", "app_name", "ThubaeRides Dispatch"
         }
         loopWhole {
             dimension "appType"
