@@ -123,6 +123,7 @@ export function setDefaultLanguage(data = {}) {
 }
 
 export const saveFcmToken = data => {
+  console.log(data,"datadata");
   dispatch({
     type: types.FCMTOKEN,
     payload: data,

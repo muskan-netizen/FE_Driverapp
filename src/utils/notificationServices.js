@@ -1,16 +1,21 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import messaging from '@react-native-firebase/messaging';
+
 import PushNotification, {Importance} from 'react-native-push-notification';
 import actions from '../redux/actions';
 
+
 export async function requestUserPermission() {
+  // alert('enterd')
   if (Platform.OS === 'ios') {
     await messaging().registerDeviceForRemoteMessages();
+  
   }
   const authStatus = await messaging().requestPermission();
   const enabled =
     authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
     authStatus === messaging.AuthorizationStatus.PROVISIONAL;
+    console.log(enabled)
   if (enabled) {
     console.log('Authorization status:', enabled);
     getFcmToken();
@@ -19,7 +24,10 @@ export async function requestUserPermission() {
 
 const getFcmToken = async () => {
   let fcmToken = await AsyncStorage.getItem('fcmToken');
-  actions.saveFcmToken(fcmToken);
+  if(fcmToken != null){
+    actions.saveFcmToken(fcmToken);
+  }
+  
   console.log(fcmToken, 'the old token');
   if (!fcmToken) {
     try {

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Platform, View, Image, BackHandler, Text} from 'react-native';
+import {Platform, View, Image, BackHandler, Text,Alert,Linking} from 'react-native';
 import DeviceInfo, {getBundleId} from 'react-native-device-info';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {useSelector} from 'react-redux';
@@ -25,10 +25,14 @@ import ScaledImage from 'react-native-scalable-image';
 import {appIds} from '../../../utils/constants/DynamicAppKeys';
 import Header from '../../../Components/Header';
 import {TouchableOpacity} from 'react-native';
+import { requestUserPermission } from '../../../utils/notificationServices';
+import { useFocusEffect } from '@react-navigation/native';
+
 
 export default function Login({navigation, route}) {
   const paramData = route?.params?.data;
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
+  const fcmToken = useSelector(state => state?.initBoot?.fcmToken);
   console.log(clientInfo, 'clientInfo>clientInfo');
   console.log(paramData, 'paramData>paramData');
   const [state, setState] = useState({
@@ -75,6 +79,12 @@ export default function Login({navigation, route}) {
     updateState({[key]: val});
   };
 
+  useFocusEffect(
+    React.useCallback(() => {
+      
+    }, [])
+  );
+
   useEffect(() => {
     // actions.sessionLogoutUser(false);
     updateState({
@@ -99,11 +109,30 @@ export default function Login({navigation, route}) {
 
   //Login api fucntion
   const _onLogin = () => {
+    requestUserPermission();
+
+    if(!fcmToken){
+      Alert.alert(
+        "Allow Notification Permission",
+        "notification permission not granted visit application settings for enable permission and restart the app",
+        [
+          {
+            text: "Cancel",
+            onPress: () => console.log("Cancel Pressed"),
+            style: "cancel"
+          },
+          { text: "Visit Settings", onPress: () => Linking.openSettings() }
+        ]
+      );
+
+      
+    }else{
     const checkValid = isValidData();
     if (!checkValid) {
       return;
     }
-    console.log(callingCode, phoneNumber, 'phoneNumberphoneNumber');
+   
+
     let data = {};
     data['phone_number'] = `+${callingCode}${phoneNumber}`;
     // actions.sessionLogoutUser(false);
@@ -119,6 +148,7 @@ export default function Login({navigation, route}) {
         }
       })
       .catch(errorMethod);
+    }
   };
 
   //Error handling in api
@@ -199,7 +229,7 @@ export default function Login({navigation, route}) {
 
             <GradientButton
               containerStyle={{marginTop: moderateScaleVertical(40)}}
-              onPress={_onLogin}
+              onPress={()=>{_onLogin()}}
               textStyle={{color: colors.black}}
               btnText={strings.LOGIN}
               colorsArray={[colors.themeColor, colors.themeColor]}
