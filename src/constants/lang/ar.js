@@ -143,5 +143,8 @@ export default {
   "IMAGES": "الصور",
   "FACESNOTMATCHED": "الوجوه غير المتطابقة",
   "VERSION": "الإصدار",
-  "SUPPORT": "دعم"
+  "SUPPORT": "دعم",
+  "notificationAlertTitle": "Allow Notification Permission",
+  "notificationAlert": "notification permission not granted visit application settings for enable permission and restart the app",
+  "visitSetting": "Visit Settings",
 };

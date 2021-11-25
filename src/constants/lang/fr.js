@@ -131,5 +131,8 @@ export default {
   "IMAGES": "Images",
   "FACESNOTMATCHED": "Visages non assortis",
   "VERSION":"Version",
-  "SUPPORT": "Soutien"
+  "SUPPORT": "Soutien",
+  "notificationAlertTitle": "Allow Notification Permission",
+  "notificationAlert": "notification permission not granted visit application settings for enable permission and restart the app",
+  "visitSetting": "Visit Settings",
 };

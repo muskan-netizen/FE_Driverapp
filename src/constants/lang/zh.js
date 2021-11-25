@@ -127,6 +127,9 @@ export default {
   "IMAGES": "图像",
   "FACESNOTMATCHED": "不匹配的面孔",
   "VERSION": "版本",
-  "SUPPORT": "支持"
+  "SUPPORT": "支持",
+  "notificationAlertTitle": "Allow Notification Permission",
+  "notificationAlert": "notification permission not granted visit application settings for enable permission and restart the app",
+  "visitSetting": "Visit Settings",
   };
   

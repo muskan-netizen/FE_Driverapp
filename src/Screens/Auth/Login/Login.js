@@ -113,15 +113,15 @@ export default function Login({navigation, route}) {
 
     if(!fcmToken){
       Alert.alert(
-        "Allow Notification Permission",
-        "notification permission not granted visit application settings for enable permission and restart the app",
+        strings.notificationAlertTitle,
+        strings.notificationAlert,
         [
           {
-            text: "Cancel",
+            text: strings.CANCEL,
             onPress: () => console.log("Cancel Pressed"),
             style: "cancel"
           },
-          { text: "Visit Settings", onPress: () => Linking.openSettings() }
+          { text: strings.visitSetting, onPress: () => Linking.openSettings() }
         ]
       );
 

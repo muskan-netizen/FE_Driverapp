@@ -130,5 +130,8 @@ export default {
   "TIMINGS":"Timings",
   "TASKDESCRIPTION":"Task Description",
   "IMAGES":"Images",
-  "FACESNOTMATCHED":"Faces not matched"
+  "FACESNOTMATCHED":"Faces not matched",
+  "notificationAlertTitle": "Allow Notification Permission",
+  "notificationAlert": "notification permission not granted visit application settings for enable permission and restart the app",
+  "visitSetting": "Visit Settings",
 };
