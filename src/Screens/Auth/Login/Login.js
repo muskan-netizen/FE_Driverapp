@@ -1,5 +1,13 @@
 import React, {useEffect, useState} from 'react';
-import {Platform, View, Image, BackHandler, Text,Linking,Alert} from 'react-native';
+import {
+  Platform,
+  View,
+  Image,
+  BackHandler,
+  Text,
+  Linking,
+  Alert,
+} from 'react-native';
 import DeviceInfo, {getBundleId} from 'react-native-device-info';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {useSelector} from 'react-redux';
@@ -25,11 +33,12 @@ import ScaledImage from 'react-native-scalable-image';
 import {appIds} from '../../../utils/constants/DynamicAppKeys';
 import Header from '../../../Components/Header';
 import {TouchableOpacity} from 'react-native';
-import { requestUserPermission } from '../../../utils/notificationServices';
+import {requestUserPermission} from '../../../utils/notificationServices';
 
 export default function Login({navigation, route}) {
   const paramData = route?.params?.data;
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
+  const fcmToken = useSelector(state => state?.initBoot?.fcmToken);
   console.log(clientInfo, 'clientInfo>clientInfo');
   console.log(paramData, 'paramData>paramData');
   const [state, setState] = useState({
@@ -98,7 +107,6 @@ export default function Login({navigation, route}) {
     return true;
   };
 
- 
   const _alert = () => {
     Alert.alert(strings.notificationAlertTitle, strings.notificationAlert, [
       {
@@ -106,9 +114,7 @@ export default function Login({navigation, route}) {
         onPress: () => console.log('Cancel Pressed'),
         style: 'cancel',
       },
-      {text: strings.visitSetting, onPress: () => 
-        Linking.openSettings()
-      },
+      {text: strings.visitSetting, onPress: () => Linking.openSettings()},
     ]);
   };
   const login = () => {
@@ -135,7 +141,6 @@ export default function Login({navigation, route}) {
   const _onLogin = () => {
     requestUserPermission(login, _alert);
   };
-
 
   //Error handling in api
   const errorMethod = error => {
@@ -215,7 +220,9 @@ export default function Login({navigation, route}) {
 
             <GradientButton
               containerStyle={{marginTop: moderateScaleVertical(40)}}
-              onPress={_onLogin}
+              onPress={() => {
+                _onLogin();
+              }}
               textStyle={{color: colors.black}}
               btnText={strings.LOGIN}
               colorsArray={[colors.themeColor, colors.themeColor]}

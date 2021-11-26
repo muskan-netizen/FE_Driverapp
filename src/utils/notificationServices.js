@@ -1,5 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import messaging from '@react-native-firebase/messaging';
+
 import PushNotification, {Importance} from 'react-native-push-notification';
 import actions from '../redux/actions';
 
@@ -27,7 +28,10 @@ export async function requestUserPermission(
 
 const getFcmToken = async () => {
   let fcmToken = await AsyncStorage.getItem('fcmToken');
-  actions.saveFcmToken(fcmToken);
+  if (fcmToken != null) {
+    actions.saveFcmToken(fcmToken);
+  }
+
   console.log(fcmToken, 'the old token');
   if (!fcmToken) {
     try {

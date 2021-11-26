@@ -66,6 +66,7 @@ export function cancelTask(data = {}, headers = {}) {
 }
 
 export function updateTask(data = {}, headers = {}) {
+  console.log(data, 'data in task task proof');
   return new Promise((resolve, reject) => {
     apiPost(UPDATETASKSTATUS, data, headers)
       .then(res => {

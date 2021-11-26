@@ -26,6 +26,7 @@ import SmoothPinCodeInput from 'react-native-smooth-pincode-input';
 import fontFamily from '../../../styles/fontFamily';
 import {getItem} from '../../../utils/utils';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {requestUserPermission} from '../../../utils/notificationServices';
 
 export default function PhoneVerification({navigation, route}) {
   const paramData = route?.params?.data;
@@ -96,27 +97,31 @@ export default function PhoneVerification({navigation, route}) {
       otp: code,
       otpPrefilled: true,
     });
+
     // (() => {
 
     // })();
-    console.log();
-    //  code?.length == 6 && verfifyAccount();
+    // console.log(code,"123");
+    // if(code?.length == 6){
+    //   console.log(code,"1234");
+    //   verfifyAccount(code);
+    // }
   };
 
   // //Code input
   useEffect(() => {
-    if (otp.length == 6) verfifyAccount();
-    //  alert('res loginuser info');
+    if (otp.length === 6) {
+      verfifyAccount();
+    }
   }, [otp]);
 
   //VerifyAccount
   const verfifyAccount = async () => {
     let data = {};
+
     data['phone_number'] = `${paramData?.phone_number}`;
     data['otp'] = otp;
-    data['device_token'] = fcmToken
-      ? fcmToken
-      :'123456789';
+    data['device_token'] = !!fcmToken ? fcmToken : '12345689';
     data['device_type'] = Platform.OS;
 
     updateState({isLoading: true});
@@ -124,12 +129,12 @@ export default function PhoneVerification({navigation, route}) {
       .verifyAccount(data, {client: clientInfo?.database_name})
       .then(res => {
         updateState({isLoading: false});
-        setTimeout(() => {
-          if (res?.data) {
-            showSuccess(strings.ACCOUNTVERIFYSUCESS);
-            moveToNewScreen(navigationStrings.DRAWER_ROUTES)();
-          }
-        }, 50);
+        // setTimeout(() => {
+        //   if (res?.data) {
+        // showSuccess(strings.ACCOUNTVERIFYSUCESS);
+        moveToNewScreen(navigationStrings.DRAWER_ROUTES)();
+        //   }
+        // }, 50);
       })
       .catch(errorMethod);
   };

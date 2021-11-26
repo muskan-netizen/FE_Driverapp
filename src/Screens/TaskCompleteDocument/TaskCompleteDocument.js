@@ -376,6 +376,7 @@ export default function TaskCompleteDocument({route, navigation}) {
   const updateTaskStatus = () => {
     let data = {};
     let formdata = new FormData();
+
     formdata.append('task_status', 4);
     formdata.append('task_id', taskDetail?.id);
     if (note != '') {
@@ -383,19 +384,25 @@ export default function TaskCompleteDocument({route, navigation}) {
     }
     if (signatureImage) {
       formdata.append('signature', {
-        type: 'image/jpeg',
+        name: 'image.png',
+        fileName: 'image',
+        type: 'image/png',
         uri: signatureImage,
       });
     }
     if (image) {
       formdata.append('image', {
-        type: 'image/jpeg',
         uri: image,
+        name: 'image.png',
+        fileName: 'image',
+        type: 'image/png',
       });
     }
     if (faceImage) {
       formdata.append('proof_face', {
-        type: 'image/jpeg',
+        name: 'image.png',
+        fileName: 'image',
+        type: 'image/png',
         uri: faceImage?.uri,
       });
     }
