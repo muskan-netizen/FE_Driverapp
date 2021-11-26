@@ -694,7 +694,13 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
-      }
+          case appIds.samakeeMart:
+            updateState({
+              shortCode: shortCodes.samakeeMart,
+              isShortcodePrefilled: true,
+            });
+            break;
+        }
     })();
   }, []);
 

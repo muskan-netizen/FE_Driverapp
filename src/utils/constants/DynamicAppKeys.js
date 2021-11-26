@@ -105,6 +105,7 @@ const shortCodes = {
   chipeTaxi: 'e99b4e',
   paySic: '7ed055',
   mobi: 'f6748f',
+  samakeeMart: '083fdc',
 };
 
 // Goody Dispatch
@@ -522,6 +523,10 @@ const appIds = {
   mobi: Platform.select({
     ios: 'com.MOBI.Dispatch',
     android: 'com.Mobi.royodispatcher',
+  }),
+  samakeeMart: Platform.select({
+    ios: 'com.SamakeeMart.Dispatch',
+    android: 'com.SamakeeMart.royodispatcher',
   }),
 };
 

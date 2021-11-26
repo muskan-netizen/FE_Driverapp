@@ -209,6 +209,8 @@
     "paySicdispatcherRelease": "cd android && ./gradlew assemblePaySicRelease",
     "mobidispatcher": "react-native run-android --variant=mobiDebug",
     "mobidispatcherRelease": "cd android && ./gradlew assembleMobiRelease",
+    "samakeeMartdispatcher": "react-native run-android --variant=samakeeMartDebug",
+    "samakeeMartdispatcherRelease": "cd android && ./gradlew assemblesamakeeMartRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
