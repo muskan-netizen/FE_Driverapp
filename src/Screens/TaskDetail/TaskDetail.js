@@ -816,7 +816,7 @@ export default function TaskDetail({route, navigation}) {
 
           {/* Images */}
           {!!taskDetail?.order?.task_images &&
-            taskDetail?.order?.task_images.length && (
+            taskDetail?.order?.task_images.length >= 1 && (
               <View
                 style={{flexDirection: 'row', marginTop: moderateScale(15)}}>
                 <View>

@@ -5,8 +5,8 @@ import {
   Image,
   BackHandler,
   Text,
-  Alert,
   Linking,
+  Alert,
 } from 'react-native';
 import DeviceInfo, {getBundleId} from 'react-native-device-info';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
@@ -34,7 +34,6 @@ import {appIds} from '../../../utils/constants/DynamicAppKeys';
 import Header from '../../../Components/Header';
 import {TouchableOpacity} from 'react-native';
 import {requestUserPermission} from '../../../utils/notificationServices';
-import {useFocusEffect} from '@react-navigation/native';
 
 export default function Login({navigation, route}) {
   const paramData = route?.params?.data;
@@ -86,8 +85,6 @@ export default function Login({navigation, route}) {
     updateState({[key]: val});
   };
 
-  useFocusEffect(React.useCallback(() => {}, []));
-
   useEffect(() => {
     // actions.sessionLogoutUser(false);
     updateState({
@@ -110,28 +107,39 @@ export default function Login({navigation, route}) {
     return true;
   };
 
-  //Login api fucntion
-  const _onLogin = () => {
+  const _alert = () => {
+    Alert.alert(strings.notificationAlertTitle, strings.notificationAlert, [
+      {
+        text: strings.CANCEL,
+        onPress: () => console.log('Cancel Pressed'),
+        style: 'cancel',
+      },
+      {text: strings.visitSetting, onPress: () => Linking.openSettings()},
+    ]);
+  };
+  const login = () => {
     const checkValid = isValidData();
-    if (!checkValid) {
-      return;
+    if (checkValid) {
+      let data = {};
+      data['phone_number'] = `+${callingCode}${phoneNumber}`;
+      // actions.sessionLogoutUser(false);
+      updateState({isLoading: true});
+      actions
+        .login(data, {client: clientInfo?.database_name})
+        .then(res => {
+          console.log(res, 'login data');
+          updateState({isLoading: false});
+          if (res?.data) {
+            showSuccess(strings.OTPSENDSUCCESS);
+            moveToNewScreen(navigationStrings.SEND_OTP, res?.data)();
+          }
+        })
+        .catch(errorMethod);
     }
-
-    let data = {};
-    data['phone_number'] = `+${callingCode}${phoneNumber}`;
-    // actions.sessionLogoutUser(false);
-    updateState({isLoading: true});
-    actions
-      .login(data, {client: clientInfo?.database_name})
-      .then(res => {
-        console.log(res, 'login data');
-        updateState({isLoading: false});
-        if (res?.data) {
-          showSuccess(strings.OTPSENDSUCCESS);
-          moveToNewScreen(navigationStrings.SEND_OTP, res?.data)();
-        }
-      })
-      .catch(errorMethod);
+    //Login api fucntion
+  };
+  const _onLogin = () => {
+    requestUserPermission(login, _alert);
   };
 
   //Error handling in api

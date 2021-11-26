@@ -117,14 +117,13 @@ export default function PhoneVerification({navigation, route}) {
 
   //VerifyAccount
   const verfifyAccount = async () => {
- 
     let data = {};
 
     data['phone_number'] = `${paramData?.phone_number}`;
     data['otp'] = otp;
     data['device_token'] = !!fcmToken ? fcmToken : '12345689';
     data['device_type'] = Platform.OS;
-   
+
     updateState({isLoading: true});
     actions
       .verifyAccount(data, {client: clientInfo?.database_name})
