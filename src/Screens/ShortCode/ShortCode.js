@@ -24,6 +24,7 @@ import {appIds, shortCodes} from '../../utils/constants/DynamicAppKeys';
 import {getBundleId} from 'react-native-device-info';
 import {getItem} from '../../utils/utils';
 import {requestUserPermission} from '../../utils/notificationServices';
+import {useFocusEffect} from '@react-navigation/native';
 
 export default function ShortCode({route, navigation}) {
   const shortCodeParam = route?.params?.shortCodeParam;
@@ -51,6 +52,7 @@ export default function ShortCode({route, navigation}) {
   } = state;
   const updateState = data => setState(state => ({...state, ...data}));
   const userData = useSelector(state => state?.auth?.userData);
+
   //Naviagtion to specific screen
   const moveToNewScreen = (screenName, data) => () => {
     navigation.navigate(screenName, {data});
@@ -822,6 +824,22 @@ export default function ShortCode({route, navigation}) {
   };
 
   //Rediect to login
+  console.log(
+    userData?.access_token,
+    'userData?.access_tokenuserData?.access_tokenuserData?.access_token',
+  );
+
+  useFocusEffect(
+    React.useCallback(() => {
+      if (userData?.access_token != userData?.access_token) {
+        _redirectToLogin(shortCodeDataInfo);
+      }
+    }, [userData?.access_token]),
+  );
+
+  // useEffect(() => {
+  //   _redirectToLogin(shortCodeDataInfo);
+  // }, [userData?.access_token]);
 
   const _redirectToLogin = shortCodeDataInfo => {
     updateState({isModalVisibleForShortCodeDetail: false});
