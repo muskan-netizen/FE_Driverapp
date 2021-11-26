@@ -1,5 +1,13 @@
 import React, {useEffect, useState} from 'react';
-import {Platform, View, Image, BackHandler, Text,Alert,Linking} from 'react-native';
+import {
+  Platform,
+  View,
+  Image,
+  BackHandler,
+  Text,
+  Alert,
+  Linking,
+} from 'react-native';
 import DeviceInfo, {getBundleId} from 'react-native-device-info';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {useSelector} from 'react-redux';
@@ -25,9 +33,8 @@ import ScaledImage from 'react-native-scalable-image';
 import {appIds} from '../../../utils/constants/DynamicAppKeys';
 import Header from '../../../Components/Header';
 import {TouchableOpacity} from 'react-native';
-import { requestUserPermission } from '../../../utils/notificationServices';
-import { useFocusEffect } from '@react-navigation/native';
-
+import {requestUserPermission} from '../../../utils/notificationServices';
+import {useFocusEffect} from '@react-navigation/native';
 
 export default function Login({navigation, route}) {
   const paramData = route?.params?.data;
@@ -79,11 +86,7 @@ export default function Login({navigation, route}) {
     updateState({[key]: val});
   };
 
-  useFocusEffect(
-    React.useCallback(() => {
-      
-    }, [])
-  );
+  useFocusEffect(React.useCallback(() => {}, []));
 
   useEffect(() => {
     // actions.sessionLogoutUser(false);
@@ -109,29 +112,10 @@ export default function Login({navigation, route}) {
 
   //Login api fucntion
   const _onLogin = () => {
-    requestUserPermission();
-
-    if(!fcmToken){
-      Alert.alert(
-        strings.notificationAlertTitle,
-        strings.notificationAlert,
-        [
-          {
-            text: strings.CANCEL,
-            onPress: () => console.log("Cancel Pressed"),
-            style: "cancel"
-          },
-          { text: strings.visitSetting, onPress: () => Linking.openSettings() }
-        ]
-      );
-
-      
-    }else{
     const checkValid = isValidData();
     if (!checkValid) {
       return;
     }
-   
 
     let data = {};
     data['phone_number'] = `+${callingCode}${phoneNumber}`;
@@ -148,7 +132,6 @@ export default function Login({navigation, route}) {
         }
       })
       .catch(errorMethod);
-    }
   };
 
   //Error handling in api
@@ -229,7 +212,9 @@ export default function Login({navigation, route}) {
 
             <GradientButton
               containerStyle={{marginTop: moderateScaleVertical(40)}}
-              onPress={()=>{_onLogin()}}
+              onPress={() => {
+                _onLogin();
+              }}
               textStyle={{color: colors.black}}
               btnText={strings.LOGIN}
               colorsArray={[colors.themeColor, colors.themeColor]}

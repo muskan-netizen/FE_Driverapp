@@ -88,7 +88,7 @@ export default function PhoneNumberInput({
           }}
           onPress={_openCountryPicker}>
           <View style={{marginRight: moderateScale(-10)}}>
-            <Flag countryCode={cca2} />
+            <Flag withEmoji={false} countryCode={cca2} />
           </View>
           <Text
             style={[

@@ -104,12 +104,13 @@ export async function apiReq(
       };
     }
 
-    console.log(endPoint,"endPoint");
-    console.log(data,"data");
-    console.log(headers,"headers");
-    
+    console.log(endPoint, '+++++endPoint');
+    console.log(data, '+++++data');
+    console.log(headers, '+++++headers');
+
     axios[method](endPoint, data, {headers})
       .then(result => {
+        console.log('+++++success result', result);
         const {data} = result;
         if (data.status === false) {
           return rej(data);
