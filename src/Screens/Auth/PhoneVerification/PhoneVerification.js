@@ -116,7 +116,7 @@ export default function PhoneVerification({navigation, route}) {
     data['otp'] = otp;
     data['device_token'] = fcmToken
       ? fcmToken
-      : await DeviceInfo.getDeviceToken();
+      :'123456789';
     data['device_type'] = Platform.OS;
 
     updateState({isLoading: true});

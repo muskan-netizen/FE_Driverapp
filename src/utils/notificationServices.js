@@ -3,7 +3,11 @@ import messaging from '@react-native-firebase/messaging';
 import PushNotification, {Importance} from 'react-native-push-notification';
 import actions from '../redux/actions';
 
-export async function requestUserPermission() {
+export async function requestUserPermission(
+  callback1 = () => {},
+  callback2 = () => {},
+) {
+  // alert('enterd')
   if (Platform.OS === 'ios') {
     await messaging().registerDeviceForRemoteMessages();
   }
@@ -11,9 +15,13 @@ export async function requestUserPermission() {
   const enabled =
     authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
     authStatus === messaging.AuthorizationStatus.PROVISIONAL;
+  console.log(enabled);
   if (enabled) {
     console.log('Authorization status:', enabled);
     getFcmToken();
+    callback1();
+  } else {
+    callback2();
   }
 }
 
