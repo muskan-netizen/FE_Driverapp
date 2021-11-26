@@ -24,23 +24,9 @@ import NotificationModal from './src/Components/NotificationModal';
 import strings from './src/constants/lang';
 import PushNotification from 'react-native-push-notification';
 
-import { Vibration } from 'react-native';
+import {Vibration} from 'react-native';
 const App = () => {
   const [internetConnection, setInternet] = useState(true);
-
-  const notificationConfig = () => {
-    requestUserPermission();
-    notificationListener();
-  };
-  useEffect(() => {
-    notificationConfig();
-    checkExistChannel();
-    setTimeout(() => {
-      SplashScreen.hide();
-    }, 1500);
-  }, []);
-
-  
 
   //rest of code will be performing for iOS on background too
 
@@ -83,6 +69,18 @@ const App = () => {
       });
     })();
     return () => {};
+  }, []);
+
+  const notificationConfig = () => {
+    requestUserPermission();
+    notificationListener();
+  };
+  useEffect(() => {
+    notificationConfig();
+    checkExistChannel();
+    setTimeout(() => {
+      SplashScreen.hide();
+    }, 1500);
   }, []);
 
   //Check internet connection
