@@ -28,6 +28,18 @@ import {Vibration} from 'react-native';
 const App = () => {
   const [internetConnection, setInternet] = useState(true);
 
+  const notificationConfig = () => {
+    requestUserPermission();
+    notificationListener();
+  };
+  useEffect(() => {
+    notificationConfig();
+    checkExistChannel();
+    setTimeout(() => {
+      SplashScreen.hide();
+    }, 1500);
+  }, []);
+
   //rest of code will be performing for iOS on background too
 
   // BackgroundTimer.stopBackgroundTimer();
@@ -44,7 +56,7 @@ const App = () => {
 
       const userData = await getUserData();
       const defaultLanguage = await getItem('defaultLanguage');
-
+      console.log(userData, 'userdata in app.js');
       // if (userData && !!userData?.access_token) {
       //   notificationConfig();
       // }
@@ -69,18 +81,6 @@ const App = () => {
       });
     })();
     return () => {};
-  }, []);
-
-  const notificationConfig = () => {
-    requestUserPermission();
-    notificationListener();
-  };
-  useEffect(() => {
-    notificationConfig();
-    checkExistChannel();
-    setTimeout(() => {
-      SplashScreen.hide();
-    }, 1500);
   }, []);
 
   //Check internet connection
