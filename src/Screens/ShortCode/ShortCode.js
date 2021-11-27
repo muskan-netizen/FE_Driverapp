@@ -835,13 +835,13 @@ export default function ShortCode({route, navigation}) {
     'userData?.access_tokenuserData?.access_tokenuserData?.access_token',
   );
 
-  useFocusEffect(
-    React.useCallback(() => {
-      if (userData?.access_token != userData?.access_token) {
-        _redirectToLogin(shortCodeDataInfo);
-      }
-    }, [userData?.access_token]),
-  );
+  // useFocusEffect(
+  //   React.useCallback(() => {
+  //     if (userData?.access_token != userData?.access_token) {
+  //       _redirectToLogin(shortCodeDataInfo);
+  //     }
+  //   }, [userData?.access_token]),
+  // );
 
   // useEffect(() => {
   //   _redirectToLogin(shortCodeDataInfo);

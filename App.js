@@ -24,9 +24,11 @@ import NotificationModal from './src/Components/NotificationModal';
 import strings from './src/constants/lang';
 import PushNotification from 'react-native-push-notification';
 
-import { Vibration } from 'react-native';
+import {Vibration} from 'react-native';
+import Loader from './src/Components/Loader';
 const App = () => {
   const [internetConnection, setInternet] = useState(true);
+  const [loading, setloading] = useState(true);
 
   const notificationConfig = () => {
     requestUserPermission();
@@ -39,8 +41,6 @@ const App = () => {
       SplashScreen.hide();
     }, 1500);
   }, []);
-
-  
 
   //rest of code will be performing for iOS on background too
 
@@ -81,6 +81,9 @@ const App = () => {
         type: types.APP_INIT,
         payload: getClientInfo,
       });
+      setTimeout(() => {
+        setloading(false)
+      }, 1500);
     })();
     return () => {};
   }, []);
@@ -100,7 +103,7 @@ const App = () => {
     <SafeAreaProvider>
       <Provider store={store}>
         <ShowNotificationForeground />
-        <Routes />
+        {loading ? <Loader isLoading={loading} /> : <Routes />}
         <NotificationModal />
       </Provider>
       <Container
