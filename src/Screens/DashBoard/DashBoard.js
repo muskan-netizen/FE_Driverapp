@@ -467,11 +467,11 @@ export default function DashBoard({route, navigation}) {
     Linking.openSettings();
   };
 
-  const hideWarning = interval => {
+  const hideWarning = () => {
     updateState({
       isWarningAlert: false,
     });
-    clearInterval(interval);
+    console.log('hide');
   };
 
   const showWarning = () => {
@@ -482,10 +482,11 @@ export default function DashBoard({route, navigation}) {
   };
 
   useEffect(() => {
+    console.log(isWarningAlert, 'is Warning');
     const interval = setInterval(() => {
-      requestUserPermission(showWarning, () => hideWarning(interval));
+      requestUserPermission(showWarning, hideWarning);
     }, 1000);
-
+    // if (!isWarningAlert && interval) clearInterval(interval);
     return () => {
       if (interval) clearInterval(interval);
     };
@@ -609,13 +610,13 @@ export default function DashBoard({route, navigation}) {
           </View>
           <View
             style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              width: width / 2.5,
-              alignItems: 'center',
-              marginVertical: moderateScaleVertical(10),
+              justifyContent: 'flex-end',
+              // width: width / 2.5,
+              // alignItems: 'center',
+              // marginVertical: moderateScaleVertical(10),
+              paddingVertical: moderateScaleVertical(10),
             }}>
-            <TouchableOpacity
+            {/* <TouchableOpacity
               style={{
                 backgroundColor: colors.themeColor,
                 alignItems: 'center',
@@ -626,7 +627,7 @@ export default function DashBoard({route, navigation}) {
               }}
               onPress={() => hideWarning()}>
               <Text style={{color: colors.white}}>Cancel</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
             <TouchableOpacity
               style={{
                 backgroundColor: colors.themeColor,
