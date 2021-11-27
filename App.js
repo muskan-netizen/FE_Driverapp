@@ -23,8 +23,6 @@ import ShowNotificationForeground from './src/utils/ShowNotificationForeground';
 import NotificationModal from './src/Components/NotificationModal';
 import strings from './src/constants/lang';
 import PushNotification from 'react-native-push-notification';
-
-import {Vibration} from 'react-native';
 const App = () => {
   const [internetConnection, setInternet] = useState(true);
 

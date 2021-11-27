@@ -16,14 +16,12 @@ export async function requestUserPermission(
   const enabled =
     authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
     authStatus === messaging.AuthorizationStatus.PROVISIONAL;
-  console.log(enabled);
+
   if (enabled) {
     console.log('Authorization status:', enabled);
     getFcmToken();
-    callback1();
-  } else {
     callback2();
-  }
+  } else callback1();
 }
 
 const getFcmToken = async () => {

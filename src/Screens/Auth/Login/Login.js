@@ -107,17 +107,20 @@ export default function Login({navigation, route}) {
     return true;
   };
 
-  const _alert = () => {
-    Alert.alert(strings.notificationAlertTitle, strings.notificationAlert, [
-      {
-        text: strings.CANCEL,
-        onPress: () => console.log('Cancel Pressed'),
-        style: 'cancel',
-      },
-      {text: strings.visitSetting, onPress: () => Linking.openSettings()},
-    ]);
-  };
-  const login = () => {
+  // const _alert = () => {
+  //   Alert.alert(strings.notificationAlertTitle, strings.notificationAlert, [
+  //     {
+  //       text: strings.CANCEL,
+  //       onPress: () => console.log('Cancel Pressed'),
+  //       style: 'cancel',
+  //     },
+  //     {text: strings.visitSetting, onPress: () => Linking.openSettings()},
+  //   ]);
+  // };
+
+  const _onLogin = () => {
+    // requestUserPermission(login, _alert);
+
     const checkValid = isValidData();
     if (checkValid) {
       let data = {};
@@ -136,10 +139,6 @@ export default function Login({navigation, route}) {
         })
         .catch(errorMethod);
     }
-    //Login api fucntion
-  };
-  const _onLogin = () => {
-    requestUserPermission(login, _alert);
   };
 
   //Error handling in api

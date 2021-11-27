@@ -714,6 +714,12 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.samakeeMart:
+          updateState({
+            shortCode: shortCodes.samakeeMart,
+            isShortcodePrefilled: true,
+          });
+          break;
         case appIds.silvestre:
           updateState({
             shortCode: shortCodes.silvestre,
@@ -822,8 +828,6 @@ export default function ShortCode({route, navigation}) {
     });
     showError(error?.message || error?.error);
   };
-
-  console.log(userData, 'userData in short code');
 
   const _redirectToLogin = shortCodeDataInfo => {
     updateState({isModalVisibleForShortCodeDetail: false});

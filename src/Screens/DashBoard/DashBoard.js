@@ -1,6 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {FlatList, NativeModules} from 'react-native';
-import {cloneDeep, debounce} from 'lodash';
+import {FlatList, Linking, NativeModules, Text} from 'react-native';
+import {cloneDeep, debounce, invert} from 'lodash';
 import {Image, Switch, View, RefreshControl, BackHandler} from 'react-native';
 import {useSelector} from 'react-redux';
 import Header from '../../Components/Header';
@@ -13,9 +13,16 @@ import actions from '../../redux/actions';
 import colors from '../../styles/colors';
 import commonStylesFunc from '../../styles/commonStyles';
 import fontFamily from '../../styles/fontFamily';
-import {moderateScaleVertical, width} from '../../styles/responsiveSize';
+import {
+  moderateScale,
+  moderateScaleVertical,
+  width,
+} from '../../styles/responsiveSize';
 import TaskListCard from '../../Components/TaskListCard';
-import {showError} from '../../utils/helperFunctions';
+import {
+  getColorCodeWithOpactiyNumber,
+  showError,
+} from '../../utils/helperFunctions';
 import ListEmptyComponent from '../../Components/ListEmptyComponent';
 import strings from '../../constants/lang';
 import MapView from 'react-native-maps'; // remove PROVIDER_GOOGLE import if not using Google Maps
@@ -31,9 +38,8 @@ import moment from 'moment';
 import {chekLocationPermission} from '../../utils/permissions';
 navigator.geolocation = require('react-native-geolocation-service');
 import Geocoder from 'react-native-geocoding';
+import {requestUserPermission} from '../../utils/notificationServices';
 // import BackgroundTimer from 'react-native-background-timer';
-
-
 
 export default function DashBoard({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
@@ -70,6 +76,7 @@ export default function DashBoard({route, navigation}) {
     statusChanged: false,
     longitude: null,
     latitude: null,
+    isWarningAlert: false,
   });
   const {
     longitude,
@@ -90,6 +97,7 @@ export default function DashBoard({route, navigation}) {
     isLoadingSwitch,
     fcm_token,
     statusChanged,
+    isWarningAlert,
   } = state;
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
   const sessionLogoutUser = useSelector(
@@ -101,17 +109,18 @@ export default function DashBoard({route, navigation}) {
   const defaultLanguagae = useSelector(
     state => state?.initBoot?.defaultLanguage,
   );
+  const fcmToken = useSelector(state => state?.initBoot?.fcmToken);
 
   useEffect(() => {
     (async () => {
       currentLocation();
       updateState({
-        fcm_token: await AsyncStorage.getItem('fcmToken'),
+        fcm_token: fcmToken,
       });
     })();
     return () => {};
   }, []);
-  
+
   // useEffect(() => {
   //     BackgroundTimer.runBackgroundTimer(() => {
   //       console.log('this is background');
@@ -180,6 +189,7 @@ export default function DashBoard({route, navigation}) {
           // data['current_speed'] = 'y';
           data['long'] = longitude;
           data['lat'] = latitude;
+          data['device_token'] = !!fcmToken ? fcmToken : '';
           // console.log(data, 'data>data');
           console.log(longitude, 'sending data data', latitude);
           actions
@@ -451,6 +461,36 @@ export default function DashBoard({route, navigation}) {
     fitToMap();
   }, [markers, enableMap]);
 
+  //show warrning
+
+  const _onOpenSettings = () => {
+    Linking.openSettings();
+  };
+
+  const hideWarning = interval => {
+    updateState({
+      isWarningAlert: false,
+    });
+    clearInterval(interval);
+  };
+
+  const showWarning = () => {
+    updateState({
+      isWarningAlert: true,
+    });
+    console.log('show');
+  };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      requestUserPermission(showWarning, () => hideWarning(interval));
+    }, 1000);
+
+    return () => {
+      if (interval) clearInterval(interval);
+    };
+  }, [isWarningAlert]);
+
   const offDutyView = () => {
     return (
       <View style={{flex: 1}}>
@@ -553,6 +593,56 @@ export default function DashBoard({route, navigation}) {
         }}
       />
       <View style={{...commonStyles.headerTopLine}} />
+      {isWarningAlert && (
+        <View
+          style={{
+            backgroundColor: colors.lightRed,
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            paddingHorizontal: moderateScale(10),
+          }}>
+          <View style={{width: width / 2.2, justifyContent: 'center'}}>
+            <Text style={{color: colors.white, fontFamily: fontFamily.regular}}>
+              Notification Permission not enabled, you may get problem in
+              recieving orders
+            </Text>
+          </View>
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              width: width / 2.5,
+              alignItems: 'center',
+              marginVertical: moderateScaleVertical(10),
+            }}>
+            <TouchableOpacity
+              style={{
+                backgroundColor: colors.themeColor,
+                alignItems: 'center',
+                marginVertical: moderateScaleVertical(10),
+                paddingVertical: moderateScaleVertical(5),
+                paddingHorizontal: moderateScale(10),
+                borderRadius: 8,
+              }}
+              onPress={() => hideWarning()}>
+              <Text style={{color: colors.white}}>Cancel</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={{
+                backgroundColor: colors.themeColor,
+                alignItems: 'center',
+                marginVertical: moderateScaleVertical(10),
+                paddingVertical: moderateScaleVertical(5),
+                paddingHorizontal: moderateScale(10),
+                borderRadius: 8,
+              }}
+              onPress={() => _onOpenSettings()}>
+              <Text style={{color: colors.white}}>Enable</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      )}
+
       <View
         style={{
           justifyContent: 'center',

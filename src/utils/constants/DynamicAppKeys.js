@@ -108,6 +108,7 @@ const shortCodes = {
   yoho: '577357',
   marasym: '16e939',
   mobi: 'f6748f',
+  samakeeMart: '083fdc',
   silvestre: '269336',
 };
 
@@ -538,6 +539,10 @@ const appIds = {
   mobi: Platform.select({
     ios: 'com.MOBI.Dispatch',
     android: 'com.Mobi.royodispatcher',
+  }),
+  samakeeMart: Platform.select({
+    ios: 'com.SamakeeMart.Dispatch',
+    android: 'com.SamakeeMart.royodispatcher',
   }),
   silvestre: Platform.select({
     ios: 'com.Silvestre.Dispatch',

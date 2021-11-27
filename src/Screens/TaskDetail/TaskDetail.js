@@ -546,12 +546,15 @@ export default function TaskDetail({route, navigation}) {
               {!!taskDetail?.order?.Recipient_email && (
                 <TouchableOpacity
                   onPress={() =>
-                    Communications.email(
-                      [taskDetail?.order?.Recipient_email, ''],
-                      null,
-                      null,
-                      '',
-                      '',
+                    // Communications.email(
+                    //   [taskDetail?.order?.Recipient_email, ''],
+                    //   null,
+                    //   null,
+                    //   '',
+                    //   '',
+                    // )
+                    Linking.openURL(
+                      `mailto:${taskDetail?.order?.Recipient_email}`,
                     )
                   }
                   style={{
@@ -570,11 +573,15 @@ export default function TaskDetail({route, navigation}) {
               )}
               {!!taskDetail?.order?.recipient_phone && (
                 <TouchableOpacity
-                  onPress={() =>
-                    Communications.phonecall(
-                      taskDetail?.order?.recipient_phone,
-                      true,
-                    )
+                  onPress={
+                    () =>
+                      Linking.openURL(
+                        `tel:${taskDetail?.order?.recipient_phone}`,
+                      )
+                    // Communications.phonecall(
+                    //   taskDetail?.order?.recipient_phone,
+                    //   true,
+                    // )
                   }
                   style={{
                     flexDirection: 'row',
