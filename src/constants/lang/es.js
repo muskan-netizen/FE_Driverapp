@@ -136,5 +136,5 @@ export default {
   SUPPORT: 'Apoyo',
   notificationAlertTitle: 'Notification Permission Not Enabled',
   notificationAlert: 'please enable notification permission from app settings',
-  visitSetting: 'visit settings',
+  visitSetting: 'visitar la configuración',
 };
