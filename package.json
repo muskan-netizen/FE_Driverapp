@@ -219,6 +219,8 @@
     "samakeeMartdispatcherRelease": "cd android && ./gradlew assemblesamakeeMartRelease",
     "silvestredispatcher": "react-native run-android --variant=silvestreDebug",
     "silvestredispatcherRelease": "cd android && ./gradlew assembleSilvestreRelease",
+    "doorstepdispatcher": "react-native run-android --variant=doorstepDebug",
+    "doorstepdispatcherRelease": "cd android && ./gradlew assembledoorstepRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",

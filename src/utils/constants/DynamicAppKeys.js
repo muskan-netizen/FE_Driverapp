@@ -110,6 +110,7 @@ const shortCodes = {
   mobi: 'f6748f',
   samakeeMart: '083fdc',
   silvestre: '269336',
+  doorstep: '906083',
 };
 
 // Goody Dispatch
@@ -548,6 +549,10 @@ const appIds = {
     ios: 'com.Silvestre.Dispatch',
     android: 'com.Silvestre.royodispatcher',
   }),
+  doorstep: Platform.select({
+    ios: 'com.DoorStep.Dispatch',
+    android: "com.DoorStep.royodispatcher",
+  }), 
 };
 
 export {appIds, shortCodes};
