@@ -130,7 +130,7 @@ export default {
   FACESNOTMATCHED: '不匹配的面孔',
   VERSION: '版本',
   SUPPORT: '支持',
-  notificationAlertTitle: 'Notification Permission Not Enabled',
-  notificationAlert: 'please enable notification permission from app settings',
+  notificationAlert:
+    ' Notification Permission not enabled, you may get problem in recieving orders',
   visitSetting: 'visit settings',
 };

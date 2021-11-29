@@ -134,7 +134,7 @@ export default {
   FACESNOTMATCHED: 'Лица не совпадают',
   VERSION: 'Версия',
   SUPPORT: 'Поддержка',
-  notificationAlertTitle: 'Notification Permission Not Enabled',
-  notificationAlert: 'please enable notification permission from app settings',
+  notificationAlert:
+    ' Notification Permission not enabled, you may get problem in recieving orders',
   visitSetting: 'visit settings',
 };

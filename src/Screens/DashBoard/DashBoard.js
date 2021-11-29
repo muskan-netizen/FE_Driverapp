@@ -604,8 +604,7 @@ export default function DashBoard({route, navigation}) {
           }}>
           <View style={{width: width / 2.2, justifyContent: 'center'}}>
             <Text style={{color: colors.white, fontFamily: fontFamily.regular}}>
-              Notification Permission not enabled, you may get problem in
-              recieving orders
+              {strings.notificationAlert}
             </Text>
           </View>
           <View

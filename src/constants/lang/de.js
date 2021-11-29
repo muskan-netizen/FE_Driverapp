@@ -129,7 +129,7 @@ export default {
   TASKDESCRIPTION: 'Task Description',
   IMAGES: 'Images',
   FACESNOTMATCHED: 'Faces not matched',
-  notificationAlertTitle: 'Notification Permission Not Enabled',
-  notificationAlert: 'please enable notification permission from app settings',
+  notificationAlert:
+    ' Notification Permission not enabled, you may get problem in recieving orders',
   visitSetting: 'visit settings',
 };
