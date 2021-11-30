@@ -732,6 +732,18 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.enext:
+          updateState({
+            shortCode: shortCodes.enext,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.seaeats:
+          updateState({
+            shortCode: shortCodes.seaeats,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, []);
