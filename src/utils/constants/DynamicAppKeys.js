@@ -111,6 +111,8 @@ const shortCodes = {
   samakeeMart: '083fdc',
   silvestre: '269336',
   doorstep: '906083',
+  seaeats: '8f52c7',
+  enext: '3958ed',
 };
 
 // Goody Dispatch
@@ -551,8 +553,16 @@ const appIds = {
   }),
   doorstep: Platform.select({
     ios: 'com.DoorStep.Dispatch',
-    android: "com.DoorStep.royodispatcher",
-  }), 
+    android: 'com.DoorStep.royodispatcher',
+  }),
+  seaeats: Platform.select({
+    ios: 'com.Seaeats.Dispatch',
+    android: 'com.Seaeats.royodispatcher',
+  }),
+  enext: Platform.select({
+    ios: 'com.Enext.Dispatch',
+    android: 'com.Enext.royodispatcher',
+  }),
 };
 
 export {appIds, shortCodes};

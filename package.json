@@ -221,6 +221,11 @@
     "silvestredispatcherRelease": "cd android && ./gradlew assembleSilvestreRelease",
     "doorstepdispatcher": "react-native run-android --variant=doorstepDebug",
     "doorstepdispatcherRelease": "cd android && ./gradlew assembledoorstepRelease",
+    "seaeatsdispatcher": "react-native run-android --variant=seaeatsDebug",
+    "seaeatsdispatcherRelease": "cd android && ./gradlew assembleseaeatsRelease",
+    "enextdispatcher": "react-native run-android --variant=enextDebug",
+    "enextdispatcherRelease": "cd android && ./gradlew assembleenextRelease",
+
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",

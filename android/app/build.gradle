@@ -1334,8 +1334,26 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId "com.DoorStep.royodispatcher"
             resValue "string", "app_name", "DoorStep Dispatch"
-
-            
+        }
+        seaeats{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Seaeats.royodispatcher'
+            resValue "string", "app_name", "Seaeats Dispatch"
+        }
+        enext{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Enext.royodispatcher'
+            resValue "string", "app_name", "Enext Dispatch"
         }
     }
 }

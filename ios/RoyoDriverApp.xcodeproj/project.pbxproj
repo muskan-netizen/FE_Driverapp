@@ -15,17 +15,17 @@
 		0BC64515CC2CBA8550139F8E /* libPods-Donepacked.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D9FD729F53858B62A80CE9A /* libPods-Donepacked.a */; };
 		0C23DF807AD31547AD1693C4 /* libPods-Jetrider.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D6C4298588121E21A624660 /* libPods-Jetrider.a */; };
 		0E7AE9D8D98C6E98B7E853A1 /* libPods-Yoho.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FC50CA222BDA68D60C0B625 /* libPods-Yoho.a */; };
-		11619622B5111424E74E7BD7 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		11619622B5111424E74E7BD7 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		132C4F48271A99F5509B8E80 /* libPods-360Kel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AE8FA1B914409D312639FDC /* libPods-360Kel.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		149473F9A4DCBFF846125C61 /* libPods-BottomsUp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC64B786F619F3EB3BACDE29 /* libPods-BottomsUp.a */; };
-		16E1A1458FC460FA258D5D53 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		16E1A1458FC460FA258D5D53 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		171882755D4CEFF449E2B34F /* libPods-Punnet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E04570DBC1DD3A4F476B8A11 /* libPods-Punnet.a */; };
 		1845CDF5F9F81ECA886E56D3 /* libPods-Noki.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC137F7D3E1EF26CFD8AB6F9 /* libPods-Noki.a */; };
 		18E619E8B49DE530AFDDB83A /* libPods-ClickEat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 89AB97BB55AE44482C36E043 /* libPods-ClickEat.a */; };
-		1ACCD4D866C1B97C955028C4 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		1ACCD4D866C1B97C955028C4 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		20E0A9452EBED6A966A1F96B /* libPods-ThubaeRides.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 87C63EC8A40F6E772443D42F /* libPods-ThubaeRides.a */; };
 		21EBB92391431B7D00588502 /* libPods-Silvestre.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07F4A92FDBB99DF67FC66D9C /* libPods-Silvestre.a */; };
 		240A2589A579A102C920E1F8 /* libPods-SeaChangeVending.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EFE11BAF7C768E4A892DECCB /* libPods-SeaChangeVending.a */; };
@@ -54,17 +54,18 @@
 		55D5941ED13161BAAEEC9468 /* libPods-DoctaTransportation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07BA3532CA6CD7F48EBBAA6B /* libPods-DoctaTransportation.a */; };
 		55FFF51A8E050ED688F9C7B4 /* libPods-TruckTireNow.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0FD1D037DC2CEDD6EF38C22 /* libPods-TruckTireNow.a */; };
 		599B21005AC9DF692458BE31 /* libPods-RoyoDriverApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E723F9BDCBB8F85A8287654 /* libPods-RoyoDriverApp.a */; };
+		59EE1734C6E4170E7D055A39 /* libPods-RoyoDriverApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E9116D016873E7767371C325 /* libPods-RoyoDriverApp.a */; };
 		5B7759A99B55256C3EAAF9D9 /* libPods-Menus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57FCE9BDC3759FA8BE335AB2 /* libPods-Menus.a */; };
 		5DCE67F134673559F601BB09 /* libPods-SirVU.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 009AE5C7578D1E19A92EC8F6 /* libPods-SirVU.a */; };
 		61550D167126B39B8232D4B8 /* libPods-DoleyPharmacy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C226F349CE62C7E1A1B87A /* libPods-DoleyPharmacy.a */; };
 		6168C59187BE30CF9FA9DB57 /* libPods-ShooraFresh.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C50360490705E47C2192260 /* libPods-ShooraFresh.a */; };
 		628531B6C12503DFE5D92C53 /* libPods-Elog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D934BA14DD84DD3733C808B /* libPods-Elog.a */; };
-		678D2FFFDE2D6D542F47FA8C /* libPods-RoyoDriverApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D4E462F722FDA382E19E9157 /* libPods-RoyoDriverApp.a */; };
+		678D2FFFDE2D6D542F47FA8C /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		67981A7090C5AB32F13AF58D /* libPods-PaySic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D77DA6BB795A2032192A8E2 /* libPods-PaySic.a */; };
 		6893169853AC3C8FE478309C /* libPods-Suel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49103D8EE3A72D787CD40672 /* libPods-Suel.a */; };
 		6DAD96DAB9BE37A68887439B /* libPods-BustanFakieh.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54D51233B465F590C7F35AC8 /* libPods-BustanFakieh.a */; };
 		6DBC7CD1AD9799AE24A80B50 /* libPods-HairstonExpress.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21A145290B75D98761473506 /* libPods-HairstonExpress.a */; };
-		6E66666F8E63C6FBDE77878D /* libPods-RoyoDriverApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3EBEBE11EBC459A8F21B72 /* libPods-RoyoDriverApp.a */; };
+		6E66666F8E63C6FBDE77878D /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		71DB52CC19199AD8E1067C03 /* libPods-Elixir.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F02164E36CD8B3DD7A9253C /* libPods-Elixir.a */; };
 		72E226FA382CFAB44200BBCD /* libPods-Goody.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7CDFEDAD59EF206A137887C /* libPods-Goody.a */; };
 		756C5B183CEB7632688EBD73 /* libPods-Bezalio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 703BD7DE9799A3A5A1D52244 /* libPods-Bezalio.a */; };
@@ -443,14 +444,14 @@
 		842322DA272124D50063F4AF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		842322DB272124D50063F4AF /* RoyoDriverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E4480626E87ED800452095 /* RoyoDriverApp.swift */; };
 		842322DC272124D50063F4AF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		842322DE272124D50063F4AF /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		842322DF272124D50063F4AF /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		842322E0272124D50063F4AF /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		842322E1272124D50063F4AF /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		842322E2272124D50063F4AF /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		842322E3272124D50063F4AF /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		842322E4272124D50063F4AF /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		842322E5272124D50063F4AF /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		842322DE272124D50063F4AF /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		842322DF272124D50063F4AF /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		842322E0272124D50063F4AF /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		842322E1272124D50063F4AF /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		842322E2272124D50063F4AF /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		842322E3272124D50063F4AF /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		842322E4272124D50063F4AF /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		842322E5272124D50063F4AF /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		842322E7272124D50063F4AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		842322E9272124D50063F4AF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		842322EA272124D50063F4AF /* campton-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC426E9E6D20066EEEE /* campton-light.ttf */; };
@@ -860,21 +861,21 @@
 		84636E8827240A5C00F68342 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		84636E8927240A5C00F68342 /* RoyoDriverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E4480626E87ED800452095 /* RoyoDriverApp.swift */; };
 		84636E8A27240A5C00F68342 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		84636E8C27240A5C00F68342 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84636E8D27240A5C00F68342 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84636E8E27240A5C00F68342 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84636E8F27240A5C00F68342 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84636E9027240A5C00F68342 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84636E9127240A5C00F68342 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84636E9227240A5C00F68342 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84636E9327240A5C00F68342 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84636E9427240A5C00F68342 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84636E9527240A5C00F68342 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84636E9627240A5C00F68342 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84636E9727240A5C00F68342 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84636E9827240A5C00F68342 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84636E9927240A5C00F68342 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84636E9A27240A5C00F68342 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		84636E8C27240A5C00F68342 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84636E8D27240A5C00F68342 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84636E8E27240A5C00F68342 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84636E8F27240A5C00F68342 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84636E9027240A5C00F68342 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84636E9127240A5C00F68342 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84636E9227240A5C00F68342 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84636E9327240A5C00F68342 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84636E9427240A5C00F68342 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84636E9527240A5C00F68342 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84636E9627240A5C00F68342 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84636E9727240A5C00F68342 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84636E9827240A5C00F68342 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84636E9927240A5C00F68342 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84636E9A27240A5C00F68342 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		84636E9C27240A5C00F68342 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		84636E9E27240A5C00F68342 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		84636E9F27240A5C00F68342 /* campton-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC426E9E6D20066EEEE /* campton-light.ttf */; };
@@ -1102,6 +1103,38 @@
 		84A94A002750ED0400970D10 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84A949FF2750ED0400970D10 /* Images.xcassets */; };
 		84A94A682750EE0A00970D10 /* SamakeeMartInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84A94A672750EE0A00970D10 /* SamakeeMartInfo.plist */; };
 		84A94D29275100C800970D10 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84A94D28275100C800970D10 /* GoogleService-Info.plist */; };
+		84ABDEB42756267700873D9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
+		84ABDEB52756267700873D9A /* RoyoDriverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E4480626E87ED800452095 /* RoyoDriverApp.swift */; };
+		84ABDEB62756267700873D9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		84ABDEC42756267700873D9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		84ABDEC52756267700873D9A /* RoyoDriverInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8404E588271EE077000D6E95 /* RoyoDriverInfo.plist */; };
+		84ABDEC62756267700873D9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		84ABDEC72756267700873D9A /* campton-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC426E9E6D20066EEEE /* campton-light.ttf */; };
+		84ABDEC82756267700873D9A /* campton-medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC626E9E6D20066EEEE /* campton-medium.ttf */; };
+		84ABDEC92756267700873D9A /* notification.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84C27C3E270EFAF100C30CA4 /* notification.mp3 */; };
+		84ABDECA2756267700873D9A /* campton-book.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC526E9E6D20066EEEE /* campton-book.ttf */; };
+		84ABDECF2756267700873D9A /* campton-semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC326E9E6D20066EEEE /* campton-semibold.ttf */; };
+		84ABDF4A2756268700873D9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
+		84ABDF4B2756268700873D9A /* RoyoDriverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E4480626E87ED800452095 /* RoyoDriverApp.swift */; };
+		84ABDF4C2756268700873D9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		84ABDF5A2756268700873D9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		84ABDF5B2756268700873D9A /* RoyoDriverInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8404E588271EE077000D6E95 /* RoyoDriverInfo.plist */; };
+		84ABDF5C2756268700873D9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		84ABDF5D2756268700873D9A /* campton-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC426E9E6D20066EEEE /* campton-light.ttf */; };
+		84ABDF5E2756268700873D9A /* campton-medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC626E9E6D20066EEEE /* campton-medium.ttf */; };
+		84ABDF5F2756268700873D9A /* notification.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84C27C3E270EFAF100C30CA4 /* notification.mp3 */; };
+		84ABDF602756268700873D9A /* campton-book.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC526E9E6D20066EEEE /* campton-book.ttf */; };
+		84ABDF652756268700873D9A /* campton-semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC326E9E6D20066EEEE /* campton-semibold.ttf */; };
+		84ABE0BD2756276F00873D9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84ABE0BC2756276F00873D9A /* Images.xcassets */; };
+		84ABE12D2756277E00873D9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84ABE12C2756277E00873D9A /* Images.xcassets */; };
+		84ABE19D275627DA00873D9A /* Enext(Production).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 84ABE19C275627DA00873D9A /* Enext(Production).xcconfig */; };
+		84ABE20D275627F600873D9A /* Enext(Developmet).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 84ABE20C275627F600873D9A /* Enext(Developmet).xcconfig */; };
+		84ABE27D2756281300873D9A /* Seaeats(Production).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 84ABE27C2756281300873D9A /* Seaeats(Production).xcconfig */; };
+		84ABE2ED2756282500873D9A /* Seaeats(Development).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 84ABE2EC2756282500873D9A /* Seaeats(Development).xcconfig */; };
+		84ABE35D2756289600873D9A /* EnextInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84ABE35C2756289600873D9A /* EnextInfo.plist */; };
+		84ABE3CD275628B100873D9A /* SeaeatsInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84ABE3CC275628B100873D9A /* SeaeatsInfo.plist */; };
+		84ABE58727562AC100873D9A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84ABE58627562AC100873D9A /* GoogleService-Info.plist */; };
+		84ABE5F727562AD600873D9A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84ABE5F627562AD500873D9A /* GoogleService-Info.plist */; };
 		84AF045E2742AFCC00FA07EE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		84AF045F2742AFCC00FA07EE /* RoyoDriverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E4480626E87ED800452095 /* RoyoDriverApp.swift */; };
 		84AF04602742AFCC00FA07EE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -1672,47 +1705,47 @@
 		84F2A165273FEF0F009A6353 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		84F2A166273FEF0F009A6353 /* RoyoDriverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E4480626E87ED800452095 /* RoyoDriverApp.swift */; };
 		84F2A167273FEF0F009A6353 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		84F2A169273FEF0F009A6353 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84F2A16A273FEF0F009A6353 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84F2A16B273FEF0F009A6353 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84F2A16C273FEF0F009A6353 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84F2A16D273FEF0F009A6353 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84F2A16E273FEF0F009A6353 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84F2A16F273FEF0F009A6353 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84F2A170273FEF0F009A6353 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84F2A171273FEF0F009A6353 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84F2A172273FEF0F009A6353 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84F2A173273FEF0F009A6353 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84F2A174273FEF0F009A6353 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84F2A175273FEF0F009A6353 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84F2A176273FEF0F009A6353 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84F2A177273FEF0F009A6353 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84F2A178273FEF0F009A6353 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84F2A179273FEF0F009A6353 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84F2A17A273FEF0F009A6353 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84F2A17B273FEF0F009A6353 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84F2A17C273FEF0F009A6353 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84F2A17D273FEF0F009A6353 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84F2A17E273FEF0F009A6353 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84F2A17F273FEF0F009A6353 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84F2A180273FEF0F009A6353 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84F2A181273FEF0F009A6353 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84F2A182273FEF0F009A6353 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84F2A183273FEF0F009A6353 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84F2A184273FEF0F009A6353 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84F2A185273FEF0F009A6353 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84F2A186273FEF0F009A6353 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84F2A187273FEF0F009A6353 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84F2A188273FEF0F009A6353 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84F2A189273FEF0F009A6353 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84F2A18A273FEF0F009A6353 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84F2A18B273FEF0F009A6353 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84F2A18C273FEF0F009A6353 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84F2A18D273FEF0F009A6353 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84F2A18E273FEF0F009A6353 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84F2A18F273FEF0F009A6353 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84F2A190273FEF0F009A6353 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		84F2A191273FEF0F009A6353 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		84F2A169273FEF0F009A6353 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84F2A16A273FEF0F009A6353 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84F2A16B273FEF0F009A6353 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84F2A16C273FEF0F009A6353 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84F2A16D273FEF0F009A6353 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84F2A16E273FEF0F009A6353 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84F2A16F273FEF0F009A6353 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84F2A170273FEF0F009A6353 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84F2A171273FEF0F009A6353 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84F2A172273FEF0F009A6353 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84F2A173273FEF0F009A6353 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84F2A174273FEF0F009A6353 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84F2A175273FEF0F009A6353 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84F2A176273FEF0F009A6353 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84F2A177273FEF0F009A6353 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84F2A178273FEF0F009A6353 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84F2A179273FEF0F009A6353 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84F2A17A273FEF0F009A6353 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84F2A17B273FEF0F009A6353 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84F2A17C273FEF0F009A6353 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84F2A17D273FEF0F009A6353 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84F2A17E273FEF0F009A6353 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84F2A17F273FEF0F009A6353 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84F2A180273FEF0F009A6353 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84F2A181273FEF0F009A6353 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84F2A182273FEF0F009A6353 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84F2A183273FEF0F009A6353 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84F2A184273FEF0F009A6353 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84F2A185273FEF0F009A6353 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84F2A186273FEF0F009A6353 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84F2A187273FEF0F009A6353 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84F2A188273FEF0F009A6353 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84F2A189273FEF0F009A6353 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84F2A18A273FEF0F009A6353 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84F2A18B273FEF0F009A6353 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84F2A18C273FEF0F009A6353 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84F2A18D273FEF0F009A6353 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84F2A18E273FEF0F009A6353 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84F2A18F273FEF0F009A6353 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84F2A190273FEF0F009A6353 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		84F2A191273FEF0F009A6353 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		84F2A193273FEF0F009A6353 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		84F2A195273FEF0F009A6353 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		84F2A196273FEF0F009A6353 /* campton-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC426E9E6D20066EEEE /* campton-light.ttf */; };
@@ -1817,10 +1850,11 @@
 		A1B3EA020AA480B4A97DC189 /* libPods-Dishefs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E4D4425D2BF964A15C3E542 /* libPods-Dishefs.a */; };
 		A1D1AFE1C93BFEBFA2BF7390 /* libPods-Ored.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A10F25A57567F7380128B39 /* libPods-Ored.a */; };
 		A29A59189EB2FD384C3FFC25 /* libPods-Spidbi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D0FB93E25BE12B8FD7F4D16 /* libPods-Spidbi.a */; };
+		A41169F5DCF55DB3A46FB5DE /* libPods-Seaeats.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 687BA5C1765809B47BE03BF7 /* libPods-Seaeats.a */; };
 		A485A84BE1B15BFB8F5BBB1F /* libPods-Somame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FBD2E1334A09272E2DDC7D9 /* libPods-Somame.a */; };
 		A7DA0EDE610700B06602191C /* libPods-Homeric.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8C41712F2D911F31D5B478A /* libPods-Homeric.a */; };
 		A821BF7A1FE46C693D2A80B8 /* libPods-BlacNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CABD2A6FB0D142BF19ECA057 /* libPods-BlacNetwork.a */; };
-		A86C5C9A369DEE7A82A572DA /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		A86C5C9A369DEE7A82A572DA /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		ADC3E5723D106D64D34A7EFD /* libPods-Ssuum.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BC0F76AA7A3CCF52DFDCB14 /* libPods-Ssuum.a */; };
 		B102374A9020AE0A76E19B4D /* libPods-Ordercheckout.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C817C8734A759A0391B9B12 /* libPods-Ordercheckout.a */; };
 		B12FE3A2172E300F5B498A0F /* libPods-Maxis.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E9C542D10018F24E50816730 /* libPods-Maxis.a */; };
@@ -1840,6 +1874,7 @@
 		CB196A12A27EA9892CFA4BE8 /* libPods-ExpressDeliverys.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BDF645A45D55884367023411 /* libPods-ExpressDeliverys.a */; };
 		CD84D5FE2FFF1723E70B36B9 /* libPods-Codiner.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E372FD3B10ABA653869D592B /* libPods-Codiner.a */; };
 		CED1FFFABB280910F3AC800E /* libPods-Share.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEED143EBC7530289CC1FD4 /* libPods-Share.a */; };
+		D5BAB8EF4946F3FBCB8B57B1 /* libPods-Enext.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 446FB0F9F487F6ECA9476B83 /* libPods-Enext.a */; };
 		D8C86971A0542CC353301C5D /* libPods-Arena_Grub.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70D884D6F5A0F3A9F7A5BA1C /* libPods-Arena_Grub.a */; };
 		DA55BE45CBD3FC2A6F74E184 /* libPods-Drus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 81FEBB25708A6E9BD5E8DD77 /* libPods-Drus.a */; };
 		DEDF24E4738DB8F7DD37F088 /* libPods-Hmc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2759A98A8C00214EC8673D /* libPods-Hmc.a */; };
@@ -1864,8 +1899,6 @@
 		FAA0DFFD5DE8BCDE5AABE663 /* libPods-YogoFood.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 686AA0A4F1EC2400F8769C36 /* libPods-YogoFood.a */; };
 		FE2A6F21891346C6825403C9 /* libPods-Elcheregio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE3BE999C652D62FD0D28FA7 /* libPods-Elcheregio.a */; };
 /* End PBXBuildFile section */
-
-
 
 /* Begin PBXFileReference section */
 		009AE5C7578D1E19A92EC8F6 /* libPods-SirVU.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SirVU.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1971,6 +2004,7 @@
 		412E272635155D463A4115D8 /* libPods-Carroai.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Carroai.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		41F0C566082A2EF61174FB9F /* Pods-Govachow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Govachow.debug.xcconfig"; path = "Target Support Files/Pods-Govachow/Pods-Govachow.debug.xcconfig"; sourceTree = "<group>"; };
 		43F7CDC29AC3768CCF586736 /* libPods-NaDelivery.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NaDelivery.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		446FB0F9F487F6ECA9476B83 /* libPods-Enext.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Enext.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45A981A9837E8EF0E886FB54 /* libPods-YouChillax.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YouChillax.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45BB16F150414A885FE32427 /* Pods-HairstonExpress.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HairstonExpress.debug.xcconfig"; path = "Target Support Files/Pods-HairstonExpress/Pods-HairstonExpress.debug.xcconfig"; sourceTree = "<group>"; };
 		48EBC34BFEC737D391622AF1 /* Pods-Homeric.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Homeric.release.xcconfig"; path = "Target Support Files/Pods-Homeric/Pods-Homeric.release.xcconfig"; sourceTree = "<group>"; };
@@ -2017,8 +2051,10 @@
 		682B78B97A2EACDAF87E0C0C /* libPods-Runrun.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Runrun.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		685D02119194968C3CEB732B /* libPods-ThreadAgain.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ThreadAgain.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		686AA0A4F1EC2400F8769C36 /* libPods-YogoFood.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YogoFood.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		687BA5C1765809B47BE03BF7 /* libPods-Seaeats.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Seaeats.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		68992C78E2E35BDD6E34C521 /* Pods-Travo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travo.debug.xcconfig"; path = "Target Support Files/Pods-Travo/Pods-Travo.debug.xcconfig"; sourceTree = "<group>"; };
 		693B5D4D74E28A5A31A7BBE0 /* Pods-Africanize.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Africanize.release.xcconfig"; path = "Target Support Files/Pods-Africanize/Pods-Africanize.release.xcconfig"; sourceTree = "<group>"; };
+		6968E47CC2C46E19DE14DECF /* Pods-Seaeats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Seaeats.release.xcconfig"; path = "Target Support Files/Pods-Seaeats/Pods-Seaeats.release.xcconfig"; sourceTree = "<group>"; };
 		6A5C50A168BA1ACCA6C15A28 /* Pods-WashValley.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WashValley.release.xcconfig"; path = "Target Support Files/Pods-WashValley/Pods-WashValley.release.xcconfig"; sourceTree = "<group>"; };
 		6B1BA99C4949D04D06B2C6FF /* libPods-Deliverstat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Deliverstat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B492175A7E4D33E383CCAAD /* libPods-INeed.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-INeed.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2458,6 +2494,18 @@
 		84A949FF2750ED0400970D10 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		84A94A672750EE0A00970D10 /* SamakeeMartInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SamakeeMartInfo.plist; sourceTree = "<group>"; };
 		84A94D28275100C800970D10 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		84ABDED72756267700873D9A /* Enext.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Enext.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		84ABDF6D2756268700873D9A /* Seaeats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Seaeats.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		84ABE0BC2756276F00873D9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		84ABE12C2756277E00873D9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		84ABE19C275627DA00873D9A /* Enext(Production).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Enext(Production).xcconfig"; sourceTree = "<group>"; };
+		84ABE20C275627F600873D9A /* Enext(Developmet).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Enext(Developmet).xcconfig"; sourceTree = "<group>"; };
+		84ABE27C2756281300873D9A /* Seaeats(Production).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Seaeats(Production).xcconfig"; sourceTree = "<group>"; };
+		84ABE2EC2756282500873D9A /* Seaeats(Development).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Seaeats(Development).xcconfig"; sourceTree = "<group>"; };
+		84ABE35C2756289600873D9A /* EnextInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = EnextInfo.plist; sourceTree = "<group>"; };
+		84ABE3CC275628B100873D9A /* SeaeatsInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SeaeatsInfo.plist; sourceTree = "<group>"; };
+		84ABE58627562AC100873D9A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		84ABE5F627562AD500873D9A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84AF04A42742AFCC00FA07EE /* Suel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Suel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84AF04F02742B06600FA07EE /* Elixir.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Elixir.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B2E90F2722F3ED00A76D3F /* Drivree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Drivree.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2786,6 +2834,7 @@
 		C397364A544325273BD1DFCD /* Pods-GoKab.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoKab.release.xcconfig"; path = "Target Support Files/Pods-GoKab/Pods-GoKab.release.xcconfig"; sourceTree = "<group>"; };
 		C4039C54EA624D5711BF8D7A /* Pods-Groupy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Groupy.debug.xcconfig"; path = "Target Support Files/Pods-Groupy/Pods-Groupy.debug.xcconfig"; sourceTree = "<group>"; };
 		C4744EE99BE0DB77B9B18C0D /* Pods-LoopWhole.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoopWhole.release.xcconfig"; path = "Target Support Files/Pods-LoopWhole/Pods-LoopWhole.release.xcconfig"; sourceTree = "<group>"; };
+		C53E9B59230A53C3BFD98495 /* Pods-Enext.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Enext.debug.xcconfig"; path = "Target Support Files/Pods-Enext/Pods-Enext.debug.xcconfig"; sourceTree = "<group>"; };
 		C7A6AC66B713A5E4F34D9DF8 /* Pods-Bezalio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bezalio.release.xcconfig"; path = "Target Support Files/Pods-Bezalio/Pods-Bezalio.release.xcconfig"; sourceTree = "<group>"; };
 		C909907A699615FDF4D5FEDE /* Pods-Jetrider.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jetrider.debug.xcconfig"; path = "Target Support Files/Pods-Jetrider/Pods-Jetrider.debug.xcconfig"; sourceTree = "<group>"; };
 		CABD2A6FB0D142BF19ECA057 /* libPods-BlacNetwork.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BlacNetwork.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2812,6 +2861,7 @@
 		D94CF4C2C5BA9B9FF2C5E11B /* Pods-ThubaeRides.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThubaeRides.release.xcconfig"; path = "Target Support Files/Pods-ThubaeRides/Pods-ThubaeRides.release.xcconfig"; sourceTree = "<group>"; };
 		D9AA1BFB6C95CEB47FE169C3 /* Pods-Mobi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobi.release.xcconfig"; path = "Target Support Files/Pods-Mobi/Pods-Mobi.release.xcconfig"; sourceTree = "<group>"; };
 		DCABB4116FE77EC76909A1C7 /* libPods-RoyoDriverApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RoyoDriverApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDBD672684CE7F9571A62EB8 /* Pods-Enext.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Enext.release.xcconfig"; path = "Target Support Files/Pods-Enext/Pods-Enext.release.xcconfig"; sourceTree = "<group>"; };
 		E04570DBC1DD3A4F476B8A11 /* libPods-Punnet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Punnet.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E08905DA96644B76C5A9B4C0 /* Pods-YogoFood.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YogoFood.debug.xcconfig"; path = "Target Support Files/Pods-YogoFood/Pods-YogoFood.debug.xcconfig"; sourceTree = "<group>"; };
 		E1188922E562B07A72A444A5 /* Pods-BoozieDoozie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoozieDoozie.debug.xcconfig"; path = "Target Support Files/Pods-BoozieDoozie/Pods-BoozieDoozie.debug.xcconfig"; sourceTree = "<group>"; };
@@ -2825,8 +2875,10 @@
 		E4A1F2A8436B80B48A2C2C3D /* Pods-LastMinuteDress.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LastMinuteDress.release.xcconfig"; path = "Target Support Files/Pods-LastMinuteDress/Pods-LastMinuteDress.release.xcconfig"; sourceTree = "<group>"; };
 		E5281F41C5F4BE16FCE7E0A2 /* Pods-Tranzit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tranzit.debug.xcconfig"; path = "Target Support Files/Pods-Tranzit/Pods-Tranzit.debug.xcconfig"; sourceTree = "<group>"; };
 		E54508AAF17D8052C38575DF /* libPods-PinkJet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PinkJet.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5CD3A6E9B278C97ACE792CC /* Pods-Seaeats.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Seaeats.debug.xcconfig"; path = "Target Support Files/Pods-Seaeats/Pods-Seaeats.debug.xcconfig"; sourceTree = "<group>"; };
 		E78D9F6464D2B5A51C9A3776 /* Pods-ZuzuClean.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZuzuClean.release.xcconfig"; path = "Target Support Files/Pods-ZuzuClean/Pods-ZuzuClean.release.xcconfig"; sourceTree = "<group>"; };
 		E80B48336D71218DC0D9AE55 /* Pods-Grub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Grub.release.xcconfig"; path = "Target Support Files/Pods-Grub/Pods-Grub.release.xcconfig"; sourceTree = "<group>"; };
+		E9116D016873E7767371C325 /* libPods-RoyoDriverApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RoyoDriverApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9C542D10018F24E50816730 /* libPods-Maxis.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Maxis.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA67A6E3474FFABDD34B7183 /* Pods-Spidbi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spidbi.release.xcconfig"; path = "Target Support Files/Pods-Spidbi/Pods-Spidbi.release.xcconfig"; sourceTree = "<group>"; };
 		ED052618DD1EF3FEAF569B7C /* libPods-SamakeeMart.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SamakeeMart.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2859,7 +2911,6 @@
 		FC4971F36A0B7CEBA315917C /* Pods-AgriOnlineRider.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AgriOnlineRider.release.xcconfig"; path = "Target Support Files/Pods-AgriOnlineRider/Pods-AgriOnlineRider.release.xcconfig"; sourceTree = "<group>"; };
 		FCF2202282DFE4DBF8062EFE /* Pods-BottomsUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BottomsUp.release.xcconfig"; path = "Target Support Files/Pods-BottomsUp/Pods-BottomsUp.release.xcconfig"; sourceTree = "<group>"; };
 		FD360EF02593CE7740E86AB9 /* libPods-LaundryOrders.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LaundryOrders.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FD3EBEBE11EBC459A8F21B72 /* libPods-RoyoDriverApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RoyoDriverApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE08E6F9F5C9D609992F5F98 /* Pods-Travo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travo.release.xcconfig"; path = "Target Support Files/Pods-Travo/Pods-Travo.release.xcconfig"; sourceTree = "<group>"; };
 		FE83334EFA65CFAA8D038A78 /* Pods-Stonses.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stonses.release.xcconfig"; path = "Target Support Files/Pods-Stonses/Pods-Stonses.release.xcconfig"; sourceTree = "<group>"; };
 		FEF3BF876B0D66DBE860D844 /* Pods-Cabdelivr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cabdelivr.release.xcconfig"; path = "Target Support Files/Pods-Cabdelivr/Pods-Cabdelivr.release.xcconfig"; sourceTree = "<group>"; };
@@ -2882,8 +2933,9 @@
 				ED14B68399BFE541BBD1489A /* libPods-RoyoDriverApp.a in Frameworks */,
 				C9104D78E412D24B6A15826E /* libPods-RoyoDriverApp.a in Frameworks */,
 				B4C4C936658C2703C6832DF2 /* libPods-RoyoDriverApp.a in Frameworks */,
-				678D2FFFDE2D6D542F47FA8C /* libPods-RoyoDriverApp.a in Frameworks */,
-				6E66666F8E63C6FBDE77878D /* libPods-RoyoDriverApp.a in Frameworks */,
+				678D2FFFDE2D6D542F47FA8C /* (null) in Frameworks */,
+				6E66666F8E63C6FBDE77878D /* (null) in Frameworks */,
+				59EE1734C6E4170E7D055A39 /* libPods-RoyoDriverApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3075,14 +3127,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				842322DE272124D50063F4AF /* BuildFile in Frameworks */,
-				842322DF272124D50063F4AF /* BuildFile in Frameworks */,
-				842322E0272124D50063F4AF /* BuildFile in Frameworks */,
-				842322E1272124D50063F4AF /* BuildFile in Frameworks */,
-				842322E2272124D50063F4AF /* BuildFile in Frameworks */,
-				842322E3272124D50063F4AF /* BuildFile in Frameworks */,
-				842322E4272124D50063F4AF /* BuildFile in Frameworks */,
-				842322E5272124D50063F4AF /* BuildFile in Frameworks */,
+				842322DE272124D50063F4AF /* (null) in Frameworks */,
+				842322DF272124D50063F4AF /* (null) in Frameworks */,
+				842322E0272124D50063F4AF /* (null) in Frameworks */,
+				842322E1272124D50063F4AF /* (null) in Frameworks */,
+				842322E2272124D50063F4AF /* (null) in Frameworks */,
+				842322E3272124D50063F4AF /* (null) in Frameworks */,
+				842322E4272124D50063F4AF /* (null) in Frameworks */,
+				842322E5272124D50063F4AF /* (null) in Frameworks */,
 				D8C86971A0542CC353301C5D /* libPods-Arena_Grub.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3227,8 +3279,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A86C5C9A369DEE7A82A572DA /* BuildFile in Frameworks */,
-				1ACCD4D866C1B97C955028C4 /* BuildFile in Frameworks */,
+				A86C5C9A369DEE7A82A572DA /* (null) in Frameworks */,
+				1ACCD4D866C1B97C955028C4 /* (null) in Frameworks */,
 				C48BBE193AC0C0275611A334 /* libPods-WH.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3245,8 +3297,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11619622B5111424E74E7BD7 /* BuildFile in Frameworks */,
-				16E1A1458FC460FA258D5D53 /* BuildFile in Frameworks */,
+				11619622B5111424E74E7BD7 /* (null) in Frameworks */,
+				16E1A1458FC460FA258D5D53 /* (null) in Frameworks */,
 				DEDF24E4738DB8F7DD37F088 /* libPods-Hmc.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3295,21 +3347,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84636E8C27240A5C00F68342 /* BuildFile in Frameworks */,
-				84636E8D27240A5C00F68342 /* BuildFile in Frameworks */,
-				84636E8E27240A5C00F68342 /* BuildFile in Frameworks */,
-				84636E8F27240A5C00F68342 /* BuildFile in Frameworks */,
-				84636E9027240A5C00F68342 /* BuildFile in Frameworks */,
-				84636E9127240A5C00F68342 /* BuildFile in Frameworks */,
-				84636E9227240A5C00F68342 /* BuildFile in Frameworks */,
-				84636E9327240A5C00F68342 /* BuildFile in Frameworks */,
-				84636E9427240A5C00F68342 /* BuildFile in Frameworks */,
-				84636E9527240A5C00F68342 /* BuildFile in Frameworks */,
-				84636E9627240A5C00F68342 /* BuildFile in Frameworks */,
-				84636E9727240A5C00F68342 /* BuildFile in Frameworks */,
-				84636E9827240A5C00F68342 /* BuildFile in Frameworks */,
-				84636E9927240A5C00F68342 /* BuildFile in Frameworks */,
-				84636E9A27240A5C00F68342 /* BuildFile in Frameworks */,
+				84636E8C27240A5C00F68342 /* (null) in Frameworks */,
+				84636E8D27240A5C00F68342 /* (null) in Frameworks */,
+				84636E8E27240A5C00F68342 /* (null) in Frameworks */,
+				84636E8F27240A5C00F68342 /* (null) in Frameworks */,
+				84636E9027240A5C00F68342 /* (null) in Frameworks */,
+				84636E9127240A5C00F68342 /* (null) in Frameworks */,
+				84636E9227240A5C00F68342 /* (null) in Frameworks */,
+				84636E9327240A5C00F68342 /* (null) in Frameworks */,
+				84636E9427240A5C00F68342 /* (null) in Frameworks */,
+				84636E9527240A5C00F68342 /* (null) in Frameworks */,
+				84636E9627240A5C00F68342 /* (null) in Frameworks */,
+				84636E9727240A5C00F68342 /* (null) in Frameworks */,
+				84636E9827240A5C00F68342 /* (null) in Frameworks */,
+				84636E9927240A5C00F68342 /* (null) in Frameworks */,
+				84636E9A27240A5C00F68342 /* (null) in Frameworks */,
 				7E2AC9AC9F2119FC796692F3 /* libPods-Rxnow.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3432,6 +3484,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9009F832B04AF6CA1A6ED89 /* libPods-SamakeeMart.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84ABDEB72756267700873D9A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5BAB8EF4946F3FBCB8B57B1 /* libPods-Enext.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84ABDF4D2756268700873D9A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A41169F5DCF55DB3A46FB5DE /* libPods-Seaeats.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3727,76 +3795,76 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84F2A169273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A16A273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A16B273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A16C273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A16D273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A16E273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A16F273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A170273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A171273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A172273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A173273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A174273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A175273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A176273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A177273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A178273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A179273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A17A273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A17B273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A17C273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A17D273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A17E273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A17F273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A180273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A181273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A182273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A183273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A184273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A185273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A186273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A187273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A188273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A16A273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A16B273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A16C273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A16D273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A16E273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A16F273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A170273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A171273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A172273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A173273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A174273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A175273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A176273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A177273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A178273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A179273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A17A273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A17B273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A17C273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A17D273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A17E273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A17F273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A180273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A181273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A182273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A183273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A184273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A185273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A186273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A189273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A18A273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A18B273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A18C273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A18D273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A18E273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A18F273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A190273FEF0F009A6353 /* BuildFile in Frameworks */,
-				84F2A191273FEF0F009A6353 /* BuildFile in Frameworks */,
+				84F2A169273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A16A273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A16B273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A16C273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A16D273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A16E273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A16F273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A170273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A171273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A172273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A173273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A174273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A175273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A176273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A177273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A178273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A179273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A17A273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A17B273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A17C273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A17D273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A17E273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A17F273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A180273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A181273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A182273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A183273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A184273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A185273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A186273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A187273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A188273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A16A273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A16B273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A16C273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A16D273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A16E273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A16F273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A170273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A171273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A172273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A173273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A174273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A175273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A176273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A177273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A178273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A179273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A17A273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A17B273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A17C273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A17D273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A17E273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A17F273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A180273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A181273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A182273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A183273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A184273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A185273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A186273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A189273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A18A273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A18B273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A18C273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A18D273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A18E273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A18F273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A190273FEF0F009A6353 /* (null) in Frameworks */,
+				84F2A191273FEF0F009A6353 /* (null) in Frameworks */,
 				5DCE67F134673559F601BB09 /* libPods-SirVU.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3970,7 +4038,8 @@
 				72814AFA2D8FC297572319D2 /* libPods-Baytukom.a */,
 				07F4A92FDBB99DF67FC66D9C /* libPods-Silvestre.a */,
 				C0A80C86FDF9506ABA39E0D1 /* libPods-DoorStep.a */,
-				FD3EBEBE11EBC459A8F21B72 /* libPods-RoyoDriverApp.a */,
+				446FB0F9F487F6ECA9476B83 /* libPods-Enext.a */,
+				687BA5C1765809B47BE03BF7 /* libPods-Seaeats.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -3978,7 +4047,6 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -4113,6 +4181,8 @@
 				84590D44274F5AAE001DA036 /* Baytukom.app */,
 				84590E0E274F5B2D001DA036 /* Silvestre.app */,
 				84F46B772754D8CA00C4AA99 /* DoorStep.app */,
+				84ABDED72756267700873D9A /* Enext.app */,
+				84ABDF6D2756268700873D9A /* Seaeats.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -4350,6 +4420,8 @@
 				84591104274F5E25001DA036 /* BaytukomInfo.plist */,
 				84591170274F5E5F001DA036 /* SilvestreInfo.plist */,
 				84F46DF72754D9FF00C4AA99 /* DoorStepInfo.plist */,
+				84ABE35C2756289600873D9A /* EnextInfo.plist */,
+				84ABE3CC275628B100873D9A /* SeaeatsInfo.plist */,
 			);
 			path = Plists;
 			sourceTree = "<group>";
@@ -4610,6 +4682,7 @@
 				8F39F05B5F1B5B04B8981B41 /* libPods-RoyoDriverApp.a */,
 				74B63D36DCEB1FBC43B3F705 /* libPods-RoyoDriverApp.a */,
 				4B9E80D5C045EB8A5CFEA672 /* libPods-RoyoDriverApp.a */,
+				E9116D016873E7767371C325 /* libPods-RoyoDriverApp.a */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -4713,7 +4786,6 @@
 			path = Silvestre;
 			sourceTree = "<group>";
 		};
-	
 		845A8EC82723F86100829F14 /* SeaChangeVending */ = {
 			isa = PBXGroup;
 			children = (
@@ -4976,6 +5048,28 @@
 				84A949FF2750ED0400970D10 /* Images.xcassets */,
 			);
 			path = SamakeeMart;
+			sourceTree = "<group>";
+		};
+		84ABE0BA2756274F00873D9A /* Seaeats */ = {
+			isa = PBXGroup;
+			children = (
+				84ABE5F627562AD500873D9A /* GoogleService-Info.plist */,
+				84ABE12C2756277E00873D9A /* Images.xcassets */,
+				84ABE27C2756281300873D9A /* Seaeats(Production).xcconfig */,
+				84ABE2EC2756282500873D9A /* Seaeats(Development).xcconfig */,
+			);
+			path = Seaeats;
+			sourceTree = "<group>";
+		};
+		84ABE0BB2756275B00873D9A /* Enext */ = {
+			isa = PBXGroup;
+			children = (
+				84ABE58627562AC100873D9A /* GoogleService-Info.plist */,
+				84ABE0BC2756276F00873D9A /* Images.xcassets */,
+				84ABE19C275627DA00873D9A /* Enext(Production).xcconfig */,
+				84ABE20C275627F600873D9A /* Enext(Developmet).xcconfig */,
+			);
+			path = Enext;
 			sourceTree = "<group>";
 		};
 		84B2E9222722F48200A76D3F /* Drivree */ = {
@@ -5300,6 +5394,8 @@
 		84E4480A26E8C50700452095 /* Configs */ = {
 			isa = PBXGroup;
 			children = (
+				84ABE0BB2756275B00873D9A /* Enext */,
+				84ABE0BA2756274F00873D9A /* Seaeats */,
 				84F46B4F2754D89E00C4AA99 /* DoorStep */,
 				84A9492E2750ECBF00970D10 /* SamakeeMart */,
 				84590E7B274F5BA0001DA036 /* Silvestre */,
@@ -5785,6 +5881,10 @@
 				95FBD3CB512A53FCB9C02C45 /* Pods-Silvestre.release.xcconfig */,
 				7231D45DAA5F00142A569891 /* Pods-DoorStep.debug.xcconfig */,
 				B17B5FDD57233BBDB3E7DE70 /* Pods-DoorStep.release.xcconfig */,
+				C53E9B59230A53C3BFD98495 /* Pods-Enext.debug.xcconfig */,
+				DDBD672684CE7F9571A62EB8 /* Pods-Enext.release.xcconfig */,
+				E5CD3A6E9B278C97ACE792CC /* Pods-Seaeats.debug.xcconfig */,
+				6968E47CC2C46E19DE14DECF /* Pods-Seaeats.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -7303,6 +7403,52 @@
 			productReference = 84A948C62750EC7B00970D10 /* SamakeeMart.app */;
 			productType = "com.apple.product-type.application";
 		};
+		84ABDEB02756267700873D9A /* Enext */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84ABDED42756267700873D9A /* Build configuration list for PBXNativeTarget "Enext" */;
+			buildPhases = (
+				84ABDEB12756267700873D9A /* [CP] Check Pods Manifest.lock */,
+				84ABDEB22756267700873D9A /* Start Packager */,
+				84ABDEB32756267700873D9A /* Sources */,
+				84ABDEB72756267700873D9A /* Frameworks */,
+				84ABDEC32756267700873D9A /* Resources */,
+				84ABDED02756267700873D9A /* Bundle React Native code and images */,
+				84ABDED12756267700873D9A /* [CP] Copy Pods Resources */,
+				84ABDED22756267700873D9A /* [CP-User] [RNFB] Core Configuration */,
+				84ABDED32756267700873D9A /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Enext;
+			productName = RoyoDriverApp;
+			productReference = 84ABDED72756267700873D9A /* Enext.app */;
+			productType = "com.apple.product-type.application";
+		};
+		84ABDF462756268700873D9A /* Seaeats */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84ABDF6A2756268700873D9A /* Build configuration list for PBXNativeTarget "Seaeats" */;
+			buildPhases = (
+				84ABDF472756268700873D9A /* [CP] Check Pods Manifest.lock */,
+				84ABDF482756268700873D9A /* Start Packager */,
+				84ABDF492756268700873D9A /* Sources */,
+				84ABDF4D2756268700873D9A /* Frameworks */,
+				84ABDF592756268700873D9A /* Resources */,
+				84ABDF662756268700873D9A /* Bundle React Native code and images */,
+				84ABDF672756268700873D9A /* [CP] Copy Pods Resources */,
+				84ABDF682756268700873D9A /* [CP-User] [RNFB] Core Configuration */,
+				84ABDF692756268700873D9A /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Seaeats;
+			productName = RoyoDriverApp;
+			productReference = 84ABDF6D2756268700873D9A /* Seaeats.app */;
+			productType = "com.apple.product-type.application";
+		};
 		84AF045A2742AFCC00FA07EE /* Suel */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84AF04A12742AFCC00FA07EE /* Build configuration list for PBXNativeTarget "Suel" */;
@@ -8291,7 +8437,6 @@
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
-			
 			projectRoot = "";
 			targets = (
 				13B07F861A680F5B00A75B9A /* RoyoDriverApp */,
@@ -8402,10 +8547,11 @@
 				84590CE5274F5AAE001DA036 /* Baytukom */,
 				84590DAF274F5B2D001DA036 /* Silvestre */,
 				84F46B502754D8CA00C4AA99 /* DoorStep */,
+				84ABDEB02756267700873D9A /* Enext */,
+				84ABDF462756268700873D9A /* Seaeats */,
 			);
 		};
 /* End PBXProject section */
-
 
 /* Begin PBXResourcesBuildPhase section */
 		13B07F8E1A680F5B00A75B9A /* Resources */ = {
@@ -9679,6 +9825,46 @@
 				84A948B92750EC7B00970D10 /* campton-book.ttf in Resources */,
 				84A948BE2750EC7B00970D10 /* campton-semibold.ttf in Resources */,
 				84A949302750ECDB00970D10 /* SamakeeMart(Development).xcconfig in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84ABDEC32756267700873D9A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84ABE58727562AC100873D9A /* GoogleService-Info.plist in Resources */,
+				84ABE0BD2756276F00873D9A /* Images.xcassets in Resources */,
+				84ABE35D2756289600873D9A /* EnextInfo.plist in Resources */,
+				84ABDEC42756267700873D9A /* LaunchScreen.storyboard in Resources */,
+				84ABDEC52756267700873D9A /* RoyoDriverInfo.plist in Resources */,
+				84ABE19D275627DA00873D9A /* Enext(Production).xcconfig in Resources */,
+				84ABDEC62756267700873D9A /* Images.xcassets in Resources */,
+				84ABDEC72756267700873D9A /* campton-light.ttf in Resources */,
+				84ABE20D275627F600873D9A /* Enext(Developmet).xcconfig in Resources */,
+				84ABDEC82756267700873D9A /* campton-medium.ttf in Resources */,
+				84ABDEC92756267700873D9A /* notification.mp3 in Resources */,
+				84ABDECA2756267700873D9A /* campton-book.ttf in Resources */,
+				84ABDECF2756267700873D9A /* campton-semibold.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84ABDF592756268700873D9A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84ABE12D2756277E00873D9A /* Images.xcassets in Resources */,
+				84ABE3CD275628B100873D9A /* SeaeatsInfo.plist in Resources */,
+				84ABDF5A2756268700873D9A /* LaunchScreen.storyboard in Resources */,
+				84ABDF5B2756268700873D9A /* RoyoDriverInfo.plist in Resources */,
+				84ABDF5C2756268700873D9A /* Images.xcassets in Resources */,
+				84ABDF5D2756268700873D9A /* campton-light.ttf in Resources */,
+				84ABDF5E2756268700873D9A /* campton-medium.ttf in Resources */,
+				84ABE5F727562AD600873D9A /* GoogleService-Info.plist in Resources */,
+				84ABE2ED2756282500873D9A /* Seaeats(Development).xcconfig in Resources */,
+				84ABDF5F2756268700873D9A /* notification.mp3 in Resources */,
+				84ABE27D2756281300873D9A /* Seaeats(Production).xcconfig in Resources */,
+				84ABDF602756268700873D9A /* campton-book.ttf in Resources */,
+				84ABDF652756268700873D9A /* campton-semibold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -16608,6 +16794,210 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SamakeeMart/Pods-SamakeeMart-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		84ABDEB12756267700873D9A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Enext-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		84ABDEB22756267700873D9A /* Start Packager */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Start Packager";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open \"$SRCROOT/../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n  fi\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		84ABDED02756267700873D9A /* Bundle React Native code and images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Bundle React Native code and images";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
+		};
+		84ABDED12756267700873D9A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Enext/Pods-Enext-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Enext/Pods-Enext-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Enext/Pods-Enext-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		84ABDED22756267700873D9A /* [CP-User] [RNFB] Core Configuration */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			name = "[CP-User] [RNFB] Core Configuration";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/usr/bin/env bash\n#\n# Copyright (c) 2016-present Invertase Limited & Contributors\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this library except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#   http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing, software\n# distributed under the License is distributed on an \"AS IS\" BASIS,\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n# See the License for the specific language governing permissions and\n# limitations under the License.\n#\nset -e\n\n_MAX_LOOKUPS=2;\n_SEARCH_RESULT=''\n_RN_ROOT_EXISTS=''\n_CURRENT_LOOKUPS=1\n_JSON_ROOT=\"'react-native'\"\n_JSON_FILE_NAME='firebase.json'\n_JSON_OUTPUT_BASE64='e30=' # { }\n_CURRENT_SEARCH_DIR=${PROJECT_DIR}\n_PLIST_BUDDY=/usr/libexec/PlistBuddy\n_TARGET_PLIST=\"${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH}\"\n_DSYM_PLIST=\"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist\"\n\n# plist arrays\n_PLIST_ENTRY_KEYS=()\n_PLIST_ENTRY_TYPES=()\n_PLIST_ENTRY_VALUES=()\n\nfunction setPlistValue {\n  echo \"info:      setting plist entry '$1' of type '$2' in file '$4'\"\n  ${_PLIST_BUDDY} -c \"Add :$1 $2 '$3'\" $4 || echo \"info:      '$1' already exists\"\n}\n\nfunction getFirebaseJsonKeyValue () {\n  if [[ ${_RN_ROOT_EXISTS} ]]; then\n    ruby -e \"require 'rubygems';require 'json'; output=JSON.parse('$1'); puts output[$_JSON_ROOT]['$2']\"\n  else\n    echo \"\"\n  fi;\n}\n\nfunction jsonBoolToYesNo () {\n  if [[ $1 == \"false\" ]]; then\n    echo \"NO\"\n  elif [[ $1 == \"true\" ]]; then\n    echo \"YES\"\n  else echo \"NO\"\n  fi\n}\n\necho \"info: -> RNFB build script started\"\necho \"info: 1) Locating ${_JSON_FILE_NAME} file:\"\n\nif [[ -z ${_CURRENT_SEARCH_DIR} ]]; then\n  _CURRENT_SEARCH_DIR=$(pwd)\nfi;\n\nwhile true; do\n  _CURRENT_SEARCH_DIR=$(dirname \"$_CURRENT_SEARCH_DIR\")\n  if [[ \"$_CURRENT_SEARCH_DIR\" == \"/\" ]] || [[ ${_CURRENT_LOOKUPS} -gt ${_MAX_LOOKUPS} ]]; then break; fi;\n  echo \"info:      ($_CURRENT_LOOKUPS of $_MAX_LOOKUPS) Searching in '$_CURRENT_SEARCH_DIR' for a ${_JSON_FILE_NAME} file.\"\n  _SEARCH_RESULT=$(find \"$_CURRENT_SEARCH_DIR\" -maxdepth 2 -name ${_JSON_FILE_NAME} -print | /usr/bin/head -n 1)\n  if [[ ${_SEARCH_RESULT} ]]; then\n    echo \"info:      ${_JSON_FILE_NAME} found at $_SEARCH_RESULT\"\n    break;\n  fi;\n  _CURRENT_LOOKUPS=$((_CURRENT_LOOKUPS+1))\ndone\n\nif [[ ${_SEARCH_RESULT} ]]; then\n  _JSON_OUTPUT_RAW=$(cat \"${_SEARCH_RESULT}\")\n  _RN_ROOT_EXISTS=$(ruby -e \"require 'rubygems';require 'json'; output=JSON.parse('$_JSON_OUTPUT_RAW'); puts output[$_JSON_ROOT]\" || echo '')\n\n  if [[ ${_RN_ROOT_EXISTS} ]]; then\n    _JSON_OUTPUT_BASE64=$(python -c 'import json,sys,base64;print(base64.b64encode(json.dumps(json.loads(open('\"'${_SEARCH_RESULT}'\"').read())['${_JSON_ROOT}'])))' || echo \"e30=\")\n  fi\n\n  _PLIST_ENTRY_KEYS+=(\"firebase_json_raw\")\n  _PLIST_ENTRY_TYPES+=(\"string\")\n  _PLIST_ENTRY_VALUES+=(\"$_JSON_OUTPUT_BASE64\")\n\n  # config.app_data_collection_default_enabled\n  _APP_DATA_COLLECTION_ENABLED=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"app_data_collection_default_enabled\")\n  if [[ $_APP_DATA_COLLECTION_ENABLED ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FirebaseDataCollectionDefaultEnabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_APP_DATA_COLLECTION_ENABLED\")\")\n  fi\n\n  # config.analytics_auto_collection_enabled\n  _ANALYTICS_AUTO_COLLECTION=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"analytics_auto_collection_enabled\")\n  if [[ $_ANALYTICS_AUTO_COLLECTION ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FIREBASE_ANALYTICS_COLLECTION_ENABLED\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_ANALYTICS_AUTO_COLLECTION\")\")\n  fi\n\n  # config.analytics_collection_deactivated\n  _ANALYTICS_DEACTIVATED=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"analytics_collection_deactivated\")\n  if [[ $_ANALYTICS_DEACTIVATED ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FIREBASE_ANALYTICS_COLLECTION_DEACTIVATED\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_ANALYTICS_DEACTIVATED\")\")\n  fi\n\n  # config.analytics_idfv_collection_enabled\n  _ANALYTICS_IDFV_COLLECTION=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"analytics_idfv_collection_enabled\")\n  if [[ $_ANALYTICS_IDFV_COLLECTION ]]; then\n    _PLIST_ENTRY_KEYS+=(\"GOOGLE_ANALYTICS_IDFV_COLLECTION_ENABLED\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_ANALYTICS_IDFV_COLLECTION\")\")\n  fi\n\n  # config.analytics_default_allow_ad_personalization_signals\n  _ANALYTICS_PERSONALIZATION=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"analytics_default_allow_ad_personalization_signals\")\n  if [[ $_ANALYTICS_PERSONALIZATION ]]; then\n    _PLIST_ENTRY_KEYS+=(\"GOOGLE_ANALYTICS_DEFAULT_ALLOW_AD_PERSONALIZATION_SIGNALS\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_ANALYTICS_PERSONALIZATION\")\")\n  fi\n\n  # config.perf_auto_collection_enabled\n  _PERF_AUTO_COLLECTION=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"perf_auto_collection_enabled\")\n  if [[ $_PERF_AUTO_COLLECTION ]]; then\n    _PLIST_ENTRY_KEYS+=(\"firebase_performance_collection_enabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_PERF_AUTO_COLLECTION\")\")\n  fi\n\n  # config.perf_collection_deactivated\n  _PERF_DEACTIVATED=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"perf_collection_deactivated\")\n  if [[ $_PERF_DEACTIVATED ]]; then\n    _PLIST_ENTRY_KEYS+=(\"firebase_performance_collection_deactivated\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_PERF_DEACTIVATED\")\")\n  fi\n\n  # config.messaging_auto_init_enabled\n  _MESSAGING_AUTO_INIT=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"messaging_auto_init_enabled\")\n  if [[ $_MESSAGING_AUTO_INIT ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FirebaseMessagingAutoInitEnabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_MESSAGING_AUTO_INIT\")\")\n  fi\n\n  # config.in_app_messaging_auto_colllection_enabled\n  _FIAM_AUTO_INIT=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"in_app_messaging_auto_collection_enabled\")\n  if [[ $_FIAM_AUTO_INIT ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FirebaseInAppMessagingAutomaticDataCollectionEnabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_FIAM_AUTO_INIT\")\")\n  fi\n\n  # config.app_check_token_auto_refresh\n  _APP_CHECK_TOKEN_AUTO_REFRESH=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"app_check_token_auto_refresh\")\n  if [[ $_APP_CHECK_TOKEN_AUTO_REFRESH ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FirebaseAppCheckTokenAutoRefreshEnabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_APP_CHECK_TOKEN_AUTO_REFRESH\")\")\n  fi\n\n  # config.crashlytics_disable_auto_disabler - undocumented for now - mainly for debugging, document if becomes useful\n  _CRASHLYTICS_AUTO_DISABLE_ENABLED=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"crashlytics_disable_auto_disabler\")\n  if [[ $_CRASHLYTICS_AUTO_DISABLE_ENABLED == \"true\" ]]; then\n    echo \"Disabled Crashlytics auto disabler.\" # do nothing\n  else\n    _PLIST_ENTRY_KEYS+=(\"FirebaseCrashlyticsCollectionEnabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"NO\")\n  fi\nelse\n  _PLIST_ENTRY_KEYS+=(\"firebase_json_raw\")\n  _PLIST_ENTRY_TYPES+=(\"string\")\n  _PLIST_ENTRY_VALUES+=(\"$_JSON_OUTPUT_BASE64\")\n  echo \"warning:   A firebase.json file was not found, whilst this file is optional it is recommended to include it to configure firebase services in React Native Firebase.\"\nfi;\n\necho \"info: 2) Injecting Info.plist entries: \"\n\n# Log out the keys we're adding\nfor i in \"${!_PLIST_ENTRY_KEYS[@]}\"; do\n  echo \"    ->  $i) ${_PLIST_ENTRY_KEYS[$i]}\" \"${_PLIST_ENTRY_TYPES[$i]}\" \"${_PLIST_ENTRY_VALUES[$i]}\"\ndone\n\nfor plist in \"${_TARGET_PLIST}\" \"${_DSYM_PLIST}\" ; do\n  if [[ -f \"${plist}\" ]]; then\n\n    # paths with spaces break the call to setPlistValue. temporarily modify\n    # the shell internal field separator variable (IFS), which normally\n    # includes spaces, to consist only of line breaks\n    oldifs=$IFS\n    IFS=\"\n\"\n\n    for i in \"${!_PLIST_ENTRY_KEYS[@]}\"; do\n      setPlistValue \"${_PLIST_ENTRY_KEYS[$i]}\" \"${_PLIST_ENTRY_TYPES[$i]}\" \"${_PLIST_ENTRY_VALUES[$i]}\" \"${plist}\"\n    done\n\n    # restore the original internal field separator value\n    IFS=$oldifs\n  else\n    echo \"warning:   A Info.plist build output file was not found (${plist})\"\n  fi\ndone\n\necho \"info: <- RNFB build script finished\"\n";
+		};
+		84ABDED32756267700873D9A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Enext/Pods-Enext-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Enext/Pods-Enext-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Enext/Pods-Enext-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		84ABDF472756268700873D9A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Seaeats-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		84ABDF482756268700873D9A /* Start Packager */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Start Packager";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open \"$SRCROOT/../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n  fi\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		84ABDF662756268700873D9A /* Bundle React Native code and images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Bundle React Native code and images";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
+		};
+		84ABDF672756268700873D9A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Seaeats/Pods-Seaeats-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Seaeats/Pods-Seaeats-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Seaeats/Pods-Seaeats-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		84ABDF682756268700873D9A /* [CP-User] [RNFB] Core Configuration */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			name = "[CP-User] [RNFB] Core Configuration";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/usr/bin/env bash\n#\n# Copyright (c) 2016-present Invertase Limited & Contributors\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this library except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#   http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing, software\n# distributed under the License is distributed on an \"AS IS\" BASIS,\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n# See the License for the specific language governing permissions and\n# limitations under the License.\n#\nset -e\n\n_MAX_LOOKUPS=2;\n_SEARCH_RESULT=''\n_RN_ROOT_EXISTS=''\n_CURRENT_LOOKUPS=1\n_JSON_ROOT=\"'react-native'\"\n_JSON_FILE_NAME='firebase.json'\n_JSON_OUTPUT_BASE64='e30=' # { }\n_CURRENT_SEARCH_DIR=${PROJECT_DIR}\n_PLIST_BUDDY=/usr/libexec/PlistBuddy\n_TARGET_PLIST=\"${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH}\"\n_DSYM_PLIST=\"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist\"\n\n# plist arrays\n_PLIST_ENTRY_KEYS=()\n_PLIST_ENTRY_TYPES=()\n_PLIST_ENTRY_VALUES=()\n\nfunction setPlistValue {\n  echo \"info:      setting plist entry '$1' of type '$2' in file '$4'\"\n  ${_PLIST_BUDDY} -c \"Add :$1 $2 '$3'\" $4 || echo \"info:      '$1' already exists\"\n}\n\nfunction getFirebaseJsonKeyValue () {\n  if [[ ${_RN_ROOT_EXISTS} ]]; then\n    ruby -e \"require 'rubygems';require 'json'; output=JSON.parse('$1'); puts output[$_JSON_ROOT]['$2']\"\n  else\n    echo \"\"\n  fi;\n}\n\nfunction jsonBoolToYesNo () {\n  if [[ $1 == \"false\" ]]; then\n    echo \"NO\"\n  elif [[ $1 == \"true\" ]]; then\n    echo \"YES\"\n  else echo \"NO\"\n  fi\n}\n\necho \"info: -> RNFB build script started\"\necho \"info: 1) Locating ${_JSON_FILE_NAME} file:\"\n\nif [[ -z ${_CURRENT_SEARCH_DIR} ]]; then\n  _CURRENT_SEARCH_DIR=$(pwd)\nfi;\n\nwhile true; do\n  _CURRENT_SEARCH_DIR=$(dirname \"$_CURRENT_SEARCH_DIR\")\n  if [[ \"$_CURRENT_SEARCH_DIR\" == \"/\" ]] || [[ ${_CURRENT_LOOKUPS} -gt ${_MAX_LOOKUPS} ]]; then break; fi;\n  echo \"info:      ($_CURRENT_LOOKUPS of $_MAX_LOOKUPS) Searching in '$_CURRENT_SEARCH_DIR' for a ${_JSON_FILE_NAME} file.\"\n  _SEARCH_RESULT=$(find \"$_CURRENT_SEARCH_DIR\" -maxdepth 2 -name ${_JSON_FILE_NAME} -print | /usr/bin/head -n 1)\n  if [[ ${_SEARCH_RESULT} ]]; then\n    echo \"info:      ${_JSON_FILE_NAME} found at $_SEARCH_RESULT\"\n    break;\n  fi;\n  _CURRENT_LOOKUPS=$((_CURRENT_LOOKUPS+1))\ndone\n\nif [[ ${_SEARCH_RESULT} ]]; then\n  _JSON_OUTPUT_RAW=$(cat \"${_SEARCH_RESULT}\")\n  _RN_ROOT_EXISTS=$(ruby -e \"require 'rubygems';require 'json'; output=JSON.parse('$_JSON_OUTPUT_RAW'); puts output[$_JSON_ROOT]\" || echo '')\n\n  if [[ ${_RN_ROOT_EXISTS} ]]; then\n    _JSON_OUTPUT_BASE64=$(python -c 'import json,sys,base64;print(base64.b64encode(json.dumps(json.loads(open('\"'${_SEARCH_RESULT}'\"').read())['${_JSON_ROOT}'])))' || echo \"e30=\")\n  fi\n\n  _PLIST_ENTRY_KEYS+=(\"firebase_json_raw\")\n  _PLIST_ENTRY_TYPES+=(\"string\")\n  _PLIST_ENTRY_VALUES+=(\"$_JSON_OUTPUT_BASE64\")\n\n  # config.app_data_collection_default_enabled\n  _APP_DATA_COLLECTION_ENABLED=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"app_data_collection_default_enabled\")\n  if [[ $_APP_DATA_COLLECTION_ENABLED ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FirebaseDataCollectionDefaultEnabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_APP_DATA_COLLECTION_ENABLED\")\")\n  fi\n\n  # config.analytics_auto_collection_enabled\n  _ANALYTICS_AUTO_COLLECTION=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"analytics_auto_collection_enabled\")\n  if [[ $_ANALYTICS_AUTO_COLLECTION ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FIREBASE_ANALYTICS_COLLECTION_ENABLED\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_ANALYTICS_AUTO_COLLECTION\")\")\n  fi\n\n  # config.analytics_collection_deactivated\n  _ANALYTICS_DEACTIVATED=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"analytics_collection_deactivated\")\n  if [[ $_ANALYTICS_DEACTIVATED ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FIREBASE_ANALYTICS_COLLECTION_DEACTIVATED\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_ANALYTICS_DEACTIVATED\")\")\n  fi\n\n  # config.analytics_idfv_collection_enabled\n  _ANALYTICS_IDFV_COLLECTION=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"analytics_idfv_collection_enabled\")\n  if [[ $_ANALYTICS_IDFV_COLLECTION ]]; then\n    _PLIST_ENTRY_KEYS+=(\"GOOGLE_ANALYTICS_IDFV_COLLECTION_ENABLED\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_ANALYTICS_IDFV_COLLECTION\")\")\n  fi\n\n  # config.analytics_default_allow_ad_personalization_signals\n  _ANALYTICS_PERSONALIZATION=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"analytics_default_allow_ad_personalization_signals\")\n  if [[ $_ANALYTICS_PERSONALIZATION ]]; then\n    _PLIST_ENTRY_KEYS+=(\"GOOGLE_ANALYTICS_DEFAULT_ALLOW_AD_PERSONALIZATION_SIGNALS\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_ANALYTICS_PERSONALIZATION\")\")\n  fi\n\n  # config.perf_auto_collection_enabled\n  _PERF_AUTO_COLLECTION=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"perf_auto_collection_enabled\")\n  if [[ $_PERF_AUTO_COLLECTION ]]; then\n    _PLIST_ENTRY_KEYS+=(\"firebase_performance_collection_enabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_PERF_AUTO_COLLECTION\")\")\n  fi\n\n  # config.perf_collection_deactivated\n  _PERF_DEACTIVATED=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"perf_collection_deactivated\")\n  if [[ $_PERF_DEACTIVATED ]]; then\n    _PLIST_ENTRY_KEYS+=(\"firebase_performance_collection_deactivated\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_PERF_DEACTIVATED\")\")\n  fi\n\n  # config.messaging_auto_init_enabled\n  _MESSAGING_AUTO_INIT=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"messaging_auto_init_enabled\")\n  if [[ $_MESSAGING_AUTO_INIT ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FirebaseMessagingAutoInitEnabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_MESSAGING_AUTO_INIT\")\")\n  fi\n\n  # config.in_app_messaging_auto_colllection_enabled\n  _FIAM_AUTO_INIT=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"in_app_messaging_auto_collection_enabled\")\n  if [[ $_FIAM_AUTO_INIT ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FirebaseInAppMessagingAutomaticDataCollectionEnabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_FIAM_AUTO_INIT\")\")\n  fi\n\n  # config.app_check_token_auto_refresh\n  _APP_CHECK_TOKEN_AUTO_REFRESH=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"app_check_token_auto_refresh\")\n  if [[ $_APP_CHECK_TOKEN_AUTO_REFRESH ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FirebaseAppCheckTokenAutoRefreshEnabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_APP_CHECK_TOKEN_AUTO_REFRESH\")\")\n  fi\n\n  # config.crashlytics_disable_auto_disabler - undocumented for now - mainly for debugging, document if becomes useful\n  _CRASHLYTICS_AUTO_DISABLE_ENABLED=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"crashlytics_disable_auto_disabler\")\n  if [[ $_CRASHLYTICS_AUTO_DISABLE_ENABLED == \"true\" ]]; then\n    echo \"Disabled Crashlytics auto disabler.\" # do nothing\n  else\n    _PLIST_ENTRY_KEYS+=(\"FirebaseCrashlyticsCollectionEnabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"NO\")\n  fi\nelse\n  _PLIST_ENTRY_KEYS+=(\"firebase_json_raw\")\n  _PLIST_ENTRY_TYPES+=(\"string\")\n  _PLIST_ENTRY_VALUES+=(\"$_JSON_OUTPUT_BASE64\")\n  echo \"warning:   A firebase.json file was not found, whilst this file is optional it is recommended to include it to configure firebase services in React Native Firebase.\"\nfi;\n\necho \"info: 2) Injecting Info.plist entries: \"\n\n# Log out the keys we're adding\nfor i in \"${!_PLIST_ENTRY_KEYS[@]}\"; do\n  echo \"    ->  $i) ${_PLIST_ENTRY_KEYS[$i]}\" \"${_PLIST_ENTRY_TYPES[$i]}\" \"${_PLIST_ENTRY_VALUES[$i]}\"\ndone\n\nfor plist in \"${_TARGET_PLIST}\" \"${_DSYM_PLIST}\" ; do\n  if [[ -f \"${plist}\" ]]; then\n\n    # paths with spaces break the call to setPlistValue. temporarily modify\n    # the shell internal field separator variable (IFS), which normally\n    # includes spaces, to consist only of line breaks\n    oldifs=$IFS\n    IFS=\"\n\"\n\n    for i in \"${!_PLIST_ENTRY_KEYS[@]}\"; do\n      setPlistValue \"${_PLIST_ENTRY_KEYS[$i]}\" \"${_PLIST_ENTRY_TYPES[$i]}\" \"${_PLIST_ENTRY_VALUES[$i]}\" \"${plist}\"\n    done\n\n    # restore the original internal field separator value\n    IFS=$oldifs\n  else\n    echo \"warning:   A Info.plist build output file was not found (${plist})\"\n  fi\ndone\n\necho \"info: <- RNFB build script finished\"\n";
+		};
+		84ABDF692756268700873D9A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Seaeats/Pods-Seaeats-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Seaeats/Pods-Seaeats-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Seaeats/Pods-Seaeats-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		84AF045B2742AFCC00FA07EE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -22049,6 +22439,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		84ABDEB32756267700873D9A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84ABDEB42756267700873D9A /* AppDelegate.m in Sources */,
+				84ABDEB52756267700873D9A /* RoyoDriverApp.swift in Sources */,
+				84ABDEB62756267700873D9A /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84ABDF492756268700873D9A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84ABDF4A2756268700873D9A /* AppDelegate.m in Sources */,
+				84ABDF4B2756268700873D9A /* RoyoDriverApp.swift in Sources */,
+				84ABDF4C2756268700873D9A /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		84AF045D2742AFCC00FA07EE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -22484,10 +22894,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -22530,10 +22937,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -22557,7 +22961,7 @@
 				PROJECT_BUNDLE_ID = "$(PROJECT_BUNDLE_ID)";
 				PROJECT_NAME = "${PROJECT_NAME}";
 				PROJECT_PLIST = "$(PROJECT_PLIST)";
-				PROVISIONING_PROFILE_SPECIFIER = "Royo Dispatch [AppStore]";
+				PROVISIONING_PROFILE_SPECIFIER = "AgriOnline Dispatch[App Store]";
 				SWIFT_OBJC_BRIDGING_HEADER = "RoyoDriverApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -22699,10 +23103,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -22741,10 +23142,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -22783,10 +23181,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -22825,10 +23220,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -22867,10 +23259,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -22909,10 +23298,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -22951,10 +23337,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -22993,10 +23376,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -23035,10 +23415,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -23077,10 +23454,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -23119,10 +23493,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -23161,10 +23532,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -23203,10 +23571,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -23245,10 +23610,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -23287,10 +23649,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -23329,10 +23688,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -23371,10 +23727,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -23413,10 +23766,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -23455,10 +23805,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -23497,10 +23844,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -23539,10 +23883,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -23582,10 +23923,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -23623,10 +23961,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -23665,10 +24000,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -23707,10 +24039,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -23754,10 +24083,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -23797,10 +24123,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 28BJWY9YW9;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -23839,10 +24162,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 28BJWY9YW9;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -23881,10 +24201,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -23923,10 +24240,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -23963,10 +24277,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -24004,10 +24315,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -24044,10 +24352,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -24085,10 +24390,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -24127,10 +24429,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -24170,10 +24469,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -24213,10 +24509,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -24255,10 +24548,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -24297,10 +24587,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -24339,10 +24626,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -24381,10 +24665,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -24423,10 +24704,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -24465,10 +24743,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -24507,10 +24782,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -24549,10 +24821,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -24591,10 +24860,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -24631,10 +24897,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -24672,10 +24935,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -24712,10 +24972,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -24753,10 +25010,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -24793,10 +25047,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -24834,10 +25085,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -24874,10 +25122,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -24915,10 +25160,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -24955,10 +25197,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -24996,10 +25235,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -25038,10 +25274,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = SK88RSGS75;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -25084,10 +25317,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = SK88RSGS75;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -25130,10 +25360,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -25172,10 +25399,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -25214,10 +25438,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -25256,10 +25477,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -25298,10 +25516,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -25340,10 +25555,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -25382,10 +25594,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -25424,10 +25633,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -25466,10 +25672,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -25512,10 +25715,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -25558,10 +25758,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -25600,10 +25797,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -25642,10 +25836,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -25684,10 +25875,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -25726,10 +25914,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -25768,10 +25953,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -25810,10 +25992,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -25852,10 +26031,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -25894,10 +26070,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -25936,10 +26109,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -25976,10 +26146,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -26017,10 +26184,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -26059,10 +26223,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -26101,10 +26262,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -26143,10 +26301,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -26185,10 +26340,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -26227,10 +26379,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -26269,10 +26418,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -26311,10 +26457,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -26353,10 +26496,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -26395,10 +26535,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -26437,10 +26574,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -26479,10 +26613,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -26521,10 +26652,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -26563,10 +26691,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -26605,10 +26730,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -26647,10 +26769,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -26689,10 +26808,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -26731,10 +26847,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -26773,10 +26886,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -26813,10 +26923,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -26854,10 +26961,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -26896,10 +27000,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -26938,10 +27039,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -26980,10 +27078,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -27022,10 +27117,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -27062,10 +27154,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -27107,10 +27196,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -27153,10 +27239,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -27199,10 +27282,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -27245,10 +27325,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -27287,10 +27364,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -27329,10 +27403,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -27371,10 +27442,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -27411,10 +27479,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -27452,10 +27517,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -27494,10 +27556,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -27536,10 +27595,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -27578,10 +27634,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -27620,10 +27673,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -27662,10 +27712,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -27704,10 +27751,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -27746,10 +27790,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -27788,10 +27829,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -27830,10 +27868,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -27876,10 +27911,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -27918,10 +27950,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -27960,10 +27989,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -28002,10 +28028,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -28044,10 +28067,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -28150,6 +28170,178 @@
 			};
 			name = Release;
 		};
+		84ABDED52756267700873D9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84ABE20C275627F600873D9A /* Enext(Developmet).xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = RoyoDriverApp/RoyoDriverAppRelease.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = 6FXUMT5X23;
+				ENABLE_BITCODE = NO;
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(PROJECT_APP_NAME)\"",
+				);
+				MARKETING_VERSION = "$(PROJECT_APP_VERSION)";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(PROJECT_BUNDLE_ID)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROJECT_APP_NAME = "${PROJECT_APP_NAME}";
+				PROJECT_APP_VERSION = "$(PROJECT_APP_VERSION)";
+				PROJECT_BUILD_NUMBER = "$(PROJECT_BUILD_NUMBER)";
+				PROJECT_BUNDLE_ID = "$(PROJECT_BUNDLE_ID)";
+				PROJECT_NAME = "${PROJECT_NAME}";
+				PROJECT_PLIST = "$(PROJECT_PLIST)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "RoyoDriverApp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		84ABDED62756267700873D9A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84ABE19C275627DA00873D9A /* Enext(Production).xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = RoyoDriverApp/RoyoDriverAppRelease.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = 6FXUMT5X23;
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(PROJECT_APP_NAME)\"",
+				);
+				MARKETING_VERSION = "$(PROJECT_APP_VERSION)";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(PROJECT_BUNDLE_ID)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROJECT_APP_NAME = "${PROJECT_APP_NAME}";
+				PROJECT_APP_VERSION = "$(PROJECT_APP_VERSION)";
+				PROJECT_BUILD_NUMBER = "$(PROJECT_BUILD_NUMBER)";
+				PROJECT_BUNDLE_ID = "$(PROJECT_BUNDLE_ID)";
+				PROJECT_NAME = "${PROJECT_NAME}";
+				PROJECT_PLIST = "$(PROJECT_PLIST)";
+				PROVISIONING_PROFILE_SPECIFIER = "Enext Dispatch[AppStrore]";
+				SWIFT_OBJC_BRIDGING_HEADER = "RoyoDriverApp-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		84ABDF6B2756268700873D9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84ABE2EC2756282500873D9A /* Seaeats(Development).xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = RoyoDriverApp/RoyoDriverAppRelease.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = 6FXUMT5X23;
+				ENABLE_BITCODE = NO;
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(PROJECT_APP_NAME)\"",
+				);
+				MARKETING_VERSION = "$(PROJECT_APP_VERSION)";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(PROJECT_BUNDLE_ID)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROJECT_APP_NAME = "${PROJECT_APP_NAME}";
+				PROJECT_APP_VERSION = "$(PROJECT_APP_VERSION)";
+				PROJECT_BUILD_NUMBER = "$(PROJECT_BUILD_NUMBER)";
+				PROJECT_BUNDLE_ID = "$(PROJECT_BUNDLE_ID)";
+				PROJECT_NAME = "${PROJECT_NAME}";
+				PROJECT_PLIST = "$(PROJECT_PLIST)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "RoyoDriverApp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		84ABDF6C2756268700873D9A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84ABE27C2756281300873D9A /* Seaeats(Production).xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = RoyoDriverApp/RoyoDriverAppRelease.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = 6FXUMT5X23;
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(PROJECT_APP_NAME)\"",
+				);
+				MARKETING_VERSION = "$(PROJECT_APP_VERSION)";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(PROJECT_BUNDLE_ID)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROJECT_APP_NAME = "${PROJECT_APP_NAME}";
+				PROJECT_APP_VERSION = "$(PROJECT_APP_VERSION)";
+				PROJECT_BUILD_NUMBER = "$(PROJECT_BUILD_NUMBER)";
+				PROJECT_BUNDLE_ID = "$(PROJECT_BUNDLE_ID)";
+				PROJECT_NAME = "${PROJECT_NAME}";
+				PROJECT_PLIST = "$(PROJECT_PLIST)";
+				PROVISIONING_PROFILE_SPECIFIER = "Seaeats Dispatch[AppStore]";
+				SWIFT_OBJC_BRIDGING_HEADER = "RoyoDriverApp-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
 		84AF04A22742AFCC00FA07EE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8453A4A12742B1710018C8E4 /* Suel(Development).xcconfig */;
@@ -28162,10 +28354,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -28204,10 +28393,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -28244,10 +28430,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -28285,10 +28468,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -28326,10 +28506,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = SKB5RJ3Z8F;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -28367,10 +28544,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = SKB5RJ3Z8F;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -28407,10 +28581,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -28448,10 +28619,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -28490,10 +28658,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -28532,10 +28697,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -28574,10 +28736,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -28616,10 +28775,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -28658,10 +28814,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -28700,10 +28853,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -28742,10 +28892,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -28784,10 +28931,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -28826,10 +28970,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -28868,10 +29009,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -28910,10 +29048,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -28952,10 +29087,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -28994,10 +29126,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -29036,10 +29165,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -29078,10 +29204,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -29120,10 +29243,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -29162,10 +29282,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -29204,10 +29321,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -29246,10 +29360,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -29288,10 +29399,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -29330,10 +29438,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -29372,10 +29477,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -29414,10 +29516,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -29456,10 +29555,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -29498,10 +29594,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -29540,10 +29633,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -29582,10 +29672,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -29624,10 +29711,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -29666,10 +29750,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -29708,10 +29789,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -29750,10 +29828,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -29792,10 +29867,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -29834,10 +29906,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -29876,10 +29945,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -29918,10 +29984,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -29960,10 +30023,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -30002,10 +30062,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -30044,10 +30101,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -30084,10 +30138,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -30125,10 +30176,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -30167,10 +30215,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -30209,10 +30254,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -30251,10 +30293,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -30293,10 +30332,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -30335,10 +30371,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -30377,10 +30410,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -30419,10 +30449,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -30461,10 +30488,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -30503,10 +30527,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -30545,10 +30566,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -30585,10 +30603,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -30626,10 +30641,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -30668,10 +30680,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -30710,10 +30719,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -30752,10 +30758,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -30794,10 +30797,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -30836,10 +30836,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -30878,10 +30875,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -30918,10 +30912,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -30959,10 +30950,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -31001,10 +30989,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = SKB5RJ3Z8F;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -31043,10 +31028,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = SKB5RJ3Z8F;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -31085,10 +31067,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -31127,10 +31106,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -31167,10 +31143,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -31208,10 +31181,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -31248,10 +31218,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -31289,10 +31256,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -31331,10 +31295,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -31373,10 +31334,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -31415,10 +31373,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -31461,10 +31416,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -31488,7 +31440,7 @@
 				PROJECT_BUNDLE_ID = "$(PROJECT_BUNDLE_ID)";
 				PROJECT_NAME = "${PROJECT_NAME}";
 				PROJECT_PLIST = "$(PROJECT_PLIST)";
-				PROVISIONING_PROFILE_SPECIFIER = "Royo Dispatch [AppStore]";
+				PROVISIONING_PROFILE_SPECIFIER = "DoorStep Dispatch [AppStore]";
 				SWIFT_OBJC_BRIDGING_HEADER = "RoyoDriverApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -31507,10 +31459,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -31549,10 +31498,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -31591,10 +31537,7 @@
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -31633,10 +31576,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -32265,6 +32205,24 @@
 			buildConfigurations = (
 				84A948C42750EC7B00970D10 /* Debug */,
 				84A948C52750EC7B00970D10 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84ABDED42756267700873D9A /* Build configuration list for PBXNativeTarget "Enext" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84ABDED52756267700873D9A /* Debug */,
+				84ABDED62756267700873D9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84ABDF6A2756268700873D9A /* Build configuration list for PBXNativeTarget "Seaeats" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84ABDF6B2756268700873D9A /* Debug */,
+				84ABDF6C2756268700873D9A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
