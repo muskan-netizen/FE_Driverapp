@@ -77,6 +77,7 @@ export default function DashBoard({route, navigation}) {
     longitude: null,
     latitude: null,
     isWarningAlert: false,
+    warningStatus: false,
   });
   const {
     longitude,
@@ -98,6 +99,7 @@ export default function DashBoard({route, navigation}) {
     fcm_token,
     statusChanged,
     isWarningAlert,
+    warningStatus,
   } = state;
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
   const sessionLogoutUser = useSelector(
@@ -467,26 +469,13 @@ export default function DashBoard({route, navigation}) {
     Linking.openSettings();
   };
 
-  const hideWarning = () => {
-    updateState({
-      isWarningAlert: false,
-    });
-    console.log('hide');
-  };
-
-  const showWarning = () => {
-    updateState({
-      isWarningAlert: true,
-    });
-    console.log('show');
-  };
-
+  const toggleWarning = state => updateState({isWarningAlert: state});
   useEffect(() => {
-    console.log(isWarningAlert, 'is Warning');
     const interval = setInterval(() => {
-      requestUserPermission(showWarning, hideWarning);
+      requestUserPermission(toggleWarning);
     }, 1000);
-    // if (!isWarningAlert && interval) clearInterval(interval);
+    if (!isWarningAlert && interval && (fcmToken||warningStatus)) clearInterval(interval);
+    updateState({warningStatus: 1});
     return () => {
       if (interval) clearInterval(interval);
     };
@@ -609,13 +598,14 @@ export default function DashBoard({route, navigation}) {
           </View>
           <View
             style={{
-              justifyContent: 'flex-end',
-              // width: width / 2.5,
-              // alignItems: 'center',
-              // marginVertical: moderateScaleVertical(10),
+              justifyContent: 'space-between',
+              width: width / 2.5,
+              alignItems: 'center',
+              flexDirection: 'row',
+              marginVertical: moderateScaleVertical(5),
               paddingVertical: moderateScaleVertical(10),
             }}>
-            {/* <TouchableOpacity
+            <TouchableOpacity
               style={{
                 backgroundColor: colors.themeColor,
                 alignItems: 'center',
@@ -624,9 +614,9 @@ export default function DashBoard({route, navigation}) {
                 paddingHorizontal: moderateScale(10),
                 borderRadius: 8,
               }}
-              onPress={() => hideWarning()}>
+              onPress={() => toggleWarning(false)}>
               <Text style={{color: colors.white}}>Cancel</Text>
-            </TouchableOpacity> */}
+            </TouchableOpacity>
             <TouchableOpacity
               style={{
                 backgroundColor: colors.themeColor,

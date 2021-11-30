@@ -151,5 +151,6 @@ export default {
   SUPPORT: 'دعم',
   notificationAlert:
     ' Notification Permission not enabled, you may get problem in recieving orders',
-  visitSetting: 'visit settings',
+
+  visitSetting: 'قم بزيارة الإعدادات',
 };

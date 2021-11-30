@@ -136,5 +136,6 @@ export default {
   SUPPORT: 'Apoyo',
   notificationAlert:
     ' Notification Permission not enabled, you may get problem in recieving orders',
-  visitSetting: 'visit settings',
+
+  visitSetting: 'visitar la configuración',
 };
