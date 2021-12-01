@@ -1355,6 +1355,16 @@ android {
             applicationId 'com.Enext.royodispatcher'
             resValue "string", "app_name", "Enext Dispatch"
         }
+        foodNests{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.FoodNests.royodispatcher'
+            resValue "string", "app_name", "FoodNests Dispatch"
+        }
     }
 }
 

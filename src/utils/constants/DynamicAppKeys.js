@@ -113,6 +113,7 @@ const shortCodes = {
   doorstep: '906083',
   seaeats: '8f52c7',
   enext: '3958ed',
+  foodNests: '1f418c',
 };
 
 // Goody Dispatch
@@ -562,6 +563,10 @@ const appIds = {
   enext: Platform.select({
     ios: 'com.Enext.Dispatch',
     android: 'com.Enext.royodispatcher',
+  }),
+  foodNests: Platform.select({
+    ios: 'com.FoodNests.Dispatch',
+    android: 'com.FoodNests.royodispatcher',
   }),
 };
 

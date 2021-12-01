@@ -744,6 +744,12 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.foodNests:
+          updateState({
+            shortCode: shortCodes.foodNests,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, []);
