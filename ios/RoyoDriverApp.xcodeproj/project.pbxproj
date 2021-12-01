@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		044DEFACDCBDDDC1C2F6F905 /* libPods-AgriOnlineRider.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71FAC7516D26E0E6135343C8 /* libPods-AgriOnlineRider.a */; };
 		04F46A6C7BD0CE5187D0D607 /* libPods-MokabFix.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84DAB1458622B3B3DF8CFEE2 /* libPods-MokabFix.a */; };
+		05624F7FB363ABD1A3F3B3FE /* libPods-RoyoDriverApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07F5F9DFDEF7173269B0EA53 /* libPods-RoyoDriverApp.a */; };
 		0749BD89F2A40027F079D62F /* libPods-BotSeat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB5B671F9DBA2D220B60E6A4 /* libPods-BotSeat.a */; };
 		079A84298D05490681F14641 /* libPods-HelpNowRightNow.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C05D1304447D60FE01E505EF /* libPods-HelpNowRightNow.a */; };
 		093ED89E09DC14316C2F9DC9 /* libPods-ThreadAgain.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 685D02119194968C3CEB732B /* libPods-ThreadAgain.a */; };
@@ -1914,6 +1915,7 @@
 		076D652F665CFC4283DE4F4C /* libPods-MaxisDelivery.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MaxisDelivery.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		07BA3532CA6CD7F48EBBAA6B /* libPods-DoctaTransportation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DoctaTransportation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		07F4A92FDBB99DF67FC66D9C /* libPods-Silvestre.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Silvestre.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		07F5F9DFDEF7173269B0EA53 /* libPods-RoyoDriverApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RoyoDriverApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		08B3D647889EB86B5ED42F5F /* Pods-Ored.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ored.release.xcconfig"; path = "Target Support Files/Pods-Ored/Pods-Ored.release.xcconfig"; sourceTree = "<group>"; };
 		0A2C9EC495D06A853D0E7CFE /* Pods-Elixir.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Elixir.debug.xcconfig"; path = "Target Support Files/Pods-Elixir/Pods-Elixir.debug.xcconfig"; sourceTree = "<group>"; };
 		0AC0B16CAED98A034C6DA11E /* Pods-Tajammul.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tajammul.debug.xcconfig"; path = "Target Support Files/Pods-Tajammul/Pods-Tajammul.debug.xcconfig"; sourceTree = "<group>"; };
@@ -2936,6 +2938,7 @@
 				678D2FFFDE2D6D542F47FA8C /* (null) in Frameworks */,
 				6E66666F8E63C6FBDE77878D /* (null) in Frameworks */,
 				59EE1734C6E4170E7D055A39 /* libPods-RoyoDriverApp.a in Frameworks */,
+				05624F7FB363ABD1A3F3B3FE /* libPods-RoyoDriverApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4040,6 +4043,7 @@
 				C0A80C86FDF9506ABA39E0D1 /* libPods-DoorStep.a */,
 				446FB0F9F487F6ECA9476B83 /* libPods-Enext.a */,
 				687BA5C1765809B47BE03BF7 /* libPods-Seaeats.a */,
+				07F5F9DFDEF7173269B0EA53 /* libPods-RoyoDriverApp.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -25044,6 +25048,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = RoyoDriverApp/RoyoDriverAppRelease.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
@@ -25067,6 +25073,7 @@
 				PROJECT_BUNDLE_ID = "$(PROJECT_BUNDLE_ID)";
 				PROJECT_NAME = "${PROJECT_NAME}";
 				PROJECT_PLIST = "$(PROJECT_PLIST)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "RoyoDriverApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -25105,7 +25112,7 @@
 				PROJECT_BUNDLE_ID = "$(PROJECT_BUNDLE_ID)";
 				PROJECT_NAME = "${PROJECT_NAME}";
 				PROJECT_PLIST = "$(PROJECT_PLIST)";
-				PROVISIONING_PROFILE_SPECIFIER = "Royo Dispatch [AppStore]";
+				PROVISIONING_PROFILE_SPECIFIER = "BottomsUp [AppStore]";
 				SWIFT_OBJC_BRIDGING_HEADER = "RoyoDriverApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
