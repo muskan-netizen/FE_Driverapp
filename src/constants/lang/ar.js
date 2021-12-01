@@ -149,7 +149,8 @@ export default {
   FACESNOTMATCHED: 'الوجوه غير المتطابقة',
   VERSION: 'الإصدار',
   SUPPORT: 'دعم',
-  notificationAlertTitle: 'إذن الإخطار غير ممكّن',
-  notificationAlert: 'يرجى تمكين إذن الإعلام من إعدادات التطبيق',
+  notificationAlert:
+    ' Notification Permission not enabled, you may get problem in recieving orders',
+
   visitSetting: 'قم بزيارة الإعدادات',
 };

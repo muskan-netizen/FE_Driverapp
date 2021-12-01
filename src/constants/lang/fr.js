@@ -133,7 +133,7 @@ export default {
   FACESNOTMATCHED: 'Visages non assortis',
   VERSION: 'Version',
   SUPPORT: 'Soutien',
-  notificationAlertTitle: 'Notification Permission Not Enabled',
-  notificationAlert: 'please enable notification permission from app settings',
+  notificationAlert:
+    ' Notification Permission not enabled, you may get problem in recieving orders',
   visitSetting: 'paramètres de visite',
 };
