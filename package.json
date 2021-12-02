@@ -227,6 +227,8 @@
     "enextdispatcherRelease": "cd android && ./gradlew assembleenextRelease",
     "foodNestsdispatcher": "react-native run-android --variant=foodNestsDebug",
     "foodNestsdispatcherRelease": "cd android && ./gradlew assemblefoodNestsRelease",
+    "tasmeemdispatcher": "react-native run-android --variant=tasmeemDebug",
+    "tasmeemdispatcherRelease": "cd android && ./gradlew assembletasmeemRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",

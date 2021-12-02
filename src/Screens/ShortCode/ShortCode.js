@@ -750,6 +750,12 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.tasmeem:
+          updateState({
+            shortCode: shortCodes.tasmeem,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, []);

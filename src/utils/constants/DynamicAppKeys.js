@@ -114,6 +114,7 @@ const shortCodes = {
   seaeats: '8f52c7',
   enext: '3958ed',
   foodNests: '1f418c',
+  tasmeem: '0c22e1',
 };
 
 // Goody Dispatch
@@ -567,6 +568,10 @@ const appIds = {
   foodNests: Platform.select({
     ios: 'com.FoodNests.Dispatch',
     android: 'com.FoodNests.royodispatcher',
+  }),
+  tasmeem: Platform.select({
+    ios: 'com.Tasmeem.Dispatch',
+    android: "com.tasmeem.royodispatcher",
   }),
 };
 
