@@ -428,6 +428,7 @@
 		84150AD62743B27E00907D84 /* YeboyInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84150AD42743B27E00907D84 /* YeboyInfo.plist */; };
 		84150C542743B9C900907D84 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84150C532743B9C900907D84 /* GoogleService-Info.plist */; };
 		84150CA22743B9D300907D84 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84150CA12743B9D300907D84 /* GoogleService-Info.plist */; };
+		84196F7F2757B70300B0F31F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84196F7E2757B70300B0F31F /* GoogleService-Info.plist */; };
 		842321ED272121A50063F4AF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		842321EE272121A50063F4AF /* RoyoDriverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E4480626E87ED800452095 /* RoyoDriverApp.swift */; };
 		842321EF272121A50063F4AF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -1616,7 +1617,6 @@
 		84E3675B2722BB08000E2B92 /* campton-book.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC526E9E6D20066EEEE /* campton-book.ttf */; };
 		84E3675E2722BB08000E2B92 /* campton-semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC326E9E6D20066EEEE /* campton-semibold.ttf */; };
 		84E367792722BBE4000E2B92 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84E367782722BBE4000E2B92 /* Images.xcassets */; };
-		84E3678B2722BC1B000E2B92 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84E3678A2722BC1A000E2B92 /* GoogleService-Info.plist */; };
 		84E367BD2722BC61000E2B92 /* Cabdelivr(Development).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 84E367BC2722BC61000E2B92 /* Cabdelivr(Development).xcconfig */; };
 		84E367CF2722BC88000E2B92 /* Cabdelivr(Production).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 84E367CE2722BC88000E2B92 /* Cabdelivr(Production).xcconfig */; };
 		84E367E12722BDA8000E2B92 /* CabdelivrInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84E367E02722BDA8000E2B92 /* CabdelivrInfo.plist */; };
@@ -2256,6 +2256,7 @@
 		84150C532743B9C900907D84 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84150CA12743B9D300907D84 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8417B56454372361E55C7F1D /* Pods-Mobi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobi.debug.xcconfig"; path = "Target Support Files/Pods-Mobi/Pods-Mobi.debug.xcconfig"; sourceTree = "<group>"; };
+		84196F7E2757B70300B0F31F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8423220A272121A50063F4AF /* YogoFood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YogoFood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84232216272122250063F4AF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		842322212721224A0063F4AF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -2706,7 +2707,6 @@
 		84E366252722770B000E2B92 /* ElogInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ElogInfo.plist; sourceTree = "<group>"; };
 		84E367652722BB08000E2B92 /* Cabdelivr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cabdelivr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E367782722BBE4000E2B92 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		84E3678A2722BC1A000E2B92 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84E367BC2722BC61000E2B92 /* Cabdelivr(Development).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Cabdelivr(Development).xcconfig"; sourceTree = "<group>"; };
 		84E367CE2722BC88000E2B92 /* Cabdelivr(Production).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Cabdelivr(Production).xcconfig"; sourceTree = "<group>"; };
 		84E367E02722BDA8000E2B92 /* CabdelivrInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CabdelivrInfo.plist; sourceTree = "<group>"; };
@@ -5439,7 +5439,7 @@
 		84E367772722BBBC000E2B92 /* Cabdelivr */ = {
 			isa = PBXGroup;
 			children = (
-				84E3678A2722BC1A000E2B92 /* GoogleService-Info.plist */,
+				84196F7E2757B70300B0F31F /* GoogleService-Info.plist */,
 				84E367782722BBE4000E2B92 /* Images.xcassets */,
 				84E367BC2722BC61000E2B92 /* Cabdelivr(Development).xcconfig */,
 				84E367CE2722BC88000E2B92 /* Cabdelivr(Production).xcconfig */,
@@ -10557,7 +10557,7 @@
 				84E367572722BB08000E2B92 /* Images.xcassets in Resources */,
 				84E367582722BB08000E2B92 /* campton-light.ttf in Resources */,
 				84E367792722BBE4000E2B92 /* Images.xcassets in Resources */,
-				84E3678B2722BC1B000E2B92 /* GoogleService-Info.plist in Resources */,
+				84196F7F2757B70300B0F31F /* GoogleService-Info.plist in Resources */,
 				84E367592722BB08000E2B92 /* campton-medium.ttf in Resources */,
 				84E3675A2722BB08000E2B92 /* notification.mp3 in Resources */,
 				84E3675B2722BB08000E2B92 /* campton-book.ttf in Resources */,
@@ -30904,8 +30904,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = RoyoDriverApp/RoyoDriverAppRelease.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = 6FXUMT5X23;
+				DEVELOPMENT_TEAM = SB6U8NWKYV;
 				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
@@ -30927,6 +30929,7 @@
 				PROJECT_BUNDLE_ID = "$(PROJECT_BUNDLE_ID)";
 				PROJECT_NAME = "${PROJECT_NAME}";
 				PROJECT_PLIST = "$(PROJECT_PLIST)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "RoyoDriverApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -30944,7 +30947,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = 6FXUMT5X23;
+				DEVELOPMENT_TEAM = SB6U8NWKYV;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -30965,7 +30968,7 @@
 				PROJECT_BUNDLE_ID = "$(PROJECT_BUNDLE_ID)";
 				PROJECT_NAME = "${PROJECT_NAME}";
 				PROJECT_PLIST = "$(PROJECT_PLIST)";
-				PROVISIONING_PROFILE_SPECIFIER = "Royo Dispatch [AppStore]";
+				PROVISIONING_PROFILE_SPECIFIER = "cabdelivr[AppStore";
 				SWIFT_OBJC_BRIDGING_HEADER = "RoyoDriverApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";

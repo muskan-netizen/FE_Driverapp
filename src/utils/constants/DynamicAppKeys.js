@@ -179,7 +179,7 @@ const appIds = {
     android: 'com.Elog.royodispatcher',
   }),
   cabdelivr: Platform.select({
-    ios: 'com.Cabdelivr.Dispatch',
+    ios: 'com.CabdelivrApp.Dispatch',
     android: 'com.cabdelivr.royodispatcher',
   }),
   drivree: Platform.select({
