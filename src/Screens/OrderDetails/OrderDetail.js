@@ -59,14 +59,10 @@ export default function OrderDetail() {
                                     <View style={{flexDirection: 'row'}}>
                                       <Text
                                         style={styles.cartItemWeight2}
-                                        numberOfLines={1}>
-                                        {j.title}{' '}
-                                      </Text>
+                                        numberOfLines={1}></Text>
                                       <Text
                                         style={styles.cartItemWeight2}
-                                        numberOfLines={
-                                          1
-                                        }>{`(${j.option})`}</Text>
+                                        numberOfLines={1}></Text>
                                     </View>
                                   );
                                 })
@@ -82,9 +78,7 @@ export default function OrderDetail() {
                             <Text style={styles.cartItemPrice}>
                               {`${
                                 // Number(i?.pvariant?.multiplier) *
-                                currencyNumberFormatter(
-                                  Number(i?.price).toFixed(2),
-                                )
+                                currencyNumberFormatter(Number(100).toFixed(2))
                               }`}
                             </Text>
                           </View>

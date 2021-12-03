@@ -140,9 +140,9 @@ const TaskListCard = ({
         </View>
 
         <View style={styles.dotViewStyle}>
-          <TouchableOpacity onPress={_onPressTaskDetails}>
+          {/* <TouchableOpacity onPress={_onPressTaskDetails}>
             <Text>Order Details</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
           <View style={styles.dotBaseViewStyle} />
           <View
             style={[
@@ -225,7 +225,7 @@ export function stylesFunc({defaultLanguagae}) {
     dotViewStyle: {
       flex: 0.4,
       alignItems: defaultLanguagae?.value === 'ar' ? 'flex-start' : 'flex-end',
-
+      justifyContent: 'center',
       margin: moderateScale(10),
     },
     dotBaseViewStyle: {
