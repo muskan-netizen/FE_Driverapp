@@ -221,7 +221,6 @@ export function stylesFunc({defaultLanguagae}) {
       flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
       marginTop: moderateScale(5),
     },
-
     dotViewStyle: {
       flex: 0.4,
       alignItems: defaultLanguagae?.value === 'ar' ? 'flex-start' : 'flex-end',
