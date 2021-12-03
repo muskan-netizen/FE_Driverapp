@@ -358,7 +358,9 @@ export default function DashBoard({route, navigation}) {
     console.log('Here it is', item);
     moveToNewScreen(navigationStrings.TASKDETAIL, {item: item})();
   };
-
+  const _onPressTaskDetails = item => {
+    moveToNewScreen(navigationStrings.ORDERDETAIL, {item: item})();
+  };
   const renderTaskList = ({item, index}) => {
     let allData = selectedOption ? allTasks : todaysTasks;
 
@@ -369,6 +371,7 @@ export default function DashBoard({route, navigation}) {
         previousData={index > 0 ? allData[index - 1] : null}
         allTasks={allData}
         _onPressTask={() => _onPressTask(item)}
+        _onPressTaskDetails={() => _onPressTaskDetails()}
       />
     );
   };
@@ -474,7 +477,8 @@ export default function DashBoard({route, navigation}) {
     const interval = setInterval(() => {
       requestUserPermission(toggleWarning);
     }, 1000);
-    if (!isWarningAlert && interval && (fcmToken||warningStatus)) clearInterval(interval);
+    if (!isWarningAlert && interval && (fcmToken || warningStatus))
+      clearInterval(interval);
     updateState({warningStatus: 1});
     return () => {
       if (interval) clearInterval(interval);

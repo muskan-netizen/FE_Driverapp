@@ -21,5 +21,6 @@ export default {
   SETTINGS: 'Settings',
   APPSETTINGSSTACK: 'AppsettingStack',
   WALLET: 'Wallet',
-  CONTACTUS:'ContactUs'
+  CONTACTUS: 'ContactUs',
+  ORDERDETAIL: 'OrderDetail',
 };
