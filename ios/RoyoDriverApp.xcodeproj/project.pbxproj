@@ -10,7 +10,7 @@
 		015B9E87606B4A003D23FAA6 /* libPods-Tasmeem.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C8D15A3625863DBE4000D22E /* libPods-Tasmeem.a */; };
 		044DEFACDCBDDDC1C2F6F905 /* libPods-AgriOnlineRider.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71FAC7516D26E0E6135343C8 /* libPods-AgriOnlineRider.a */; };
 		04F46A6C7BD0CE5187D0D607 /* libPods-MokabFix.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84DAB1458622B3B3DF8CFEE2 /* libPods-MokabFix.a */; };
-		05624F7FB363ABD1A3F3B3FE /* libPods-RoyoDriverApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07F5F9DFDEF7173269B0EA53 /* libPods-RoyoDriverApp.a */; };
+		05624F7FB363ABD1A3F3B3FE /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
 		0749BD89F2A40027F079D62F /* libPods-BotSeat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB5B671F9DBA2D220B60E6A4 /* libPods-BotSeat.a */; };
 		079A84298D05490681F14641 /* libPods-HelpNowRightNow.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C05D1304447D60FE01E505EF /* libPods-HelpNowRightNow.a */; };
 		093ED89E09DC14316C2F9DC9 /* libPods-ThreadAgain.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 685D02119194968C3CEB732B /* libPods-ThreadAgain.a */; };
@@ -544,8 +544,6 @@
 		842ECC1E27589AD200083147 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		842ECC1F27589AD200083147 /* RoyoDriverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E4480626E87ED800452095 /* RoyoDriverApp.swift */; };
 		842ECC2027589AD200083147 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		842ECC2B27589AD200083147 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		842ECC2C27589AD200083147 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
 		842ECC3127589AD200083147 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		842ECC3227589AD200083147 /* RoyoDriverInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8404E588271EE077000D6E95 /* RoyoDriverInfo.plist */; };
 		842ECC3327589AD200083147 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
@@ -1841,7 +1839,7 @@
 		84F46D1C2754D96B00C4AA99 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84F46D1B2754D96B00C4AA99 /* Images.xcassets */; };
 		84F46D8A2754D9E300C4AA99 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84F46D892754D9E200C4AA99 /* GoogleService-Info.plist */; };
 		84F46DF82754D9FF00C4AA99 /* DoorStepInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84F46DF72754D9FF00C4AA99 /* DoorStepInfo.plist */; };
-		84F4786E4FD42E8DE808E843 /* libPods-RoyoDriverApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44AFAAC144AF5F7D71F7A0F4 /* libPods-RoyoDriverApp.a */; };
+		84F4786E4FD42E8DE808E843 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
 		84F7E627274B9F1E003EB8D2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		84F7E628274B9F1E003EB8D2 /* RoyoDriverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E4480626E87ED800452095 /* RoyoDriverApp.swift */; };
 		84F7E629274B9F1E003EB8D2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -1875,6 +1873,7 @@
 		84F7EEA3274BACF1003EB8D2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84F7EEA2274BACF0003EB8D2 /* GoogleService-Info.plist */; };
 		84F7EF63274BAD96003EB8D2 /* DoctaTransportation(Development).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 84F7EF62274BAD96003EB8D2 /* DoctaTransportation(Development).xcconfig */; };
 		871170A2630D269A46710824 /* libPods-EzMobileFuel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17288C07C104D453B7A59C94 /* libPods-EzMobileFuel.a */; };
+		87BE6DA081513E9370745F2D /* libPods-RoyoDriverApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B5836A3D17DE6099B54960E /* libPods-RoyoDriverApp.a */; };
 		8AC15460247BE462D8672E35 /* libPods-Carroai.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 412E272635155D463A4115D8 /* libPods-Carroai.a */; };
 		8C150B41FD6559C4B640F755 /* libPods-Zest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 060117EA0C62A5E337C966A4 /* libPods-Zest.a */; };
 		8CBBF878776F68A1F96A4AB0 /* libPods-Baytukom.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 72814AFA2D8FC297572319D2 /* libPods-Baytukom.a */; };
@@ -2052,6 +2051,7 @@
 		492AA8684E0CE93E2C4D222E /* Pods-Stonses.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stonses.debug.xcconfig"; path = "Target Support Files/Pods-Stonses/Pods-Stonses.debug.xcconfig"; sourceTree = "<group>"; };
 		4A10F25A57567F7380128B39 /* libPods-Ored.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Ored.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AE1E37C935DD7F786E87E5C /* Pods-Yeboy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yeboy.release.xcconfig"; path = "Target Support Files/Pods-Yeboy/Pods-Yeboy.release.xcconfig"; sourceTree = "<group>"; };
+		4B5836A3D17DE6099B54960E /* libPods-RoyoDriverApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RoyoDriverApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B6FBB44603ACE39A3B81EFC /* Pods-LoopWhole.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoopWhole.debug.xcconfig"; path = "Target Support Files/Pods-LoopWhole/Pods-LoopWhole.debug.xcconfig"; sourceTree = "<group>"; };
 		4B9E80D5C045EB8A5CFEA672 /* libPods-RoyoDriverApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RoyoDriverApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CEE915258E0B6CF9429DC70 /* libPods-Ace.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Ace.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2992,8 +2992,9 @@
 				678D2FFFDE2D6D542F47FA8C /* BuildFile in Frameworks */,
 				6E66666F8E63C6FBDE77878D /* BuildFile in Frameworks */,
 				59EE1734C6E4170E7D055A39 /* libPods-RoyoDriverApp.a in Frameworks */,
-				84F4786E4FD42E8DE808E843 /* libPods-RoyoDriverApp.a in Frameworks */,
-				05624F7FB363ABD1A3F3B3FE /* libPods-RoyoDriverApp.a in Frameworks */,
+				84F4786E4FD42E8DE808E843 /* BuildFile in Frameworks */,
+				05624F7FB363ABD1A3F3B3FE /* BuildFile in Frameworks */,
+				87BE6DA081513E9370745F2D /* libPods-RoyoDriverApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4116,6 +4117,7 @@
 				687BA5C1765809B47BE03BF7 /* libPods-Seaeats.a */,
 				EA2F29E452E35112D7C6AB95 /* libPods-FoodNests.a */,
 				C8D15A3625863DBE4000D22E /* libPods-Tasmeem.a */,
+				4B5836A3D17DE6099B54960E /* libPods-RoyoDriverApp.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
