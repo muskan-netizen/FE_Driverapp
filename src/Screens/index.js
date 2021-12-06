@@ -14,4 +14,4 @@ export {default as Signup} from './Auth/Signup/Signup';
 export {default as Settings} from './Settings/Settings';
 export {default as Wallet} from './Wallet/Wallet';
 export {default as ContactUs} from './ContactUs/ContactUs';
-
+export {default as OrderDetail} from './OrderDetails/OrderDetail';
