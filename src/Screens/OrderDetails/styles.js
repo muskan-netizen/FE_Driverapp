@@ -1,15 +1,15 @@
 import {StyleSheet} from 'react-native';
 import colors from '../../styles/colors';
+import commonStyles from '../../styles/commonStyles';
 import commonStylesFunc from '../../styles/commonStyles';
+import fontFamily from '../../styles/fontFamily';
 import {
   moderateScale,
   moderateScaleVertical,
   textScale,
   width,
 } from '../../styles/responsiveSize';
-
-export default () => {
-  const commonStyles = commonStylesFunc({fontFamily});
+export function stylesFunc({defaultLanguagae}) {
   const styles = StyleSheet.create({
     scrollviewHorizontal: {
       borderTopWidth: 1,
@@ -23,6 +23,7 @@ export default () => {
       marginRight: moderateScale(20),
       alignSelf: 'center',
     },
+
     mainComponent: {
       flex: 1,
       backgroundColor: colors.backgroundGrey,
@@ -45,11 +46,12 @@ export default () => {
       opacity: 0.4,
     },
     topLable: {
-      flexDirection: 'row',
+      flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
       paddingHorizontal: moderateScale(16),
+      backgroundColor: colors.white,
     },
     deliveryLocationAndTime: {
-      ...commonStyles.mediumFont14,
+      fontSize: textScale(14),
       color: colors.textGreyB,
       // marginHorizontal: 10,
     },
@@ -61,7 +63,7 @@ export default () => {
       alignItems: 'center',
     },
     vendorView: {
-      flexDirection: 'row',
+      flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
       height: moderateScaleVertical(35),
       // backgroundColor: colors.white,
       alignItems: 'center',
@@ -77,11 +79,12 @@ export default () => {
       alignSelf: 'center',
     },
     vendorText: {
-      ...commonStyles.futuraHeavyBt,
       marginRight: moderateScale(20),
       color: colors.blackB,
       opacity: 1,
       // alignSelf: 'center',
+      fontSize: textScale(16),
+      fontFamily: fontFamily.bold,
     },
     offersView: {
       backgroundColor: colors.lightGreyBgB,
@@ -112,14 +115,15 @@ export default () => {
       paddingRight: moderateScale(5),
     },
     priceSection: {
-      // backgroundColor: colors.lightGreyBgB,
-      paddingHorizontal: moderateScale(20),
+      backgroundColor: colors.lightGreyBgB,
+      paddingHorizontal: moderateScale(12),
       marginTop: moderateScaleVertical(10),
     },
     price: {
       color: colors.textGrey,
       fontFamily: fontFamily.bold,
       fontSize: textScale(14),
+      textAlign: defaultLanguagae?.value === 'ar' ? 'right' : 'left',
     },
     priceItemLabel: {
       color: colors.textGreyB,
@@ -139,12 +143,12 @@ export default () => {
     },
     selectedMethod: {
       color: colors.textGrey,
-      fontFamily: fontFamily.bold,
-      fontSize: textScale(14),
+      fontFamily: fontFamily.medium,
+      fontSize: textScale(12),
       marginLeft: moderateScale(10),
     },
     paymentMainView: {
-      flexDirection: 'row',
+      flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
       alignItems: 'center',
       paddingHorizontal: moderateScaleVertical(20),
       paddingVertical: moderateScaleVertical(10),
@@ -153,7 +157,7 @@ export default () => {
 
     //   cart item design start from here
     cartItemMainContainer: {
-      flexDirection: 'row',
+      flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
       paddingVertical: moderateScaleVertical(10),
       paddingHorizontal: moderateScale(10),
       backgroundColor: colors.white,
@@ -203,7 +207,7 @@ export default () => {
       // paddingHorizontal: moderateScale(20),
       backgroundColor: colors.cartItemAddRemoveBtn,
       borderRadius: moderateScale(5),
-      flexDirection: 'row',
+      flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
       justifyContent: 'space-evenly',
       paddingVertical: moderateScaleVertical(3),
     },
@@ -236,7 +240,7 @@ export default () => {
     },
 
     itemPriceDiscountTaxView: {
-      flexDirection: 'row',
+      flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
       justifyContent: 'space-between',
       marginVertical: moderateScaleVertical(5),
       marginHorizontal: moderateScale(10),
@@ -251,17 +255,19 @@ export default () => {
       alignItems: 'center',
     },
     bottomTabLableValue: {
-      flexDirection: 'row',
+      flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
       justifyContent: 'space-between',
       marginVertical: moderateScaleVertical(5),
     },
     amountPayable: {
-      flexDirection: 'row',
+      flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
       justifyContent: 'space-between',
       marginVertical: moderateScaleVertical(10),
+      borderTopWidth: 0.3,
+      borderColor: colors.textGreyLight,
     },
     paymentView: {
-      flexDirection: 'row',
+      flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
       alignItems: 'center',
       justifyContent: 'space-around',
       marginVertical: moderateScaleVertical(20),
@@ -282,10 +288,11 @@ export default () => {
       borderStyle: 'dashed',
     },
     address: {
-      // marginLeft:moderateScale(5),
+      marginLeft: defaultLanguagae?.value === 'ar' ? moderateScale(5) : 0,
       fontFamily: fontFamily.medium,
       color: colors.lightGreyBgColor,
-      fontSize: textScale(10),
+      fontSize: textScale(14),
+      marginRight: defaultLanguagae?.value === 'ar' ? moderateScale(5) : 0,
     },
     imageStyle: {
       height: width / 4.5,
@@ -343,4 +350,4 @@ export default () => {
     },
   });
   return styles;
-};
+}

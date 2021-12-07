@@ -697,7 +697,9 @@ export default function TaskDetail({route, navigation}) {
               <Text style={styles.customerName}>
                 {taskDetail?.order?.customer?.name}
               </Text>
-              <Text>Tracking id:-{taskDetail?.order?.unique_id}</Text>
+              <Text style={{fontFamily: fontFamily.medium}}>
+                Tracking id:-{taskDetail?.order?.unique_id}
+              </Text>
             </View>
           )}
 

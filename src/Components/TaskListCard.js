@@ -39,6 +39,8 @@ const TaskListCard = ({
     return local;
   };
 
+  console.log(data, 'datadata');
+
   //get BackGroundColor
   const getBackGroudColor = name => {
     switch (name) {
@@ -140,9 +142,12 @@ const TaskListCard = ({
         </View>
 
         <View style={styles.dotViewStyle}>
-          <TouchableOpacity onPress={_onPressTaskDetails}>
-            <Text>Order Details</Text>
-          </TouchableOpacity>
+          {data?.order?.call_back_url && (
+            <TouchableOpacity onPress={_onPressTaskDetails}>
+              <Image source={imagePath.expand} />
+            </TouchableOpacity>
+          )}
+
           <View style={styles.dotBaseViewStyle} />
           <View
             style={[
@@ -221,11 +226,10 @@ export function stylesFunc({defaultLanguagae}) {
       flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
       marginTop: moderateScale(5),
     },
-
     dotViewStyle: {
       flex: 0.4,
       alignItems: defaultLanguagae?.value === 'ar' ? 'flex-start' : 'flex-end',
-
+      justifyContent: 'center',
       margin: moderateScale(10),
     },
     dotBaseViewStyle: {
