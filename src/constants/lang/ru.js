@@ -153,4 +153,5 @@ export default {
   PAYMENTMETHOD: 'Payment Method',
   PLACEDON: 'Placed On',
   ORDERDETAILS: 'Order Details',
+  VENDOR: 'Vendor',
 };

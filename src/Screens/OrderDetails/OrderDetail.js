@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {View, Text, FlatList, Image, TouchableOpacity} from 'react-native';
+import {useSelector} from 'react-redux';
 import Header from '../../Components/Header';
 import WrapperContainer from '../../Components/WrapperContainer';
 import imagePath from '../../constants/imagePath';
@@ -15,7 +16,7 @@ import {
 } from '../../styles/responsiveSize';
 import {currencyNumberFormatter} from '../../utils/commonFunction';
 import {getImageUrl} from '../../utils/helperFunctions';
-import styles from './styles';
+import {stylesFunc} from './styles';
 
 export default function OrderDetail({route, navigation}) {
   let paramData = route?.params?.data?.item;
@@ -26,8 +27,12 @@ export default function OrderDetail({route, navigation}) {
     isLoading: false,
   });
   const {allVendorsData, cartData, isLoading} = state;
-
   const updateState = data => setState(state => ({...state, ...data}));
+
+  const defaultLanguagae = useSelector(
+    state => state?.initBoot?.defaultLanguage,
+  );
+  const styles = stylesFunc({defaultLanguagae});
 
   const new_dispatch_traking_url = paramData?.order?.call_back_url
     ? (paramData?.order?.call_back_url).replace(
@@ -49,7 +54,6 @@ export default function OrderDetail({route, navigation}) {
     actions
       .getProductUpdateDetails(new_dispatch_traking_url, {})
       .then(res => {
-        console.log(res, 'response in order details');
         updateState({
           allVendorsData: res?.data?.vendors,
           cartData: res?.data,
@@ -76,8 +80,14 @@ export default function OrderDetail({route, navigation}) {
         </View>
         <View style={{paddingHorizontal: moderateScale(10)}}>
           <Text
-            style={{fontFamily: fontFamily.regular, fontSize: textScale(12)}}>
-            Vendor
+            style={{
+              fontFamily: fontFamily.regular,
+              fontSize: textScale(12),
+              textAlign: defaultLanguagae?.value == 'ar' ? 'right' : 'left',
+              marginHorizontal:
+                defaultLanguagae?.value == 'ar' ? moderateScale(20) : 0,
+            }}>
+            {strings.VENDOR}
           </Text>
         </View>
 
@@ -107,14 +117,20 @@ export default function OrderDetail({route, navigation}) {
                       <View style={styles.cartItemDetailsCon}>
                         <View
                           style={{
-                            flexDirection: 'row',
+                            flexDirection:
+                              defaultLanguagae?.value == 'ar'
+                                ? 'row-reverse'
+                                : 'row',
                             justifyContent: 'space-between',
                           }}>
                           <View
                             style={{
                               flex: 0.7,
                               justifyContent: 'center',
-                              alignItems: 'flex-start',
+                              alignItems:
+                                defaultLanguagae?.value == 'ar'
+                                  ? 'flex-end'
+                                  : 'flex-start',
                             }}>
                             <Text
                               numberOfLines={2}
@@ -124,7 +140,13 @@ export default function OrderDetail({route, navigation}) {
                             {i?.variant_options.length
                               ? i?.variant_options.map((j, jnx) => {
                                   return (
-                                    <View style={{flexDirection: 'row'}}>
+                                    <View
+                                      style={{
+                                        flexDirection:
+                                          defaultLanguagae?.value == 'ar'
+                                            ? 'row-reverse'
+                                            : 'row',
+                                      }}>
                                       <Text
                                         style={styles.cartItemWeight2}
                                         numberOfLines={1}>
@@ -145,7 +167,10 @@ export default function OrderDetail({route, navigation}) {
                             style={{
                               flex: 0.5,
                               justifyContent: 'center',
-                              alignItems: 'flex-end',
+                              alignItems:
+                                defaultLanguagae?.value == 'ar'
+                                  ? 'flex-start'
+                                  : 'flex-end',
                             }}>
                             <Text style={styles.cartItemPrice}>{i?.price}</Text>
                           </View>
@@ -153,12 +178,21 @@ export default function OrderDetail({route, navigation}) {
 
                         <View
                           style={{
-                            flexDirection: 'row',
+                            flexDirection:
+                              defaultLanguagae?.value == 'ar'
+                                ? 'row-reverse'
+                                : 'row',
                             justifyContent: 'space-between',
                           }}>
                           <View style={{flex: 0.5, justifyContent: 'center'}}>
                             {i?.quantity && (
-                              <View style={{flexDirection: 'row'}}>
+                              <View
+                                style={{
+                                  flexDirection:
+                                    defaultLanguagae?.value == 'ar'
+                                      ? 'row-reverse'
+                                      : 'row',
+                                }}>
                                 <Text
                                   style={{
                                     color: colors.textGrey,
@@ -337,7 +371,8 @@ export default function OrderDetail({route, navigation}) {
           <View style={[styles.topLable, {marginTop: moderateScale(10)}]}>
             <View
               style={{
-                flexDirection: 'row',
+                flexDirection:
+                  defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
                 alignItems: 'center',
                 backgroundColor: colors.white,
               }}>
@@ -348,14 +383,18 @@ export default function OrderDetail({route, navigation}) {
           </View>
           <View
             style={{
-              flex: 0.7,
-              flexWrap: 'wrap',
+              flexWrap:
+                defaultLanguagae?.value === 'ar' ? 'wrap-reverse' : 'wrap',
               justifyContent: 'center',
               alignItems: 'center',
               paddingHorizontal: moderateScale(15),
               marginTop: moderateScaleVertical(10),
             }}>
-            <View style={{flexDirection: 'row'}}>
+            <View
+              style={{
+                flexDirection:
+                  defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
+              }}>
               <Image source={imagePath.map1} />
               <Text numberOfLines={1} style={styles.address}>
                 {cartData?.address?.address}
@@ -365,14 +404,16 @@ export default function OrderDetail({route, navigation}) {
 
           <View
             style={{
-              flexDirection: 'row',
+              flexDirection:
+                defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
               justifyContent: 'space-between',
               marginVertical: moderateScaleVertical(5),
             }}>
             <View style={{marginLeft: moderateScale(10)}}>
               <View
                 style={{
-                  flexDirection: 'row',
+                  flexDirection:
+                    defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
                   marginTop: moderateScaleVertical(10),
                   justifyContent: 'space-between',
                   width: width - 20,
@@ -396,7 +437,8 @@ export default function OrderDetail({route, navigation}) {
           <View style={{marginLeft: moderateScale(10)}}>
             <View
               style={{
-                flexDirection: 'row',
+                flexDirection:
+                  defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
                 marginTop: moderateScaleVertical(4),
                 justifyContent: 'space-between',
                 width: width - 20,
@@ -413,7 +455,8 @@ export default function OrderDetail({route, navigation}) {
           <View style={{marginLeft: moderateScale(10)}}>
             <View
               style={{
-                flexDirection: 'row',
+                flexDirection:
+                  defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
                 marginTop: moderateScaleVertical(10),
                 justifyContent: 'space-between',
                 width: width - 20,
