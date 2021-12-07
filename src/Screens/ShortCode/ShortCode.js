@@ -756,6 +756,18 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.destination_ops:
+          updateState({
+            shortCode: shortCodes.destination_ops,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.cannabus_express:
+          updateState({
+            shortCode: shortCodes.cannabus_express,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, []);

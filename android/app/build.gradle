@@ -1375,6 +1375,26 @@ android {
             applicationId "com.tasmeem.royodispatcher"
             resValue "string", "app_name", "Tasmeem Dispatch"
         }
+        destination_ops{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId "com.destinationOps.royodispatcher"
+            resValue "string", "app_name", "Destination Ops Dispatch"
+        }
+        cannabus_express{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId "com.cannabusexpress.royodispatcher"
+            resValue "string", "app_name", "Cannabus Express Dispatch"
+        }
     }
 }
 

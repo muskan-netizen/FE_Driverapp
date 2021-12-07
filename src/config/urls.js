@@ -9,7 +9,16 @@ export const API_BASE_URL = 'https://api.royodispatch.com/api';
 
 //klickmat/snabbhem app domain
 //export const API_BASE_URL = 'https://delivery.snabbhem.se/api';
-
+// pinkjet
+// export const API_BASE_URL ='https://dispatch.pinkjettaxi.com/api'
+// Yoho
+// export const API_BASE_URL = 'https://dispatch.yohopartner.com/api';
+// tranzit
+// export const API_BASE_URL = 'https://dispatch.tranzit.app/api';
+// cannabusxpress
+// export const API_BASE_URL = 'https://dispatch.cannabusxpress.com/api'
+// govachow
+// export const API_BASE_URL = 'https://dispatch.govachow.com/api'
 //Developement
 // export const API_BASE_URL = 'https://api.winhires.com/api';
 //export const API_BASE_URL = 'http://192.168.96.20:8010/api';
