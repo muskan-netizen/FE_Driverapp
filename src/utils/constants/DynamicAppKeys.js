@@ -113,6 +113,10 @@ const shortCodes = {
   doorstep: '906083',
   seaeats: '8f52c7',
   enext: '3958ed',
+  foodNests: '1f418c',
+  tasmeem: '0c22e1',
+  destination_ops: '7fd599',
+  cannabus_express: 'df5932',
 };
 
 // Goody Dispatch
@@ -178,7 +182,7 @@ const appIds = {
     android: 'com.Elog.royodispatcher',
   }),
   cabdelivr: Platform.select({
-    ios: 'com.Cabdelivr.Dispatch',
+    ios: 'com.CabdelivrApp.Dispatch',
     android: 'com.cabdelivr.royodispatcher',
   }),
   drivree: Platform.select({
@@ -562,6 +566,22 @@ const appIds = {
   enext: Platform.select({
     ios: 'com.Enext.Dispatch',
     android: 'com.Enext.royodispatcher',
+  }),
+  foodNests: Platform.select({
+    ios: 'com.FoodNests.Dispatch',
+    android: 'com.FoodNests.royodispatcher',
+  }),
+  tasmeem: Platform.select({
+    ios: 'com.Tasmeem.Dispatch',
+    android: "com.tasmeem.royodispatcher",
+  }),
+  destination_ops: Platform.select({
+    ios: 'com.DestinationOps.Dispatch',
+    android: "com.destinationOps.royodispatcher",
+  }),
+  cannabus_express: Platform.select({
+    ios: 'com.CannabusExpress.Dispatch',
+    android: "com.cannabusexpress.royodispatcher",
   }),
 };
 

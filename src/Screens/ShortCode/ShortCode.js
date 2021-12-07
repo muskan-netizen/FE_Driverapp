@@ -744,6 +744,30 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.foodNests:
+          updateState({
+            shortCode: shortCodes.foodNests,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.tasmeem:
+          updateState({
+            shortCode: shortCodes.tasmeem,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.destination_ops:
+          updateState({
+            shortCode: shortCodes.destination_ops,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.cannabus_express:
+          updateState({
+            shortCode: shortCodes.cannabus_express,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, []);
