@@ -371,7 +371,7 @@ export default function DashBoard({route, navigation}) {
         previousData={index > 0 ? allData[index - 1] : null}
         allTasks={allData}
         _onPressTask={() => _onPressTask(item)}
-        _onPressTaskDetails={() => _onPressTaskDetails()}
+        _onPressTaskDetails={() => _onPressTaskDetails(item)}
       />
     );
   };

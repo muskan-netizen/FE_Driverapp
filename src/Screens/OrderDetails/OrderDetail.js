@@ -1,37 +1,105 @@
-import React from 'react';
-import {View, Text, FlatList, Image} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {View, Text, FlatList, Image, TouchableOpacity} from 'react-native';
 import Header from '../../Components/Header';
 import WrapperContainer from '../../Components/WrapperContainer';
 import imagePath from '../../constants/imagePath';
+import strings from '../../constants/lang';
+import actions from '../../redux/actions';
 import colors from '../../styles/colors';
-import {moderateScale} from '../../styles/responsiveSize';
+import fontFamily from '../../styles/fontFamily';
+import {
+  moderateScale,
+  moderateScaleVertical,
+  textScale,
+  width,
+} from '../../styles/responsiveSize';
 import {currencyNumberFormatter} from '../../utils/commonFunction';
 import {getImageUrl} from '../../utils/helperFunctions';
 import styles from './styles';
 
-export default function OrderDetail() {
-  const _renderItem = ({item, index}) => {
-    // return <OffersCard />;
+export default function OrderDetail({route, navigation}) {
+  let paramData = route?.params?.data?.item;
 
+  const [state, setState] = useState({
+    allVendorsData: [],
+    cartData: {},
+    isLoading: false,
+  });
+  const {allVendorsData, cartData, isLoading} = state;
+
+  const updateState = data => setState(state => ({...state, ...data}));
+
+  const new_dispatch_traking_url = paramData?.order?.call_back_url
+    ? (paramData?.order?.call_back_url).replace(
+        '/dispatch-order-status-update/',
+        '/dispatch-order-status-update-details/',
+      )
+    : null;
+
+  useEffect(() => {
+    if (new_dispatch_traking_url) {
+      updateState({
+        isLoading: true,
+      });
+      _getproductUpdateDetails();
+    }
+  }, []);
+
+  const _getproductUpdateDetails = () => {
+    actions
+      .getProductUpdateDetails(new_dispatch_traking_url, {})
+      .then(res => {
+        console.log(res, 'response in order details');
+        updateState({
+          allVendorsData: res?.data?.vendors,
+          cartData: res?.data,
+          isLoading: false,
+        });
+      })
+      .catch(error =>
+        updateState({
+          isLoading: false,
+        }),
+      );
+  };
+
+  const _renderItem = ({item, index}) => {
     return (
       <View
         style={{
-          backgroundColor: '#fff',
+          backgroundColor: colors.white,
           marginHorizontal: moderateScale(10),
           marginVertical: moderateScale(10),
         }}>
         <View style={styles.vendorView}>
           <Text style={styles.vendorText}>{item?.vendor_name}</Text>
         </View>
-        {true
-          ? [1, 2].map((i, inx) => {
+        <View style={{paddingHorizontal: moderateScale(10)}}>
+          <Text
+            style={{fontFamily: fontFamily.regular, fontSize: textScale(12)}}>
+            Vendor
+          </Text>
+        </View>
+
+        {item?.products.length
+          ? item?.products.map((i, inx) => {
               if (item?.vendor_id == i?.vendor_id) {
                 return (
                   <View key={inx}>
                     <View style={[styles.cartItemMainContainer]}>
                       <View style={styles.cartItemImage}>
                         <Image
-                          source={imagePath.mail2}
+                          source={
+                            i?.image_path
+                              ? {
+                                  uri: getImageUrl(
+                                    i?.image_path?.image_fit,
+                                    i?.image_path?.image_path,
+                                    '300/300',
+                                  ),
+                                }
+                              : ''
+                          }
                           style={styles.imageStyle}
                         />
                       </View>
@@ -51,18 +119,22 @@ export default function OrderDetail() {
                             <Text
                               numberOfLines={2}
                               style={[styles.priceItemLabel2, {opacity: 0.8}]}>
-                              {i?.translation?.title}
+                              {i?.product_name}
                             </Text>
-                            {true
-                              ? [1, 2].map((j, jnx) => {
+                            {i?.variant_options.length
+                              ? i?.variant_options.map((j, jnx) => {
                                   return (
                                     <View style={{flexDirection: 'row'}}>
                                       <Text
                                         style={styles.cartItemWeight2}
-                                        numberOfLines={1}></Text>
+                                        numberOfLines={1}>
+                                        {j.title}{' '}
+                                      </Text>
                                       <Text
                                         style={styles.cartItemWeight2}
-                                        numberOfLines={1}></Text>
+                                        numberOfLines={
+                                          1
+                                        }>{`(${j.option})`}</Text>
                                     </View>
                                   );
                                 })
@@ -75,12 +147,7 @@ export default function OrderDetail() {
                               justifyContent: 'center',
                               alignItems: 'flex-end',
                             }}>
-                            <Text style={styles.cartItemPrice}>
-                              {`${
-                                // Number(i?.pvariant?.multiplier) *
-                                currencyNumberFormatter(Number(100).toFixed(2))
-                              }`}
-                            </Text>
+                            <Text style={styles.cartItemPrice}>{i?.price}</Text>
                           </View>
                         </View>
 
@@ -100,18 +167,18 @@ export default function OrderDetail() {
                                   {strings.QTY}
                                 </Text>
                                 <Text style={styles.cartItemWeight}>
-                                  {i?.quantity}
+                                  {` ${i?.quantity}`}
                                 </Text>
                               </View>
                             )}
-                            {/* {!!i?.product_addons.length && (
+                            {!!i?.product_addons.length && (
                               <View>
                                 <Text style={styles.cartItemWeight2}>
                                   {strings.EXTRA}
                                 </Text>
                               </View>
-                            )} */}
-                            {/* {i?.product_addons.length
+                            )}
+                            {i?.product_addons.length
                               ? i?.product_addons.map((j, jnx) => {
                                   return (
                                     <View style={{flexDirection: 'row'}}>
@@ -128,13 +195,13 @@ export default function OrderDetail() {
                                     </View>
                                   );
                                 })
-                              : null} */}
+                              : null}
                           </View>
                         </View>
                       </View>
                     </View>
 
-                    {/* {!!paramData?.showRating ? (
+                    {!!paramData?.showRating ? (
                       <View
                         style={{
                           flexDirection: 'row',
@@ -152,20 +219,8 @@ export default function OrderDetail() {
                           fullStarColor={colors.ORANGE}
                           starSize={15}
                         />
-                        {i?.product_rating?.rating ? (
-                          <View>
-                            <Text
-                              onPress={() => rateYourOrder(i)}
-                              style={[
-                                styles.writeAReview,
-                                {color: themeColors.primary_color},
-                              ]}>
-                              {strings.WRITE_A_REVIEW}
-                            </Text>
-                          </View>
-                        ) : null}
                       </View>
-                    ) : null} */}
+                    ) : null}
 
                     <View style={styles.dashedLine} />
                   </View>
@@ -176,96 +231,239 @@ export default function OrderDetail() {
             })
           : null}
 
-        {/* offerview */}
-        {/* <TouchableOpacity
-          disabled={item?.couponData ? true : false}
-          onPress={() => _getAllOffers(item.vendor, cartData)}
-          style={styles.offersViewB}>
-          {item?.couponData ? (
-            <View
-              style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-              <View
-                style={{flex: 0.7, flexDirection: 'row', alignItems: 'center'}}>
-                <Image source={imagePath.percent} />
-                <Text
-                  numberOfLines={1}
-                  style={[styles.viewOffers, {marginLeft: moderateScale(10)}]}>
-                  {`${strings.CODE} ${item?.couponData?.name} ${strings.APPLYED}`}
-                </Text>
-              </View>
-              <View style={{flex: 0.3, alignItems: 'flex-end'}}>
-                <Text
-                  onPress={() => _removeCoupon(item, cartData)}
-                  style={[styles.removeCoupon, {color: colors.cartItemPrice}]}>
-                  {strings.REMOVE}
-                </Text>
-              </View>
-            </View>
-          ) : (
-            <View style={{flexDirection: 'row', alignItems: 'center'}}>
-              <Image source={imagePath.percent} />
-              <Text
-                style={[styles.viewOffers, {marginLeft: moderateScale(10)}]}>
-                {strings.APPLY_PROMO_CODE}
-              </Text>
-            </View>
-          )}
-        </TouchableOpacity> */}
         {!!Number(item?.discount_amount) && (
           <View style={styles.itemPriceDiscountTaxView}>
-            <Text style={styles.priceItemLabel}>{'DISCOUNT'}</Text>
-            <Text style={styles.priceItemLabel}>{`-${currencyNumberFormatter(
-              Number(item?.discount_amount ? item?.discount_amount : 0).toFixed(
-                2,
-              ),
-            )}`}</Text>
+            <Text style={istyles.priceItemLabel}>{strings.DISCOUNT}</Text>
+            <Text style={styles.priceItemLabel}>
+              {item?.discount_amount > 0 && item?.discount_amount}
+            </Text>
           </View>
         )}
-        {!!Number(item?.delivery_fee) && (
+        {Number(item?.delivery_fee) > 0 && (
           <View style={styles.itemPriceDiscountTaxView}>
-            <Text style={styles.priceItemLabel}>{'DELIVERY CHARGES'}</Text>
-            <Text style={styles.priceItemLabel}>{`${currencyNumberFormatter(
-              Number(item?.delivery_fee ? item?.delivery_fee : 0).toFixed(2),
-            )}`}</Text>
+            <Text style={styles.priceItemLabel}>{strings.DELIVERYFEE}</Text>
+            <Text style={styles.priceItemLabel}>
+              {item?.delivery_fee > 0 && item?.delivery_fee}
+            </Text>
           </View>
         )}
         <View style={styles.itemPriceDiscountTaxView}>
-          <Text style={styles.priceItemLabel2}>{'Amount'}</Text>
-          <Text style={styles.priceItemLabel2}>{`${currencyNumberFormatter(
-            Number(item?.payable_amount ? item?.payable_amount : 0).toFixed(2),
-          )}`}</Text>
+          <Text style={styles.priceItemLabel2}>{strings.AMOUNT}</Text>
+          <Text style={styles.priceItemLabel2}>
+            {item?.payable_amount ? item?.payable_amount : 0}
+          </Text>
         </View>
+      </View>
+    );
+  };
+
+  const orderAmountDetail = () => {
+    return (
+      <View style={styles.priceSection}>
+        <Text style={styles.price}>{strings.PAYMENTSUMMERY}</Text>
+        <View
+          style={[
+            styles.bottomTabLableValue,
+            // {marginTop: moderateScaleVertical(10)},
+          ]}>
+          <Text style={styles.priceItemLabel}>{strings.SUBTOTAL}</Text>
+          <Text style={styles.priceItemLabel}>
+            {cartData?.total_amount > 0 && cartData?.total_amount}
+          </Text>
+        </View>
+        {cartData?.wallet_amount_used > 0 && (
+          <View style={styles.bottomTabLableValue}>
+            <Text style={styles.priceItemLabel}>{strings.WALLET}</Text>
+            <Text style={styles.priceItemLabel}>
+              {cartData?.wallet_amount_used > 0 && cartData?.wallet_amount_used}
+            </Text>
+          </View>
+        )}
+        {cartData?.loyalty_amount_saved > 0 && (
+          <View style={styles.bottomTabLableValue}>
+            <Text style={styles.priceItemLabel}>{strings.LOYALTY}</Text>
+            <Text style={styles.priceItemLabel}>
+              {cartData?.loyalty_amount_saved
+                ? cartData?.loyalty_amount_saved
+                : 0}
+            </Text>
+          </View>
+        )}
+
+        {cartData?.total_discount > 0 && (
+          <View style={styles.bottomTabLableValue}>
+            <Text style={styles.priceItemLabel}>{strings.TOTALDISCOUNT}</Text>
+            <Text style={styles.priceItemLabel}>
+              {cartData?.total_discount}
+            </Text>
+          </View>
+        )}
+        {cartData?.taxable_amount > 0 && (
+          <View style={styles.bottomTabLableValue}>
+            <Text style={styles.priceItemLabel}>{strings.TAXAMOUNT}</Text>
+            <Text style={styles.priceItemLabel}>
+              {cartData?.taxable_amount}
+            </Text>
+          </View>
+        )}
+
+        <View style={styles.amountPayable}>
+          <Text
+            style={[
+              styles.priceItemLabel2,
+              {marginTop: moderateScaleVertical(7)},
+            ]}>
+            {strings.TOTAL}
+          </Text>
+          <Text
+            style={[
+              styles.priceItemLabel2,
+              {marginTop: moderateScaleVertical(5)},
+            ]}>
+            {cartData?.payable_amount}
+          </Text>
+        </View>
+      </View>
+    );
+  };
+
+  const getFooter = () => {
+    return (
+      <View>
+        {/* Price section */}
+
+        {/* Delivery Location */}
+        <View style={{backgroundColor: colors.white}}>
+          <View style={[styles.topLable, {marginTop: moderateScale(10)}]}>
+            <View
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                backgroundColor: colors.white,
+              }}>
+              <Text numberOfLines={1} style={styles.deliveryLocationAndTime}>
+                {strings.DELIVERYADDERSS}
+              </Text>
+            </View>
+          </View>
+          <View
+            style={{
+              flex: 0.7,
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+              alignItems: 'center',
+              paddingHorizontal: moderateScale(15),
+              marginTop: moderateScaleVertical(10),
+            }}>
+            <View style={{flexDirection: 'row'}}>
+              <Image source={imagePath.map1} />
+              <Text numberOfLines={1} style={styles.address}>
+                {cartData?.address?.address}
+              </Text>
+            </View>
+          </View>
+
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              marginVertical: moderateScaleVertical(5),
+            }}>
+            <View style={{marginLeft: moderateScale(10)}}>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  marginTop: moderateScaleVertical(10),
+                  justifyContent: 'space-between',
+                  width: width - 20,
+                }}>
+                <Text style={styles.orderLableStyle}>
+                  {strings.ORDERNUMBER}
+                </Text>
+                <Text
+                  style={
+                    styles.selectedMethod
+                  }>{`#${cartData?.order_number}`}</Text>
+              </View>
+              {/* <View>
+              <Text style={styles.orderLableStyle}>
+                {cartData?.created_date}
+              </Text>
+            </View> */}
+            </View>
+          </View>
+
+          <View style={{marginLeft: moderateScale(10)}}>
+            <View
+              style={{
+                flexDirection: 'row',
+                marginTop: moderateScaleVertical(4),
+                justifyContent: 'space-between',
+                width: width - 20,
+              }}>
+              <Text style={styles.orderLableStyle}>
+                {strings.PAYMENTMETHOD}
+              </Text>
+              <Text style={styles.selectedMethod}>
+                {cartData?.payment_option?.title || ''}
+              </Text>
+            </View>
+          </View>
+
+          <View style={{marginLeft: moderateScale(10)}}>
+            <View
+              style={{
+                flexDirection: 'row',
+                marginTop: moderateScaleVertical(10),
+                justifyContent: 'space-between',
+                width: width - 20,
+              }}>
+              <Text style={styles.orderLableStyle}>{strings.PLACEDON}</Text>
+              <Text style={styles.selectedMethod}>
+                {cartData?.created_date}
+              </Text>
+            </View>
+          </View>
+        </View>
+        {!!paramData?.fromVendorApp ? null : orderAmountDetail()}
+        {!!cartData?.address ? null : orderAmountDetail()}
+        {/* Add instruction */}
+
+        <View style={{height: moderateScaleVertical(20)}} />
       </View>
     );
   };
 
   return (
     <WrapperContainer
-      bgColor={colors.white}
+      bgColor={colors.backgroundGrey}
       statusBarColor={colors.backgroundGrey}
-      isLoading={false}>
+      isLoading={isLoading}>
       <Header
         reverse={false}
         headerStyle={{backgroundColor: colors.white}}
         leftIcon={imagePath.backArrow}
-        centerTitle={'Order Details'}
+        centerTitle={strings.ORDERDETAILS}
         // onPressLeft={() => navigation.toggleDrawer()}
         // hideRight={true}
         // customCenter={() => customCenter()}
       />
       <View style={{height: 1, backgroundColor: colors.borderLight}} />
       <View style={styles.mainComponent}>
-        <FlatList
-          data={[1, 2, 3]}
-          showsVerticalScrollIndicator={false}
-          style={{backgroundColor: colors.backgroundGrey}}
-          keyExtractor={(item, index) => String(index)}
-          renderItem={_renderItem}
-          style={{flex: 1}}
-          contentContainerStyle={{
-            flexGrow: 1,
-          }}
-        />
+        {allVendorsData?.length ? (
+          <FlatList
+            data={allVendorsData}
+            showsVerticalScrollIndicator={false}
+            style={{backgroundColor: colors.backgroundGrey}}
+            keyExtractor={(item, index) => String(index)}
+            renderItem={_renderItem}
+            ListFooterComponent={getFooter}
+            style={{flex: 1}}
+            contentContainerStyle={{
+              flexGrow: 1,
+            }}
+          />
+        ) : null}
       </View>
     </WrapperContainer>
   );

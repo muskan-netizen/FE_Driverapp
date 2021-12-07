@@ -74,4 +74,5 @@ export default {
   navigate: require('../assets/images/ic_navigate.png'),
   placeHolder: require('../assets/images/placeholder.png'),
   support2: require('../assets/images/ic_support_2.png'),
+  map1: require('../assets/images/ic_map1.png'),
 };

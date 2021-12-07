@@ -10,7 +10,7 @@ import {
   width,
 } from '../../styles/responsiveSize';
 
-export default styles = StyleSheet.create({
+export default StyleSheet.create({
   scrollviewHorizontal: {
     borderTopWidth: 1,
     borderBottomWidth: 1,
@@ -23,6 +23,7 @@ export default styles = StyleSheet.create({
     marginRight: moderateScale(20),
     alignSelf: 'center',
   },
+
   mainComponent: {
     flex: 1,
     backgroundColor: colors.backgroundGrey,
@@ -47,9 +48,10 @@ export default styles = StyleSheet.create({
   topLable: {
     flexDirection: 'row',
     paddingHorizontal: moderateScale(16),
+    backgroundColor: colors.white,
   },
   deliveryLocationAndTime: {
-    ...commonStyles.mediumFont14,
+    fontSize: textScale(14),
     color: colors.textGreyB,
     // marginHorizontal: 10,
   },
@@ -77,11 +79,12 @@ export default styles = StyleSheet.create({
     alignSelf: 'center',
   },
   vendorText: {
-    ...commonStyles.futuraHeavyBt,
     marginRight: moderateScale(20),
     color: colors.blackB,
     opacity: 1,
     // alignSelf: 'center',
+    fontSize: textScale(16),
+    fontFamily: fontFamily.bold,
   },
   offersView: {
     backgroundColor: colors.lightGreyBgB,
@@ -112,8 +115,8 @@ export default styles = StyleSheet.create({
     paddingRight: moderateScale(5),
   },
   priceSection: {
-    // backgroundColor: colors.lightGreyBgB,
-    paddingHorizontal: moderateScale(20),
+    backgroundColor: colors.lightGreyBgB,
+    paddingHorizontal: moderateScale(12),
     marginTop: moderateScaleVertical(10),
   },
   price: {
@@ -139,8 +142,8 @@ export default styles = StyleSheet.create({
   },
   selectedMethod: {
     color: colors.textGrey,
-    fontFamily: fontFamily.bold,
-    fontSize: textScale(14),
+    fontFamily: fontFamily.medium,
+    fontSize: textScale(12),
     marginLeft: moderateScale(10),
   },
   paymentMainView: {
@@ -259,6 +262,8 @@ export default styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginVertical: moderateScaleVertical(10),
+    borderTopWidth: 0.3,
+    borderColor: colors.textGreyLight,
   },
   paymentView: {
     flexDirection: 'row',
@@ -282,10 +287,10 @@ export default styles = StyleSheet.create({
     borderStyle: 'dashed',
   },
   address: {
-    // marginLeft:moderateScale(5),
+    marginLeft: moderateScale(5),
     fontFamily: fontFamily.medium,
     color: colors.lightGreyBgColor,
-    fontSize: textScale(10),
+    fontSize: textScale(14),
   },
   imageStyle: {
     height: width / 4.5,

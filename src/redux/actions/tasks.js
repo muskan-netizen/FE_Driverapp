@@ -6,6 +6,7 @@ import {
   GETWALLETDATA,
   UPDATEONOFFDUTYSTATUS,
   UPDATETASKSTATUS,
+  GETORDERUPDATEDETAILS,
 } from '../../config/urls';
 import {apiGet, apiPost} from '../../utils/utils';
 import store from '../store';
@@ -105,6 +106,19 @@ export function sendOtpToDriver(data = {}, headers = {}) {
 export function getWalletData(uri = '', data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
     apiGet(GETWALLETDATA + uri, data, headers)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+}
+
+export function getProductUpdateDetails(uri = '', data = {}, headers = {}) {
+  console.log(uri, 'uri in actions >>>>>>>>>>>');
+  return new Promise((resolve, reject) => {
+    apiGet(uri, data, headers)
       .then(res => {
         resolve(res);
       })
