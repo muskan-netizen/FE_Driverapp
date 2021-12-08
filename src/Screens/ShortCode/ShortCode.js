@@ -768,9 +768,21 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
-          case appIds.flying_horse:
+        case appIds.flying_horse:
           updateState({
             shortCode: shortCodes.flying_horse,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.ufood:
+          updateState({
+            shortCode: shortCodes.ufood,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.servze:
+          updateState({
+            shortCode: shortCodes.servze,
             isShortcodePrefilled: true,
           });
           break;

@@ -19,6 +19,7 @@
 		0E7AE9D8D98C6E98B7E853A1 /* libPods-Yoho.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FC50CA222BDA68D60C0B625 /* libPods-Yoho.a */; };
 		11619622B5111424E74E7BD7 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		132C4F48271A99F5509B8E80 /* libPods-360Kel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AE8FA1B914409D312639FDC /* libPods-360Kel.a */; };
+		136D14AAE014CF80CB5235B1 /* libPods-UFood.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DFE01D9C397EF75E760717DE /* libPods-UFood.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -40,7 +41,7 @@
 		2EF1BAF8F7D93946E314C176 /* libPods-Taquick.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 80B2DC115B520E3FE9E6D47B /* libPods-Taquick.a */; };
 		350CEFCB7F0CBCC689AE07F6 /* libPods-ChipeTaxi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5853C560FF23AD66FBD03E04 /* libPods-ChipeTaxi.a */; };
 		3BCC5CFDB30CA40EC275D54A /* libPods-Yummiidash.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5D96578D82BDF9BE0AAED3 /* libPods-Yummiidash.a */; };
-		3EA992AA6548688920D292DE /* libPods-RoyoDriverApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE4FEA45F9AE94F0C522C799 /* libPods-RoyoDriverApp.a */; };
+		3EA992AA6548688920D292DE /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		41E02B2603D2283ED0E52E3E /* libPods-Gumastas.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F8DBDBB0C4E4A169056AB37 /* libPods-Gumastas.a */; };
 		428D0D0738647799EC08C487 /* libPods-InstaShop.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E2E33C75219D79A94AFC86 /* libPods-InstaShop.a */; };
 		43BE6FB7E738C36B341FC32D /* libPods-SwiftandValu.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EF832CD96DEEEE04623A84CD /* libPods-SwiftandValu.a */; };
@@ -347,6 +348,38 @@
 		8409D84D275F6EED000A2F39 /* FlyingHorse(Production).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 8409D84C275F6EED000A2F39 /* FlyingHorse(Production).xcconfig */; };
 		8409D84F275F6EFE000A2F39 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8409D84E275F6EFD000A2F39 /* GoogleService-Info.plist */; };
 		8409D8C4275F6F8D000A2F39 /* FlyingHorseInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8409D8C3275F6F8D000A2F39 /* FlyingHorseInfo.plist */; };
+		8409DF962760987B000A2F39 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
+		8409DF972760987B000A2F39 /* RoyoDriverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E4480626E87ED800452095 /* RoyoDriverApp.swift */; };
+		8409DF982760987B000A2F39 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		8409DFAD2760987B000A2F39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		8409DFAE2760987B000A2F39 /* RoyoDriverInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8404E588271EE077000D6E95 /* RoyoDriverInfo.plist */; };
+		8409DFAF2760987B000A2F39 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		8409DFB02760987B000A2F39 /* campton-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC426E9E6D20066EEEE /* campton-light.ttf */; };
+		8409DFB12760987B000A2F39 /* campton-medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC626E9E6D20066EEEE /* campton-medium.ttf */; };
+		8409DFB22760987B000A2F39 /* notification.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84C27C3E270EFAF100C30CA4 /* notification.mp3 */; };
+		8409DFB32760987B000A2F39 /* campton-book.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC526E9E6D20066EEEE /* campton-book.ttf */; };
+		8409DFB82760987B000A2F39 /* campton-semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC326E9E6D20066EEEE /* campton-semibold.ttf */; };
+		8409E03A2760988C000A2F39 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
+		8409E03B2760988C000A2F39 /* RoyoDriverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E4480626E87ED800452095 /* RoyoDriverApp.swift */; };
+		8409E03C2760988C000A2F39 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		8409E0512760988C000A2F39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		8409E0522760988C000A2F39 /* RoyoDriverInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8404E588271EE077000D6E95 /* RoyoDriverInfo.plist */; };
+		8409E0532760988C000A2F39 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		8409E0542760988C000A2F39 /* campton-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC426E9E6D20066EEEE /* campton-light.ttf */; };
+		8409E0552760988C000A2F39 /* campton-medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC626E9E6D20066EEEE /* campton-medium.ttf */; };
+		8409E0562760988C000A2F39 /* notification.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84C27C3E270EFAF100C30CA4 /* notification.mp3 */; };
+		8409E0572760988C000A2F39 /* campton-book.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC526E9E6D20066EEEE /* campton-book.ttf */; };
+		8409E05C2760988C000A2F39 /* campton-semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC326E9E6D20066EEEE /* campton-semibold.ttf */; };
+		8409E1C9276099C3000A2F39 /* Servze(Development).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 8409E1C8276099C3000A2F39 /* Servze(Development).xcconfig */; };
+		8409E2B5276099D9000A2F39 /* Servze(Prodcution).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 8409E2B4276099D9000A2F39 /* Servze(Prodcution).xcconfig */; };
+		8409E2B7276099E5000A2F39 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8409E2B6276099E5000A2F39 /* Images.xcassets */; };
+		8409E32E276099FD000A2F39 /* UFood(Prodcution).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 8409E32D276099FD000A2F39 /* UFood(Prodcution).xcconfig */; };
+		8409E33027609A12000A2F39 /* UFood(Development).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 8409E32F27609A12000A2F39 /* UFood(Development).xcconfig */; };
+		8409E3A727609A26000A2F39 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8409E3A627609A26000A2F39 /* Images.xcassets */; };
+		8409E41E27609A90000A2F39 /* UFoodInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8409E41D27609A90000A2F39 /* UFoodInfo.plist */; };
+		8409E49527609AA8000A2F39 /* ServzeInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8409E49427609AA8000A2F39 /* ServzeInfo.plist */; };
+		8409E7AF2760B0D2000A2F39 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8409E7AE2760B0D1000A2F39 /* GoogleService-Info.plist */; };
+		8409E8262760B12A000A2F39 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8409E8252760B129000A2F39 /* GoogleService-Info.plist */; };
 		840F4523273FC57E002ED470 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		840F4524273FC57E002ED470 /* RoyoDriverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E4480626E87ED800452095 /* RoyoDriverApp.swift */; };
 		840F4525273FC57E002ED470 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -1963,6 +1996,7 @@
 		C9104D78E412D24B6A15826E /* libPods-RoyoDriverApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 74B63D36DCEB1FBC43B3F705 /* libPods-RoyoDriverApp.a */; };
 		CB196A12A27EA9892CFA4BE8 /* libPods-ExpressDeliverys.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BDF645A45D55884367023411 /* libPods-ExpressDeliverys.a */; };
 		CD84D5FE2FFF1723E70B36B9 /* libPods-Codiner.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E372FD3B10ABA653869D592B /* libPods-Codiner.a */; };
+		CDCEDC8F6A625B499E4C9FEC /* libPods-Servze.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2008ECDAFCE9A44486DFF80F /* libPods-Servze.a */; };
 		CED1FFFABB280910F3AC800E /* libPods-Share.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEED143EBC7530289CC1FD4 /* libPods-Share.a */; };
 		D5BAB8EF4946F3FBCB8B57B1 /* libPods-Enext.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 446FB0F9F487F6ECA9476B83 /* libPods-Enext.a */; };
 		D8C86971A0542CC353301C5D /* libPods-Arena_Grub.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70D884D6F5A0F3A9F7A5BA1C /* libPods-Arena_Grub.a */; };
@@ -2014,6 +2048,7 @@
 		0C24A2AEB4DFDDFB4DE5ED10 /* Pods-Codiner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Codiner.release.xcconfig"; path = "Target Support Files/Pods-Codiner/Pods-Codiner.release.xcconfig"; sourceTree = "<group>"; };
 		0D080DF5F4AEB62F3FD9D4C3 /* Pods-Yummiidash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yummiidash.debug.xcconfig"; path = "Target Support Files/Pods-Yummiidash/Pods-Yummiidash.debug.xcconfig"; sourceTree = "<group>"; };
 		0D6C4298588121E21A624660 /* libPods-Jetrider.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Jetrider.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0DAFE8F2E49E9CFDBC99BECD /* Pods-UFood.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UFood.release.xcconfig"; path = "Target Support Files/Pods-UFood/Pods-UFood.release.xcconfig"; sourceTree = "<group>"; };
 		0F02164E36CD8B3DD7A9253C /* libPods-Elixir.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Elixir.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F022D57ACFCD4D053C6E567 /* Pods-Runrun.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runrun.debug.xcconfig"; path = "Target Support Files/Pods-Runrun/Pods-Runrun.debug.xcconfig"; sourceTree = "<group>"; };
 		0F4B087A3B3CFD000C3FDC31 /* Pods-EzMobileFuel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EzMobileFuel.debug.xcconfig"; path = "Target Support Files/Pods-EzMobileFuel/Pods-EzMobileFuel.debug.xcconfig"; sourceTree = "<group>"; };
@@ -2048,6 +2083,7 @@
 		1F432D6E1F7C239E547F884D /* Pods-Maxis.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Maxis.debug.xcconfig"; path = "Target Support Files/Pods-Maxis/Pods-Maxis.debug.xcconfig"; sourceTree = "<group>"; };
 		1FB09A16FE6AC1A5785149F1 /* Pods-LaundryOrders.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LaundryOrders.release.xcconfig"; path = "Target Support Files/Pods-LaundryOrders/Pods-LaundryOrders.release.xcconfig"; sourceTree = "<group>"; };
 		1FE756077D25ECDE9BFE3F65 /* Pods-Ace.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ace.debug.xcconfig"; path = "Target Support Files/Pods-Ace/Pods-Ace.debug.xcconfig"; sourceTree = "<group>"; };
+		2008ECDAFCE9A44486DFF80F /* libPods-Servze.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Servze.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		213B1CED244327792C5B2002 /* libPods-Tajammul.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tajammul.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21A145290B75D98761473506 /* libPods-HairstonExpress.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HairstonExpress.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21BEDC418613BA52AEFCFD03 /* Pods-Menus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Menus.debug.xcconfig"; path = "Target Support Files/Pods-Menus/Pods-Menus.debug.xcconfig"; sourceTree = "<group>"; };
@@ -2105,8 +2141,10 @@
 		45BB16F150414A885FE32427 /* Pods-HairstonExpress.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HairstonExpress.debug.xcconfig"; path = "Target Support Files/Pods-HairstonExpress/Pods-HairstonExpress.debug.xcconfig"; sourceTree = "<group>"; };
 		48EBC34BFEC737D391622AF1 /* Pods-Homeric.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Homeric.release.xcconfig"; path = "Target Support Files/Pods-Homeric/Pods-Homeric.release.xcconfig"; sourceTree = "<group>"; };
 		4901C5551B028145605D6656 /* Pods-Tasmeem.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tasmeem.debug.xcconfig"; path = "Target Support Files/Pods-Tasmeem/Pods-Tasmeem.debug.xcconfig"; sourceTree = "<group>"; };
+		490EE69EE99D1FD9783226B2 /* Pods-Servze.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Servze.debug.xcconfig"; path = "Target Support Files/Pods-Servze/Pods-Servze.debug.xcconfig"; sourceTree = "<group>"; };
 		49103D8EE3A72D787CD40672 /* libPods-Suel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Suel.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		492AA8684E0CE93E2C4D222E /* Pods-Stonses.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stonses.debug.xcconfig"; path = "Target Support Files/Pods-Stonses/Pods-Stonses.debug.xcconfig"; sourceTree = "<group>"; };
+		499FAC28226225091055C2D9 /* Pods-UFood.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UFood.debug.xcconfig"; path = "Target Support Files/Pods-UFood/Pods-UFood.debug.xcconfig"; sourceTree = "<group>"; };
 		4A10F25A57567F7380128B39 /* libPods-Ored.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Ored.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AE1E37C935DD7F786E87E5C /* Pods-Yeboy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yeboy.release.xcconfig"; path = "Target Support Files/Pods-Yeboy/Pods-Yeboy.release.xcconfig"; sourceTree = "<group>"; };
 		4B6FBB44603ACE39A3B81EFC /* Pods-LoopWhole.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoopWhole.debug.xcconfig"; path = "Target Support Files/Pods-LoopWhole/Pods-LoopWhole.debug.xcconfig"; sourceTree = "<group>"; };
@@ -2266,7 +2304,7 @@
 		8404E641271EF256000D6E95 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8404E647271EF271000D6E95 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8404E64D271EF428000D6E95 /* AfricanVillageMarketInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AfricanVillageMarketInfo.plist; sourceTree = "<group>"; };
-		8404E6CF271EFEC9000D6E95 /* Africanize Dispatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Africanize Dispatch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8404E6CF271EFEC9000D6E95 /* Africanize Deliveries.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Africanize Deliveries.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8404E6D6271EFF7A000D6E95 /* Africanize(Development).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Africanize(Development).xcconfig"; sourceTree = "<group>"; };
 		8404E6E2271EFFA3000D6E95 /* Africanize(Production).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Africanize(Production).xcconfig"; sourceTree = "<group>"; };
 		8404E6F8271F002B000D6E95 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -2296,6 +2334,18 @@
 		8409D84C275F6EED000A2F39 /* FlyingHorse(Production).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "FlyingHorse(Production).xcconfig"; sourceTree = "<group>"; };
 		8409D84E275F6EFD000A2F39 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8409D8C3275F6F8D000A2F39 /* FlyingHorseInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = FlyingHorseInfo.plist; sourceTree = "<group>"; };
+		8409DFC02760987B000A2F39 /* UFood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UFood.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8409E0642760988C000A2F39 /* Servze.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Servze.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8409E1C8276099C3000A2F39 /* Servze(Development).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Servze(Development).xcconfig"; sourceTree = "<group>"; };
+		8409E2B4276099D9000A2F39 /* Servze(Prodcution).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Servze(Prodcution).xcconfig"; sourceTree = "<group>"; };
+		8409E2B6276099E5000A2F39 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		8409E32D276099FD000A2F39 /* UFood(Prodcution).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "UFood(Prodcution).xcconfig"; sourceTree = "<group>"; };
+		8409E32F27609A12000A2F39 /* UFood(Development).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "UFood(Development).xcconfig"; sourceTree = "<group>"; };
+		8409E3A627609A26000A2F39 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		8409E41D27609A90000A2F39 /* UFoodInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = UFoodInfo.plist; sourceTree = "<group>"; };
+		8409E49427609AA8000A2F39 /* ServzeInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ServzeInfo.plist; sourceTree = "<group>"; };
+		8409E7AE2760B0D1000A2F39 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8409E8252760B129000A2F39 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		840F4562273FC57E002ED470 /* Tranznet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tranznet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		840F459B273FC627002ED470 /* Tranznet(Development).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tranznet(Development).xcconfig"; sourceTree = "<group>"; };
 		840F4609273FC647002ED470 /* Tranznet(Production).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tranznet(Production).xcconfig"; sourceTree = "<group>"; };
@@ -2978,7 +3028,6 @@
 		CD7A37CF8A2F84D5BB1C3EDF /* Pods-Donepacked.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Donepacked.debug.xcconfig"; path = "Target Support Files/Pods-Donepacked/Pods-Donepacked.debug.xcconfig"; sourceTree = "<group>"; };
 		CDAD51833398E5C45202DD2B /* Pods-HelpNowRightNow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HelpNowRightNow.debug.xcconfig"; path = "Target Support Files/Pods-HelpNowRightNow/Pods-HelpNowRightNow.debug.xcconfig"; sourceTree = "<group>"; };
 		CE2EBA94B90BB3D21180F2E9 /* Pods-SwiftandValu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftandValu.release.xcconfig"; path = "Target Support Files/Pods-SwiftandValu/Pods-SwiftandValu.release.xcconfig"; sourceTree = "<group>"; };
-		CE4FEA45F9AE94F0C522C799 /* libPods-RoyoDriverApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RoyoDriverApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEE00397D6A92D063025AD5B /* Pods-Tasmeem.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tasmeem.release.xcconfig"; path = "Target Support Files/Pods-Tasmeem/Pods-Tasmeem.release.xcconfig"; sourceTree = "<group>"; };
 		CEE1AD3828826EC5B644FB7B /* Pods-Silvestre.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Silvestre.debug.xcconfig"; path = "Target Support Files/Pods-Silvestre/Pods-Silvestre.debug.xcconfig"; sourceTree = "<group>"; };
 		CF31B5B06FF727E34DE91CC3 /* Pods-ThreadAgain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThreadAgain.release.xcconfig"; path = "Target Support Files/Pods-ThreadAgain/Pods-ThreadAgain.release.xcconfig"; sourceTree = "<group>"; };
@@ -2997,9 +3046,11 @@
 		D9AA1BFB6C95CEB47FE169C3 /* Pods-Mobi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobi.release.xcconfig"; path = "Target Support Files/Pods-Mobi/Pods-Mobi.release.xcconfig"; sourceTree = "<group>"; };
 		DCABB4116FE77EC76909A1C7 /* libPods-RoyoDriverApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RoyoDriverApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDBD672684CE7F9571A62EB8 /* Pods-Enext.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Enext.release.xcconfig"; path = "Target Support Files/Pods-Enext/Pods-Enext.release.xcconfig"; sourceTree = "<group>"; };
+		DFE01D9C397EF75E760717DE /* libPods-UFood.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UFood.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E00D1A75F64BFE27495A54F1 /* Pods-FoodNests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodNests.debug.xcconfig"; path = "Target Support Files/Pods-FoodNests/Pods-FoodNests.debug.xcconfig"; sourceTree = "<group>"; };
 		E04570DBC1DD3A4F476B8A11 /* libPods-Punnet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Punnet.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E08905DA96644B76C5A9B4C0 /* Pods-YogoFood.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YogoFood.debug.xcconfig"; path = "Target Support Files/Pods-YogoFood/Pods-YogoFood.debug.xcconfig"; sourceTree = "<group>"; };
+		E0ABF2B0ED1FFF316A643B36 /* Pods-Servze.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Servze.release.xcconfig"; path = "Target Support Files/Pods-Servze/Pods-Servze.release.xcconfig"; sourceTree = "<group>"; };
 		E1188922E562B07A72A444A5 /* Pods-BoozieDoozie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoozieDoozie.debug.xcconfig"; path = "Target Support Files/Pods-BoozieDoozie/Pods-BoozieDoozie.debug.xcconfig"; sourceTree = "<group>"; };
 		E11B572EA5F2713F71390A72 /* Pods-CareWorks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CareWorks.release.xcconfig"; path = "Target Support Files/Pods-CareWorks/Pods-CareWorks.release.xcconfig"; sourceTree = "<group>"; };
 		E1F0488A092024EE38C7E0D9 /* libPods-EquMD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EquMD.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -3078,7 +3129,7 @@
 				87BE6DA081513E9370745F2D /* (null) in Frameworks */,
 				B69DAD2A428AFEFA99A90CAE /* (null) in Frameworks */,
 				F9B866807A2168CC73A8990E /* (null) in Frameworks */,
-				3EA992AA6548688920D292DE /* libPods-RoyoDriverApp.a in Frameworks */,
+				3EA992AA6548688920D292DE /* (null) in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3215,6 +3266,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				24F41FBEDDCDBCD4EED02145 /* libPods-FlyingHorse.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8409DF992760987B000A2F39 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				136D14AAE014CF80CB5235B1 /* libPods-UFood.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8409E03D2760988C000A2F39 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDCEDC8F6A625B499E4C9FEC /* libPods-Servze.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4228,7 +4295,8 @@
 				B3AADC9E8B2D6B8D472ACC77 /* libPods-DestinationOps.a */,
 				A493527FCBAF6C38B4050D53 /* libPods-CannabusExpress.a */,
 				C313FAB0391E01F9240A3CBC /* libPods-FlyingHorse.a */,
-				CE4FEA45F9AE94F0C522C799 /* libPods-RoyoDriverApp.a */,
+				2008ECDAFCE9A44486DFF80F /* libPods-Servze.a */,
+				DFE01D9C397EF75E760717DE /* libPods-UFood.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -4266,7 +4334,7 @@
 				8463FB5D26FCA52F0058D010 /* Runrun Dispatch.app */,
 				84379B56271D921600717DC5 /* Deliverstat.app */,
 				8404E62B271EECA4000D6E95 /* AfricanVillageMarket.app */,
-				8404E6CF271EFEC9000D6E95 /* Africanize Dispatch.app */,
+				8404E6CF271EFEC9000D6E95 /* Africanize Deliveries.app */,
 				84E15242271FE1FE00E906B8 /* Tranzit.app */,
 				84E15363271FEE7600E906B8 /* Hemptify.app */,
 				84E15435271FFA0500E906B8 /* Goody.app */,
@@ -4377,6 +4445,8 @@
 				8409C8F8275F417F000A2F39 /* DestinationOps.app */,
 				8409CE66275F5B32000A2F39 /* CannabusExpress.app */,
 				8409D602275F6E17000A2F39 /* FlyingHorse.app */,
+				8409DFC02760987B000A2F39 /* UFood.app */,
+				8409E0642760988C000A2F39 /* Servze.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -4621,6 +4691,8 @@
 				8409CB38275F433E000A2F39 /* DestinationOpsInfo.plist */,
 				8409D0AB275F5C0B000A2F39 /* CannabusExpressInfo.plist */,
 				8409D8C3275F6F8D000A2F39 /* FlyingHorseInfo.plist */,
+				8409E41D27609A90000A2F39 /* UFoodInfo.plist */,
+				8409E49427609AA8000A2F39 /* ServzeInfo.plist */,
 			);
 			path = Plists;
 			sourceTree = "<group>";
@@ -4689,6 +4761,28 @@
 				8409D7D7275F6ED6000A2F39 /* FlyingHorse(Development).xcconfig */,
 			);
 			path = FlyingHorse;
+			sourceTree = "<group>";
+		};
+		8409E0DB27609915000A2F39 /* UFood */ = {
+			isa = PBXGroup;
+			children = (
+				8409E8252760B129000A2F39 /* GoogleService-Info.plist */,
+				8409E32D276099FD000A2F39 /* UFood(Prodcution).xcconfig */,
+				8409E32F27609A12000A2F39 /* UFood(Development).xcconfig */,
+				8409E3A627609A26000A2F39 /* Images.xcassets */,
+			);
+			path = UFood;
+			sourceTree = "<group>";
+		};
+		8409E0DC27609934000A2F39 /* Servze */ = {
+			isa = PBXGroup;
+			children = (
+				8409E7AE2760B0D1000A2F39 /* GoogleService-Info.plist */,
+				8409E1C8276099C3000A2F39 /* Servze(Development).xcconfig */,
+				8409E2B6276099E5000A2F39 /* Images.xcassets */,
+				8409E2B4276099D9000A2F39 /* Servze(Prodcution).xcconfig */,
+			);
+			path = Servze;
 			sourceTree = "<group>";
 		};
 		840F459A273FC5F2002ED470 /* Tranznet */ = {
@@ -5648,6 +5742,8 @@
 		84E4480A26E8C50700452095 /* Configs */ = {
 			isa = PBXGroup;
 			children = (
+				8409E0DC27609934000A2F39 /* Servze */,
+				8409E0DB27609915000A2F39 /* UFood */,
 				8409D761275F6E79000A2F39 /* FlyingHorse */,
 				8409CF4C275F5B55000A2F39 /* CannabusExpress */,
 				8409C9DC275F4242000A2F39 /* DestinationOps */,
@@ -6154,6 +6250,10 @@
 				099B139F3B042E75617ADE0D /* Pods-CannabusExpress.release.xcconfig */,
 				0B15161CE0180B0B2D4D6EF0 /* Pods-FlyingHorse.debug.xcconfig */,
 				A59EA4C612B78019D22202E0 /* Pods-FlyingHorse.release.xcconfig */,
+				490EE69EE99D1FD9783226B2 /* Pods-Servze.debug.xcconfig */,
+				E0ABF2B0ED1FFF316A643B36 /* Pods-Servze.release.xcconfig */,
+				499FAC28226225091055C2D9 /* Pods-UFood.debug.xcconfig */,
+				0DAFE8F2E49E9CFDBC99BECD /* Pods-UFood.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -6480,7 +6580,7 @@
 			);
 			name = Africanize;
 			productName = RoyoDriverApp;
-			productReference = 8404E6CF271EFEC9000D6E95 /* Africanize Dispatch.app */;
+			productReference = 8404E6CF271EFEC9000D6E95 /* Africanize Deliveries.app */;
 			productType = "com.apple.product-type.application";
 		};
 		840932AE27218F9600870369 /* Codiner */ = {
@@ -6573,6 +6673,52 @@
 			name = FlyingHorse;
 			productName = RoyoDriverApp;
 			productReference = 8409D602275F6E17000A2F39 /* FlyingHorse.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8409DF922760987B000A2F39 /* UFood */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8409DFBD2760987B000A2F39 /* Build configuration list for PBXNativeTarget "UFood" */;
+			buildPhases = (
+				8409DF932760987B000A2F39 /* [CP] Check Pods Manifest.lock */,
+				8409DF942760987B000A2F39 /* Start Packager */,
+				8409DF952760987B000A2F39 /* Sources */,
+				8409DF992760987B000A2F39 /* Frameworks */,
+				8409DFAC2760987B000A2F39 /* Resources */,
+				8409DFB92760987B000A2F39 /* Bundle React Native code and images */,
+				8409DFBA2760987B000A2F39 /* [CP] Copy Pods Resources */,
+				8409DFBB2760987B000A2F39 /* [CP-User] [RNFB] Core Configuration */,
+				8409DFBC2760987B000A2F39 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UFood;
+			productName = RoyoDriverApp;
+			productReference = 8409DFC02760987B000A2F39 /* UFood.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8409E0362760988C000A2F39 /* Servze */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8409E0612760988C000A2F39 /* Build configuration list for PBXNativeTarget "Servze" */;
+			buildPhases = (
+				8409E0372760988C000A2F39 /* [CP] Check Pods Manifest.lock */,
+				8409E0382760988C000A2F39 /* Start Packager */,
+				8409E0392760988C000A2F39 /* Sources */,
+				8409E03D2760988C000A2F39 /* Frameworks */,
+				8409E0502760988C000A2F39 /* Resources */,
+				8409E05D2760988C000A2F39 /* Bundle React Native code and images */,
+				8409E05E2760988C000A2F39 /* [CP] Copy Pods Resources */,
+				8409E05F2760988C000A2F39 /* [CP-User] [RNFB] Core Configuration */,
+				8409E0602760988C000A2F39 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Servze;
+			productName = RoyoDriverApp;
+			productReference = 8409E0642760988C000A2F39 /* Servze.app */;
 			productType = "com.apple.product-type.application";
 		};
 		840F451F273FC57E002ED470 /* Tranznet */ = {
@@ -8938,6 +9084,8 @@
 				8409C8CD275F417F000A2F39 /* DestinationOps */,
 				8409CE3A275F5B32000A2F39 /* CannabusExpress */,
 				8409D5D5275F6E17000A2F39 /* FlyingHorse */,
+				8409DF922760987B000A2F39 /* UFood */,
+				8409E0362760988C000A2F39 /* Servze */,
 			);
 		};
 /* End PBXProject section */
@@ -9293,6 +9441,46 @@
 				8409D7D8275F6ED6000A2F39 /* FlyingHorse(Development).xcconfig in Resources */,
 				8409D5FA275F6E17000A2F39 /* campton-semibold.ttf in Resources */,
 				8409D84D275F6EED000A2F39 /* FlyingHorse(Production).xcconfig in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8409DFAC2760987B000A2F39 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8409E8262760B12A000A2F39 /* GoogleService-Info.plist in Resources */,
+				8409DFAD2760987B000A2F39 /* LaunchScreen.storyboard in Resources */,
+				8409DFAE2760987B000A2F39 /* RoyoDriverInfo.plist in Resources */,
+				8409E32E276099FD000A2F39 /* UFood(Prodcution).xcconfig in Resources */,
+				8409DFAF2760987B000A2F39 /* Images.xcassets in Resources */,
+				8409E3A727609A26000A2F39 /* Images.xcassets in Resources */,
+				8409DFB02760987B000A2F39 /* campton-light.ttf in Resources */,
+				8409E41E27609A90000A2F39 /* UFoodInfo.plist in Resources */,
+				8409DFB12760987B000A2F39 /* campton-medium.ttf in Resources */,
+				8409DFB22760987B000A2F39 /* notification.mp3 in Resources */,
+				8409DFB32760987B000A2F39 /* campton-book.ttf in Resources */,
+				8409DFB82760987B000A2F39 /* campton-semibold.ttf in Resources */,
+				8409E33027609A12000A2F39 /* UFood(Development).xcconfig in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8409E0502760988C000A2F39 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8409E7AF2760B0D2000A2F39 /* GoogleService-Info.plist in Resources */,
+				8409E0512760988C000A2F39 /* LaunchScreen.storyboard in Resources */,
+				8409E1C9276099C3000A2F39 /* Servze(Development).xcconfig in Resources */,
+				8409E0522760988C000A2F39 /* RoyoDriverInfo.plist in Resources */,
+				8409E0532760988C000A2F39 /* Images.xcassets in Resources */,
+				8409E2B7276099E5000A2F39 /* Images.xcassets in Resources */,
+				8409E49527609AA8000A2F39 /* ServzeInfo.plist in Resources */,
+				8409E0542760988C000A2F39 /* campton-light.ttf in Resources */,
+				8409E2B5276099D9000A2F39 /* Servze(Prodcution).xcconfig in Resources */,
+				8409E0552760988C000A2F39 /* campton-medium.ttf in Resources */,
+				8409E0562760988C000A2F39 /* notification.mp3 in Resources */,
+				8409E0572760988C000A2F39 /* campton-book.ttf in Resources */,
+				8409E05C2760988C000A2F39 /* campton-semibold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -13714,6 +13902,210 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FlyingHorse/Pods-FlyingHorse-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8409DF932760987B000A2F39 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UFood-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8409DF942760987B000A2F39 /* Start Packager */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Start Packager";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open \"$SRCROOT/../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n  fi\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8409DFB92760987B000A2F39 /* Bundle React Native code and images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Bundle React Native code and images";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
+		};
+		8409DFBA2760987B000A2F39 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UFood/Pods-UFood-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UFood/Pods-UFood-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UFood/Pods-UFood-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8409DFBB2760987B000A2F39 /* [CP-User] [RNFB] Core Configuration */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			name = "[CP-User] [RNFB] Core Configuration";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/usr/bin/env bash\n#\n# Copyright (c) 2016-present Invertase Limited & Contributors\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this library except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#   http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing, software\n# distributed under the License is distributed on an \"AS IS\" BASIS,\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n# See the License for the specific language governing permissions and\n# limitations under the License.\n#\nset -e\n\n_MAX_LOOKUPS=2;\n_SEARCH_RESULT=''\n_RN_ROOT_EXISTS=''\n_CURRENT_LOOKUPS=1\n_JSON_ROOT=\"'react-native'\"\n_JSON_FILE_NAME='firebase.json'\n_JSON_OUTPUT_BASE64='e30=' # { }\n_CURRENT_SEARCH_DIR=${PROJECT_DIR}\n_PLIST_BUDDY=/usr/libexec/PlistBuddy\n_TARGET_PLIST=\"${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH}\"\n_DSYM_PLIST=\"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist\"\n\n# plist arrays\n_PLIST_ENTRY_KEYS=()\n_PLIST_ENTRY_TYPES=()\n_PLIST_ENTRY_VALUES=()\n\nfunction setPlistValue {\n  echo \"info:      setting plist entry '$1' of type '$2' in file '$4'\"\n  ${_PLIST_BUDDY} -c \"Add :$1 $2 '$3'\" $4 || echo \"info:      '$1' already exists\"\n}\n\nfunction getFirebaseJsonKeyValue () {\n  if [[ ${_RN_ROOT_EXISTS} ]]; then\n    ruby -e \"require 'rubygems';require 'json'; output=JSON.parse('$1'); puts output[$_JSON_ROOT]['$2']\"\n  else\n    echo \"\"\n  fi;\n}\n\nfunction jsonBoolToYesNo () {\n  if [[ $1 == \"false\" ]]; then\n    echo \"NO\"\n  elif [[ $1 == \"true\" ]]; then\n    echo \"YES\"\n  else echo \"NO\"\n  fi\n}\n\necho \"info: -> RNFB build script started\"\necho \"info: 1) Locating ${_JSON_FILE_NAME} file:\"\n\nif [[ -z ${_CURRENT_SEARCH_DIR} ]]; then\n  _CURRENT_SEARCH_DIR=$(pwd)\nfi;\n\nwhile true; do\n  _CURRENT_SEARCH_DIR=$(dirname \"$_CURRENT_SEARCH_DIR\")\n  if [[ \"$_CURRENT_SEARCH_DIR\" == \"/\" ]] || [[ ${_CURRENT_LOOKUPS} -gt ${_MAX_LOOKUPS} ]]; then break; fi;\n  echo \"info:      ($_CURRENT_LOOKUPS of $_MAX_LOOKUPS) Searching in '$_CURRENT_SEARCH_DIR' for a ${_JSON_FILE_NAME} file.\"\n  _SEARCH_RESULT=$(find \"$_CURRENT_SEARCH_DIR\" -maxdepth 2 -name ${_JSON_FILE_NAME} -print | /usr/bin/head -n 1)\n  if [[ ${_SEARCH_RESULT} ]]; then\n    echo \"info:      ${_JSON_FILE_NAME} found at $_SEARCH_RESULT\"\n    break;\n  fi;\n  _CURRENT_LOOKUPS=$((_CURRENT_LOOKUPS+1))\ndone\n\nif [[ ${_SEARCH_RESULT} ]]; then\n  _JSON_OUTPUT_RAW=$(cat \"${_SEARCH_RESULT}\")\n  _RN_ROOT_EXISTS=$(ruby -e \"require 'rubygems';require 'json'; output=JSON.parse('$_JSON_OUTPUT_RAW'); puts output[$_JSON_ROOT]\" || echo '')\n\n  if [[ ${_RN_ROOT_EXISTS} ]]; then\n    _JSON_OUTPUT_BASE64=$(python -c 'import json,sys,base64;print(base64.b64encode(json.dumps(json.loads(open('\"'${_SEARCH_RESULT}'\"').read())['${_JSON_ROOT}'])))' || echo \"e30=\")\n  fi\n\n  _PLIST_ENTRY_KEYS+=(\"firebase_json_raw\")\n  _PLIST_ENTRY_TYPES+=(\"string\")\n  _PLIST_ENTRY_VALUES+=(\"$_JSON_OUTPUT_BASE64\")\n\n  # config.app_data_collection_default_enabled\n  _APP_DATA_COLLECTION_ENABLED=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"app_data_collection_default_enabled\")\n  if [[ $_APP_DATA_COLLECTION_ENABLED ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FirebaseDataCollectionDefaultEnabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_APP_DATA_COLLECTION_ENABLED\")\")\n  fi\n\n  # config.analytics_auto_collection_enabled\n  _ANALYTICS_AUTO_COLLECTION=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"analytics_auto_collection_enabled\")\n  if [[ $_ANALYTICS_AUTO_COLLECTION ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FIREBASE_ANALYTICS_COLLECTION_ENABLED\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_ANALYTICS_AUTO_COLLECTION\")\")\n  fi\n\n  # config.analytics_collection_deactivated\n  _ANALYTICS_DEACTIVATED=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"analytics_collection_deactivated\")\n  if [[ $_ANALYTICS_DEACTIVATED ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FIREBASE_ANALYTICS_COLLECTION_DEACTIVATED\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_ANALYTICS_DEACTIVATED\")\")\n  fi\n\n  # config.analytics_idfv_collection_enabled\n  _ANALYTICS_IDFV_COLLECTION=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"analytics_idfv_collection_enabled\")\n  if [[ $_ANALYTICS_IDFV_COLLECTION ]]; then\n    _PLIST_ENTRY_KEYS+=(\"GOOGLE_ANALYTICS_IDFV_COLLECTION_ENABLED\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_ANALYTICS_IDFV_COLLECTION\")\")\n  fi\n\n  # config.analytics_default_allow_ad_personalization_signals\n  _ANALYTICS_PERSONALIZATION=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"analytics_default_allow_ad_personalization_signals\")\n  if [[ $_ANALYTICS_PERSONALIZATION ]]; then\n    _PLIST_ENTRY_KEYS+=(\"GOOGLE_ANALYTICS_DEFAULT_ALLOW_AD_PERSONALIZATION_SIGNALS\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_ANALYTICS_PERSONALIZATION\")\")\n  fi\n\n  # config.perf_auto_collection_enabled\n  _PERF_AUTO_COLLECTION=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"perf_auto_collection_enabled\")\n  if [[ $_PERF_AUTO_COLLECTION ]]; then\n    _PLIST_ENTRY_KEYS+=(\"firebase_performance_collection_enabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_PERF_AUTO_COLLECTION\")\")\n  fi\n\n  # config.perf_collection_deactivated\n  _PERF_DEACTIVATED=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"perf_collection_deactivated\")\n  if [[ $_PERF_DEACTIVATED ]]; then\n    _PLIST_ENTRY_KEYS+=(\"firebase_performance_collection_deactivated\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_PERF_DEACTIVATED\")\")\n  fi\n\n  # config.messaging_auto_init_enabled\n  _MESSAGING_AUTO_INIT=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"messaging_auto_init_enabled\")\n  if [[ $_MESSAGING_AUTO_INIT ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FirebaseMessagingAutoInitEnabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_MESSAGING_AUTO_INIT\")\")\n  fi\n\n  # config.in_app_messaging_auto_colllection_enabled\n  _FIAM_AUTO_INIT=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"in_app_messaging_auto_collection_enabled\")\n  if [[ $_FIAM_AUTO_INIT ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FirebaseInAppMessagingAutomaticDataCollectionEnabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_FIAM_AUTO_INIT\")\")\n  fi\n\n  # config.app_check_token_auto_refresh\n  _APP_CHECK_TOKEN_AUTO_REFRESH=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"app_check_token_auto_refresh\")\n  if [[ $_APP_CHECK_TOKEN_AUTO_REFRESH ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FirebaseAppCheckTokenAutoRefreshEnabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_APP_CHECK_TOKEN_AUTO_REFRESH\")\")\n  fi\n\n  # config.crashlytics_disable_auto_disabler - undocumented for now - mainly for debugging, document if becomes useful\n  _CRASHLYTICS_AUTO_DISABLE_ENABLED=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"crashlytics_disable_auto_disabler\")\n  if [[ $_CRASHLYTICS_AUTO_DISABLE_ENABLED == \"true\" ]]; then\n    echo \"Disabled Crashlytics auto disabler.\" # do nothing\n  else\n    _PLIST_ENTRY_KEYS+=(\"FirebaseCrashlyticsCollectionEnabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"NO\")\n  fi\nelse\n  _PLIST_ENTRY_KEYS+=(\"firebase_json_raw\")\n  _PLIST_ENTRY_TYPES+=(\"string\")\n  _PLIST_ENTRY_VALUES+=(\"$_JSON_OUTPUT_BASE64\")\n  echo \"warning:   A firebase.json file was not found, whilst this file is optional it is recommended to include it to configure firebase services in React Native Firebase.\"\nfi;\n\necho \"info: 2) Injecting Info.plist entries: \"\n\n# Log out the keys we're adding\nfor i in \"${!_PLIST_ENTRY_KEYS[@]}\"; do\n  echo \"    ->  $i) ${_PLIST_ENTRY_KEYS[$i]}\" \"${_PLIST_ENTRY_TYPES[$i]}\" \"${_PLIST_ENTRY_VALUES[$i]}\"\ndone\n\nfor plist in \"${_TARGET_PLIST}\" \"${_DSYM_PLIST}\" ; do\n  if [[ -f \"${plist}\" ]]; then\n\n    # paths with spaces break the call to setPlistValue. temporarily modify\n    # the shell internal field separator variable (IFS), which normally\n    # includes spaces, to consist only of line breaks\n    oldifs=$IFS\n    IFS=\"\n\"\n\n    for i in \"${!_PLIST_ENTRY_KEYS[@]}\"; do\n      setPlistValue \"${_PLIST_ENTRY_KEYS[$i]}\" \"${_PLIST_ENTRY_TYPES[$i]}\" \"${_PLIST_ENTRY_VALUES[$i]}\" \"${plist}\"\n    done\n\n    # restore the original internal field separator value\n    IFS=$oldifs\n  else\n    echo \"warning:   A Info.plist build output file was not found (${plist})\"\n  fi\ndone\n\necho \"info: <- RNFB build script finished\"\n";
+		};
+		8409DFBC2760987B000A2F39 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UFood/Pods-UFood-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UFood/Pods-UFood-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UFood/Pods-UFood-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8409E0372760988C000A2F39 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Servze-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8409E0382760988C000A2F39 /* Start Packager */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Start Packager";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open \"$SRCROOT/../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n  fi\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8409E05D2760988C000A2F39 /* Bundle React Native code and images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Bundle React Native code and images";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
+		};
+		8409E05E2760988C000A2F39 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Servze/Pods-Servze-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Servze/Pods-Servze-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Servze/Pods-Servze-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8409E05F2760988C000A2F39 /* [CP-User] [RNFB] Core Configuration */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			name = "[CP-User] [RNFB] Core Configuration";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/usr/bin/env bash\n#\n# Copyright (c) 2016-present Invertase Limited & Contributors\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this library except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#   http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing, software\n# distributed under the License is distributed on an \"AS IS\" BASIS,\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n# See the License for the specific language governing permissions and\n# limitations under the License.\n#\nset -e\n\n_MAX_LOOKUPS=2;\n_SEARCH_RESULT=''\n_RN_ROOT_EXISTS=''\n_CURRENT_LOOKUPS=1\n_JSON_ROOT=\"'react-native'\"\n_JSON_FILE_NAME='firebase.json'\n_JSON_OUTPUT_BASE64='e30=' # { }\n_CURRENT_SEARCH_DIR=${PROJECT_DIR}\n_PLIST_BUDDY=/usr/libexec/PlistBuddy\n_TARGET_PLIST=\"${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH}\"\n_DSYM_PLIST=\"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist\"\n\n# plist arrays\n_PLIST_ENTRY_KEYS=()\n_PLIST_ENTRY_TYPES=()\n_PLIST_ENTRY_VALUES=()\n\nfunction setPlistValue {\n  echo \"info:      setting plist entry '$1' of type '$2' in file '$4'\"\n  ${_PLIST_BUDDY} -c \"Add :$1 $2 '$3'\" $4 || echo \"info:      '$1' already exists\"\n}\n\nfunction getFirebaseJsonKeyValue () {\n  if [[ ${_RN_ROOT_EXISTS} ]]; then\n    ruby -e \"require 'rubygems';require 'json'; output=JSON.parse('$1'); puts output[$_JSON_ROOT]['$2']\"\n  else\n    echo \"\"\n  fi;\n}\n\nfunction jsonBoolToYesNo () {\n  if [[ $1 == \"false\" ]]; then\n    echo \"NO\"\n  elif [[ $1 == \"true\" ]]; then\n    echo \"YES\"\n  else echo \"NO\"\n  fi\n}\n\necho \"info: -> RNFB build script started\"\necho \"info: 1) Locating ${_JSON_FILE_NAME} file:\"\n\nif [[ -z ${_CURRENT_SEARCH_DIR} ]]; then\n  _CURRENT_SEARCH_DIR=$(pwd)\nfi;\n\nwhile true; do\n  _CURRENT_SEARCH_DIR=$(dirname \"$_CURRENT_SEARCH_DIR\")\n  if [[ \"$_CURRENT_SEARCH_DIR\" == \"/\" ]] || [[ ${_CURRENT_LOOKUPS} -gt ${_MAX_LOOKUPS} ]]; then break; fi;\n  echo \"info:      ($_CURRENT_LOOKUPS of $_MAX_LOOKUPS) Searching in '$_CURRENT_SEARCH_DIR' for a ${_JSON_FILE_NAME} file.\"\n  _SEARCH_RESULT=$(find \"$_CURRENT_SEARCH_DIR\" -maxdepth 2 -name ${_JSON_FILE_NAME} -print | /usr/bin/head -n 1)\n  if [[ ${_SEARCH_RESULT} ]]; then\n    echo \"info:      ${_JSON_FILE_NAME} found at $_SEARCH_RESULT\"\n    break;\n  fi;\n  _CURRENT_LOOKUPS=$((_CURRENT_LOOKUPS+1))\ndone\n\nif [[ ${_SEARCH_RESULT} ]]; then\n  _JSON_OUTPUT_RAW=$(cat \"${_SEARCH_RESULT}\")\n  _RN_ROOT_EXISTS=$(ruby -e \"require 'rubygems';require 'json'; output=JSON.parse('$_JSON_OUTPUT_RAW'); puts output[$_JSON_ROOT]\" || echo '')\n\n  if [[ ${_RN_ROOT_EXISTS} ]]; then\n    _JSON_OUTPUT_BASE64=$(python -c 'import json,sys,base64;print(base64.b64encode(json.dumps(json.loads(open('\"'${_SEARCH_RESULT}'\"').read())['${_JSON_ROOT}'])))' || echo \"e30=\")\n  fi\n\n  _PLIST_ENTRY_KEYS+=(\"firebase_json_raw\")\n  _PLIST_ENTRY_TYPES+=(\"string\")\n  _PLIST_ENTRY_VALUES+=(\"$_JSON_OUTPUT_BASE64\")\n\n  # config.app_data_collection_default_enabled\n  _APP_DATA_COLLECTION_ENABLED=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"app_data_collection_default_enabled\")\n  if [[ $_APP_DATA_COLLECTION_ENABLED ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FirebaseDataCollectionDefaultEnabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_APP_DATA_COLLECTION_ENABLED\")\")\n  fi\n\n  # config.analytics_auto_collection_enabled\n  _ANALYTICS_AUTO_COLLECTION=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"analytics_auto_collection_enabled\")\n  if [[ $_ANALYTICS_AUTO_COLLECTION ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FIREBASE_ANALYTICS_COLLECTION_ENABLED\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_ANALYTICS_AUTO_COLLECTION\")\")\n  fi\n\n  # config.analytics_collection_deactivated\n  _ANALYTICS_DEACTIVATED=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"analytics_collection_deactivated\")\n  if [[ $_ANALYTICS_DEACTIVATED ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FIREBASE_ANALYTICS_COLLECTION_DEACTIVATED\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_ANALYTICS_DEACTIVATED\")\")\n  fi\n\n  # config.analytics_idfv_collection_enabled\n  _ANALYTICS_IDFV_COLLECTION=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"analytics_idfv_collection_enabled\")\n  if [[ $_ANALYTICS_IDFV_COLLECTION ]]; then\n    _PLIST_ENTRY_KEYS+=(\"GOOGLE_ANALYTICS_IDFV_COLLECTION_ENABLED\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_ANALYTICS_IDFV_COLLECTION\")\")\n  fi\n\n  # config.analytics_default_allow_ad_personalization_signals\n  _ANALYTICS_PERSONALIZATION=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"analytics_default_allow_ad_personalization_signals\")\n  if [[ $_ANALYTICS_PERSONALIZATION ]]; then\n    _PLIST_ENTRY_KEYS+=(\"GOOGLE_ANALYTICS_DEFAULT_ALLOW_AD_PERSONALIZATION_SIGNALS\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_ANALYTICS_PERSONALIZATION\")\")\n  fi\n\n  # config.perf_auto_collection_enabled\n  _PERF_AUTO_COLLECTION=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"perf_auto_collection_enabled\")\n  if [[ $_PERF_AUTO_COLLECTION ]]; then\n    _PLIST_ENTRY_KEYS+=(\"firebase_performance_collection_enabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_PERF_AUTO_COLLECTION\")\")\n  fi\n\n  # config.perf_collection_deactivated\n  _PERF_DEACTIVATED=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"perf_collection_deactivated\")\n  if [[ $_PERF_DEACTIVATED ]]; then\n    _PLIST_ENTRY_KEYS+=(\"firebase_performance_collection_deactivated\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_PERF_DEACTIVATED\")\")\n  fi\n\n  # config.messaging_auto_init_enabled\n  _MESSAGING_AUTO_INIT=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"messaging_auto_init_enabled\")\n  if [[ $_MESSAGING_AUTO_INIT ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FirebaseMessagingAutoInitEnabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_MESSAGING_AUTO_INIT\")\")\n  fi\n\n  # config.in_app_messaging_auto_colllection_enabled\n  _FIAM_AUTO_INIT=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"in_app_messaging_auto_collection_enabled\")\n  if [[ $_FIAM_AUTO_INIT ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FirebaseInAppMessagingAutomaticDataCollectionEnabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_FIAM_AUTO_INIT\")\")\n  fi\n\n  # config.app_check_token_auto_refresh\n  _APP_CHECK_TOKEN_AUTO_REFRESH=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"app_check_token_auto_refresh\")\n  if [[ $_APP_CHECK_TOKEN_AUTO_REFRESH ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FirebaseAppCheckTokenAutoRefreshEnabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_APP_CHECK_TOKEN_AUTO_REFRESH\")\")\n  fi\n\n  # config.crashlytics_disable_auto_disabler - undocumented for now - mainly for debugging, document if becomes useful\n  _CRASHLYTICS_AUTO_DISABLE_ENABLED=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"crashlytics_disable_auto_disabler\")\n  if [[ $_CRASHLYTICS_AUTO_DISABLE_ENABLED == \"true\" ]]; then\n    echo \"Disabled Crashlytics auto disabler.\" # do nothing\n  else\n    _PLIST_ENTRY_KEYS+=(\"FirebaseCrashlyticsCollectionEnabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"NO\")\n  fi\nelse\n  _PLIST_ENTRY_KEYS+=(\"firebase_json_raw\")\n  _PLIST_ENTRY_TYPES+=(\"string\")\n  _PLIST_ENTRY_VALUES+=(\"$_JSON_OUTPUT_BASE64\")\n  echo \"warning:   A firebase.json file was not found, whilst this file is optional it is recommended to include it to configure firebase services in React Native Firebase.\"\nfi;\n\necho \"info: 2) Injecting Info.plist entries: \"\n\n# Log out the keys we're adding\nfor i in \"${!_PLIST_ENTRY_KEYS[@]}\"; do\n  echo \"    ->  $i) ${_PLIST_ENTRY_KEYS[$i]}\" \"${_PLIST_ENTRY_TYPES[$i]}\" \"${_PLIST_ENTRY_VALUES[$i]}\"\ndone\n\nfor plist in \"${_TARGET_PLIST}\" \"${_DSYM_PLIST}\" ; do\n  if [[ -f \"${plist}\" ]]; then\n\n    # paths with spaces break the call to setPlistValue. temporarily modify\n    # the shell internal field separator variable (IFS), which normally\n    # includes spaces, to consist only of line breaks\n    oldifs=$IFS\n    IFS=\"\n\"\n\n    for i in \"${!_PLIST_ENTRY_KEYS[@]}\"; do\n      setPlistValue \"${_PLIST_ENTRY_KEYS[$i]}\" \"${_PLIST_ENTRY_TYPES[$i]}\" \"${_PLIST_ENTRY_VALUES[$i]}\" \"${plist}\"\n    done\n\n    # restore the original internal field separator value\n    IFS=$oldifs\n  else\n    echo \"warning:   A Info.plist build output file was not found (${plist})\"\n  fi\ndone\n\necho \"info: <- RNFB build script finished\"\n";
+		};
+		8409E0602760988C000A2F39 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Servze/Pods-Servze-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Servze/Pods-Servze-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Servze/Pods-Servze-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		840F4520273FC57E002ED470 /* [CP] Check Pods Manifest.lock */ = {
@@ -22958,6 +23350,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8409DF952760987B000A2F39 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8409DF962760987B000A2F39 /* AppDelegate.m in Sources */,
+				8409DF972760987B000A2F39 /* RoyoDriverApp.swift in Sources */,
+				8409DF982760987B000A2F39 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8409E0392760988C000A2F39 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8409E03A2760988C000A2F39 /* AppDelegate.m in Sources */,
+				8409E03B2760988C000A2F39 /* RoyoDriverApp.swift in Sources */,
+				8409E03C2760988C000A2F39 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		840F4522273FC57E002ED470 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -25490,6 +25902,178 @@
 				PROJECT_NAME = "${PROJECT_NAME}";
 				PROJECT_PLIST = "$(PROJECT_PLIST)";
 				PROVISIONING_PROFILE_SPECIFIER = "FlyingHorse Dispatch [AppStore]";
+				SWIFT_OBJC_BRIDGING_HEADER = "RoyoDriverApp-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		8409DFBE2760987B000A2F39 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8409E32F27609A12000A2F39 /* UFood(Development).xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = RoyoDriverApp/RoyoDriverAppRelease.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = 6FXUMT5X23;
+				ENABLE_BITCODE = NO;
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(PROJECT_APP_NAME)\"",
+				);
+				MARKETING_VERSION = "$(PROJECT_APP_VERSION)";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(PROJECT_BUNDLE_ID)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROJECT_APP_NAME = "${PROJECT_APP_NAME}";
+				PROJECT_APP_VERSION = "$(PROJECT_APP_VERSION)";
+				PROJECT_BUILD_NUMBER = "$(PROJECT_BUILD_NUMBER)";
+				PROJECT_BUNDLE_ID = "$(PROJECT_BUNDLE_ID)";
+				PROJECT_NAME = "${PROJECT_NAME}";
+				PROJECT_PLIST = "$(PROJECT_PLIST)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "RoyoDriverApp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		8409DFBF2760987B000A2F39 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8409E32D276099FD000A2F39 /* UFood(Prodcution).xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = RoyoDriverApp/RoyoDriverAppRelease.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = 6FXUMT5X23;
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(PROJECT_APP_NAME)\"",
+				);
+				MARKETING_VERSION = "$(PROJECT_APP_VERSION)";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(PROJECT_BUNDLE_ID)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROJECT_APP_NAME = "${PROJECT_APP_NAME}";
+				PROJECT_APP_VERSION = "$(PROJECT_APP_VERSION)";
+				PROJECT_BUILD_NUMBER = "$(PROJECT_BUILD_NUMBER)";
+				PROJECT_BUNDLE_ID = "$(PROJECT_BUNDLE_ID)";
+				PROJECT_NAME = "${PROJECT_NAME}";
+				PROJECT_PLIST = "$(PROJECT_PLIST)";
+				PROVISIONING_PROFILE_SPECIFIER = "AgriOnline Dispatch[App Store]";
+				SWIFT_OBJC_BRIDGING_HEADER = "RoyoDriverApp-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		8409E0622760988C000A2F39 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8409E1C8276099C3000A2F39 /* Servze(Development).xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = RoyoDriverApp/RoyoDriverAppRelease.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = 6FXUMT5X23;
+				ENABLE_BITCODE = NO;
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(PROJECT_APP_NAME)\"",
+				);
+				MARKETING_VERSION = "$(PROJECT_APP_VERSION)";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(PROJECT_BUNDLE_ID)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROJECT_APP_NAME = "${PROJECT_APP_NAME}";
+				PROJECT_APP_VERSION = "$(PROJECT_APP_VERSION)";
+				PROJECT_BUILD_NUMBER = "$(PROJECT_BUILD_NUMBER)";
+				PROJECT_BUNDLE_ID = "$(PROJECT_BUNDLE_ID)";
+				PROJECT_NAME = "${PROJECT_NAME}";
+				PROJECT_PLIST = "$(PROJECT_PLIST)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "RoyoDriverApp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		8409E0632760988C000A2F39 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8409E2B4276099D9000A2F39 /* Servze(Prodcution).xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = RoyoDriverApp/RoyoDriverAppRelease.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = 6FXUMT5X23;
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(PROJECT_APP_NAME)\"",
+				);
+				MARKETING_VERSION = "$(PROJECT_APP_VERSION)";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(PROJECT_BUNDLE_ID)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROJECT_APP_NAME = "${PROJECT_APP_NAME}";
+				PROJECT_APP_VERSION = "$(PROJECT_APP_VERSION)";
+				PROJECT_BUILD_NUMBER = "$(PROJECT_BUILD_NUMBER)";
+				PROJECT_BUNDLE_ID = "$(PROJECT_BUNDLE_ID)";
+				PROJECT_NAME = "${PROJECT_NAME}";
+				PROJECT_PLIST = "$(PROJECT_PLIST)";
+				PROVISIONING_PROFILE_SPECIFIER = "AgriOnline Dispatch[App Store]";
 				SWIFT_OBJC_BRIDGING_HEADER = "RoyoDriverApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -33261,6 +33845,24 @@
 			buildConfigurations = (
 				8409D600275F6E17000A2F39 /* Debug */,
 				8409D601275F6E17000A2F39 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8409DFBD2760987B000A2F39 /* Build configuration list for PBXNativeTarget "UFood" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8409DFBE2760987B000A2F39 /* Debug */,
+				8409DFBF2760987B000A2F39 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8409E0612760988C000A2F39 /* Build configuration list for PBXNativeTarget "Servze" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8409E0622760988C000A2F39 /* Debug */,
+				8409E0632760988C000A2F39 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

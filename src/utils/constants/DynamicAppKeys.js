@@ -118,6 +118,8 @@ const shortCodes = {
   destination_ops: '7fd599',
   cannabus_express: 'df5932',
   flying_horse: '6a7802',
+  ufood: 'c6847c',
+  servze: 'b47f07',
 };
 
 // Goody Dispatch
@@ -574,19 +576,27 @@ const appIds = {
   }),
   tasmeem: Platform.select({
     ios: 'com.Tasmeem.Dispatch',
-    android: "com.tasmeem.royodispatcher",
+    android: 'com.tasmeem.royodispatcher',
   }),
   destination_ops: Platform.select({
     ios: 'com.DestinationOps.Dispatch',
-    android: "com.destinationOps.royodispatcher",
+    android: 'com.destinationOps.royodispatcher',
   }),
   cannabus_express: Platform.select({
     ios: 'com.CannabusExpress.Dispatch',
-    android: "com.cannabusexpress.royodispatcher",
+    android: 'com.cannabusexpress.royodispatcher',
   }),
   flying_horse: Platform.select({
     ios: 'com.FlyingHorse.Dispatch',
-    android: "com.FlyingHorse.royodispatcher",
+    android: 'com.FlyingHorse.royodispatcher',
+  }),
+  ufood: Platform.select({
+    ios: 'com.UFood.Dispatch',
+    android: "com.ufood.royodispatcher",
+  }),
+  servze: Platform.select({
+    ios: 'com.Servze.Dispatch',
+    android: "com.servze.royodispatcher",
   }),
 };
 

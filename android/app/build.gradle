@@ -234,7 +234,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.AfricanVillageMarket.royodispatcher'
-            resValue "string", "app_name", "Deliverstat"
+            resValue "string", "app_name", "African Village Market"
         } 
         africanize {
             dimension "appType"
@@ -244,7 +244,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.africanize.royodispatcher'
-            resValue "string", "app_name", "Deliverstat"
+            resValue "string", "app_name", "Africanize Deliveries"
         } 
         tranzit {
             dimension "appType"
@@ -1404,6 +1404,26 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId "com.FlyingHorse.royodispatcher"
             resValue "string", "app_name", "Flying Horse Dispatch"
+        }
+        ufood{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId "com.ufood.royodispatcher"
+            resValue "string", "app_name", "UFood Dispatch"
+        }
+        servze{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId "com.servze.royodispatcher"
+            resValue "string", "app_name", "Servze Dispatch"
         }
     }
 }
