@@ -2,15 +2,16 @@
 // export const API_BASE_URL = 'https://api.royodispatch.com/api';
 
 //Staging
- export const API_BASE_URL = 'https://api.rdstaging.com/api';
+//  export const API_BASE_URL = 'https://api.rdstaging.com/api';
 
 //tranzit app domain
 //export const API_BASE_URL = 'https://dispatch.tranzit.app/api';
 
 //klickmat/snabbhem app domain
 //export const API_BASE_URL = 'https://delivery.snabbhem.se/api';
+
 // pinkjet
-// export const API_BASE_URL ='https://dispatch.pinkjettaxi.com/api'
+// export const API_BASE_URL ='https://dispatch.pinkjettaxi.com/api';
 // Yoho
 // export const API_BASE_URL = 'https://dispatch.yohopartner.com/api';
 // tranzit
@@ -21,6 +22,8 @@
 // export const API_BASE_URL = 'https://dispatch.govachow.com/api'
 // africanize
 // export const API_BASE_URL = 'https://dispatch.africanize.co/api'
+// orderchekout
+export const API_BASE_URL ='https://dispatch.orderchekout.com/api'
 //Developement
 // export const API_BASE_URL = 'https://api.winhires.com/api';
 //export const API_BASE_URL = 'http://192.168.96.20:8010/api';
