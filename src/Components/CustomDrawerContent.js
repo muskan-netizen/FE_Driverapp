@@ -101,7 +101,7 @@ export default function CustomDrawerContent({
   );
 
   useEffect(() => {
-    ZendeskChat.init('oPDUTCv5ROQI8UbvxmUTuTmaHpxxDJVP');
+    ZendeskChat.init('1U5b8ZzYWweRjAkrLDOmLWa6WfCEhlDp');
 
     updateState({
       routes: [
@@ -144,14 +144,14 @@ export default function CustomDrawerContent({
           // key: navigationStrings.WALLET,
           // subRoute:navigationStrings.MYPROFILE
         },
-        // {
-        //   id: 6,
-        //   label: strings.SUPPORT,
-        //   support: true,
-        //   image: imagePath.support2,
-        //   // key: navigationStrings.PROFILESTACK,
-        //   // subRoute:navigationStrings.MYPROFILE
-        // },
+        {
+          id: 6,
+          label: strings.SUPPORT,
+          support: true,
+          image: imagePath.support2,
+          // key: navigationStrings.PROFILESTACK,
+          // subRoute:navigationStrings.MYPROFILE
+        },
         {
           id: 5,
           label: strings.LOGOUT,
