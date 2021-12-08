@@ -1,8 +1,8 @@
 //live
-//export const API_BASE_URL = 'https://api.royodispatch.com/api';
+// export const API_BASE_URL = 'https://api.royodispatch.com/api';
 
 //Staging
-export const API_BASE_URL = 'https://api.rdstaging.com/api';
+//  export const API_BASE_URL = 'https://api.rdstaging.com/api';
 
 //tranzit app domain
 //export const API_BASE_URL = 'https://dispatch.tranzit.app/api';
@@ -20,8 +20,10 @@ export const API_BASE_URL = 'https://api.rdstaging.com/api';
 // export const API_BASE_URL = 'https://dispatch.cannabusxpress.com/api'
 // govachow
 // export const API_BASE_URL = 'https://dispatch.govachow.com/api'
+// africanize
+export const API_BASE_URL = 'https://dispatch.africanize.co/api'
 //Developement
-//export const API_BASE_URL = 'https://api.winhires.com/api';
+// export const API_BASE_URL = 'https://api.winhires.com/api';
 //export const API_BASE_URL = 'http://192.168.96.20:8010/api';
 // export const API_BASE_URL = 'http://192.168.103.73:8005';
 //export const API_BASE_URL = 'https://api.williamherrick.com/api';

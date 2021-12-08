@@ -117,6 +117,7 @@ const shortCodes = {
   tasmeem: '0c22e1',
   destination_ops: '7fd599',
   cannabus_express: 'df5932',
+  flying_horse: '6a7802',
 };
 
 // Goody Dispatch
@@ -582,6 +583,10 @@ const appIds = {
   cannabus_express: Platform.select({
     ios: 'com.CannabusExpress.Dispatch',
     android: "com.cannabusexpress.royodispatcher",
+  }),
+  flying_horse: Platform.select({
+    ios: 'com.FlyingHorse.Dispatch',
+    android: "com.FlyingHorse.royodispatcher",
   }),
 };
 
