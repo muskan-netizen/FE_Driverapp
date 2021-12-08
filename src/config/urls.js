@@ -9,8 +9,9 @@ export const API_BASE_URL = 'https://api.rdstaging.com/api';
 
 //klickmat/snabbhem app domain
 //export const API_BASE_URL = 'https://delivery.snabbhem.se/api';
+
 // pinkjet
-// export const API_BASE_URL ='https://dispatch.pinkjettaxi.com/api'
+// export const API_BASE_URL ='https://dispatch.pinkjettaxi.com/api';
 // Yoho
 // export const API_BASE_URL = 'https://dispatch.yohopartner.com/api';
 // tranzit
