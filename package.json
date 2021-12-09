@@ -53,8 +53,6 @@
     "yummiidashdispatcherRelease": "cd android && ./gradlew bundleyummiidashRelease",
     "zuzucleandispatcher": "react-native run-android --variant=zuzucleanDebug",
     "zuzucleandispatcherRelease": "cd android && ./gradlew assemblezuzucleanRelease",
-    "maxisdispatcher": "react-native run-android --variant=maxisDebug",
-    "maxisdispatcherRelease": "cd android && ./gradlew assembleMaxisRelease",
     "donepackeddispatcher": "react-native run-android --variant=donepackedDebug",
     "donepackeddispatcherRelease": "cd android && ./gradlew assembleDonepackedRelease",
     "careWorksdispatcher": "react-native run-android --variant=careWorksDebug",

@@ -23,7 +23,9 @@
 // africanize
 // export const API_BASE_URL = 'https://dispatch.africanize.co/api'
 // orderchekout
-export const API_BASE_URL ='https://dispatch.orderchekout.com/api'
+// export const API_BASE_URL ='https://dispatch.orderchekout.com/api'
+// carroi
+export const API_BASE_URL = 'https://carroi.rdstaging.com/api';
 //Developement
 // export const API_BASE_URL = 'https://api.winhires.com/api';
 //export const API_BASE_URL = 'http://192.168.96.20:8010/api';

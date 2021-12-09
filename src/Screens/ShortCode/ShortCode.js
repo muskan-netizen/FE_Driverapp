@@ -232,12 +232,6 @@ export default function ShortCode({route, navigation}) {
           });
           break;
 
-        case appIds.maxis:
-          updateState({
-            shortCode: shortCodes.maxis,
-            isShortcodePrefilled: true,
-          });
-          break;
         case appIds.donepacked:
           updateState({
             shortCode: shortCodes.donepacked,

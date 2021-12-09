@@ -28,7 +28,6 @@ const shortCodes = {
   yummidash: '31a72f',
   zuzuclean: 'a4ead8',
   loopWhole: '5aca0c',
-  maxis: '07b461',
   donepacked: 'b3b91d',
   careWorks: '3554f0',
   thubaeRides: 'af635b',
@@ -202,7 +201,7 @@ const appIds = {
   }),
   checkout: Platform.select({
     ios: 'com.orderchekout.driver.ios',
-    android: 'com.checkout.royodispatcher',
+    android: "com.orderchekout.driver.android1",
   }),
   noki: Platform.select({
     ios: 'com.noki.royodispatcher',
@@ -228,11 +227,6 @@ const appIds = {
   loopWhole: Platform.select({
     ios: 'com.LoopWhole.Dispatch',
     android: 'com.loopwhole.royodispatcher',
-  }),
-
-  maxis: Platform.select({
-    ios: 'com.maxis.royodispatcher',
-    android: 'com.maxis.royodispatcher',
   }),
   donepacked: Platform.select({
     ios: 'com.donepacked.royodispatcher',

@@ -395,7 +395,7 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.checkout.royodispatcher'
+            applicationId "com.orderchekout.driver.android1"
             resValue "string", "app_name", "OrderChekout Driver"
         } 
         noki {
@@ -426,16 +426,6 @@ android {
             applicationId 'com.YourLaundryApp.royodispatcher'
             resValue "string", "app_name", "YourLaundryApp Dispatch"
         }
-        maxis {
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            applicationId 'com.maxis.royodispatcher'
-            resValue "string", "app_name", "Maxis Delivery"
-            
-        } 
 
         yummiidash {
             dimension "appType"
