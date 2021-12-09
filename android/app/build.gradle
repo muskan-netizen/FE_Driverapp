@@ -1415,6 +1415,26 @@ android {
             applicationId "com.servze.royodispatcher"
             resValue "string", "app_name", "Servze Dispatch"
         }
+        goMeat{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId "com.GoMeat.royodispatcher"
+            resValue "string", "app_name", "GoMeat Dispatch"
+        }
+        transportSystem{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId "com.TransportSystem.royodispatcher"
+            resValue "string", "app_name", "Transport System Dispatch"
+        }
     }
 }
 

@@ -119,6 +119,8 @@ const shortCodes = {
   flying_horse: '6a7802',
   ufood: 'c6847c',
   servze: 'b47f07',
+  goMeat: 'afc6b9',
+  transportSystem: 'cabccb',
 };
 
 // Goody Dispatch
@@ -201,7 +203,7 @@ const appIds = {
   }),
   checkout: Platform.select({
     ios: 'com.orderchekout.driver.ios',
-    android: "com.orderchekout.driver.android1",
+    android: 'com.orderchekout.driver.android1',
   }),
   noki: Platform.select({
     ios: 'com.noki.royodispatcher',
@@ -586,11 +588,19 @@ const appIds = {
   }),
   ufood: Platform.select({
     ios: 'com.UFood.Dispatch',
-    android: "com.ufood.royodispatcher",
+    android: 'com.ufood.royodispatcher',
   }),
   servze: Platform.select({
     ios: 'com.Servze.Dispatch',
-    android: "com.servze.royodispatcher",
+    android: 'com.servze.royodispatcher',
+  }),
+  goMeat: Platform.select({
+    ios: 'com.GoMeat.Dispatch',
+    android: 'com.GoMeat.royodispatcher',
+  }),
+  transportSystem: Platform.select({
+    ios: 'com.TransportSystem.Dispatch',
+    android: 'com.TransportSystem.royodispatcher',
   }),
 };
 

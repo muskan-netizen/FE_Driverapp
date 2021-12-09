@@ -780,6 +780,19 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+
+        case appIds.goMeat:
+          updateState({
+            shortCode: shortCodes.goMeat,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.transportSystem:
+          updateState({
+            shortCode: shortCodes.transportSystem,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, []);
