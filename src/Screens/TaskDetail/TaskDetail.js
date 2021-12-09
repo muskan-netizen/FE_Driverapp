@@ -526,7 +526,11 @@ export default function TaskDetail({route, navigation}) {
                   // {color: getTextColor(taskDetail?.tasktype?.name)},
                   {color: colors.black},
                 ]}>
-                {`${(taskDetail?.tasktype?.name).toUpperCase()}`}
+                {`${
+                  (taskDetail?.tasktype?.name).toLowerCase() == 'drop'
+                    ? strings.DROP
+                    : strings.PICKUP
+                }`}
               </Text>
             </View>
             {taskDetail?.barcode && (
@@ -698,7 +702,7 @@ export default function TaskDetail({route, navigation}) {
                 {taskDetail?.order?.customer?.name}
               </Text>
               <Text style={{fontFamily: fontFamily.medium}}>
-                Tracking id:-{taskDetail?.order?.unique_id}
+                {strings.TRACKINGID}:-{taskDetail?.order?.unique_id}
               </Text>
             </View>
           )}

@@ -142,11 +142,11 @@ const TaskListCard = ({
         </View>
 
         <View style={styles.dotViewStyle}>
-          {data?.order?.call_back_url && (
+          {/* {data?.order?.call_back_url && (
             <TouchableOpacity onPress={_onPressTaskDetails}>
               <Image source={imagePath.expand} />
             </TouchableOpacity>
-          )}
+          )} */}
 
           <View style={styles.dotBaseViewStyle} />
           <View

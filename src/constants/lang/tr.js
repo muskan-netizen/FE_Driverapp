@@ -152,4 +152,7 @@ export default {
   PLACEDON: 'Placed On',
   ORDERDETAILS: 'Order Details',
   VENDOR: 'Vendor',
+  TRACKINGID: 'Tracking id',
+  DROP: 'Drop',
+  PICKUP: 'Pickup',
 };

@@ -308,7 +308,7 @@ PODS:
     - React-Core
   - react-native-camera/RN (4.2.1):
     - React-Core
-  - react-native-date-picker (4.1.2):
+  - react-native-date-picker (4.1.3):
     - React-Core
   - react-native-document-picker (7.1.1):
     - React-Core
@@ -330,8 +330,8 @@ PODS:
     - React-Core
   - react-native-signature-capture (0.4.12):
     - React
-  - react-native-splash-screen (3.2.0):
-    - React
+  - react-native-splash-screen (3.3.0):
+    - React-Core
   - React-perflogger (0.65.1)
   - React-RCTActionSheet (0.65.1):
     - React-Core/RCTActionSheetHeaders (= 0.65.1)
@@ -403,7 +403,7 @@ PODS:
   - RegulaCommon (5.8.59)
   - rn-fetch-blob (0.12.0):
     - React-Core
-  - RNCAsyncStorage (1.15.13):
+  - RNCAsyncStorage (1.15.14):
     - React-Core
   - RNCClipboard (1.5.1):
     - React-Core
@@ -465,7 +465,7 @@ PODS:
     - React-RCTVibration
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNScreens (3.9.0):
+  - RNScreens (3.10.0):
     - React-Core
     - React-RCTImage
   - RNZendeskChat (0.4.1):
@@ -750,7 +750,7 @@ SPEC CHECKSUMS:
   react-native-appearance: fc2014516054585d531e07aa0b40ab0de1d2be85
   react-native-background-timer: 117fffdc9b0d6f144444bb49029f94275a45fdb5
   react-native-camera: 210a872c84d3aa0982a9223047ef9e743ed694fa
-  react-native-date-picker: d0d724ce1829d2e5d0f75e9ea4ed0f639ecf70e6
+  react-native-date-picker: dc87b284b1c94327a00d2d9da1514eed75b2ee85
   react-native-document-picker: ebcce6982dd91aa6d2b9a38b666895c381015f1d
   react-native-geocoder: 757427682892bb256f3b3745858cc90eba148a8e
   react-native-geolocation-service: 32e50a2e4e4518b51b829fdfe137562a672d95d2
@@ -760,7 +760,7 @@ SPEC CHECKSUMS:
   react-native-restart: d4ea7637e193da7558d229b3704d500ec0d75f9c
   react-native-safe-area-context: 5cf05f49df9d17261e40e518481f2e334c6cd4b5
   react-native-signature-capture: 73f2077f43a3fae9979b76e8cbf703c735bf44f4
-  react-native-splash-screen: 200d11d188e2e78cea3ad319964f6142b6384865
+  react-native-splash-screen: 4312f786b13a81b5169ef346d76d33bc0c6dc457
   React-perflogger: fd28ee1f2b5b150b00043f0301d96bd417fdc339
   React-RCTActionSheet: 7f3fa0855c346aa5d7c60f9ced16e067db6d29fa
   React-RCTAnimation: 2119a18ee26159004b001bc56404ca5dbaae6077
@@ -777,7 +777,7 @@ SPEC CHECKSUMS:
   ReactNativeLocalization: 6535b6a1425eb3bd8cd32285810931d9709ffa5d
   RegulaCommon: 601c50267470f36652f94174e87d79b8a0608af2
   rn-fetch-blob: f065bb7ab7fb48dd002629f8bdcb0336602d3cba
-  RNCAsyncStorage: 08fc8807fc5a05c9d8787999205d2c8531028ec0
+  RNCAsyncStorage: 4b6538222ce3f01f61011f512226ba3aaa0dc336
   RNCClipboard: 5e299c6df8e0c98f3d7416b86ae563d3a9f768a3
   RNCPushNotificationIOS: 089da3b657e1e3d464f38195fd2e3069608ef5af
   RNDeviceInfo: 417b2ef4456c13a9d50ad8c57895eea837b735a8
@@ -789,7 +789,7 @@ SPEC CHECKSUMS:
   RNImageCropPicker: 73891a709e6fd8a47d32104d942757971f220aee
   RNPermissions: b3588a19e12bff03fe21bc46911fd32343666dc0
   RNReanimated: f58d4f027fcea2197b63588138decdf5f8ac5e89
-  RNScreens: 4d79118be80f79fa1f4aa131909a1d6e86280af3
+  RNScreens: 03ba504f8c98607ad1f07808e71040e0afa335ec
   RNZendeskChat: 5a73a4353497c0670f81e30f06d45e183d0137aa
   TOCropViewController: 3105367e808b7d3d886a74ff59bf4804e7d3ab38
   Yoga: aa0cb45287ebe1004c02a13f279c55a95f1572f4
