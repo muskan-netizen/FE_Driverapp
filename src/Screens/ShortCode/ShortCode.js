@@ -793,6 +793,19 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+
+        case appIds.shopCentral:
+          updateState({
+            shortCode: shortCodes.shopCentral,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.sponge:
+          updateState({
+            shortCode: shortCodes.sponge,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, []);

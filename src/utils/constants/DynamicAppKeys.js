@@ -121,6 +121,8 @@ const shortCodes = {
   servze: 'b47f07',
   goMeat: 'afc6b9',
   transportSystem: 'cabccb',
+  shopCentral: '3b9fc7',
+  sponge: '4aa2aa',
 };
 
 // Goody Dispatch
@@ -252,7 +254,7 @@ const appIds = {
   }),
   pinkJet: Platform.select({
     ios: 'com.PinkJet.Dispatch',
-    android: 'com.PinkJet.royodispatcher',
+    android: 'com.AppPinkJet.royodispatcher',
   }),
   botSeat: Platform.select({
     ios: 'com.BotSeat.Dispatch',
@@ -601,6 +603,14 @@ const appIds = {
   transportSystem: Platform.select({
     ios: 'com.TransportSystem.Dispatch',
     android: 'com.TransportSystem.royodispatcher',
+  }),
+  shopCentral: Platform.select({
+    ios: 'com.ShopCentral.Dispatch',
+    android: "com.ShopCentral.royodispatcher",
+  }),
+  sponge: Platform.select({
+    ios: 'com.Sponge.Dispatch',
+    android: "com.Sponge.royodispatcher",
   }),
 };
 

@@ -558,8 +558,8 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.PinkJet.royodispatcher'
-            resValue "string", "app_name", "PinkJet Driver"
+            applicationId 'com.AppPinkJet.royodispatcher'
+            resValue "string", "app_name", "PinkJet Dispatch"
         }
         botSeat {
             dimension "appType"
@@ -1434,6 +1434,26 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId "com.TransportSystem.royodispatcher"
             resValue "string", "app_name", "Transport System Dispatch"
+        }
+        shopCentral{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId "com.ShopCentral.royodispatcher"
+            resValue "string", "app_name", "Shop Central Dispatch"
+        }
+        sponge{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId "com.Sponge.royodispatcher"
+            resValue "string", "app_name", "Sponge Dispatch"
         }
     }
 }
