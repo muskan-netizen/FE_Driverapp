@@ -43,7 +43,7 @@ import {requestUserPermission} from '../../utils/notificationServices';
 
 export default function DashBoard({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
-  console.log(userData, 'userData');
+
   const [state, setState] = useState({
     isLoading: false,
     isEnabled: userData && userData?.is_available ? true : false,
