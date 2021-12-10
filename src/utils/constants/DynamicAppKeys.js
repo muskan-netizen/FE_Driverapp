@@ -574,19 +574,19 @@ const appIds = {
   }),
   tasmeem: Platform.select({
     ios: 'com.Tasmeem.Dispatch',
-    android: "com.tasmeem.royodispatcher",
+    android: 'com.tasmeem.royodispatcher',
   }),
   destination_ops: Platform.select({
     ios: 'com.DestinationOps.Dispatch',
-    android: "com.destinationOps.royodispatcher",
+    android: 'com.destinationOps.royodispatcher',
   }),
   cannabus_express: Platform.select({
     ios: 'com.CannabusExpress.Dispatch',
-    android: "com.cannabusexpress.royodispatcher",
+    android: 'com.cannabusexpress.royodispatcher',
   }),
   flying_horse: Platform.select({
     ios: 'com.FlyingHorse.Dispatch',
-    android: "com.FlyingHorse.royodispatcher",
+    android: 'com.FlyingHorse.royodispatcher',
   }),
 };
 

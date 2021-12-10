@@ -22,7 +22,7 @@ import {useFocusEffect} from '@react-navigation/native';
 import {cloneDeep} from 'lodash';
 import ScaledImage from 'react-native-scalable-image';
 import DeviceInfo from 'react-native-device-info';
-import ZendeskChat from 'react-native-zendesk-chat';
+import ZendeskChat from '../library/react-native-zendesk-chat';
 
 export default function CustomDrawerContent({
   state,
