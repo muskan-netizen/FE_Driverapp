@@ -235,6 +235,8 @@
     "cannabus_expressdispatcherRelease": "cd android && ./gradlew assembleCannabus_expressRelease",
     "flying_horsedispatcher": "react-native run-android --variant=flying_horseDebug",
     "flying_horsedispatcherRelease": "cd android && ./gradlew assembleFlying_horseRelease",
+    "we_eatdispatcher": "react-native run-android --variant=we_eatDebug",
+    "we_eatdispatcherRelease": "cd android && ./gradlew assembleWe_eatRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",

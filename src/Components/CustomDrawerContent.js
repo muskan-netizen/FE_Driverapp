@@ -101,19 +101,10 @@ export default function CustomDrawerContent({
   );
 
   useEffect(() => {
-    // ZendeskChat.init('1U5b8ZzYWweRjAkrLDOmLWa6WfCEhlDp');
     ZendeskChat.init(
       'hkj6wV0p0qW45bXDMtdTSCEenFuTZhFR',
       '882ad89551868abec6d361472fee131462c1ea5ebebbb63f',
     );
-
-    // ZendeskChat.init({
-    //   key: 'hkj6wV0p0qW45bXDMtdTSCEenFuTZhFR',
-    //   appId: '882ad89551868abec6d361472fee131462c1ea5ebebbb63f',
-    //   url: 'https://code-brew8049.zendesk.com',
-    //   clientId: 'mobile_sdk_client_8fc909a9fd674002d5f7',
-    // });
-    // ZendeskChat.initChat('hkj6wV0p0qW45bXDMtdTSCEenFuTZhFR');
     updateState({
       routes: [
         {
@@ -155,14 +146,14 @@ export default function CustomDrawerContent({
           // key: navigationStrings.WALLET,
           // subRoute:navigationStrings.MYPROFILE
         },
-        {
-          id: 6,
-          label: strings.SUPPORT,
-          support: true,
-          image: imagePath.support2,
-          // key: navigationStrings.PROFILESTACK,
-          // subRoute:navigationStrings.MYPROFILE
-        },
+        // {
+        //   id: 6,
+        //   label: strings.SUPPORT,
+        //   support: true,
+        //   image: imagePath.support2,
+        //   // key: navigationStrings.PROFILESTACK,
+        //   // subRoute:navigationStrings.MYPROFILE
+        // },
         {
           id: 5,
           label: strings.LOGOUT,
@@ -261,10 +252,6 @@ export default function CustomDrawerContent({
                 navigation.navigate(route.key);
               }
             } else if (route?.support) {
-              // ZendeskChat.showHelpCenter({
-              //   withChat: true, // add this if you want to use chat instead of ticket creation
-              // });
-              // ZendeskChat.setPrimaryColor('blue');
               ZendeskChat.setVisitorInfo({
                 name: 'Dinesh',
                 email: 'dkdenni07@gmail.com',
@@ -274,10 +261,6 @@ export default function CustomDrawerContent({
                 name: 'Dinesh',
                 email: 'dkdenni07@gmail.com',
                 phone: '9832421234',
-                // tags: ['tag1'],
-                // department: 'technical support',
-                // chatOnly: true,
-                // botName: 'Goody User Support',
                 withChat: true,
                 color: '#000',
               });

@@ -18,6 +18,7 @@ import {getColorCodeWithOpactiyNumber} from '../utils/helperFunctions';
 import {colorArray} from '../utils/constants/ConstantValues';
 import {format} from 'date-fns';
 import {useSelector} from 'react-redux';
+import strings from '../constants/lang';
 const TaskListCard = ({
   data = {},
   allTasks = [],
@@ -161,7 +162,11 @@ const TaskListCard = ({
                 styles.taskTypeName,
                 {color: getTextColor(data?.tasktype?.name)},
               ]}>
-              {data?.tasktype?.name}
+              {`${
+                (data?.tasktype?.name).toLowerCase() == 'drop'
+                  ? strings.DROP
+                  : strings.PICKUP
+              }`}
             </Text>
           </View>
         </View>

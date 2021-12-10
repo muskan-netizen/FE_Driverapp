@@ -1,8 +1,14 @@
 //live
-// export const API_BASE_URL = 'https://api.royodispatch.com/api';
+//export const API_BASE_URL = 'https://api.royodispatch.com/api';
 
 //Staging
-export const API_BASE_URL = 'https://api.rdstaging.com/api';
+//export const API_BASE_URL = 'https://api.rdstaging.com/api';
+
+// fleety staging domain
+export const API_BASE_URL = 'https://fleety.rdstaging.com/api';
+
+//carroi app domain
+//export const API_BASE_URL = 'https://carroi.rostaging.com/api';
 
 //tranzit app domain
 //export const API_BASE_URL = 'https://dispatch.tranzit.app/api';

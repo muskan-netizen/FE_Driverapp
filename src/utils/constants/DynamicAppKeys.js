@@ -118,6 +118,7 @@ const shortCodes = {
   destination_ops: '7fd599',
   cannabus_express: 'df5932',
   flying_horse: '6a7802',
+  weEat: '46d1b3',
 };
 
 // Goody Dispatch
@@ -587,6 +588,10 @@ const appIds = {
   flying_horse: Platform.select({
     ios: 'com.FlyingHorse.Dispatch',
     android: 'com.FlyingHorse.royodispatcher',
+  }),
+  weEat: Platform.select({
+    ios: 'com.WeEat.Dispatch',
+    android: 'com.WeEat.royodispatcher',
   }),
 };
 
