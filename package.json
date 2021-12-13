@@ -237,6 +237,8 @@
     "flying_horsedispatcherRelease": "cd android && ./gradlew assembleFlying_horseRelease",
     "we_eatdispatcher": "react-native run-android --variant=we_eatDebug",
     "we_eatdispatcherRelease": "cd android && ./gradlew assembleWe_eatRelease",
+    "sambigadispatcher": "react-native run-android --variant=sambigaDebug",
+    "sambigadispatcherRelease": "cd android && ./gradlew assembleSambigaRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",

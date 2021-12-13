@@ -119,6 +119,7 @@ const shortCodes = {
   cannabus_express: 'df5932',
   flying_horse: '6a7802',
   weEat: '46d1b3',
+  sambiga: 'ce6b16',
 };
 
 // Goody Dispatch
@@ -592,6 +593,10 @@ const appIds = {
   weEat: Platform.select({
     ios: 'com.WeEat.Dispatch',
     android: 'com.WeEat.royodispatcher',
+  }),
+  sambiga: Platform.select({
+    ios: 'com.Sambiga.Dispatch',
+    android: 'com.Sambiga.royodispatcher',
   }),
 };
 

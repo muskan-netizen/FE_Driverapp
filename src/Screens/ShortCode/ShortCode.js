@@ -780,6 +780,12 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.sambiga:
+          updateState({
+            shortCode: shortCodes.sambiga,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, []);

@@ -146,14 +146,14 @@ export default function CustomDrawerContent({
           // key: navigationStrings.WALLET,
           // subRoute:navigationStrings.MYPROFILE
         },
-        // {
-        //   id: 6,
-        //   label: strings.SUPPORT,
-        //   support: true,
-        //   image: imagePath.support2,
-        //   // key: navigationStrings.PROFILESTACK,
-        //   // subRoute:navigationStrings.MYPROFILE
-        // },
+        {
+          id: 6,
+          label: strings.SUPPORT,
+          support: true,
+          image: imagePath.support2,
+          // key: navigationStrings.PROFILESTACK,
+          // subRoute:navigationStrings.MYPROFILE
+        },
         {
           id: 5,
           label: strings.LOGOUT,
@@ -164,6 +164,10 @@ export default function CustomDrawerContent({
       ],
     });
   }, [defaultLanguagae]);
+
+  //
+
+  const userData = useSelector(state => state?.auth?.userData);
 
   //Naviagtion to specific screen
   const moveToNewScreen = (screenName, data) => () => {
@@ -253,14 +257,12 @@ export default function CustomDrawerContent({
               }
             } else if (route?.support) {
               ZendeskChat.setVisitorInfo({
-                name: 'Dinesh',
-                email: 'dkdenni07@gmail.com',
-                phone: '9832421234',
+                name: userData?.name,
+                phone: userData?.phone_number,
               });
               ZendeskChat.startChat({
-                name: 'Dinesh',
-                email: 'dkdenni07@gmail.com',
-                phone: '9832421234',
+                name: userData?.name,
+                phone: userData?.phone_number,
                 withChat: true,
                 color: '#000',
               });
