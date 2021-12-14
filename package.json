@@ -245,6 +245,8 @@
     "spongedispatcherRelease": "cd android && ./gradlew assemblespongeRelease",
     "shopCentraldispatcher": "react-native run-android --variant=shopCentralDebug",
     "shopCentraldispatcherRelease": "cd android && ./gradlew assembleshopCentralRelease",
+    "skidoodispatcher": "react-native run-android --variant=skidooDebug",
+    "skidoodispatcherRelease": "cd android && ./gradlew assembleskidooRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",

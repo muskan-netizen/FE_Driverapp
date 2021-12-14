@@ -2,13 +2,13 @@
 // export const API_BASE_URL = 'https://api.royodispatch.com/api';
 
 //Staging
-//  export const API_BASE_URL = 'https://api.rdstaging.com/api';
+ export const API_BASE_URL = 'https://api.rdstaging.com/api';
 
 //tranzit app domain
 //export const API_BASE_URL = 'https://dispatch.tranzit.app/api';
 
 //klickmat/snabbhem app domain
-export const API_BASE_URL = 'https://delivery.snabbhem.se/api';
+// export const API_BASE_URL = 'https://delivery.snabbhem.se/api';
 
 // pinkjet
 // export const API_BASE_URL ='https://dispatch.pinkjettaxi.com/api';

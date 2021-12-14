@@ -123,6 +123,7 @@ const shortCodes = {
   transportSystem: 'cabccb',
   shopCentral: '3b9fc7',
   sponge: '4aa2aa',
+  skidoo: '84c2b5',
 };
 
 // Goody Dispatch
@@ -168,7 +169,7 @@ const appIds = {
     android: 'com.arenagrub.royodispatcher',
   }),
   blipDelivery: Platform.select({
-    ios: 'com.BlipDelivery.Dispatch',
+    ios: 'com.BlipDeliveryApp.Dispatch',
     android: 'com.BlipDelivery.royodispatcher',
   }),
   bottomsUp: Platform.select({
@@ -611,6 +612,10 @@ const appIds = {
   sponge: Platform.select({
     ios: 'com.Sponge.Dispatch',
     android: "com.Sponge.royodispatcher",
+  }),
+  skidoo: Platform.select({
+    ios: 'com.Skidoo.Dispatch',
+    android: "com.Skidoo.royodispatcher",
   }),
 };
 

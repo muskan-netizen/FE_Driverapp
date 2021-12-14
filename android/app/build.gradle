@@ -1455,6 +1455,16 @@ android {
             applicationId "com.Sponge.royodispatcher"
             resValue "string", "app_name", "Sponge Dispatch"
         }
+        skidoo{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId "com.Skidoo.royodispatcher"
+            resValue "string", "app_name", "Skidoo Dispatch"
+        }
     }
 }
 
