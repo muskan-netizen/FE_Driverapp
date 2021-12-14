@@ -2,10 +2,10 @@
 //export const API_BASE_URL = 'https://api.royodispatch.com/api';
 
 //Staging
-export const API_BASE_URL = 'https://api.rdstaging.com/api';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // fleety staging domain
-//export const API_BASE_URL = 'https://fleety.rdstaging.com/api';
+//export const API_BASE_URL = 'https://fleety.rdstaging.com/';
 
 //carroi app domain
 //export const API_BASE_URL = 'https://carroi.rostaging.com/api';
@@ -41,26 +41,29 @@ export const API_BASE_URL = 'https://api.rdstaging.com/api';
 export const personaltoken = 'TMJdbQlNWkYl1JzMONzRgF4zQFuP8s';
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;
 
-export const SEND_OTP = getApiUrl('/auth/login');
-export const LOGIN_API = getApiUrl('/auth/sendOtp');
-export const SIGNUP_API = getApiUrl('/auth/signup');
-export const LOGOUT_API = getApiUrl('/auth/logout');
+export const SEND_OTP = getApiUrl('api/auth/login');
+export const LOGIN_API = getApiUrl('api/auth/sendOtp');
+export const SIGNUP_API = getApiUrl('api/auth/signup');
+export const LOGOUT_API = getApiUrl('api/auth/logout');
 
 // export const SIGN_UP_API = getApiUrl('/auth/register');
-export const APP_INITIAL_SETTINGS = getApiUrl('/shortCode');
-export const PRIVACYANDTERMSANDCONDITIONS = getApiUrl('/cmscontent');
+export const APP_INITIAL_SETTINGS = getApiUrl('api/shortCode');
+export const PRIVACYANDTERMSANDCONDITIONS = getApiUrl('api/cmscontent');
 
 //Task Apis
-export const GETTASKS = getApiUrl('/taskList');
-export const GETTASKHISTORY = getApiUrl('/task/history');
-export const UPDATEONOFFDUTYSTATUS = getApiUrl('/updateStatus');
-export const UPDATETASKSTATUS = getApiUrl('/updateTaskStatus');
-export const ACCEPTREJECTSTATUS = getApiUrl('/task/accecpt/reject');
+export const GETTASKS = getApiUrl('api/taskList');
+export const GETTASKHISTORY = getApiUrl('api/task/history');
+export const UPDATEONOFFDUTYSTATUS = getApiUrl('api/updateStatus');
+export const UPDATETASKSTATUS = getApiUrl('api/updateTaskStatus');
+export const ACCEPTREJECTSTATUS = getApiUrl('api/task/accecpt/reject');
 
 //Logs
-export const LOGSAPI = getApiUrl('/agent/logs');
-export const SIGNUPDOC = getApiUrl('/auth/new-send-documents');
-export const DRIVEROTP = getApiUrl('/checkOTPRequried');
+export const LOGSAPI = getApiUrl('api/agent/logs');
+export const SIGNUPDOC = getApiUrl('api/auth/new-send-documents');
+export const DRIVEROTP = getApiUrl('api/checkOTPRequried');
 
 //Wallet
-export const GETWALLETDATA = getApiUrl('/agent/transaction/details');
+export const GETWALLETDATA = getApiUrl('api/agent/transaction/details');
+
+// get Notification Data
+export const CUSTOMNOTIFICATIONPAYLOAD = getApiUrl('api/notification/tracking');

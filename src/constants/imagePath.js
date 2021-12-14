@@ -76,4 +76,6 @@ export default {
   support2: require('../assets/images/ic_support_2.png'),
   map1: require('../assets/images/ic_map1.png'),
   expand: require('../assets/images/ic_expand.png'),
+  blackSquare: require('../assets/images/ic_square.png'),
+  grayDot: require('../assets/images/ic_dot.png'),
 };

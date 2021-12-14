@@ -157,4 +157,6 @@ export default {
   TRACKINGID: 'ID de rastreo',
   DROP: 'Soltar',
   PICKUP: 'Levantar',
+  PICKUPLOCATION: 'Lugar de recogida',
+  DROPLOCATION: 'Ubicación de la gota',
 };
