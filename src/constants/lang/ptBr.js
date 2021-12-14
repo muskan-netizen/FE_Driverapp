@@ -158,4 +158,9 @@ export default {
   TRACKINGID: 'Tracking id',
   DROP: 'Drop',
   PICKUP: 'Pickup',
+  SELCTED_TAG: 'Select tags',
+  TAGS: 'Tags',
+  NODATAFOUND: 'No Data Found',
+  SELECT_TEAM: 'Select a team',
+  TEAMS: 'Teams',
 };

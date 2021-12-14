@@ -74,7 +74,7 @@ export default ({defaultLanguagae}) => {
     },
     label3: {
       marginBottom: moderateScaleVertical(10),
-
+      textAlign: 'center',
       fontSize: textScale(12),
       fontFamily: fontFamily.medium,
       color: colors.lightGreyBg2,
@@ -132,6 +132,11 @@ export default ({defaultLanguagae}) => {
     viewStyleForUploadImage: {
       flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
       flexWrap: 'wrap',
+    },
+    labelTxt: {
+      fontSize: textScale(12),
+      fontFamily: fontFamily.medium,
+      color: colors.lightGreyBg2,
     },
   });
   return style;

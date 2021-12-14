@@ -157,4 +157,9 @@ export default {
   TRACKINGID: 'ID de rastreo',
   DROP: 'Soltar',
   PICKUP: 'Levantar',
+  SELCTED_TAG: 'Select tags',
+  TAGS: 'Tags',
+  NODATAFOUND: 'No Data Found',
+  SELECT_TEAM: 'Select a team',
+  TEAMS: 'Teams',
 };

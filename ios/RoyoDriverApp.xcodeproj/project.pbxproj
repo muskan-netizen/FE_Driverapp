@@ -1965,6 +1965,7 @@
 		D970357AAA5BE235D726A037 /* libPods-Fleety.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F555E56BFA7B49DC4F5DC599 /* libPods-Fleety.a */; };
 		DA8808CD0C6E0B71E2CCD4EA /* libPods-EzMobileFuel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 434F2DB29FE3D56C6F6D1687 /* libPods-EzMobileFuel.a */; };
 		DB58B3764201969419026805 /* libPods-Donepacked.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C6FC5E193A5F854B2A8C92DD /* libPods-Donepacked.a */; };
+		DE0C8746A397404B2B03E22C /* libPods-RoyoDriverApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A070ED58A1A48985E7D10FD3 /* libPods-RoyoDriverApp.a */; };
 		E087CF374B245FACAEB5F647 /* libPods-Somame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C928784AC7E5FEFD6B42B7 /* libPods-Somame.a */; };
 		E85E636598D8117B79D6FF17 /* libPods-Hmc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DA059AB33A0805BA9305535 /* libPods-Hmc.a */; };
 		EBC50935943111A14B7F80A6 /* libPods-Yeboy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66EAAED4CA8C0CDFA943B075 /* libPods-Yeboy.a */; };
@@ -2926,6 +2927,7 @@
 		9D2DB86CC1E46AFCB01E8419 /* Pods-BotSeat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BotSeat.release.xcconfig"; path = "Target Support Files/Pods-BotSeat/Pods-BotSeat.release.xcconfig"; sourceTree = "<group>"; };
 		9E1FB15B75CB90542E6DB375 /* Pods-BustanFakieh.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BustanFakieh.debug.xcconfig"; path = "Target Support Files/Pods-BustanFakieh/Pods-BustanFakieh.debug.xcconfig"; sourceTree = "<group>"; };
 		9FAFBE4231B07E91E54993D0 /* Pods-Spidbi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spidbi.debug.xcconfig"; path = "Target Support Files/Pods-Spidbi/Pods-Spidbi.debug.xcconfig"; sourceTree = "<group>"; };
+		A070ED58A1A48985E7D10FD3 /* libPods-RoyoDriverApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RoyoDriverApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1426558B5B7CBD8CE7D7B5B /* Pods-TruckTireNow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TruckTireNow.release.xcconfig"; path = "Target Support Files/Pods-TruckTireNow/Pods-TruckTireNow.release.xcconfig"; sourceTree = "<group>"; };
 		A18128427DD944FD21424312 /* Pods-LastMinuteDress.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LastMinuteDress.debug.xcconfig"; path = "Target Support Files/Pods-LastMinuteDress/Pods-LastMinuteDress.debug.xcconfig"; sourceTree = "<group>"; };
 		A3C91F03DD7274EF8A206DCF /* libPods-Suel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Suel.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -3094,6 +3096,7 @@
 				3EA992AA6548688920D292DE /* (null) in Frameworks */,
 				A6A515BBBE23A385A0B777D1 /* libPods-RoyoDriverApp.a in Frameworks */,
 				69D9E77E3926EE3668ACCBEA /* libPods-RoyoDriverApp.a in Frameworks */,
+				DE0C8746A397404B2B03E22C /* libPods-RoyoDriverApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4172,6 +4175,7 @@
 				DE3C84CB00818F6040FBF612 /* libPods-WeEat.a */,
 				0DF65775FABDD1A3B245BDB8 /* libPods-Shariff.a */,
 				0AB1F973AC77323F1D96542E /* libPods-Sambiga.a */,
+				A070ED58A1A48985E7D10FD3 /* libPods-RoyoDriverApp.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

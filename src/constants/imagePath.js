@@ -76,4 +76,6 @@ export default {
   support2: require('../assets/images/ic_support_2.png'),
   map1: require('../assets/images/ic_map1.png'),
   expand: require('../assets/images/ic_expand.png'),
+  ic_cross: require('../assets/images/ic_backwd_dark.png'),
+  dropDownNew: require('../assets/images/ic_drpdwn.png'),
 };

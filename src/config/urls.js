@@ -1,5 +1,5 @@
 //live
-//export const API_BASE_URL = 'https://api.royodispatch.com/api';
+// export const API_BASE_URL = 'https://api.royodispatch.com/api';
 
 //Staging
 export const API_BASE_URL = 'https://api.rdstaging.com/api';
@@ -33,7 +33,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/api';
 //export const API_BASE_URL = 'http://192.168.96.20:8010/api';
 // export const API_BASE_URL = 'http://192.168.103.73:8005';
 //export const API_BASE_URL = 'https://api.williamherrick.com/api';
-// export const API_BASE_URL = 'http://192.168.103.73:8005/api';
+// export const API_BASE_URL = 'http://192.168.103.73:800/api';
 
 // destinationops app domain
 //export const API_BASE_URL = 'https://dispatch.destinationops.com/api';
