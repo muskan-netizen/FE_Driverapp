@@ -342,8 +342,6 @@ export default function TaskDetail({route, navigation}) {
     }
   };
 
-  console.log('bug fixed');
-
   //get Text color
   const getTextColor = name => {
     switch (name) {
