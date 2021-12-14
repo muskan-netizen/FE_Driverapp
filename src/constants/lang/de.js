@@ -157,4 +157,8 @@ export default {
   NODATAFOUND: 'No Data Found',
   SELECT_TEAM: 'Select a team',
   TEAMS: 'Teams',
+  ADD_MONEY: 'Add Money',
+  PAYOUT: 'Payout',
+  ADD: 'Add',
+  ENTER_AMOUNT: 'Enter Amount',
 };

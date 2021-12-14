@@ -1,18 +1,18 @@
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react';
 import {
   AddSignature,
   ContactUs,
   DashBoard,
+  OrderDetail,
   Scanner,
   TaskCancel,
   TaskCompleteDocument,
   TaskDetail,
   TaskHistory,
-  Wallet,
-  OrderDetail,
 } from '../Screens';
 import navigationStrings from './navigationStrings';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import WalletStack from './WalletStack';
 
 const Stack = createNativeStackNavigator();
 export default function () {
@@ -57,8 +57,8 @@ export default function () {
         options={{headerShown: false}}
       />
       <Stack.Screen
-        name={navigationStrings.WALLET}
-        component={Wallet}
+        name={navigationStrings.WALLETSTACK}
+        component={WalletStack}
         options={{headerShown: false}}
       />
       <Stack.Screen

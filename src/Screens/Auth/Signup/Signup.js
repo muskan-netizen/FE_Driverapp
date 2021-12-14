@@ -498,7 +498,11 @@ export default function Signup({route, navigation}) {
         break;
       default:
         return (
-          <View style={{marginTop: moderateScaleVertical(10)}}>
+          <View
+            onTouchStart={() => {
+              updateState({isTagsShow: false});
+            }}
+            style={{marginTop: moderateScaleVertical(10)}}>
             <Text style={styles.employeetypeHeadingtext}>
               {strings.EMPLOYEETYPE}
             </Text>

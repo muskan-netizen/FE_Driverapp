@@ -23,4 +23,8 @@ export default {
   WALLET: 'Wallet',
   CONTACTUS: 'ContactUs',
   ORDERDETAIL: 'OrderDetail',
+  WALLETSTACK: 'walletStack',
+  ADD_MONEY: 'addMoney',
+  PAYOUT_STACK: 'payoutStack',
+  PAYOUT: 'payout',
 };
