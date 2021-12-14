@@ -104,6 +104,17 @@ const TaskListCard = ({
     }
   };
 
+  const checkCallBackUrlForShowOrderDeatils = () => {
+    return data?.order?.call_back_url?.includes(
+      '/dispatch-order-status-update/',
+    );
+  };
+
+  console.log(
+    checkCallBackUrlForShowOrderDeatils(),
+    'checkCallBackUrlForShowOrderDeatils',
+  );
+
   return (
     <TouchableOpacity
       activeOpacity={1}
@@ -143,11 +154,17 @@ const TaskListCard = ({
         </View>
 
         <View style={styles.dotViewStyle}>
-          {/* {data?.order?.call_back_url && (
+          {checkCallBackUrlForShowOrderDeatils() && (
             <TouchableOpacity onPress={_onPressTaskDetails}>
-              <Image source={imagePath.expand} />
+              <Image
+                style={{
+                  height: moderateScaleVertical(16),
+                  width: moderateScale(16),
+                }}
+                source={imagePath.expand}
+              />
             </TouchableOpacity>
-          )} */}
+          )}
 
           <View style={styles.dotBaseViewStyle} />
           <View

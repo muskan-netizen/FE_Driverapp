@@ -162,4 +162,8 @@ export default {
   PAYOUT: 'Payout',
   ADD: 'Add',
   ENTER_AMOUNT: 'Enter Amount',
+  PICKUPLOCATION: 'PickupLocation',
+  DROPLOCATION: 'DropLocation',
+  QUESTION: 'Question ',
+  ANSWER: 'Answer',
 };

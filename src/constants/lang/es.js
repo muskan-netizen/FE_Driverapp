@@ -166,4 +166,8 @@ export default {
   PAYOUT: 'Payout',
   ADD: 'Add',
   ENTER_AMOUNT: 'Enter Amount',
+  PICKUPLOCATION: 'Lugar de recogida',
+  DROPLOCATION: 'Ubicación de la gota',
+  QUESTION: 'Pregunta ',
+  ANSWER: 'Respuesta',
 };
