@@ -57,7 +57,7 @@ var _value = 0;
 export default function TaskDetail({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
   let taskDetail = route?.params?.data?.item;
-  console.log(taskDetail, 'taskDetail');
+  console.log(taskDetail, 'taskDetail>>>>>>>>>>>>');
   let fromHistory = route?.params?.data?.fromHistory;
 
   const [state, setState] = useState({
@@ -120,6 +120,7 @@ export default function TaskDetail({route, navigation}) {
     ],
     updatedProofArray: [],
     findDataToCheck: null,
+    productAllInsrucations: [],
   });
 
   const {
@@ -136,6 +137,7 @@ export default function TaskDetail({route, navigation}) {
     buttonHeight,
     buttonPressComplete,
     buttonText,
+    productAllInsrucations,
   } = state;
   const commonStyles = commonStylesFunc({fontFamily});
   const updateState = data => setState(state => ({...state, ...data}));
@@ -250,6 +252,57 @@ export default function TaskDetail({route, navigation}) {
     }
   }, [buttonPressComplete]);
 
+  const new_dispatch_traking_url = () => {
+    if (
+      taskDetail?.order?.call_back_url?.includes(
+        '/dispatch-order-status-update/',
+      )
+    ) {
+      return (taskDetail?.order?.call_back_url).replace(
+        '/dispatch-order-status-update/',
+        '/dispatch-order-status-update-details/',
+      );
+    } else if (
+      taskDetail?.order?.call_back_url?.includes('/dispatch-pickup-delivery/')
+    ) {
+      return (taskDetail?.order?.call_back_url).replace(
+        '/dispatch-pickup-delivery/',
+        '/dispatch-order-status-update-details/',
+      );
+    }
+  };
+
+  useEffect(() => {
+    if (new_dispatch_traking_url()) {
+      updateState({
+        isLoading: true,
+      });
+      _getproductUpdateDetails();
+    }
+  }, []);
+
+  const _getproductUpdateDetails = () => {
+    actions
+      .getProductUpdateDetails(new_dispatch_traking_url(), {})
+      .then(res => {
+        const productAllInsrucations = res?.data?.vendors.map((item, index) => {
+          return item?.products?.map((item, index) => {
+            return item?.user_product_order_form;
+          });
+        });
+
+        updateState({
+          isLoading: false,
+          productAllInsrucations: JSON.parse(productAllInsrucations),
+        });
+      })
+      .catch(error =>
+        updateState({
+          isLoading: false,
+        }),
+      );
+  };
+
   const mapView = () => {
     return (
       <MapView
@@ -288,8 +341,6 @@ export default function TaskDetail({route, navigation}) {
         break;
     }
   };
-
-  console.log('bug fixed');
 
   //get Text color
   const getTextColor = name => {
@@ -866,6 +917,55 @@ export default function TaskDetail({route, navigation}) {
                 </View>
               </View>
             )}
+          {productAllInsrucations?.length > 0 &&
+            productAllInsrucations?.map((item, index) => {
+              return (
+                <View style={{marginTop: moderateScaleVertical(10)}}>
+                  <View style={{flexDirection: 'row'}}>
+                    <Text
+                      numberOfLines={2}
+                      style={[
+                        styles.emailAndPhone,
+                        {
+                          marginTop: moderateScale(5),
+                          fontFamily: fontFamily.bold,
+                        },
+                      ]}>
+                      {`${strings.QUESTION} :`}
+                    </Text>
+                    <Text
+                      numberOfLines={2}
+                      style={[
+                        styles.emailAndPhone,
+                        {marginTop: moderateScale(5)},
+                      ]}>
+                      {item?.question}
+                    </Text>
+                  </View>
+                  <View style={{flexDirection: 'row'}}>
+                    <Text
+                      numberOfLines={2}
+                      style={[
+                        styles.emailAndPhone,
+                        {
+                          marginTop: moderateScale(5),
+                          fontFamily: fontFamily.bold,
+                        },
+                      ]}>
+                      {`${strings.ANSWER} :`}
+                    </Text>
+                    <Text
+                      numberOfLines={2}
+                      style={[
+                        styles.emailAndPhone,
+                        {marginTop: moderateScale(5)},
+                      ]}>
+                      {item?.answer}
+                    </Text>
+                  </View>
+                </View>
+              );
+            })}
         </View>
       </ScrollView>
     );
