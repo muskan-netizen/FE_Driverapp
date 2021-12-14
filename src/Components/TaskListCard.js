@@ -18,6 +18,7 @@ import {getColorCodeWithOpactiyNumber} from '../utils/helperFunctions';
 import {colorArray} from '../utils/constants/ConstantValues';
 import {format} from 'date-fns';
 import {useSelector} from 'react-redux';
+import strings from '../constants/lang';
 const TaskListCard = ({
   data = {},
   allTasks = [],
@@ -103,6 +104,17 @@ const TaskListCard = ({
     }
   };
 
+  const checkCallBackUrlForShowOrderDeatils = () => {
+    return data?.order?.call_back_url?.includes(
+      '/dispatch-order-status-update/',
+    );
+  };
+
+  console.log(
+    checkCallBackUrlForShowOrderDeatils(),
+    'checkCallBackUrlForShowOrderDeatils',
+  );
+
   return (
     <TouchableOpacity
       activeOpacity={1}
@@ -142,11 +154,17 @@ const TaskListCard = ({
         </View>
 
         <View style={styles.dotViewStyle}>
-          {/* {data?.order?.call_back_url && (
+          {checkCallBackUrlForShowOrderDeatils() && (
             <TouchableOpacity onPress={_onPressTaskDetails}>
-              <Image source={imagePath.expand} />
+              <Image
+                style={{
+                  height: moderateScaleVertical(16),
+                  width: moderateScale(16),
+                }}
+                source={imagePath.expand}
+              />
             </TouchableOpacity>
-          )} */}
+          )}
 
           <View style={styles.dotBaseViewStyle} />
           <View
@@ -161,7 +179,11 @@ const TaskListCard = ({
                 styles.taskTypeName,
                 {color: getTextColor(data?.tasktype?.name)},
               ]}>
-              {data?.tasktype?.name}
+              {`${
+                (data?.tasktype?.name).toLowerCase() == 'drop'
+                  ? strings.DROP
+                  : strings.PICKUP
+              }`}
             </Text>
           </View>
         </View>

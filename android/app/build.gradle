@@ -1401,10 +1401,20 @@ android {
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId "com.ufood.royodispatcher"
+             applicationId "com.ufood.royodispatcher"
             resValue "string", "app_name", "UFood Dispatch"
         }
+        we_eat{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId "com.WeEat.royodispatcher"
+            resValue "string", "app_name", "WeEat Dispatch"
+        }
+           
         servze{
             dimension "appType"
             versionCode 1
@@ -1412,9 +1422,21 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId "com.servze.royodispatcher"
+             applicationId "com.servze.royodispatcher"
             resValue "string", "app_name", "Servze Dispatch"
         }
+            
+          sambiga{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+             applicationId "com.Sambiga.royodispatcher"
+            resValue "string", "app_name", "Sambiga Dispatch"
+          }
+           
         goMeat{
             dimension "appType"
             versionCode 1
@@ -1464,6 +1486,7 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId "com.Skidoo.royodispatcher"
             resValue "string", "app_name", "Skidoo Dispatch"
+           
         }
     }
 }

@@ -124,6 +124,8 @@ const shortCodes = {
   shopCentral: '3b9fc7',
   sponge: '4aa2aa',
   skidoo: '84c2b5',
+  weEat: '46d1b3',
+  sambiga: 'ce6b16',
 };
 
 // Goody Dispatch
@@ -616,6 +618,14 @@ const appIds = {
   skidoo: Platform.select({
     ios: 'com.Skidoo.Dispatch',
     android: "com.Skidoo.royodispatcher",
+  }),
+  weEat: Platform.select({
+    ios: 'com.WeEat.Dispatch',
+    android: 'com.WeEat.royodispatcher',
+  }),
+  sambiga: Platform.select({
+    ios: 'com.Sambiga.Dispatch',
+    android: 'com.Sambiga.royodispatcher',
   }),
 };
 

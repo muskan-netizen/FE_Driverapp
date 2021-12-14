@@ -157,4 +157,8 @@ export default {
   TRACKINGID: 'Tracking id',
   DROP: 'Drop',
   PICKUP: 'Pickup',
+  PICKUPLOCATION: 'PickupLocation',
+  DROPLOCATION: 'DropLocation',
+  QUESTION: 'Question ',
+  ANSWER: 'Answer',
 };
