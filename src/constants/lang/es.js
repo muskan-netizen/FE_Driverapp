@@ -159,4 +159,6 @@ export default {
   PICKUP: 'Levantar',
   PICKUPLOCATION: 'Lugar de recogida',
   DROPLOCATION: 'Ubicación de la gota',
+  QUESTION: 'Pregunta ',
+  ANSWER: 'Respuesta',
 };

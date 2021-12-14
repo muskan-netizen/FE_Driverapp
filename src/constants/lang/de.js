@@ -154,4 +154,6 @@ export default {
   PICKUP: 'Pickup',
   PICKUPLOCATION: 'PickupLocation',
   DROPLOCATION: 'DropLocation',
+  QUESTION: 'Question ',
+  ANSWER: 'Answer',
 };

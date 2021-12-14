@@ -931,7 +931,7 @@ export default function TaskDetail({route, navigation}) {
                           fontFamily: fontFamily.bold,
                         },
                       ]}>
-                      {`Question :`}
+                      {`${strings.QUESTION} :`}
                     </Text>
                     <Text
                       numberOfLines={2}
@@ -952,7 +952,7 @@ export default function TaskDetail({route, navigation}) {
                           fontFamily: fontFamily.bold,
                         },
                       ]}>
-                      {'Answer :'}
+                      {`${strings.ANSWER} :`}
                     </Text>
                     <Text
                       numberOfLines={2}
