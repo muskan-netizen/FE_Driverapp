@@ -569,7 +569,6 @@
 		8423240B2721412C0063F4AF /* campton-semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC326E9E6D20066EEEE /* campton-semibold.ttf */; };
 		84232420272141E70063F4AF /* BlipDeliveryInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8423241F272141E70063F4AF /* BlipDeliveryInfo.plist */; };
 		8423242E272142370063F4AF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8423242D272142370063F4AF /* Images.xcassets */; };
-		8423243B272142660063F4AF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8423243A272142660063F4AF /* GoogleService-Info.plist */; };
 		842324DB27214A090063F4AF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		842324DC27214A090063F4AF /* RoyoDriverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E4480626E87ED800452095 /* RoyoDriverApp.swift */; };
 		842324DD27214A090063F4AF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -2019,6 +2018,7 @@
 		84F7EE42274BACC4003EB8D2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84F7EE41274BACC4003EB8D2 /* Images.xcassets */; };
 		84F7EEA3274BACF1003EB8D2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84F7EEA2274BACF0003EB8D2 /* GoogleService-Info.plist */; };
 		84F7EF63274BAD96003EB8D2 /* DoctaTransportation(Development).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 84F7EF62274BAD96003EB8D2 /* DoctaTransportation(Development).xcconfig */; };
+		84FB700A2769C0B500C82F77 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84FB70092769C0B400C82F77 /* GoogleService-Info.plist */; };
 		8595BF1479B3BACAA77E6BB9 /* libPods-Sambiga.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AB1F973AC77323F1D96542E /* libPods-Sambiga.a */; };
 		85D49E6B1F01E791E8CCBEC6 /* libPods-Bezalio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8155D67617242C3CA43827B9 /* libPods-Bezalio.a */; };
 		85F2E2206D1725AC6D892F2B /* libPods-PinkJet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F8374647BD2D30D7F807A6C8 /* libPods-PinkJet.a */; };
@@ -2506,7 +2506,6 @@
 		842324122721412C0063F4AF /* BlipDelivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlipDelivery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8423241F272141E70063F4AF /* BlipDeliveryInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = BlipDeliveryInfo.plist; sourceTree = "<group>"; };
 		8423242D272142370063F4AF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		8423243A272142660063F4AF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84232452272142870063F4AF /* BlipDelivery(Development).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "BlipDelivery(Development).xcconfig"; sourceTree = "<group>"; };
 		8423245F2721429A0063F4AF /* BlipDelivery(Production).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "BlipDelivery(Production).xcconfig"; sourceTree = "<group>"; };
 		842324FA27214A090063F4AF /* BottomsUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BottomsUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -3076,6 +3075,7 @@
 		84F7EE41274BACC4003EB8D2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		84F7EEA2274BACF0003EB8D2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84F7EF62274BAD96003EB8D2 /* DoctaTransportation(Development).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "DoctaTransportation(Development).xcconfig"; sourceTree = "<group>"; };
+		84FB70092769C0B400C82F77 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84FFA3AF1C534715003BD122 /* Pods-Yoho.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yoho.debug.xcconfig"; path = "Target Support Files/Pods-Yoho/Pods-Yoho.debug.xcconfig"; sourceTree = "<group>"; };
 		871C0F0B0C383A2C49365399 /* Pods-Zest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zest.release.xcconfig"; path = "Target Support Files/Pods-Zest/Pods-Zest.release.xcconfig"; sourceTree = "<group>"; };
 		87E07B48D89AB3A28F5A73B8 /* Pods-SeaChangeVending.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeaChangeVending.debug.xcconfig"; path = "Target Support Files/Pods-SeaChangeVending/Pods-SeaChangeVending.debug.xcconfig"; sourceTree = "<group>"; };
@@ -5069,7 +5069,7 @@
 		8423242C272142210063F4AF /* BlipDelivery */ = {
 			isa = PBXGroup;
 			children = (
-				8423243A272142660063F4AF /* GoogleService-Info.plist */,
+				84FB70092769C0B400C82F77 /* GoogleService-Info.plist */,
 				8423242D272142370063F4AF /* Images.xcassets */,
 				84232452272142870063F4AF /* BlipDelivery(Development).xcconfig */,
 				8423245F2721429A0063F4AF /* BlipDelivery(Production).xcconfig */,
@@ -10130,7 +10130,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8423243B272142660063F4AF /* GoogleService-Info.plist in Resources */,
 				842324022721412C0063F4AF /* LaunchScreen.storyboard in Resources */,
 				842324042721412C0063F4AF /* Images.xcassets in Resources */,
 				842324052721412C0063F4AF /* campton-light.ttf in Resources */,
@@ -10138,6 +10137,7 @@
 				842324072721412C0063F4AF /* notification.mp3 in Resources */,
 				842324082721412C0063F4AF /* campton-book.ttf in Resources */,
 				84232420272141E70063F4AF /* BlipDeliveryInfo.plist in Resources */,
+				84FB700A2769C0B500C82F77 /* GoogleService-Info.plist in Resources */,
 				8423242E272142370063F4AF /* Images.xcassets in Resources */,
 				8423240B2721412C0063F4AF /* campton-semibold.ttf in Resources */,
 			);
@@ -28319,8 +28319,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = RoyoDriverApp/RoyoDriverAppRelease.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = 6FXUMT5X23;
+				DEVELOPMENT_TEAM = U867XX9W57;
 				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
@@ -28342,6 +28344,7 @@
 				PROJECT_BUNDLE_ID = "$(PROJECT_BUNDLE_ID)";
 				PROJECT_NAME = "${PROJECT_NAME}";
 				PROJECT_PLIST = "$(PROJECT_PLIST)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "RoyoDriverApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -28359,7 +28362,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = 6FXUMT5X23;
+				DEVELOPMENT_TEAM = U867XX9W57;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -28380,7 +28383,7 @@
 				PROJECT_BUNDLE_ID = "$(PROJECT_BUNDLE_ID)";
 				PROJECT_NAME = "${PROJECT_NAME}";
 				PROJECT_PLIST = "$(PROJECT_PLIST)";
-				PROVISIONING_PROFILE_SPECIFIER = "Blip Delivery [AppStore]";
+				PROVISIONING_PROFILE_SPECIFIER = "BlipDeliveryApp Dispatch[AppStore]";
 				SWIFT_OBJC_BRIDGING_HEADER = "RoyoDriverApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -28547,6 +28550,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = RoyoDriverApp/RoyoDriverAppRelease.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
@@ -28570,6 +28575,7 @@
 				PROJECT_BUNDLE_ID = "$(PROJECT_BUNDLE_ID)";
 				PROJECT_NAME = "${PROJECT_NAME}";
 				PROJECT_PLIST = "$(PROJECT_PLIST)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "RoyoDriverApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -28608,7 +28614,7 @@
 				PROJECT_BUNDLE_ID = "$(PROJECT_BUNDLE_ID)";
 				PROJECT_NAME = "${PROJECT_NAME}";
 				PROJECT_PLIST = "$(PROJECT_PLIST)";
-				PROVISIONING_PROFILE_SPECIFIER = "Donepacked [appstore]";
+				PROVISIONING_PROFILE_SPECIFIER = "HairstonExpress [AppStore]";
 				SWIFT_OBJC_BRIDGING_HEADER = "RoyoDriverApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
