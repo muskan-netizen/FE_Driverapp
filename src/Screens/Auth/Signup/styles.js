@@ -80,11 +80,6 @@ export default ({defaultLanguagae}) => {
       color: colors.lightGreyBg2,
     },
     imageUpload: {
-      height: 100,
-      width: 100,
-      borderRadius: moderateScale(4),
-      borderWidth: 1,
-      borderColor: colors.blue,
       borderStyle: 'dashed',
       justifyContent: 'center',
       alignItems: 'center',
@@ -132,6 +127,7 @@ export default ({defaultLanguagae}) => {
     viewStyleForUploadImage: {
       flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
       flexWrap: 'wrap',
+      // justifyContent: 'space-between',
     },
     labelTxt: {
       fontSize: textScale(12),

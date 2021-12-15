@@ -395,15 +395,10 @@ export default function Signup({route, navigation}) {
     return (
       <View
         style={{
-          marginRight: moderateScale(20),
+          marginRight: moderateScale(10),
           marginTop: moderateScale(10),
-          width: moderateScale(100),
+          width: moderateScale(110),
         }}>
-        <Text
-          numberOfLines={2}
-          style={{...styles.label3, minHeight: moderateScale(25)}}>
-          {type?.name}
-        </Text>
         <TouchableOpacity
           onPress={() => updateImages(type, index)}
           style={styles.imageUpload}>
@@ -418,6 +413,11 @@ export default function Signup({route, navigation}) {
             <Image source={imagePath?.photoInactive} />
           )}
         </TouchableOpacity>
+        <Text
+          numberOfLines={2}
+          style={{...styles.label3, minHeight: moderateScale(25)}}>
+          {type?.name}
+        </Text>
       </View>
     );
   };
@@ -465,7 +465,14 @@ export default function Signup({route, navigation}) {
         <Text style={[styles.label3]}>{type?.name}</Text>
         <TouchableOpacity
           onPress={() => getDoc(type, index)}
-          style={styles.imageUpload}>
+          style={{
+            ...styles.imageUpload,
+            height: 100,
+            width: 100,
+            borderRadius: moderateScale(4),
+            borderWidth: 1,
+            borderColor: colors.blue,
+          }}>
           <Text style={styles.uploadStyle}>
             {addtionalPdfs[index].value != undefined &&
             addtionalPdfs[index].value != null &&
@@ -597,6 +604,7 @@ export default function Signup({route, navigation}) {
         <KeyboardAwareScrollView
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator={false}
+          scrollEnabled={!isTeams}
           contentContainerStyle={{
             flexGrow: 1,
           }}>
@@ -691,8 +699,6 @@ export default function Signup({route, navigation}) {
               {isTeams && (
                 <View
                   style={{
-                    top: moderateScaleVertical(44),
-                    position: 'absolute',
                     borderWidth: 1,
                     borderColor: colors.borderColorB,
                     backgroundColor: colors.white,
@@ -702,7 +708,8 @@ export default function Signup({route, navigation}) {
                     shadowOffset: {width: 0, height: 1},
                     shadowOpacity: 0.1,
                     minHeight: moderateScale(50),
-                    maxHeight: moderateScale(250),
+                    borderRadius: moderateScale(5),
+                    maxHeight: moderateScale(150),
                   }}>
                   <ScrollView>
                     {driverTeams.length > 0 ? (
@@ -836,11 +843,9 @@ export default function Signup({route, navigation}) {
                 <View
                   style={{
                     backgroundColor: colors.white,
-                    position: 'absolute',
                     shadowOffset: {width: 0, height: 1},
                     shadowOpacity: 0.1,
                     width: '100%',
-                    top: tagsViewHeight,
                   }}>
                   {driverTags.length > 0 ? (
                     <View style={{flexWrap: 'wrap', flexDirection: 'row'}}>
@@ -901,7 +906,9 @@ export default function Signup({route, navigation}) {
               )}
             </View>
 
-            <View style={{marginVertical: moderateScaleVertical(20)}}>
+            <View
+              onTouchStart={() => updateState({isTagsShow: false})}
+              style={{marginVertical: moderateScaleVertical(20)}}>
               <Text style={styles.label}>{strings.TRASNPORTATION}</Text>
             </View>
             <View onTouchStart={() => updateState({isTagsShow: false})}>

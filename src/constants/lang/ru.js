@@ -170,4 +170,8 @@ export default {
   DROPLOCATION: 'DropLocation',
   QUESTION: 'Question ',
   ANSWER: 'Answer',
+  PLEASE_SELECT_PAYMENT_METHOD: 'Please select a payment method',
+  PLEASE_ENTER_VALID_AMOUNT: 'Please enter valid amount',
+  PAYMENT_METHODS: 'Payment Methods',
+  PAYMENT_SUCCESS: 'Payment successful',
 };

@@ -39,7 +39,6 @@ export default function Login({navigation, route}) {
   const paramData = route?.params?.data;
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
   const fcmToken = useSelector(state => state?.initBoot?.fcmToken);
-  console.log(clientInfo, 'clientInfo>clientInfo');
   console.log(paramData, 'paramData>paramData');
   const [state, setState] = useState({
     isLoading: false,

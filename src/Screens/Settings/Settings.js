@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Image, ScrollView, Text, TouchableOpacity} from 'react-native';
+import {Alert, Image, ScrollView, Text, TouchableOpacity} from 'react-native';
 import {View} from 'react-native';
 import {useSelector} from 'react-redux';
 import Header from '../../Components/Header';
@@ -20,19 +20,17 @@ import {
   textScale,
   width,
 } from '../../styles/responsiveSize';
-import {showSuccess} from '../../utils/helperFunctions';
+import {showError, showSuccess} from '../../utils/helperFunctions';
 import stylesFunc from './styles';
 import RNRestart from 'react-native-restart';
+import navigationStrings from '../../navigation/navigationStrings';
 
 export default function Settings({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
 
-  const defaultLanguagae = useSelector(
-    state => state?.initBoot?.defaultLanguage,
-  );
-  
+  const {defaultLanguage, clientInfo} = useSelector(state => state?.initBoot);
 
-  const styles = stylesFunc({defaultLanguagae});
+  const styles = stylesFunc({defaultLanguage});
   const [state, setState] = useState({
     isLoading: false,
     allLanguages: [
@@ -76,10 +74,9 @@ export default function Settings({route, navigation}) {
         label: 'Portuguese - (Brazil)',
         value: 'ptBr',
       },
-    
     ],
-    selectedLangauge: defaultLanguagae?.label
-      ? defaultLanguagae
+    selectedLangauge: defaultLanguage?.label
+      ? defaultLanguage
       : {
           id: 1,
           label: 'English',
@@ -115,11 +112,10 @@ export default function Settings({route, navigation}) {
     if (type === 'ok') {
       updateState({isLoading: true});
       setTimeout(() => {
-      
         changeLaguage(selectedLangauge?.value);
         actions.setDefaultLanguage(selectedLangauge);
         updateState({isLoading: false});
-        showSuccess(strings.LANGUAGECHANGED)
+        showSuccess(strings.LANGUAGECHANGED);
       }, 2000);
 
       // RNRestart.Restart();
@@ -187,6 +183,36 @@ export default function Settings({route, navigation}) {
     );
   };
 
+  const logout = () => {
+    actions
+      .logout({}, {client: clientInfo?.database_name})
+      .then(res => {
+        showSuccess(res?.message ? res?.message : 'Logout successfully.');
+        moveToNewScreen(navigationStrings.LOGIN)();
+      })
+      .catch(errorMethod);
+  };
+
+  const errorMethod = error => {
+    showError(error?.message || error?.error);
+  };
+
+  const _onLogout = () => {
+    Alert.alert('', strings.AREYOUSURE, [
+      {
+        text: strings.CANCEL,
+        onPress: () => console.log('Cancel Pressed'),
+        style: 'cancel',
+      },
+      {
+        text: strings.OK,
+        onPress: () => {
+          logout();
+        },
+      },
+    ]);
+  };
+
   return (
     <WrapperContainer
       statusBarColor={colors.white}
@@ -196,6 +222,8 @@ export default function Settings({route, navigation}) {
       <Header
         headerStyle={{backgroundColor: colors.white}}
         // hideRight={true}
+        rightIcon={imagePath.logout}
+        onPressRight={_onLogout}
         // onPressLeft={()=>navigation.goBack()}
         centerTitle={strings.SETTING}
       />
@@ -207,8 +235,8 @@ export default function Settings({route, navigation}) {
           <TouchableOpacity onPress={() => onModalVisiblity()}>
             <View style={styles.selectedLanguageViewContainer}>
               <Text style={styles.selectedLanguageText}>
-                {defaultLanguagae?.label
-                  ? defaultLanguagae?.label
+                {defaultLanguage?.label
+                  ? defaultLanguage?.label
                   : selectedLangauge?.label}
               </Text>
               <Image

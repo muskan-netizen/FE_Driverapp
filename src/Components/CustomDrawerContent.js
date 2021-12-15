@@ -23,6 +23,7 @@ import {cloneDeep} from 'lodash';
 import ScaledImage from 'react-native-scalable-image';
 import DeviceInfo from 'react-native-device-info';
 import ZendeskChat from '../library/react-native-zendesk-chat';
+import {appIds} from '../utils/constants/DynamicAppKeys';
 
 export default function CustomDrawerContent({
   state,
@@ -95,7 +96,6 @@ export default function CustomDrawerContent({
   });
   const {routes, selectedDrawerItem, logoutAlert, isLoading} = states;
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
-  console.log(clientInfo, 'clientInfo>clientInfo');
   const defaultLanguagae = useSelector(
     state => state?.initBoot?.defaultLanguage,
   );
@@ -128,24 +128,24 @@ export default function CustomDrawerContent({
           key: navigationStrings.SETTINGS,
           // subRoute:navigationStrings.MYPROFILE
         },
-        // {
-        //   id: 3,
-        //   label: strings.WALLET,
-        //   image: imagePath.wallet,
-        //   key: navigationStrings.WALLETSTACK,
-        //   subRoute: navigationStrings.WALLETSTACK,
-        //   // key: navigationStrings.WALLET,
-        //   // subRoute:navigationStrings.MYPROFILE
-        // },
-        // {
-        //   id: 4,
-        //   label: strings.PAYOUT,
-        //   image: imagePath.wallet,
-        //   key: navigationStrings.PAYOUT_STACK,
-        //   subRoute: navigationStrings.PAYOUT_STACK,
-        //   // key: navigationStrings.WALLET,
-        //   // subRoute:navigationStrings.MYPROFILE
-        // },
+        {
+          id: 3,
+          label: strings.WALLET,
+          image: imagePath.wallet,
+          key: navigationStrings.WALLETSTACK,
+          subRoute: navigationStrings.WALLETSTACK,
+          // key: navigationStrings.WALLET,
+          // subRoute:navigationStrings.MYPROFILE
+        },
+        {
+          id: 4,
+          label: strings.PAYOUT,
+          image: imagePath.icPayout,
+          key: navigationStrings.PAYOUT_STACK,
+          subRoute: navigationStrings.PAYOUT_STACK,
+          // key: navigationStrings.WALLET,
+          // subRoute:navigationStrings.MYPROFILE
+        },
         {
           id: 5,
           label: strings.CONTACT,
@@ -163,13 +163,15 @@ export default function CustomDrawerContent({
           // key: navigationStrings.PROFILESTACK,
           // subRoute:navigationStrings.MYPROFILE
         },
-        {
-          id: 5,
-          label: strings.LOGOUT,
-          image: imagePath.logout,
-          // key: navigationStrings.PROFILESTACK,
-          // subRoute:navigationStrings.MYPROFILE
-        },
+        appIds.goody === DeviceInfo.getBundleId()
+          ? {}
+          : {
+              id: 7,
+              label: strings.LOGOUT,
+              image: imagePath.logout,
+              // key: navigationStrings.PROFILESTACK,
+              // subRoute:navigationStrings.MYPROFILE
+            },
       ],
     });
   }, [defaultLanguagae]);

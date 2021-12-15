@@ -1,5 +1,5 @@
 //live
-//export const API_BASE_URL = 'https://api.royodispatch.com/api';
+// export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
 export const API_BASE_URL = 'https://api.rdstaging.com/';
@@ -8,35 +8,35 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //export const API_BASE_URL = 'https://fleety.rdstaging.com/';
 
 //carroi app domain
-//export const API_BASE_URL = 'https://carroi.rostaging.com/api';
+//export const API_BASE_URL = 'https://carroi.rostaging.com/';
 
 //tranzit app domain
-//export const API_BASE_URL = 'https://dispatch.tranzit.app/api';
+//export const API_BASE_URL = 'https://dispatch.tranzit.app/';
 
 //klickmat/snabbhem app domain
-//export const API_BASE_URL = 'https://delivery.snabbhem.se/api';
+//export const API_BASE_URL = 'https://delivery.snabbhem.se/';
 
 // pinkjet
-// export const API_BASE_URL ='https://dispatch.pinkjettaxi.com/api';
+// export const API_BASE_URL ='https://dispatch.pinkjettaxi.com/';
 // Yoho
-// export const API_BASE_URL = 'https://dispatch.yohopartner.com/api';
+// export const API_BASE_URL = 'https://dispatch.yohopartner.com/';
 // tranzit
-// export const API_BASE_URL = 'https://dispatch.tranzit.app/api';
+// export const API_BASE_URL = 'https://dispatch.tranzit.app/';
 // cannabusxpress
-// export const API_BASE_URL = 'https://dispatch.cannabusxpress.com/api'
+// export const API_BASE_URL = 'https://dispatch.cannabusxpress.com/'
 // govachow
-// export const API_BASE_URL = 'https://dispatch.govachow.com/api'
+// export const API_BASE_URL = 'https://dispatch.govachow.com/'
 // africanize
-//export const API_BASE_URL = 'https://dispatch.africanize.co/api'
+//export const API_BASE_URL = 'https://dispatch.africanize.co/'
 //Developement
-// export const API_BASE_URL = 'https://api.winhires.com/api';
-//export const API_BASE_URL = 'http://192.168.96.20:8010/api';
-// export const API_BASE_URL = 'http://192.168.103.73:8005';
-//export const API_BASE_URL = 'https://api.williamherrick.com/api';
-// export const API_BASE_URL = 'http://192.168.103.73:800/api';
+// export const API_BASE_URL = 'https://api.winhires.com/';
+//export const API_BASE_URL = 'http://192.168.96.20:8010/';
+// export const API_BASE_URL = 'http://192.168.103.73:8006/';
+//export const API_BASE_URL = 'https://api.williamherrick.com/';
+// export const API_BASE_URL = 'http://192.168.103.73:800/';
 
 // destinationops app domain
-//export const API_BASE_URL = 'https://dispatch.destinationops.com/api';
+//export const API_BASE_URL = 'https://dispatch.destinationops.com/';
 
 export const personaltoken = 'TMJdbQlNWkYl1JzMONzRgF4zQFuP8s';
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;
@@ -64,6 +64,8 @@ export const DRIVEROTP = getApiUrl('api/checkOTPRequried');
 
 //Wallet
 export const GETWALLETDATA = getApiUrl('api/agent/transaction/details');
+export const PAYMENTOPTIONS = getApiUrl('api/payment/options');
+export const WALLET_CREDIT = getApiUrl('api/agentWallet/credit');
 
 // get Notification Data
 export const CUSTOMNOTIFICATIONPAYLOAD = getApiUrl('api/notification/tracking');
