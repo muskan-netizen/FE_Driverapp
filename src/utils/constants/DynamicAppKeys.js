@@ -126,6 +126,7 @@ const shortCodes = {
   skidoo: '84c2b5',
   weEat: '46d1b3',
   sambiga: 'ce6b16',
+  towFinder: '9ef64c',
 };
 
 // Goody Dispatch
@@ -626,6 +627,10 @@ const appIds = {
   sambiga: Platform.select({
     ios: 'com.Sambiga.Dispatch',
     android: 'com.Sambiga.royodispatcher',
+  }),
+  towFinder: Platform.select({
+    ios: 'com.TowFinder.Dispatch',
+    android: 'com.TowFinder.royodispatcher',
   }),
 };
 

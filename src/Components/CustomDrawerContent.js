@@ -59,7 +59,7 @@ export default function CustomDrawerContent({
         label: strings.WALLET,
         image: imagePath.wallet,
         key: navigationStrings.TASKSTACK,
-        subRoute: navigationStrings.WALLET,
+        subRoute: navigationStrings.WALLETSTACK,
         // key: navigationStrings.WALLET,
         // subRoute:navigationStrings.MYPROFILE
       },
@@ -132,13 +132,22 @@ export default function CustomDrawerContent({
         //   id: 3,
         //   label: strings.WALLET,
         //   image: imagePath.wallet,
-        //   key: navigationStrings.TASKSTACK,
-        //   subRoute: navigationStrings.WALLET,
+        //   key: navigationStrings.WALLETSTACK,
+        //   subRoute: navigationStrings.WALLETSTACK,
+        //   // key: navigationStrings.WALLET,
+        //   // subRoute:navigationStrings.MYPROFILE
+        // },
+        // {
+        //   id: 4,
+        //   label: strings.PAYOUT,
+        //   image: imagePath.wallet,
+        //   key: navigationStrings.PAYOUT_STACK,
+        //   subRoute: navigationStrings.PAYOUT_STACK,
         //   // key: navigationStrings.WALLET,
         //   // subRoute:navigationStrings.MYPROFILE
         // },
         {
-          id: 4,
+          id: 5,
           label: strings.CONTACT,
           image: imagePath.contact2,
           key: navigationStrings.TASKSTACK,

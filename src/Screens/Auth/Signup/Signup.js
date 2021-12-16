@@ -1,14 +1,27 @@
-import React, {useRef, useState, useEffect} from 'react';
-import {Image, ScrollView, Text, TouchableOpacity, View} from 'react-native';
+import {cloneDeep} from 'lodash';
+import React, {useEffect, useRef, useState} from 'react';
+import {
+  I18nManager,
+  Image,
+  ScrollView,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import ActionSheet from 'react-native-actionsheet';
+import DocumentPicker from 'react-native-document-picker';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {useSelector} from 'react-redux';
 import GradientButton from '../../../Components/GradientButton';
 import Header from '../../../Components/Header';
 import {loaderOne} from '../../../Components/Loaders/AnimatedLoaderFiles';
+import PhoneNumberInput from '../../../Components/PhoneNumberInput';
 import TextInputWithlabel from '../../../Components/TextInputWithlabel';
 import WrapperContainer from '../../../Components/WrapperContainer';
 import imagePath from '../../../constants/imagePath';
 import strings from '../../../constants/lang';
+import actions from '../../../redux/actions';
 // import store from '../../../redux/store';
 import colors from '../../../styles/colors';
 import commonStylesFunc from '../../../styles/commonStyles';
@@ -19,28 +32,20 @@ import {
   textScale,
   width,
 } from '../../../styles/responsiveSize';
-import {
-  transportationArray,
-  employeetypeArray,
-} from '../../../utils/constants/ConstantValues';
-import stylesFunction from './styles';
-import ActionSheet from 'react-native-actionsheet';
 import {cameraHandler} from '../../../utils/commonFunction';
-import {androidCameraPermission} from '../../../utils/permissions';
-import validator from '../../../utils/validations';
 import {
-  getColorCodeWithOpactiyNumber,
-  showError,
-  showSuccess,
-} from '../../../utils/helperFunctions';
-import PhoneNumberInput from '../../../Components/PhoneNumberInput';
-import validations from '../../../utils/validations';
-import actions from '../../../redux/actions';
-import {personaltoken} from '../../../config/urls';
-import {getItem} from '../../../utils/utils';
-import {cloneDeep} from 'lodash';
-import DocumentPicker from 'react-native-document-picker';
+  employeetypeArray,
+  transportationArray,
+} from '../../../utils/constants/ConstantValues';
 import {shortCodes} from '../../../utils/constants/DynamicAppKeys';
+import {showError, showSuccess} from '../../../utils/helperFunctions';
+import {androidCameraPermission} from '../../../utils/permissions';
+import {getItem} from '../../../utils/utils';
+import {
+  default as validations,
+  default as validator,
+} from '../../../utils/validations';
+import stylesFunction from './styles';
 
 export default function Signup({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
@@ -73,6 +78,13 @@ export default function Signup({route, navigation}) {
     addtionSelectedImage: null,
     addtionSelectedImageIndex: null,
     savedShortCode: null,
+    driverTags: [],
+    driverTeams: [],
+    selectedTags: [],
+    isTagsShow: false,
+    tagsViewHeight: moderateScale(44),
+    selectedTeam: '',
+    isTeams: false,
   });
 
   const {
@@ -98,6 +110,13 @@ export default function Signup({route, navigation}) {
     addtionSelectedImage,
     addtionSelectedImageIndex,
     savedShortCode,
+    driverTags,
+    driverTeams,
+    selectedTags,
+    isTagsShow,
+    tagsViewHeight,
+    selectedTeam,
+    isTeams,
   } = state;
   const commonStyles = commonStylesFunc({fontFamily});
 
@@ -134,7 +153,7 @@ export default function Signup({route, navigation}) {
     (async () => {
       const savedCode = await getItem('saveShortCode');
       if (savedCode == shortCodes?.loopWhole) {
-        updateState({selectedEpmloyeetype:allEmployeeTypes[0]});
+        updateState({selectedEpmloyeetype: allEmployeeTypes[0]});
       }
       updateState({savedShortCode: savedCode});
     })();
@@ -152,14 +171,22 @@ export default function Signup({route, navigation}) {
         .signupDoc({}, {client: clientInfo?.database_name})
         .then(res => {
           console.log(res, 'getRequiredDatas data');
-          if (res?.data && res?.data.length) {
+          updateState({
+            driverTags: res?.data?.agent_tags,
+            driverTeams: res?.data?.all_teams,
+          });
+          if (res?.data) {
             updateState({
-              addtionalTextInputs: res?.data.filter(
+              addtionalTextInputs: res?.data?.documents.filter(
                 x => x?.file_type == 'Text',
               ),
-              addtionalImages: res?.data.filter(x => x?.file_type == 'Image'),
-              addtionalPdfs: res?.data.filter(x => x?.file_type == 'Pdf'),
-              dataToSet: res?.data?.map((i, inx) => {
+              addtionalImages: res?.data?.documents.filter(
+                x => x?.file_type == 'Image',
+              ),
+              addtionalPdfs: res?.data?.documents.filter(
+                x => x?.file_type == 'Pdf',
+              ),
+              dataToSet: res?.data?.documents.map((i, inx) => {
                 return {
                   type: i?.file_type,
                   value: '',
@@ -218,8 +245,14 @@ export default function Signup({route, navigation}) {
     }
     return true;
   };
+  var dummyTags = '';
 
   const _onSignup = () => {
+    dummyTags = selectedTags.map(item => {
+      return item.name;
+    });
+    dummyTags = dummyTags.join(',');
+
     if (!userImage) {
       return showError(strings.SETIMAGE);
     }
@@ -258,6 +291,9 @@ export default function Signup({route, navigation}) {
     formdata.append('plate_number', vehiclePlateNumber);
     formdata.append('color', vehicleColor);
     formdata.append('vehicle_type_id', selectedVehicleType?.id);
+    formdata.append('team_id', !!selectedTeam ? selectedTeam?.id : '');
+    formdata.append('tags', dummyTags);
+
     formdata.append('profile_picture', {
       type: 'image/jpeg',
       name: `${Math.random()
@@ -322,6 +358,7 @@ export default function Signup({route, navigation}) {
   };
 
   const _selectedTransportation = i => {
+    console.log(i, '_selectedTransportation');
     updateState({
       selectedVehicleType: i,
     });
@@ -362,7 +399,9 @@ export default function Signup({route, navigation}) {
           marginTop: moderateScale(10),
           width: moderateScale(100),
         }}>
-        <Text numberOfLines={2} style={[styles.label3]}>
+        <Text
+          numberOfLines={2}
+          style={{...styles.label3, minHeight: moderateScale(25)}}>
           {type?.name}
         </Text>
         <TouchableOpacity
@@ -459,7 +498,11 @@ export default function Signup({route, navigation}) {
         break;
       default:
         return (
-          <View style={{marginTop: moderateScaleVertical(10)}}>
+          <View
+            onTouchStart={() => {
+              updateState({isTagsShow: false});
+            }}
+            style={{marginTop: moderateScaleVertical(10)}}>
             <Text style={styles.employeetypeHeadingtext}>
               {strings.EMPLOYEETYPE}
             </Text>
@@ -504,6 +547,35 @@ export default function Signup({route, navigation}) {
     }
   };
 
+  const _onTagSelect = (itm, indx) => {
+    if (!selectedTags.includes(itm)) {
+      updateState({
+        selectedTags: [...selectedTags, itm],
+      });
+    } else {
+      const selectedTagsAry = [...selectedTags];
+      const ind = selectedTagsAry.findIndex(item => item.id === itm.id);
+      var result = selectedTagsAry.filter((item, idx) => idx !== ind);
+      updateState({
+        selectedTags: result,
+      });
+    }
+  };
+
+  const removeTag = (itm, indx) => {
+    const selectedTagsAry = [...selectedTags];
+
+    const ind = selectedTagsAry.findIndex(item => item.id == itm.id);
+    // const tagIdind = selectedTagIndxsAry.findIndex((item) => item === indx);
+    var result = selectedTagsAry.filter((item, idx) => idx !== ind);
+    // var tagIdresult = selectedTagIndxsAry.filter(
+    //   (item, idx) => idx !== tagIdind,
+    // );
+    updateState({
+      selectedTags: result,
+    });
+  };
+
   return (
     <WrapperContainer
       statusBarColor={colors.white}
@@ -523,9 +595,11 @@ export default function Signup({route, navigation}) {
           marginVertical: moderateScale(20),
         }}>
         <KeyboardAwareScrollView
+          keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator={false}
-          bounces={false}
-          alwaysBounceHorizontal={false}>
+          contentContainerStyle={{
+            flexGrow: 1,
+          }}>
           <View style={styles.imageViewStyle}>
             {userImage ? (
               <TouchableOpacity onPress={() => showActionSheet(true)}>
@@ -550,6 +624,7 @@ export default function Signup({route, navigation}) {
                 onChangeText={text => updateState({fullName: text})}
                 labelStyle={styles.textInputlabel}
               />
+
               <View>
                 <Text style={styles.label2}>{strings.PHONENUMBER}</Text>
               </View>
@@ -572,14 +647,264 @@ export default function Signup({route, navigation}) {
                   borderColor: colors.borderLight,
                 }}
                 borderLeftColor={colors.borderLight}
-                // color={isDarkMode ? MyDarkTheme.colors.text : null}
               />
+            </View>
+
+            <Text
+              style={{
+                ...styles.labelTxt,
+                marginVertical: moderateScaleVertical(10),
+              }}>
+              {strings.TEAMS}
+            </Text>
+
+            <View style={{zIndex: 5}}>
+              <TouchableOpacity
+                style={{
+                  borderRadius: 8,
+                  height: moderateScaleVertical(44),
+                  paddingHorizontal: moderateScale(5),
+                  borderWidth: 1,
+                  borderColor: colors.borderLight,
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                }}
+                activeOpacity={0.7}
+                onPress={() =>
+                  updateState({
+                    isTeams: !isTeams,
+                    isDriverType: false,
+                    isTagsShow: false,
+                  })
+                }>
+                <Text
+                  style={{
+                    ...styles.labelTxt,
+                    marginBottom: 0,
+                  }}>
+                  {!!selectedTeam ? selectedTeam?.name : strings.SELECT_TEAM}
+                </Text>
+                <Image source={imagePath.dropDownNew} />
+              </TouchableOpacity>
+
+              {isTeams && (
+                <View
+                  style={{
+                    top: moderateScaleVertical(44),
+                    position: 'absolute',
+                    borderWidth: 1,
+                    borderColor: colors.borderColorB,
+                    backgroundColor: colors.white,
+                    width: '100%',
+                    paddingHorizontal: moderateScale(10),
+                    paddingVertical: moderateScale(5),
+                    shadowOffset: {width: 0, height: 1},
+                    shadowOpacity: 0.1,
+                    minHeight: moderateScale(50),
+                    maxHeight: moderateScale(250),
+                  }}>
+                  <ScrollView>
+                    {driverTeams.length > 0 ? (
+                      <View>
+                        {driverTeams.map((itm, indx) => {
+                          return (
+                            <TouchableOpacity
+                              key={indx}
+                              onPress={() =>
+                                updateState({
+                                  selectedTeam: itm,
+                                  isTeams: false,
+                                })
+                              }
+                              style={{
+                                marginVertical: moderateScale(5),
+                              }}>
+                              <Text>{itm.name}</Text>
+                            </TouchableOpacity>
+                          );
+                        })}
+                      </View>
+                    ) : (
+                      <View
+                        style={{
+                          width: '100%',
+                          height: moderateScale(30),
+                          justifyContent: 'center',
+                          alignItems: 'center',
+                          backgroundColor: colors.white,
+                        }}>
+                        <Text
+                          style={{
+                            fontFamily: fontFamily.medium,
+                            fontSize: moderateScale(13),
+                          }}>
+                          {strings.NODATAFOUND}
+                        </Text>
+                      </View>
+                    )}
+                  </ScrollView>
+                </View>
+              )}
+            </View>
+
+            <Text
+              style={{
+                marginVertical: moderateScaleVertical(10),
+                fontSize: textScale(12),
+                fontFamily: fontFamily.medium,
+                color: colors.lightGreyBg2,
+              }}>
+              {strings.TAGS}
+            </Text>
+
+            <View style={{zIndex: 2}}>
+              <View
+                onLayout={event => {
+                  updateState({
+                    tagsViewHeight: event.nativeEvent.layout.height,
+                  });
+                }}
+                style={{
+                  minHeight: moderateScaleVertical(44),
+                  color: colors.white,
+                  borderWidth: 1,
+                  borderRadius: 8,
+                  paddingVertical: 3,
+                  paddingHorizontal: 3,
+                  justifyContent: 'center',
+                  borderColor: colors.borderLight,
+                }}>
+                <View>
+                  {selectedTags.length > 0 && (
+                    <View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
+                      {selectedTags.map((item, index) => {
+                        return (
+                          <TouchableOpacity
+                            onPress={() => removeTag(item, index)}
+                            activeOpacity={0.7}
+                            style={{
+                              borderWidth: 1,
+                              borderColor: colors.borderColorB,
+                              alignItems: 'center',
+                              backgroundColor: colors.borderColorB,
+                              marginHorizontal: moderateScale(2),
+                              flexDirection: 'row',
+                              marginVertical: 3,
+                              width: (width - moderateScale(52)) / 3,
+                              justifyContent: 'space-around',
+                              borderRadius: moderateScale(5),
+                              paddingVertical: moderateScale(3),
+                            }}>
+                            <Image
+                              source={imagePath.ic_cross}
+                              style={{
+                                height: 15,
+                                width: 15,
+                                tintColor: colors.black,
+                              }}
+                            />
+                            <Text
+                              numberOfLines={1}
+                              style={{
+                                fontFamily: fontFamily.regular,
+                                marginLeft: 3,
+                              }}>
+                              {item?.name}
+                            </Text>
+                          </TouchableOpacity>
+                        );
+                      })}
+                    </View>
+                  )}
+                  <TextInput
+                    placeholder={strings.SELCTED_TAG}
+                    onFocus={() => updateState({isTagsShow: true})}
+                    onBlur={() => updateState({isTagsShow: false})}
+                    style={{
+                      opacity: 0.7,
+                      color: colors.textGreyOpcaity7,
+                      fontFamily: fontFamily.medium,
+                      fontSize: textScale(14),
+                      paddingHorizontal: 8,
+                      textAlign: I18nManager.isRTL ? 'right' : 'left',
+                    }}
+                  />
+                </View>
+              </View>
+              {isTagsShow && (
+                <View
+                  style={{
+                    backgroundColor: colors.white,
+                    position: 'absolute',
+                    shadowOffset: {width: 0, height: 1},
+                    shadowOpacity: 0.1,
+                    width: '100%',
+                    top: tagsViewHeight,
+                  }}>
+                  {driverTags.length > 0 ? (
+                    <View style={{flexWrap: 'wrap', flexDirection: 'row'}}>
+                      {driverTags.map((item, index) => {
+                        return (
+                          <TouchableOpacity
+                            onPress={() => _onTagSelect(item, index)}
+                            activeOpacity={0.7}
+                            style={{
+                              borderWidth: 1,
+                              borderColor: selectedTags.includes(item)
+                                ? colors.themeColor
+                                : colors.borderColorB,
+                              width: (width - moderateScale(70)) / 3,
+                              alignItems: 'center',
+                              marginVertical: moderateScale(5),
+                              paddingVertical: moderateScale(5),
+                              marginHorizontal: moderateScale(5),
+                              zIndex: 1,
+                              backgroundColor: selectedTags.includes(item)
+                                ? colors.themeColor
+                                : colors.borderColorB,
+                              borderRadius: moderateScale(5),
+                              justifyContent: 'center',
+                            }}>
+                            <Text
+                              numberOfLines={2}
+                              style={{
+                                textAlign: 'center',
+                                color: selectedTags.includes(item)
+                                  ? colors.white
+                                  : colors.black,
+                              }}>
+                              {item?.name}
+                            </Text>
+                          </TouchableOpacity>
+                        );
+                      })}
+                    </View>
+                  ) : (
+                    <View
+                      style={{
+                        width: '100%',
+                        height: moderateScale(30),
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                      }}>
+                      <Text
+                        style={{
+                          fontFamily: fontFamily.medium,
+                          fontSize: moderateScale(13),
+                        }}>
+                        {strings.NODATAFOUND}
+                      </Text>
+                    </View>
+                  )}
+                </View>
+              )}
             </View>
 
             <View style={{marginVertical: moderateScaleVertical(20)}}>
               <Text style={styles.label}>{strings.TRASNPORTATION}</Text>
             </View>
-            <View>
+            <View onTouchStart={() => updateState({isTagsShow: false})}>
               <ScrollView
                 horizontal
                 alwaysBounceHorizontal={false}

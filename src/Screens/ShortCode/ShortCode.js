@@ -824,6 +824,12 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.towFinder:
+          updateState({
+            shortCode: shortCodes.towFinder,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, []);

@@ -251,6 +251,8 @@
     "we_eatdispatcherRelease": "cd android && ./gradlew assembleWe_eatRelease",
     "sambigadispatcher": "react-native run-android --variant=sambigaDebug",
     "sambigadispatcherRelease": "cd android && ./gradlew assembleSambigaRelease",
+    "towFinderdispatcher": "react-native run-android --variant=towFinderDebug",
+    "towFinderdispatcherRelease": "cd android && ./gradlew assembletowFinderRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
