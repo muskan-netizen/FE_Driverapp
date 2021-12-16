@@ -168,7 +168,7 @@ export default {
   ORDERNUMBER: 'Order Number',
   PAYMENTMETHOD: 'Payment Method',
   PLACEDON: 'Placed On',
-  ORDERDETAILS: 'Order Details',
+  ORDERDETAILS: 'تفاصيل الطلب',
   VENDOR: 'Vendor',
   TRACKINGID: 'Tracking id',
   DROP: 'Drop',

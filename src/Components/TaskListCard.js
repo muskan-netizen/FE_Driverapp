@@ -26,7 +26,6 @@ const TaskListCard = ({
   _onPressTask = () => {},
   showCurrency = false,
   previousData = null,
-  _onPressTaskDetails = () => {},
 }) => {
   //Get Date
   const defaultLanguagae = useSelector(
@@ -104,17 +103,6 @@ const TaskListCard = ({
     }
   };
 
-  const checkCallBackUrlForShowOrderDeatils = () => {
-    return data?.order?.call_back_url?.includes(
-      '/dispatch-order-status-update/',
-    );
-  };
-
-  console.log(
-    checkCallBackUrlForShowOrderDeatils(),
-    'checkCallBackUrlForShowOrderDeatils',
-  );
-
   return (
     <TouchableOpacity
       activeOpacity={1}
@@ -154,18 +142,6 @@ const TaskListCard = ({
         </View>
 
         <View style={styles.dotViewStyle}>
-          {checkCallBackUrlForShowOrderDeatils() && (
-            <TouchableOpacity onPress={_onPressTaskDetails}>
-              <Image
-                style={{
-                  height: moderateScaleVertical(16),
-                  width: moderateScale(16),
-                }}
-                source={imagePath.expand}
-              />
-            </TouchableOpacity>
-          )}
-
           <View style={styles.dotBaseViewStyle} />
           <View
             style={[

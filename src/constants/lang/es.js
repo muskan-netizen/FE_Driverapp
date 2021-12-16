@@ -152,7 +152,7 @@ export default {
   ORDERNUMBER: 'Order Number',
   PAYMENTMETHOD: 'Payment Method',
   PLACEDON: 'Placed On',
-  ORDERDETAILS: 'Order Details',
+  ORDERDETAILS: 'Detalles del pedido',
   VENDOR: 'Vendor',
   TRACKINGID: 'ID de rastreo',
   DROP: 'Soltar',
