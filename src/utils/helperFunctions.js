@@ -86,7 +86,7 @@ const getLocation = async (lat, lng, type) => {
   }
 };
 
-const showError = message => {
+const showError = (message, duration = 1850) => {
   console.log(message, 'THIS IS MESSAGE');
 
   showMessage({
@@ -99,6 +99,8 @@ const showError = message => {
       fontFamily: fontFamily.medium,
       fontSize: textScale(12),
     },
+    // autoHide: true,
+    duration: duration,
   });
   // Toast.error(message);
 };

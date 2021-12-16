@@ -24,6 +24,8 @@ import {showError, showSuccess} from '../../utils/helperFunctions';
 import stylesFunc from './styles';
 import RNRestart from 'react-native-restart';
 import navigationStrings from '../../navigation/navigationStrings';
+import {appIds} from '../../utils/constants/DynamicAppKeys';
+import DeviceInfo from 'react-native-device-info';
 
 export default function Settings({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
@@ -221,8 +223,9 @@ export default function Settings({route, navigation}) {
       source={loaderOne}>
       <Header
         headerStyle={{backgroundColor: colors.white}}
-        // hideRight={true}
-        rightIcon={imagePath.logout}
+        rightIcon={
+          appIds.goody === DeviceInfo.getBundleId() ? imagePath.logout : ''
+        }
         onPressRight={_onLogout}
         // onPressLeft={()=>navigation.goBack()}
         centerTitle={strings.SETTING}

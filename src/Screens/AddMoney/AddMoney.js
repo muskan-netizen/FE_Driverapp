@@ -251,6 +251,7 @@ export default function AddMoney({navigation}) {
               ? imagePath.icRadioActive
               : imagePath.icRadio
           }
+          style={{tintColor: seletedPaymentGateway?.id && colors.themeColor}}
         />
         <Text
           style={{

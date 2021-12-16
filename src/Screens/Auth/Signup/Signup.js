@@ -85,6 +85,7 @@ export default function Signup({route, navigation}) {
     tagsViewHeight: moderateScale(44),
     selectedTeam: '',
     isTeams: false,
+    driverTagsAry: [],
   });
 
   const {
@@ -117,6 +118,7 @@ export default function Signup({route, navigation}) {
     tagsViewHeight,
     selectedTeam,
     isTeams,
+    driverTagsAry,
   } = state;
   const commonStyles = commonStylesFunc({fontFamily});
 
@@ -173,6 +175,7 @@ export default function Signup({route, navigation}) {
           console.log(res, 'getRequiredDatas data');
           updateState({
             driverTags: res?.data?.agent_tags,
+            driverTagsAry: res?.data?.agent_tags,
             driverTeams: res?.data?.all_teams,
           });
           if (res?.data) {
@@ -354,7 +357,7 @@ export default function Signup({route, navigation}) {
   };
   const errorMethod = error => {
     updateState({isLoading: false});
-    showError(error?.message || error?.error);
+    showError(error?.message || error?.error, 4000);
   };
 
   const _selectedTransportation = i => {
@@ -581,6 +584,19 @@ export default function Signup({route, navigation}) {
     updateState({
       selectedTags: result,
     });
+  };
+
+  const onSearchTags = text => {
+    const driverTagsNewAry = [...driverTags];
+    let searchedAry;
+    if (text) {
+      searchedAry = driverTagsNewAry.filter(item => {
+        return item?.name.toLowerCase().includes(text.toLowerCase());
+      });
+      updateState({driverTagsAry: searchedAry});
+    } else {
+      updateState({driverTagsAry: driverTagsNewAry});
+    }
   };
 
   return (
@@ -828,6 +844,7 @@ export default function Signup({route, navigation}) {
                     placeholder={strings.SELCTED_TAG}
                     onFocus={() => updateState({isTagsShow: true})}
                     onBlur={() => updateState({isTagsShow: false})}
+                    onChangeText={onSearchTags}
                     style={{
                       opacity: 0.7,
                       color: colors.textGreyOpcaity7,
@@ -847,9 +864,9 @@ export default function Signup({route, navigation}) {
                     shadowOpacity: 0.1,
                     width: '100%',
                   }}>
-                  {driverTags.length > 0 ? (
+                  {driverTagsAry.length > 0 ? (
                     <View style={{flexWrap: 'wrap', flexDirection: 'row'}}>
-                      {driverTags.map((item, index) => {
+                      {driverTagsAry.map((item, index) => {
                         return (
                           <TouchableOpacity
                             onPress={() => _onTagSelect(item, index)}

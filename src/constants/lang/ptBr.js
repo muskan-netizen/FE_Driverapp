@@ -175,4 +175,10 @@ export default {
   PLEASE_ENTER_VALID_AMOUNT: 'Please enter valid amount',
   PAYMENT_METHODS: 'Payment Methods',
   PAYMENT_SUCCESS: 'Payment successful',
+  CONNECTION_ERROR: 'Connection Error',
+  LOOKS_LIKE_NO_INTERNET_CONNECTION:
+    'Oops! Looks like your device is not connected to the Internet.',
+  LIFE_TIME_ORDER: 'Lifetime order value',
+  PAST_PAYOUT: 'Past Payouts',
+  AVAILABLE_FUNDS: 'Available Funds',
 };
