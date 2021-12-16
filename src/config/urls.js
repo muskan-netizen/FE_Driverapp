@@ -4,6 +4,8 @@
 //Staging
 export const API_BASE_URL = 'https://api.rdstaging.com/';
 
+//export const API_BASE_URL = 'http://192.168.103.73:8006/';
+
 // fleety staging domain
 //export const API_BASE_URL = 'https://fleety.rdstaging.com/';
 

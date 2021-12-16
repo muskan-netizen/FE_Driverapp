@@ -148,3 +148,11 @@ export const saveFcmToken = data => {
     payload: data,
   });
 };
+
+export const setZendeskKeys = data => {
+  console.log(data, 'datadata>>>>>>zendeskKeys');
+  dispatch({
+    type: types.ZENDEKSKKEYS,
+    payload: data,
+  });
+};

@@ -95,15 +95,16 @@ export default function CustomDrawerContent({
   });
   const {routes, selectedDrawerItem, logoutAlert, isLoading} = states;
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
-  console.log(clientInfo, 'clientInfo>clientInfo');
+  const zendeskKeys = useSelector(state => state?.initBoot?.zendeskKeys);
+
   const defaultLanguagae = useSelector(
     state => state?.initBoot?.defaultLanguage,
   );
 
   useEffect(() => {
     ZendeskChat.init(
-      'hkj6wV0p0qW45bXDMtdTSCEenFuTZhFR',
-      '882ad89551868abec6d361472fee131462c1ea5ebebbb63f',
+      `${zendeskKeys?.keys?.account_key}`,
+      `${zendeskKeys?.keys?.application_id}`,
     );
     updateState({
       routes: [

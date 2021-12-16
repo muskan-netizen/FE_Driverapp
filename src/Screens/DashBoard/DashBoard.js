@@ -112,6 +112,7 @@ export default function DashBoard({route, navigation}) {
     state => state?.initBoot?.defaultLanguage,
   );
   const fcmToken = useSelector(state => state?.initBoot?.fcmToken);
+  const zendeskKeys = useSelector(state => state?.initBoot?.zendeskKeys);
 
   useEffect(() => {
     (async () => {
@@ -176,39 +177,69 @@ export default function DashBoard({route, navigation}) {
     );
   };
 
-  useInterval(
-    () => {
-      getCurrentPosition();
-      setTimeout(() => {
-        (async () => {
-          let data = {};
-          data['device_type'] = Platform.OS;
-          data['os_version'] = DeviceInfo.getSystemVersion();
-          data['app_version'] = DeviceInfo.getVersion();
-          data['on_route'] = 'y';
-          data['battery_level'] = (await DeviceInfo.getBatteryLevel()) * 100;
-          data['all'] = initial;
-          // data['current_speed'] = 'y';
-          data['long'] = longitude;
-          data['lat'] = latitude;
-          data['device_token'] = !!fcmToken ? fcmToken : '';
-          // console.log(data, 'data>data');
-          console.log(longitude, 'sending data data', latitude);
-          actions
-            .logsApi(data, {client: clientInfo?.database_name})
-            .then(res => {
-              // console.log(userData, 'userData');
+  const fetchgentLogs = () => {
+    getCurrentPosition();
+    setTimeout(() => {
+      (async () => {
+        let data = {};
+        data['device_type'] = Platform.OS;
+        data['os_version'] = DeviceInfo.getSystemVersion();
+        data['app_version'] = DeviceInfo.getVersion();
+        data['on_route'] = 'y';
+        data['battery_level'] = (await DeviceInfo.getBatteryLevel()) * 100;
+        data['all'] = initial;
+        // data['current_speed'] = 'y';
+        data['long'] = longitude;
+        data['lat'] = latitude;
+        data['device_token'] = !!fcmToken ? fcmToken : '';
+        // console.log(data, 'data>data');
+        console.log(data, 'sending data data??????');
+        actions
+          .logsApi(data, {client: clientInfo?.database_name})
+          .then(res => {
+            if (
+              res?.data?.user?.client_preference
+                ?.customer_support_application_id != null &&
+              res?.data?.user?.client_preference?.customer_support_key != null
+            ) {
+              if (
+                zendeskKeys?.keys?.account_key !=
+                  res?.data?.user?.client_preference?.customer_support_key &&
+                zendeskKeys?.keys?.application_id !=
+                  res?.data?.user?.client_preference
+                    ?.customer_support_application_id
+              )
+                actions?.setZendeskKeys({
+                  keys: {
+                    application_id:
+                      res?.data?.user?.client_preference
+                        ?.customer_support_application_id,
+                    account_key:
+                      res?.data?.user?.client_preference?.customer_support_key,
+                  },
+                });
+            }
+            console.log(res, 'res>>>>>>>agenLog');
 
-              if (selectedOption == 1) {
-                updateState({allTasks: res?.data?.tasks});
-              } else {
-                updateState({todaysTasks: res?.data?.tasks});
-              }
-            })
-            .catch(errorMethod);
-        })();
-      }, 2000);
-    },
+            if (selectedOption == 1) {
+              updateState({allTasks: res?.data?.tasks});
+            } else {
+              updateState({todaysTasks: res?.data?.tasks});
+            }
+          })
+          .catch(errorMethod);
+      })();
+    }, 2000);
+  };
+
+  useEffect(() => {
+    setTimeout(() => {
+      fetchgentLogs();
+    }, 5000);
+  }, []);
+
+  useInterval(
+    () => fetchgentLogs(),
     userData && userData?.access_token
       ? userData?.team?.location_frequency
         ? Number(userData?.team?.location_frequency) * 60000

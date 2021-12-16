@@ -852,6 +852,7 @@ export default function ShortCode({route, navigation}) {
             actions.saveShortCode(shortCode);
           }
           actions.saveShortCode(shortCode);
+
           console.log(res, 'res>res>res');
           updateState({
             changeInShortCode: false,
