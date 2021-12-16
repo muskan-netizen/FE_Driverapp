@@ -33,7 +33,7 @@ export const API_BASE_URL = 'https://api.royodispatch.com/';
 //Developement
 // export const API_BASE_URL = 'https://api.winhires.com/';
 //export const API_BASE_URL = 'http://192.168.96.20:8010/';
-// export const API_BASE_URL = 'http://192.168.103.73:8005';
+// export const API_BASE_URL = 'http://192.168.103.73:8006/';
 //export const API_BASE_URL = 'https://api.williamherrick.com/';
 // export const API_BASE_URL = 'http://192.168.103.73:800/';
 
@@ -66,6 +66,8 @@ export const DRIVEROTP = getApiUrl('api/checkOTPRequried');
 
 //Wallet
 export const GETWALLETDATA = getApiUrl('api/agent/transaction/details');
+export const PAYMENTOPTIONS = getApiUrl('api/payment/options');
+export const WALLET_CREDIT = getApiUrl('api/agentWallet/credit');
 
 // get Notification Data
 export const CUSTOMNOTIFICATIONPAYLOAD = getApiUrl('api/notification/tracking');

@@ -85,6 +85,7 @@ export default function Signup({route, navigation}) {
     tagsViewHeight: moderateScale(44),
     selectedTeam: '',
     isTeams: false,
+    driverTagsAry: [],
   });
 
   const {
@@ -117,6 +118,7 @@ export default function Signup({route, navigation}) {
     tagsViewHeight,
     selectedTeam,
     isTeams,
+    driverTagsAry,
   } = state;
   const commonStyles = commonStylesFunc({fontFamily});
 
@@ -173,6 +175,7 @@ export default function Signup({route, navigation}) {
           console.log(res, 'getRequiredDatas data');
           updateState({
             driverTags: res?.data?.agent_tags,
+            driverTagsAry: res?.data?.agent_tags,
             driverTeams: res?.data?.all_teams,
           });
           if (res?.data) {
@@ -354,7 +357,7 @@ export default function Signup({route, navigation}) {
   };
   const errorMethod = error => {
     updateState({isLoading: false});
-    showError(error?.message || error?.error);
+    showError(error?.message || error?.error, 4000);
   };
 
   const _selectedTransportation = i => {
@@ -395,15 +398,10 @@ export default function Signup({route, navigation}) {
     return (
       <View
         style={{
-          marginRight: moderateScale(20),
+          marginRight: moderateScale(10),
           marginTop: moderateScale(10),
-          width: moderateScale(100),
+          width: moderateScale(110),
         }}>
-        <Text
-          numberOfLines={2}
-          style={{...styles.label3, minHeight: moderateScale(25)}}>
-          {type?.name}
-        </Text>
         <TouchableOpacity
           onPress={() => updateImages(type, index)}
           style={styles.imageUpload}>
@@ -418,6 +416,11 @@ export default function Signup({route, navigation}) {
             <Image source={imagePath?.photoInactive} />
           )}
         </TouchableOpacity>
+        <Text
+          numberOfLines={2}
+          style={{...styles.label3, minHeight: moderateScale(25)}}>
+          {type?.name}
+        </Text>
       </View>
     );
   };
@@ -465,7 +468,14 @@ export default function Signup({route, navigation}) {
         <Text style={[styles.label3]}>{type?.name}</Text>
         <TouchableOpacity
           onPress={() => getDoc(type, index)}
-          style={styles.imageUpload}>
+          style={{
+            ...styles.imageUpload,
+            height: 100,
+            width: 100,
+            borderRadius: moderateScale(4),
+            borderWidth: 1,
+            borderColor: colors.blue,
+          }}>
           <Text style={styles.uploadStyle}>
             {addtionalPdfs[index].value != undefined &&
             addtionalPdfs[index].value != null &&
@@ -576,6 +586,19 @@ export default function Signup({route, navigation}) {
     });
   };
 
+  const onSearchTags = text => {
+    const driverTagsNewAry = [...driverTags];
+    let searchedAry;
+    if (text) {
+      searchedAry = driverTagsNewAry.filter(item => {
+        return item?.name.toLowerCase().includes(text.toLowerCase());
+      });
+      updateState({driverTagsAry: searchedAry});
+    } else {
+      updateState({driverTagsAry: driverTagsNewAry});
+    }
+  };
+
   return (
     <WrapperContainer
       statusBarColor={colors.white}
@@ -597,6 +620,7 @@ export default function Signup({route, navigation}) {
         <KeyboardAwareScrollView
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator={false}
+          scrollEnabled={!isTeams}
           contentContainerStyle={{
             flexGrow: 1,
           }}>
@@ -691,8 +715,6 @@ export default function Signup({route, navigation}) {
               {isTeams && (
                 <View
                   style={{
-                    top: moderateScaleVertical(44),
-                    position: 'absolute',
                     borderWidth: 1,
                     borderColor: colors.borderColorB,
                     backgroundColor: colors.white,
@@ -702,7 +724,8 @@ export default function Signup({route, navigation}) {
                     shadowOffset: {width: 0, height: 1},
                     shadowOpacity: 0.1,
                     minHeight: moderateScale(50),
-                    maxHeight: moderateScale(250),
+                    borderRadius: moderateScale(5),
+                    maxHeight: moderateScale(150),
                   }}>
                   <ScrollView>
                     {driverTeams.length > 0 ? (
@@ -821,6 +844,7 @@ export default function Signup({route, navigation}) {
                     placeholder={strings.SELCTED_TAG}
                     onFocus={() => updateState({isTagsShow: true})}
                     onBlur={() => updateState({isTagsShow: false})}
+                    onChangeText={onSearchTags}
                     style={{
                       opacity: 0.7,
                       color: colors.textGreyOpcaity7,
@@ -836,15 +860,13 @@ export default function Signup({route, navigation}) {
                 <View
                   style={{
                     backgroundColor: colors.white,
-                    position: 'absolute',
                     shadowOffset: {width: 0, height: 1},
                     shadowOpacity: 0.1,
                     width: '100%',
-                    top: tagsViewHeight,
                   }}>
-                  {driverTags.length > 0 ? (
+                  {driverTagsAry.length > 0 ? (
                     <View style={{flexWrap: 'wrap', flexDirection: 'row'}}>
-                      {driverTags.map((item, index) => {
+                      {driverTagsAry.map((item, index) => {
                         return (
                           <TouchableOpacity
                             onPress={() => _onTagSelect(item, index)}
@@ -901,7 +923,9 @@ export default function Signup({route, navigation}) {
               )}
             </View>
 
-            <View style={{marginVertical: moderateScaleVertical(20)}}>
+            <View
+              onTouchStart={() => updateState({isTagsShow: false})}
+              style={{marginVertical: moderateScaleVertical(20)}}>
               <Text style={styles.label}>{strings.TRASNPORTATION}</Text>
             </View>
             <View onTouchStart={() => updateState({isTagsShow: false})}>

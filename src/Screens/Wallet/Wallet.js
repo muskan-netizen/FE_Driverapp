@@ -38,6 +38,7 @@ import {TouchableOpacity} from 'react-native';
 import moment from 'moment';
 import navigationStrings from '../../navigation/navigationStrings';
 import stylesFunction from './styles';
+import {useFocusEffect} from '@react-navigation/native';
 export default function Wallet({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
   console.log(userData, 'userData');
@@ -87,6 +88,12 @@ export default function Wallet({route, navigation}) {
   useEffect(() => {
     getWalletDataOfDriver();
   }, [isLoading]);
+
+  useFocusEffect(
+    React.useCallback(() => {
+      getWalletDataOfDriver();
+    }, []),
+  );
 
   const getWalletDataOfDriver = () => {
     actions

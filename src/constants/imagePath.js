@@ -80,4 +80,7 @@ export default {
   dropDownNew: require('../assets/images/ic_drpdwn.png'),
   blackSquare: require('../assets/images/ic_square.png'),
   grayDot: require('../assets/images/ic_dot.png'),
+  icPayout: require('../assets/images/ic_payout.png'),
+  icRadio: require('../assets/images/ic_radio.png'),
+  icRadioActive: require('../assets/images/ic_radioActive.png'),
 };

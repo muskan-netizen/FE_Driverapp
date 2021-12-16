@@ -1,9 +1,16 @@
-import React, {useState, useEffect} from 'react';
-import {Text, View, Image, StyleSheet, TouchableOpacity} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {Image, Text, TouchableOpacity, View} from 'react-native';
+import {getBundleId} from 'react-native-device-info';
+import SmoothPinCodeInput from 'react-native-smooth-pincode-input';
+import {useSelector} from 'react-redux';
+import ButtonWithLoader from '../../Components/ButtonWithLoader';
 import {loaderOne} from '../../Components/Loaders/AnimatedLoaderFiles';
+import ModalView from '../../Components/ShortCodeConfirmModal';
 import WrapperContainer from '../../Components/WrapperContainer';
 import imagePath from '../../constants/imagePath';
-import strings, {changeLaguage} from '../../constants/lang';
+import strings from '../../constants/lang';
+import navigationStrings from '../../navigation/navigationStrings';
+import actions from '../../redux/actions';
 // import store from '../../redux/store';
 import colors from '../../styles/colors';
 import {
@@ -12,19 +19,11 @@ import {
   moderateScaleVertical,
   width,
 } from '../../styles/responsiveSize';
-import styles from './styles';
-import SmoothPinCodeInput from 'react-native-smooth-pincode-input';
-import ButtonWithLoader from '../../Components/ButtonWithLoader';
-import navigationStrings from '../../navigation/navigationStrings';
-import actions from '../../redux/actions';
-import {showError} from '../../utils/helperFunctions';
-import ModalView from '../../Components/ShortCodeConfirmModal';
-import {useSelector} from 'react-redux';
 import {appIds, shortCodes} from '../../utils/constants/DynamicAppKeys';
-import {getBundleId} from 'react-native-device-info';
-import {getItem} from '../../utils/utils';
+import {showError} from '../../utils/helperFunctions';
 import {requestUserPermission} from '../../utils/notificationServices';
-import {useFocusEffect} from '@react-navigation/native';
+import {getItem, getUserData} from '../../utils/utils';
+import styles from './styles';
 
 export default function ShortCode({route, navigation}) {
   const shortCodeParam = route?.params?.shortCodeParam;
@@ -51,7 +50,6 @@ export default function ShortCode({route, navigation}) {
     viewWidth,
   } = state;
   const updateState = data => setState(state => ({...state, ...data}));
-  const userData = useSelector(state => state?.auth?.userData);
 
   //Naviagtion to specific screen
   const moveToNewScreen = (screenName, data) => () => {
@@ -890,15 +888,15 @@ export default function ShortCode({route, navigation}) {
     showError(error?.message || error?.error);
   };
 
-  const _redirectToLogin = shortCodeDataInfo => {
+  const _redirectToLogin = async shortCodeDataInfo => {
     updateState({isModalVisibleForShortCodeDetail: false});
 
+    const userData = await getUserData();
     // moveToNewScreen(navigationStrings.LOGIN, shortCodeDataInfo)();
-    {
-      userData && userData?.access_token
-        ? navigation.push(navigationStrings.DRAWER_ROUTES)
-        : moveToNewScreen(navigationStrings.LOGIN, shortCodeDataInfo)();
-    }
+    console.log(userData, 'userDataInShortcode');
+    userData && userData?.access_token
+      ? navigation.push(navigationStrings.DRAWER_ROUTES)
+      : moveToNewScreen(navigationStrings.LOGIN, shortCodeDataInfo)();
   };
 
   //Modal main component
