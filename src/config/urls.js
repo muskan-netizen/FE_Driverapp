@@ -16,7 +16,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //export const API_BASE_URL = 'https://dispatch.tranzit.app/';
 
 //klickmat/snabbhem app domain
-//export const API_BASE_URL = 'https://delivery.snabbhem.se/';
+// export const API_BASE_URL = 'https://delivery.snabbhem.se/';
 
 // pinkjet
 // export const API_BASE_URL ='https://dispatch.pinkjettaxi.com/';
@@ -29,14 +29,19 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // govachow
 // export const API_BASE_URL = 'https://dispatch.govachow.com/'
 // africanize
-//export const API_BASE_URL = 'https://dispatch.africanize.co/'
+// export const API_BASE_URL = 'https://dispatch.africanize.co/'
+// orderchekout
+// export const API_BASE_URL ='https://dispatch.orderchekout.com/'
+// carroi
+// export const API_BASE_URL = 'https://carroi.rdstaging.com/';
 //Developement
 // export const API_BASE_URL = 'https://api.winhires.com/';
 //export const API_BASE_URL = 'http://192.168.96.20:8010/';
-// export const API_BASE_URL = 'http://192.168.103.73:8006/';
+// export const API_BASE_URL = 'http://192.168.103.73:8005';
 //export const API_BASE_URL = 'https://api.williamherrick.com/';
-// export const API_BASE_URL = 'http://192.168.103.73:800/';
-
+// export const API_BASE_URL = 'http://192.168.103.73:8005/';
+// blip
+// export const API_BASE_URL = 'https://dispatch.blipdelivery.com/'
 // destinationops app domain
 //export const API_BASE_URL = 'https://dispatch.destinationops.com/';
 

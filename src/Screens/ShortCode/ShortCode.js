@@ -230,12 +230,6 @@ export default function ShortCode({route, navigation}) {
           });
           break;
 
-        case appIds.maxis:
-          updateState({
-            shortCode: shortCodes.maxis,
-            isShortcodePrefilled: true,
-          });
-          break;
         case appIds.donepacked:
           updateState({
             shortCode: shortCodes.donepacked,
@@ -769,6 +763,50 @@ export default function ShortCode({route, navigation}) {
         case appIds.flying_horse:
           updateState({
             shortCode: shortCodes.flying_horse,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.ufood:
+          updateState({
+            shortCode: shortCodes.ufood,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.servze:
+          updateState({
+            shortCode: shortCodes.servze,
+            isShortcodePrefilled: true,
+          });
+          break;
+
+        case appIds.goMeat:
+          updateState({
+            shortCode: shortCodes.goMeat,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.transportSystem:
+          updateState({
+            shortCode: shortCodes.transportSystem,
+            isShortcodePrefilled: true,
+          });
+          break;
+
+        case appIds.shopCentral:
+          updateState({
+            shortCode: shortCodes.shopCentral,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.sponge:
+          updateState({
+            shortCode: shortCodes.sponge,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.skidoo:
+          updateState({
+            shortCode: shortCodes.skidoo,
             isShortcodePrefilled: true,
           });
           break;
