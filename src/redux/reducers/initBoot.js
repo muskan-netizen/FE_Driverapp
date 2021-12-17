@@ -41,6 +41,7 @@ const initial_state = {
   defaultLanguage: {},
   fcmToken: null,
   shortCode: null,
+  zendeskKeys: {},
   //internetConnection: false,
 };
 
@@ -99,6 +100,14 @@ export default function (state = initial_state, action) {
       return {
         ...state,
         shortCode: data,
+      };
+    }
+
+    case types.ZENDEKSKKEYS: {
+      const data = action.payload;
+      return {
+        ...state,
+        zendeskKeys: data,
       };
     }
 

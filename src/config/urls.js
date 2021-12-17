@@ -75,6 +75,8 @@ export const DRIVEROTP = getApiUrl('api/checkOTPRequried');
 
 //Wallet
 export const GETWALLETDATA = getApiUrl('api/agent/transaction/details');
+export const PAYMENTOPTIONS = getApiUrl('api/payment/options');
+export const WALLET_CREDIT = getApiUrl('api/agentWallet/credit');
 
 // get Notification Data
 export const CUSTOMNOTIFICATIONPAYLOAD = getApiUrl('api/notification/tracking');

@@ -23,6 +23,7 @@ import {cloneDeep} from 'lodash';
 import ScaledImage from 'react-native-scalable-image';
 import DeviceInfo from 'react-native-device-info';
 import ZendeskChat from '../library/react-native-zendesk-chat';
+import {appIds} from '../utils/constants/DynamicAppKeys';
 
 export default function CustomDrawerContent({
   state,
@@ -94,16 +95,16 @@ export default function CustomDrawerContent({
     isLoading: false,
   });
   const {routes, selectedDrawerItem, logoutAlert, isLoading} = states;
-  const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
-  console.log(clientInfo, 'clientInfo>clientInfo');
+  const {zendeskKeys, clientInfo} = useSelector(state => state?.initBoot);
+
   const defaultLanguagae = useSelector(
     state => state?.initBoot?.defaultLanguage,
   );
 
   useEffect(() => {
     ZendeskChat.init(
-      'hkj6wV0p0qW45bXDMtdTSCEenFuTZhFR',
-      '882ad89551868abec6d361472fee131462c1ea5ebebbb63f',
+      `${zendeskKeys?.keys?.account_key}`,
+      `${zendeskKeys?.keys?.application_id}`,
     );
     updateState({
       routes: [
@@ -140,7 +141,7 @@ export default function CustomDrawerContent({
         // {
         //   id: 4,
         //   label: strings.PAYOUT,
-        //   image: imagePath.wallet,
+        //   image: imagePath.icPayout,
         //   key: navigationStrings.PAYOUT_STACK,
         //   subRoute: navigationStrings.PAYOUT_STACK,
         //   // key: navigationStrings.WALLET,
@@ -163,13 +164,15 @@ export default function CustomDrawerContent({
           // key: navigationStrings.PROFILESTACK,
           // subRoute:navigationStrings.MYPROFILE
         },
-        {
-          id: 5,
-          label: strings.LOGOUT,
-          image: imagePath.logout,
-          // key: navigationStrings.PROFILESTACK,
-          // subRoute:navigationStrings.MYPROFILE
-        },
+        appIds.goody === DeviceInfo.getBundleId()
+          ? {}
+          : {
+              id: 7,
+              label: strings.LOGOUT,
+              image: imagePath.logout,
+              // key: navigationStrings.PROFILESTACK,
+              // subRoute:navigationStrings.MYPROFILE
+            },
       ],
     });
   }, [defaultLanguagae]);

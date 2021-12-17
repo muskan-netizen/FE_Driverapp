@@ -272,6 +272,12 @@ export default function TaskDetail({route, navigation}) {
     }
   };
 
+  const checkCallBackUrlForShowOrderDeatils = () => {
+    return taskDetail?.order?.call_back_url?.includes(
+      '/dispatch-order-status-update/',
+    );
+  };
+
   useEffect(() => {
     if (new_dispatch_traking_url()) {
       updateState({
@@ -301,6 +307,12 @@ export default function TaskDetail({route, navigation}) {
           isLoading: false,
         }),
       );
+  };
+
+  const _onPressTaskDetails = item => {
+    moveToNewScreen(navigationStrings.ORDERDETAIL, {
+      item: taskDetail?.order?.call_back_url,
+    })();
   };
 
   const mapView = () => {
@@ -730,6 +742,25 @@ export default function TaskDetail({route, navigation}) {
               imageStyle={{marginHorizontal: moderateScale(2)}}
             />
           </View>
+          {checkCallBackUrlForShowOrderDeatils() && (
+            <View style={{marginVertical: moderateScale(10)}}>
+              <ButtonComponent
+                buttonStyle={{
+                  flexDirection: 'row',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  padding: moderateScale(10),
+                  borderRadius: moderateScale(5),
+                  marginTop: moderateScale(10),
+                  backgroundColor: colors.green,
+                }}
+                onPress={_onPressTaskDetails}
+                buttonTitle={strings.ORDERDETAILS}
+                // imagevalue={imagePath?.navigate}
+                imageStyle={{marginHorizontal: moderateScale(2)}}
+              />
+            </View>
+          )}
         </View>
 
         {/* Task Detail Text */}

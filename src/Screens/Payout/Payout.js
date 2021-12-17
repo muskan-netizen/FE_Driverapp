@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View} from 'react-native';
+import {Text, View} from 'react-native';
 import Header from '../../Components/Header';
 import {loaderOne} from '../../Components/Loaders/AnimatedLoaderFiles';
 import WrapperContainer from '../../Components/WrapperContainer';
@@ -20,7 +20,7 @@ export default function AddMoney({navigation}) {
 
   return (
     <WrapperContainer
-      bgColor={colors.backgroundGrey}
+      bgColor={colors.white}
       statusBarColor={colors.white}
       isLoadingB={isLoadingB}
       source={loaderOne}>
@@ -37,6 +37,20 @@ export default function AddMoney({navigation}) {
           opacity: 0.26,
         }}
       />
+      <View style={styles.payoutBlockView}>
+        <View style={styles.payoutBlockSubView}>
+          <Text style={styles.payoutNumbersTxt}>0</Text>
+          <Text style={styles.payoutTitlesTxt}>{strings.LIFE_TIME_ORDER}</Text>
+        </View>
+        <View style={styles.payoutBlockSubView}>
+          <Text style={styles.payoutNumbersTxt}>0</Text>
+          <Text style={styles.payoutTitlesTxt}>{strings.PAST_PAYOUT}</Text>
+        </View>
+        <View style={styles.payoutBlockSubView}>
+          <Text style={styles.payoutNumbersTxt}>0</Text>
+          <Text style={styles.payoutTitlesTxt}>{strings.AVAILABLE_FUNDS}</Text>
+        </View>
+      </View>
     </WrapperContainer>
   );
 }
