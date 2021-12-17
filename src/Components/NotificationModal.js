@@ -27,6 +27,8 @@ import {
 import {showError} from '../utils/helperFunctions';
 import ModalView from './ShortCodeConfirmModal';
 import moment from 'moment';
+import {shortCodes} from '../utils/constants/DynamicAppKeys';
+
 const NotificationModal = () => {
   const [state, setState] = useState({
     pageActive: 1,
@@ -35,12 +37,14 @@ const NotificationModal = () => {
     selectedOrder: null,
     isRefreshing: false,
     region: null,
+    notificationDropLocationsData: [],
   });
   const notificationData = useSelector(
     state => state?.initBoot?.notificationData,
   );
-  console.log(notificationData, 'notificationData');
+
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
+  const shortCode = useSelector(state => state?.initBoot?.shortCode);
 
   const {
     pageActive,
@@ -49,10 +53,12 @@ const NotificationModal = () => {
     rejectLoader,
     selectedOrder,
     isRefreshing,
+    notificationDropLocationsData,
   } = state;
 
   useEffect(() => {
     let data = notificationData?.notificationData?.data;
+    getCustomNotificationData();
     if (data) {
       updateState({
         region: {
@@ -71,6 +77,26 @@ const NotificationModal = () => {
   const _onRegionChange = region => {
     updateState({region: region});
   };
+
+  const getCustomNotificationData = () => {
+    actions
+      .getCustomNotificationPayload(
+        `/${notificationData?.notificationData?.data?.order_id}`,
+        {},
+        {shortCode: shortCode},
+      )
+      .then(res => {
+        updateState({
+          notificationDropLocationsData: res?.tasks,
+        });
+      })
+      .catch(error => console.log('error in notification Data', error));
+  };
+
+  console.log(
+    notificationDropLocationsData,
+    'notificationDropLocationsDatanotificationDropLocationsData',
+  );
 
   const mapView = () => {
     let data = notificationData?.notificationData?.data;
@@ -101,13 +127,92 @@ const NotificationModal = () => {
     return local;
   };
 
+  const onListAllAddress = ({item, index}) => {
+    if (item?.task_type_id == 2) {
+      return (
+        <View style={{flexDirection: 'row'}}>
+          <View style={{marginHorizontal: moderateScale(10)}}>
+            {renderDotContainer()}
+          </View>
+          <View style={{justifyContent: 'center'}}>
+            <Text
+              numberOfLines={1}
+              style={[
+                styles.address,
+                {
+                  marginTop: moderateScaleVertical(28),
+                },
+              ]}>
+              {item?.address}
+            </Text>
+          </View>
+        </View>
+      );
+    } else {
+      return null;
+    }
+  };
+
+  const renderDotContainer = () => {
+    return (
+      <>
+        <View style={{height: 40, overflow: 'hidden', alignItems: 'center'}}>
+          <View
+            style={{
+              height: 40,
+              width: 0.5,
+              backgroundColor: colors.textGreyLight,
+            }}
+          />
+        </View>
+
+        <Image
+          style={{
+            tintColor: colors.black,
+          }}
+          source={imagePath.blackSquare}
+        />
+      </>
+    );
+  };
+
   const modalMainContent = () => {
     let data = notificationData?.notificationData?.data;
     return (
       <View style={{overflow: 'hidden', borderRadius: moderateScale(10)}}>
         <View>{!!region && mapView()}</View>
-        <View style={{padding: 10}}>
-          <Text style={styles.address}>{data?.address}</Text>
+        <View style={{padding: 8}}>
+          <View style={{flexDirection: 'row'}}>
+            <View>
+              <Image
+                style={{
+                  position: 'absolute',
+                  marginHorizontal: moderateScale(11),
+                  top: 8,
+                }}
+                source={imagePath.grayDot}
+              />
+            </View>
+            <View>
+              <View style={{paddingHorizontal: moderateScale(30)}}>
+                <Text numberOfLines={1} style={[styles.address]}>
+                  {data?.address}
+                </Text>
+              </View>
+              <FlatList
+                data={
+                  notificationDropLocationsData
+                    ? notificationDropLocationsData
+                    : []
+                }
+                renderItem={onListAllAddress}
+                keyExtractor={(item, index) => String(index)}
+                keyboardShouldPersistTaps="always"
+                showsVerticalScrollIndicator={false}
+              />
+            </View>
+          </View>
+
           <Text style={styles.dateTimeStyle}>{data?.short_name}</Text>
 
           <Text style={[styles.dateTimeStyle, {marginTop: moderateScale(10)}]}>

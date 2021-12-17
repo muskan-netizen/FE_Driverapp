@@ -28,7 +28,6 @@ const shortCodes = {
   yummidash: '31a72f',
   zuzuclean: 'a4ead8',
   loopWhole: '5aca0c',
-  maxis: '07b461',
   donepacked: 'b3b91d',
   careWorks: '3554f0',
   thubaeRides: 'af635b',
@@ -113,6 +112,20 @@ const shortCodes = {
   doorstep: '906083',
   seaeats: '8f52c7',
   enext: '3958ed',
+  foodNests: '1f418c',
+  tasmeem: '0c22e1',
+  destination_ops: '7fd599',
+  cannabus_express: 'df5932',
+  flying_horse: '6a7802',
+  ufood: 'c6847c',
+  servze: 'b47f07',
+  goMeat: 'afc6b9',
+  transportSystem: 'cabccb',
+  shopCentral: '3b9fc7',
+  sponge: '4aa2aa',
+  skidoo: '84c2b5',
+  weEat: '46d1b3',
+  sambiga: 'ce6b16',
 };
 
 // Goody Dispatch
@@ -158,7 +171,7 @@ const appIds = {
     android: 'com.arenagrub.royodispatcher',
   }),
   blipDelivery: Platform.select({
-    ios: 'com.BlipDelivery.Dispatch',
+    ios: 'com.BlipDeliveryApp.Dispatch',
     android: 'com.BlipDelivery.royodispatcher',
   }),
   bottomsUp: Platform.select({
@@ -178,7 +191,7 @@ const appIds = {
     android: 'com.Elog.royodispatcher',
   }),
   cabdelivr: Platform.select({
-    ios: 'com.Cabdelivr.Dispatch',
+    ios: 'com.CabdelivrApp.Dispatch',
     android: 'com.cabdelivr.royodispatcher',
   }),
   drivree: Platform.select({
@@ -194,8 +207,8 @@ const appIds = {
     android: 'com.rxnow.royodispatcher',
   }),
   checkout: Platform.select({
-    ios: 'com.checkout.royodispatcher',
-    android: 'com.checkout.royodispatcher',
+    ios: 'com.orderchekout.driver.ios',
+    android: 'com.orderchekout.driver.android1',
   }),
   noki: Platform.select({
     ios: 'com.noki.royodispatcher',
@@ -222,11 +235,6 @@ const appIds = {
     ios: 'com.LoopWhole.Dispatch',
     android: 'com.loopwhole.royodispatcher',
   }),
-
-  maxis: Platform.select({
-    ios: 'com.maxis.royodispatcher',
-    android: 'com.maxis.royodispatcher',
-  }),
   donepacked: Platform.select({
     ios: 'com.donepacked.royodispatcher',
     android: 'com.donepacked.royodispatcher',
@@ -249,7 +257,7 @@ const appIds = {
   }),
   pinkJet: Platform.select({
     ios: 'com.PinkJet.Dispatch',
-    android: 'com.PinkJet.royodispatcher',
+    android: 'com.AppPinkJet.royodispatcher',
   }),
   botSeat: Platform.select({
     ios: 'com.BotSeat.Dispatch',
@@ -562,6 +570,62 @@ const appIds = {
   enext: Platform.select({
     ios: 'com.Enext.Dispatch',
     android: 'com.Enext.royodispatcher',
+  }),
+  foodNests: Platform.select({
+    ios: 'com.FoodNests.Dispatch',
+    android: 'com.FoodNests.royodispatcher',
+  }),
+  tasmeem: Platform.select({
+    ios: 'com.Tasmeem.Dispatch',
+    android: 'com.tasmeem.royodispatcher',
+  }),
+  destination_ops: Platform.select({
+    ios: 'com.DestinationOps.Dispatch',
+    android: 'com.destinationOps.royodispatcher',
+  }),
+  cannabus_express: Platform.select({
+    ios: 'com.CannabusExpress.Dispatch',
+    android: 'com.cannabusexpress.royodispatcher',
+  }),
+  flying_horse: Platform.select({
+    ios: 'com.FlyingHorse.Dispatch',
+    android: 'com.FlyingHorse.royodispatcher',
+  }),
+  ufood: Platform.select({
+    ios: 'com.UFood.Dispatch',
+    android: 'com.ufood.royodispatcher',
+  }),
+  servze: Platform.select({
+    ios: 'com.Servze.Dispatch',
+    android: 'com.servze.royodispatcher',
+  }),
+  goMeat: Platform.select({
+    ios: 'com.GoMeat.Dispatch',
+    android: 'com.GoMeat.royodispatcher',
+  }),
+  transportSystem: Platform.select({
+    ios: 'com.TransportSystem.Dispatch',
+    android: 'com.TransportSystem.royodispatcher',
+  }),
+  shopCentral: Platform.select({
+    ios: 'com.ShopCentral.Dispatch',
+    android: "com.ShopCentral.royodispatcher",
+  }),
+  sponge: Platform.select({
+    ios: 'com.Sponge.Dispatch',
+    android: "com.Sponge.royodispatcher",
+  }),
+  skidoo: Platform.select({
+    ios: 'com.Skidoo.Dispatch',
+    android: "com.Skidoo.royodispatcher",
+  }),
+  weEat: Platform.select({
+    ios: 'com.WeEat.Dispatch',
+    android: 'com.WeEat.royodispatcher',
+  }),
+  sambiga: Platform.select({
+    ios: 'com.Sambiga.Dispatch',
+    android: 'com.Sambiga.royodispatcher',
   }),
 };
 

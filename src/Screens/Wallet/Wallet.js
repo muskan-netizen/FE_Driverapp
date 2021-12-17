@@ -38,6 +38,7 @@ import {TouchableOpacity} from 'react-native';
 import moment from 'moment';
 import navigationStrings from '../../navigation/navigationStrings';
 import stylesFunction from './styles';
+import {useFocusEffect} from '@react-navigation/native';
 export default function Wallet({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
   console.log(userData, 'userData');
@@ -87,6 +88,12 @@ export default function Wallet({route, navigation}) {
   useEffect(() => {
     getWalletDataOfDriver();
   }, [isLoading]);
+
+  useFocusEffect(
+    React.useCallback(() => {
+      getWalletDataOfDriver();
+    }, []),
+  );
 
   const getWalletDataOfDriver = () => {
     actions
@@ -323,7 +330,28 @@ export default function Wallet({route, navigation}) {
       <Header
         headerStyle={{backgroundColor: colors.white}}
         leftIconStyle={{tintColor: colors.themeColor}}
-        // hideRight={true}
+        customRight={() => (
+          <TouchableOpacity
+            activeOpacity={0.7}
+            onPress={() => navigation.navigate(navigationStrings.ADD_MONEY)}
+            style={{
+              width: moderateScale(85),
+              backgroundColor: colors.themeColor,
+              alignItems: 'center',
+              justifyContent: 'center',
+              borderRadius: moderateScale(5),
+              paddingVertical: moderateScale(3),
+            }}>
+            <Text
+              style={{
+                fontFamily: fontFamily.regular,
+                fontSize: textScale(11),
+                color: colors.white,
+              }}>
+              Add Money
+            </Text>
+          </TouchableOpacity>
+        )}
         // onPressLeft={()=>navigation.goBack()}
         centerTitle={strings.WALLET}
       />

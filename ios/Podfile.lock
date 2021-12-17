@@ -101,6 +101,7 @@ PODS:
   - Permission-LocationWhenInUse (3.1.0):
     - RNPermissions
   - PromisesObjC (2.0.0)
+  - razorpay-pod (1.1.16)
   - RCT-Folly (2021.04.26.00):
     - boost-for-react-native
     - DoubleConversion
@@ -308,7 +309,7 @@ PODS:
     - React-Core
   - react-native-camera/RN (4.2.1):
     - React-Core
-  - react-native-date-picker (4.1.2):
+  - react-native-date-picker (4.1.3):
     - React-Core
   - react-native-document-picker (7.1.1):
     - React-Core
@@ -324,14 +325,17 @@ PODS:
     - React-Core
   - react-native-netinfo (6.2.1):
     - React-Core
+  - react-native-razorpay (2.2.8):
+    - razorpay-pod
+    - React
   - react-native-restart (0.0.22):
     - React-Core
   - react-native-safe-area-context (3.3.2):
     - React-Core
   - react-native-signature-capture (0.4.12):
     - React
-  - react-native-splash-screen (3.2.0):
-    - React
+  - react-native-splash-screen (3.3.0):
+    - React-Core
   - React-perflogger (0.65.1)
   - React-RCTActionSheet (0.65.1):
     - React-Core/RCTActionSheetHeaders (= 0.65.1)
@@ -403,7 +407,7 @@ PODS:
   - RegulaCommon (5.8.59)
   - rn-fetch-blob (0.12.0):
     - React-Core
-  - RNCAsyncStorage (1.15.13):
+  - RNCAsyncStorage (1.15.14):
     - React-Core
   - RNCClipboard (1.5.1):
     - React-Core
@@ -465,7 +469,7 @@ PODS:
     - React-RCTVibration
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNScreens (3.9.0):
+  - RNScreens (3.10.0):
     - React-Core
     - React-RCTImage
   - RNZendeskChat (0.4.1):
@@ -518,6 +522,7 @@ DEPENDENCIES:
   - react-native-google-maps (from `../node_modules/react-native-maps`)
   - react-native-maps (from `../node_modules/react-native-maps`)
   - "react-native-netinfo (from `../node_modules/@react-native-community/netinfo`)"
+  - react-native-razorpay (from `../node_modules/react-native-razorpay`)
   - react-native-restart (from `../node_modules/react-native-restart`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - react-native-signature-capture (from `../node_modules/react-native-signature-capture`)
@@ -572,6 +577,7 @@ SPEC REPOS:
     - lottie-ios
     - nanopb
     - PromisesObjC
+    - razorpay-pod
     - RegulaCommon
     - TOCropViewController
     - ZendeskChatProvidersSDK
@@ -642,6 +648,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-maps"
   react-native-netinfo:
     :path: "../node_modules/@react-native-community/netinfo"
+  react-native-razorpay:
+    :path: "../node_modules/react-native-razorpay"
   react-native-restart:
     :path: "../node_modules/react-native-restart"
   react-native-safe-area-context:
@@ -736,6 +744,7 @@ SPEC CHECKSUMS:
   Permission-LocationAlways: f1efbf630c589535eca2e1ea68f5208bc8cf7b4b
   Permission-LocationWhenInUse: 6b7b983f248d74371238b1ac586eddc2b270a91b
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
+  razorpay-pod: f1763f8ee8f83152837abe7de1cdfbcd4eb035b9
   RCT-Folly: 0dd9e1eb86348ecab5ba76f910b56f4b5fef3c46
   RCTRequired: 6cf071ab2adfd769014b3d94373744ee6e789530
   RCTTypeSafety: b829c59453478bb5b02487b8de3336386ab93ab1
@@ -750,17 +759,18 @@ SPEC CHECKSUMS:
   react-native-appearance: fc2014516054585d531e07aa0b40ab0de1d2be85
   react-native-background-timer: 117fffdc9b0d6f144444bb49029f94275a45fdb5
   react-native-camera: 210a872c84d3aa0982a9223047ef9e743ed694fa
-  react-native-date-picker: d0d724ce1829d2e5d0f75e9ea4ed0f639ecf70e6
+  react-native-date-picker: dc87b284b1c94327a00d2d9da1514eed75b2ee85
   react-native-document-picker: ebcce6982dd91aa6d2b9a38b666895c381015f1d
   react-native-geocoder: 757427682892bb256f3b3745858cc90eba148a8e
   react-native-geolocation-service: 32e50a2e4e4518b51b829fdfe137562a672d95d2
   react-native-google-maps: 34517207071d54f3bc23c68752bbec0217bfc79e
   react-native-maps: a421fe6aeb74279597c4ea9598f25796108e2d89
   react-native-netinfo: 877946c7b4eb85a639cf1ea31333dadc2be999a1
+  react-native-razorpay: b35ef0a8067a725a288d9fb70a356d38d441bbe1
   react-native-restart: d4ea7637e193da7558d229b3704d500ec0d75f9c
   react-native-safe-area-context: 5cf05f49df9d17261e40e518481f2e334c6cd4b5
   react-native-signature-capture: 73f2077f43a3fae9979b76e8cbf703c735bf44f4
-  react-native-splash-screen: 200d11d188e2e78cea3ad319964f6142b6384865
+  react-native-splash-screen: 4312f786b13a81b5169ef346d76d33bc0c6dc457
   React-perflogger: fd28ee1f2b5b150b00043f0301d96bd417fdc339
   React-RCTActionSheet: 7f3fa0855c346aa5d7c60f9ced16e067db6d29fa
   React-RCTAnimation: 2119a18ee26159004b001bc56404ca5dbaae6077
@@ -777,7 +787,7 @@ SPEC CHECKSUMS:
   ReactNativeLocalization: 6535b6a1425eb3bd8cd32285810931d9709ffa5d
   RegulaCommon: 601c50267470f36652f94174e87d79b8a0608af2
   rn-fetch-blob: f065bb7ab7fb48dd002629f8bdcb0336602d3cba
-  RNCAsyncStorage: 08fc8807fc5a05c9d8787999205d2c8531028ec0
+  RNCAsyncStorage: 4b6538222ce3f01f61011f512226ba3aaa0dc336
   RNCClipboard: 5e299c6df8e0c98f3d7416b86ae563d3a9f768a3
   RNCPushNotificationIOS: 089da3b657e1e3d464f38195fd2e3069608ef5af
   RNDeviceInfo: 417b2ef4456c13a9d50ad8c57895eea837b735a8
@@ -789,7 +799,7 @@ SPEC CHECKSUMS:
   RNImageCropPicker: 73891a709e6fd8a47d32104d942757971f220aee
   RNPermissions: b3588a19e12bff03fe21bc46911fd32343666dc0
   RNReanimated: f58d4f027fcea2197b63588138decdf5f8ac5e89
-  RNScreens: 4d79118be80f79fa1f4aa131909a1d6e86280af3
+  RNScreens: 03ba504f8c98607ad1f07808e71040e0afa335ec
   RNZendeskChat: 5a73a4353497c0670f81e30f06d45e183d0137aa
   TOCropViewController: 3105367e808b7d3d886a74ff59bf4804e7d3ab38
   Yoga: aa0cb45287ebe1004c02a13f279c55a95f1572f4
@@ -800,6 +810,6 @@ SPEC CHECKSUMS:
   ZendeskMessagingSDK: 500e83d9413481e95180c37ddca0d4ef9d515600
   ZendeskSDKConfigurationsSDK: 8371b468db0d09e9198f6c5a97818826943ee1ee
 
-PODFILE CHECKSUM: 63bc3f4af0e8f15abb2d9f442326c7b7f0f06ecc
+PODFILE CHECKSUM: 51523d2a869936303789e15c39982ae64eae37f0
 
 COCOAPODS: 1.11.2

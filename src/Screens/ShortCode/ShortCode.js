@@ -1,9 +1,16 @@
-import React, {useState, useEffect} from 'react';
-import {Text, View, Image, StyleSheet, TouchableOpacity} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {Image, Text, TouchableOpacity, View} from 'react-native';
+import {getBundleId} from 'react-native-device-info';
+import SmoothPinCodeInput from 'react-native-smooth-pincode-input';
+import {useSelector} from 'react-redux';
+import ButtonWithLoader from '../../Components/ButtonWithLoader';
 import {loaderOne} from '../../Components/Loaders/AnimatedLoaderFiles';
+import ModalView from '../../Components/ShortCodeConfirmModal';
 import WrapperContainer from '../../Components/WrapperContainer';
 import imagePath from '../../constants/imagePath';
-import strings, {changeLaguage} from '../../constants/lang';
+import strings from '../../constants/lang';
+import navigationStrings from '../../navigation/navigationStrings';
+import actions from '../../redux/actions';
 // import store from '../../redux/store';
 import colors from '../../styles/colors';
 import {
@@ -12,19 +19,11 @@ import {
   moderateScaleVertical,
   width,
 } from '../../styles/responsiveSize';
-import styles from './styles';
-import SmoothPinCodeInput from 'react-native-smooth-pincode-input';
-import ButtonWithLoader from '../../Components/ButtonWithLoader';
-import navigationStrings from '../../navigation/navigationStrings';
-import actions from '../../redux/actions';
-import {showError} from '../../utils/helperFunctions';
-import ModalView from '../../Components/ShortCodeConfirmModal';
-import {useSelector} from 'react-redux';
 import {appIds, shortCodes} from '../../utils/constants/DynamicAppKeys';
-import {getBundleId} from 'react-native-device-info';
-import {getItem} from '../../utils/utils';
+import {showError} from '../../utils/helperFunctions';
 import {requestUserPermission} from '../../utils/notificationServices';
-import {useFocusEffect} from '@react-navigation/native';
+import {getItem, getUserData} from '../../utils/utils';
+import styles from './styles';
 
 export default function ShortCode({route, navigation}) {
   const shortCodeParam = route?.params?.shortCodeParam;
@@ -51,7 +50,6 @@ export default function ShortCode({route, navigation}) {
     viewWidth,
   } = state;
   const updateState = data => setState(state => ({...state, ...data}));
-  const userData = useSelector(state => state?.auth?.userData);
 
   //Naviagtion to specific screen
   const moveToNewScreen = (screenName, data) => () => {
@@ -232,12 +230,6 @@ export default function ShortCode({route, navigation}) {
           });
           break;
 
-        case appIds.maxis:
-          updateState({
-            shortCode: shortCodes.maxis,
-            isShortcodePrefilled: true,
-          });
-          break;
         case appIds.donepacked:
           updateState({
             shortCode: shortCodes.donepacked,
@@ -744,6 +736,92 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.foodNests:
+          updateState({
+            shortCode: shortCodes.foodNests,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.tasmeem:
+          updateState({
+            shortCode: shortCodes.tasmeem,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.destination_ops:
+          updateState({
+            shortCode: shortCodes.destination_ops,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.cannabus_express:
+          updateState({
+            shortCode: shortCodes.cannabus_express,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.flying_horse:
+          updateState({
+            shortCode: shortCodes.flying_horse,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.ufood:
+          updateState({
+            shortCode: shortCodes.ufood,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.servze:
+          updateState({
+            shortCode: shortCodes.servze,
+            isShortcodePrefilled: true,
+          });
+          break;
+
+        case appIds.goMeat:
+          updateState({
+            shortCode: shortCodes.goMeat,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.transportSystem:
+          updateState({
+            shortCode: shortCodes.transportSystem,
+            isShortcodePrefilled: true,
+          });
+          break;
+
+        case appIds.shopCentral:
+          updateState({
+            shortCode: shortCodes.shopCentral,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.sponge:
+          updateState({
+            shortCode: shortCodes.sponge,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.skidoo:
+          updateState({
+            shortCode: shortCodes.skidoo,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.weEat:
+          updateState({
+            shortCode: shortCodes.weEat,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.sambiga:
+          updateState({
+            shortCode: shortCodes.sambiga,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, []);
@@ -810,6 +888,7 @@ export default function ShortCode({route, navigation}) {
             actions.saveShortCode(shortCode);
           }
           actions.saveShortCode(shortCode);
+
           console.log(res, 'res>res>res');
           updateState({
             changeInShortCode: false,
@@ -847,15 +926,15 @@ export default function ShortCode({route, navigation}) {
     showError(error?.message || error?.error);
   };
 
-  const _redirectToLogin = shortCodeDataInfo => {
+  const _redirectToLogin = async shortCodeDataInfo => {
     updateState({isModalVisibleForShortCodeDetail: false});
 
+    const userData = await getUserData();
     // moveToNewScreen(navigationStrings.LOGIN, shortCodeDataInfo)();
-    {
-      userData && userData?.access_token
-        ? navigation.push(navigationStrings.DRAWER_ROUTES)
-        : moveToNewScreen(navigationStrings.LOGIN, shortCodeDataInfo)();
-    }
+    console.log(userData, 'userDataInShortcode');
+    userData && userData?.access_token
+      ? navigation.push(navigationStrings.DRAWER_ROUTES)
+      : moveToNewScreen(navigationStrings.LOGIN, shortCodeDataInfo)();
   };
 
   //Modal main component

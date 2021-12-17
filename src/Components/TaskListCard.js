@@ -18,6 +18,7 @@ import {getColorCodeWithOpactiyNumber} from '../utils/helperFunctions';
 import {colorArray} from '../utils/constants/ConstantValues';
 import {format} from 'date-fns';
 import {useSelector} from 'react-redux';
+import strings from '../constants/lang';
 const TaskListCard = ({
   data = {},
   allTasks = [],
@@ -25,7 +26,6 @@ const TaskListCard = ({
   _onPressTask = () => {},
   showCurrency = false,
   previousData = null,
-  _onPressTaskDetails = () => {},
 }) => {
   //Get Date
   const defaultLanguagae = useSelector(
@@ -142,12 +142,6 @@ const TaskListCard = ({
         </View>
 
         <View style={styles.dotViewStyle}>
-          {data?.order?.call_back_url && (
-            <TouchableOpacity onPress={_onPressTaskDetails}>
-              <Image source={imagePath.expand} />
-            </TouchableOpacity>
-          )}
-
           <View style={styles.dotBaseViewStyle} />
           <View
             style={[
@@ -161,7 +155,11 @@ const TaskListCard = ({
                 styles.taskTypeName,
                 {color: getTextColor(data?.tasktype?.name)},
               ]}>
-              {data?.tasktype?.name}
+              {`${
+                (data?.tasktype?.name).toLowerCase() == 'drop'
+                  ? strings.DROP
+                  : strings.PICKUP
+              }`}
             </Text>
           </View>
         </View>

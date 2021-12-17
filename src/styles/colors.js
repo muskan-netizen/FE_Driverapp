@@ -100,4 +100,5 @@ export default {
   greyLight3: '#DEDEDE',
   lightSkyE: '#F7FAFF',
   lightRed: '#FF7276',
+  ligthBlue: '#E7F7FB',
 };

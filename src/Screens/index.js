@@ -15,3 +15,5 @@ export {default as Settings} from './Settings/Settings';
 export {default as Wallet} from './Wallet/Wallet';
 export {default as ContactUs} from './ContactUs/ContactUs';
 export {default as OrderDetail} from './OrderDetails/OrderDetail';
+export {default as AddMoney} from './AddMoney/AddMoney';
+export {default as Payout} from './Payout/Payout';

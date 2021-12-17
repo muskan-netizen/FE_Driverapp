@@ -40,6 +40,8 @@ const initial_state = {
   sessionLogoutUser: false,
   defaultLanguage: {},
   fcmToken: null,
+  shortCode: null,
+  zendeskKeys: {},
   //internetConnection: false,
 };
 
@@ -90,6 +92,22 @@ export default function (state = initial_state, action) {
       return {
         ...state,
         fcmToken: data,
+      };
+    }
+    case types.SAVE_SHORT_CODE: {
+      const data = action.payload;
+      console.log(data, 'short code in reducer');
+      return {
+        ...state,
+        shortCode: data,
+      };
+    }
+
+    case types.ZENDEKSKKEYS: {
+      const data = action.payload;
+      return {
+        ...state,
+        zendeskKeys: data,
       };
     }
 

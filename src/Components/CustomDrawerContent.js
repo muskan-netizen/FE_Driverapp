@@ -22,7 +22,8 @@ import {useFocusEffect} from '@react-navigation/native';
 import {cloneDeep} from 'lodash';
 import ScaledImage from 'react-native-scalable-image';
 import DeviceInfo from 'react-native-device-info';
-import ZendeskChat from 'react-native-zendesk-chat';
+import ZendeskChat from '../library/react-native-zendesk-chat';
+import {appIds} from '../utils/constants/DynamicAppKeys';
 
 export default function CustomDrawerContent({
   state,
@@ -59,7 +60,7 @@ export default function CustomDrawerContent({
         label: strings.WALLET,
         image: imagePath.wallet,
         key: navigationStrings.TASKSTACK,
-        subRoute: navigationStrings.WALLET,
+        subRoute: navigationStrings.WALLETSTACK,
         // key: navigationStrings.WALLET,
         // subRoute:navigationStrings.MYPROFILE
       },
@@ -94,15 +95,17 @@ export default function CustomDrawerContent({
     isLoading: false,
   });
   const {routes, selectedDrawerItem, logoutAlert, isLoading} = states;
-  const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
-  console.log(clientInfo, 'clientInfo>clientInfo');
+  const {zendeskKeys, clientInfo} = useSelector(state => state?.initBoot);
+
   const defaultLanguagae = useSelector(
     state => state?.initBoot?.defaultLanguage,
   );
 
   useEffect(() => {
-    ZendeskChat.init('oPDUTCv5ROQI8UbvxmUTuTmaHpxxDJVP');
-
+    ZendeskChat.init(
+      `${zendeskKeys?.keys?.account_key}`,
+      `${zendeskKeys?.keys?.application_id}`,
+    );
     updateState({
       routes: [
         {
@@ -130,13 +133,22 @@ export default function CustomDrawerContent({
         //   id: 3,
         //   label: strings.WALLET,
         //   image: imagePath.wallet,
-        //   key: navigationStrings.TASKSTACK,
-        //   subRoute: navigationStrings.WALLET,
+        //   key: navigationStrings.WALLETSTACK,
+        //   subRoute: navigationStrings.WALLETSTACK,
+        //   // key: navigationStrings.WALLET,
+        //   // subRoute:navigationStrings.MYPROFILE
+        // },
+        // {
+        //   id: 4,
+        //   label: strings.PAYOUT,
+        //   image: imagePath.icPayout,
+        //   key: navigationStrings.PAYOUT_STACK,
+        //   subRoute: navigationStrings.PAYOUT_STACK,
         //   // key: navigationStrings.WALLET,
         //   // subRoute:navigationStrings.MYPROFILE
         // },
         {
-          id: 4,
+          id: 5,
           label: strings.CONTACT,
           image: imagePath.contact2,
           key: navigationStrings.TASKSTACK,
@@ -144,24 +156,30 @@ export default function CustomDrawerContent({
           // key: navigationStrings.WALLET,
           // subRoute:navigationStrings.MYPROFILE
         },
-        // {
-        //   id: 6,
-        //   label: strings.SUPPORT,
-        //   support: true,
-        //   image: imagePath.support2,
-        //   // key: navigationStrings.PROFILESTACK,
-        //   // subRoute:navigationStrings.MYPROFILE
-        // },
         {
-          id: 5,
-          label: strings.LOGOUT,
-          image: imagePath.logout,
+          id: 6,
+          label: strings.SUPPORT,
+          support: true,
+          image: imagePath.support2,
           // key: navigationStrings.PROFILESTACK,
           // subRoute:navigationStrings.MYPROFILE
         },
+        appIds.goody === DeviceInfo.getBundleId()
+          ? {}
+          : {
+              id: 7,
+              label: strings.LOGOUT,
+              image: imagePath.logout,
+              // key: navigationStrings.PROFILESTACK,
+              // subRoute:navigationStrings.MYPROFILE
+            },
       ],
     });
   }, [defaultLanguagae]);
+
+  //
+
+  const userData = useSelector(state => state?.auth?.userData);
 
   //Naviagtion to specific screen
   const moveToNewScreen = (screenName, data) => () => {
@@ -250,10 +268,15 @@ export default function CustomDrawerContent({
                 navigation.navigate(route.key);
               }
             } else if (route?.support) {
+              ZendeskChat.setVisitorInfo({
+                name: userData?.name,
+                phone: userData?.phone_number,
+              });
               ZendeskChat.startChat({
-                name: 'Dinesh',
-                email: 'dkdenni07@gmail.com',
-                phone: '9832421234',
+                name: userData?.name,
+                phone: userData?.phone_number,
+                withChat: true,
+                color: '#000',
               });
             } else {
               onLogoutPress();
