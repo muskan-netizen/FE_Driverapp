@@ -4,6 +4,7 @@ import fontFamily from '../../styles/fontFamily';
 import {
   moderateScale,
   moderateScaleVertical,
+  textScale,
   width,
 } from '../../styles/responsiveSize';
 
@@ -66,6 +67,17 @@ export default () => {
     input: {
       fontSize: 16,
       color: 'black',
+    },
+    noPaymentFound: {
+      textAlign: 'center',
+      fontFamily: fontFamily.regular,
+      fontSize: textScale(13),
+      marginTop: moderateScale(20),
+    },
+    selectPaymentTxt: {
+      fontFamily: fontFamily.medium,
+      fontSize: textScale(16),
+      marginVertical: moderateScale(10),
     },
   });
   return styles;

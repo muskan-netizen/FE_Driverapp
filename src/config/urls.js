@@ -76,3 +76,6 @@ export const WALLET_CREDIT = getApiUrl('api/agentWallet/credit');
 
 // get Notification Data
 export const CUSTOMNOTIFICATIONPAYLOAD = getApiUrl('api/notification/tracking');
+
+//Payout
+export const AGENT_PAYOUT = getApiUrl('api/agent/payout/request/create');

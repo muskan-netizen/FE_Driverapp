@@ -38,7 +38,7 @@ export default function AddMoney({navigation}) {
       {id: 1, amount: 5000},
       {id: 2, amount: 4500},
     ],
-    isLoadingB: false,
+    isLoading: true,
     amount: '',
     allPaymentOptions: [],
     seletedPaymentGateway: {},
@@ -48,7 +48,7 @@ export default function AddMoney({navigation}) {
   const {
     amount,
     customAmount,
-    isLoadingB,
+    isLoading,
     allPaymentOptions,
     seletedPaymentGateway,
   } = state;
@@ -70,6 +70,7 @@ export default function AddMoney({navigation}) {
         console.log(res, '<<<res all payment gateways');
         updateState({
           allPaymentOptions: res?.data,
+          isLoading: false,
         });
       })
       .catch(errorMethod);
@@ -97,7 +98,8 @@ export default function AddMoney({navigation}) {
           }}>
           <View style={styles.selectAmountCon}>
             <Text numberOfLines={1} style={styles.chooseAddMoney}>
-              {`+ ₹`} {item.amount}
+              {`+ ${userData?.client_preference?.currency?.symbol}`}
+              {item.amount}
             </Text>
           </View>
         </View>
@@ -125,7 +127,7 @@ export default function AddMoney({navigation}) {
               }}>
               <Text style={styles.currencySymble}>
                 {/* {currencies?.primary_currency?.symbol} */}
-                {'₹'}
+                {userData?.client_preference?.currency?.symbol}
               </Text>
               <TextInput
                 style={styles.addMoneyInputField}
@@ -182,22 +184,20 @@ export default function AddMoney({navigation}) {
   };
 
   const errorMethod = error => {
-    console.log(error);
+    updateState({isLoading: false});
     showError(error?.message || error?.error || error?.description);
   };
 
   const _onRazorPay = () => {
     var options = {
-      description: 'Goody',
-      image: 'https://i.imgur.com/3g7nmJC.png',
-      currency: 'INR',
+      image: userData?.image_url,
+      currency: userData?.client_preference?.currency?.iso_code,
       key: seletedPaymentGateway?.api_key,
       amount: Number(amount) * 100,
-      name: userData?.name,
+      name: 'Goody',
       prefill: {
-        email: 'test@gmail.com',
         contact: userData?.phone_number,
-        name: 'Razorpay Software',
+        name: userData?.name,
       },
       theme: {color: '#F37254'},
     };
@@ -226,7 +226,7 @@ export default function AddMoney({navigation}) {
             .catch(errorMethod);
         }
       })
-      .catch(errorMethod);
+      .catch(err => showError(err?.error?.description));
   };
 
   const _renderPaymentOptions = ({item, index}) => {
@@ -239,11 +239,17 @@ export default function AddMoney({navigation}) {
         }
         activeOpacity={0.7}
         style={{
-          paddingHorizontal: moderateScale(5),
+          paddingHorizontal: moderateScale(15),
           paddingVertical: moderateScale(12),
           backgroundColor: colors.borderColorB,
           flexDirection: 'row',
           alignItems: 'center',
+          borderWidth: seletedPaymentGateway?.id === item.id ? 1 : 0,
+          borderColor:
+            seletedPaymentGateway?.id === item.id
+              ? colors.themeColor
+              : colors.transparent,
+          borderRadius: moderateScale(5),
         }}>
         <Image
           source={
@@ -251,7 +257,12 @@ export default function AddMoney({navigation}) {
               ? imagePath.icRadioActive
               : imagePath.icRadio
           }
-          style={{tintColor: seletedPaymentGateway?.id && colors.themeColor}}
+          style={{
+            tintColor:
+              seletedPaymentGateway?.id === item.id
+                ? colors.themeColor
+                : colors.grey2,
+          }}
         />
         <Text
           style={{
@@ -268,7 +279,7 @@ export default function AddMoney({navigation}) {
     <WrapperContainer
       bgColor={colors.backgroundGrey}
       statusBarColor={colors.white}
-      isLoadingB={isLoadingB}
+      isLoading={isLoading}
       source={loaderOne}>
       <Header
         leftIcon={imagePath.backArrow}
@@ -285,15 +296,16 @@ export default function AddMoney({navigation}) {
       />
       {mainView()}
       <View style={{marginHorizontal: moderateScale(15)}}>
-        <Text
-          style={{
-            fontFamily: fontFamily.medium,
-            fontSize: textScale(14),
-            marginVertical: moderateScale(10),
-          }}>
-          {strings.PAYMENT_METHODS}
-        </Text>
-        <FlatList data={allPaymentOptions} renderItem={_renderPaymentOptions} />
+        <Text style={styles.selectPaymentTxt}>{strings.PAYMENT_METHODS}</Text>
+        <FlatList
+          data={allPaymentOptions}
+          renderItem={_renderPaymentOptions}
+          ListEmptyComponent={() => (
+            <Text style={styles.noPaymentFound}>
+              {strings.NO_PAYMENT_METHOD}
+            </Text>
+          )}
+        />
       </View>
     </WrapperContainer>
   );

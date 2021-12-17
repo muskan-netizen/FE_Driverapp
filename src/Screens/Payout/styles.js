@@ -14,19 +14,28 @@ export default () => {
     payoutBlockSubView: {
       width: (width - moderateScale(55)) / 3,
       backgroundColor: colors.ligthBlue,
-      height: moderateScale(100),
+      height: moderateScale(120),
       borderRadius: moderateScale(10),
     },
     payoutNumbersTxt: {
       fontFamily: fontFamily.bold,
       fontSize: textScale(15),
-      marginTop: moderateScale(20),
+      marginTop: moderateScale(30),
       marginHorizontal: moderateScale(10),
     },
     payoutTitlesTxt: {
       fontFamily: fontFamily.regular,
       marginHorizontal: moderateScale(10),
       marginTop: moderateScale(5),
+    },
+    bottomButtonStyle: {
+      position: 'absolute',
+      bottom: 22,
+      left: 20,
+      right: 20,
+    },
+    modalContainer: {
+      height: 90,
     },
   });
   return styles;

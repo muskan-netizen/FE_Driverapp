@@ -56,9 +56,11 @@ export default function ShortCode({route, navigation}) {
     navigation.navigate(screenName, {data});
   };
 
-  const defaultLanguagae = useSelector(
-    state => state?.initBoot?.defaultLanguage,
+  const {defaultLanguage, internetConnection} = useSelector(
+    state => state?.initBoot,
   );
+
+  const {userData} = useSelector(state => state?.auth);
 
   useEffect(() => {
     requestUserPermission();
@@ -824,14 +826,14 @@ export default function ShortCode({route, navigation}) {
           break;
       }
     })();
-  }, []);
+  }, [internetConnection]);
 
   //Process init when code update
   useEffect(() => {
     if (shortCode && isShortcodePrefilled) {
       checkScreen();
     }
-  }, [shortCode, isShortcodePrefilled]);
+  }, [shortCode, isShortcodePrefilled, internetConnection]);
 
   const checkScreen = () => {
     initApiHit();
@@ -869,11 +871,11 @@ export default function ShortCode({route, navigation}) {
   const initApiHit = () => {
     (async () => {
       const saveShortCode = await getItem('saveShortCode');
-      console.log(defaultLanguagae?.value, 'Language in init screen');
+      console.log(defaultLanguage?.value, 'Language in init screen');
       let header = {};
-      if (defaultLanguagae?.id) {
+      if (defaultLanguage?.id) {
         header = {
-          language: defaultLanguagae?.value,
+          language: defaultLanguage?.value,
         };
       } else {
         header = {

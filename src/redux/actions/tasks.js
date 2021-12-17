@@ -9,6 +9,7 @@ import {
   GETORDERUPDATEDETAILS,
   PAYMENTOPTIONS,
   WALLET_CREDIT,
+  AGENT_PAYOUT,
 } from '../../config/urls';
 import {apiGet, apiPost} from '../../utils/utils';
 import store from '../store';
@@ -145,6 +146,18 @@ export function getPaymentOptions(uri = '', data = {}, headers = {}) {
 export function walletCredit(data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
     apiPost(WALLET_CREDIT, data, headers)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+}
+
+export function agentPayout(url, data = {}, headers = {}) {
+  return new Promise((resolve, reject) => {
+    apiPost(AGENT_PAYOUT + url, data, headers)
       .then(res => {
         resolve(res);
       })
