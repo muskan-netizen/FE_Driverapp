@@ -93,11 +93,6 @@ const NotificationModal = () => {
       .catch(error => console.log('error in notification Data', error));
   };
 
-  console.log(
-    notificationDropLocationsData,
-    'notificationDropLocationsDatanotificationDropLocationsData',
-  );
-
   const mapView = () => {
     let data = notificationData?.notificationData?.data;
     if (data) {

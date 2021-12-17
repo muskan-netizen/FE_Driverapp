@@ -1,20 +1,17 @@
+import {useFocusEffect} from '@react-navigation/native';
 import {debounce} from 'lodash';
-import React, {useState, useEffect} from 'react';
-import {
-  View,
-  Text,
-  Image,
-  RefreshControl,
-  FlatList,
-  ScrollView,
-} from 'react-native';
+import moment from 'moment';
+import React, {useEffect, useState} from 'react';
+import {FlatList, Image, Text, TouchableOpacity, View} from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 import {useSelector} from 'react-redux';
-import Header, {stylesFunc} from '../../Components/Header';
+import DatePickerModal from '../../Components/DatePickerModal';
+import Header from '../../Components/Header';
 import {loaderOne} from '../../Components/Loaders/AnimatedLoaderFiles';
-import TaskListCard from '../../Components/TaskListCard';
 import WrapperContainer from '../../Components/WrapperContainer';
 import imagePath from '../../constants/imagePath';
 import strings from '../../constants/lang';
+import navigationStrings from '../../navigation/navigationStrings';
 import actions from '../../redux/actions';
 // import store from '../../redux/store';
 import colors from '../../styles/colors';
@@ -24,21 +21,10 @@ import {
   moderateScale,
   moderateScaleVertical,
   textScale,
-  width,
 } from '../../styles/responsiveSize';
-import LinearGradient from 'react-native-linear-gradient';
-import {
-  colorArray,
-  transportationArray,
-} from '../../utils/constants/ConstantValues';
+import {colorArray} from '../../utils/constants/ConstantValues';
 import {showError} from '../../utils/helperFunctions';
-import DatePicker from 'react-native-date-picker';
-import DatePickerModal from '../../Components/DatePickerModal';
-import {TouchableOpacity} from 'react-native';
-import moment from 'moment';
-import navigationStrings from '../../navigation/navigationStrings';
 import stylesFunction from './styles';
-import {useFocusEffect} from '@react-navigation/native';
 export default function Wallet({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
   console.log(userData, 'userData');
@@ -99,14 +85,14 @@ export default function Wallet({route, navigation}) {
     actions
       .getWalletData(
         // `/${userData?.id}`,
-        `/5?page=${pageNo}&limit=${limit}`,
+        `/${userData?.id}?page=${pageNo}&limit=${limit}`,
         {},
         {client: clientInfo?.database_name},
       )
       .then(res => {
         console.log(res, 'getWalletDataOfDriver>>>getWalletDataOfDriver data');
         updateState({
-          lifetimeAmount: res?.driver_cost,
+          lifetimeAmount: res?.lifetime_earnings,
           currentAmount: Number(res?.final_balance),
           allTaskInHistory:
             pageNo == 1
@@ -165,21 +151,47 @@ export default function Wallet({route, navigation}) {
               style={[
                 styles.circleView,
                 {
-                  backgroundColor: getDynamicUpdateOnValues(item),
+                  backgroundColor:
+                    item?.transaction_type == 'wallet'
+                      ? item?.type == 'deposit'
+                        ? colors.green
+                        : colors.redB
+                      : item?.transaction_type == 'payment'
+                      ? item?.cr > 0
+                        ? colors.green
+                        : colors.redB
+                      : colors.blueB,
                 },
               ]}>
               <Text style={styles.messageInitial}>
-                {item?.task_type_id ? `T` : item?.cr ? `C` : `D`}
+                {item?.transaction_type == 'wallet'
+                  ? item?.type == 'deposit'
+                    ? 'C'
+                    : 'D'
+                  : item?.transaction_type == 'payment'
+                  ? item?.cr > 0
+                    ? 'C'
+                    : 'D'
+                  : 'T'}
               </Text>
             </View>
           </View>
 
           <View style={{flex: 0.6, justifyContent: 'center'}}>
             <Text numberOfLines={2} style={styles.message}>
-              {item?.cr ? `Payment Credited` : `Payment Debited`}
+              {item?.transaction_type == 'wallet'
+                ? item?.type == 'deposit'
+                  ? strings.WALLET_CREDITED
+                  : strings.WALLET_DEBITED
+                : item?.transaction_type == 'payment'
+                ? item?.cr > 0
+                  ? strings.PAYMENTCREDITED
+                  : strings.PAYMENTDEBITED
+                : item?.order?.cash_to_be_collected > 0
+                ? strings.PAYMENTCREDITED
+                : strings.PAYMENTDEBITED}
             </Text>
             <Text numberOfLines={1} style={styles.dateTime}>
-              {/* {item.dateTime} */}
               {moment(item?.created_at).format('lll')}
             </Text>
           </View>
@@ -202,24 +214,31 @@ export default function Wallet({route, navigation}) {
                       : colors.black,
                 },
               ]}>
-              {item?.task_type_id
-                ? `Task# ${item?.id}`
-                : item?.cr
-                ? `+ ${item?.cr}`
-                : `- ${item?.dr}`}
+              {item?.transaction_type == 'wallet'
+                ? item?.type == 'deposit'
+                  ? `+ ${userData?.client_preference?.currency?.symbol}${item?.amount}`
+                  : `- ${userData?.client_preference?.currency?.symbol}${item?.amount}`
+                : item?.transaction_type == 'payment'
+                ? item?.cr
+                  ? `+ ${userData?.client_preference?.currency?.symbol}${item?.cr}`
+                  : `- ${userData?.client_preference?.currency?.symbol}${item?.dr}`
+                : item?.task_type_id && `Task# ${item?.id}`}
             </Text>
           </View>
         </View>
 
         {!!item?.task_type_id && (
-          <View style={styles.moneyViewTransaction}>
+          <View style={{...styles.moneyViewTransaction}}>
             <View
               style={{
                 flex: 0.33,
                 alignItems: 'center',
                 justifyContent: 'center',
               }}>
-              <Text style={styles.currency}>{'+150.00'}</Text>
+              <Text style={styles.currency}>
+                {userData?.client_preference?.currency?.symbol}
+                {item?.order?.cash_to_be_collected}
+              </Text>
               <Text style={styles.earningBottomTextLable}>
                 {strings.CASHCOLLECTEDCAPS}
               </Text>
@@ -230,20 +249,23 @@ export default function Wallet({route, navigation}) {
                 alignItems: 'center',
                 justifyContent: 'center',
               }}>
-              <Text style={styles.currency}>{'+50.00'}</Text>
+              <Text style={styles.currency}>
+                {userData?.client_preference?.currency?.symbol}
+                {item?.order?.driver_cost}
+              </Text>
               <Text style={styles.earningBottomTextLable}>
                 {strings.ORDEREARNING}
               </Text>
             </View>
-            <View
+            {/* <View
               style={{
                 flex: 0.33,
                 alignItems: 'center',
                 justifyContent: 'center',
               }}>
-              <Text style={styles.amountToReturn}>{'-100.00'}</Text>
+              <Text style={styles.amountToReturn}>{userData?.client_preference?.currency?.symbol}{'-100.00'}</Text>
               <Text style={styles.earningBottomTextLable}>{strings.NET}</Text>
-            </View>
+            </View> */}
           </View>
         )}
 
@@ -254,7 +276,7 @@ export default function Wallet({route, navigation}) {
             <Text
               style={[styles.address, {marginLeft: moderateScale(10)}]}
               numberOfLines={2}>
-              {item?.location ? item?.location?.address : 'Chandigarh, India'}
+              {item?.location ? item?.location?.address : ''}
             </Text>
           </View>
         )}
@@ -304,7 +326,11 @@ export default function Wallet({route, navigation}) {
             style={{marginBottom: moderateScale(10)}}
           />
           <Text style={styles.totalRevenue}>{strings.LIFETIMEEARNING}</Text>
-          <Text style={styles.amountText}>{currentAmount.toFixed(2)}</Text>
+
+          <Text style={styles.amountText}>
+            {userData?.client_preference?.currency?.symbol}
+            {lifetimeAmount.toFixed(2)}
+          </Text>
         </LinearGradient>
         <LinearGradient
           style={styles.gradientStyle}
@@ -316,7 +342,10 @@ export default function Wallet({route, navigation}) {
             style={{marginBottom: moderateScale(10)}}
           />
           <Text style={styles.totalRevenue}>{strings.TOTALREVNUE}</Text>
-          <Text style={styles.amountText}>{currentAmount.toFixed(2)}</Text>
+          <Text style={styles.amountText}>
+            {userData?.client_preference?.currency?.symbol}
+            {currentAmount.toFixed(2)}
+          </Text>
         </LinearGradient>
       </View>
     );
@@ -348,7 +377,7 @@ export default function Wallet({route, navigation}) {
                 fontSize: textScale(11),
                 color: colors.white,
               }}>
-              Add Money
+              {strings.ADD_MONEY}
             </Text>
           </TouchableOpacity>
         )}

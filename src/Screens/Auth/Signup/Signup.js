@@ -350,14 +350,14 @@ export default function Signup({route, navigation}) {
       })
       .then(res => {
         updateState({isLoading: false});
-        showSuccess(strings.SUCCESSSIGNUP);
+        showSuccess(strings.SUCCESSSIGNUP, 10000);
         navigation.goBack();
       })
       .catch(errorMethod);
   };
   const errorMethod = error => {
     updateState({isLoading: false});
-    showError(error?.message || error?.error, 4000);
+    showError(error?.message || error?.error);
   };
 
   const _selectedTransportation = i => {
@@ -659,7 +659,7 @@ export default function Signup({route, navigation}) {
                 }
                 cca2={cca2}
                 phoneNumber={phoneNumber}
-                callingCode={state.callingCode}
+                callingCode={callingCode}
                 placeholder={strings.YOUR_PHONE_NUMBER}
                 keyboardType={'phone-pad'}
                 returnKeyType={'done'}

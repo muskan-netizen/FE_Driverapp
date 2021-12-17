@@ -177,4 +177,11 @@ export default {
   LIFE_TIME_ORDER: 'Lifetime order value',
   PAST_PAYOUT: 'Past Payouts',
   AVAILABLE_FUNDS: 'Available Funds',
+  WALLET_CREDITED: 'Wallet credited',
+  WALLET_DEBITED: 'Wallet debited',
+  NO_PAYMENT_METHOD: 'No payment method found',
+  PAYOUT: 'Payout',
+  CONTINUE: 'Continue',
+  OFF_THE_PLATFORM: 'Off the platform',
+  AVAILABLE_AMOUNT: 'Available Amount',
 };
