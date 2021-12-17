@@ -2,7 +2,7 @@
 //export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-export const API_BASE_URL = 'https://api.rdstaging.com/';
+//export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //export const API_BASE_URL = 'http://192.168.103.73:8006/';
 
@@ -44,6 +44,10 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.blipdelivery.com/'
 // destinationops app domain
 //export const API_BASE_URL = 'https://dispatch.destinationops.com/';
+
+// codiner domain
+
+export const API_BASE_URL = 'https://dispatch.codiner.com/';
 
 export const personaltoken = 'TMJdbQlNWkYl1JzMONzRgF4zQFuP8s';
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;
