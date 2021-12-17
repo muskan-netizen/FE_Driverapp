@@ -828,6 +828,12 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+          case appIds.aGBDeliveries:
+          updateState({
+            shortCode: shortCodes.aGBDeliveries,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, []);

@@ -127,6 +127,7 @@ const shortCodes = {
   weEat: '46d1b3',
   sambiga: 'ce6b16',
   towFinder: '9ef64c',
+  aGBDeliveries: 'd82244',
 };
 
 // Goody Dispatch
@@ -631,6 +632,10 @@ const appIds = {
   towFinder: Platform.select({
     ios: 'com.TowFinder.Dispatch',
     android: 'com.TowFinder.royodispatcher',
+  }),
+  aGBDeliveries: Platform.select({
+    ios: 'com.AGBDeliveries.Dispatch',
+    android: 'com.AGBDeliveries.royodispatcher',
   }),
 };
 

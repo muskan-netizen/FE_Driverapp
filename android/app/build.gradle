@@ -330,7 +330,7 @@ android {
 
         codiner {
             dimension "appType"
-            versionCode 7
+            versionCode 9
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
@@ -1497,6 +1497,17 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.TowFinder.royodispatcher'
             resValue "string", "app_name", "Tow Finder Dispatch"
+           
+        }
+        aGBDeliveries{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.AGBDeliveries.royodispatcher'
+            resValue "string", "app_name", "AGB Deliveries Dispatch"
            
         }
     }

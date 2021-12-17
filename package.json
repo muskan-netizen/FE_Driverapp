@@ -253,6 +253,8 @@
     "sambigadispatcherRelease": "cd android && ./gradlew assembleSambigaRelease",
     "towFinderdispatcher": "react-native run-android --variant=towFinderDebug",
     "towFinderdispatcherRelease": "cd android && ./gradlew assembletowFinderRelease",
+    "aGBDeliveriesdispatcher": "react-native run-android --variant=aGBDeliveriesDebug",
+    "aGBDeliveriesdispatcherRelease": "cd android && ./gradlew assembleaGBDeliveriesRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",

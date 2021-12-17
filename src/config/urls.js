@@ -42,12 +42,16 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'http://192.168.103.73:8005/';
 // blip
 // export const API_BASE_URL = 'https://dispatch.blipdelivery.com/'
+// grub and gusto
+// export const API_BASE_URL = 'https://grub.royodispatch.com/'
 // export const API_BASE_URL = 'http://192.168.103.73:800/';
 
 // destinationops app domain
 //export const API_BASE_URL = 'https://dispatch.destinationops.com/';
 // somame
 // export const API_BASE_URL = 'https://dispatch.somame-247.com/'
+// codiner
+// export const API_BASE_URL = 'https://dispatch.codiner.com/'
 
 export const personaltoken = 'TMJdbQlNWkYl1JzMONzRgF4zQFuP8s';
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;
