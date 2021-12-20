@@ -38,8 +38,9 @@ import {requestUserPermission} from '../../../utils/notificationServices';
 export default function Login({navigation, route}) {
   const paramData = route?.params?.data;
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
+
   const fcmToken = useSelector(state => state?.initBoot?.fcmToken);
-  console.log(paramData, 'paramData>paramData');
+  console.log(clientInfo, 'paramData>paramData');
   const [state, setState] = useState({
     isLoading: false,
     callingCode: clientInfo?.get_country_set?.phonecode

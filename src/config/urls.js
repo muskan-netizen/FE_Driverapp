@@ -1,8 +1,8 @@
 //live
-export const API_BASE_URL = 'https://api.royodispatch.com/';
+//export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-//export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //export const API_BASE_URL = 'http://192.168.103.73:8006/'; preet sir local url
 
@@ -29,11 +29,13 @@ export const API_BASE_URL = 'https://api.royodispatch.com/';
 // govachow
 // export const API_BASE_URL = 'https://dispatch.govachow.com/'
 // africanize
-// export const API_BASE_URL = 'https://dispatch.africanize.co/'
+// export const API_BASE_URL = 'https://dispatch.africanize.com/'
 // orderchekout
 //export const API_BASE_URL = 'https://dispatch.orderchekout.com/';
 // carroi
 // export const API_BASE_URL = 'https://carroi.rdstaging.com/';
+// hairstonexpressgo
+// export const API_BASE_URL = 'https://dispatch.hairstonexpressgo.com/'
 //Developement
 // export const API_BASE_URL = 'https://api.winhires.com/';
 //export const API_BASE_URL = 'http://192.168.96.20:8010/';
@@ -42,8 +44,16 @@ export const API_BASE_URL = 'https://api.royodispatch.com/';
 // export const API_BASE_URL = 'http://192.168.103.73:8005/';
 // blip
 // export const API_BASE_URL = 'https://dispatch.blipdelivery.com/'
+// grub and gusto
+// export const API_BASE_URL = 'https://grub.royodispatch.com/'
+// export const API_BASE_URL = 'http://192.168.103.73:800/';
+
 // destinationops app domain
 //export const API_BASE_URL = 'https://dispatch.destinationops.com/';
+// somame
+// export const API_BASE_URL = 'https://dispatch.somame-247.com/'
+// codiner
+// export const API_BASE_URL = 'https://dispatch.codiner.com/'
 
 // codiner domain
 //export const API_BASE_URL = 'https://dispatch.codiner.com/';

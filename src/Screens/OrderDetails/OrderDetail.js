@@ -19,6 +19,7 @@ import {getImageUrl} from '../../utils/helperFunctions';
 import {stylesFunc} from './styles';
 
 export default function OrderDetail({route, navigation}) {
+
   let paramData = route?.params?.data?.item;
 
   const [state, setState] = useState({

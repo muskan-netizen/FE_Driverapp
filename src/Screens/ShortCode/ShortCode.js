@@ -68,6 +68,7 @@ export default function ShortCode({route, navigation}) {
   useEffect(() => {
     (async () => {
       const saveShortCode = await getItem('saveShortCode');
+      console.log(saveShortCode, 'this is short code');
       switch (getBundleId()) {
         case appIds.royoorder:
           // updateState({shortCode: '245bae', isShortcodePrefilled: true});
@@ -393,6 +394,7 @@ export default function ShortCode({route, navigation}) {
             shortCode: shortCodes.somame,
             isShortcodePrefilled: true,
           });
+          break;
         case appIds.equamd:
           updateState({
             shortCode: shortCodes.equamd,
@@ -821,6 +823,30 @@ export default function ShortCode({route, navigation}) {
         case appIds.sambiga:
           updateState({
             shortCode: shortCodes.sambiga,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.towFinder:
+          updateState({
+            shortCode: shortCodes.towFinder,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.aGBDeliveries:
+          updateState({
+            shortCode: shortCodes.aGBDeliveries,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.admCourier:
+          updateState({
+            shortCode: shortCodes.admCourier,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.kurbsideKings:
+          updateState({
+            shortCode: shortCodes.kurbsideKings,
             isShortcodePrefilled: true,
           });
           break;

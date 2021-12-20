@@ -134,7 +134,9 @@ const TaskListCard = ({
               {/* <Image source={imagePath.dollor} /> */}
               <Text style={styles.dateTimeStyle}>
                 {data?.order?.amount
-                  ? Number(data?.order?.amount).toFixed(2)
+                  ? Number(data?.order?.amount)
+                      .toFixed(2)
+                      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
                   : Number(0).toFixed(2)}
               </Text>
             </View>
