@@ -7,7 +7,7 @@
 //export const API_BASE_URL = 'http://192.168.103.73:8006/';
 
 // fleety staging domain
-//export const API_BASE_URL = 'https://fleety.rdstaging.com/';
+export const API_BASE_URL = 'https://fleety.rdstaging.com/';
 
 //carroi app domain
 //export const API_BASE_URL = 'https://carroi.rostaging.com/';
@@ -31,7 +31,7 @@
 // africanize
 // export const API_BASE_URL = 'https://dispatch.africanize.co/'
 // orderchekout
-export const API_BASE_URL = 'https://dispatch.orderchekout.com/';
+//export const API_BASE_URL = 'https://dispatch.orderchekout.com/';
 // carroi
 // export const API_BASE_URL = 'https://carroi.rdstaging.com/';
 //Developement
@@ -46,8 +46,10 @@ export const API_BASE_URL = 'https://dispatch.orderchekout.com/';
 //export const API_BASE_URL = 'https://dispatch.destinationops.com/';
 
 // codiner domain
-
 //export const API_BASE_URL = 'https://dispatch.codiner.com/';
+
+// runrun live domain
+//export const API_BASE_URL = 'https://dispatcher.runrun.ae/';
 
 export const personaltoken = 'TMJdbQlNWkYl1JzMONzRgF4zQFuP8s';
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;
