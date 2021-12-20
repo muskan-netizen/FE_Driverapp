@@ -92,10 +92,13 @@ export default function TaskHistory({route, navigation}) {
       .getListOfTaskHistory(url, {}, {client: clientInfo?.database_name})
       .then(res => {
         console.log(res, 'getAllTaskHistory>>>getAllTaskHistory data');
+        let totalAmount = res?.data?.totalCashCollected
+          .toFixed(2)
+          .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')||0.00;
         updateState({
           isLoading: false,
           isRefreshing: false,
-          totalCashCollected: res?.data?.totalCashCollected,
+          totalCashCollected: totalAmount,
           allTaskInHistory: res?.data?.tasks,
         });
       })
@@ -112,7 +115,6 @@ export default function TaskHistory({route, navigation}) {
   const onEndReached = ({distanceFromEnd}) => {
     updateState({pageNo: pageNo + 1});
   };
-
   const onEndReachedDelayed = debounce(onEndReached, 1000, {
     leading: true,
     trailing: false,
@@ -183,7 +185,7 @@ export default function TaskHistory({route, navigation}) {
         <View style={styles.cashTextView}>
           <Text style={styles.cashCollected}>{`${
             strings.CASHCOLLECTED
-          } :- ${totalCashCollected.toFixed(2)}`}</Text>
+          } :- ${totalCashCollected}`}</Text>
         </View>
         <View style={styles.clearViewStyle}>
           <TouchableOpacity

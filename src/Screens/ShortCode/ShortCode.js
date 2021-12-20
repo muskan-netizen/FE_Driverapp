@@ -881,7 +881,7 @@ export default function ShortCode({route, navigation}) {
   const initApiHit = () => {
     (async () => {
       const saveShortCode = await getItem('saveShortCode');
-      console.log(defaultLanguagae?.value, 'Language in init screen');
+      console.log(defaultLanguagae?.value,saveShortCode,  'Language in init screen');
       let header = {};
       if (defaultLanguagae?.id) {
         header = {
