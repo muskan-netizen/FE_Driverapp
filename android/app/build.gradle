@@ -1510,6 +1510,28 @@ android {
             resValue "string", "app_name", "AGB Deliveries Dispatch"
            
         }
+        admCourier{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.ADMCourier.royodispatcher'
+            resValue "string", "app_name", "ADM Courier Dispatch"
+           
+        }
+        kurbsideKings{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.KurbsideKings.royodispatcher'
+            resValue "string", "app_name", "Kurbside Kings Dispatch"
+           
+        }
     }
 }
 

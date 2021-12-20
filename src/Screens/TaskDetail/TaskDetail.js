@@ -61,6 +61,7 @@ export default function TaskDetail({route, navigation}) {
   let fromHistory = route?.params?.data?.fromHistory;
 
   const [state, setState] = useState({
+    vendors: {},
     isLoading: false,
     region: {
       latitude: Number(taskDetail?.location?.latitude),
@@ -124,6 +125,7 @@ export default function TaskDetail({route, navigation}) {
   });
 
   const {
+    vendors,
     findDataToCheck,
     updatedProofArray,
     taskProofArray,
@@ -291,6 +293,8 @@ export default function TaskDetail({route, navigation}) {
     actions
       .getProductUpdateDetails(new_dispatch_traking_url(), {})
       .then(res => {
+        console.log(res?.data?.vendors[0]?.vendor, 'all response after hit order api');
+        updateState({vendors: res?.data?.vendors[0]?.vendor});
         const productAllInsrucations = res?.data?.vendors.map((item, index) => {
           return item?.products?.map((item, index) => {
             return item?.user_product_order_form;
@@ -604,84 +608,160 @@ export default function TaskDetail({route, navigation}) {
           </View>
 
           {/* Phone and email view */}
-          {!!(
-            taskDetail?.order?.Recipient_email ||
-            taskDetail?.order?.recipient_phone
-          ) && (
-            <View
-              style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-              {!!taskDetail?.order?.Recipient_email && (
-                <TouchableOpacity
-                  onPress={() =>
-                    // Communications.email(
-                    //   [taskDetail?.order?.Recipient_email, ''],
-                    //   null,
-                    //   null,
-                    //   '',
-                    //   '',
-                    // )
-                    Linking.openURL(
-                      `mailto:${taskDetail?.order?.Recipient_email}`,
-                    )
-                  }
+          {(taskDetail?.tasktype?.name).toLowerCase() == 'drop' ? (
+            <View>
+              {!!(
+                taskDetail?.order?.Recipient_email ||
+                taskDetail?.order?.recipient_phone
+              ) && (
+                <View
                   style={{
                     flexDirection: 'row',
-                    marginTop: moderateScale(10),
-                    alignItems: 'center',
+                    justifyContent: 'space-between',
                   }}>
-                  <Image
-                    source={imagePath.mail2}
-                    style={{marginRight: moderateScale(5)}}
-                  />
-                  <Text style={styles.emailAndPhone}>
-                    {taskDetail?.order?.Recipient_email}
-                  </Text>
-                </TouchableOpacity>
+                  {!!taskDetail?.order?.Recipient_email && (
+                    <TouchableOpacity
+                      onPress={() =>
+                        // Communications.email(
+                        //   [taskDetail?.order?.Recipient_email, ''],
+                        //   null,
+                        //   null,
+                        //   '',
+                        //   '',
+                        // )
+                        Linking.openURL(
+                          `mailto:${taskDetail?.order?.Recipient_email}`,
+                        )
+                      }
+                      style={{
+                        flexDirection: 'row',
+                        marginTop: moderateScale(10),
+                        alignItems: 'center',
+                      }}>
+                      <Image
+                        source={imagePath.mail2}
+                        style={{marginRight: moderateScale(5)}}
+                      />
+                      <Text style={styles.emailAndPhone}>
+                        {taskDetail?.order?.Recipient_email}
+                      </Text>
+                    </TouchableOpacity>
+                  )}
+                  {!!taskDetail?.order?.recipient_phone && (
+                    <TouchableOpacity
+                      onPress={
+                        () =>
+                          Linking.openURL(
+                            `tel:${taskDetail?.order?.recipient_phone}`,
+                          )
+                        // Communications.phonecall(
+                        //   taskDetail?.order?.recipient_phone,
+                        //   true,
+                        // )
+                      }
+                      style={{
+                        flexDirection: 'row',
+                        marginTop: moderateScale(10),
+                        alignItems: 'center',
+                      }}>
+                      <Image
+                        source={imagePath.phone2}
+                        style={{marginRight: moderateScale(5)}}
+                      />
+                      <Text style={styles.emailAndPhone}>
+                        {taskDetail?.order?.recipient_phone}
+                      </Text>
+                    </TouchableOpacity>
+                  )}
+                </View>
               )}
-              {!!taskDetail?.order?.recipient_phone && (
-                <TouchableOpacity
-                  onPress={
-                    () =>
-                      Linking.openURL(
-                        `tel:${taskDetail?.order?.recipient_phone}`,
-                      )
-                    // Communications.phonecall(
-                    //   taskDetail?.order?.recipient_phone,
-                    //   true,
-                    // )
-                  }
+
+              {/* location and address */}
+              {!!taskDetail?.location?.address && (
+                <View
                   style={{
                     flexDirection: 'row',
                     marginTop: moderateScale(10),
                     alignItems: 'center',
                   }}>
                   <Image
-                    source={imagePath.phone2}
+                    source={imagePath?.location2}
                     style={{marginRight: moderateScale(5)}}
                   />
-                  <Text style={styles.emailAndPhone}>
-                    {taskDetail?.order?.recipient_phone}
+                  <Text numberOfLines={2} style={styles.emailAndPhone}>
+                    {taskDetail?.location?.address}
                   </Text>
-                </TouchableOpacity>
+                </View>
               )}
             </View>
-          )}
+          ) : (
+            <View>
+              {!!(vendors?.email || vendors?.phone_no) && (
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                  }}>
+                  {!!vendors?.email && (
+                    <TouchableOpacity
+                      onPress={() =>
+                        Linking.openURL(`mailto:${vendors?.email}`)
+                      }
+                      style={{
+                        flexDirection: 'row',
+                        marginTop: moderateScale(10),
+                        alignItems: 'center',
+                      }}>
+                      <Image
+                        source={imagePath.mail2}
+                        style={{marginRight: moderateScale(5)}}
+                      />
+                      <Text style={styles.emailAndPhone}>{vendors?.email}</Text>
+                    </TouchableOpacity>
+                  )}
+                  {!!vendors?.phone_no && (
+                    <TouchableOpacity
+                      onPress={
+                        () => Linking.openURL(`tel:${vendors?.phone_no}`)
+                        // Communications.phonecall(
+                        //   vendors?.recipient_phone,
+                        //   true,
+                        // )
+                      }
+                      style={{
+                        flexDirection: 'row',
+                        marginTop: moderateScale(10),
+                        alignItems: 'center',
+                      }}>
+                      <Image
+                        source={imagePath.phone2}
+                        style={{marginRight: moderateScale(5)}}
+                      />
+                      <Text style={styles.emailAndPhone}>
+                        {vendors?.phone_no}
+                      </Text>
+                    </TouchableOpacity>
+                  )}
+                </View>
+              )}
 
-          {/* location and address */}
-          {!!taskDetail?.location?.address && (
-            <View
-              style={{
-                flexDirection: 'row',
-                marginTop: moderateScale(10),
-                alignItems: 'center',
-              }}>
-              <Image
-                source={imagePath?.location2}
-                style={{marginRight: moderateScale(5)}}
-              />
-              <Text numberOfLines={2} style={styles.emailAndPhone}>
-                {taskDetail?.location?.address}
-              </Text>
+              {/* location and address */}
+              {!!vendors?.address && (
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    marginTop: moderateScale(10),
+                    alignItems: 'center',
+                  }}>
+                  <Image
+                    source={imagePath?.location2}
+                    style={{marginRight: moderateScale(5)}}
+                  />
+                  <Text numberOfLines={2} style={styles.emailAndPhone}>
+                    {vendors?.address}
+                  </Text>
+                </View>
+              )}
             </View>
           )}
 
@@ -1001,7 +1081,7 @@ export default function TaskDetail({route, navigation}) {
       </ScrollView>
     );
   };
-
+  console.log(vendors, 'this is vendor');
   const cancelTask = () => {
     Alert.alert('', strings.CANCELMESSAGE, [
       {

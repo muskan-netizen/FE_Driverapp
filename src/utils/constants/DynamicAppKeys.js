@@ -128,6 +128,8 @@ const shortCodes = {
   sambiga: 'ce6b16',
   towFinder: '9ef64c',
   aGBDeliveries: 'd82244',
+  admCourier: '06cef0',
+  kurbsideKings: '4d0e2d',
 };
 
 // Goody Dispatch
@@ -611,15 +613,15 @@ const appIds = {
   }),
   shopCentral: Platform.select({
     ios: 'com.ShopCentral.Dispatch',
-    android: "com.ShopCentral.royodispatcher",
+    android: 'com.ShopCentral.royodispatcher',
   }),
   sponge: Platform.select({
     ios: 'com.Sponge.Dispatch',
-    android: "com.Sponge.royodispatcher",
+    android: 'com.Sponge.royodispatcher',
   }),
   skidoo: Platform.select({
     ios: 'com.Skidoo.Dispatch',
-    android: "com.Skidoo.royodispatcher",
+    android: 'com.Skidoo.royodispatcher',
   }),
   weEat: Platform.select({
     ios: 'com.WeEat.Dispatch',
@@ -636,6 +638,14 @@ const appIds = {
   aGBDeliveries: Platform.select({
     ios: 'com.AGBDeliveries.Dispatch',
     android: 'com.AGBDeliveries.royodispatcher',
+  }),
+  admCourier: Platform.select({
+    ios: 'com.ADMCourier.Dispatch',
+    android: 'com.ADMCourier.royodispatcher',
+  }),
+  kurbsideKings: Platform.select({
+    ios: 'com.KurbsideKings.Dispatch',
+    android: 'com.KurbsideKings.royodispatcher',
   }),
 };
 
