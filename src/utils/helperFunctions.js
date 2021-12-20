@@ -105,7 +105,7 @@ const showError = (message, duration = 1850) => {
   // Toast.error(message);
 };
 
-const showSuccess = message => {
+const showSuccess = (message, duration = 1500) => {
   showMessage({
     message: strings.SUCCESS,
     description: message,
@@ -117,6 +117,7 @@ const showSuccess = message => {
       fontFamily: fontFamily.medium,
       fontSize: textScale(12),
     },
+    duration: duration,
   });
 
   // Toast.success(message);

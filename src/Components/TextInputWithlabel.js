@@ -31,12 +31,14 @@ const TextInputWithlabel = ({
   label = '',
   labelStyle = {},
   editable = false,
+  mainStyle = {},
+  keyboardType = 'default',
   ...props
 }) => {
   const inputRef = useRef();
 
   return (
-    <View>
+    <View style={{...mainStyle}}>
       <View>
         <Text style={[styles.label, labelStyle]}>{label}</Text>
       </View>
@@ -76,6 +78,7 @@ const TextInputWithlabel = ({
           value={value}
           secureTextEntry={secureTextEntry}
           autoCapitalize={'none'}
+          keyboardType={keyboardType}
           {...props}
         />
       </View>

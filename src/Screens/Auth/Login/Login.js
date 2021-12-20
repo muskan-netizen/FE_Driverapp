@@ -143,7 +143,7 @@ export default function Login({navigation, route}) {
   //Error handling in api
   const errorMethod = error => {
     updateState({isLoading: false});
-    showError(error?.message || error?.error, 4000);
+    showError(error?.message || error?.error, 10000);
   };
 
   //On country change
