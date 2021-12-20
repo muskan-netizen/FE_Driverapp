@@ -31,7 +31,7 @@
 // africanize
 // export const API_BASE_URL = 'https://dispatch.africanize.co/'
 // orderchekout
-// export const API_BASE_URL ='https://dispatch.orderchekout.com/'
+export const API_BASE_URL = 'https://dispatch.orderchekout.com/';
 // carroi
 // export const API_BASE_URL = 'https://carroi.rdstaging.com/';
 //Developement
@@ -47,7 +47,7 @@
 
 // codiner domain
 
-export const API_BASE_URL = 'https://dispatch.codiner.com/';
+//export const API_BASE_URL = 'https://dispatch.codiner.com/';
 
 export const personaltoken = 'TMJdbQlNWkYl1JzMONzRgF4zQFuP8s';
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;
