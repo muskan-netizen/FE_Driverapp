@@ -211,7 +211,7 @@ const appIds = {
     android: 'com.rxnow.royodispatcher',
   }),
   checkout: Platform.select({
-    ios: 'com.orderchekout.driver.ios2',
+    ios: 'com.orderchekoutIosApp.driver',
     android: 'com.orderchekout.driver.android1',
   }),
   noki: Platform.select({

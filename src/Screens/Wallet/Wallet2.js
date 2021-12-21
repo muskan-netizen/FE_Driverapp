@@ -1,7 +1,7 @@
 import {useFocusEffect} from '@react-navigation/native';
 import {debounce} from 'lodash';
 import moment from 'moment';
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {
   FlatList,
   Image,
@@ -82,34 +82,35 @@ export default function Wallet({route, navigation}) {
 
   useFocusEffect(
     React.useCallback(() => {
-      getWalletDataOfDriver();
-    }, [userData?.id]),
+      getWalletDataOfDriver(1, true);
+      isNoMore = false;
+      onEndReachedCalledDuringMomentum = false;
+    }, []),
   );
 
-  useEffect(() => {
-    if (isRefreshing) {
-      getWalletDataOfDriver();
-    }
-  }, [isRefreshing]);
-
-  const getWalletDataOfDriver = () => {
+  const getWalletDataOfDriver = (pageNo, searchAgain = false) => {
     actions
       .getWalletData(
+        // `/${userData?.id}`,
         `/${userData?.id}?page=${pageNo}&limit=${limit}`,
         {},
         {client: clientInfo?.database_name},
       )
       .then(res => {
+        console.log(res, 'getWalletDataOfDriver>>>getWalletDataOfDriver data');
+        if (res?.payments?.data.length == 0) {
+          isNoMore = true;
+        }
         updateState({
           lifetimeAmount: res?.lifetime_earnings,
           currentAmount: Number(res?.final_balance),
-          allTaskInHistory:
-            pageNo == 1
-              ? res?.payments.data
-              : [...allTaskInHistory, ...res?.payments?.data],
+          allTaskInHistory: searchAgain
+            ? res?.payments.data
+            : [...allTaskInHistory, ...res?.payments?.data],
           isLoading: false,
           isRefreshing: false,
           isLoadMore: false,
+          pageNo: searchAgain ? 1 : pageNo + 1,
         });
       })
       .catch(errorMethod);
@@ -120,6 +121,19 @@ export default function Wallet({route, navigation}) {
     updateState({isLoading: false, isRefreshing: false, isLoading: false});
     showError(error?.message || error?.error);
   };
+
+  //pagination of data
+  const onEndReached = () => {
+    if (!onEndReachedCalledDuringMomentum && !isNoMore) {
+      updateState({isLoadMore: true});
+      getWalletDataOfDriver(pageNo + 1, false);
+    }
+  };
+
+  const onEndReachedDelayed = debounce(onEndReached, 1000, {
+    leading: true,
+    trailing: false,
+  });
 
   const _onPressTask = item => {
     moveToNewScreen(navigationStrings.TASKDETAIL, {
@@ -162,8 +176,6 @@ export default function Wallet({route, navigation}) {
                       ? item?.cr > 0
                         ? colors.green
                         : colors.redB
-                      : item?.transaction_type == 'payout'
-                      ? colors.blueSolid
                       : colors.blueB,
                 },
               ]}>
@@ -176,8 +188,6 @@ export default function Wallet({route, navigation}) {
                   ? item?.cr > 0
                     ? 'C'
                     : 'D'
-                  : item?.transaction_type == 'payout'
-                  ? 'P'
                   : 'T'}
               </Text>
             </View>
@@ -193,8 +203,6 @@ export default function Wallet({route, navigation}) {
                 ? item?.cr > 0
                   ? strings.PAYMENTCREDITED
                   : strings.PAYMENTDEBITED
-                : item?.transaction_type == 'payout'
-                ? 'Payout credited'
                 : item?.order?.cash_to_be_collected > 0
                 ? strings.PAYMENTCREDITED
                 : strings.PAYMENTDEBITED}
@@ -242,10 +250,6 @@ export default function Wallet({route, navigation}) {
                   : `- ${
                       userData?.client_preference?.currency?.symbol
                     }${currencyNumberFormatter(Number(item?.dr).toFixed(2))}`
-                : item?.transaction_type == 'payout'
-                ? `+ ${
-                    userData?.client_preference?.currency?.symbol
-                  }${currencyNumberFormatter(Number(item?.amount).toFixed(2))}`
                 : item?.task_type_id && `Task# ${item?.id}`}
             </Text>
           </View>
@@ -312,11 +316,12 @@ export default function Wallet({route, navigation}) {
 
   //Pull to refresh
   const handleRefresh = () => {
-    getWalletDataOfDriver(); //setPageNo 1 and limit 50
+    getWalletDataOfDriver(1, true); //setPageNo 1 and limit 50
+    updateState({pageNo: 1, isRefreshing: true});
   };
 
   const onDateChange = value => {
-    console.log(value, 'value>value>value');
+    console.log('value>value>value');
     updateState({
       savedDate: value,
     });
@@ -444,6 +449,7 @@ export default function Wallet({route, navigation}) {
               tintColor={colors.themeColor}
             />
           }
+          onEndReached={onEndReached}
           // onEndReachedThreshold={0.5}
         />
       </View>
