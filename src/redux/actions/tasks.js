@@ -10,6 +10,8 @@ import {
   PAYMENTOPTIONS,
   WALLET_CREDIT,
   AGENT_PAYOUT,
+  AGENT_PAYOUT_DETAILS,
+  AGENT_BANK_DETAILS,
 } from '../../config/urls';
 import {apiGet, apiPost} from '../../utils/utils';
 import store from '../store';
@@ -155,9 +157,33 @@ export function walletCredit(data = {}, headers = {}) {
   });
 }
 
-export function agentPayout(url, data = {}, headers = {}) {
+export function agentPayoutCreate(url, data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
     apiPost(AGENT_PAYOUT + url, data, headers)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+}
+
+export function agentPayoutDetails(uri = '', data = {}, headers = {}) {
+  return new Promise((resolve, reject) => {
+    apiGet(AGENT_PAYOUT_DETAILS + uri, data, headers)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+}
+
+export function agentBankDetails(data = {}, headers = {}) {
+  return new Promise((resolve, reject) => {
+    apiGet(AGENT_BANK_DETAILS, data, headers)
       .then(res => {
         resolve(res);
       })

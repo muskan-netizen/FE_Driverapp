@@ -1,8 +1,16 @@
 import validator from 'is_js';
 import strings from '../constants/lang';
 const checkEmpty = (val, key) => {
-  if (validator.empty(val.trim())) {
+  if (validator.empty(val)) {
     return `Please enter ${key}`;
+  } else {
+    return '';
+  }
+};
+
+const checkSelection = (val, key) => {
+  if (validator.empty(val)) {
+    return `Please select ${key}`;
   } else {
     return '';
   }
@@ -11,6 +19,14 @@ const checkEmpty = (val, key) => {
 const checkMinLength = (val, minLength, key) => {
   if (val.trim().length < minLength) {
     return `Please enter valid ${key}`;
+  } else {
+    return '';
+  }
+};
+
+const checkMinValue = (val, key) => {
+  if (val == 0) {
+    return `Please enter ${key}`;
   } else {
     return '';
   }
@@ -37,6 +53,12 @@ export default function (data) {
     modelMake,
     vehicleColor,
     vehiclePlateNumber,
+    payoutAmount,
+    selectedPayoutOption,
+    beneficiaryName,
+    beneficiaryAcNum,
+    beneficiaryISFC,
+    beneficiaryAddrs,
   } = data;
 
   if (username !== undefined) {
@@ -248,6 +270,65 @@ export default function (data) {
       if (minLengthValidation !== '') {
         return minLengthValidation;
       }
+    }
+  }
+
+  if (payoutAmount !== undefined) {
+    let emptyValidationText = checkEmpty(payoutAmount, 'payout amount');
+    if (emptyValidationText !== '') {
+      return emptyValidationText;
+    } else {
+      let minValueValidation = checkMinValue(
+        payoutAmount,
+        'valid payout amount',
+      );
+      if (minValueValidation !== '') {
+        return minValueValidation;
+      }
+    }
+  }
+
+  if (selectedPayoutOption !== undefined) {
+    let emptyValidationText = checkSelection(
+      selectedPayoutOption,
+      'a payout option',
+    );
+    if (emptyValidationText !== '') {
+      return emptyValidationText;
+    }
+  }
+
+  if (beneficiaryName !== undefined) {
+    let emptyValidationText = checkEmpty(beneficiaryName, 'beneficiary name');
+    if (emptyValidationText !== '') {
+      return emptyValidationText;
+    }
+  }
+
+  if (beneficiaryAcNum !== undefined) {
+    let emptyValidationText = checkEmpty(
+      beneficiaryAcNum,
+      'beneficiary account number',
+    );
+    if (emptyValidationText !== '') {
+      return emptyValidationText;
+    }
+  }
+
+  if (beneficiaryISFC !== undefined) {
+    let emptyValidationText = checkEmpty(beneficiaryISFC, 'beneficiary IFSC');
+    if (emptyValidationText !== '') {
+      return emptyValidationText;
+    }
+  }
+
+  if (beneficiaryAddrs !== undefined) {
+    let emptyValidationText = checkEmpty(
+      beneficiaryAddrs,
+      'beneficiary address',
+    );
+    if (emptyValidationText !== '') {
+      return emptyValidationText;
     }
   }
 }

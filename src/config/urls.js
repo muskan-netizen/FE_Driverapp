@@ -1,8 +1,8 @@
 //live
-export const API_BASE_URL = 'https://api.royodispatch.com/';
+// export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //export const API_BASE_URL = 'http://192.168.103.73:8006/';
 
@@ -74,3 +74,5 @@ export const CUSTOMNOTIFICATIONPAYLOAD = getApiUrl('api/notification/tracking');
 
 //Payout
 export const AGENT_PAYOUT = getApiUrl('api/agent/payout/request/create');
+export const AGENT_PAYOUT_DETAILS = getApiUrl('api/agent/payout/details');
+export const AGENT_BANK_DETAILS = getApiUrl('api/agent/bank/details');

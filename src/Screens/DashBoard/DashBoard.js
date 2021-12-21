@@ -340,7 +340,6 @@ export default function DashBoard({route, navigation}) {
       .catch(errorMethod);
   };
 
-  console.log(isEnabled, 'isEnabled');
   const toggleSwitch = () => {
     updateState({
       statusChanged: true,

@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import RazorpayCheckout from 'react-native-razorpay';
 import {useSelector} from 'react-redux';
 import GradientButton from '../../Components/GradientButton';
 import Header from '../../Components/Header';
@@ -22,11 +23,10 @@ import fontFamily from '../../styles/fontFamily';
 import {
   moderateScale,
   moderateScaleVertical,
-  textScale,
 } from '../../styles/responsiveSize';
+import {currencyNumberFormatter} from '../../utils/commonFunction';
 import {showError} from '../../utils/helperFunctions';
 import stylesFun from './styles';
-import RazorpayCheckout from 'react-native-razorpay';
 
 export default function AddMoney({navigation}) {
   const {clientInfo} = useSelector(state => state?.initBoot);
@@ -99,7 +99,7 @@ export default function AddMoney({navigation}) {
           <View style={styles.selectAmountCon}>
             <Text numberOfLines={1} style={styles.chooseAddMoney}>
               {`+ ${userData?.client_preference?.currency?.symbol}`}
-              {item.amount}
+              {currencyNumberFormatter(Number(item.amount).toFixed(2))}
             </Text>
           </View>
         </View>
