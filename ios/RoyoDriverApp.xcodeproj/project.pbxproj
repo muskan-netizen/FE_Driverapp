@@ -1171,6 +1171,7 @@
 		8485E053272A871F0011B6BA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8485E052272A871F0011B6BA /* Images.xcassets */; };
 		8485E06E272A87720011B6BA /* Donepacked(Production).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 8485E06D272A87720011B6BA /* Donepacked(Production).xcconfig */; };
 		8485E0E9272A87FC0011B6BA /* Donepacked(Development).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 8485E0D0272A879D0011B6BA /* Donepacked(Development).xcconfig */; };
+		8488BE302771E86300629BA2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8488BE2F2771E86300629BA2 /* GoogleService-Info.plist */; };
 		84946D53272A9F500020EA5C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		84946D54272A9F500020EA5C /* RoyoDriverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E4480626E87ED800452095 /* RoyoDriverApp.swift */; };
 		84946D55272A9F500020EA5C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -1199,7 +1200,6 @@
 		84947025272AC54A0020EA5C /* ZuzuClean(Development).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 84947024272AC54A0020EA5C /* ZuzuClean(Development).xcconfig */; };
 		84947040272AC5640020EA5C /* ZuzuClean(Production).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 8494703F272AC5640020EA5C /* ZuzuClean(Production).xcconfig */; };
 		8494705B272AC58E0020EA5C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8494705A272AC58E0020EA5C /* Images.xcassets */; };
-		8498686F2760D4D900EC9DEE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8498686E2760D4D900EC9DEE /* GoogleService-Info.plist */; };
 		849C204A274398C300B55B60 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		849C204B274398C300B55B60 /* RoyoDriverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E4480626E87ED800452095 /* RoyoDriverApp.swift */; };
 		849C204C274398C300B55B60 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -1715,7 +1715,6 @@
 		84E00F7A27709D2200202E6C /* campton-medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC626E9E6D20066EEEE /* campton-medium.ttf */; };
 		84E00F7B27709D2200202E6C /* notification.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84C27C3E270EFAF100C30CA4 /* notification.mp3 */; };
 		84E00F7C27709D2200202E6C /* campton-book.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC526E9E6D20066EEEE /* campton-book.ttf */; };
-		84E00F7D27709D2200202E6C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8460C3BD27102AAC001B0D07 /* GoogleService-Info.plist */; };
 		84E00F8127709D2200202E6C /* campton-semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC326E9E6D20066EEEE /* campton-semibold.ttf */; };
 		84E0100F27709D9C00202E6C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		84E0101027709D9C00202E6C /* RoyoDriverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E4480626E87ED800452095 /* RoyoDriverApp.swift */; };
@@ -1727,7 +1726,6 @@
 		84E0103427709D9C00202E6C /* campton-medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC626E9E6D20066EEEE /* campton-medium.ttf */; };
 		84E0103527709D9C00202E6C /* notification.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84C27C3E270EFAF100C30CA4 /* notification.mp3 */; };
 		84E0103627709D9C00202E6C /* campton-book.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC526E9E6D20066EEEE /* campton-book.ttf */; };
-		84E0103727709D9C00202E6C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8460C3BD27102AAC001B0D07 /* GoogleService-Info.plist */; };
 		84E0103B27709D9C00202E6C /* campton-semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC326E9E6D20066EEEE /* campton-semibold.ttf */; };
 		84E0114727709E2E00202E6C /* KurbsideKings(Development).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 84E0114627709E2E00202E6C /* KurbsideKings(Development).xcconfig */; };
 		84E0124927709E4800202E6C /* KurbsideKings(Prodocution).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 84E0124827709E4800202E6C /* KurbsideKings(Prodocution).xcconfig */; };
@@ -2828,6 +2826,7 @@
 		8485E052272A871F0011B6BA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8485E06D272A87720011B6BA /* Donepacked(Production).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Donepacked(Production).xcconfig"; sourceTree = "<group>"; };
 		8485E0D0272A879D0011B6BA /* Donepacked(Development).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Donepacked(Development).xcconfig"; sourceTree = "<group>"; };
+		8488BE2F2771E86300629BA2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84946D7B272A9F500020EA5C /* YourLaundryApp Dispatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "YourLaundryApp Dispatch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84946DF1272AA1200020EA5C /* YourLaundryApp(Development).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "YourLaundryApp(Development).xcconfig"; sourceTree = "<group>"; };
 		84946E21272AA1370020EA5C /* YourLaundryApp(Production).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "YourLaundryApp(Production).xcconfig"; sourceTree = "<group>"; };
@@ -2838,7 +2837,6 @@
 		84947024272AC54A0020EA5C /* ZuzuClean(Development).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "ZuzuClean(Development).xcconfig"; sourceTree = "<group>"; };
 		8494703F272AC5640020EA5C /* ZuzuClean(Production).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "ZuzuClean(Production).xcconfig"; sourceTree = "<group>"; };
 		8494705A272AC58E0020EA5C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		8498686E2760D4D900EC9DEE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		849C2093274398C300B55B60 /* GoKab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoKab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		849C2181274399FD00B55B60 /* GoKab(Development).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "GoKab(Development).xcconfig"; sourceTree = "<group>"; };
 		849C221527439A1E00B55B60 /* GoKab(Production).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "GoKab(Production).xcconfig"; sourceTree = "<group>"; };
@@ -5366,7 +5364,6 @@
 				E89D87EB2B563BEB5AECDF69 /* libPods-RoyoDriverApp.a */,
 				49539A33A530E2238B8DFFE0 /* libPods-RoyoDriverApp.a */,
 				761FE9ACABD3C0CC2F69CF18 /* libPods-RoyoDriverApp.a */,
-				A070ED58A1A48985E7D10FD3 /* libPods-RoyoDriverApp.a */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -5594,7 +5591,7 @@
 		84637028272412D500F68342 /* Ordercheckout */ = {
 			isa = PBXGroup;
 			children = (
-				8498686E2760D4D900EC9DEE /* GoogleService-Info.plist */,
+				8488BE2F2771E86300629BA2 /* GoogleService-Info.plist */,
 				84637029272412FF00F68342 /* Ordercheckout(Development).xcconfig */,
 				846370532724132D00F68342 /* Ordercheckout(Production).xcconfig */,
 				846370692724133E00F68342 /* Images.xcassets */,
@@ -11009,7 +11006,7 @@
 				846370042724121600F68342 /* Images.xcassets in Resources */,
 				8463706A2724133E00F68342 /* Images.xcassets in Resources */,
 				846370052724121600F68342 /* campton-light.ttf in Resources */,
-				8498686F2760D4D900EC9DEE /* GoogleService-Info.plist in Resources */,
+				8488BE302771E86300629BA2 /* GoogleService-Info.plist in Resources */,
 				846370062724121600F68342 /* campton-medium.ttf in Resources */,
 				846370072724121600F68342 /* notification.mp3 in Resources */,
 				846370082724121600F68342 /* campton-book.ttf in Resources */,
@@ -11903,7 +11900,6 @@
 				84E012CB27709E8000202E6C /* ADMCourier(Development).xcconfig in Resources */,
 				84E00F7B27709D2200202E6C /* notification.mp3 in Resources */,
 				84E00F7C27709D2200202E6C /* campton-book.ttf in Resources */,
-				84E00F7D27709D2200202E6C /* GoogleService-Info.plist in Resources */,
 				84E00F8127709D2200202E6C /* campton-semibold.ttf in Resources */,
 				84E019B32770AEA100202E6C /* GoogleService-Info.plist in Resources */,
 			);
@@ -11921,7 +11917,6 @@
 				84E0103427709D9C00202E6C /* campton-medium.ttf in Resources */,
 				84E0103527709D9C00202E6C /* notification.mp3 in Resources */,
 				84E0103627709D9C00202E6C /* campton-book.ttf in Resources */,
-				84E0103727709D9C00202E6C /* GoogleService-Info.plist in Resources */,
 				84E0114727709E2E00202E6C /* KurbsideKings(Development).xcconfig in Resources */,
 				84E0124927709E4800202E6C /* KurbsideKings(Prodocution).xcconfig in Resources */,
 				84E015552770A04100202E6C /* KurbsideKingsInfo.plist in Resources */,
@@ -31459,7 +31454,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = 2UQK37J983;
+				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
@@ -31499,7 +31494,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = 2UQK37J983;
+				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -31520,7 +31515,7 @@
 				PROJECT_BUNDLE_ID = "$(PROJECT_BUNDLE_ID)";
 				PROJECT_NAME = "${PROJECT_NAME}";
 				PROJECT_PLIST = "$(PROJECT_PLIST)";
-				PROVISIONING_PROFILE_SPECIFIER = checkoutdriverLIVE;
+				PROVISIONING_PROFILE_SPECIFIER = "orderchekout driver ios[AppStore]";
 				SWIFT_OBJC_BRIDGING_HEADER = "RoyoDriverApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -35083,7 +35078,7 @@
 				PROJECT_BUNDLE_ID = "$(PROJECT_BUNDLE_ID)";
 				PROJECT_NAME = "${PROJECT_NAME}";
 				PROJECT_PLIST = "$(PROJECT_PLIST)";
-				PROVISIONING_PROFILE_SPECIFIER = "AgriOnline Dispatch[App Store]";
+				PROVISIONING_PROFILE_SPECIFIER = "ADMCourier Dispatch[AppStore]";
 				SWIFT_OBJC_BRIDGING_HEADER = "RoyoDriverApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -35169,7 +35164,7 @@
 				PROJECT_BUNDLE_ID = "$(PROJECT_BUNDLE_ID)";
 				PROJECT_NAME = "${PROJECT_NAME}";
 				PROJECT_PLIST = "$(PROJECT_PLIST)";
-				PROVISIONING_PROFILE_SPECIFIER = "AgriOnline Dispatch[App Store]";
+				PROVISIONING_PROFILE_SPECIFIER = "KurbsideKings Dispatch[AppStore]";
 				SWIFT_OBJC_BRIDGING_HEADER = "RoyoDriverApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";

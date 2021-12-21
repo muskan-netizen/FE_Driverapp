@@ -2,7 +2,7 @@
 //export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //export const API_BASE_URL = 'http://192.168.103.73:8006/'; preet sir local url
 
@@ -31,7 +31,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // africanize
 // export const API_BASE_URL = 'https://dispatch.africanize.com/'
 // orderchekout
-//export const API_BASE_URL = 'https://dispatch.orderchekout.com/';
+export const API_BASE_URL = 'https://dispatch.orderchekout.com/';
 // carroi
 // export const API_BASE_URL = 'https://carroi.rdstaging.com/';
 // hairstonexpressgo
