@@ -95,3 +95,5 @@ export const CUSTOMNOTIFICATIONPAYLOAD = getApiUrl('api/notification/tracking');
 
 //Payout
 export const AGENT_PAYOUT = getApiUrl('api/agent/payout/request/create');
+export const AGENT_PAYOUT_DETAILS = getApiUrl('api/agent/payout/details');
+export const AGENT_BANK_DETAILS = getApiUrl('api/agent/bank/details');

@@ -8,18 +8,19 @@ export default () => {
     payoutBlockView: {
       marginHorizontal: moderateScale(10),
       flexDirection: 'row',
-      justifyContent: 'space-between',
+      justifyContent: 'space-around',
       marginVertical: moderateScale(10),
     },
     payoutBlockSubView: {
-      width: (width - moderateScale(55)) / 3,
+      width: (width - moderateScale(55)) / 2,
       backgroundColor: colors.ligthBlue,
-      height: moderateScale(120),
+      minHeight: moderateScale(120),
       borderRadius: moderateScale(10),
+      paddingBottom: moderateScale(5),
     },
     payoutNumbersTxt: {
       fontFamily: fontFamily.bold,
-      fontSize: textScale(15),
+      fontSize: textScale(19),
       marginTop: moderateScale(30),
       marginHorizontal: moderateScale(10),
     },
@@ -27,6 +28,7 @@ export default () => {
       fontFamily: fontFamily.regular,
       marginHorizontal: moderateScale(10),
       marginTop: moderateScale(5),
+      fontSize: textScale(13),
     },
     bottomButtonStyle: {
       position: 'absolute',
@@ -36,6 +38,53 @@ export default () => {
     },
     modalContainer: {
       height: 90,
+    },
+    circleView: {
+      height: 55,
+      width: 55,
+      borderRadius: moderateScale(55 / 2),
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    messageInitial: {
+      color: colors.white,
+      fontSize: moderateScale(18),
+      fontFamily: fontFamily.medium,
+    },
+    message: {
+      color: colors.black,
+      fontSize: moderateScale(16),
+      fontFamily: fontFamily.medium,
+    },
+    dateTime: {
+      color: colors.lightGreyBg2,
+      fontSize: moderateScale(14),
+      fontFamily: fontFamily.medium,
+    },
+    amount: {
+      color: colors.lightGreyBg2,
+      fontSize: moderateScale(12),
+      fontFamily: fontFamily.medium,
+    },
+    mainViewPayoutDetail: {
+      backgroundColor: colors.lightGreyBg3,
+      marginBottom: moderateScale(15),
+      borderRadius: moderateScale(10),
+      padding: moderateScale(20),
+      flexDirection: 'row',
+      alignItems: 'center',
+    },
+    statusView: {
+      marginTop: moderateScale(7),
+      width: moderateScale(55),
+      paddingVertical: moderateScale(2),
+      borderRadius: moderateScale(5),
+      alignItems: 'center',
+    },
+    transactionHistory: {
+      color: colors.black,
+      fontFamily: fontFamily.medium,
+      fontSize: textScale(16),
     },
   });
   return styles;
