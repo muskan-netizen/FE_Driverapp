@@ -47,7 +47,7 @@ export default function AddMoney({navigation}) {
     beneficiaryName: '',
     beneficiaryAcNum: '',
     beneficiaryISFC: '',
-    beneficiaryAddrs: '',
+    beneficiaryBankName: '',
     agentPayoutList: [],
     pageNo: 1,
     limit: 10,
@@ -64,7 +64,7 @@ export default function AddMoney({navigation}) {
     beneficiaryName,
     beneficiaryAcNum,
     beneficiaryISFC,
-    beneficiaryAddrs,
+    beneficiaryBankName,
     agentPayoutList,
     pageNo,
     limit,
@@ -105,8 +105,8 @@ export default function AddMoney({navigation}) {
           beneficiaryISFC: !!res?.data?.agent_bank_details
             ? res?.data?.agent_bank_details?.beneficiary_ifsc
             : '',
-          beneficiaryAddrs: !!res?.data?.agent_bank_details
-            ? res?.data?.agent_bank_details?.beneficiary_address
+          beneficiaryBankName: !!res?.data?.agent_bank_details
+            ? res?.data?.agent_bank_details?.beneficiary_bank_name
             : '',
         });
       })
@@ -165,7 +165,7 @@ export default function AddMoney({navigation}) {
       beneficiaryName: beneficiaryName,
       beneficiaryAcNum: beneficiaryAcNum,
       beneficiaryISFC: beneficiaryISFC,
-      beneficiaryAddrs: beneficiaryAddrs,
+      beneficiaryBankName: beneficiaryBankName,
     });
     if (error) {
       alert(error);
@@ -189,7 +189,7 @@ export default function AddMoney({navigation}) {
       data['beneficiary_name'] = beneficiaryName;
       data['beneficiary_account_number'] = beneficiaryAcNum;
       data['beneficiary_ifsc'] = beneficiaryISFC;
-      data['beneficiary_address'] = beneficiaryAddrs;
+      data['beneficiary_bank_name'] = beneficiaryBankName;
       data['payout_option_id'] = selectedPayoutOption?.id;
     } else {
       data['amount'] = payoutAmount;
@@ -237,7 +237,7 @@ export default function AddMoney({navigation}) {
               {item?.status_id == '0'
                 ? 'P'
                 : item?.status_id == '1'
-                ? 'S'
+                ? 'C'
                 : 'F'}
             </Text>
           </View>
@@ -247,10 +247,10 @@ export default function AddMoney({navigation}) {
           <Text style={styles.message}>
             {strings.PAYOUT_REQUEST}{' '}
             {item?.status_id == '0'
-              ? 'Pending'
+              ? strings.PENDING
               : item?.status_id == '1'
-              ? 'Created'
-              : 'Faild'}
+              ? strings.CREATED
+              : strings.FAILD}
           </Text>
           <Text numberOfLines={1} style={styles.dateTime}>
             {moment(item?.created_at).format('lll')}
@@ -334,12 +334,12 @@ export default function AddMoney({navigation}) {
           editable
         />
         <TextInputWithlabel
-          label={strings.BENEFICIARY_ADDRESS}
-          value={beneficiaryAddrs}
+          label={strings.BENEFICIARY_BANK_NAME}
+          value={beneficiaryBankName}
           mainStyle={{
             marginTop: moderateScale(5),
           }}
-          onChangeText={text => updateState({beneficiaryAddrs: text})}
+          onChangeText={text => updateState({beneficiaryBankName: text})}
           editable
         />
       </View>

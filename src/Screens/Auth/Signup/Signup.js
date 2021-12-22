@@ -255,40 +255,42 @@ export default function Signup({route, navigation}) {
   var dummyTags = '';
 
   const _onSignup = () => {
+    var isRequired = true;
+
     dummyTags = selectedTags.map(item => {
       return item.name;
     });
     dummyTags = dummyTags.join(',');
 
-    if (!userImage) {
-      return showError(strings.SETIMAGE);
-    }
-    const nameError = validations({
-      name: fullName,
-    });
-    if (nameError) {
-      return showError(nameError);
-    }
-    const checkValid = isValidData();
-    if (!checkValid) {
-      return;
-    }
+    // if (!userImage) {
+    //   return showError(strings.SETIMAGE);
+    // }
+    // const nameError = validations({
+    //   name: fullName,
+    // });
+    // if (nameError) {
+    //   return showError(nameError);
+    // }
+    // const checkValid = isValidData();
+    // if (!checkValid) {
+    //   return;
+    // }
 
-    if (!selectedVehicleType) {
-      return showError(strings.SELECTTRANSPORTATION);
-    }
-    if (!selectedEpmloyeetype) {
-      return showError(strings.SELECTEMPLOYEETYPE);
-    }
+    // if (!selectedVehicleType) {
+    //   return showError(strings.SELECTTRANSPORTATION);
+    // }
+    // if (!selectedEpmloyeetype) {
+    //   return showError(strings.SELECTEMPLOYEETYPE);
+    // }
 
-    const otherErrors = validations({
-      modelMake: modelMake,
-      vehicleColor: vehicleColor,
-      vehiclePlateNumber: vehiclePlateNumber,
-    });
-    if (otherErrors) {
-      return showError(otherErrors);
-    }
+    // const otherErrors = validations({
+    //   modelMake: modelMake,
+    //   vehicleColor: vehicleColor,
+    //   vehiclePlateNumber: vehiclePlateNumber,
+    // });
+    // if (otherErrors) {
+    //   return showError(otherErrors);
+    // }
 
     let formdata = new FormData();
     formdata.append('name', fullName);
@@ -312,11 +314,17 @@ export default function Signup({route, navigation}) {
 
     if (addtionalTextInputs.length) {
       addtionalTextInputs.map((i, inx) => {
-        if (i?.contents != '') {
+        if (i?.contents != '' && !!i?.contents) {
           formdata.append(`files_text[${inx}][file_type]`, i?.file_type);
           formdata.append(`files_text[${inx}][id]`, i?.id);
           formdata.append(`files_text[${inx}][contents]`, i?.contents);
           formdata.append(`files_text[${inx}][label_name]`, i?.label_name);
+        } else if (i?.is_required) {
+          if (isRequired) {
+            showError(`${strings.PLEASE_ENTER} ${i.name.toLowerCase()}`);
+            isRequired = false;
+            return;
+          }
         }
       });
     }
@@ -329,6 +337,12 @@ export default function Signup({route, navigation}) {
           formdata.append(`other[${inx}][file_type]`, i?.file_type);
           formdata.append(`other[${inx}][id]`, i?.id);
           formdata.append(`other[${inx}][filename1]`, i?.filename1);
+        } else if (i?.is_required) {
+          if (isRequired) {
+            showError(`${strings.PLEASE_UPLOAD} ${i.name.toLowerCase()}`);
+            isRequired = false;
+            return;
+          }
         }
       });
     }
@@ -341,6 +355,12 @@ export default function Signup({route, navigation}) {
             type: i?.mime,
             uri: i?.value,
           });
+        } else if (i?.is_required) {
+          if (isRequired) {
+            showError(`${strings.PLEASE_UPLOAD} ${i.name.toLowerCase()}`);
+            isRequired = false;
+            return;
+          }
         }
       });
     }
@@ -587,13 +607,9 @@ export default function Signup({route, navigation}) {
 
   const removeTag = (itm, indx) => {
     const selectedTagsAry = [...selectedTags];
-
     const ind = selectedTagsAry.findIndex(item => item.id == itm.id);
-    // const tagIdind = selectedTagIndxsAry.findIndex((item) => item === indx);
     var result = selectedTagsAry.filter((item, idx) => idx !== ind);
-    // var tagIdresult = selectedTagIndxsAry.filter(
-    //   (item, idx) => idx !== tagIdind,
-    // );
+
     updateState({
       selectedTags: result,
     });

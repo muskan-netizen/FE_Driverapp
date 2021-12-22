@@ -2,7 +2,7 @@ import validator from 'is_js';
 import strings from '../constants/lang';
 const checkEmpty = (val, key) => {
   if (validator.empty(val)) {
-    return `Please enter ${key}`;
+    return `${strings.PLEASE_ENTER} ${key}`;
   } else {
     return '';
   }
@@ -10,7 +10,7 @@ const checkEmpty = (val, key) => {
 
 const checkSelection = (val, key) => {
   if (validator.empty(val)) {
-    return `Please select ${key}`;
+    return `${strings.PLEASE_SELECT} ${key}`;
   } else {
     return '';
   }
@@ -18,7 +18,7 @@ const checkSelection = (val, key) => {
 
 const checkMinLength = (val, minLength, key) => {
   if (val.trim().length < minLength) {
-    return `Please enter valid ${key}`;
+    return `${strings.PLEASE_ENTER} ${strings.VALID} ${key}`;
   } else {
     return '';
   }
@@ -26,7 +26,7 @@ const checkMinLength = (val, minLength, key) => {
 
 const checkMinValue = (val, key) => {
   if (val == 0) {
-    return `Please enter ${key}`;
+    return `${strings.PLEASE_ENTER} ${key}`;
   } else {
     return '';
   }
@@ -58,15 +58,15 @@ export default function (data) {
     beneficiaryName,
     beneficiaryAcNum,
     beneficiaryISFC,
-    beneficiaryAddrs,
+    beneficiaryBankName,
   } = data;
 
   if (username !== undefined) {
-    let emptyValidationText = checkEmpty(username, 'Name');
+    let emptyValidationText = checkEmpty(username, strings.NAME);
     if (emptyValidationText !== '') {
       return emptyValidationText;
     } else {
-      let minLengthValidation = checkMinLength(username, 3, 'Name');
+      let minLengthValidation = checkMinLength(username, 3, strings.NAME);
       if (minLengthValidation !== '') {
         return minLengthValidation;
       }
@@ -74,11 +74,11 @@ export default function (data) {
   }
 
   if (name !== undefined) {
-    let emptyValidationText = checkEmpty(name, 'Name');
+    let emptyValidationText = checkEmpty(name, strings.NAME);
     if (emptyValidationText !== '') {
       return emptyValidationText;
     } else {
-      let minLengthValidation = checkMinLength(name, 3, 'Name');
+      let minLengthValidation = checkMinLength(name, 3, strings.NAME);
       if (minLengthValidation !== '') {
         return minLengthValidation;
       }
@@ -182,28 +182,28 @@ export default function (data) {
   // }
 
   if (email !== undefined) {
-    let emptyValidationText = checkEmpty(email, 'email');
+    let emptyValidationText = checkEmpty(email, strings.EMAIL);
     if (emptyValidationText !== '') {
       return emptyValidationText;
     } else {
       if (!validator.email(email)) {
-        return 'Please enter valid email';
+        return `${strings.PLEASE_ENTER} ${strings.VALID} ${strings.EMAIL}`;
       }
     }
   }
 
   if (phoneNumber !== undefined) {
-    let emptyValidationText = checkEmpty(phoneNumber, 'phone number');
+    let emptyValidationText = checkEmpty(phoneNumber, strings.PHONENUMBER);
     if (emptyValidationText !== '') {
       return emptyValidationText;
     }
     if (!/^[0][1-9]$|^[1-9]\d{4,14}$/.test(phoneNumber)) {
-      return 'Please enter valid mobile number';
+      return `${strings.PLEASE_ENTER} ${strings.VALID} ${strings.PHONENUMBER}`;
     }
   }
 
   if (otp !== undefined) {
-    let emptyValidationText = checkEmpty(otp, 'OTP');
+    let emptyValidationText = checkEmpty(otp, strings.OTP);
     if (emptyValidationText !== '') {
       return emptyValidationText;
     }
@@ -222,51 +222,55 @@ export default function (data) {
   // }
 
   if (password !== undefined) {
-    let emptyValidationText = checkEmpty(password, 'Password');
+    let emptyValidationText = checkEmpty(password, strings.PASSWORD);
     if (emptyValidationText !== '') {
       return emptyValidationText;
     } else {
-      let minLengthValidation = checkMinLength(password, 6, 'Password');
+      let minLengthValidation = checkMinLength(password, 6, strings.PASSWORD);
       if (minLengthValidation !== '') {
         if (password != undefined) {
-          return 'Password requires minimum 6 characters';
+          return `${strings.PASSWORD_CAP} ${strings.REQUIRE_SIX_CHAR}`;
         }
-        return 'Password is incorrect';
+        return `${strings.PASSWORD_CAP} ${strings.IS_INCORRECT}`;
       }
     }
   }
 
   if (newPassword !== undefined) {
-    let emptyValidationText = checkEmpty(newPassword, 'New password');
+    let emptyValidationText = checkEmpty(newPassword, strings.NEW_PASSWORD);
     if (emptyValidationText !== '') {
       return emptyValidationText;
     } else {
-      let minLengthValidation = checkMinLength(newPassword, 6, 'New password');
+      let minLengthValidation = checkMinLength(
+        newPassword,
+        6,
+        strings.NEW_PASSWORD,
+      );
       if (minLengthValidation !== '') {
         if (newPassword != undefined) {
-          return 'New Password requires minimum 6 characters';
+          return `${strings.NEW_PASSWORD} ${strings.REQUIRE_SIX_CHAR}`;
         }
-        return 'New Password is incorrect';
+        return `${strings.NEW_PASSWORD} ${strings.IS_INCORRECT}`;
       }
     }
   }
 
   if (confirmPassword !== undefined) {
-    let emptyValidationText = checkEmpty(confirmPassword, 'Confirm Password');
+    let emptyValidationText = checkEmpty(confirmPassword, strigns.CONFIRM_PASS);
     if (emptyValidationText !== '') {
       return emptyValidationText;
     }
     if (confirmPassword != newPassword) {
-      return "New Password and Confirm Password didn't matched";
+      return strings.PASS_NOT_MATCHED;
     }
   }
 
   if (message !== undefined) {
-    let emptyValidationText = checkEmpty(message, 'message');
+    let emptyValidationText = checkEmpty(message, strings.MESSAGE);
     if (emptyValidationText !== '') {
       return emptyValidationText;
     } else {
-      let minLengthValidation = checkMinLength(name, 6, 'message');
+      let minLengthValidation = checkMinLength(name, 6, strings.MESSAGE);
       if (minLengthValidation !== '') {
         return minLengthValidation;
       }
@@ -274,13 +278,13 @@ export default function (data) {
   }
 
   if (payoutAmount !== undefined) {
-    let emptyValidationText = checkEmpty(payoutAmount, 'payout amount');
+    let emptyValidationText = checkEmpty(payoutAmount, strings.PAYOUT_AMOUNT);
     if (emptyValidationText !== '') {
       return emptyValidationText;
     } else {
       let minValueValidation = checkMinValue(
         payoutAmount,
-        'valid payout amount',
+        `${strings.VALID} ${strings.PAYOUT_AMOUNT}`,
       );
       if (minValueValidation !== '') {
         return minValueValidation;
@@ -291,7 +295,7 @@ export default function (data) {
   if (selectedPayoutOption !== undefined) {
     let emptyValidationText = checkSelection(
       selectedPayoutOption,
-      'a payout option',
+      strings.A_PAYOUT_OPTION,
     );
     if (emptyValidationText !== '') {
       return emptyValidationText;
@@ -299,7 +303,10 @@ export default function (data) {
   }
 
   if (beneficiaryName !== undefined) {
-    let emptyValidationText = checkEmpty(beneficiaryName, 'beneficiary name');
+    let emptyValidationText = checkEmpty(
+      beneficiaryName,
+      strings.BENEFICIARY_NAME.toLocaleLowerCase(),
+    );
     if (emptyValidationText !== '') {
       return emptyValidationText;
     }
@@ -308,7 +315,7 @@ export default function (data) {
   if (beneficiaryAcNum !== undefined) {
     let emptyValidationText = checkEmpty(
       beneficiaryAcNum,
-      'beneficiary account number',
+      strings.BENEFICIARY_AC_NUMBER.toLocaleLowerCase(),
     );
     if (emptyValidationText !== '') {
       return emptyValidationText;
@@ -316,16 +323,19 @@ export default function (data) {
   }
 
   if (beneficiaryISFC !== undefined) {
-    let emptyValidationText = checkEmpty(beneficiaryISFC, 'beneficiary IFSC');
+    let emptyValidationText = checkEmpty(
+      beneficiaryISFC,
+      strings.BENEFICIARY_IFSC,
+    );
     if (emptyValidationText !== '') {
       return emptyValidationText;
     }
   }
 
-  if (beneficiaryAddrs !== undefined) {
+  if (beneficiaryBankName !== undefined) {
     let emptyValidationText = checkEmpty(
-      beneficiaryAddrs,
-      'beneficiary address',
+      beneficiaryBankName,
+      strings.BENEFICIARY_BANK_NAME.toLocaleLowerCase(),
     );
     if (emptyValidationText !== '') {
       return emptyValidationText;

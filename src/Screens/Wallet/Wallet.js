@@ -428,7 +428,7 @@ export default function Wallet({route, navigation}) {
           {strings.TRANSACTIONHISTORY}
         </Text>
       </View>
-      <View style={{backgroundColor: colors.backGround, flex: 1}}>
+      <View style={{flex: 1}}>
         <FlatList
           data={allTaskInHistory}
           extraData={allTaskInHistory}
