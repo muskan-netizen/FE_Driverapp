@@ -2797,7 +2797,7 @@
 		84724272272A761300643BEA /* MaxisInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = MaxisInfo.plist; sourceTree = "<group>"; };
 		84724398272A79A600643BEA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		847EFFCC270AE8FA004251BE /* RoyoDriverAppRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = RoyoDriverAppRelease.entitlements; path = RoyoDriverApp/RoyoDriverAppRelease.entitlements; sourceTree = "<group>"; };
-		84825CA727671AA500F2C5F1 /* Sambiga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Sambiga.app; path = "Sambiga Dispatch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		84825CA727671AA500F2C5F1 /* Sambiga Dispatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sambiga Dispatch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84825D9627671B9C00F2C5F1 /* Sambiga(Development).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Sambiga(Development).xcconfig"; sourceTree = "<group>"; };
 		84825E0E27671BBA00F2C5F1 /* Sambiga(Production).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Sambiga(Production).xcconfig"; sourceTree = "<group>"; };
 		84825E8627671BD100F2C5F1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -4759,7 +4759,7 @@
 				84ECF473276877B500499837 /* Skidoo.app */,
 				84DC425C27636E40002C4703 /* WeEat.app */,
 				84B7C77B276386FC00EED70B /* Shariff.app */,
-				84825CA727671AA500F2C5F1 /* Sambiga.app */,
+				84825CA727671AA500F2C5F1 /* Sambiga Dispatch.app */,
 				8413BCA0276B4B1A00D53E94 /* TowFinder.app */,
 				8462D1CF276CBB9500EF15A4 /* AGBDeliveries.app */,
 				84E00F8927709D2200202E6C /* ADMCourier.app */,
@@ -8261,7 +8261,7 @@
 			);
 			name = Sambiga;
 			productName = RoyoDriverApp;
-			productReference = 84825CA727671AA500F2C5F1 /* Sambiga.app */;
+			productReference = 84825CA727671AA500F2C5F1 /* Sambiga Dispatch.app */;
 			productType = "com.apple.product-type.application";
 		};
 		848366B8273D135600735B91 /* Bilionza */ = {
@@ -33004,7 +33004,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = SKB5RJ3Z8F;
+				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
