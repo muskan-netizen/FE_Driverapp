@@ -29,7 +29,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // govachow
 // export const API_BASE_URL = 'https://dispatch.govachow.com/'
 // africanize
-// export const API_BASE_URL = 'https://dispatch.africanize.com/'
+// export const API_BASE_URL = 'https://dispatch.africanize.co/'
 // orderchekout
 // export const API_BASE_URL = 'https://dispatch.orderchekout.com/';
 // carroi

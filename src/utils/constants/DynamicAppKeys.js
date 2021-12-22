@@ -130,6 +130,10 @@ const shortCodes = {
   aGBDeliveries: 'd82244',
   admCourier: '06cef0',
   kurbsideKings: '4d0e2d',
+  movingWheels: '4d7b01',
+  safewalks: '115676',
+  empire: '19a7a3',
+  dimaVega: 'dbf5ee',
 };
 
 // Goody Dispatch
@@ -151,7 +155,7 @@ const appIds = {
     android: 'com.AfricanVillageMarket.royodispatcher',
   }),
   africanize: Platform.select({
-    ios: 'com.Africanize.Dispatch',
+    ios: 'com.Dispatch.AfricanizeApp.ios',
     android: 'com.africanize.royodispatcher',
   }),
   tranzit: Platform.select({
@@ -344,7 +348,7 @@ const appIds = {
     android: 'com.klickmat.royodispatcher',
   }),
   somame: Platform.select({
-    ios: 'com.Somame.Dispatch',
+    ios: 'com.SomameApp.Dispatch',
     android: 'com.Somame.royodispatcher',
   }),
   equamd: Platform.select({
@@ -646,6 +650,22 @@ const appIds = {
   kurbsideKings: Platform.select({
     ios: 'com.KurbsideKings.Dispatch',
     android: 'com.KurbsideKings.royodispatcher',
+  }),
+  movingWheels: Platform.select({
+    ios: 'com.MovingWheels.Dispatch',
+    android: 'com.MovingWheels.royodispatcher',
+  }),
+  safewalks: Platform.select({
+    ios: 'com.Safewalks.Dispatch',
+    android: 'com.Safewalks.royodispatcher',
+  }),
+  empire: Platform.select({
+    ios: 'com.Empire.Dispatch',
+    android: 'com.Empire.royodispatcher',
+  }),
+  dimaVega: Platform.select({
+    ios: 'com.DimaVega.Dispatch',
+    android: 'com.DimaVega.royodispatcher',
   }),
 };
 
