@@ -47,6 +47,8 @@ import {
 } from '../../../utils/validations';
 import stylesFunction from './styles';
 
+import Modal from 'react-native-modal';
+
 export default function Signup({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
@@ -86,6 +88,7 @@ export default function Signup({route, navigation}) {
     selectedTeam: '',
     isTeams: false,
     driverTagsAry: [],
+    isWaitingModal: false,
   });
 
   const {
@@ -119,6 +122,7 @@ export default function Signup({route, navigation}) {
     selectedTeam,
     isTeams,
     driverTagsAry,
+    isWaitingModal,
   } = state;
   const commonStyles = commonStylesFunc({fontFamily});
 
@@ -349,9 +353,14 @@ export default function Signup({route, navigation}) {
         language: defaultLanguagae?.value,
       })
       .then(res => {
-        updateState({isLoading: false});
-        showSuccess(strings.SUCCESSSIGNUP, 10000);
-        navigation.goBack();
+        updateState({isLoading: false, isWaitingModal: true});
+        // showSuccess(strings.SUCCESSSIGNUP, 10000);
+        setTimeout(() => {
+          updateState({
+            isWaitingModal: false,
+          });
+          navigation.goBack();
+        }, 10000);
       })
       .catch(errorMethod);
   };
@@ -378,7 +387,7 @@ export default function Signup({route, navigation}) {
       <TextInputWithlabel
         labelStyle={styles.textInputlabel}
         editable={true}
-        label={type?.name}
+        label={`${type?.name}${type.is_required ? '*' : ''}`}
         value={addtionalTextInputs[index]?.contents}
         onChangeText={text => updateArray(text, index, type)}
       />
@@ -394,7 +403,7 @@ export default function Signup({route, navigation}) {
   //Get Upload image view
 
   const getImageFieldView = (type, index) => {
-    console.log(' addtionalImages[index]', addtionalImages[index]);
+    console.log('addtionalImages[index]', addtionalImages[index]);
     return (
       <View
         style={{
@@ -420,6 +429,7 @@ export default function Signup({route, navigation}) {
           numberOfLines={2}
           style={{...styles.label3, minHeight: moderateScale(25)}}>
           {type?.name}
+          {type.is_required ? '*' : ''}
         </Text>
       </View>
     );
@@ -465,7 +475,6 @@ export default function Signup({route, navigation}) {
     return (
       <View
         style={{marginRight: moderateScale(20), marginTop: moderateScale(20)}}>
-        <Text style={[styles.label3]}>{type?.name}</Text>
         <TouchableOpacity
           onPress={() => getDoc(type, index)}
           style={{
@@ -484,6 +493,10 @@ export default function Signup({route, navigation}) {
               : `+ ${strings.UPLOAD}`}
           </Text>
         </TouchableOpacity>
+        <Text style={[styles.label3]}>
+          {type?.name}
+          {type.is_required ? '*' : ''}
+        </Text>
       </View>
     );
   };
@@ -751,10 +764,7 @@ export default function Signup({route, navigation}) {
                     ) : (
                       <View
                         style={{
-                          width: '100%',
-                          height: moderateScale(30),
-                          justifyContent: 'center',
-                          alignItems: 'center',
+                          ...styles.noDataFound,
                           backgroundColor: colors.white,
                         }}>
                         <Text
@@ -872,21 +882,13 @@ export default function Signup({route, navigation}) {
                             onPress={() => _onTagSelect(item, index)}
                             activeOpacity={0.7}
                             style={{
-                              borderWidth: 1,
+                              ...styles.driverTagsView,
                               borderColor: selectedTags.includes(item)
                                 ? colors.themeColor
                                 : colors.borderColorB,
-                              width: (width - moderateScale(70)) / 3,
-                              alignItems: 'center',
-                              marginVertical: moderateScale(5),
-                              paddingVertical: moderateScale(5),
-                              marginHorizontal: moderateScale(5),
-                              zIndex: 1,
                               backgroundColor: selectedTags.includes(item)
                                 ? colors.themeColor
                                 : colors.borderColorB,
-                              borderRadius: moderateScale(5),
-                              justifyContent: 'center',
                             }}>
                             <Text
                               numberOfLines={2}
@@ -903,13 +905,7 @@ export default function Signup({route, navigation}) {
                       })}
                     </View>
                   ) : (
-                    <View
-                      style={{
-                        width: '100%',
-                        height: moderateScale(30),
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                      }}>
+                    <View style={styles.noDataFound}>
                       <Text
                         style={{
                           fontFamily: fontFamily.medium,
@@ -1030,6 +1026,18 @@ export default function Signup({route, navigation}) {
           onPress={index => cameraHandle(index)}
         />
       </View>
+      <Modal
+        isVisible={isWaitingModal}
+        status
+        style={{margin: 0, justifyContent: 'flex-end'}}
+        onBackdropPress={() => updateState({isWaitingModal: false})}>
+        <View style={styles.modalMainView}>
+          <Text style={styles.thanksMsgTxt}>{strings.THANKS_MSG}</Text>
+          <Text style={styles.signupDoneTxt}>
+            {strings.SINGNUP_COMPLETED_NOTIFIED_SOON}
+          </Text>
+        </View>
+      </Modal>
     </WrapperContainer>
   );
 }
