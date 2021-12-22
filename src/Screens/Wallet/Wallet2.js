@@ -321,7 +321,7 @@ export default function Wallet({route, navigation}) {
   };
 
   const onDateChange = value => {
-    console.log(value, 'value>value>value');
+    console.log('value>value>value');
     updateState({
       savedDate: value,
     });
