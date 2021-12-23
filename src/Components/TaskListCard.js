@@ -39,8 +39,6 @@ const TaskListCard = ({
     return local;
   };
 
-  console.log(data, 'datadata');
-
   //get BackGroundColor
   const getBackGroudColor = name => {
     switch (name) {

@@ -1,38 +1,37 @@
+import {useFocusEffect} from '@react-navigation/native';
+import moment from 'moment';
 import React, {useEffect, useState} from 'react';
 import {
-  Image,
-  Text,
-  View,
-  TouchableOpacity,
   FlatList,
+  Image,
   RefreshControl,
-  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
 } from 'react-native';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import Modal from 'react-native-modal';
+import {useSelector} from 'react-redux';
 import GradientButton from '../../Components/GradientButton';
 import Header from '../../Components/Header';
 import {loaderOne} from '../../Components/Loaders/AnimatedLoaderFiles';
+import TextInputWithlabel from '../../Components/TextInputWithlabel';
 import WrapperContainer from '../../Components/WrapperContainer';
 import imagePath from '../../constants/imagePath';
 import strings from '../../constants/lang';
+import actions from '../../redux/actions';
 import colors from '../../styles/colors';
+import fontFamily from '../../styles/fontFamily';
 import {
   height,
   moderateScale,
   moderateScaleVertical,
   textScale,
 } from '../../styles/responsiveSize';
-import stylesFun from './styles';
-import Modal from 'react-native-modal';
-import fontFamily from '../../styles/fontFamily';
-import TextInputWithlabel from '../../Components/TextInputWithlabel';
-import actions from '../../redux/actions';
-import {useSelector} from 'react-redux';
-import {showError, showSuccess} from '../../utils/helperFunctions';
-import moment from 'moment';
 import {currencyNumberFormatter} from '../../utils/commonFunction';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import {showError, showSuccess} from '../../utils/helperFunctions';
 import validator from '../../utils/validations';
-import {useFocusEffect} from '@react-navigation/native';
+import stylesFun from './styles';
 
 export default function AddMoney({navigation}) {
   const {userData} = useSelector(state => state?.auth);
@@ -48,9 +47,10 @@ export default function AddMoney({navigation}) {
     beneficiaryName: '',
     beneficiaryAcNum: '',
     beneficiaryISFC: '',
-    beneficiaryAddrs: '',
+    beneficiaryBankName: '',
+    agentPayoutList: [],
     pageNo: 1,
-    limit: 5,
+    limit: 10,
   });
 
   const styles = stylesFun();
@@ -64,7 +64,8 @@ export default function AddMoney({navigation}) {
     beneficiaryName,
     beneficiaryAcNum,
     beneficiaryISFC,
-    beneficiaryAddrs,
+    beneficiaryBankName,
+    agentPayoutList,
     pageNo,
     limit,
   } = state;
@@ -79,10 +80,10 @@ export default function AddMoney({navigation}) {
   );
 
   useEffect(() => {
-    if (isRefreshing) {
+    if (isRefreshing || pageNo !== 1) {
       getPayoutDetails();
     }
-  }, [isRefreshing]);
+  }, [isRefreshing, pageNo]);
 
   const getBankDetails = () => {
     actions
@@ -93,7 +94,7 @@ export default function AddMoney({navigation}) {
         },
       )
       .then(res => {
-        console.log(res, 'resFromServer >>> Bank Details');
+        console.log(res, '>>> Bank Details res ');
         updateState({
           beneficiaryName: !!res?.data?.agent_bank_details
             ? res?.data?.agent_bank_details?.beneficiary_name
@@ -104,8 +105,8 @@ export default function AddMoney({navigation}) {
           beneficiaryISFC: !!res?.data?.agent_bank_details
             ? res?.data?.agent_bank_details?.beneficiary_ifsc
             : '',
-          beneficiaryAddrs: !!res?.data?.agent_bank_details
-            ? res?.data?.agent_bank_details?.beneficiary_address
+          beneficiaryBankName: !!res?.data?.agent_bank_details
+            ? res?.data?.agent_bank_details?.beneficiary_bank_name
             : '',
         });
       })
@@ -125,6 +126,10 @@ export default function AddMoney({navigation}) {
         console.log(res, 'resFromServer');
         updateState({
           payoutDetails: res?.data,
+          agentPayoutList:
+            pageNo === 1
+              ? res?.data?.agent_payout_list?.data
+              : [...agentPayoutList, ...res?.data?.agent_payout_list?.data],
           isLoading: false,
           isRefreshing: false,
         });
@@ -160,7 +165,7 @@ export default function AddMoney({navigation}) {
       beneficiaryName: beneficiaryName,
       beneficiaryAcNum: beneficiaryAcNum,
       beneficiaryISFC: beneficiaryISFC,
-      beneficiaryAddrs: beneficiaryAddrs,
+      beneficiaryBankName: beneficiaryBankName,
     });
     if (error) {
       alert(error);
@@ -184,7 +189,7 @@ export default function AddMoney({navigation}) {
       data['beneficiary_name'] = beneficiaryName;
       data['beneficiary_account_number'] = beneficiaryAcNum;
       data['beneficiary_ifsc'] = beneficiaryISFC;
-      data['beneficiary_address'] = beneficiaryAddrs;
+      data['beneficiary_bank_name'] = beneficiaryBankName;
       data['payout_option_id'] = selectedPayoutOption?.id;
     } else {
       data['amount'] = payoutAmount;
@@ -232,7 +237,7 @@ export default function AddMoney({navigation}) {
               {item?.status_id == '0'
                 ? 'P'
                 : item?.status_id == '1'
-                ? 'S'
+                ? 'C'
                 : 'F'}
             </Text>
           </View>
@@ -242,10 +247,10 @@ export default function AddMoney({navigation}) {
           <Text style={styles.message}>
             {strings.PAYOUT_REQUEST}{' '}
             {item?.status_id == '0'
-              ? 'Pending'
+              ? strings.PENDING
               : item?.status_id == '1'
-              ? 'Created'
-              : 'Faild'}
+              ? strings.CREATED
+              : strings.FAILD}
           </Text>
           <Text numberOfLines={1} style={styles.dateTime}>
             {moment(item?.created_at).format('lll')}
@@ -329,20 +334,20 @@ export default function AddMoney({navigation}) {
           editable
         />
         <TextInputWithlabel
-          label={strings.BENEFICIARY_ADDRESS}
-          value={beneficiaryAddrs}
+          label={strings.BENEFICIARY_BANK_NAME}
+          value={beneficiaryBankName}
           mainStyle={{
             marginTop: moderateScale(5),
           }}
-          onChangeText={text => updateState({beneficiaryAddrs: text})}
+          onChangeText={text => updateState({beneficiaryBankName: text})}
           editable
         />
       </View>
     );
   };
 
-  const onEndReached = () => {
-    // alert();
+  const onEndReached = ({distanceFromEnd}) => {
+    updateState({pageNo: pageNo + 1});
   };
 
   return (
@@ -359,6 +364,10 @@ export default function AddMoney({navigation}) {
           paddingHorizontal: moderateScale(10),
         }}
         leftIconStyle={{tintColor: colors.themeColor}}
+        onPressLeft={() => {
+          updateState({pageNo: 1});
+          navigation.goBack();
+        }}
       />
       <View
         style={{
@@ -385,19 +394,11 @@ export default function AddMoney({navigation}) {
           </Text>
         </View>
         <FlatList
-          data={payoutDetails?.agent_payout_list?.data}
-          extraData={payoutDetails?.agent_payout_list?.data}
+          data={agentPayoutList}
+          extraData={agentPayoutList}
           keyExtractor={(item, index) => String(index)}
           showsVerticalScrollIndicator={false}
           renderItem={renderPayoutDetails}
-          style={{
-            flex: 1,
-            backgroundColor: colors.white,
-          }}
-          contentContainerStyle={{
-            flexGrow: 1,
-            marginVertical: moderateScaleVertical(10),
-          }}
           refreshControl={
             <RefreshControl
               refreshing={isRefreshing}
@@ -406,9 +407,13 @@ export default function AddMoney({navigation}) {
             />
           }
           onEndReached={onEndReached}
-          // onEndReachedThreshold={0.5}
+          onEndReachedThreshold={0.1}
           ListFooterComponent={() => (
-            <View style={{height: moderateScaleVertical(65)}} />
+            <View
+              style={{
+                height: moderateScaleVertical(65),
+              }}
+            />
           )}
         />
       </View>

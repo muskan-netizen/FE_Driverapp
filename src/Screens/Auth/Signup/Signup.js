@@ -47,6 +47,8 @@ import {
 } from '../../../utils/validations';
 import stylesFunction from './styles';
 
+import Modal from 'react-native-modal';
+
 export default function Signup({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
@@ -86,6 +88,7 @@ export default function Signup({route, navigation}) {
     selectedTeam: '',
     isTeams: false,
     driverTagsAry: [],
+    isWaitingModal: false,
   });
 
   const {
@@ -119,6 +122,7 @@ export default function Signup({route, navigation}) {
     selectedTeam,
     isTeams,
     driverTagsAry,
+    isWaitingModal,
   } = state;
   const commonStyles = commonStylesFunc({fontFamily});
 
@@ -251,40 +255,42 @@ export default function Signup({route, navigation}) {
   var dummyTags = '';
 
   const _onSignup = () => {
+    var isRequired = true;
+
     dummyTags = selectedTags.map(item => {
       return item.name;
     });
     dummyTags = dummyTags.join(',');
 
-    if (!userImage) {
-      return showError(strings.SETIMAGE);
-    }
-    const nameError = validations({
-      name: fullName,
-    });
-    if (nameError) {
-      return showError(nameError);
-    }
-    const checkValid = isValidData();
-    if (!checkValid) {
-      return;
-    }
+    // if (!userImage) {
+    //   return showError(strings.SETIMAGE);
+    // }
+    // const nameError = validations({
+    //   name: fullName,
+    // });
+    // if (nameError) {
+    //   return showError(nameError);
+    // }
+    // const checkValid = isValidData();
+    // if (!checkValid) {
+    //   return;
+    // }
 
-    if (!selectedVehicleType) {
-      return showError(strings.SELECTTRANSPORTATION);
-    }
-    if (!selectedEpmloyeetype) {
-      return showError(strings.SELECTEMPLOYEETYPE);
-    }
+    // if (!selectedVehicleType) {
+    //   return showError(strings.SELECTTRANSPORTATION);
+    // }
+    // if (!selectedEpmloyeetype) {
+    //   return showError(strings.SELECTEMPLOYEETYPE);
+    // }
 
-    const otherErrors = validations({
-      modelMake: modelMake,
-      vehicleColor: vehicleColor,
-      vehiclePlateNumber: vehiclePlateNumber,
-    });
-    if (otherErrors) {
-      return showError(otherErrors);
-    }
+    // const otherErrors = validations({
+    //   modelMake: modelMake,
+    //   vehicleColor: vehicleColor,
+    //   vehiclePlateNumber: vehiclePlateNumber,
+    // });
+    // if (otherErrors) {
+    //   return showError(otherErrors);
+    // }
 
     let formdata = new FormData();
     formdata.append('name', fullName);
@@ -308,11 +314,17 @@ export default function Signup({route, navigation}) {
 
     if (addtionalTextInputs.length) {
       addtionalTextInputs.map((i, inx) => {
-        if (i?.contents != '') {
+        if (i?.contents != '' && !!i?.contents) {
           formdata.append(`files_text[${inx}][file_type]`, i?.file_type);
           formdata.append(`files_text[${inx}][id]`, i?.id);
           formdata.append(`files_text[${inx}][contents]`, i?.contents);
           formdata.append(`files_text[${inx}][label_name]`, i?.label_name);
+        } else if (i?.is_required) {
+          if (isRequired) {
+            showError(`${strings.PLEASE_ENTER} ${i.name.toLowerCase()}`);
+            isRequired = false;
+            return;
+          }
         }
       });
     }
@@ -325,6 +337,12 @@ export default function Signup({route, navigation}) {
           formdata.append(`other[${inx}][file_type]`, i?.file_type);
           formdata.append(`other[${inx}][id]`, i?.id);
           formdata.append(`other[${inx}][filename1]`, i?.filename1);
+        } else if (i?.is_required) {
+          if (isRequired) {
+            showError(`${strings.PLEASE_UPLOAD} ${i.name.toLowerCase()}`);
+            isRequired = false;
+            return;
+          }
         }
       });
     }
@@ -337,6 +355,12 @@ export default function Signup({route, navigation}) {
             type: i?.mime,
             uri: i?.value,
           });
+        } else if (i?.is_required) {
+          if (isRequired) {
+            showError(`${strings.PLEASE_UPLOAD} ${i.name.toLowerCase()}`);
+            isRequired = false;
+            return;
+          }
         }
       });
     }
@@ -349,9 +373,14 @@ export default function Signup({route, navigation}) {
         language: defaultLanguagae?.value,
       })
       .then(res => {
-        updateState({isLoading: false});
-        showSuccess(strings.SUCCESSSIGNUP, 10000);
-        navigation.goBack();
+        updateState({isLoading: false, isWaitingModal: true});
+        // showSuccess(strings.SUCCESSSIGNUP, 10000);
+        setTimeout(() => {
+          updateState({
+            isWaitingModal: false,
+          });
+          navigation.goBack();
+        }, 10000);
       })
       .catch(errorMethod);
   };
@@ -378,7 +407,7 @@ export default function Signup({route, navigation}) {
       <TextInputWithlabel
         labelStyle={styles.textInputlabel}
         editable={true}
-        label={type?.name}
+        label={`${type?.name}${type.is_required ? '*' : ''}`}
         value={addtionalTextInputs[index]?.contents}
         onChangeText={text => updateArray(text, index, type)}
       />
@@ -394,7 +423,7 @@ export default function Signup({route, navigation}) {
   //Get Upload image view
 
   const getImageFieldView = (type, index) => {
-    console.log(' addtionalImages[index]', addtionalImages[index]);
+    console.log('addtionalImages[index]', addtionalImages[index]);
     return (
       <View
         style={{
@@ -420,6 +449,7 @@ export default function Signup({route, navigation}) {
           numberOfLines={2}
           style={{...styles.label3, minHeight: moderateScale(25)}}>
           {type?.name}
+          {type.is_required ? '*' : ''}
         </Text>
       </View>
     );
@@ -465,7 +495,6 @@ export default function Signup({route, navigation}) {
     return (
       <View
         style={{marginRight: moderateScale(20), marginTop: moderateScale(20)}}>
-        <Text style={[styles.label3]}>{type?.name}</Text>
         <TouchableOpacity
           onPress={() => getDoc(type, index)}
           style={{
@@ -484,6 +513,10 @@ export default function Signup({route, navigation}) {
               : `+ ${strings.UPLOAD}`}
           </Text>
         </TouchableOpacity>
+        <Text style={[styles.label3]}>
+          {type?.name}
+          {type.is_required ? '*' : ''}
+        </Text>
       </View>
     );
   };
@@ -574,13 +607,9 @@ export default function Signup({route, navigation}) {
 
   const removeTag = (itm, indx) => {
     const selectedTagsAry = [...selectedTags];
-
     const ind = selectedTagsAry.findIndex(item => item.id == itm.id);
-    // const tagIdind = selectedTagIndxsAry.findIndex((item) => item === indx);
     var result = selectedTagsAry.filter((item, idx) => idx !== ind);
-    // var tagIdresult = selectedTagIndxsAry.filter(
-    //   (item, idx) => idx !== tagIdind,
-    // );
+
     updateState({
       selectedTags: result,
     });
@@ -751,10 +780,7 @@ export default function Signup({route, navigation}) {
                     ) : (
                       <View
                         style={{
-                          width: '100%',
-                          height: moderateScale(30),
-                          justifyContent: 'center',
-                          alignItems: 'center',
+                          ...styles.noDataFound,
                           backgroundColor: colors.white,
                         }}>
                         <Text
@@ -872,21 +898,13 @@ export default function Signup({route, navigation}) {
                             onPress={() => _onTagSelect(item, index)}
                             activeOpacity={0.7}
                             style={{
-                              borderWidth: 1,
+                              ...styles.driverTagsView,
                               borderColor: selectedTags.includes(item)
                                 ? colors.themeColor
                                 : colors.borderColorB,
-                              width: (width - moderateScale(70)) / 3,
-                              alignItems: 'center',
-                              marginVertical: moderateScale(5),
-                              paddingVertical: moderateScale(5),
-                              marginHorizontal: moderateScale(5),
-                              zIndex: 1,
                               backgroundColor: selectedTags.includes(item)
                                 ? colors.themeColor
                                 : colors.borderColorB,
-                              borderRadius: moderateScale(5),
-                              justifyContent: 'center',
                             }}>
                             <Text
                               numberOfLines={2}
@@ -903,13 +921,7 @@ export default function Signup({route, navigation}) {
                       })}
                     </View>
                   ) : (
-                    <View
-                      style={{
-                        width: '100%',
-                        height: moderateScale(30),
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                      }}>
+                    <View style={styles.noDataFound}>
                       <Text
                         style={{
                           fontFamily: fontFamily.medium,
@@ -1030,6 +1042,18 @@ export default function Signup({route, navigation}) {
           onPress={index => cameraHandle(index)}
         />
       </View>
+      <Modal
+        isVisible={isWaitingModal}
+        status
+        style={{margin: 0, justifyContent: 'flex-end'}}
+        onBackdropPress={() => updateState({isWaitingModal: false})}>
+        <View style={styles.modalMainView}>
+          <Text style={styles.thanksMsgTxt}>{strings.THANKS_MSG}</Text>
+          <Text style={styles.signupDoneTxt}>
+            {strings.SINGNUP_COMPLETED_NOTIFIED_SOON}
+          </Text>
+        </View>
+      </Modal>
     </WrapperContainer>
   );
 }

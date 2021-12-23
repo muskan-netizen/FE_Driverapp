@@ -20,7 +20,7 @@ export function initApp(data = {}, headers = {}, reload = false) {
   return new Promise((resolve, reject) => {
     apiPost(APP_INITIAL_SETTINGS, data, headers)
       .then(async res => {
-        console.log(res,'somamae is urnning1')
+        console.log(res, 'somamae is urnning1');
         let data = res?.data;
         setClientInfo(data).then(suc => {
           dispatch({
@@ -143,7 +143,6 @@ export function setDefaultLanguage(data = {}) {
 }
 
 export const saveFcmToken = data => {
-  console.log(data, 'datadata');
   dispatch({
     type: types.FCMTOKEN,
     payload: data,
