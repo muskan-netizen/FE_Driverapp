@@ -293,7 +293,10 @@ export default function TaskDetail({route, navigation}) {
     actions
       .getProductUpdateDetails(new_dispatch_traking_url(), {})
       .then(res => {
-        console.log(res?.data?.vendors[0]?.vendor, 'all response after hit order api');
+        console.log(
+          res?.data?.vendors[0]?.vendor,
+          'all response after hit order api',
+        );
         updateState({vendors: res?.data?.vendors[0]?.vendor});
         const productAllInsrucations = res?.data?.vendors.map((item, index) => {
           return item?.products?.map((item, index) => {
@@ -699,6 +702,7 @@ export default function TaskDetail({route, navigation}) {
               {!!(vendors?.email || vendors?.phone_no) && (
                 <View
                   style={{
+                    opacity: 0.5,
                     flexDirection: 'row',
                     justifyContent: 'space-between',
                   }}>
@@ -749,6 +753,7 @@ export default function TaskDetail({route, navigation}) {
               {!!vendors?.address && (
                 <View
                   style={{
+                    opacity: 0.5,
                     flexDirection: 'row',
                     marginTop: moderateScale(10),
                     alignItems: 'center',
@@ -775,6 +780,7 @@ export default function TaskDetail({route, navigation}) {
             {!!taskDetail?.quantity && (
               <View
                 style={{
+                  opacity: 0.5,
                   flexDirection: 'row',
                   alignItems: 'center',
                 }}>
@@ -793,6 +799,7 @@ export default function TaskDetail({route, navigation}) {
                 style={{
                   flexDirection: 'row',
                   alignItems: 'center',
+                  opacity: 0.5,
                 }}>
                 <Image
                   source={imagePath?.postal}

@@ -193,12 +193,17 @@ export default function (data) {
   }
 
   if (phoneNumber !== undefined) {
-    let emptyValidationText = checkEmpty(phoneNumber, strings.PHONENUMBER);
+    let emptyValidationText = checkEmpty(
+      phoneNumber,
+      strings.PHONENUMBER.toLocaleLowerCase(),
+    );
     if (emptyValidationText !== '') {
       return emptyValidationText;
     }
     if (!/^[0][1-9]$|^[1-9]\d{4,14}$/.test(phoneNumber)) {
-      return `${strings.PLEASE_ENTER} ${strings.VALID} ${strings.PHONENUMBER}`;
+      return `${strings.PLEASE_ENTER} ${
+        strings.VALID
+      } ${strings.PHONENUMBER.toLocaleLowerCase()}`;
     }
   }
 

@@ -1,4 +1,4 @@
-import {cloneDeep} from 'lodash';
+import {cloneDeep, isEmpty} from 'lodash';
 import React, {useEffect, useRef, useState} from 'react';
 import {
   I18nManager,
@@ -27,6 +27,7 @@ import colors from '../../../styles/colors';
 import commonStylesFunc from '../../../styles/commonStyles';
 import fontFamily from '../../../styles/fontFamily';
 import {
+  height,
   moderateScale,
   moderateScaleVertical,
   textScale,
@@ -46,8 +47,10 @@ import {
   default as validator,
 } from '../../../utils/validations';
 import stylesFunction from './styles';
-
 import Modal from 'react-native-modal';
+import DatePicker from 'react-native-date-picker';
+import DatePickerModal from '../../../Components/DatePickerModal';
+import moment from 'moment';
 
 export default function Signup({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
@@ -89,6 +92,10 @@ export default function Signup({route, navigation}) {
     isTeams: false,
     driverTagsAry: [],
     isWaitingModal: false,
+    additionalDateFields: [],
+    isDatePicker: false,
+    selectedDateField: {},
+    selectedDate: new Date(),
   });
 
   const {
@@ -123,6 +130,10 @@ export default function Signup({route, navigation}) {
     isTeams,
     driverTagsAry,
     isWaitingModal,
+    additionalDateFields,
+    isDatePicker,
+    selectedDateField,
+    selectedDate,
   } = state;
   const commonStyles = commonStylesFunc({fontFamily});
 
@@ -193,6 +204,9 @@ export default function Signup({route, navigation}) {
               addtionalPdfs: res?.data?.documents.filter(
                 x => x?.file_type == 'Pdf',
               ),
+              additionalDateFields: res?.data?.documents.filter(
+                x => x?.file_type == 'Date',
+              ),
               dataToSet: res?.data?.documents.map((i, inx) => {
                 return {
                   type: i?.file_type,
@@ -262,19 +276,19 @@ export default function Signup({route, navigation}) {
     });
     dummyTags = dummyTags.join(',');
 
-    // if (!userImage) {
-    //   return showError(strings.SETIMAGE);
-    // }
-    // const nameError = validations({
-    //   name: fullName,
-    // });
-    // if (nameError) {
-    //   return showError(nameError);
-    // }
-    // const checkValid = isValidData();
-    // if (!checkValid) {
-    //   return;
-    // }
+    if (!userImage) {
+      return showError(strings.SETIMAGE);
+    }
+    const nameError = validations({
+      name: fullName,
+    });
+    if (nameError) {
+      return showError(nameError);
+    }
+    const checkValid = isValidData();
+    if (!checkValid) {
+      return;
+    }
 
     // if (!selectedVehicleType) {
     //   return showError(strings.SELECTTRANSPORTATION);
@@ -283,14 +297,14 @@ export default function Signup({route, navigation}) {
     //   return showError(strings.SELECTEMPLOYEETYPE);
     // }
 
-    // const otherErrors = validations({
-    //   modelMake: modelMake,
-    //   vehicleColor: vehicleColor,
-    //   vehiclePlateNumber: vehiclePlateNumber,
-    // });
-    // if (otherErrors) {
-    //   return showError(otherErrors);
-    // }
+    if (selectedTeam == '' && !selectedTeam) {
+      showError(`${strings.PLEASE_SELECT} ${strings.A_TEAM}`);
+      return;
+    }
+    if (isEmpty(selectedTags)) {
+      showError(`${strings.PLEASE_SELECT} ${strings.ONE_TAG}`);
+      return;
+    }
 
     let formdata = new FormData();
     formdata.append('name', fullName);
@@ -322,6 +336,26 @@ export default function Signup({route, navigation}) {
         } else if (i?.is_required) {
           if (isRequired) {
             showError(`${strings.PLEASE_ENTER} ${i.name.toLowerCase()}`);
+            isRequired = false;
+            return;
+          }
+        }
+      });
+    }
+
+    if (additionalDateFields.length) {
+      additionalDateFields.map((i, inx) => {
+        if (i?.contents != '' && !!i?.contents) {
+          formdata.append(`files_text[${inx}][file_type]`, i?.file_type);
+          formdata.append(`files_text[${inx}][id]`, i?.id);
+          formdata.append(
+            `files_text[${inx}][contents]`,
+            moment(i?.contents).format('YYYY-MM-DD'),
+          );
+          formdata.append(`files_text[${inx}][label_name]`, i?.name);
+        } else if (i?.is_required) {
+          if (isRequired) {
+            showError(`${strings.PLEASE_SELECT} ${i.name.toLowerCase()}`);
             isRequired = false;
             return;
           }
@@ -364,7 +398,7 @@ export default function Signup({route, navigation}) {
         }
       });
     }
-    console.log(JSON.stringify(formdata), 'formdata>formdata');
+    console.log(formdata, 'formdata>formdata');
 
     updateState({isLoading: true});
     actions
@@ -405,12 +439,54 @@ export default function Signup({route, navigation}) {
   const getTextInputField = (type, index) => {
     return (
       <TextInputWithlabel
+        onTouchStart={() => updateState({isTagsShow: false})}
         labelStyle={styles.textInputlabel}
         editable={true}
         label={`${type?.name}${type.is_required ? '*' : ''}`}
         value={addtionalTextInputs[index]?.contents}
         onChangeText={text => updateArray(text, index, type)}
       />
+    );
+  };
+
+  //Get Date Fields
+
+  const getDateFields = (type, index) => {
+    return (
+      <View
+        style={{marginVertical: moderateScaleVertical(10)}}
+        key={String(index)}
+        onTouchStart={() => updateState({isTagsShow: false})}>
+        <Text
+          style={{
+            fontSize: textScale(12),
+            fontFamily: fontFamily.medium,
+            color: colors.lightGreyBg2,
+            marginBottom: moderateScale(10),
+          }}>
+          {type?.name}
+        </Text>
+        <TouchableOpacity
+          onPress={() =>
+            updateState({isDatePicker: !isDatePicker, selectedDateField: type})
+          }
+          activeOpacity={0.7}
+          style={{
+            height: moderateScale(45),
+            borderWidth: 1,
+            borderRadius: moderateScaleVertical(4),
+            borderColor: colors.borderLight,
+            justifyContent: 'center',
+            paddingHorizontal: moderateScale(10),
+          }}>
+          <Text
+            style={{fontFamily: fontFamily.regular, fontSize: textScale(12)}}>
+            {!!type.contents
+              ? moment(type.contents).format('DD-MMMM-YYYY')
+              : ''}
+          </Text>
+        </TouchableOpacity>
+      </View>
     );
   };
 
@@ -494,6 +570,7 @@ export default function Signup({route, navigation}) {
   const getPdfView = (type, index) => {
     return (
       <View
+        onTouchStart={() => updateState({isTagsShow: false})}
         style={{marginRight: moderateScale(20), marginTop: moderateScale(20)}}>
         <TouchableOpacity
           onPress={() => getDoc(type, index)}
@@ -626,6 +703,22 @@ export default function Signup({route, navigation}) {
     } else {
       updateState({driverTagsAry: driverTagsNewAry});
     }
+  };
+
+  const onDateChange = value => {
+    const data = cloneDeep(additionalDateFields);
+    const ind = data.findIndex(item => item.id === selectedDateField?.id);
+    selectedDateField.contents = value;
+    data[ind] = selectedDateField;
+
+    updateState({
+      selectedDate: value,
+      additionalDateFields: [...data],
+    });
+  };
+
+  const _onCloseModal = () => {
+    updateState({isDatePicker: false, selectedDate: new Date()});
   };
 
   return (
@@ -935,7 +1028,7 @@ export default function Signup({route, navigation}) {
               )}
             </View>
 
-            <View
+            {/* <View
               onTouchStart={() => updateState({isTagsShow: false})}
               style={{marginVertical: moderateScaleVertical(20)}}>
               <Text style={styles.label}>{strings.TRASNPORTATION}</Text>
@@ -975,7 +1068,8 @@ export default function Signup({route, navigation}) {
               </ScrollView>
             </View>
             {getEmployeeViewBasedOnClient(savedShortCode)}
-            <View style={{marginTop: moderateScaleVertical(10)}}>
+          */}
+            {/* <View style={{marginTop: moderateScaleVertical(10)}}>
               <TextInputWithlabel
                 labelStyle={styles.textInputlabel}
                 editable={true}
@@ -999,11 +1093,16 @@ export default function Signup({route, navigation}) {
                 value={vehiclePlateNumber}
                 onChangeText={text => updateState({vehiclePlateNumber: text})}
               />
-            </View>
+            </View> */}
 
             {!!(addtionalTextInputs && addtionalTextInputs.length) &&
               addtionalTextInputs.map((item, index) => {
                 return getTextInputField(item, index);
+              })}
+
+            {!isEmpty(additionalDateFields) &&
+              additionalDateFields.map((item, index) => {
+                return getDateFields(item, index);
               })}
 
             {!!(addtionalImages && addtionalImages.length) && (
@@ -1033,6 +1132,7 @@ export default function Signup({route, navigation}) {
             colorsArray={[colors.themeColor, colors.themeColor]}
           />
         </KeyboardAwareScrollView>
+
         <ActionSheet
           ref={actionSheet}
           // title={'Choose one option'}
@@ -1042,6 +1142,15 @@ export default function Signup({route, navigation}) {
           onPress={index => cameraHandle(index)}
         />
       </View>
+
+      <DatePickerModal
+        isVisible={isDatePicker}
+        onclose={_onCloseModal}
+        onSelectDate={_onCloseModal}
+        onDateChange={onDateChange}
+        date={selectedDate}
+        mode="date"
+      />
       <Modal
         isVisible={isWaitingModal}
         status
