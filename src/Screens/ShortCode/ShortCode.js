@@ -850,6 +850,30 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.movingWheels:
+          updateState({
+            shortCode: shortCodes.movingWheels,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.empire:
+          updateState({
+            shortCode: shortCodes.empire,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.safewalks:
+          updateState({
+            shortCode: shortCodes.safewalks,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.dimaVega:
+          updateState({
+            shortCode: shortCodes.dimaVega,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);
