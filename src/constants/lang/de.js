@@ -213,4 +213,5 @@ export default {
   PLEASE_UPLOAD: 'Please upload',
   A_TEAM: 'a team',
   ONE_TAG: 'atleast one tag',
+  HOLDTOPICK: 'Hold to Pick',
 };

@@ -456,10 +456,20 @@ export default function TaskDetail({route, navigation}) {
         updateState({buttonText: strings.HOLDTOARRIVE});
         break;
       case 3:
-        updateState({buttonText: strings.HOLDTOCOMPLETE});
+        updateState({
+          buttonText:
+            taskDetail?.tasktype?.name == 'Drop'
+              ? strings.HOLDTOCOMPLETE
+              : strings.HOLDTOPICK,
+        });
         break;
       case 4:
-        updateState({buttonText: strings.HOLDTOCOMPLETE});
+        updateState({
+          buttonText:
+            taskDetail?.tasktype?.name == 'Drop'
+              ? strings.HOLDTOCOMPLETE
+              : strings.HOLDTOPICK,
+        });
         break;
       default:
         break;
@@ -619,6 +629,7 @@ export default function TaskDetail({route, navigation}) {
               ) && (
                 <View
                   style={{
+                    opacity: 0.5,
                     flexDirection: 'row',
                     justifyContent: 'space-between',
                   }}>
@@ -870,7 +881,7 @@ export default function TaskDetail({route, navigation}) {
               <Text style={styles.customerName}>
                 {taskDetail?.order?.customer?.name}
               </Text>
-              <Text style={{fontFamily: fontFamily.medium}}>
+              <Text style={{fontFamily: fontFamily.bold}}>
                 {strings.TRACKINGID}:-{taskDetail?.order?.unique_id}
               </Text>
             </View>
@@ -1196,7 +1207,11 @@ export default function TaskDetail({route, navigation}) {
         // onPressLeft={()=>navigation.goBack()}
         centerTitle={`${strings.TASK} #${taskDetail?.id}`}
         customRight={() =>
-          !!(taskStatus != '1' && !fromHistory) && (
+          !!(
+            taskStatus == 1 &&
+            !fromHistory &&
+            taskDetail?.tasktype?.id != 2
+          ) && (
             <TouchableOpacity onPress={cancelTask}>
               <Text
                 style={{

@@ -398,6 +398,9 @@ export default function Signup({route, navigation}) {
         }
       });
     }
+    if (!isRequired) {
+      return;
+    }
     console.log(formdata, 'formdata>formdata');
 
     updateState({isLoading: true});
@@ -465,6 +468,7 @@ export default function Signup({route, navigation}) {
             marginBottom: moderateScale(10),
           }}>
           {type?.name}
+          {type?.is_required ? '*' : ''}
         </Text>
         <TouchableOpacity
           onPress={() =>
@@ -499,7 +503,6 @@ export default function Signup({route, navigation}) {
   //Get Upload image view
 
   const getImageFieldView = (type, index) => {
-    console.log('addtionalImages[index]', addtionalImages[index]);
     return (
       <View
         style={{
@@ -900,7 +903,7 @@ export default function Signup({route, navigation}) {
               {strings.TAGS}
             </Text>
 
-            <View style={{zIndex: 2}}>
+            <View style={{zIndex: 2, marginBottom: moderateScale(10)}}>
               <View
                 onLayout={event => {
                   updateState({
