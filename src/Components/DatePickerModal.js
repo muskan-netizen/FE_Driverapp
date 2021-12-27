@@ -76,7 +76,7 @@ const DatePickerModal = ({
               mode={mode}
               locale={defaultLanguagae?.value}
               // minimumDate={undefined}
-              maximumDate={new Date()}
+
               style={{width: width - 20, height: height / 4}}
               onDateChange={value => onDateChange(value)}
             />

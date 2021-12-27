@@ -71,7 +71,6 @@ export default ({defaultLanguagae}) => {
       fontSize: textScale(12),
       fontFamily: fontFamily.bold,
       color: colors.textGreyOpcaity7,
-      opacity: 0.6,
 
       // paddingBottom: moderateScale(5),
     },
@@ -81,7 +80,6 @@ export default ({defaultLanguagae}) => {
       // color: colors.iconGrey,
       textAlign: defaultLanguagae?.value === 'ar' ? 'right' : 'left',
       color: colors.textGreyOpcaity7,
-      opacity: 0.4,
       // paddingBottom: moderateScale(5),
     },
     taskValue: {
@@ -164,7 +162,7 @@ export default ({defaultLanguagae}) => {
     },
     emailAndPhone: {
       // textAlign: 'center',
-      fontFamily: fontFamily.medium,
+      fontFamily: fontFamily.bold,
       fontSize: textScale(12),
       color: colors.textGreyOpcaity7,
       // paddingBottom: moderateScale(5),
@@ -174,7 +172,6 @@ export default ({defaultLanguagae}) => {
       fontFamily: fontFamily.bold,
       fontSize: textScale(14),
       color: colors.black,
-      opacity: 0.7,
     },
   });
   return styles;
