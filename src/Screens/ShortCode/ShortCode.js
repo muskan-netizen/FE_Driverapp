@@ -874,6 +874,31 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.skoop:
+          updateState({
+            shortCode: shortCodes.skoop,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.pickmeup:
+          updateState({
+            shortCode: shortCodes.pickmeup,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.kudhyo:
+          updateState({
+            shortCode: shortCodes.kudhyo,
+            isShortcodePrefilled: true,
+          });
+          break;
+
+        case appIds.bharatMove:
+          updateState({
+            shortCode: shortCodes.bharatMove,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);

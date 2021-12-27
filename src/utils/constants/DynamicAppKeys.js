@@ -134,6 +134,10 @@ const shortCodes = {
   safewalks: '115676',
   empire: '19a7a3',
   dimaVega: 'dbf5ee',
+  skoop: 'd12ef6',
+  pickmeup: '5be38e',
+  kudhyo: 'b9dd3e',
+  bharatMove: '7b5803',
 };
 
 // Goody Dispatch
@@ -216,7 +220,7 @@ const appIds = {
   }),
   checkout: Platform.select({
     ios: 'com.orderchekoutIosApp.driver',
-    android: 'com.orderchekout.driver.android1',
+    android: 'com.orderchekout.Dispatcher',
   }),
   noki: Platform.select({
     ios: 'com.noki.royodispatcher',
@@ -666,6 +670,22 @@ const appIds = {
   dimaVega: Platform.select({
     ios: 'com.DimaVega.Dispatch',
     android: 'com.DimaVega.royodispatcher',
+  }),
+  skoop: Platform.select({
+    ios: 'com.Skoop.Dispatch',
+    android: 'com.Skoop.royodispatcher',
+  }),
+  pickmeup: Platform.select({
+    ios: 'com.PickMeUp.Dispatch',
+    android: 'com.Pickmeup.royodispatcher',
+  }),
+  kudhyo: Platform.select({
+    ios: 'com.Kudhyo.Dispatch',
+    android: 'com.Kudhyo.royodispatcher',
+  }),
+  bharatMove: Platform.select({
+    ios: 'com.BharatMove.Dispatch',
+    android: 'com.BharatMove.royodispatcher',
   }),
 };
 
