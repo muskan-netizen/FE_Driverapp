@@ -650,7 +650,7 @@ export default function DashBoard({route, navigation}) {
                 borderRadius: 8,
               }}
               onPress={() => toggleWarning(false)}>
-              <Text style={{color: colors.white}}>Cancel</Text>
+              <Text style={{color: colors.white}}>{strings.CANCEL}</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={{
@@ -662,7 +662,7 @@ export default function DashBoard({route, navigation}) {
                 borderRadius: 8,
               }}
               onPress={() => _onOpenSettings()}>
-              <Text style={{color: colors.white}}>Enable</Text>
+              <Text style={{color: colors.white}}>{strings.ENABLE}</Text>
             </TouchableOpacity>
           </View>
         </View>

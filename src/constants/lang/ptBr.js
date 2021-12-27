@@ -217,4 +217,5 @@ export default {
   CREATED: 'Created',
   FAILD: 'Faild',
   PLEASE_UPLOAD: 'Please upload',
+  ENABLE: 'Enable',
 };
