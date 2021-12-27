@@ -19,7 +19,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://delivery.snabbhem.se/';
 
 // pinkjet
-// export const API_BASE_URL ='https://dispatch.pinkjettaxi.com/';
+//export const API_BASE_URL = 'https://dispatch.pinkjettaxi.com/';
 // Yoho
 // export const API_BASE_URL = 'https://dispatch.yohopartner.com/';
 // tranzit
