@@ -1,5 +1,5 @@
 //live
-//export const API_BASE_URL = 'https://api.royodispatch.com/';
+export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
 //export const API_BASE_URL = 'https://api.rdstaging.com/';
@@ -64,7 +64,7 @@
 //export const API_BASE_URL = 'https://dispatcher.runrun.ae/';
 
 // drivree live domain
-export const API_BASE_URL = 'https://dispatcher.drivereeshops.com/';
+//export const API_BASE_URL = 'https://dispatcher.drivereeshops.com/';
 
 export const personaltoken = 'TMJdbQlNWkYl1JzMONzRgF4zQFuP8s';
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;
