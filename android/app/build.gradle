@@ -1620,6 +1620,39 @@ android {
             resValue "string", "app_name", "BharatMove Dispatch"
            
         }
+        sofia{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Sofia.royodispatcher'
+            resValue "string", "app_name", "Sofia Dispatch"
+           
+        }
+        mml{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.MML.royodispatcher'
+            resValue "string", "app_name", "MML Dispatch"
+           
+        }
+        bimol{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Bimol.royodispatcher'
+            resValue "string", "app_name", "Bimol Dispatch"
+           
+        }
     }
 }
 

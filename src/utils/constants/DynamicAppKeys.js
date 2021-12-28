@@ -138,6 +138,9 @@ const shortCodes = {
   pickmeup: '5be38e',
   kudhyo: 'b9dd3e',
   bharatMove: '7b5803',
+  sofia: '26be15',
+  mml: 'ebd37d',
+  bimol: 'b9fe53',
 };
 
 // Goody Dispatch
@@ -686,6 +689,18 @@ const appIds = {
   bharatMove: Platform.select({
     ios: 'com.BharatMove.Dispatch',
     android: 'com.BharatMove.royodispatcher',
+  }),
+  sofia: Platform.select({
+    ios: 'com.Sofia.Dispatch',
+    android: 'com.Sofia.royodispatcher',
+  }),
+  mml: Platform.select({
+    ios: 'com.MML.Dispatch',
+    android: 'com.MML.royodispatcher',
+  }),
+  bimol: Platform.select({
+    ios: 'com.Bimol.Dispatch',
+    android: 'com.Bimol.royodispatcher',
   }),
 };
 
