@@ -1,5 +1,5 @@
 //live
-export const API_BASE_URL = 'https://api.royodispatch.com/';
+//export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
 //export const API_BASE_URL = 'https://api.rdstaging.com/';
@@ -22,8 +22,7 @@ export const API_BASE_URL = 'https://api.royodispatch.com/';
 //export const API_BASE_URL = 'https://dispatch.pinkjettaxi.com/';
 // Yoho
 // export const API_BASE_URL = 'https://dispatch.yohopartner.com/';
-// tranzit
-// export const API_BASE_URL = 'https://dispatch.tranzit.app/';
+
 // cannabusxpress
 // export const API_BASE_URL = 'https://dispatch.cannabusxpress.com/'
 // govachow
@@ -42,10 +41,13 @@ export const API_BASE_URL = 'https://api.royodispatch.com/';
 // export const API_BASE_URL = 'http://192.168.103.73:8005';
 //export const API_BASE_URL = 'https://api.williamherrick.com/';
 // export const API_BASE_URL = 'http://192.168.103.73:8005/';
+
 // blip
 // export const API_BASE_URL = 'https://dispatch.blipdelivery.com/'
+
 // grub and gusto
 // export const API_BASE_URL = 'https://grub.royodispatch.com/'
+
 // export const API_BASE_URL = 'http://192.168.103.73:800/';
 
 // destinationops app domain
@@ -65,6 +67,12 @@ export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 // drivree live domain
 //export const API_BASE_URL = 'https://dispatcher.drivereeshops.com/';
+
+// helpNowRightNow live domain
+export const API_BASE_URL = 'https://dispatch.helpnowrightnow.com/';
+
+// tranzit live domain
+//export const API_BASE_URL = 'https://dispatch.tranzit.app/';
 
 export const personaltoken = 'TMJdbQlNWkYl1JzMONzRgF4zQFuP8s';
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;
