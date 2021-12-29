@@ -62,7 +62,7 @@ const shortCodes = {
   instaShop: '0cab0a',
   helpNowRightNow: '0e7801',
   agriOnline: '3ae391',
-  clickeat: '5a90a2',
+  clickeat: '954012',
   tranzet: 'b35edf',
   grub: 'b68843',
   punnet: '87444d',
@@ -141,6 +141,9 @@ const shortCodes = {
   sofia: '26be15',
   mml: 'ebd37d',
   bimol: 'b9fe53',
+  tripTCI: '5a79f3',
+  vendoor: 'e96e85',
+  pinkyDeli: 'dd8c06',
 };
 
 // Goody Dispatch
@@ -701,6 +704,18 @@ const appIds = {
   bimol: Platform.select({
     ios: 'com.Bimol.Dispatch',
     android: 'com.Bimol.royodispatcher',
+  }),
+  tripTCI: Platform.select({
+    ios: 'com.TripTCI.Dispatch',
+    android: 'com.TripTCI.royodispatcher',
+  }),
+  vendoor: Platform.select({
+    ios: 'com.Vendoor.Dispatch',
+    android: 'com.Vendoor.royodispatcher',
+  }),
+  pinkyDeli: Platform.select({
+    ios: 'com.PinkyDeli.Dispatch',
+    android: 'com.PinkyDeli.royodispatcher',
   }),
 };
 

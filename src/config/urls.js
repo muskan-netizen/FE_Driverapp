@@ -13,7 +13,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //export const API_BASE_URL = 'https://carroi.rostaging.com/';
 
 //tranzit app domain
-//export const API_BASE_URL = 'https://dispatch.tranzit.app/';
+// export const API_BASE_URL = 'https://dispatch.tranzit.app/';
 
 //klickmat/snabbhem app domain
 // export const API_BASE_URL = 'https://delivery.snabbhem.se/';

@@ -238,7 +238,7 @@ android {
         } 
         africanize {
             dimension "appType"
-            versionCode 1
+            versionCode 2
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
@@ -830,7 +830,7 @@ android {
         }
         click_eat{
             dimension "appType"
-            versionCode 3
+            versionCode 4
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
@@ -1651,6 +1651,39 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.Bimol.royodispatcher'
             resValue "string", "app_name", "Bimol Dispatch"
+           
+        }
+        tripTCI{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.TripTCI.royodispatcher'
+            resValue "string", "app_name", "TRIP TCI Dispatcher"
+           
+        }
+        vendoor{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Vendoor.royodispatcher'
+            resValue "string", "app_name", "Vendoor Dispatcher"
+           
+        }
+        pinkyDeli{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.PinkyDeli.royodispatcher'
+            resValue "string", "app_name", "Pinky Deli Dispatcher"
            
         }
     }

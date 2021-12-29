@@ -917,6 +917,24 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.tripTCI:
+          updateState({
+            shortCode: shortCodes.tripTCI,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.vendoor:
+          updateState({
+            shortCode: shortCodes.vendoor,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.pinkyDeli:
+          updateState({
+            shortCode: shortCodes.pinkyDeli,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);
