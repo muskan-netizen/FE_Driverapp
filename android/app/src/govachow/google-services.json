@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "939734764849",
+    "project_id": "govachow-dispatcher",
+    "storage_bucket": "govachow-dispatcher.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:939734764849:android:a6b1b2cea792c3f4e33410",
+        "android_client_info": {
+          "package_name": "com.app.govachow.Dispatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "939734764849-sagem88654d9rktmc2qvef4k7v02hqro.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhG0B-PzAkqCZooxhqJIh1Gqm_oEhOeCw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "939734764849-sagem88654d9rktmc2qvef4k7v02hqro.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "939734764849-oq4uo8o38m97tsmq2u8ku9eremk2k12s.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.app.Govachow.Dispatch"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

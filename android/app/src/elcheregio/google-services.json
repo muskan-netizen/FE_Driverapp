@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "861467245673",
+    "project_id": "royo-dispatcher-1",
+    "storage_bucket": "royo-dispatcher-1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:861467245673:android:74320c1169e3bb9e2876f8",
+        "android_client_info": {
+          "package_name": "com.ElCheRegio.Dispatch"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "861467245673-qfls71matee4tlogg44d71oc1nukhejj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzzN3aTFsN2BfN6mMDIym8hMI1ANsXbcQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "861467245673-qfls71matee4tlogg44d71oc1nukhejj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "861467245673-77r85dbavhjg041s6l8d9vlpfjl2e27b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ElCheRegio.dispatcher"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,9 @@
+#include "Pods/Target Support Files/Pods-PinkJet/Pods-PinkJet.debug.xcconfig"
+
+
+PROJECT_BUNDLE_ID =com.PinkJet.Dispatch
+PROJECT_APP_VERSION = 1.1
+PROJECT_BUILD_NUMBER = 1
+PROJECT_APP_NAME =PinkJet Driver
+PROJECT_PLIST =PinkJetInfo
+PROJECT_ENTITLEMENT=RoyoDriverAppRelease

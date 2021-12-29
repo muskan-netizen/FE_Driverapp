@@ -26,6 +26,7 @@ import SmoothPinCodeInput from 'react-native-smooth-pincode-input';
 import fontFamily from '../../../styles/fontFamily';
 import {getItem} from '../../../utils/utils';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {requestUserPermission} from '../../../utils/notificationServices';
 
 export default function PhoneVerification({navigation, route}) {
   const paramData = route?.params?.data;
@@ -38,7 +39,6 @@ export default function PhoneVerification({navigation, route}) {
     otp: '87124',
     otpToShow: '',
     otpPrefilled: false,
-    fcm_token: null,
   });
 
   const {
@@ -49,11 +49,11 @@ export default function PhoneVerification({navigation, route}) {
     otp,
     otpToShow,
     otpPrefilled,
-    fcm_token,
   } = state;
   //   const fontFamily = appStyle?.fontSizeData;
   const {themeColors} = useSelector(state => state?.initBoot);
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
+  const fcmToken = useSelector(state => state?.initBoot?.fcmToken);
 
   //Update states
   const updateState = data => setState(state => ({...state, ...data}));
@@ -83,11 +83,6 @@ export default function PhoneVerification({navigation, route}) {
     }
     return true;
   };
-  useEffect(async () => {
-    let token = await AsyncStorage.getItem('fcmToken');
-    console.log(token, 'token>token>token');
-    updateState({fcm_token: token ? token : DeviceInfo.getDeviceToken()});
-  }, []);
 
   useEffect(() => {
     if (otp && otpPrefilled) {
@@ -97,38 +92,49 @@ export default function PhoneVerification({navigation, route}) {
 
   //Opt input function
   const onOtpInput = code => {
-    (async () => {
-      updateState({
-        isLoading: true,
-        otp: code,
-        otpPrefilled: true,
-      });
-    })();
+    updateState({
+      isLoading: true,
+      otp: code,
+      otpPrefilled: true,
+    });
+
+    // (() => {
+
+    // })();
+    // console.log(code,"123");
+    // if(code?.length == 6){
+    //   console.log(code,"1234");
+    //   verfifyAccount(code);
+    // }
   };
 
-  //Code input
+  // //Code input
   useEffect(() => {
-    otp.length == 6 && verfifyAccount();
+    if (otp.length === 6) {
+      verfifyAccount();
+    }
   }, [otp]);
 
   //VerifyAccount
-  const verfifyAccount = () => {
+  const verfifyAccount = async () => {
     let data = {};
+
     data['phone_number'] = `${paramData?.phone_number}`;
     data['otp'] = otp;
-    data['device_token'] = fcm_token;
+    data['device_token'] = !!fcmToken ? fcmToken : '12345689';
     data['device_type'] = Platform.OS;
-    console.log(data, 'data>data>data');
+
     updateState({isLoading: true});
     actions
       .verifyAccount(data, {client: clientInfo?.database_name})
       .then(res => {
-        console.log(res, 'res loginuser info');
         updateState({isLoading: false});
-        if (res?.data) {
-          showSuccess(strings.ACCOUNTVERIFYSUCESS);
-          moveToNewScreen(navigationStrings.DRAWER_ROUTES)();
-        }
+        // setTimeout(() => {
+        //   if (res?.data) {
+        // showSuccess(strings.ACCOUNTVERIFYSUCESS);
+        moveToNewScreen(navigationStrings.DRAWER_ROUTES)();
+        //   }
+        // }, 50);
       })
       .catch(errorMethod);
   };

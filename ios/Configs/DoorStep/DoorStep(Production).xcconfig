@@ -1,0 +1,9 @@
+#include "Pods/Target Support Files/Pods-DoorStep/Pods-DoorStep.release.xcconfig"
+
+
+PROJECT_BUNDLE_ID = com.DoorStep.Dispatch
+PROJECT_APP_VERSION = 1.0
+PROJECT_BUILD_NUMBER = 9
+PROJECT_APP_NAME =DoorStep Dispatch
+PROJECT_PLIST =DoorStepInfo
+PROJECT_ENTITLEMENT=RoyoDriverAppRelease

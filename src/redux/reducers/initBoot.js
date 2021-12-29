@@ -39,6 +39,7 @@ const initial_state = {
   refreshHomeData: false,
   sessionLogoutUser: false,
   defaultLanguage: {},
+  fcmToken: null,
   //internetConnection: false,
 };
 
@@ -82,6 +83,13 @@ export default function (state = initial_state, action) {
       return {
         ...state,
         defaultLanguage: data,
+      };
+    }
+    case types.FCMTOKEN: {
+      const data = action.payload;
+      return {
+        ...state,
+        fcmToken: data,
       };
     }
 

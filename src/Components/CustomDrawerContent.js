@@ -22,6 +22,7 @@ import {useFocusEffect} from '@react-navigation/native';
 import {cloneDeep} from 'lodash';
 import ScaledImage from 'react-native-scalable-image';
 import DeviceInfo from 'react-native-device-info';
+import ZendeskChat from 'react-native-zendesk-chat';
 
 export default function CustomDrawerContent({
   state,
@@ -68,7 +69,16 @@ export default function CustomDrawerContent({
         image: imagePath.contact2,
         key: navigationStrings.TASKSTACK,
         subRoute: navigationStrings.CONTACTUS,
-        // key: navigationStrings.WALLET,
+        //
+
+        key: navigationStrings.WALLET,
+        // subRoute:navigationStrings.MYPROFILE
+      },
+      {
+        id: 6,
+        label: strings.SUPPORT,
+        image: imagePath.support2,
+        // key: navigationStrings.PROFILESTACK,
         // subRoute:navigationStrings.MYPROFILE
       },
       {
@@ -91,6 +101,8 @@ export default function CustomDrawerContent({
   );
 
   useEffect(() => {
+    ZendeskChat.init('1U5b8ZzYWweRjAkrLDOmLWa6WfCEhlDp');
+
     updateState({
       routes: [
         {
@@ -114,15 +126,15 @@ export default function CustomDrawerContent({
           key: navigationStrings.SETTINGS,
           // subRoute:navigationStrings.MYPROFILE
         },
-        {
-          id: 3,
-          label: strings.WALLET,
-          image: imagePath.wallet,
-          key: navigationStrings.TASKSTACK,
-          subRoute: navigationStrings.WALLET,
-          // key: navigationStrings.WALLET,
-          // subRoute:navigationStrings.MYPROFILE
-        },
+        // {
+        //   id: 3,
+        //   label: strings.WALLET,
+        //   image: imagePath.wallet,
+        //   key: navigationStrings.TASKSTACK,
+        //   subRoute: navigationStrings.WALLET,
+        //   // key: navigationStrings.WALLET,
+        //   // subRoute:navigationStrings.MYPROFILE
+        // },
         {
           id: 4,
           label: strings.CONTACT,
@@ -130,6 +142,14 @@ export default function CustomDrawerContent({
           key: navigationStrings.TASKSTACK,
           subRoute: navigationStrings.CONTACTUS,
           // key: navigationStrings.WALLET,
+          // subRoute:navigationStrings.MYPROFILE
+        },
+        {
+          id: 6,
+          label: strings.SUPPORT,
+          support: true,
+          image: imagePath.support2,
+          // key: navigationStrings.PROFILESTACK,
           // subRoute:navigationStrings.MYPROFILE
         },
         {
@@ -229,6 +249,12 @@ export default function CustomDrawerContent({
               } else {
                 navigation.navigate(route.key);
               }
+            } else if (route?.support) {
+              ZendeskChat.startChat({
+                name: 'Dinesh',
+                email: 'dkdenni07@gmail.com',
+                phone: '9832421234',
+              });
             } else {
               onLogoutPress();
             }
@@ -251,18 +277,23 @@ export default function CustomDrawerContent({
                   alignItems: 'center',
                 }}>
                 {/* {options.drawerIcon({focused: isFocused})} */}
-                <Image source={route.image} />
-                <Text
-                  style={{
-                    paddingLeft: moderateScale(20),
-                    paddingRight: 0,
-                    fontSize: textScale(15),
-                    fontFamily: fontFamily?.regular,
-                    ...props.labelStyle,
-                    color: colors.black,
-                  }}>
-                  {label}
-                </Text>
+                <View style={{flex: 0.15}}>
+                  <Image source={route.image} />
+                </View>
+
+                <View style={{flex: 0.85}}>
+                  <Text
+                    style={{
+                      // paddingLeft: moderateScale(5),
+                      paddingRight: 0,
+                      fontSize: textScale(15),
+                      fontFamily: fontFamily?.regular,
+                      ...props.labelStyle,
+                      color: colors.black,
+                    }}>
+                    {label}
+                  </Text>
+                </View>
               </TouchableOpacity>
             </Fragment>
           );

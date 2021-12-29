@@ -30,10 +30,7 @@ export default function Settings({route, navigation}) {
   const defaultLanguagae = useSelector(
     state => state?.initBoot?.defaultLanguage,
   );
-  console.log(
-    defaultLanguagae,
-    'defaultLanguagaedefaultLanguagaedefaultLanguagae',
-  );
+  
 
   const styles = stylesFunc({defaultLanguagae});
   const [state, setState] = useState({
@@ -59,11 +56,27 @@ export default function Settings({route, navigation}) {
       //   label: 'German',
       //   value: 'de',
       // },
-      // {
-      //   id: 5,
-      //   label: 'French',
-      //   value: 'fr',
-      // },
+      {
+        id: 5,
+        label: 'French',
+        value: 'fr',
+      },
+      {
+        id: 6,
+        label: 'Chinese',
+        value: 'zh',
+      },
+      {
+        id: 7,
+        label: 'Russian',
+        value: 'Ru',
+      },
+      {
+        id: 8,
+        label: 'Portuguese - (Brazil)',
+        value: 'ptBr',
+      },
+    
     ],
     selectedLangauge: defaultLanguagae?.label
       ? defaultLanguagae
@@ -102,10 +115,11 @@ export default function Settings({route, navigation}) {
     if (type === 'ok') {
       updateState({isLoading: true});
       setTimeout(() => {
-        showSuccess(strings.LANGUAGECHANGED)
+      
         changeLaguage(selectedLangauge?.value);
         actions.setDefaultLanguage(selectedLangauge);
         updateState({isLoading: false});
+        showSuccess(strings.LANGUAGECHANGED)
       }, 2000);
 
       // RNRestart.Restart();

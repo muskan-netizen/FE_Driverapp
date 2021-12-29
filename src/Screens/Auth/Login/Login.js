@@ -1,5 +1,13 @@
 import React, {useEffect, useState} from 'react';
-import {Platform, View, Image, BackHandler, Text} from 'react-native';
+import {
+  Platform,
+  View,
+  Image,
+  BackHandler,
+  Text,
+  Linking,
+  Alert,
+} from 'react-native';
 import DeviceInfo, {getBundleId} from 'react-native-device-info';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {useSelector} from 'react-redux';
@@ -25,10 +33,12 @@ import ScaledImage from 'react-native-scalable-image';
 import {appIds} from '../../../utils/constants/DynamicAppKeys';
 import Header from '../../../Components/Header';
 import {TouchableOpacity} from 'react-native';
+import {requestUserPermission} from '../../../utils/notificationServices';
 
 export default function Login({navigation, route}) {
   const paramData = route?.params?.data;
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
+  const fcmToken = useSelector(state => state?.initBoot?.fcmToken);
   console.log(clientInfo, 'clientInfo>clientInfo');
   console.log(paramData, 'paramData>paramData');
   const [state, setState] = useState({
@@ -59,6 +69,7 @@ export default function Login({navigation, route}) {
   const defaultLanguagae = useSelector(
     state => state?.initBoot?.defaultLanguage,
   );
+
   //Styles in app
   const styles = stylesFunc({defaultLanguagae});
 
@@ -96,27 +107,38 @@ export default function Login({navigation, route}) {
     return true;
   };
 
-  //Login api fucntion
+  // const _alert = () => {
+  //   Alert.alert(strings.notificationAlertTitle, strings.notificationAlert, [
+  //     {
+  //       text: strings.CANCEL,
+  //       onPress: () => console.log('Cancel Pressed'),
+  //       style: 'cancel',
+  //     },
+  //     {text: strings.visitSetting, onPress: () => Linking.openSettings()},
+  //   ]);
+  // };
+
   const _onLogin = () => {
+    // requestUserPermission(login, _alert);
+
     const checkValid = isValidData();
-    if (!checkValid) {
-      return;
+    if (checkValid) {
+      let data = {};
+      data['phone_number'] = `+${callingCode}${phoneNumber}`;
+      // actions.sessionLogoutUser(false);
+      updateState({isLoading: true});
+      actions
+        .login(data, {client: clientInfo?.database_name})
+        .then(res => {
+          console.log(res, 'login data');
+          updateState({isLoading: false});
+          if (res?.data) {
+            showSuccess(strings.OTPSENDSUCCESS);
+            moveToNewScreen(navigationStrings.SEND_OTP, res?.data)();
+          }
+        })
+        .catch(errorMethod);
     }
-    let data = {};
-    data['phone_number'] = `+${callingCode}${phoneNumber}`;
-    // actions.sessionLogoutUser(false);
-    updateState({isLoading: true});
-    actions
-      .login(data, {client: clientInfo?.database_name})
-      .then(res => {
-        console.log(res, 'login data');
-        updateState({isLoading: false});
-        if (res?.data) {
-          showSuccess(strings.OTPSENDSUCCESS);
-          moveToNewScreen(navigationStrings.SEND_OTP, res?.data)();
-        }
-      })
-      .catch(errorMethod);
   };
 
   //Error handling in api
@@ -191,14 +213,15 @@ export default function Login({navigation, route}) {
                 color={colors.black}
                 borderColor={colors.themeColor}
                 callingCodeTextStyle={styles.callingCodeTextStyle}
-
                 // color={isDarkMode ? MyDarkTheme.colors.text : null}
               />
             </View>
 
             <GradientButton
               containerStyle={{marginTop: moderateScaleVertical(40)}}
-              onPress={_onLogin}
+              onPress={() => {
+                _onLogin();
+              }}
               textStyle={{color: colors.black}}
               btnText={strings.LOGIN}
               colorsArray={[colors.themeColor, colors.themeColor]}

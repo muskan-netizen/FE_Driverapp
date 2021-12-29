@@ -1,6 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {FlatList, NativeModules} from 'react-native';
-import {cloneDeep, debounce} from 'lodash';
+import {FlatList, Linking, NativeModules, Text} from 'react-native';
+import {cloneDeep, debounce, invert} from 'lodash';
 import {Image, Switch, View, RefreshControl, BackHandler} from 'react-native';
 import {useSelector} from 'react-redux';
 import Header from '../../Components/Header';
@@ -13,9 +13,16 @@ import actions from '../../redux/actions';
 import colors from '../../styles/colors';
 import commonStylesFunc from '../../styles/commonStyles';
 import fontFamily from '../../styles/fontFamily';
-import {moderateScaleVertical, width} from '../../styles/responsiveSize';
+import {
+  moderateScale,
+  moderateScaleVertical,
+  width,
+} from '../../styles/responsiveSize';
 import TaskListCard from '../../Components/TaskListCard';
-import {showError} from '../../utils/helperFunctions';
+import {
+  getColorCodeWithOpactiyNumber,
+  showError,
+} from '../../utils/helperFunctions';
 import ListEmptyComponent from '../../Components/ListEmptyComponent';
 import strings from '../../constants/lang';
 import MapView from 'react-native-maps'; // remove PROVIDER_GOOGLE import if not using Google Maps
@@ -31,10 +38,12 @@ import moment from 'moment';
 import {chekLocationPermission} from '../../utils/permissions';
 navigator.geolocation = require('react-native-geolocation-service');
 import Geocoder from 'react-native-geocoding';
+import {requestUserPermission} from '../../utils/notificationServices';
+// import BackgroundTimer from 'react-native-background-timer';
 
 export default function DashBoard({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
-  console.log(userData, 'userData');
+
   const [state, setState] = useState({
     isLoading: false,
     isEnabled: userData && userData?.is_available ? true : false,
@@ -67,6 +76,8 @@ export default function DashBoard({route, navigation}) {
     statusChanged: false,
     longitude: null,
     latitude: null,
+    isWarningAlert: false,
+    warningStatus: false,
   });
   const {
     longitude,
@@ -87,29 +98,41 @@ export default function DashBoard({route, navigation}) {
     isLoadingSwitch,
     fcm_token,
     statusChanged,
+    isWarningAlert,
+    warningStatus,
   } = state;
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
   const sessionLogoutUser = useSelector(
     state => state?.initBoot?.sessionLogoutUser,
   );
-  console.log(sessionLogoutUser, 'sessionLogoutUser');
   const refreshHomeData = useSelector(
     state => state?.initBoot?.refreshHomeData,
   );
   const defaultLanguagae = useSelector(
     state => state?.initBoot?.defaultLanguage,
   );
+  const fcmToken = useSelector(state => state?.initBoot?.fcmToken);
 
   useEffect(() => {
     (async () => {
       currentLocation();
       updateState({
-        fcm_token: await AsyncStorage.getItem('fcmToken'),
+        fcm_token: fcmToken,
       });
     })();
     return () => {};
   }, []);
 
+  // useEffect(() => {
+  //     BackgroundTimer.runBackgroundTimer(() => {
+  //       console.log('this is background');
+  //       Vibration.vibrate(2000);
+  //       //code that will be called every 3 seconds
+  //     }, 3000);
+  //     //rest of code will be performing for iOS on background too
+
+  // BackgroundTimer.stopBackgroundTimer();
+  //   }, []);
   useEffect(() => {
     const backHandler = BackHandler.addEventListener(
       'hardwareBackPress',
@@ -168,13 +191,14 @@ export default function DashBoard({route, navigation}) {
           // data['current_speed'] = 'y';
           data['long'] = longitude;
           data['lat'] = latitude;
+          data['device_token'] = !!fcmToken ? fcmToken : '';
           // console.log(data, 'data>data');
-          //   console.log(data, 'data');
+          console.log(longitude, 'sending data data', latitude);
           actions
             .logsApi(data, {client: clientInfo?.database_name})
             .then(res => {
               // console.log(userData, 'userData');
-              // console.log(res, 'log api response');
+
               if (selectedOption == 1) {
                 updateState({allTasks: res?.data?.tasks});
               } else {
@@ -221,6 +245,7 @@ export default function DashBoard({route, navigation}) {
       .then(res => {
         actions.updateHomepage(false);
         // updateState({isRefreshing: false});
+        console.log(res, 'allTasksallTasks');
         if (selectedOption) {
           updateState({
             allTasks: res?.data,
@@ -333,7 +358,9 @@ export default function DashBoard({route, navigation}) {
     console.log('Here it is', item);
     moveToNewScreen(navigationStrings.TASKDETAIL, {item: item})();
   };
-
+  const _onPressTaskDetails = item => {
+    moveToNewScreen(navigationStrings.ORDERDETAIL, {item: item})();
+  };
   const renderTaskList = ({item, index}) => {
     let allData = selectedOption ? allTasks : todaysTasks;
 
@@ -344,6 +371,7 @@ export default function DashBoard({route, navigation}) {
         previousData={index > 0 ? allData[index - 1] : null}
         allTasks={allData}
         _onPressTask={() => _onPressTask(item)}
+        _onPressTaskDetails={() => _onPressTaskDetails(item)}
       />
     );
   };
@@ -437,6 +465,25 @@ export default function DashBoard({route, navigation}) {
   useEffect(() => {
     fitToMap();
   }, [markers, enableMap]);
+
+  //show warrning
+
+  const _onOpenSettings = () => {
+    Linking.openSettings();
+  };
+
+  const toggleWarning = state => updateState({isWarningAlert: state});
+  useEffect(() => {
+    const interval = setInterval(() => {
+      requestUserPermission(toggleWarning);
+    }, 1000);
+    if (!isWarningAlert && interval && (fcmToken || warningStatus))
+      clearInterval(interval);
+    updateState({warningStatus: 1});
+    return () => {
+      if (interval) clearInterval(interval);
+    };
+  }, [isWarningAlert]);
 
   const offDutyView = () => {
     return (
@@ -540,6 +587,56 @@ export default function DashBoard({route, navigation}) {
         }}
       />
       <View style={{...commonStyles.headerTopLine}} />
+      {isWarningAlert && (
+        <View
+          style={{
+            backgroundColor: colors.lightRed,
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            paddingHorizontal: moderateScale(10),
+          }}>
+          <View style={{width: width / 2.2, justifyContent: 'center'}}>
+            <Text style={{color: colors.white, fontFamily: fontFamily.regular}}>
+              {strings.notificationAlert}
+            </Text>
+          </View>
+          <View
+            style={{
+              justifyContent: 'space-between',
+              width: width / 2.5,
+              alignItems: 'center',
+              flexDirection: 'row',
+              marginVertical: moderateScaleVertical(5),
+              paddingVertical: moderateScaleVertical(10),
+            }}>
+            <TouchableOpacity
+              style={{
+                backgroundColor: colors.themeColor,
+                alignItems: 'center',
+                marginVertical: moderateScaleVertical(10),
+                paddingVertical: moderateScaleVertical(5),
+                paddingHorizontal: moderateScale(10),
+                borderRadius: 8,
+              }}
+              onPress={() => toggleWarning(false)}>
+              <Text style={{color: colors.white}}>Cancel</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={{
+                backgroundColor: colors.themeColor,
+                alignItems: 'center',
+                marginVertical: moderateScaleVertical(10),
+                paddingVertical: moderateScaleVertical(5),
+                paddingHorizontal: moderateScale(10),
+                borderRadius: 8,
+              }}
+              onPress={() => _onOpenSettings()}>
+              <Text style={{color: colors.white}}>Enable</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      )}
+
       <View
         style={{
           justifyContent: 'center',

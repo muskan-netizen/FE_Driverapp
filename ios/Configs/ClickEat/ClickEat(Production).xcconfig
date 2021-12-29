@@ -1,0 +1,8 @@
+#include "Pods/Target Support Files/Pods-ClickEat/Pods-ClickEat.release.xcconfig"
+
+PROJECT_BUNDLE_ID = com.ClickEat.Dispatch
+PROJECT_APP_VERSION = 1.0
+PROJECT_BUILD_NUMBER = 6
+PROJECT_APP_NAME =Click-Eat Driver
+PROJECT_PLIST =ClickEatInfo
+PROJECT_ENTITLEMENT=RoyoDriverAppRelease

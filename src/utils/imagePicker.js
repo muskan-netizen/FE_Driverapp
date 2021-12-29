@@ -30,7 +30,7 @@ const openCamera = options => {
     height: 400,
     cropping: true,
     includeBase64: true,
-    cropperCircleOverlay: options.cropperCircleOverlay,
+    
   })
     .then(image => {
       return image;

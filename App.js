@@ -23,7 +23,6 @@ import ShowNotificationForeground from './src/utils/ShowNotificationForeground';
 import NotificationModal from './src/Components/NotificationModal';
 import strings from './src/constants/lang';
 import PushNotification from 'react-native-push-notification';
-
 const App = () => {
   const [internetConnection, setInternet] = useState(true);
 
@@ -34,11 +33,14 @@ const App = () => {
   useEffect(() => {
     notificationConfig();
     checkExistChannel();
-    //stop splahs screen from loading
     setTimeout(() => {
       SplashScreen.hide();
     }, 1500);
   }, []);
+
+  //rest of code will be performing for iOS on background too
+
+  // BackgroundTimer.stopBackgroundTimer();
 
   const checkExistChannel = () => {
     PushNotification.getChannels(function (channel_ids) {
@@ -52,7 +54,7 @@ const App = () => {
 
       const userData = await getUserData();
       const defaultLanguage = await getItem('defaultLanguage');
-      console.log(userData, 'userData');
+      console.log(userData, 'userdata in app.js');
       // if (userData && !!userData?.access_token) {
       //   notificationConfig();
       // }

@@ -25,6 +25,7 @@ const TaskListCard = ({
   _onPressTask = () => {},
   showCurrency = false,
   previousData = null,
+  _onPressTaskDetails = () => {},
 }) => {
   //Get Date
   const defaultLanguagae = useSelector(
@@ -37,6 +38,8 @@ const TaskListCard = ({
 
     return local;
   };
+
+  console.log(data, 'datadata');
 
   //get BackGroundColor
   const getBackGroudColor = name => {
@@ -118,6 +121,7 @@ const TaskListCard = ({
           <Text style={styles.address} numberOfLines={2}>
             {data?.location?.address}
           </Text>
+
           <View style={styles.dateContainer}>
             <Image source={imagePath.time} />
             <Text style={styles.dateTimeStyle}>
@@ -127,7 +131,7 @@ const TaskListCard = ({
 
           {!!showCurrency && (
             <View style={styles.currencyContainer}>
-              <Image source={imagePath.dollor} />
+              {/* <Image source={imagePath.dollor} /> */}
               <Text style={styles.dateTimeStyle}>
                 {data?.order?.amount
                   ? Number(data?.order?.amount).toFixed(2)
@@ -136,7 +140,14 @@ const TaskListCard = ({
             </View>
           )}
         </View>
+
         <View style={styles.dotViewStyle}>
+          {data?.order?.call_back_url && (
+            <TouchableOpacity onPress={_onPressTaskDetails}>
+              <Image source={imagePath.expand} />
+            </TouchableOpacity>
+          )}
+
           <View style={styles.dotBaseViewStyle} />
           <View
             style={[
@@ -215,7 +226,6 @@ export function stylesFunc({defaultLanguagae}) {
       flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
       marginTop: moderateScale(5),
     },
-
     dotViewStyle: {
       flex: 0.4,
       alignItems: defaultLanguagae?.value === 'ar' ? 'flex-start' : 'flex-end',
@@ -227,6 +237,7 @@ export function stylesFunc({defaultLanguagae}) {
       height: moderateScale(10),
       width: moderateScale(10),
       borderRadius: moderateScale(10 / 2),
+      marginTop: moderateScaleVertical(10),
     },
     taskTypeName: {
       textAlign: 'center',
