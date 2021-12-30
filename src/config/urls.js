@@ -2,7 +2,8 @@
 //export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://dispatch.hemptify.com/';
 
 // export const API_BASE_URL = 'http://192.168.103.73:8006/'; // preet local url
 
@@ -50,16 +51,21 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // destinationops app domain
 //export const API_BASE_URL = 'https://dispatch.destinationops.com/';
-// somame
+
+// somame live domain
 // export const API_BASE_URL = 'https://dispatch.somame-247.com/'
-// codiner
+
+// codiner live domain
 // export const API_BASE_URL = 'https://dispatch.codiner.com/'
 
-// codiner domain
+// codiner live domain
 //export const API_BASE_URL = 'https://dispatch.codiner.com/';
 
 // runrun live domain
 //export const API_BASE_URL = 'https://dispatcher.runrun.ae/';
+
+// drivree live domain
+//export const API_BASE_URL = 'https://dispatcher.drivereeshops.com/';
 
 export const personaltoken = 'TMJdbQlNWkYl1JzMONzRgF4zQFuP8s';
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;

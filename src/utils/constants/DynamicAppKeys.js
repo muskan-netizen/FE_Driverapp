@@ -164,7 +164,7 @@ const appIds = {
   }),
   hemptify: Platform.select({
     ios: 'com.HemptyFy.Dispatch',
-    android: 'com.HemptiFy.royodispatcher',
+    android: 'com.App.HemptiFy.royodispatcher',
   }),
   goody: Platform.select({
     ios: 'com.Goody.Dispatch',

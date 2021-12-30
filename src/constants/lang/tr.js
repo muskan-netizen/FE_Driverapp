@@ -214,4 +214,8 @@ export default {
   CREATED: 'Created',
   FAILD: 'Faild',
   PLEASE_UPLOAD: 'Please upload',
+  ENABLE: 'Enable',
+  A_TEAM: 'a team',
+  ONE_TAG: 'atleast one tag',
+  HOLDTOPICK: 'Hold to Pick',
 };
