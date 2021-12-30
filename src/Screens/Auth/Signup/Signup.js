@@ -946,6 +946,8 @@ export default function Signup({route, navigation}) {
                 alwaysBounceHorizontal={false}
                 style={styles.transporationOuterContainer}>
                 {allTransportation.map((i, inx) => {
+                  if (savedShortCode === shortCodes.drus && inx == 0) return;
+
                   return (
                     <TouchableOpacity
                       style={[
