@@ -2,7 +2,7 @@
 // export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // export const API_BASE_URL = 'http://192.168.103.73:8006/'; // preet local url
 
@@ -59,7 +59,7 @@
 // codiner domain
 // export const API_BASE_URL = 'https://dispatch.codiner.com/';
 // halalhmc
-export const API_BASE_URL = 'https://dispatcher.halalhmc.org/'
+// export const API_BASE_URL = 'https://dispatcher.halalhmc.org/'
 // tranznet online
 // export const API_BASE_URL = 'https://dispatcher.tranzonline.com/'
 // runrun live domain

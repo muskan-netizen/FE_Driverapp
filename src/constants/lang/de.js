@@ -215,4 +215,5 @@ export default {
   A_TEAM: 'a team',
   ONE_TAG: 'atleast one tag',
   HOLDTOPICK: 'Hold to Pick',
+  SPECIAL_INSTRUCTIONS:'Special Instructions'
 };

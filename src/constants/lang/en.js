@@ -219,4 +219,5 @@ export default {
   HOLDTOPICK: 'Hold to Pick',
   COMPELETED: 'Compeleted',
   CANCELLED: 'Cancelled',
+  SPECIAL_INSTRUCTIONS:'Special Instructions'
 };
