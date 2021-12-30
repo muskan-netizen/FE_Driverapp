@@ -57,10 +57,7 @@
 // export const API_BASE_URL = 'https://dispatch.somame-247.com/'
 
 // codiner live domain
-// export const API_BASE_URL = 'https://dispatch.codiner.com/'
-
-// codiner live domain
-//export const API_BASE_URL = 'https://dispatch.codiner.com/';
+export const API_BASE_URL = 'https://dispatch.codiner.com/';
 
 // runrun live domain
 //export const API_BASE_URL = 'https://dispatcher.runrun.ae/';
@@ -69,7 +66,7 @@
 //export const API_BASE_URL = 'https://dispatcher.drivereeshops.com/';
 
 // helpNowRightNow live domain
-export const API_BASE_URL = 'https://dispatch.helpnowrightnow.com/';
+//export const API_BASE_URL = 'https://dispatch.helpnowrightnow.com/';
 
 // tranzit live domain
 //export const API_BASE_URL = 'https://dispatch.tranzit.app/';
