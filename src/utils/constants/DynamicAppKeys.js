@@ -62,7 +62,7 @@ const shortCodes = {
   instaShop: '0cab0a',
   helpNowRightNow: '0e7801',
   agriOnline: '3ae391',
-  clickeat: '5a90a2',
+  clickeat: '954012',
   tranzet: 'b35edf',
   grub: 'b68843',
   punnet: '87444d',
@@ -134,6 +134,16 @@ const shortCodes = {
   safewalks: '115676',
   empire: '19a7a3',
   dimaVega: 'dbf5ee',
+  skoop: 'd12ef6',
+  pickmeup: '5be38e',
+  kudhyo: 'b9dd3e',
+  bharatMove: '7b5803',
+  sofia: '26be15',
+  mml: 'ebd37d',
+  bimol: 'b9fe53',
+  tripTCI: '5a79f3',
+  vendoor: 'e96e85',
+  pinkyDeli: 'dd8c06',
 };
 
 // Goody Dispatch
@@ -216,7 +226,7 @@ const appIds = {
   }),
   checkout: Platform.select({
     ios: 'com.orderchekoutIosApp.driver',
-    android: 'com.orderchekout.driver.android1',
+    android: 'com.orderchekout.Dispatcher',
   }),
   noki: Platform.select({
     ios: 'com.noki.royodispatcher',
@@ -666,6 +676,46 @@ const appIds = {
   dimaVega: Platform.select({
     ios: 'com.DimaVega.Dispatch',
     android: 'com.DimaVega.royodispatcher',
+  }),
+  skoop: Platform.select({
+    ios: 'com.Skoop.Dispatch',
+    android: 'com.Skoop.royodispatcher',
+  }),
+  pickmeup: Platform.select({
+    ios: 'com.PickMeUp.Dispatch',
+    android: 'com.Pickmeup.royodispatcher',
+  }),
+  kudhyo: Platform.select({
+    ios: 'com.Kudhyo.Dispatch',
+    android: 'com.Kudhyo.royodispatcher',
+  }),
+  bharatMove: Platform.select({
+    ios: 'com.BharatMove.Dispatch',
+    android: 'com.BharatMove.royodispatcher',
+  }),
+  sofia: Platform.select({
+    ios: 'com.Sofia.Dispatch',
+    android: 'com.Sofia.royodispatcher',
+  }),
+  mml: Platform.select({
+    ios: 'com.MML.Dispatch',
+    android: 'com.MML.royodispatcher',
+  }),
+  bimol: Platform.select({
+    ios: 'com.Bimol.Dispatch',
+    android: 'com.Bimol.royodispatcher',
+  }),
+  tripTCI: Platform.select({
+    ios: 'com.TripTCI.Dispatch',
+    android: 'com.TripTCI.royodispatcher',
+  }),
+  vendoor: Platform.select({
+    ios: 'com.Vendoor.Dispatch',
+    android: 'com.Vendoor.royodispatcher',
+  }),
+  pinkyDeli: Platform.select({
+    ios: 'com.PinkyDeli.Dispatch',
+    android: 'com.PinkyDeli.royodispatcher',
   }),
 };
 

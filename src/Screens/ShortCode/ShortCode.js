@@ -874,6 +874,67 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.skoop:
+          updateState({
+            shortCode: shortCodes.skoop,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.pickmeup:
+          updateState({
+            shortCode: shortCodes.pickmeup,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.kudhyo:
+          updateState({
+            shortCode: shortCodes.kudhyo,
+            isShortcodePrefilled: true,
+          });
+          break;
+
+        case appIds.bharatMove:
+          updateState({
+            shortCode: shortCodes.bharatMove,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.mml:
+          updateState({
+            shortCode: shortCodes.mml,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.sofia:
+          updateState({
+            shortCode: shortCodes.sofia,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.bimol:
+          updateState({
+            shortCode: shortCodes.bimol,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.tripTCI:
+          updateState({
+            shortCode: shortCodes.tripTCI,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.vendoor:
+          updateState({
+            shortCode: shortCodes.vendoor,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.pinkyDeli:
+          updateState({
+            shortCode: shortCodes.pinkyDeli,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);
