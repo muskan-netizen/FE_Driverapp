@@ -26,6 +26,7 @@ const TaskListCard = ({
   _onPressTask = () => {},
   showCurrency = false,
   previousData = null,
+  isFromHistory = false,
 }) => {
   //Get Date
   const defaultLanguagae = useSelector(
@@ -108,7 +109,11 @@ const TaskListCard = ({
       onPress={_onPressTask}>
       <View
         opacity={getDynamicUpdateOnValues().blur}
-        style={[styles.shadowStyle]}>
+        style={{
+          ...styles.shadowStyle,
+          marginBottom:
+            allTasks[index]?.order.id == allTasks[index + 1]?.order.id ? 1 : 20,
+        }}>
         <View
           style={[
             styles.borderLine,
@@ -142,7 +147,38 @@ const TaskListCard = ({
         </View>
 
         <View style={styles.dotViewStyle}>
-          <View style={styles.dotBaseViewStyle} />
+          {isFromHistory ? (
+            <View
+              style={{
+                paddingVertical: moderateScale(2),
+                paddingHorizontal: moderateScale(2),
+                backgroundColor:
+                  data?.task_status == '4' ? colors.greenLight : colors.redB,
+                borderRadius: moderateScale(5),
+              }}>
+              <Text
+                style={{
+                  fontFamily: fontFamily.regular,
+                  fontSize: textScale(8),
+                  color: colors.white,
+                }}>
+                {data?.task_status == '4'
+                  ? strings.COMPELETED
+                  : strings.CANCELLED}
+              </Text>
+            </View>
+          ) : (
+            <></>
+          )}
+          <View
+            style={{
+              ...styles.dotBaseViewStyle,
+              backgroundColor:
+                isFromHistory && data?.task_status == '4'
+                  ? colors.green
+                  : colors.redB,
+            }}
+          />
           <View
             style={[
               styles.statusView,
@@ -184,7 +220,6 @@ export function stylesFunc({defaultLanguagae}) {
       marginHorizontal: moderateScale(10),
       borderColor: colors.grey2,
       borderRadius: 8,
-      marginVertical: 5,
       backgroundColor: colors.white,
       height: moderateScaleVertical(100),
       ...generateBoxShadowStyle(-2, 4, '#171717', 0.2, 3, 4, '#171717'),

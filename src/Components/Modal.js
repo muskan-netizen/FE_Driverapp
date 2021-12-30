@@ -23,12 +23,13 @@ export default function ModalView({
   modalBottomContent = () => {},
   mainViewStyle = {},
   topCustomComponent = () => {},
+  onClose1 = () => {},
 }) {
   return (
     <Modal
       isVisible={isVisible}
       onBackButtonPress={onClose}
-      onBackdropPress={onClose}
+      onBackdropPress={onClose1}
       backdropTransitionInTiming={transistionIn}
       backdropTransitionInTiming={transistionOut}
       style={[styles.modalStyle, modalStyle]}>

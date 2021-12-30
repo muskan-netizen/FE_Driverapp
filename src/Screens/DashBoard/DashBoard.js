@@ -245,8 +245,8 @@ export default function DashBoard({route, navigation}) {
     () => fetchgentLogs(),
     userData && userData?.access_token
       ? userData?.team?.location_frequency
-        ? Number(userData?.team?.location_frequency) * 20000
-        : 20000
+        ? Number(userData?.team?.location_frequency) * 60000
+        : 60000
       : null,
   );
 
@@ -650,7 +650,7 @@ export default function DashBoard({route, navigation}) {
                 borderRadius: 8,
               }}
               onPress={() => toggleWarning(false)}>
-              <Text style={{color: colors.white}}>Cancel</Text>
+              <Text style={{color: colors.white}}>{strings.CANCEL}</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={{
@@ -662,7 +662,7 @@ export default function DashBoard({route, navigation}) {
                 borderRadius: 8,
               }}
               onPress={() => _onOpenSettings()}>
-              <Text style={{color: colors.white}}>Enable</Text>
+              <Text style={{color: colors.white}}>{strings.ENABLE}</Text>
             </TouchableOpacity>
           </View>
         </View>

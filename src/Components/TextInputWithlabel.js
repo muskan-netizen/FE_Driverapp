@@ -33,12 +33,13 @@ const TextInputWithlabel = ({
   editable = false,
   mainStyle = {},
   keyboardType = 'default',
+  onTouchStart = () => {},
   ...props
 }) => {
   const inputRef = useRef();
 
   return (
-    <View style={{...mainStyle}}>
+    <View style={{...mainStyle}} onTouchStart={onTouchStart}>
       <View>
         <Text style={[styles.label, labelStyle]}>{label}</Text>
       </View>
