@@ -874,6 +874,12 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.dummyDispatcher:
+          updateState({
+            shortCode: shortCodes.dummyDispatcher,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);

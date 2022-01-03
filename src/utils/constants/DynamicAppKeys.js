@@ -134,6 +134,7 @@ const shortCodes = {
   safewalks: '115676',
   empire: '19a7a3',
   dimaVega: 'dbf5ee',
+  dummyDispatcher: '2f0c03',
 };
 
 // Goody Dispatch
@@ -666,6 +667,10 @@ const appIds = {
   dimaVega: Platform.select({
     ios: 'com.DimaVega.Dispatch',
     android: 'com.DimaVega.royodispatcher',
+  }),
+  dummyDispatcher: Platform.select({
+    ios: 'com.dummyDispatcher.Dispatch',
+    android: 'com.dummyDispatcher.royodispatcher',
   }),
 };
 

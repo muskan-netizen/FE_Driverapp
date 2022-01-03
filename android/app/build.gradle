@@ -1576,6 +1576,17 @@ android {
             resValue "string", "app_name", "Dima Vega Dispatch"
            
         }
+          dummyDispatcher{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.dummyDispatcher.royodispatcher'
+            resValue "string", "app_name", "Dummy Dispatcher"
+           
+        }
     }
 }
 

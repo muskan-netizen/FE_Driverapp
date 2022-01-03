@@ -267,6 +267,8 @@
     "empiredispatcherRelease": "cd android && ./gradlew assembleEmpireRelease",
     "dimaVegadispatcher": "react-native run-android --variant=dimaVegaDebug",
     "dimaVegadispatcherRelease": "cd android && ./gradlew assembleDimaVegaRelease",
+    "dummydispatcher": "react-native run-android --variant=dummyDispatcherDebug",
+    "dummydispatcherRelease": "cd android && ./gradlew assembleDummyDispatcherRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
