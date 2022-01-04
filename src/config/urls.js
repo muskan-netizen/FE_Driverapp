@@ -5,7 +5,6 @@
 export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // export const API_BASE_URL = 'http://192.168.103.73:8006/'; // preet local url
-
 // fleety staging domain
 //export const API_BASE_URL = 'https://fleety.rdstaging.com/';
 
@@ -29,7 +28,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // africanize
 // export const API_BASE_URL = 'https://dispatch.africanize.co/'
 // orderchekout
- //export const API_BASE_URL = 'https://dispatch.orderchekout.com/';
+//export const API_BASE_URL = 'https://dispatch.orderchekout.com/';
 // carroi
 // export const API_BASE_URL = 'https://carroi.rdstaging.com/';
 // hairstonexpressgo
@@ -54,6 +53,10 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // somame live domain
 // export const API_BASE_URL = 'https://dispatch.somame-247.com/'
+
+// codiner live domain
+//export const API_BASE_URL = 'https://dispatch.codiner.com/';
+
 // click-eat
 // export const API_BASE_URL = 'https://dispatcher.click-eat.com/'
 // codiner domain
@@ -73,6 +76,8 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // tranzit live domain
 //export const API_BASE_URL = 'https://dispatch.tranzit.app/';
+// africanvillage
+// export const API_BASE_URL = 'https://dispatch.africanvillage.market/'
 
 export const personaltoken = 'TMJdbQlNWkYl1JzMONzRgF4zQFuP8s';
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;

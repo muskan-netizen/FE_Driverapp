@@ -874,6 +874,12 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.dummyDispatcher:
+          updateState({
+            shortCode: shortCodes.dummyDispatcher,
+            isShortcodePrefilled: true,
+          });
+          break;
         case appIds.skoop:
           updateState({
             shortCode: shortCodes.skoop,
@@ -932,6 +938,24 @@ export default function ShortCode({route, navigation}) {
         case appIds.pinkyDeli:
           updateState({
             shortCode: shortCodes.pinkyDeli,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.releezer:
+          updateState({
+            shortCode: shortCodes.releezer,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.vendorSpot:
+          updateState({
+            shortCode: shortCodes.vendorSpot,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.SXM2GO:
+          updateState({
+            shortCode: shortCodes.SXM2GO,
             isShortcodePrefilled: true,
           });
           break;
