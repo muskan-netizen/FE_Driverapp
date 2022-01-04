@@ -1,11 +1,10 @@
 //live
-export const API_BASE_URL = 'https://api.royodispatch.com/';
+// export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-//export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // export const API_BASE_URL = 'http://192.168.103.73:8006/'; // preet local url
-
 // fleety staging domain
 //export const API_BASE_URL = 'https://fleety.rdstaging.com/';
 
@@ -13,7 +12,7 @@ export const API_BASE_URL = 'https://api.royodispatch.com/';
 //export const API_BASE_URL = 'https://carroi.rostaging.com/';
 
 //tranzit app domain
-//export const API_BASE_URL = 'https://dispatch.tranzit.app/';
+// export const API_BASE_URL = 'https://dispatch.tranzit.app/';
 
 //klickmat/snabbhem app domain
 // export const API_BASE_URL = 'https://delivery.snabbhem.se/';
@@ -22,7 +21,6 @@ export const API_BASE_URL = 'https://api.royodispatch.com/';
 //export const API_BASE_URL = 'https://dispatch.pinkjettaxi.com/';
 // Yoho
 // export const API_BASE_URL = 'https://dispatch.yohopartner.com/';
-
 // cannabusxpress
 // export const API_BASE_URL = 'https://dispatch.cannabusxpress.com/'
 // govachow
@@ -59,6 +57,14 @@ export const API_BASE_URL = 'https://api.royodispatch.com/';
 // codiner live domain
 //export const API_BASE_URL = 'https://dispatch.codiner.com/';
 
+// click-eat
+// export const API_BASE_URL = 'https://dispatcher.click-eat.com/'
+// codiner domain
+// export const API_BASE_URL = 'https://dispatch.codiner.com/';
+// halalhmc
+// export const API_BASE_URL = 'https://dispatcher.halalhmc.org/'
+// tranznet online
+// export const API_BASE_URL = 'https://dispatcher.tranzonline.com/'
 // runrun live domain
 //export const API_BASE_URL = 'https://dispatcher.runrun.ae/';
 

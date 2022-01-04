@@ -1,0 +1,9 @@
+#include "Pods/Target Support Files/Pods-TripTCI/Pods-TripTCI.debug.xcconfig"
+
+
+PROJECT_BUNDLE_ID = com.TripTCI.Dispatch
+PROJECT_APP_VERSION = 1.0
+PROJECT_BUILD_NUMBER = 1
+PROJECT_APP_NAME =TripTCI Dispatch
+PROJECT_PLIST =TripTCIInfo
+PROJECT_ENTITLEMENT=RoyoDriverAppRelease
