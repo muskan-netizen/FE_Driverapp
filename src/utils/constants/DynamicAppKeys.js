@@ -602,8 +602,8 @@ const appIds = {
     android: 'com.tasmeem.royodispatcher',
   }),
   destination_ops: Platform.select({
-    ios: 'com.DestinationOps.Dispatch',
-    android: 'com.destinationOps.royodispatcher',
+    ios: 'com.DestinationOpsApp.Dispatch',
+    android: 'com.destinationOpsApp.royodispatcher',
   }),
   cannabus_express: Platform.select({
     ios: 'com.CannabusExpress.Dispatch',

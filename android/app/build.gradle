@@ -1372,8 +1372,8 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId "com.destinationOps.royodispatcher"
-            resValue "string", "app_name", "Destination Ops Dispatch"
+            applicationId "com.destinationOpsApp.royodispatcher"
+            resValue "string", "app_name", "Destination Ops Driver"
         }
         cannabus_express{
             dimension "appType"
