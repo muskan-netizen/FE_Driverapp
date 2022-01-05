@@ -14,7 +14,7 @@ export default {
   PRIVACYPOLICY: 'Privacy Policy',
   CONFIRM: 'Confirm',
   CANCEL: 'Cancel',
-  BYCONTINUE: 'By continue , you are agree to our',
+  BYCONTINUE: 'By Continue , you are agree to our',
   AND: 'and',
   VERIFICATION: 'Verification',
   CODESENTTO: 'Code send to',
@@ -218,5 +218,6 @@ export default {
   A_TEAM: 'a team',
   ONE_TAG: 'atleast one tag',
   HOLDTOPICK: 'Hold to Pick',
-  SPECIAL_INSTRUCTIONS:'Special Instructions'
+  SPECIAL_INSTRUCTIONS: 'Special Instructions',
+  DONT_HAVE_ACCOUNT: "Don't have an Account ?",
 };

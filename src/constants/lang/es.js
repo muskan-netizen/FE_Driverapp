@@ -13,7 +13,7 @@ export default {
   PRIVACYPOLICY: 'política de privacidad',
   CONFIRM: 'Bestätigen',
   CANCEL: 'Abbrechen',
-  BYCONTINUE: 'Si continúa, acepta nuestras',
+  BYCONTINUE: 'Si Continúa, acepta nuestras',
   AND: 'y',
   VERIFICATION: 'Verificación',
   CODESENTTO: 'Código enviado a',
@@ -220,5 +220,6 @@ export default {
   A_TEAM: 'a team',
   ONE_TAG: 'atleast one tag',
   HOLDTOPICK: 'Hold to Pick',
-  SPECIAL_INSTRUCTIONS:'Special Instructions'
+  SPECIAL_INSTRUCTIONS: 'Special Instructions',
+  DONT_HAVE_ACCOUNT: "Don't have an Account ?",
 };
