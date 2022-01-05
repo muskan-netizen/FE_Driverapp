@@ -959,6 +959,12 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.farmerSouq:
+          updateState({
+            shortCode: shortCodes.farmerSouq,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);

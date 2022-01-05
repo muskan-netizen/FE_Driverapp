@@ -148,6 +148,7 @@ const shortCodes = {
   releezer: 'eada87',
   vendorSpot: '2ac63f',
   SXM2GO: 'f91ebf',
+  farmerSouq: '351a84',
 };
 
 // Goody Dispatch
@@ -230,7 +231,7 @@ const appIds = {
   }),
   checkout: Platform.select({
     ios: 'com.orderchekoutIosApp.driver',
-    android: 'com.orderchekout.Dispatcher',
+    android: 'com.orderchekout.driver.android1',
   }),
   noki: Platform.select({
     ios: 'com.noki.royodispatcher',
@@ -386,7 +387,7 @@ const appIds = {
     android: 'com.InstaShop.royodispatcher',
   }),
   helpNowRightNow: Platform.select({
-    ios: 'com.HelpNowRightNow.Dispatch',
+    ios: 'com.HelpNowRightNowApp.Dispatch',
     android: 'com.helpnowrightnow.royodispatcher',
   }),
   agriOnline: Platform.select({
@@ -736,6 +737,10 @@ const appIds = {
   SXM2GO: Platform.select({
     ios: 'com.SXM2GO.Dispatch',
     android: 'com.SXM2GO.royodispatcher',
+  }),
+  farmerSouq: Platform.select({
+    ios: 'com.FarmerSouq.Dispatch',
+    android: 'com.FarmerSouq.royodispatcher',
   }),
 };
 

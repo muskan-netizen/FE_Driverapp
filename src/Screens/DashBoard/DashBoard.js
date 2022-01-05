@@ -39,6 +39,7 @@ import {chekLocationPermission} from '../../utils/permissions';
 navigator.geolocation = require('react-native-geolocation-service');
 import Geocoder from 'react-native-geocoding';
 import {requestUserPermission} from '../../utils/notificationServices';
+// import Geolocation from '@react-native-community/geolocation';
 // import BackgroundTimer from 'react-native-background-timer';
 
 export default function DashBoard({route, navigation}) {
@@ -113,6 +114,26 @@ export default function DashBoard({route, navigation}) {
   );
   const fcmToken = useSelector(state => state?.initBoot?.fcmToken);
   const zendeskKeys = useSelector(state => state?.initBoot?.zendeskKeys);
+
+  // const initWatchPosition = () => {
+  //   Geolocation_.watchPosition(
+  //     position => {
+  //       console.log('position => position => position =>', position);
+  //       updateState({
+  //         latitude: position.coords.latitude,
+  //         longitude: position.coords.longitude,
+  //       });
+  //       fetchgentLogs(position.coords.latitude, position.coords.longitude);
+  //     },
+  //     error => console.log(error.message),
+  //     {
+  //       enableHighAccuracy: true,
+  //       timeout: 20000,
+  //       maximumAge: 1000,
+  //       distanceFilter: 100,
+  //     },
+  //   );
+  // };
 
   useEffect(() => {
     (async () => {

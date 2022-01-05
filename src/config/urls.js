@@ -32,12 +32,12 @@
 // carroi
 // export const API_BASE_URL = 'https://carroi.rdstaging.com/';
 // hairstonexpressgo
-// export const API_BASE_URL = 'https://dispatch.hairstonexpressgo.com/'
+export const API_BASE_URL = 'https://dispatch.hairstonexpressgo.com/'
 //Developement
 // export const API_BASE_URL = 'https://api.winhires.com/';
 //export const API_BASE_URL = 'http://192.168.96.20:8010/';
 // export const API_BASE_URL = 'http://192.168.103.73:8005';
-//export const API_BASE_URL = 'https://api.williamherrick.com/';
+// export const API_BASE_URL = 'https://api.williamherrick.com/';
 // export const API_BASE_URL = 'http://192.168.103.73:8005/';
 
 // blip
@@ -58,7 +58,7 @@
 //export const API_BASE_URL = 'https://dispatch.codiner.com/';
 
 // click-eat
-export const API_BASE_URL = 'https://dispatcher.click-eat.com/'
+// export const API_BASE_URL = 'https://dispatcher.click-eat.com/'
 // codiner domain
 // export const API_BASE_URL = 'https://dispatch.codiner.com/';
 // halalhmc

@@ -395,7 +395,7 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId "com.orderchekout.Dispatcher"
+            applicationId "com.orderchekout.driver.android1"
             resValue "string", "app_name", "Checkmate Driver"
         } 
         noki {
@@ -1727,6 +1727,17 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.SXM2GO.royodispatcher'
             resValue "string", "app_name", "Vendor Spot Dispatcher"
+           
+        }
+        farmerSouq{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.FarmerSouq.royodispatcher'
+            resValue "string", "app_name", "Farmer Souq Dispatcher"
            
         }
     }
