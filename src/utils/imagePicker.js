@@ -26,11 +26,10 @@ const openPickerMultiple = options => {
 };
 const openCamera = options => {
   return ImagePicker.openCamera({
-    width: 300,
-    height: 400,
+    // width: 300,
+    // height: 400,
     cropping: true,
     includeBase64: true,
-    
   })
     .then(image => {
       return image;
