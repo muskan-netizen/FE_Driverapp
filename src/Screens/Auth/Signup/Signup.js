@@ -1031,6 +1031,8 @@ export default function Signup({route, navigation}) {
               )}
             </View>
 
+      
+
             {/* <View
               onTouchStart={() => updateState({isTagsShow: false})}
               style={{marginVertical: moderateScaleVertical(20)}}>

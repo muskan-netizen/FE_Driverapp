@@ -27,4 +27,6 @@ export default {
   ADD_MONEY: 'addMoney',
   PAYOUT_STACK: 'payoutStack',
   PAYOUT: 'payout',
+  DAMAGEREPORT:"Damagereport"
+
 };

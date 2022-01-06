@@ -234,7 +234,7 @@ export default function TaskCompleteDocument({route, navigation}) {
               updateState({showInputBox: false});
               cameraHandler(1, {
                 cropping: false,
-                compressImageQuality: 0.8,
+                compressImageQuality: 0.1,
                 cropperCircleOverlay: false,
                 mediaType: 'photo',
               })

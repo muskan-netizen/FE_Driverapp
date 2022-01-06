@@ -83,4 +83,8 @@ export default {
   icPayout: require('../assets/images/ic_payout.png'),
   icRadio: require('../assets/images/ic_radio.png'),
   icRadioActive: require('../assets/images/ic_radioActive.png'),
+  icCamIcon: require('../assets/images/ic_capture.png'),
+  ic_cross_red: require('../assets/images/ic_cross_red.png'),
+
+  
 };

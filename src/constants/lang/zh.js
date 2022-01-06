@@ -216,4 +216,5 @@ export default {
   A_TEAM: 'a team',
   ONE_TAG: 'atleast one tag',
   HOLDTOPICK: 'Hold to Pick',
+  DONT_HAVE_ACCOUNT: "Don't have an Account ?",
 };
