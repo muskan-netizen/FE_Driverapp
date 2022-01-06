@@ -217,4 +217,7 @@ export default {
   ONE_TAG: 'atleast one tag',
   HOLDTOPICK: 'Hold to Pick',
   DONT_HAVE_ACCOUNT: "Don't have an Account ?",
+  TASKID: 'Task ID: ',
+  PRICE: 'Cash to be Collected:',
+  TASKDISTANCE: 'Task Distance',
 };

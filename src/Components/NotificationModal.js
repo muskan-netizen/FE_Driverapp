@@ -38,6 +38,9 @@ const NotificationModal = () => {
     isRefreshing: false,
     region: null,
     notificationDropLocationsData: [],
+    orderCost: null,
+    totalDistance: null,
+    taskId: null,
   });
   const notificationData = useSelector(
     state => state?.initBoot?.notificationData,
@@ -54,7 +57,12 @@ const NotificationModal = () => {
     selectedOrder,
     isRefreshing,
     notificationDropLocationsData,
+    orderCost,
+    totalDistance,
+    taskId,
   } = state;
+
+  console.log(notificationData, 'notificationDatanotificationData');
 
   useEffect(() => {
     let data = notificationData?.notificationData?.data;
@@ -79,6 +87,10 @@ const NotificationModal = () => {
   };
 
   const getCustomNotificationData = () => {
+    console.log(
+      notificationData?.notificationData?.data?.order_id,
+      'notificationData?.notificationData?.data?.order_id',
+    );
     actions
       .getCustomNotificationPayload(
         `/${notificationData?.notificationData?.data?.order_id}`,
@@ -86,8 +98,12 @@ const NotificationModal = () => {
         {shortCode: shortCode},
       )
       .then(res => {
+        console.log(res, 'resres');
         updateState({
           notificationDropLocationsData: res?.tasks,
+          orderCost: res?.order?.order_cost,
+          totalDistance: res?.order?.actual_distance,
+          taskId: res?.order?.unique_id,
         });
       })
       .catch(error => console.log('error in notification Data', error));
@@ -163,7 +179,7 @@ const NotificationModal = () => {
 
         <Image
           style={{
-            tintColor: colors.black,
+            tintColor: colors.redB,
           }}
           source={imagePath.blackSquare}
         />
@@ -177,6 +193,65 @@ const NotificationModal = () => {
       <View style={{overflow: 'hidden', borderRadius: moderateScale(10)}}>
         <View>{!!region && mapView()}</View>
         <View style={{padding: 8}}>
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+            }}>
+            <View
+              style={{
+                flexDirection: 'row',
+                width: width / 2.4,
+                alignItems: 'center',
+              }}>
+              <Text
+                numberOfLines={1}
+                style={{
+                  marginVertical: moderateScaleVertical(10),
+                  textAlign: 'right',
+                  fontSize: textScale(10),
+                  color: colors.black,
+                  fontFamily: fontFamily.regular,
+                }}>
+                {strings.TASKID}
+              </Text>
+              <Text
+                numberOfLines={1}
+                style={{
+                  marginVertical: moderateScaleVertical(10),
+                  textAlign: 'right',
+                  fontSize: textScale(12),
+                  color: colors.black,
+                  fontFamily: fontFamily.regular,
+                }}>
+                {` ${taskId}`}
+              </Text>
+            </View>
+            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+              <Text
+                numberOfLines={1}
+                style={{
+                  marginVertical: moderateScaleVertical(10),
+                  textAlign: 'right',
+                  fontSize: textScale(10),
+                  color: colors.green,
+                  fontFamily: fontFamily.bold,
+                }}>
+                {strings.PRICE}
+              </Text>
+              <Text
+                numberOfLines={1}
+                style={{
+                  marginVertical: moderateScaleVertical(10),
+                  textAlign: 'right',
+                  fontSize: textScale(12),
+                  color: colors.green,
+                  fontFamily: fontFamily.bold,
+                }}>
+                {` ${orderCost}`}
+              </Text>
+            </View>
+          </View>
           <View style={{flexDirection: 'row'}}>
             <View>
               <Image
@@ -207,25 +282,49 @@ const NotificationModal = () => {
               />
             </View>
           </View>
-
-          <Text style={styles.dateTimeStyle}>{data?.short_name}</Text>
-
-          <Text style={[styles.dateTimeStyle, {marginTop: moderateScale(10)}]}>
-            {strings.TASKDATE}
-          </Text>
-          <Text style={styles.address}>{getDate(data?.created_at)}</Text>
-
-          {!!data?.cash_to_be_collected && (
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+            }}>
             <View>
               <Text
                 style={[styles.dateTimeStyle, {marginTop: moderateScale(10)}]}>
-                {strings.CASHTOBECOLLECTED}
+                {strings.TASKDATE}
               </Text>
-              <Text style={styles.address}>
-                {Number(data?.cash_to_be_collected).toFixed(2)}
+              <Text style={styles.address}>{getDate(data?.created_at)}</Text>
+
+              {!!data?.cash_to_be_collected && (
+                <View>
+                  <Text
+                    style={[
+                      styles.dateTimeStyle,
+                      {marginTop: moderateScale(10)},
+                    ]}>
+                    {strings.CASHTOBECOLLECTED}
+                  </Text>
+                  <Text style={styles.address}>
+                    {Number(data?.cash_to_be_collected).toFixed(2)}
+                  </Text>
+                </View>
+              )}
+            </View>
+            <View style={{alignItems: 'center'}}>
+              <Text
+                style={[styles.dateTimeStyle, {marginTop: moderateScale(10)}]}>
+                {strings.TASKDISTANCE}
+              </Text>
+              <Text
+                numberOfLines={1}
+                style={{
+                  fontSize: textScale(14),
+                  color: colors.redB,
+                  fontFamily: fontFamily.bold,
+                }}>
+                {`${totalDistance}`}
               </Text>
             </View>
-          )}
+          </View>
         </View>
         {data?.type == 'AR' ? (
           <View
@@ -358,7 +457,7 @@ const styles = StyleSheet.create({
   map: {
     // ...StyleSheet.absoluteFillObject,
     borderRadius: moderateScale(10),
-    height: moderateScale(width / 3),
+    height: moderateScale(width / 2),
   },
   address: {
     fontFamily: fontFamily.semiBold,

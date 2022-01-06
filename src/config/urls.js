@@ -5,6 +5,8 @@
 export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // export const API_BASE_URL = 'http://192.168.103.73:8006/'; // preet local url
+// export const API_BASE_URL = 'http://192.168.103.73:800/';
+
 // fleety staging domain
 //export const API_BASE_URL = 'https://fleety.rdstaging.com/';
 
@@ -45,8 +47,6 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // grub and gusto
 // export const API_BASE_URL = 'https://grub.royodispatch.com/'
-
-// export const API_BASE_URL = 'http://192.168.103.73:800/';
 
 // destinationops app domain
 // export const API_BASE_URL = 'https://dispatch.destinationops.com/';

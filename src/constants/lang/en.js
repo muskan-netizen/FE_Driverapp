@@ -221,4 +221,7 @@ export default {
   CANCELLED: 'Cancelled',
   SPECIAL_INSTRUCTIONS: 'Special Instructions',
   DONT_HAVE_ACCOUNT: "Don't have an Account ?",
+  TASKID: 'Task ID: ',
+  PRICE: 'Cash to be Collected:',
+  TASKDISTANCE: 'Task Distance',
 };

@@ -222,4 +222,7 @@ export default {
   HOLDTOPICK: 'Hold to Pick',
   SPECIAL_INSTRUCTIONS: 'Special Instructions',
   DONT_HAVE_ACCOUNT: "Don't have an Account ?",
+  TASKID: 'Task ID: ',
+  PRICE: 'Cash to be Collected:',
+  TASKDISTANCE: 'Task Distance',
 };
