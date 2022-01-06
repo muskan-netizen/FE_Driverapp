@@ -164,6 +164,14 @@ export default function CustomDrawerContent({
           // key: navigationStrings.PROFILESTACK,
           // subRoute:navigationStrings.MYPROFILE
         },
+        appIds.transportSystem === DeviceInfo.getBundleId()?{
+          id: 6,
+          label: strings.DAMAGEREPORT,
+          image: imagePath.support2,
+          key: navigationStrings.DAMAGEREPORT,
+          // subRoute:navigationStrings.MYPROFILE
+        }:{},
+        
         appIds.goody === DeviceInfo.getBundleId()
           ? {}
           : {

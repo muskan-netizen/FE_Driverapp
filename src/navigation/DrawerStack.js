@@ -6,6 +6,7 @@ import CustomDrawerContent from '../Components/CustomDrawerContent';
 import imagePath from '../constants/imagePath';
 import strings from '../constants/lang';
 import {ContactUs, Settings} from '../Screens';
+import DamageReport from '../Screens/DamageReport/DamageReport';
 import colors from '../styles/colors';
 import {moderateScaleVertical, width} from '../styles/responsiveSize';
 import navigationStrings from './navigationStrings';
@@ -101,6 +102,19 @@ export default function DrawerRoutes(props) {
         name={navigationStrings.SETTINGS}
         options={{
           drawerLabel: strings.SETTING,
+          drawerIcon: ({focused}) => (
+            <Image
+              style={{tintColor: focused ? colors.blackShade2 : colors.grey2}}
+              source={imagePath.settingsIcon}
+            />
+          ),
+        }}
+      />
+       <Drawer.Screen
+        component={DamageReport}
+        name={navigationStrings.DAMAGEREPORT}
+        options={{
+          drawerLabel: strings.DAMAGEREPORT,
           drawerIcon: ({focused}) => (
             <Image
               style={{tintColor: focused ? colors.blackShade2 : colors.grey2}}
