@@ -2,7 +2,7 @@
 // export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // export const API_BASE_URL = 'http://192.168.103.73:8006/'; // preet local url
 // fleety staging domain
@@ -18,7 +18,7 @@
 // export const API_BASE_URL = 'https://delivery.snabbhem.se/';
 
 // pinkjet
-//export const API_BASE_URL = 'https://dispatch.pinkjettaxi.com/';
+// export const API_BASE_URL = 'https://dispatch.pinkjettaxi.com/';
 // Yoho
 // export const API_BASE_URL = 'https://dispatch.yohopartner.com/';
 // cannabusxpress
@@ -32,7 +32,7 @@
 // carroi
 // export const API_BASE_URL = 'https://carroi.rdstaging.com/';
 // hairstonexpressgo
-export const API_BASE_URL = 'https://dispatch.hairstonexpressgo.com/'
+// export const API_BASE_URL = 'https://dispatch.hairstonexpressgo.com/'
 //Developement
 // export const API_BASE_URL = 'https://api.winhires.com/';
 //export const API_BASE_URL = 'http://192.168.96.20:8010/';
