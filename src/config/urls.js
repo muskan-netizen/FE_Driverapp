@@ -2,17 +2,11 @@
 // export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // export const API_BASE_URL = 'http://192.168.103.73:8006/'; // preet local url
 // fleety staging domain
 //export const API_BASE_URL = 'https://fleety.rdstaging.com/';
-
-//carroi app domain
-//export const API_BASE_URL = 'https://carroi.rostaging.com/';
-
-//tranzit app domain
-// export const API_BASE_URL = 'https://dispatch.tranzit.app/';
 
 //klickmat/snabbhem app domain
 // export const API_BASE_URL = 'https://delivery.snabbhem.se/';
@@ -49,7 +43,7 @@
 // export const API_BASE_URL = 'http://192.168.103.73:800/';
 
 // destinationops app domain
-export const API_BASE_URL = 'https://dispatch.destinationops.com/';
+// export const API_BASE_URL = 'https://dispatch.destinationops.com/';
 
 // somame live domain
 // export const API_BASE_URL = 'https://dispatch.somame-247.com/'
@@ -59,8 +53,6 @@ export const API_BASE_URL = 'https://dispatch.destinationops.com/';
 
 // click-eat
 // export const API_BASE_URL = 'https://dispatcher.click-eat.com/'
-// codiner domain
-// export const API_BASE_URL = 'https://dispatch.codiner.com/';
 // halalhmc
 // export const API_BASE_URL = 'https://dispatcher.halalhmc.org/'
 // tranznet online
@@ -78,6 +70,10 @@ export const API_BASE_URL = 'https://dispatch.destinationops.com/';
 //export const API_BASE_URL = 'https://dispatch.tranzit.app/';
 // africanvillage
 // export const API_BASE_URL = 'https://dispatch.africanvillage.market/'
+// swiftandvalu
+// export const API_BASE_URL = 'https://dispatch.swiftandvalu.com/'
+
+
 
 export const personaltoken = 'TMJdbQlNWkYl1JzMONzRgF4zQFuP8s';
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;

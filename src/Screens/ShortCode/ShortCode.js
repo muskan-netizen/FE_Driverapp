@@ -971,6 +971,36 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.mozmarcas:
+          updateState({
+            shortCode: shortCodes.mozmarcas,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.stichesonSite:
+          updateState({
+            shortCode: shortCodes.stichesonSite,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.tmgShops:
+          updateState({
+            shortCode: shortCodes.tmgShops,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.gasGiant:
+          updateState({
+            shortCode: shortCodes.gasGiant,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.zestyClickz:
+          updateState({
+            shortCode: shortCodes.zestyClickz,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);

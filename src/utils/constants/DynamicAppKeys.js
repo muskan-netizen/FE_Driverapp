@@ -150,6 +150,11 @@ const shortCodes = {
   SXM2GO: 'f91ebf',
   farmerSouq: '351a84',
   yogo_lift: '656c4a',
+  mozmarcas: '716d69',
+  stichesonSite: 'f2c554',
+  tmgShops: '25ecdb',
+  gasGiant: '0b57d0',
+  zestyClickz: '99e1ad',
 };
 
 // Goody Dispatch
@@ -604,7 +609,7 @@ const appIds = {
     android: 'com.tasmeem.royodispatcher',
   }),
   destination_ops: Platform.select({
-    ios: 'com.DestinationOpsApp.Dispatch',
+    ios: 'com.DestinationOps.Dispatch',
     android: 'com.destinationOpsApp.royodispatcher',
   }),
   cannabus_express: Platform.select({
@@ -746,6 +751,26 @@ const appIds = {
   yogo_lift: Platform.select({
     ios: 'com.YogoLift.Dispatch',
     android: 'com.yogoLift.royodispatcher',
+  }),
+  mozmarcas: Platform.select({
+    ios: 'com.Mozmarcas.Dispatch',
+    android: 'com.Mozmarcas.royodispatcher',
+  }),
+  stichesonSite: Platform.select({
+    ios: 'com.StichesonSite.Dispatch',
+    android: 'com.StichesonSite.royodispatcher',
+  }),
+  tmgShops: Platform.select({
+    ios: 'com.TmgShops.Dispatch',
+    android: 'com.TmgShops.royodispatcher',
+  }),
+  gasGiant: Platform.select({
+    ios: 'com.GasGiant.Dispatch',
+    android: 'com.GasGiant.royodispatcher',
+  }),
+  zestyClickz: Platform.select({
+    ios: 'com.ZestyClickz.Dispatch',
+    android: 'com.ZestyClickz.royodispatcher',
   }),
 };
 
