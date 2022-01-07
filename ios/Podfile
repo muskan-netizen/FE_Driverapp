@@ -44,7 +44,7 @@ target 'Runrun' do
     pod'ZendeskChatProvidersSDK'
 
 end
-  
+
   #Deliverstat Target
   target 'Deliverstat' do
     permissions_path = '../node_modules/react-native-permissions/ios'
@@ -63,7 +63,7 @@ end
       pod 'ZendeskChatSDK'
     pod'ZendeskChatProvidersSDK'
 
-    
+
 
 end
 
@@ -86,7 +86,7 @@ target 'AfricanVillageMarket' do
     pod 'ZendeskChatSDK'
     pod'ZendeskChatProvidersSDK'
 
-  
+
 
 end
 
@@ -777,7 +777,7 @@ target 'BotSeat' do
    pod 'ZendeskChatSDK'
    pod'ZendeskChatProvidersSDK'
   end
-  
+
   #MokabFix Delivery Target
   target 'MokabFix' do
   permissions_path = '../node_modules/react-native-permissions/ios'
@@ -796,7 +796,7 @@ target 'BotSeat' do
   pod 'ZendeskChatSDK'
   pod'ZendeskChatProvidersSDK'
   end
-  
+
   #PinkJet Delivery Target
   target 'PinkJet' do
   permissions_path = '../node_modules/react-native-permissions/ios'
@@ -815,7 +815,7 @@ target 'BotSeat' do
   pod 'ZendeskChatSDK'
   pod'ZendeskChatProvidersSDK'
   end
-  
+
 #Spidbi Delivery Target
   target 'Spidbi' do
     permissions_path = '../node_modules/react-native-permissions/ios'
@@ -834,7 +834,7 @@ target 'BotSeat' do
    pod 'ZendeskChatSDK'
    pod'ZendeskChatProvidersSDK'
   end
-  
+
 
 
 
@@ -1148,7 +1148,7 @@ target 'BotSeat' do
      pod 'ZendeskChatSDK'
      pod'ZendeskChatProvidersSDK'
   end
-  
+
 #YouChillax Target
   target 'YouChillax' do
     permissions_path = '../node_modules/react-native-permissions/ios'
@@ -1372,9 +1372,9 @@ target 'BotSeat' do
      pod 'ZendeskChatSDK'
      pod'ZendeskChatProvidersSDK'
     end
-    
-  
-      
+
+
+
 #Ace Target
   target 'Ace' do
     permissions_path = '../node_modules/react-native-permissions/ios'
@@ -1535,8 +1535,8 @@ target 'BotSeat' do
      pod'ZendeskChatProvidersSDK'
 
     end
-    
-  
+
+
   #MoboErrandsService Target
   target 'MoboErrandsService' do
     permissions_path = '../node_modules/react-native-permissions/ios'
@@ -2780,7 +2780,7 @@ target 'BharatMove' do
    pod'ZendeskChatProvidersSDK'
 
   end
- 
+
 #Sofia
 target 'Sofia' do
   permissions_path = '../node_modules/react-native-permissions/ios'
@@ -2963,6 +2963,26 @@ target 'SXM2GO' do
 
 #FarmerSouq
 target 'FarmerSouq' do
+  permissions_path = '../node_modules/react-native-permissions/ios'
+  rn_maps_path = '../node_modules/react-native-maps'
+    config = use_native_modules!
+    use_react_native!(
+    :path => config[:reactNativePath],
+    :hermes_enabled => false
+  )
+  pod 'react-native-google-maps', :path => rn_maps_path
+  pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
+  pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
+  pod 'RNFS', :path => '../node_modules/react-native-fs'
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
+   pod 'ZendeskChatSDK'
+   pod'ZendeskChatProvidersSDK'
+
+  end
+
+#YogoLift
+target 'YogoLift' do
   permissions_path = '../node_modules/react-native-permissions/ios'
   rn_maps_path = '../node_modules/react-native-maps'
     config = use_native_modules!

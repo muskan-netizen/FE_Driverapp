@@ -297,6 +297,8 @@
     "SXM2GOdispatcherRelease": "cd android && ./gradlew assembleSXM2GORelease",
     "farmerSouqdispatcher": "react-native run-android --variant=farmerSouqDebug",
     "farmerSouqdispatcherRelease": "cd android && ./gradlew assemblefarmerSouqRelease",
+    "yogo_liftdispatcher": "react-native run-android --variant=yogo_liftDebug",
+    "yogo_liftdispatcherRelease": "cd android && ./gradlew assembleyogo_liftRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",

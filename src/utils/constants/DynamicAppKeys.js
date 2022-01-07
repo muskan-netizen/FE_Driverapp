@@ -149,6 +149,7 @@ const shortCodes = {
   vendorSpot: '2ac63f',
   SXM2GO: 'f91ebf',
   farmerSouq: '351a84',
+  yogo_lift: '656c4a',
 };
 
 // Goody Dispatch
@@ -741,6 +742,10 @@ const appIds = {
   farmerSouq: Platform.select({
     ios: 'com.FarmerSouq.Dispatch',
     android: 'com.FarmerSouq.royodispatcher',
+  }),
+  yogo_lift: Platform.select({
+    ios: 'com.YogoLift.Dispatch',
+    android: 'com.yogoLift.royodispatcher',
   }),
 };
 

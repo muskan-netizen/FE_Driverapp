@@ -1740,6 +1740,17 @@ android {
             resValue "string", "app_name", "Farmer Souq Dispatcher"
            
         }
+        yogo_lift{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.yogoLift.royodispatcher'
+            resValue "string", "app_name", "yogo lift Dispatcher"
+           
+        }
     }
 }
 

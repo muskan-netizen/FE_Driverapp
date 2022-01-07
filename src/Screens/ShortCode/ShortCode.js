@@ -965,6 +965,12 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.yogo_lift:
+          updateState({
+            shortCode: shortCodes.yogo_lift,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);
