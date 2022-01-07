@@ -965,6 +965,42 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.yogo_lift:
+          updateState({
+            shortCode: shortCodes.yogo_lift,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.mozmarcas:
+          updateState({
+            shortCode: shortCodes.mozmarcas,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.stichesonSite:
+          updateState({
+            shortCode: shortCodes.stichesonSite,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.tmgShops:
+          updateState({
+            shortCode: shortCodes.tmgShops,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.gasGiant:
+          updateState({
+            shortCode: shortCodes.gasGiant,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.zestyClickz:
+          updateState({
+            shortCode: shortCodes.zestyClickz,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);
@@ -1026,6 +1062,7 @@ export default function ShortCode({route, navigation}) {
 
       actions
         .initApp({shortCode: shortCode}, header)
+        // .initApp({shortCode: '745e3f'}, header)
         .then(res => {
           if (getBundleId() == appIds.royoorder && res?.data) {
             actions.saveShortCode(shortCode);
