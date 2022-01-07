@@ -226,10 +226,14 @@ export default function Login({navigation, route}) {
               btnText={strings.LOGIN}
               colorsArray={[colors.themeColor, colors.themeColor]}
             />
-
-            <TouchableOpacity onPress={_signUp} style={styles.signUpView}>
-              <Text style={styles.signUpText}>{strings.SIGNUP}</Text>
-            </TouchableOpacity>
+            <View style={[styles.signUpView, {flexDirection: 'row'}]}>
+              <Text style={styles.byContinue}>
+                {strings.DONT_HAVE_ACCOUNT}{' '}
+              </Text>
+              <TouchableOpacity onPress={_signUp}>
+                <Text style={styles.signUpText}>{strings.SIGNUP}</Text>
+              </TouchableOpacity>
+            </View>
             <View style={styles.byContinueTextContainer}>
               <Text style={styles.byContinue}>{`${strings.BYCONTINUE} `}</Text>
             </View>

@@ -1062,6 +1062,7 @@ export default function ShortCode({route, navigation}) {
 
       actions
         .initApp({shortCode: shortCode}, header)
+        // .initApp({shortCode: '745e3f'}, header)
         .then(res => {
           if (getBundleId() == appIds.royoorder && res?.data) {
             actions.saveShortCode(shortCode);
