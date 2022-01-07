@@ -1024,13 +1024,15 @@ export default function ShortCode({route, navigation}) {
         };
       }
 
+      let updatedShortCode = shortCode;
+      // let updatedShortCode = '745e3f';
       actions
-        .initApp({shortCode: shortCode}, header)
+        .initApp({shortCode: updatedShortCode}, header)
         .then(res => {
           if (getBundleId() == appIds.royoorder && res?.data) {
-            actions.saveShortCode(shortCode);
+            actions.saveShortCode(updatedShortCode);
           }
-          actions.saveShortCode(shortCode);
+          actions.saveShortCode(updatedShortCode);
 
           console.log(res, 'res>res>res');
           updateState({
@@ -1057,7 +1059,7 @@ export default function ShortCode({route, navigation}) {
 
   //Error handling in screen
   const errorMethod = error => {
-    console.log(error, 'error');
+    console.log(error, 'short code error');
     updateState({
       isLoading: false,
       shortCode: '',

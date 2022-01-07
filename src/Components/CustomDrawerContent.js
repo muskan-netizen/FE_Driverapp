@@ -167,8 +167,15 @@ export default function CustomDrawerContent({
         appIds.transportSystem === DeviceInfo.getBundleId()?{
           id: 6,
           label: strings.DAMAGEREPORT,
-          image: imagePath.support2,
+          image: imagePath.damagereport,
           key: navigationStrings.DAMAGEREPORT,
+          // subRoute:navigationStrings.MYPROFILE
+        }:{},
+        appIds.transportSystem === DeviceInfo.getBundleId()?{
+          id: 6,
+          label: strings.REIMBURSEMENT,
+          image: imagePath.reimbursement,
+          key: navigationStrings.REIMBURSEMENT,
           // subRoute:navigationStrings.MYPROFILE
         }:{},
         

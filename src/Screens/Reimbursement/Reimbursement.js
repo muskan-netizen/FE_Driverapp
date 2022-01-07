@@ -29,9 +29,8 @@ import ActionSheet from 'react-native-actionsheet';
 import {showError} from '../../utils/helperFunctions';
 import {cloneDeep} from 'lodash';
 import ButtonComponent from '../../Components/ButtonComponent';
-import actions from '../../redux/actions';
 
-export default function DamageReport({route, navigation}) {
+export default function Reimbursement({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
   let params = route?.params?.data;
   console.log(params, 'params>>>');
@@ -39,24 +38,22 @@ export default function DamageReport({route, navigation}) {
     isLoading: false,
     imageArray: [],
     remove_image_ids: [],
-    damageType: '',
-    damageTypeArray: [{type: 'Broken Items',id:1}],
-    damageTitle: '',
+    reimbursementTypeArray: [{type: 'Broken Items',id:1}],
+    amount: '',
     comments: '',
     showTypeDropdown: false,
-    selectedDamageType: null,
+    selectedReimbursementType: null,
   });
 
   const {
     isLoading,
     imageArray,
     remove_image_ids,
-    damageType,
-    damageTypeArray,
-    damageTitle,
+    reimbursementTypeArray,
+    amount,
     comments,
     showTypeDropdown,
-    selectedDamageType,
+    selectedReimbursementType,
   } = state;
   const commonStyles = commonStylesFunc({fontFamily});
   const updateState = data => setState(state => ({...state, ...data}));
@@ -71,24 +68,26 @@ export default function DamageReport({route, navigation}) {
   );
   const styles = stylesFunc({defaultLanguagae});
 
-  //Get Damage Type
+
+ //Get Damage Type
   useEffect(() => {
-    // getDamageType()
+    // getReimbursementtypes()
   }, []);
 
-  const getDamageType = () => {
+  const getReimbursementtypes = () => {
     actions
-      .getAllDamageTypes({}, {client: clientInfo?.database_name})
+      .getAllReimbursementTypes({}, {client: clientInfo?.database_name})
       .then(res => {
         if(res && res?.status==200 && res?.data){
           updateState({
-            damageTypeArray:res?.data
+            reimbursementTypeArray:res?.data
           })
         }
         console.log(res, 'res>res');
       })
       .catch(errorMethod);
   };
+
 
   //this function use for open actionsheet
   let actionSheet = useRef();
@@ -152,26 +151,22 @@ export default function DamageReport({route, navigation}) {
     }
   };
 
-  const _reportDamage = () => {
+  const _reimbursement = () => {
     // updateState({isLoading: true});
 
-    if (!selectedDamageType) {
-      showError(strings.PLEASESELECTDAMAGE);
+    if (!selectedReimbursementType) {
+      showError(strings.PLEASESELECTREIMBURSEMENTTYPE);
       return;
-    } else if (damageTitle == '') {
-      showError(strings.PLEASEENTERDAMAGETITLE);
-      return;
-    } else if (comments == '') {
-      showError(strings.ADDCOMMENT);
+    } else if (amount == '') {
+      showError(strings.PLEASEENTERREIMBURSEMENTAMOUNT);
       return;
     } else if (imageArray && imageArray.length == 0) {
-      showError(strings.ATLEASEONEIMAGE);
+      showError(strings.PLEASEUPLOADREIMBURSEMENTRECIPT);
       return;
     } else {
       let formdata = new FormData();
-      formdata.append('damage_type_id', selectedDamageType?.id);
-      formdata.append('damage_title', damageTitle);
-      formdata.append('comments', comments);
+      formdata.append('reimbursement_type_id', selectedReimbursementType?.id);
+      formdata.append('amount', amount);
 
       // formdata.append('vendor_id', ratingData.vendor_id);
       if (imageArray.length) {
@@ -186,18 +181,15 @@ export default function DamageReport({route, navigation}) {
           }
         });
       }
-      console.log(formdata,"formdata>formdata");
-      // if (remove_image_ids.length) {
-      //   remove_image_ids.forEach(element => {
-      //     formdata.append('remove_files[]', element);
-      //   });
-      // }
-      // updateState({
+
+
+      console.log(formdata,"formdata");
+     // updateState({
       //   isLoading:true
       // })
    
       // actions
-      //   .damageReport(formdata, {
+      //   .reimbursement(formdata, {
       //     code: appData?.profile?.code,
       //     currency: currencies?.primary_currency?.id,
       //     language: languages?.primary_language?.id,
@@ -224,7 +216,7 @@ export default function DamageReport({route, navigation}) {
         leftIconStyle={{tintColor: colors.themeColor}}
         // hideRight={true}
         // onPressLeft={()=>navigation.goBack()}
-        centerTitle={strings.DAMAGEREPORT}
+        centerTitle={strings.REIMBURSEMENT}
       />
       <View style={{...commonStyles.headerTopLine}} />
       <View
@@ -233,7 +225,7 @@ export default function DamageReport({route, navigation}) {
           marginVertical: moderateScaleVertical(20),
         }}>
         {/* Damage type */}
-        <Text style={styles.uploadImage}>{strings.DAMAGETYPE}</Text>
+        <Text style={styles.uploadImage}>{strings.REIMBURSEMENTTYPE}</Text>
 
         <View style={{zIndex: 5, marginBottom: 20}}>
           <TouchableOpacity
@@ -249,8 +241,8 @@ export default function DamageReport({route, navigation}) {
                 ...styles.labelTxt,
                 marginBottom: 0,
               }}>
-              {!!selectedDamageType
-                ? selectedDamageType?.type
+              {!!selectedReimbursementType
+                ? selectedReimbursementType?.type
                 : strings.SELECTTYPE}
             </Text>
             <Image source={imagePath.dropDownNew} />
@@ -259,15 +251,15 @@ export default function DamageReport({route, navigation}) {
           {showTypeDropdown && (
             <View style={styles.dropdownstyle}>
               <ScrollView>
-                {damageTypeArray.length > 0 ? (
+                {reimbursementTypeArray.length > 0 ? (
                   <View>
-                    {damageTypeArray.map((itm, indx) => {
+                    {reimbursementTypeArray.map((itm, indx) => {
                       return (
                         <TouchableOpacity
                           key={indx}
                           onPress={() =>
                             updateState({
-                              selectedDamageType: itm,
+                              selectedReimbursementType: itm,
                               showTypeDropdown: false,
                             })
                           }
@@ -300,28 +292,29 @@ export default function DamageReport({route, navigation}) {
         </View>
 
         {/* Damage title */}
-        <Text style={styles.uploadImage}>{strings.DAMAGETITLE}</Text>
+        <Text style={styles.uploadImage}>{strings.REIMBURSEMENTAMOUNT}</Text>
         <TextInput
-          placeholder={strings.ENTERTITLE}
-          value={damageTitle}
+          placeholder={strings.REIMBURSEMENTAMOUNT}
+          value={amount}
           textAlignVertical={'top'}
+          keyboardType={'numeric'}
+          returnKeyType={'done'}
+          onSubmitEditing={(e)=>{Keyboard.dismiss()}}
           style={styles.textInputStyle2}
-          onChangeText={text => updateState({damageTitle: text})}
+          onChangeText={text => updateState({amount: text})}
         />
         {/* Comments */}
-        <Text style={styles.uploadImage}>{strings.COMMENTS}</Text>
+        {/* <Text style={styles.uploadImage}>{strings.COMMENTS}</Text>
         <TextInput
           multiline={true}
           value={comments}
           placeholder={strings.ENTERCOMMENTS}
-          returnKeyType={'done'}
-          onSubmitEditing={(e)=>Keyboard.dismiss()}
           textAlignVertical={'top'}
           style={styles.commentInput}
           onChangeText={text => updateState({comments: text})}
-        />
+        /> */}
         {/* Add Images section */}
-        <Text style={styles.uploadImage}>{strings.ADDIMAGES}</Text>
+        <Text style={styles.uploadImage}>{strings.REIMBURSEMENTRECIPT}</Text>
         <View
           style={{
             marginTop: moderateScaleVertical(5),
@@ -381,7 +374,7 @@ export default function DamageReport({route, navigation}) {
         destructiveButtonIndex={2}
         onPress={index => cameraHandle(index)}
       />
-      <ButtonComponent buttonTitle={strings.REPORT} onPress={_reportDamage} />
+      <ButtonComponent buttonTitle={strings.REPORT} onPress={_reimbursement} />
     </WrapperContainer>
   );
 }

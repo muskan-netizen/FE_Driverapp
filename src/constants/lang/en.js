@@ -237,4 +237,11 @@ export default {
   PLEASEENTERDAMAGETITLE: 'Please enter the damage title',
   ADDCOMMENT: 'Please add the comment',
   ATLEASEONEIMAGE: 'Please upload atlease one image',
+  REIMBURSEMENT:"Reimbursement",
+  REIMBURSEMENTTYPE:"Reimbursement Type",
+  REIMBURSEMENTAMOUNT:"Amout",
+  REIMBURSEMENTRECIPT:"Receipt Upload",
+  PLEASESELECTREIMBURSEMENTTYPE:"Please select reimbursement type",
+  PLEASEENTERREIMBURSEMENTAMOUNT:"Please enter amout",
+  PLEASEUPLOADREIMBURSEMENTRECIPT:"Please upload atleaet one receipt image"
 };

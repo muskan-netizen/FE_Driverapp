@@ -7,6 +7,7 @@ import imagePath from '../constants/imagePath';
 import strings from '../constants/lang';
 import {ContactUs, Settings} from '../Screens';
 import DamageReport from '../Screens/DamageReport/DamageReport';
+import Reimbursement from '../Screens/Reimbursement/Reimbursement';
 import colors from '../styles/colors';
 import {moderateScaleVertical, width} from '../styles/responsiveSize';
 import navigationStrings from './navigationStrings';
@@ -115,6 +116,19 @@ export default function DrawerRoutes(props) {
         name={navigationStrings.DAMAGEREPORT}
         options={{
           drawerLabel: strings.DAMAGEREPORT,
+          drawerIcon: ({focused}) => (
+            <Image
+              style={{tintColor: focused ? colors.blackShade2 : colors.grey2}}
+              source={imagePath.settingsIcon}
+            />
+          ),
+        }}
+      />
+        <Drawer.Screen
+        component={Reimbursement}
+        name={navigationStrings.REIMBURSEMENT}
+        options={{
+          drawerLabel: strings.REIMBURSEMENT,
           drawerIcon: ({focused}) => (
             <Image
               style={{tintColor: focused ? colors.blackShade2 : colors.grey2}}
