@@ -201,8 +201,8 @@ export default function DamageReport({route, navigation}) {
       return;
     } else {
       let formdata = new FormData();
-      formdata.append('trailor_number', trailor_number);
-      formdata.append('truck_number', truck_number);
+      formdata.append('trailor_no', trailor_number);
+      formdata.append('truck_no', truck_number);
       formdata.append('damage_type_id', selectedDamageType?.id);
 
       if (selectedDamageType && selectedDamageType?.id == 1) {

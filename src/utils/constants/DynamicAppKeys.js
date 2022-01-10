@@ -497,8 +497,8 @@ const appIds = {
     android: 'com.Carroai.royodispatcher',
   }),
   vici: Platform.select({
-    ios: 'com.VICI.Dispatch',
-    android: 'com.vici.royodispatcher',
+    ios: 'com.VICI.Dispatch.App',
+    android: 'com.vici.driverapp',
   }),
   stonses: Platform.select({
     ios: 'com.Stonses.Dispatch',
