@@ -243,5 +243,11 @@ export default {
   REIMBURSEMENTRECIPT:"Receipt Upload",
   PLEASESELECTREIMBURSEMENTTYPE:"Please select reimbursement type",
   PLEASEENTERREIMBURSEMENTAMOUNT:"Please enter amout",
-  PLEASEUPLOADREIMBURSEMENTRECIPT:"Please upload atleaet one receipt image"
+  PLEASEUPLOADREIMBURSEMENTRECIPT:"Please upload atleaet one receipt image",
+  TRAILORNUMBER:"Trailor number",
+  TRUCKNUMBER:"Truck number",
+  ENTERTRAILORNUMBER:"Enter trailor number",
+  ENTERTRUCKNUMBER:"Enter truck number",
+  PLEASEENTERTRAILORNUMBER:"Please enter trailor number",
+  PLEASENTERTRUCKNUMBER:"Please enter truck number",
 };

@@ -1,4 +1,4 @@
-import React, {useState, useRef,useEffect} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import {
   View,
   Text,
@@ -7,7 +7,7 @@ import {
   Image,
   TextInput,
   ScrollView,
-  Keyboard
+  Keyboard,
 } from 'react-native';
 import {useSelector} from 'react-redux';
 import {loaderOne} from '../../Components/Loaders/AnimatedLoaderFiles';
@@ -26,7 +26,7 @@ import {
 } from '../../styles/responsiveSize';
 import imagePath from '../../constants/imagePath';
 import ActionSheet from 'react-native-actionsheet';
-import {showError} from '../../utils/helperFunctions';
+import {showError, showSuccess} from '../../utils/helperFunctions';
 import {cloneDeep} from 'lodash';
 import ButtonComponent from '../../Components/ButtonComponent';
 
@@ -38,7 +38,7 @@ export default function Reimbursement({route, navigation}) {
     isLoading: false,
     imageArray: [],
     remove_image_ids: [],
-    reimbursementTypeArray: [{type: 'Broken Items',id:1}],
+    reimbursementTypeArray: [{type: 'Broken Items', id: 1}],
     amount: '',
     comments: '',
     showTypeDropdown: false,
@@ -68,8 +68,7 @@ export default function Reimbursement({route, navigation}) {
   );
   const styles = stylesFunc({defaultLanguagae});
 
-
- //Get Damage Type
+  //Get Damage Type
   useEffect(() => {
     // getReimbursementtypes()
   }, []);
@@ -78,16 +77,15 @@ export default function Reimbursement({route, navigation}) {
     actions
       .getAllReimbursementTypes({}, {client: clientInfo?.database_name})
       .then(res => {
-        if(res && res?.status==200 && res?.data){
+        if (res && res?.status == 200 && res?.data) {
           updateState({
-            reimbursementTypeArray:res?.data
-          })
+            reimbursementTypeArray: res?.data,
+          });
         }
         console.log(res, 'res>res');
       })
       .catch(errorMethod);
   };
-
 
   //this function use for open actionsheet
   let actionSheet = useRef();
@@ -182,27 +180,32 @@ export default function Reimbursement({route, navigation}) {
         });
       }
 
-
-      console.log(formdata,"formdata");
-     // updateState({
+      console.log(formdata, 'formdata');
+      // updateState({
       //   isLoading:true
       // })
-   
-      // actions
-      //   .reimbursement(formdata, {
-      //     code: appData?.profile?.code,
-      //     currency: currencies?.primary_currency?.id,
-      //     language: languages?.primary_language?.id,
-      //     // 'Content-Type': 'multipart/form-data',
-      //   })
-      //   .then((res) => {
-      //     updateState({isLoading: false});
-      //     // navigation.navigate(navigationStrings.TAXIHOMESCREEN);
-      //     navigation.goBack();
-      //     showSuccess(res?.message);
-      //   })
-      //   .catch(errorMethod);
+
+      actions
+        .reimbursement(formdata, {client: clientInfo?.database_name})
+        .then(res => {
+          updateState({isLoading: false});
+          // navigation.navigate(navigationStrings.TAXIHOMESCREEN);
+          navigation.goBack();
+          showSuccess(res?.message);
+        })
+        .catch(errorMethod);
     }
+  };
+
+  //Error handling in screen
+  const errorMethod = error => {
+    console.log(error, 'short code error');
+    updateState({
+      isLoading: false,
+      isLoadingB: false,
+      isRefreshing: false,
+    });
+    showError(error?.message || error?.error);
   };
 
   return (
@@ -299,7 +302,9 @@ export default function Reimbursement({route, navigation}) {
           textAlignVertical={'top'}
           keyboardType={'numeric'}
           returnKeyType={'done'}
-          onSubmitEditing={(e)=>{Keyboard.dismiss()}}
+          onSubmitEditing={e => {
+            Keyboard.dismiss();
+          }}
           style={styles.textInputStyle2}
           onChangeText={text => updateState({amount: text})}
         />

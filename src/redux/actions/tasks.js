@@ -12,7 +12,8 @@ import {
   AGENT_PAYOUT,
   AGENT_PAYOUT_DETAILS,
   AGENT_BANK_DETAILS,
-  GET_DAMAGE_TYPES
+  GET_DAMAGE_TYPES,
+  DAMAGE_REPORTS
 } from '../../config/urls';
 import {apiGet, apiPost} from '../../utils/utils';
 import store from '../store';
