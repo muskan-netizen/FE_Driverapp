@@ -553,7 +553,7 @@ android {
         }
         pinkJet {
             dimension "appType"
-            versionCode 2
+            versionCode 3
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
@@ -1726,7 +1726,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.SXM2GO.royodispatcher'
-            resValue "string", "app_name", "Vendor Spot Dispatcher"
+            resValue "string", "app_name", "SXM2GO Dispatcher"
            
         }
         farmerSouq{
@@ -1739,6 +1739,66 @@ android {
             applicationId 'com.FarmerSouq.royodispatcher'
             resValue "string", "app_name", "Farmer Souq Dispatcher"
            
+        }
+        yogo_lift{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.yogoLift.royodispatcher'
+            resValue "string", "app_name", "yogo lift Dispatcher"
+        }
+        mozmarcas{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Mozmarcas.royodispatcher'
+            resValue "string", "app_name", "Mozmarcas Dispatcher"
+        }
+        stichesonSite{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.StichesonSite.royodispatcher'
+            resValue "string", "app_name", "Stiches on Site Dispatcher"
+        }
+        tmgShops{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.TmgShops.royodispatcher'
+            resValue "string", "app_name", "Tmg Shops Dispatcher"
+        }
+        gasGiant{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.GasGiant.royodispatcher'
+            resValue "string", "app_name", "Gas Giant Dispatcher"
+        }
+        zestyClickz{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.ZestyClickz.royodispatcher'
+            resValue "string", "app_name", "Zesty Clickz Dispatcher"
         }
     }
 }
