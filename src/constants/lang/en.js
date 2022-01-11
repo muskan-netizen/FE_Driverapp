@@ -253,4 +253,6 @@ export default {
   ENTERTRUCKNUMBER:"Enter truck number",
   PLEASEENTERTRAILORNUMBER:"Please enter trailor number",
   PLEASENTERTRUCKNUMBER:"Please enter truck number",
+  CUSTOMERTYPE:"Customer type",
+  PLEASESELECTCUSTOMERTYPE:"Please select the customer type"
 };
