@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "143639815301",
+    "project_id": "ritenow-dispatcher",
+    "storage_bucket": "ritenow-dispatcher.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:143639815301:android:aedb1590c29cba3c7675ec",
+        "android_client_info": {
+          "package_name": "com.Ritenow.royodispatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "143639815301-ug16geioqgnsn59ehqkp3fcon6jfnnot.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvvJueHN9aVSXAP1r7pak5lkXJvm5p--E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "143639815301-ug16geioqgnsn59ehqkp3fcon6jfnnot.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "143639815301-075qvb0pqhk3042h7btl1p0refn447rr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.Ritenow.Dispatch"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -537,7 +537,7 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.HMC.royodispatcher'
+            applicationId 'com.app.HMC.royodispatcher'
             resValue "string", "app_name", "HMC Dispatch"
         }
 
@@ -1800,8 +1800,80 @@ android {
             applicationId 'com.ZestyClickz.royodispatcher'
             resValue "string", "app_name", "Zesty Clickz Dispatcher"
         }
+         citysuds{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.CitySuds.royodispatcher'
+            resValue "string", "app_name", "Citysuds Dispatcher"
+        }
+         easyu{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Easyu.royodispatcher'
+            resValue "string", "app_name", "Easyu Dispatcher"
+        }
+            drivva{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Drivva.royodispatcher'
+            resValue "string", "app_name", "Drivva Dispatcher"
+        }
+          myfiji{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Myfiji.royodispatcher'
+            resValue "string", "app_name", "MyFiji Dispatcher"
+        }
+          ritenow{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Ritenow.royodispatcher'
+            resValue "string", "app_name", "RiteNow Dispatcher"
+        }
+          fastMikes{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.fastMikes.royodispatcher'
+            resValue "string", "app_name", "FastMikes Dispatcher"
+        }
+            hometowndeliveryllc{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.HomeTownDeliveryllc.royodispatcher'
+            resValue "string", "app_name", "home Town Delivery llc Dispatcher"
+        }
     }
 }
+
+
 
 
 
