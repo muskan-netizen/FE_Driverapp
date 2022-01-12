@@ -333,8 +333,7 @@ export default function Signup({route, navigation}) {
     formdata.append('team_id', !!selectedTeam ? selectedTeam?.id : '');
     formdata.append('tags', dummyTags);
     if (getBundleId() == appIds?.trucxi && selectedCustomerType) {
-      selectedCustomerType;
-      formdata.append('customer_type', selectedCustomerType?.id);
+      formdata.append('customer_type_id', selectedCustomerType?.id);
     }
     formdata.append('profile_picture', {
       type: 'image/jpeg',
