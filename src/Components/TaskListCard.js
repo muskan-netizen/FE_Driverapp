@@ -18,6 +18,7 @@ import {getColorCodeWithOpactiyNumber} from '../utils/helperFunctions';
 import {colorArray} from '../utils/constants/ConstantValues';
 import {format} from 'date-fns';
 import {useSelector} from 'react-redux';
+import strings from '../constants/lang';
 const TaskListCard = ({
   data = {},
   allTasks = [],
@@ -25,7 +26,7 @@ const TaskListCard = ({
   _onPressTask = () => {},
   showCurrency = false,
   previousData = null,
-  _onPressTaskDetails = () => {},
+  isFromHistory = false,
 }) => {
   //Get Date
   const defaultLanguagae = useSelector(
@@ -38,8 +39,6 @@ const TaskListCard = ({
 
     return local;
   };
-
-  console.log(data, 'datadata');
 
   //get BackGroundColor
   const getBackGroudColor = name => {
@@ -110,7 +109,11 @@ const TaskListCard = ({
       onPress={_onPressTask}>
       <View
         opacity={getDynamicUpdateOnValues().blur}
-        style={[styles.shadowStyle]}>
+        style={{
+          ...styles.shadowStyle,
+          marginBottom:
+            allTasks[index]?.order.id == allTasks[index + 1]?.order.id ? 1 : 20,
+        }}>
         <View
           style={[
             styles.borderLine,
@@ -134,7 +137,9 @@ const TaskListCard = ({
               {/* <Image source={imagePath.dollor} /> */}
               <Text style={styles.dateTimeStyle}>
                 {data?.order?.amount
-                  ? Number(data?.order?.amount).toFixed(2)
+                  ? Number(data?.order?.amount)
+                      .toFixed(2)
+                      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
                   : Number(0).toFixed(2)}
               </Text>
             </View>
@@ -142,13 +147,38 @@ const TaskListCard = ({
         </View>
 
         <View style={styles.dotViewStyle}>
-          {data?.order?.call_back_url && (
-            <TouchableOpacity onPress={_onPressTaskDetails}>
-              <Image source={imagePath.expand} />
-            </TouchableOpacity>
+          {isFromHistory ? (
+            <View
+              style={{
+                paddingVertical: moderateScale(2),
+                paddingHorizontal: moderateScale(2),
+                backgroundColor:
+                  data?.task_status == '4' ? colors.greenLight : colors.redB,
+                borderRadius: moderateScale(5),
+              }}>
+              <Text
+                style={{
+                  fontFamily: fontFamily.regular,
+                  fontSize: textScale(8),
+                  color: colors.white,
+                }}>
+                {data?.task_status == '4'
+                  ? strings.COMPELETED
+                  : strings.CANCELLED}
+              </Text>
+            </View>
+          ) : (
+            <></>
           )}
-
-          <View style={styles.dotBaseViewStyle} />
+          <View
+            style={{
+              ...styles.dotBaseViewStyle,
+              backgroundColor:
+                isFromHistory && data?.task_status == '4'
+                  ? colors.green
+                  : colors.redB,
+            }}
+          />
           <View
             style={[
               styles.statusView,
@@ -161,7 +191,11 @@ const TaskListCard = ({
                 styles.taskTypeName,
                 {color: getTextColor(data?.tasktype?.name)},
               ]}>
-              {data?.tasktype?.name}
+              {`${
+                (data?.tasktype?.name).toLowerCase() == 'drop'
+                  ? strings.DROP
+                  : strings.PICKUP
+              }`}
             </Text>
           </View>
         </View>
@@ -186,7 +220,6 @@ export function stylesFunc({defaultLanguagae}) {
       marginHorizontal: moderateScale(10),
       borderColor: colors.grey2,
       borderRadius: 8,
-      marginVertical: 5,
       backgroundColor: colors.white,
       height: moderateScaleVertical(100),
       ...generateBoxShadowStyle(-2, 4, '#171717', 0.2, 3, 4, '#171717'),

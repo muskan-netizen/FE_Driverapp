@@ -1,192 +1,40 @@
 {
   "project_info": {
-    "project_number": "516655947100",
-    "project_id": "royo-dispatcher-45ba6",
-    "storage_bucket": "royo-dispatcher-45ba6.appspot.com"
+    "project_number": "908648197392",
+    "project_id": "order-checkout",
+    "storage_bucket": "order-checkout.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:516655947100:android:14bbba1ff4478e42657599",
+        "mobilesdk_app_id": "1:908648197392:android:512ace984df26550ea8995",
         "android_client_info": {
-          "package_name": "com.Zip.royodispatcher"
+          "package_name": "com.orderchekout.driver.android1"
         }
       },
       "oauth_client": [
         {
-          "client_id": "516655947100-o87n362h274eucfvc0hss70q4gv64c4u.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.Zip.royodispatcher",
-            "certificate_hash": "6459a6610b3282cfa392061710892a1dd3a663c7"
-          }
-        },
-        {
-          "client_id": "516655947100-fog4ar2fj33q6ho4dfph1k0j018cqd9a.apps.googleusercontent.com",
+          "client_id": "908648197392-0j4i3badv8i991ieddoie1csa9k5b3c1.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCp_XB-NS1rA1_EOFHkmUjHwHlEf6wfq-E"
+          "current_key": "AIzaSyBkwLvzxpmLOfJdUB4N2eluk7NiTIeWs_s"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "516655947100-fog4ar2fj33q6ho4dfph1k0j018cqd9a.apps.googleusercontent.com",
+              "client_id": "908648197392-0j4i3badv8i991ieddoie1csa9k5b3c1.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "516655947100-2mgnli2jgneok0gtijdmq9pshnb5c6ev.apps.googleusercontent.com",
+              "client_id": "908648197392-1ucolvqso9b6o6ga4fvh4bu052fhc5rc.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.Zip.Dispatch"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:516655947100:android:5fcdadded558cb2c657599",
-        "android_client_info": {
-          "package_name": "com.checkout.royodispatcher"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "516655947100-fog4ar2fj33q6ho4dfph1k0j018cqd9a.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCp_XB-NS1rA1_EOFHkmUjHwHlEf6wfq-E"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "516655947100-fog4ar2fj33q6ho4dfph1k0j018cqd9a.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "516655947100-2mgnli2jgneok0gtijdmq9pshnb5c6ev.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.Zip.Dispatch"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:516655947100:android:4300711af9c66c0f657599",
-        "android_client_info": {
-          "package_name": "com.drivree.royodispatcher"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "516655947100-fog4ar2fj33q6ho4dfph1k0j018cqd9a.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCp_XB-NS1rA1_EOFHkmUjHwHlEf6wfq-E"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "516655947100-fog4ar2fj33q6ho4dfph1k0j018cqd9a.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "516655947100-2mgnli2jgneok0gtijdmq9pshnb5c6ev.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.Zip.Dispatch"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:516655947100:android:5e5b61823ff056fb657599",
-        "android_client_info": {
-          "package_name": "com.rxnow.royodispatcher"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "516655947100-fog4ar2fj33q6ho4dfph1k0j018cqd9a.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCp_XB-NS1rA1_EOFHkmUjHwHlEf6wfq-E"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "516655947100-fog4ar2fj33q6ho4dfph1k0j018cqd9a.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "516655947100-2mgnli2jgneok0gtijdmq9pshnb5c6ev.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.Zip.Dispatch"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:516655947100:android:a3bb346d5de4172a657599",
-        "android_client_info": {
-          "package_name": "com.seaChangeVending.royodispatcher"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "516655947100-fog4ar2fj33q6ho4dfph1k0j018cqd9a.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCp_XB-NS1rA1_EOFHkmUjHwHlEf6wfq-E"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "516655947100-fog4ar2fj33q6ho4dfph1k0j018cqd9a.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "516655947100-2mgnli2jgneok0gtijdmq9pshnb5c6ev.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.Zip.Dispatch"
+                "bundle_id": "com.orderchekout.driver.ios"
               }
             }
           ]

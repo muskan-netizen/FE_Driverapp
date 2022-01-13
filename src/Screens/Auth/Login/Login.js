@@ -38,9 +38,9 @@ import {requestUserPermission} from '../../../utils/notificationServices';
 export default function Login({navigation, route}) {
   const paramData = route?.params?.data;
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
+
   const fcmToken = useSelector(state => state?.initBoot?.fcmToken);
-  console.log(clientInfo, 'clientInfo>clientInfo');
-  console.log(paramData, 'paramData>paramData');
+  console.log(clientInfo, 'paramData>paramData');
   const [state, setState] = useState({
     isLoading: false,
     callingCode: clientInfo?.get_country_set?.phonecode
@@ -144,7 +144,7 @@ export default function Login({navigation, route}) {
   //Error handling in api
   const errorMethod = error => {
     updateState({isLoading: false});
-    showError(error?.message || error?.error);
+    showError(error?.message || error?.error, 10000);
   };
 
   //On country change
@@ -226,10 +226,14 @@ export default function Login({navigation, route}) {
               btnText={strings.LOGIN}
               colorsArray={[colors.themeColor, colors.themeColor]}
             />
-
-            <TouchableOpacity onPress={_signUp} style={styles.signUpView}>
-              <Text style={styles.signUpText}>{strings.SIGNUP}</Text>
-            </TouchableOpacity>
+            <View style={[styles.signUpView, {flexDirection: 'row'}]}>
+              <Text style={styles.byContinue}>
+                {strings.DONT_HAVE_ACCOUNT}{' '}
+              </Text>
+              <TouchableOpacity onPress={_signUp}>
+                <Text style={styles.signUpText}>{strings.SIGNUP}</Text>
+              </TouchableOpacity>
+            </View>
             <View style={styles.byContinueTextContainer}>
               <Text style={styles.byContinue}>{`${strings.BYCONTINUE} `}</Text>
             </View>

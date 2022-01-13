@@ -1,23 +1,20 @@
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import React, {useRef} from 'react';
-import {Image, StyleSheet} from 'react-native';
+import React from 'react';
+import {Image} from 'react-native';
 import {useSelector} from 'react-redux';
 import CustomDrawerContent from '../Components/CustomDrawerContent';
 import imagePath from '../constants/imagePath';
 import strings from '../constants/lang';
-import {ContactUs, Settings, Wallet} from '../Screens';
+import {ContactUs, Settings} from '../Screens';
+import DamageReport from '../Screens/DamageReport/DamageReport';
+import Reimbursement from '../Screens/Reimbursement/Reimbursement';
 import colors from '../styles/colors';
-import fontFamily from '../styles/fontFamily';
-import {
-  moderateScale,
-  moderateScaleVertical,
-  textScale,
-  width,
-} from '../styles/responsiveSize';
-import AppSettingStack from './AppSettingStack';
+import {moderateScaleVertical, width} from '../styles/responsiveSize';
 import navigationStrings from './navigationStrings';
+import PayoutStack from './PayoutStack';
 import ProfileStack from './ProfileStack';
 import TaskStack from './TaskStack';
+import WalletStack from './WalletStack';
 
 const Drawer = createDrawerNavigator();
 export default function DrawerRoutes(props) {
@@ -74,10 +71,24 @@ export default function DrawerRoutes(props) {
       />
 
       <Drawer.Screen
-        component={Wallet}
-        name={navigationStrings.WALLET}
+        component={WalletStack}
+        name={navigationStrings.WALLETSTACK}
         options={{
           drawerLabel: strings.WALLET,
+          drawerIcon: ({focused}) => (
+            <Image
+              style={{tintColor: focused ? colors.blackShade2 : colors.grey2}}
+              source={imagePath.profileImage}
+            />
+          ),
+        }}
+      />
+
+      <Drawer.Screen
+        component={PayoutStack}
+        name={navigationStrings.PAYOUT_STACK}
+        options={{
+          drawerLabel: strings.PAYOUT,
           drawerIcon: ({focused}) => (
             <Image
               style={{tintColor: focused ? colors.blackShade2 : colors.grey2}}
@@ -92,6 +103,32 @@ export default function DrawerRoutes(props) {
         name={navigationStrings.SETTINGS}
         options={{
           drawerLabel: strings.SETTING,
+          drawerIcon: ({focused}) => (
+            <Image
+              style={{tintColor: focused ? colors.blackShade2 : colors.grey2}}
+              source={imagePath.settingsIcon}
+            />
+          ),
+        }}
+      />
+       <Drawer.Screen
+        component={DamageReport}
+        name={navigationStrings.DAMAGEREPORT}
+        options={{
+          drawerLabel: strings.DAMAGEREPORT,
+          drawerIcon: ({focused}) => (
+            <Image
+              style={{tintColor: focused ? colors.blackShade2 : colors.grey2}}
+              source={imagePath.settingsIcon}
+            />
+          ),
+        }}
+      />
+        <Drawer.Screen
+        component={Reimbursement}
+        name={navigationStrings.REIMBURSEMENT}
+        options={{
+          drawerLabel: strings.REIMBURSEMENT,
           drawerIcon: ({focused}) => (
             <Image
               style={{tintColor: focused ? colors.blackShade2 : colors.grey2}}

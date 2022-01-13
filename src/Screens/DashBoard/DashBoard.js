@@ -39,6 +39,7 @@ import {chekLocationPermission} from '../../utils/permissions';
 navigator.geolocation = require('react-native-geolocation-service');
 import Geocoder from 'react-native-geocoding';
 import {requestUserPermission} from '../../utils/notificationServices';
+import Geolocation_ from '@react-native-community/geolocation';
 // import BackgroundTimer from 'react-native-background-timer';
 
 export default function DashBoard({route, navigation}) {
@@ -76,12 +77,14 @@ export default function DashBoard({route, navigation}) {
     statusChanged: false,
     longitude: null,
     latitude: null,
+    heading: 0,
     isWarningAlert: false,
     warningStatus: false,
   });
   const {
     longitude,
     latitude,
+    heading,
     region,
     coordinate,
     todaysTasks,
@@ -112,6 +115,33 @@ export default function DashBoard({route, navigation}) {
     state => state?.initBoot?.defaultLanguage,
   );
   const fcmToken = useSelector(state => state?.initBoot?.fcmToken);
+  const zendeskKeys = useSelector(state => state?.initBoot?.zendeskKeys);
+
+  const initWatchPosition = () => {
+    Geolocation_.watchPosition(
+      position => {
+        console.log('position => position => position =>', position);
+        updateState({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+          heading: position.coords.heading,
+        });
+        fetchgentLogs(
+          position.coords.latitude,
+          position.coords.longitude,
+          position.coords.heading,
+          'callFromWatchPosition',
+        );
+      },
+      error => console.log(error.message),
+      {
+        enableHighAccuracy: true,
+        timeout: 20000,
+        maximumAge: 1000,
+        distanceFilter: 100,
+      },
+    );
+  };
 
   useEffect(() => {
     (async () => {
@@ -134,6 +164,7 @@ export default function DashBoard({route, navigation}) {
   // BackgroundTimer.stopBackgroundTimer();
   //   }, []);
   useEffect(() => {
+    initWatchPosition();
     const backHandler = BackHandler.addEventListener(
       'hardwareBackPress',
       () => true,
@@ -169,46 +200,83 @@ export default function DashBoard({route, navigation}) {
         updateState({
           latitude: position.coords.latitude,
           longitude: position.coords.longitude,
+          heading: position.coords.heading,
         });
       },
       error => console.log(error.message),
-      {enableHighAccuracy: true, timeout: 20000},
+      {
+        enableHighAccuracy: true,
+        timeout: 20000,
+      },
     );
   };
 
-  useInterval(
-    () => {
-      getCurrentPosition();
-      setTimeout(() => {
-        (async () => {
-          let data = {};
-          data['device_type'] = Platform.OS;
-          data['os_version'] = DeviceInfo.getSystemVersion();
-          data['app_version'] = DeviceInfo.getVersion();
-          data['on_route'] = 'y';
-          data['battery_level'] = (await DeviceInfo.getBatteryLevel()) * 100;
-          data['all'] = initial;
-          // data['current_speed'] = 'y';
-          data['long'] = longitude;
-          data['lat'] = latitude;
-          data['device_token'] = !!fcmToken ? fcmToken : '';
-          // console.log(data, 'data>data');
-          console.log(longitude, 'sending data data', latitude);
-          actions
-            .logsApi(data, {client: clientInfo?.database_name})
-            .then(res => {
-              // console.log(userData, 'userData');
+  const fetchgentLogs = (lat, lng, heading_, callFrom) => {
+    console.log('<<<<<<<<jhjhjh', callFrom, lat, '   ' + lng);
+    getCurrentPosition();
+    setTimeout(() => {
+      (async () => {
+        let data = {};
+        data['device_type'] = Platform.OS;
+        data['os_version'] = DeviceInfo.getSystemVersion();
+        data['app_version'] = DeviceInfo.getVersion();
+        data['on_route'] = 'y';
+        data['battery_level'] = (await DeviceInfo.getBatteryLevel()) * 100;
+        data['all'] = initial;
+        // data['current_speed'] = 'y';
+        data['long'] = callFrom === 'callFromWatchPosition' ? lng : longitude;
+        data['lat'] = callFrom === 'callFromWatchPosition' ? lat : latitude;
+        data['device_token'] = !!fcmToken ? fcmToken : '';
+        data['heading_angle'] =
+          callFrom === 'callFromWatchPosition' ? heading_ : heading;
+        // console.log(data, 'data>data');
+        console.log(data, 'sending data data??????');
+        actions
+          .logsApi(data, {client: clientInfo?.database_name})
+          .then(res => {
+            if (
+              res?.data?.user?.client_preference
+                ?.customer_support_application_id != null &&
+              res?.data?.user?.client_preference?.customer_support_key != null
+            ) {
+              if (
+                zendeskKeys?.keys?.account_key !=
+                  res?.data?.user?.client_preference?.customer_support_key &&
+                zendeskKeys?.keys?.application_id !=
+                  res?.data?.user?.client_preference
+                    ?.customer_support_application_id
+              )
+                actions?.setZendeskKeys({
+                  keys: {
+                    application_id:
+                      res?.data?.user?.client_preference
+                        ?.customer_support_application_id,
+                    account_key:
+                      res?.data?.user?.client_preference?.customer_support_key,
+                  },
+                });
+            }
+            console.log(res, 'res>>>>>>>agenLog');
 
-              if (selectedOption == 1) {
-                updateState({allTasks: res?.data?.tasks});
-              } else {
-                updateState({todaysTasks: res?.data?.tasks});
-              }
-            })
-            .catch(errorMethod);
-        })();
-      }, 2000);
-    },
+            if (selectedOption == 1) {
+              updateState({allTasks: res?.data?.tasks});
+            } else {
+              updateState({todaysTasks: res?.data?.tasks});
+            }
+          })
+          .catch(errorMethod);
+      })();
+    }, 2000);
+  };
+
+  useEffect(() => {
+    setTimeout(() => {
+      fetchgentLogs(latitude, longitude, heading, '');
+    }, 5000);
+  }, []);
+
+  useInterval(
+    () => fetchgentLogs(latitude, longitude, heading, ''),
     userData && userData?.access_token
       ? userData?.team?.location_frequency
         ? Number(userData?.team?.location_frequency) * 60000
@@ -309,7 +377,6 @@ export default function DashBoard({route, navigation}) {
       .catch(errorMethod);
   };
 
-  console.log(isEnabled, 'isEnabled');
   const toggleSwitch = () => {
     updateState({
       statusChanged: true,
@@ -358,9 +425,7 @@ export default function DashBoard({route, navigation}) {
     console.log('Here it is', item);
     moveToNewScreen(navigationStrings.TASKDETAIL, {item: item})();
   };
-  const _onPressTaskDetails = item => {
-    moveToNewScreen(navigationStrings.ORDERDETAIL, {item: item})();
-  };
+
   const renderTaskList = ({item, index}) => {
     let allData = selectedOption ? allTasks : todaysTasks;
 
@@ -619,7 +684,7 @@ export default function DashBoard({route, navigation}) {
                 borderRadius: 8,
               }}
               onPress={() => toggleWarning(false)}>
-              <Text style={{color: colors.white}}>Cancel</Text>
+              <Text style={{color: colors.white}}>{strings.CANCEL}</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={{
@@ -631,7 +696,7 @@ export default function DashBoard({route, navigation}) {
                 borderRadius: 8,
               }}
               onPress={() => _onOpenSettings()}>
-              <Text style={{color: colors.white}}>Enable</Text>
+              <Text style={{color: colors.white}}>{strings.ENABLE}</Text>
             </TouchableOpacity>
           </View>
         </View>

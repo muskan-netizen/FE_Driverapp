@@ -19,6 +19,7 @@ import {getImageUrl} from '../../utils/helperFunctions';
 import {stylesFunc} from './styles';
 
 export default function OrderDetail({route, navigation}) {
+
   let paramData = route?.params?.data?.item;
 
   const [state, setState] = useState({
@@ -34,8 +35,8 @@ export default function OrderDetail({route, navigation}) {
   );
   const styles = stylesFunc({defaultLanguagae});
 
-  const new_dispatch_traking_url = paramData?.order?.call_back_url
-    ? (paramData?.order?.call_back_url).replace(
+  const new_dispatch_traking_url = paramData
+    ? paramData.replace(
         '/dispatch-order-status-update/',
         '/dispatch-order-status-update-details/',
       )

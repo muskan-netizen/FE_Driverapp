@@ -76,4 +76,16 @@ export default {
   support2: require('../assets/images/ic_support_2.png'),
   map1: require('../assets/images/ic_map1.png'),
   expand: require('../assets/images/ic_expand.png'),
+  ic_cross: require('../assets/images/ic_backwd_dark.png'),
+  dropDownNew: require('../assets/images/ic_drpdwn.png'),
+  blackSquare: require('../assets/images/ic_square.png'),
+  grayDot: require('../assets/images/ic_dot.png'),
+  icPayout: require('../assets/images/ic_payout.png'),
+  icRadio: require('../assets/images/ic_radio.png'),
+  icRadioActive: require('../assets/images/ic_radioActive.png'),
+  icCamIcon: require('../assets/images/ic_capture.png'),
+  ic_cross_red: require('../assets/images/ic_cross_red.png'),
+  reimbursement: require('../assets/images/ic_reimbursement.png'),
+  damagereport: require('../assets/images/ic_damagereport.png'),
+  
 };

@@ -13,12 +13,14 @@ import {
   APP_INITIAL_SETTINGS,
   PRIVACYANDTERMSANDCONDITIONS,
   LOGSAPI,
+  CUSTOMNOTIFICATIONPAYLOAD,
 } from '../../config/urls';
 
 export function initApp(data = {}, headers = {}, reload = false) {
   return new Promise((resolve, reject) => {
     apiPost(APP_INITIAL_SETTINGS, data, headers)
       .then(async res => {
+        console.log(res, 'somamae is urnning1');
         let data = res?.data;
         setClientInfo(data).then(suc => {
           dispatch({
@@ -38,6 +40,24 @@ export function initApp(data = {}, headers = {}, reload = false) {
 export function getListOfAllCmsLinks(url = '', data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
     apiGet(PRIVACYANDTERMSANDCONDITIONS + url, data, headers)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+}
+
+//Get List of payment method
+export function getCustomNotificationPayload(
+  url = '',
+  data = {},
+  headers = {},
+) {
+  console.log(CUSTOMNOTIFICATIONPAYLOAD + url, 'all added url');
+  return new Promise((resolve, reject) => {
+    apiGet(CUSTOMNOTIFICATIONPAYLOAD + url, data, headers)
       .then(res => {
         resolve(res);
       })
@@ -123,9 +143,16 @@ export function setDefaultLanguage(data = {}) {
 }
 
 export const saveFcmToken = data => {
-  console.log(data, 'datadata');
   dispatch({
     type: types.FCMTOKEN,
+    payload: data,
+  });
+};
+
+export const setZendeskKeys = data => {
+  console.log(data, 'datadata>>>>>>zendeskKeys');
+  dispatch({
+    type: types.ZENDEKSKKEYS,
     payload: data,
   });
 };

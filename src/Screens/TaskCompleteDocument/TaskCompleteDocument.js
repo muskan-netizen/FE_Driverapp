@@ -42,6 +42,7 @@ import RNFetchBlob from 'rn-fetch-blob';
 import {showMessage} from 'react-native-flash-message';
 import {openCamera} from '../../utils/imagePicker';
 import {useFocusEffect} from '@react-navigation/native';
+import {isEmpty} from 'lodash';
 
 var image1 = new FaceImage();
 var image2 = new FaceImage();
@@ -233,7 +234,7 @@ export default function TaskCompleteDocument({route, navigation}) {
               updateState({showInputBox: false});
               cameraHandler(1, {
                 cropping: false,
-                compressImageQuality: 0.8,
+                compressImageQuality: 0.1,
                 cropperCircleOverlay: false,
                 mediaType: 'photo',
               })
@@ -326,13 +327,13 @@ export default function TaskCompleteDocument({route, navigation}) {
     if (
       findDataToCheck?.signature &&
       findDataToCheck?.signature_requried &&
-      !signatureImage
+      isEmpty(signatureImage)
     ) {
       showError(strings.SIGNATUREIMAGE);
     } else if (
       findDataToCheck?.image &&
       findDataToCheck?.image_requried &&
-      !image
+      isEmpty(image)
     ) {
       showError(strings.PHOTOIMAGE);
     } else if (
@@ -344,13 +345,13 @@ export default function TaskCompleteDocument({route, navigation}) {
     } else if (
       findDataToCheck?.barcode &&
       findDataToCheck?.barcode_requried &&
-      !qrcode
+      isEmpty(qrcode)
     ) {
       showError(strings.QRSCAN);
     } else if (
       findDataToCheck?.face &&
       findDataToCheck?.face_requried &&
-      !faceImage
+      isEmpty(faceImage)
     ) {
       showError(strings.FACEIMAGEREQUIRED);
     } else if (
@@ -658,7 +659,7 @@ export default function TaskCompleteDocument({route, navigation}) {
                 marginHorizontal: moderateScale(10),
                 marginTop: moderateScale(10),
               }}>
-              <Text style={styles.attachment}>{strings.REQUIREDDATA}</Text>
+              {/* <Text style={styles.attachment}>{strings.REQUIREDDATA}</Text> */}
 
               <View
                 style={{
