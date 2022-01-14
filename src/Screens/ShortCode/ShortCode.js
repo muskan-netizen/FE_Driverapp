@@ -1001,6 +1001,48 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.easyu:
+          updateState({
+            shortCode: shortCodes.easyu,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.citySuds:
+          updateState({
+            shortCode: shortCodes.citysuds,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.drivva:
+          updateState({
+            shortCode: shortCodes.drivva,
+            isShortcodePrefilled: true,
+          });
+          break;
+            case appIds.ritenow:
+          updateState({
+            shortCode: shortCodes.ritenow,
+            isShortcodePrefilled: true,
+          });
+          break;
+            case appIds.myfiji:
+          updateState({
+            shortCode: shortCodes.myfiji,
+            isShortcodePrefilled: true,
+          });
+          break;
+          case appIds.fastMikes:
+          updateState({
+            shortCode: shortCodes.fastMikes,
+            isShortcodePrefilled: true,
+          });
+          break;
+           case appIds.hometowndeliveryllc:
+          updateState({
+            shortCode: shortCodes.hometowndeliveryllc,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);

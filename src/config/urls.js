@@ -2,7 +2,7 @@
 //export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // export const API_BASE_URL = 'http://192.168.103.73:8006/'; // preet local url
 // export const API_BASE_URL = 'http://192.168.102.23:8005/'; // Gourav.s local url
@@ -11,7 +11,7 @@
 
 
 // VICI 
-export const API_BASE_URL = 'https://envios.vici.la/'
+// export const API_BASE_URL = 'https://envios.vici.la/'
 
 // fleety staging domain
 //export const API_BASE_URL = 'https://fleety.rdstaging.com/';
@@ -61,7 +61,7 @@ export const API_BASE_URL = 'https://envios.vici.la/'
 // click-eat
 // export const API_BASE_URL = 'https://dispatcher.click-eat.com/'
 // halalhmc
-// export const API_BASE_URL = 'https://dispatcher.halalhmc.org/'
+//export const API_BASE_URL = 'https://dispatcher.halalhmc.org/';
 // tranznet online
 // export const API_BASE_URL = 'https://dispatcher.tranzonline.com/'
 // runrun live domain

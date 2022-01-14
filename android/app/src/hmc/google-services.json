@@ -1,48 +1,40 @@
 {
   "project_info": {
-    "project_number": "193464844932",
-    "project_id": "royo-dispatcher-84f73",
-    "storage_bucket": "royo-dispatcher-84f73.appspot.com"
+    "project_number": "17112101652",
+    "project_id": "hmc-app-8aeac",
+    "storage_bucket": "hmc-app-8aeac.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:193464844932:android:d456000a23d94bbe5b78d1",
+        "mobilesdk_app_id": "1:17112101652:android:917dc9eebb0f9962d60801",
         "android_client_info": {
-          "package_name": "com.Groupy.royodispatcher"
+          "package_name": "com.app.HMC.royodispatcher"
         }
       },
       "oauth_client": [
         {
-          "client_id": "193464844932-5ms945h3cnb4cqk27u67v17qhs2mg7kf.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.Groupy.royodispatcher",
-            "certificate_hash": "6459a6610b3282cfa392061710892a1dd3a663c7"
-          }
-        },
-        {
-          "client_id": "193464844932-oejh8r82a0fif83qgrdlu7jhio48tg9v.apps.googleusercontent.com",
+          "client_id": "17112101652-7hmvl3j1otuo5ckus2brmrqcca9g8h90.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDem3ultvgTS101bxuEjwb66Jq4VbwdV_A"
+          "current_key": "AIzaSyAgVChJ_IwhcGQdMaW5ND-m4EaQadYoPPo"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "193464844932-oejh8r82a0fif83qgrdlu7jhio48tg9v.apps.googleusercontent.com",
+              "client_id": "17112101652-7hmvl3j1otuo5ckus2brmrqcca9g8h90.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "193464844932-2r09r9jtg0c67upia5ukunr83n8dg8nq.apps.googleusercontent.com",
+              "client_id": "17112101652-0uh0029ipmdg48b0m9qmqo343mel6v3p.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.TOTUM4U.Dispatch"
+                "bundle_id": "com.hmc.customer"
               }
             }
           ]
@@ -51,42 +43,50 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:193464844932:android:65e48ee80661291f5b78d1",
+        "mobilesdk_app_id": "1:17112101652:android:1dc97b304fe1e74bd60801",
         "android_client_info": {
-          "package_name": "com.HMC.royodispatcher"
+          "package_name": "com.eatkareem.halalnow"
         }
       },
       "oauth_client": [
         {
-          "client_id": "193464844932-unq41v3vesraj4j5q4tnuvalsadfhmlf.apps.googleusercontent.com",
+          "client_id": "17112101652-2j26m51sim293orsheup9jjl41634plc.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.HMC.royodispatcher",
-            "certificate_hash": "6459a6610b3282cfa392061710892a1dd3a663c7"
+            "package_name": "com.eatkareem.halalnow",
+            "certificate_hash": "6e35fcb20bda370ed0025e8c1df6109a03d09b6e"
           }
         },
         {
-          "client_id": "193464844932-oejh8r82a0fif83qgrdlu7jhio48tg9v.apps.googleusercontent.com",
+          "client_id": "17112101652-nqb6o2hboblu1pkjmq1llbhoit60k51m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.eatkareem.halalnow",
+            "certificate_hash": "4238303688c4192aeaf074ad7cd9f46d78a87f1d"
+          }
+        },
+        {
+          "client_id": "17112101652-7hmvl3j1otuo5ckus2brmrqcca9g8h90.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDem3ultvgTS101bxuEjwb66Jq4VbwdV_A"
+          "current_key": "AIzaSyAgVChJ_IwhcGQdMaW5ND-m4EaQadYoPPo"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "193464844932-oejh8r82a0fif83qgrdlu7jhio48tg9v.apps.googleusercontent.com",
+              "client_id": "17112101652-7hmvl3j1otuo5ckus2brmrqcca9g8h90.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "193464844932-2r09r9jtg0c67upia5ukunr83n8dg8nq.apps.googleusercontent.com",
+              "client_id": "17112101652-0uh0029ipmdg48b0m9qmqo343mel6v3p.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.TOTUM4U.Dispatch"
+                "bundle_id": "com.hmc.customer"
               }
             }
           ]
