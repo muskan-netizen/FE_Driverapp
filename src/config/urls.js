@@ -11,7 +11,7 @@
 
 
 // VICI 
-// export const API_BASE_URL = 'https://envios.vici.la/'
+export const API_BASE_URL = 'https://envios.vici.la/'
 
 // fleety staging domain
 //export const API_BASE_URL = 'https://fleety.rdstaging.com/';
@@ -78,7 +78,7 @@
 // africanvillage
 // export const API_BASE_URL = 'https://dispatch.africanvillage.market/'
 // swiftandvalu
-export const API_BASE_URL = 'https://dispatch.swiftandvalu.com/'
+// export const API_BASE_URL = 'https://dispatch.swiftandvalu.com/'
 
 export const personaltoken = 'TMJdbQlNWkYl1JzMONzRgF4zQFuP8s';
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;
