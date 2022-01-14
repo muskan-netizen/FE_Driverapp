@@ -155,6 +155,13 @@ const shortCodes = {
   tmgShops: '25ecdb',
   gasGiant: '0b57d0',
   zestyClickz: '99e1ad',
+  citysuds: 'c8e593',
+  drivva: '9fcc7d',
+  easyu: '23f79d',
+  myfiji: '4e5abe',
+  ritenow: '521391',
+  fastMikes: '5f0e8f',
+  hometowndeliveryllc: '80bac3',
 };
 
 // Goody Dispatch
@@ -309,8 +316,8 @@ const appIds = {
     android: 'com.ElCheRegio.Dispatch',
   }),
   hmc: Platform.select({
-    ios: 'com.HMC.Dispatch',
-    android: 'com.HMC.royodispatcher',
+    ios: 'com.app.HMC.Dispatcher',
+    android: 'com.app.HMC.royodispatcher',
   }),
   expressdeliverys: Platform.select({
     ios: 'com.ExpressDeliverysLLC.Dispatch',
@@ -771,6 +778,34 @@ const appIds = {
   zestyClickz: Platform.select({
     ios: 'com.ZestyClickz.Dispatch',
     android: 'com.ZestyClickz.royodispatcher',
+  }),
+  citySuds: Platform.select({
+    ios: 'com.CitySuds.Dispatch',
+    android: 'com.CitySuds.royodispatcher',
+  }),
+  drivva: Platform.select({
+    ios: 'com.Drivva.Dispatch',
+    android: 'com.Drivva.royodispatcher',
+  }),
+  easyu: Platform.select({
+    ios: 'com.Easyu.Dispatcher',
+    android: 'com.Easyu.royodispatcher',
+  }),
+  myfiji: Platform.select({
+    ios: 'com.Myfiji.Dispatch',
+    android: 'com.Myfiji.royodispatcher',
+  }),
+  ritenow: Platform.select({
+    ios: 'com.Ritenow.Dispatch',
+    android: 'com.Ritenow.royodispatcher',
+  }),
+  fastMikes: Platform.select({
+    ios: 'com.fastMikes.Dispatch',
+    android: 'com.fastMikes.royodispatcher',
+  }),
+  hometowndeliveryllc: Platform.select({
+    ios: 'com.HomeTownDeliveryllc.Dispatch',
+    android: 'com.HomeTownDeliveryllc.royodispatcher',
   }),
 };
 
