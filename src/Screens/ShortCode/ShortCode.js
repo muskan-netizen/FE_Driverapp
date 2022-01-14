@@ -874,6 +874,97 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.dummyDispatcher:
+          updateState({
+            shortCode: shortCodes.dummyDispatcher,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.skoop:
+          updateState({
+            shortCode: shortCodes.skoop,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.pickmeup:
+          updateState({
+            shortCode: shortCodes.pickmeup,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.kudhyo:
+          updateState({
+            shortCode: shortCodes.kudhyo,
+            isShortcodePrefilled: true,
+          });
+          break;
+
+        case appIds.bharatMove:
+          updateState({
+            shortCode: shortCodes.bharatMove,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.mml:
+          updateState({
+            shortCode: shortCodes.mml,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.sofia:
+          updateState({
+            shortCode: shortCodes.sofia,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.bimol:
+          updateState({
+            shortCode: shortCodes.bimol,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.tripTCI:
+          updateState({
+            shortCode: shortCodes.tripTCI,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.vendoor:
+          updateState({
+            shortCode: shortCodes.vendoor,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.pinkyDeli:
+          updateState({
+            shortCode: shortCodes.pinkyDeli,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.releezer:
+          updateState({
+            shortCode: shortCodes.releezer,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.vendorSpot:
+          updateState({
+            shortCode: shortCodes.vendorSpot,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.SXM2GO:
+          updateState({
+            shortCode: shortCodes.SXM2GO,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.farmerSouq:
+          updateState({
+            shortCode: shortCodes.farmerSouq,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);
@@ -935,6 +1026,7 @@ export default function ShortCode({route, navigation}) {
 
       actions
         .initApp({shortCode: shortCode}, header)
+        // .initApp({shortCode: '745e3f'}, header)
         .then(res => {
           if (getBundleId() == appIds.royoorder && res?.data) {
             actions.saveShortCode(shortCode);

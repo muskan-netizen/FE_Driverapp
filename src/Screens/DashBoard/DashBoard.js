@@ -39,6 +39,7 @@ import {chekLocationPermission} from '../../utils/permissions';
 navigator.geolocation = require('react-native-geolocation-service');
 import Geocoder from 'react-native-geocoding';
 import {requestUserPermission} from '../../utils/notificationServices';
+import Geolocation_ from '@react-native-community/geolocation';
 // import BackgroundTimer from 'react-native-background-timer';
 
 export default function DashBoard({route, navigation}) {
@@ -76,12 +77,14 @@ export default function DashBoard({route, navigation}) {
     statusChanged: false,
     longitude: null,
     latitude: null,
+    heading: 0,
     isWarningAlert: false,
     warningStatus: false,
   });
   const {
     longitude,
     latitude,
+    heading,
     region,
     coordinate,
     todaysTasks,
@@ -114,6 +117,32 @@ export default function DashBoard({route, navigation}) {
   const fcmToken = useSelector(state => state?.initBoot?.fcmToken);
   const zendeskKeys = useSelector(state => state?.initBoot?.zendeskKeys);
 
+  const initWatchPosition = () => {
+    Geolocation_.watchPosition(
+      position => {
+        console.log('position => position => position =>', position);
+        updateState({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+          heading: position.coords.heading,
+        });
+        fetchgentLogs(
+          position.coords.latitude,
+          position.coords.longitude,
+          position.coords.heading,
+          'callFromWatchPosition',
+        );
+      },
+      error => console.log(error.message),
+      {
+        enableHighAccuracy: true,
+        timeout: 20000,
+        maximumAge: 1000,
+        distanceFilter: 100,
+      },
+    );
+  };
+
   useEffect(() => {
     (async () => {
       currentLocation();
@@ -135,6 +164,7 @@ export default function DashBoard({route, navigation}) {
   // BackgroundTimer.stopBackgroundTimer();
   //   }, []);
   useEffect(() => {
+    initWatchPosition();
     const backHandler = BackHandler.addEventListener(
       'hardwareBackPress',
       () => true,
@@ -170,6 +200,7 @@ export default function DashBoard({route, navigation}) {
         updateState({
           latitude: position.coords.latitude,
           longitude: position.coords.longitude,
+          heading: position.coords.heading,
         });
       },
       error => console.log(error.message),
@@ -180,7 +211,8 @@ export default function DashBoard({route, navigation}) {
     );
   };
 
-  const fetchgentLogs = () => {
+  const fetchgentLogs = (lat, lng, heading_, callFrom) => {
+    console.log('<<<<<<<<jhjhjh', callFrom, lat, '   ' + lng);
     getCurrentPosition();
     setTimeout(() => {
       (async () => {
@@ -192,9 +224,11 @@ export default function DashBoard({route, navigation}) {
         data['battery_level'] = (await DeviceInfo.getBatteryLevel()) * 100;
         data['all'] = initial;
         // data['current_speed'] = 'y';
-        data['long'] = longitude;
-        data['lat'] = latitude;
+        data['long'] = callFrom === 'callFromWatchPosition' ? lng : longitude;
+        data['lat'] = callFrom === 'callFromWatchPosition' ? lat : latitude;
         data['device_token'] = !!fcmToken ? fcmToken : '';
+        data['heading_angle'] =
+          callFrom === 'callFromWatchPosition' ? heading_ : heading;
         // console.log(data, 'data>data');
         console.log(data, 'sending data data??????');
         actions
@@ -237,12 +271,12 @@ export default function DashBoard({route, navigation}) {
 
   useEffect(() => {
     setTimeout(() => {
-      fetchgentLogs();
+      fetchgentLogs(latitude, longitude, heading, '');
     }, 5000);
   }, []);
 
   useInterval(
-    () => fetchgentLogs(),
+    () => fetchgentLogs(latitude, longitude, heading, ''),
     userData && userData?.access_token
       ? userData?.team?.location_frequency
         ? Number(userData?.team?.location_frequency) * 60000

@@ -62,7 +62,7 @@ const shortCodes = {
   instaShop: '0cab0a',
   helpNowRightNow: '0e7801',
   agriOnline: '3ae391',
-  clickeat: '5a90a2',
+  clickeat: '954012',
   tranzet: 'b35edf',
   grub: 'b68843',
   punnet: '87444d',
@@ -134,6 +134,21 @@ const shortCodes = {
   safewalks: '115676',
   empire: '19a7a3',
   dimaVega: 'dbf5ee',
+  dummyDispatcher: '2f0c03',
+  skoop: 'd12ef6',
+  pickmeup: '5be38e',
+  kudhyo: 'b9dd3e',
+  bharatMove: '7b5803',
+  sofia: '26be15',
+  mml: 'ebd37d',
+  bimol: 'b9fe53',
+  tripTCI: '5a79f3',
+  vendoor: 'e96e85',
+  pinkyDeli: 'dd8c06',
+  releezer: 'eada87',
+  vendorSpot: '2ac63f',
+  SXM2GO: 'f91ebf',
+  farmerSouq: '351a84',
 };
 
 // Goody Dispatch
@@ -151,8 +166,8 @@ const appIds = {
     android: 'com.Deliverstat.royodispatcher',
   }),
   africanVillageMarket: Platform.select({
-    ios: 'com.AfricanVillageMarket.Dispatch',
-    android: 'com.AfricanVillageMarket.royodispatcher',
+    ios: 'com.AfricanVillageMarketApp.Dispatch',
+    android: 'com.AfricanVillageMarketApp.royodispatcher',
   }),
   africanize: Platform.select({
     ios: 'com.Dispatch.AfricanizeApp.ios',
@@ -372,7 +387,7 @@ const appIds = {
     android: 'com.InstaShop.royodispatcher',
   }),
   helpNowRightNow: Platform.select({
-    ios: 'com.HelpNowRightNow.Dispatch',
+    ios: 'com.HelpNowRightNowApp.Dispatch',
     android: 'com.helpnowrightnow.royodispatcher',
   }),
   agriOnline: Platform.select({
@@ -588,8 +603,8 @@ const appIds = {
     android: 'com.tasmeem.royodispatcher',
   }),
   destination_ops: Platform.select({
-    ios: 'com.DestinationOps.Dispatch',
-    android: 'com.destinationOps.royodispatcher',
+    ios: 'com.DestinationOpsApp.Dispatch',
+    android: 'com.destinationOpsApp.royodispatcher',
   }),
   cannabus_express: Platform.select({
     ios: 'com.CannabusExpress.Dispatch',
@@ -666,6 +681,66 @@ const appIds = {
   dimaVega: Platform.select({
     ios: 'com.DimaVega.Dispatch',
     android: 'com.DimaVega.royodispatcher',
+  }),
+  dummyDispatcher: Platform.select({
+    ios: 'com.dummyDispatcher.Dispatch',
+    android: 'com.dummyDispatcher.royodispatcher',
+  }),
+  skoop: Platform.select({
+    ios: 'com.Skoop.Dispatch',
+    android: 'com.Skoop.royodispatcher',
+  }),
+  pickmeup: Platform.select({
+    ios: 'com.PickMeUp.Dispatch',
+    android: 'com.Pickmeup.royodispatcher',
+  }),
+  kudhyo: Platform.select({
+    ios: 'com.Kudhyo.Dispatch',
+    android: 'com.Kudhyo.royodispatcher',
+  }),
+  bharatMove: Platform.select({
+    ios: 'com.BharatMove.Dispatch',
+    android: 'com.BharatMove.royodispatcher',
+  }),
+  sofia: Platform.select({
+    ios: 'com.Sofia.Dispatch',
+    android: 'com.Sofia.royodispatcher',
+  }),
+  mml: Platform.select({
+    ios: 'com.MML.Dispatch',
+    android: 'com.MML.royodispatcher',
+  }),
+  bimol: Platform.select({
+    ios: 'com.Bimol.Dispatch',
+    android: 'com.Bimol.royodispatcher',
+  }),
+  tripTCI: Platform.select({
+    ios: 'com.TripTCI.Dispatch',
+    android: 'com.TripTCI.royodispatcher',
+  }),
+  vendoor: Platform.select({
+    ios: 'com.Vendoor.Dispatch',
+    android: 'com.Vendoor.royodispatcher',
+  }),
+  pinkyDeli: Platform.select({
+    ios: 'com.PinkyDeli.Dispatch',
+    android: 'com.PinkyDeli.royodispatcher',
+  }),
+  releezer: Platform.select({
+    ios: 'com.Releezer.Dispatch',
+    android: 'com.Releezer.royodispatcher',
+  }),
+  vendorSpot: Platform.select({
+    ios: 'com.VendorSpot.Dispatch',
+    android: 'com.VendorSpot.royodispatcher',
+  }),
+  SXM2GO: Platform.select({
+    ios: 'com.SXM2GO.Dispatch',
+    android: 'com.SXM2GO.royodispatcher',
+  }),
+  farmerSouq: Platform.select({
+    ios: 'com.FarmerSouq.Dispatch',
+    android: 'com.FarmerSouq.royodispatcher',
   }),
 };
 

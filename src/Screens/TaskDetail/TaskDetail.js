@@ -275,6 +275,7 @@ export default function TaskDetail({ route, navigation }) {
       );
     }
   };
+  console.log(new_dispatch_traking_url(), 'new_dispatch_traking_url')
 
   const checkCallBackUrlForShowOrderDeatils = () => {
     return taskDetail?.order?.call_back_url?.includes(
