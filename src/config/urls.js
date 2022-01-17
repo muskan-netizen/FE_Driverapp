@@ -1,8 +1,8 @@
 //live
-//export const API_BASE_URL = 'https://api.royodispatch.com/';
+export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // export const API_BASE_URL = 'http://192.168.103.73:8006/'; // preet local url
 // export const API_BASE_URL = 'http://192.168.103.73:800/';
@@ -44,7 +44,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://grub.royodispatch.com/'
 
 // destinationops app domain
-// export const API_BASE_URL = 'https://dispatch.destinationops.com/';
+//export const API_BASE_URL = 'https://dispatch.destinationops.com/';
 
 // somame live domain
 // export const API_BASE_URL = 'https://dispatch.somame-247.com/'
