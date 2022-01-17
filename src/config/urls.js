@@ -5,7 +5,13 @@ export const API_BASE_URL = 'https://api.royodispatch.com/';
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // export const API_BASE_URL = 'http://192.168.103.73:8006/'; // preet local url
-// export const API_BASE_URL = 'http://192.168.103.73:800/';
+// export const API_BASE_URL = 'http://192.168.102.23:8005/'; // Gourav.s local url
+// export const API_BASE_URL = 'http://192.168.97.104:8010/'; // Sujata.s local url
+
+
+
+// VICI 
+// export const API_BASE_URL = 'https://envios.vici.la/'
 
 // fleety staging domain
 //export const API_BASE_URL = 'https://fleety.rdstaging.com/';
@@ -110,3 +116,11 @@ export const CUSTOMNOTIFICATIONPAYLOAD = getApiUrl('api/notification/tracking');
 export const AGENT_PAYOUT = getApiUrl('api/agent/payout/request/create');
 export const AGENT_PAYOUT_DETAILS = getApiUrl('api/agent/payout/details');
 export const AGENT_BANK_DETAILS = getApiUrl('api/agent/bank/details');
+
+//DAMAGETYPE
+export const GET_DAMAGE_TYPES = getApiUrl('api/damagetypes');
+export const DAMAGE_REPORTS = getApiUrl('api/agent/reportdamange');
+
+//Reimbursement 
+export const GET_REIMBURSEMENT_TYPES = getApiUrl('api/reimbursementtypes');
+export const REIMBURSEMENT = getApiUrl('api/agent/create/reimbursement');

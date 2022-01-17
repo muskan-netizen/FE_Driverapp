@@ -12,6 +12,8 @@ import {
   AGENT_PAYOUT,
   AGENT_PAYOUT_DETAILS,
   AGENT_BANK_DETAILS,
+  GET_DAMAGE_TYPES,
+  DAMAGE_REPORTS
 } from '../../config/urls';
 import {apiGet, apiPost} from '../../utils/utils';
 import store from '../store';
@@ -184,6 +186,60 @@ export function agentPayoutDetails(uri = '', data = {}, headers = {}) {
 export function agentBankDetails(data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
     apiGet(AGENT_BANK_DETAILS, data, headers)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+}
+
+//Get Damage types
+export function getAllDamageTypes(data = {}, headers = {}) {
+  return new Promise((resolve, reject) => {
+    apiGet(GET_DAMAGE_TYPES, data, headers)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+}
+
+//Damage report
+export function damageReport(data = {}, headers = {}) {
+  return new Promise((resolve, reject) => {
+    apiPost(DAMAGE_REPORTS, data, headers)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+}
+
+
+
+//Get Reimbursement types
+export function getAllReimbursementTypes(data = {}, headers = {}) {
+  return new Promise((resolve, reject) => {
+    apiGet(GET_REIMBURSEMENT_TYPES, data, headers)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+}
+
+//Reimbursement report
+export function reimbursement(data = {}, headers = {}) {
+  return new Promise((resolve, reject) => {
+    apiPost(REIMBURSEMENT, data, headers)
       .then(res => {
         resolve(res);
       })

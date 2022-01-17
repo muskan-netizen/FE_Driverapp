@@ -164,14 +164,25 @@ export default function CustomDrawerContent({
           // key: navigationStrings.PROFILESTACK,
           // subRoute:navigationStrings.MYPROFILE
         },
-        appIds.transportSystem === DeviceInfo.getBundleId()?{
-          id: 6,
-          label: strings.DAMAGEREPORT,
-          image: imagePath.support2,
-          key: navigationStrings.DAMAGEREPORT,
-          // subRoute:navigationStrings.MYPROFILE
-        }:{},
-        
+        appIds.transportSystem === DeviceInfo.getBundleId()
+          ? {
+              id: 6,
+              label: strings.DAMAGEREPORT,
+              image: imagePath.damagereport,
+              key: navigationStrings.DAMAGEREPORT,
+              // subRoute:navigationStrings.MYPROFILE
+            }
+          : {},
+        appIds.transportSystem === DeviceInfo.getBundleId()
+          ? {
+              id: 6,
+              label: strings.REIMBURSEMENT,
+              image: imagePath.reimbursement,
+              key: navigationStrings.REIMBURSEMENT,
+              // subRoute:navigationStrings.MYPROFILE
+            }
+          : {},
+
         appIds.goody === DeviceInfo.getBundleId()
           ? {}
           : {
@@ -265,7 +276,7 @@ export default function CustomDrawerContent({
         {routes.map((route, index) => {
           // const {options} = descriptors[route.key];
           const isFocused = selectedDrawerItem?.index === index;
-          const label = route.label;
+          const label = route?.label;
           const onPress = () => {
             if (route?.key) {
               if (route?.subRoute) {
@@ -292,13 +303,13 @@ export default function CustomDrawerContent({
             // navigation.navigate(route.key, { screen: navigationStrings.subRoute });
           };
 
-          return (
-            <Fragment key={route.name}>
+          return route?.id ? (
+            <Fragment key={route?.name}>
               <TouchableOpacity
                 key={index}
                 accessibilityRole="button"
                 accessibilityStates={isFocused ? ['selected'] : []}
-                testID={JSON.stringify(route.id)}
+                testID={JSON.stringify(route?.id)}
                 onPress={onPress}
                 // onLongPress={onLongPress}
                 style={{
@@ -309,7 +320,7 @@ export default function CustomDrawerContent({
                 }}>
                 {/* {options.drawerIcon({focused: isFocused})} */}
                 <View style={{flex: 0.15}}>
-                  <Image source={route.image} />
+                  <Image source={route?.image} />
                 </View>
 
                 <View style={{flex: 0.85}}>
@@ -327,7 +338,7 @@ export default function CustomDrawerContent({
                 </View>
               </TouchableOpacity>
             </Fragment>
-          );
+          ) : null;
         })}
         <View
           style={{
