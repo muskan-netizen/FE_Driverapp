@@ -1019,27 +1019,45 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
-            case appIds.ritenow:
+        case appIds.ritenow:
           updateState({
             shortCode: shortCodes.ritenow,
             isShortcodePrefilled: true,
           });
           break;
-            case appIds.myfiji:
+        case appIds.myfiji:
           updateState({
             shortCode: shortCodes.myfiji,
             isShortcodePrefilled: true,
           });
           break;
-          case appIds.fastMikes:
+        case appIds.fastMikes:
           updateState({
             shortCode: shortCodes.fastMikes,
             isShortcodePrefilled: true,
           });
           break;
-           case appIds.hometowndeliveryllc:
+        case appIds.hometowndeliveryllc:
           updateState({
             shortCode: shortCodes.hometowndeliveryllc,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.flit:
+          updateState({
+            shortCode: shortCodes.flit,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.fides:
+          updateState({
+            shortCode: shortCodes.fides,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.ullaz:
+          updateState({
+            shortCode: shortCodes.ullaz,
             isShortcodePrefilled: true,
           });
           break;
