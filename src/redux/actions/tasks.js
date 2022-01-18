@@ -248,3 +248,19 @@ export function reimbursement(data = {}, headers = {}) {
       });
   });
 }
+
+//Get customre order detail
+export function getCustomerOrderDetail(data = {}, headers = {}) {
+  return new Promise((resolve, reject) => {
+    apiGet(GET_REIMBURSEMENT_TYPES, data, headers)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+}
+
+
+
