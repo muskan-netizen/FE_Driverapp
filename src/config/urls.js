@@ -35,7 +35,7 @@ export const API_BASE_URL = 'https://api.royodispatch.com/';
 // hairstonexpressgo
 //export const API_BASE_URL = 'https://dispatch.hairstonexpressgo.com/';
 //Developement
-// export const API_BASE_URL = 'https://api.winhires.com/';
+//export const API_BASE_URL = 'https://api.winhires.com/';
 //export const API_BASE_URL = 'http://192.168.96.20:8010/';
 // export const API_BASE_URL = 'http://192.168.103.73:8005';
 // export const API_BASE_URL = 'https://api.williamherrick.com/';
@@ -58,6 +58,7 @@ export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 // click-eat
 // export const API_BASE_URL = 'https://dispatcher.click-eat.com/'
+
 // halalhmc
 //export const API_BASE_URL = 'https://dispatcher.halalhmc.org/';
 // tranznet online
@@ -89,6 +90,12 @@ export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 // sunshinerideshare live domain
 //export const API_BASE_URL = 'https://dispatch.sunshinerideshare.com/';
+
+//taquick live domain
+//export const API_BASE_URL = 'https://dispatch.taquick.com/';
+
+//stonses live domain
+//export const API_BASE_URL = 'https://verofax.rdstaging.com/';
 
 export const personaltoken = 'TMJdbQlNWkYl1JzMONzRgF4zQFuP8s';
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;

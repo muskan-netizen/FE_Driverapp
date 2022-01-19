@@ -1900,6 +1900,46 @@ android {
             applicationId 'com.Ullaz.royodispatcher'
             resValue "string", "app_name", "ullaz Dispatcher"
         }
+        privatepremiumpickups{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.PrivatePremiumPickups.royodispatcher'
+            resValue "string", "app_name", "PrivatePremiumPickups Dispatcher"
+        }
+         ihelp{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Ihelp.royodispatcher'
+            resValue "string", "app_name", "IHELP Dispatcher"
+        }
+            bksTaxi{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.BksTaxi.royodispatcher'
+            resValue "string", "app_name", "BKS Taxi Dispatcher"
+        }
+         oxo{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.OXO.royodispatcher'
+            resValue "string", "app_name", "OXO Dispatcher"
+        }
     }
 }
 

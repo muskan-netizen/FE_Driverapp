@@ -1061,6 +1061,31 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+          
+          case appIds.privatepremiumpickups:
+          updateState({
+            shortCode: shortCodes.privatepremiumpickups,
+            isShortcodePrefilled: true,
+          });
+          break;
+           case appIds.ihelp:
+          updateState({
+            shortCode: shortCodes.ihelp,
+            isShortcodePrefilled: true,
+          });
+          break;
+           case appIds.bksTaxi:
+          updateState({
+            shortCode: shortCodes.bksTaxi,
+            isShortcodePrefilled: true,
+          });
+          break;
+            case appIds.oxo:
+          updateState({
+            shortCode: shortCodes.oxo,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);

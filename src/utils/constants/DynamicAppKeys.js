@@ -165,6 +165,10 @@ const shortCodes = {
   flit: '49b70d',
   fides: '0140e2',
   ullaz: 'b32455',
+  privatepremiumpickups:'0016ae',
+  ihelp:'a68890',
+  bksTaxi:'a06880',
+  oxo:'ff27f5'
 };
 
 // Goody Dispatch
@@ -821,6 +825,22 @@ const appIds = {
   ullaz: Platform.select({
     ios: 'com.Ullaz.Dispatch',
     android: 'com.Ullaz.royodispatcher',
+  }),
+  privatepremiumpickups : Platform.select({
+    ios: 'com.PrivatePremiumPickups.Dispatch',
+    android: 'com.PrivatePremiumPickups.royodispatcher',
+  }),
+   ihelp : Platform.select({
+    ios: 'com.Ihelp.Dispatch',
+    android: 'com.Ihelp.royodispatcher',
+  }),
+   bksTaxi : Platform.select({
+    ios: 'com.BksTaxi.Dispatch',
+    android: 'com.BksTaxi.royodispatcher',
+  }),
+    oxo : Platform.select({
+    ios: 'com.OXO.Dispatch',
+    android: 'com.OXO.royodispatcher',
   }),
 };
 
