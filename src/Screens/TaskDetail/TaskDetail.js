@@ -45,6 +45,7 @@ import moment from 'moment';
 import {
   getColorCodeWithOpactiyNumber,
   getCurrentLocation,
+  getHostName,
   showError,
 } from '../../utils/helperFunctions';
 import stylesFunc from './styles';
@@ -262,6 +263,12 @@ export default function TaskDetail({route, navigation}) {
         '/dispatch-order-status-update/',
       )
     ) {
+      // const url = "https://www.example.com/blog?search=hello&world";
+      // let domain = (new URL(url));
+      // console.log(domain, 'domain');
+
+      console.log(getHostName(taskDetail?.order?.call_back_url), 'domain2');
+
       return (taskDetail?.order?.call_back_url).replace(
         '/dispatch-order-status-update/',
         '/dispatch-order-status-update-details/',
@@ -301,6 +308,7 @@ export default function TaskDetail({route, navigation}) {
           vendors: res?.data?.vendors[0]?.vendor,
           apiData: res.data,
         });
+
         const productAllInsrucations = res?.data?.vendors.map((item, index) => {
           return item?.products?.map((item, index) => {
             return item?.user_product_order_form;
@@ -416,6 +424,7 @@ export default function TaskDetail({route, navigation}) {
     let data = {};
     data['task_status'] = getUpdatedStatus();
     data['task_id'] = taskDetail?.id;
+    
     console.log(data, 'updateTaskStatus>>>DATA');
 
     updateState({isLoading: true});
@@ -583,7 +592,33 @@ export default function TaskDetail({route, navigation}) {
   };
 
   const _onPressEditOrder = () => {
-    
+    if (apiData) {
+      updateState({isLoading: true});
+      let data = {};
+      data['order_vendor_id'] = apiData?.vendors[0]?.id;
+      data['user_id'] = apiData?.user_id;
+      data['address_id'] = apiData?.address_id;
+
+      console.log(data, '_onPressEditOrder');
+
+      let url = `https://${getHostName(
+        taskDetail?.order?.call_back_url,
+      )}/edit-order/vendor/products/getProductsInCart`;
+      actions
+        .getCustomerOrderDetail(url, data, {client: clientInfo?.database_name})
+        .then(res => {
+          console.log(res?.data, 'all response after hit order api');
+          updateState({
+            isLoading: false,
+          });
+          moveToNewScreen(navigationStrings.CART, {cartData: res?.data})()
+        })
+        .catch(error =>
+          updateState({
+            isLoading: false,
+          }),
+        );
+    }
   };
 
   const taskDetailView = () => {

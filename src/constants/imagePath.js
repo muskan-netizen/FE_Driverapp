@@ -87,5 +87,7 @@ export default {
   ic_cross_red: require('../assets/images/ic_cross_red.png'),
   reimbursement: require('../assets/images/ic_reimbursement.png'),
   damagereport: require('../assets/images/ic_damagereport.png'),
+  placeholderbee: require('../assets/images/ic_placeholderbee.png'),
+
   
 };

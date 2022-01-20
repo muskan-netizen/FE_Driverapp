@@ -28,6 +28,9 @@ export default {
   PAYOUT_STACK: 'payoutStack',
   PAYOUT: 'payout',
   DAMAGEREPORT:"Damagereport",
-  REIMBURSEMENT:"Reimbursement"
+  REIMBURSEMENT:"Reimbursement",
+  CART:"Cart",
+  PLACEHOLDERCOMMENTFORPICKUPDRIVER: 'Eg. Please reach before time if possible',
+
 
 };

@@ -13,7 +13,8 @@ import {
   AGENT_PAYOUT_DETAILS,
   AGENT_BANK_DETAILS,
   GET_DAMAGE_TYPES,
-  DAMAGE_REPORTS
+  DAMAGE_REPORTS,
+  GETORDERDETAILFORTASK
 } from '../../config/urls';
 import {apiGet, apiPost} from '../../utils/utils';
 import store from '../store';
@@ -250,9 +251,9 @@ export function reimbursement(data = {}, headers = {}) {
 }
 
 //Get customre order detail
-export function getCustomerOrderDetail(data = {}, headers = {}) {
+export function getCustomerOrderDetail(url='',data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
-    apiGet(GET_REIMBURSEMENT_TYPES, data, headers)
+    apiPost(url, data, headers)
       .then(res => {
         resolve(res);
       })
