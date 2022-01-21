@@ -661,7 +661,7 @@ export default function TaskDetail({route, navigation}) {
                   <Image source={imagePath?.barcode2} />
                 </View>
               )}
-
+{/* 
               <TouchableOpacity
                 onPress={_onPressEditOrder}
                 style={{
@@ -672,7 +672,7 @@ export default function TaskDetail({route, navigation}) {
                   // alignItems:'center'
                 }}>
                 <Text style={styles.editOrder}>{'Edit order'}</Text>
-              </TouchableOpacity>
+              </TouchableOpacity> */}
             </View>
           </View>
 
