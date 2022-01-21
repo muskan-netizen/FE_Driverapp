@@ -445,8 +445,6 @@ export default function Cart({navigation, route}) {
       // data['type'] = dineInType;
       console.log(data, 'datadatadata');
 
-      
-
       // updateState({btnLoader: true, btnLoadrId: item?.id});
       // actions
       //   .increaseDecreaseItemQty(data, {
