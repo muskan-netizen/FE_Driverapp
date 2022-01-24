@@ -1061,28 +1061,52 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
-          
-          case appIds.privatepremiumpickups:
+
+        case appIds.privatepremiumpickups:
           updateState({
             shortCode: shortCodes.privatepremiumpickups,
             isShortcodePrefilled: true,
           });
           break;
-           case appIds.ihelp:
+        case appIds.ihelp:
           updateState({
             shortCode: shortCodes.ihelp,
             isShortcodePrefilled: true,
           });
           break;
-           case appIds.bksTaxi:
+        case appIds.bksTaxi:
           updateState({
             shortCode: shortCodes.bksTaxi,
             isShortcodePrefilled: true,
           });
           break;
-            case appIds.oxo:
+        case appIds.oxo:
           updateState({
             shortCode: shortCodes.oxo,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.everywhere:
+          updateState({
+            shortCode: shortCodes.everywhere,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.sijang:
+          updateState({
+            shortCode: shortCodes.sijang,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.fairexpay:
+          updateState({
+            shortCode: shortCodes.fairexpay,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.cannabis_Club_SF:
+          updateState({
+            shortCode: shortCodes.cannabis_Club_SF,
             isShortcodePrefilled: true,
           });
           break;

@@ -808,7 +808,7 @@ android {
         }
         helpNowRightNow{
             dimension "appType"
-            versionCode 2
+            versionCode 5
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
@@ -1265,8 +1265,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId "com.Yoho.royodispatcher"
-            resValue "string", "app_name", "Yoho Dispatcher"
-            
+            resValue "string", "app_name", "Yoho Partner"
         }
         mobi{
             dimension "appType"
@@ -1939,6 +1938,46 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.OXO.royodispatcher'
             resValue "string", "app_name", "OXO Dispatcher"
+        }
+        everywhere{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Everywhere.royodispatcher'
+            resValue "string", "app_name", "Everywhere Dispatcher"
+        }
+          sijang{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Sijang.royodispatcher'
+            resValue "string", "app_name", "Sijang Dispatcher"
+        }
+         fairexpay{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Fairexpay.royodispatcher'
+            resValue "string", "app_name", "Fairexpay Dispatcher"
+        }
+          cannabis_Club_SF{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.CannabisClubSF.royodispatcher'
+            resValue "string", "app_name", "CannabisClubSF Dispatcher"
         }
     }
 }

@@ -165,10 +165,14 @@ const shortCodes = {
   flit: '49b70d',
   fides: '0140e2',
   ullaz: 'b32455',
-  privatepremiumpickups:'0016ae',
-  ihelp:'a68890',
-  bksTaxi:'a06880',
-  oxo:'ff27f5'
+  privatepremiumpickups: '0016ae',
+  ihelp: 'a68890',
+  bksTaxi: 'a06880',
+  oxo: 'ff27f5',
+  everywhere: 'ccdace',
+  sijang: 'cd1429',
+  fairexpay: '297dc8',
+  cannabis_Club_SF: 'ad36b5',
 };
 
 // Goody Dispatch
@@ -583,7 +587,7 @@ const appIds = {
     android: 'com.BoozieDoozie.royodispatcher',
   }),
   yoho: Platform.select({
-    ios: 'com.Yoho.Dispatch',
+    ios: 'com.codebrew.driver.yoho',
     android: 'com.Yoho.royodispatcher',
   }),
   marasym: Platform.select({
@@ -826,21 +830,37 @@ const appIds = {
     ios: 'com.Ullaz.Dispatch',
     android: 'com.Ullaz.royodispatcher',
   }),
-  privatepremiumpickups : Platform.select({
+  privatepremiumpickups: Platform.select({
     ios: 'com.PrivatePremiumPickups.Dispatch',
     android: 'com.PrivatePremiumPickups.royodispatcher',
   }),
-   ihelp : Platform.select({
+  ihelp: Platform.select({
     ios: 'com.Ihelp.Dispatch',
     android: 'com.Ihelp.royodispatcher',
   }),
-   bksTaxi : Platform.select({
+  bksTaxi: Platform.select({
     ios: 'com.BksTaxi.Dispatch',
     android: 'com.BksTaxi.royodispatcher',
   }),
-    oxo : Platform.select({
+  oxo: Platform.select({
     ios: 'com.OXO.Dispatch',
     android: 'com.OXO.royodispatcher',
+  }),
+  everywhere: Platform.select({
+    ios: 'com.Everywhere.Dispatch',
+    android: 'com.Everywhere.royodispatcher',
+  }),
+  sijang: Platform.select({
+    ios: 'com.Sijang.Dispatch',
+    android: 'com.Sijang.royodispatcher',
+  }),
+  fairexpay: Platform.select({
+    ios: 'com.Fairexpay.Dispatch',
+    android: 'com.Fairexpay.royodispatcher',
+  }),
+  cannabis_Club_SF: Platform.select({
+    ios: 'com.CannabisClubSF.Dispatch',
+    android: 'com.CannabisClubSF.royodispatcher',
   }),
 };
 
