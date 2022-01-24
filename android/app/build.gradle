@@ -1860,7 +1860,7 @@ android {
             applicationId 'com.fastMikes.royodispatcher'
             resValue "string", "app_name", "FastMikes Dispatcher"
         }
-            hometowndeliveryllc{
+        hometowndeliveryllc{
             dimension "appType"
             versionCode 1
             versionName "1.0"
@@ -1869,6 +1869,16 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.HomeTownDeliveryllc.royodispatcher'
             resValue "string", "app_name", "home Town Delivery llc Dispatcher"
+        }
+         martinonwheels{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Martinonwheels.royodispatcher'
+            resValue "string", "app_name", "Martin on wheels"
         }
     }
 }

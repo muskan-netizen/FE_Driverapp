@@ -15,6 +15,7 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+  TouchableWithoutFeedback,
 } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import {Calendar} from 'react-native-calendars';
@@ -53,6 +54,7 @@ import {
 import {MyDarkTheme} from '../../styles/theme';
 import {currencyNumberFormatter} from '../../utils/commonFunction';
 import {
+  getHostName,
   getImageUrl,
   getParameterByName,
   showError,
@@ -71,8 +73,11 @@ export default function Cart({navigation, route}) {
   const darkthemeusingDevice = useDarkMode();
   const isDarkMode = toggleTheme ? darkthemeusingDevice : theme;
   let paramsData = route?.params?.data?.cartData;
+  let taskDetail = route?.params?.data?.taskDetail;
 
-  console.log(paramsData, 'paramsData>>paramsData');
+  console.log(paramsData, 'Cart>>>paramsData');
+  console.log(taskDetail, 'taskDetail>>>paramsData');
+
   const appMainData = useSelector(state => state?.home?.appMainData);
   const recommendedVendorsdata = appMainData?.vendors;
 
@@ -177,6 +182,7 @@ export default function Cart({navigation, route}) {
   const selectedLanguage = languages?.primary_language?.sort_code;
   const fontFamily = appStyle?.fontSizeData;
   const styles = stylesFun({fontFamily, themeColors, isDarkMode, MyDarkTheme});
+  const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
 
   const selectedAddressData = useSelector(
     state => state?.cart?.selectedAddress,
@@ -442,33 +448,31 @@ export default function Cart({navigation, route}) {
       // data['cart_id'] = itemToUpdate?.cart_id;
       data['quantity'] = quanitity;
       data['cart_product_id'] = itemToUpdate?.id;
+      data['cart_id'] = itemToUpdate?.cart_id;
+      data['user_id'] = paramsData?.user_id;
       // data['type'] = dineInType;
       console.log(data, 'datadatadata');
 
-      
-
-      // updateState({btnLoader: true, btnLoadrId: item?.id});
-      // actions
-      //   .increaseDecreaseItemQty(data, {
-      //     code: appData?.profile?.code,
-      //     currency: currencies?.primary_currency?.id,
-      //     language: languages?.primary_language?.id,
-      //     systemuser: DeviceInfo.getUniqueId(),
-      //   })
-      //   .then(res => {
-      //     console.log('cart detail', res);
-      //     actions.cartItemQty(res);
-      //     updateState({
-      //       cartItems: res.data.products,
-      //       cartData: res.data,
-      //       btnLoader: false,
-      //     });
-      //   })
-      //   .catch(errorMethod);
+      updateState({btnLoader: true, btnLoadrId: item?.id});
+      let url = `https://${getHostName(
+        taskDetail?.order?.call_back_url,
+      )}/edit-order/temp-cart/product/updateQuantity`;
+      actions
+        .increaseDecreaseItemQty(url, data, {client: clientInfo?.database_name})
+        .then(res => {
+          console.log('cart detail', res);
+          actions.cartItemQty(res);
+          updateState({
+            // cartItems: res.data.products,
+            // cartData: res.data,
+            btnLoader: false,
+          });
+        })
+        .catch(errorMethod);
     } else {
       updateState({btnLoader: true});
       removeItem('selectedTable');
-      removeProductFromCart(itemToUpdate);
+      // removeProductFromCart(itemToUpdate);
     }
   };
 
@@ -3380,6 +3384,18 @@ export default function Cart({navigation, route}) {
     updateState({selectedTimeSlots: item.value});
   };
 
+  const buttonView = () => {
+    return (
+      <View style={styles.container}>
+        <TouchableWithoutFeedback>
+          <View style={[styles.button]}>
+            <Text style={styles.text}>{strings.SUBMIT}</Text>
+          </View>
+        </TouchableWithoutFeedback>
+      </View>
+    );
+  };
+
   const renderTimeSlots = ({item, index}) => {
     return (
       <TouchableOpacity
@@ -3417,6 +3433,10 @@ export default function Cart({navigation, route}) {
     checkVendorSlots(day.dateString);
   };
 
+  const _onPressSearchButton=()=>{
+    alert("123")
+  }
+
   return (
     <WrapperContainer
       bgColor={
@@ -3429,9 +3449,10 @@ export default function Cart({navigation, route}) {
       <Header
         centerTitle={strings.CART}
         // noLeftIcon
+        rightIcon={imagePath?.searchIcon}
         leftIconStyle={{tintColor: colors.themeColor}}
-        isRightText={cartItems && cartItems?.length}
-        onPressRightTxt={() => openClearCartModal()}
+        // isRightText={cartItems && cartItems?.length}
+        onPressRight={() => _onPressSearchButton()}
       />
 
       <View
@@ -3699,6 +3720,7 @@ export default function Cart({navigation, route}) {
           </View>
         </View>
       </Modal>
+      {buttonView()}
     </WrapperContainer>
   );
 }

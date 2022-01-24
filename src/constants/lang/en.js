@@ -272,6 +272,7 @@ export default {
   HOME_1: 'Home',
   ADD_ADDRESS: 'Add Address',
   TAP_HERE_ADD_ADDRESS: 'Tap here to add address',
+  SUBMIT:'Submit'
 
 
 };

@@ -323,6 +323,8 @@
     "fastMikesdispatcherRelease": "cd android && ./gradlew assemblefastMikesRelease",
     "hometowndeliveryllcdispatcher": "react-native run-android --variant=hometowndeliveryllcDebug",
     "hometowndeliveryllcdispatcherRelease": "cd android && ./gradlew assembleHomeTownDeliveryllcRelease",
+    "martinonwheelsdispatcher": "react-native run-android --variant=martinonwheelsDebug",
+    "martinonwheelsdispatcherRelease": "cd android && ./gradlew assembleMartinonwheelsRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",

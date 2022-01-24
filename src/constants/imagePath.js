@@ -88,6 +88,8 @@ export default {
   reimbursement: require('../assets/images/ic_reimbursement.png'),
   damagereport: require('../assets/images/ic_damagereport.png'),
   placeholderbee: require('../assets/images/ic_placeholderbee.png'),
+  searchIcon: require('../assets/images/ic_search.png'),
+
 
   
 };

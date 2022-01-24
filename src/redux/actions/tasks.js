@@ -14,7 +14,7 @@ import {
   AGENT_BANK_DETAILS,
   GET_DAMAGE_TYPES,
   DAMAGE_REPORTS,
-  GETORDERDETAILFORTASK
+  GETORDERDETAILFORTASK,
 } from '../../config/urls';
 import {apiGet, apiPost} from '../../utils/utils';
 import store from '../store';
@@ -222,8 +222,6 @@ export function damageReport(data = {}, headers = {}) {
   });
 }
 
-
-
 //Get Reimbursement types
 export function getAllReimbursementTypes(data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
@@ -251,7 +249,7 @@ export function reimbursement(data = {}, headers = {}) {
 }
 
 //Get customre order detail
-export function getCustomerOrderDetail(url='',data = {}, headers = {}) {
+export function getCustomerOrderDetail(url = '', data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
     apiPost(url, data, headers)
       .then(res => {
@@ -263,5 +261,15 @@ export function getCustomerOrderDetail(url='',data = {}, headers = {}) {
   });
 }
 
-
-
+//add delete product from cart
+export const increaseDecreaseItemQty = (url = '', data, headers = {}) => {
+  return new Promise((resolve, reject) => {
+    apiPost(url, data, headers)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+};

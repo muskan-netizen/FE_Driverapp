@@ -162,6 +162,7 @@ const shortCodes = {
   ritenow: '521391',
   fastMikes: '5f0e8f',
   hometowndeliveryllc: '80bac3',
+  martinonwheels: 'db23d9',
 };
 
 // Goody Dispatch
@@ -806,6 +807,10 @@ const appIds = {
   hometowndeliveryllc: Platform.select({
     ios: 'com.HomeTownDeliveryllc.Dispatch',
     android: 'com.HomeTownDeliveryllc.royodispatcher',
+  }),
+  martinonwheels: Platform.select({
+    ios: 'com.Martinonwheels.Dispatch',
+    android: 'com.Martinonwheels.royodispatcher',
   }),
 };
 

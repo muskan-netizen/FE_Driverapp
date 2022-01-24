@@ -424,7 +424,7 @@ export default function TaskDetail({route, navigation}) {
     let data = {};
     data['task_status'] = getUpdatedStatus();
     data['task_id'] = taskDetail?.id;
-    
+
     console.log(data, 'updateTaskStatus>>>DATA');
 
     updateState({isLoading: true});
@@ -611,7 +611,10 @@ export default function TaskDetail({route, navigation}) {
           updateState({
             isLoading: false,
           });
-          moveToNewScreen(navigationStrings.CART, {cartData: res?.data})()
+          moveToNewScreen(navigationStrings.CART, {
+            cartData: res?.data,
+            taskDetail: taskDetail,
+          })();
         })
         .catch(error =>
           updateState({
@@ -661,8 +664,7 @@ export default function TaskDetail({route, navigation}) {
                   <Image source={imagePath?.barcode2} />
                 </View>
               )}
-{/* 
-              <TouchableOpacity
+              {/* <TouchableOpacity
                 onPress={_onPressEditOrder}
                 style={{
                   padding: 5,
