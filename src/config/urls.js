@@ -2,12 +2,24 @@
 export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
+<<<<<<< HEAD
 //export const API_BASE_URL = 'https://api.rdstaging.com/';
+=======
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
+>>>>>>> dev_sandy
 
-// export const API_BASE_URL = 'http://192.168.103.73:8006/'; // preet local url
+// export const API_BASE_URL = 'http://192.168.96.152:8006/'; // preet local url
 // export const API_BASE_URL = 'http://192.168.102.23:8005/'; // Gourav.s local url
 // export const API_BASE_URL = 'http://192.168.97.104:8010/'; // Sujata.s local url
 
+<<<<<<< HEAD
+=======
+
+//MARTINONWHEELS
+// export const API_BASE_URL = 'https://dispatch.martinionwheelsllc.org/';
+
+
+>>>>>>> dev_sandy
 // VICI
 // export const API_BASE_URL = 'https://envios.vici.la/'
 
@@ -35,8 +47,14 @@ export const API_BASE_URL = 'https://api.royodispatch.com/';
 // export const API_BASE_URL = 'https://carroi.rdstaging.com/';
 // hairstonexpressgo
 //export const API_BASE_URL = 'https://dispatch.hairstonexpressgo.com/';
+
 //Developement
+<<<<<<< HEAD
 //export const API_BASE_URL = 'https://api.winhires.com/';
+=======
+export const API_BASE_URL = 'https://api.winhires.com/';
+
+>>>>>>> dev_sandy
 //export const API_BASE_URL = 'http://192.168.96.20:8010/';
 // export const API_BASE_URL = 'http://192.168.103.73:8005';
 // export const API_BASE_URL = 'https://api.williamherrick.com/';
@@ -142,3 +160,8 @@ export const DAMAGE_REPORTS = getApiUrl('api/agent/reportdamange');
 //Reimbursement
 export const GET_REIMBURSEMENT_TYPES = getApiUrl('api/reimbursementtypes');
 export const REIMBURSEMENT = getApiUrl('api/agent/create/reimbursement');
+<<<<<<< HEAD
+=======
+export const GETORDERDETAILFORTASK = getApiUrl('edit-order/vendor/products/getProductsInCart');
+
+>>>>>>> dev_sandy

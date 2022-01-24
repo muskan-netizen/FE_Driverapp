@@ -11,6 +11,7 @@ import {
   TaskDetail,
   TaskHistory,
 } from '../Screens';
+import Cart from '../Screens/CustomerCart/Cart3';
 import navigationStrings from './navigationStrings';
 import WalletStack from './WalletStack';
 
@@ -69,6 +70,11 @@ export default function () {
       <Stack.Screen
         name={navigationStrings.ORDERDETAIL}
         component={OrderDetail}
+        options={{headerShown: false}}
+      />
+        <Stack.Screen
+        name={navigationStrings.CART}
+        component={Cart}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

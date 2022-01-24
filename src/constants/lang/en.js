@@ -254,5 +254,25 @@ export default {
   PLEASEENTERTRAILORNUMBER:"Please enter trailor number",
   PLEASENTERTRUCKNUMBER:"Please enter truck number",
   CUSTOMERTYPE:"Customer type",
-  PLEASESELECTCUSTOMERTYPE:"Please select the customer type"
+  PLEASESELECTCUSTOMERTYPE:"Please select the customer type",
+  SPECIAL_INSTRUCTION: 'Special Instructions',
+  AMOUNT_PAYABLE: 'Amount Payable',
+  COMMENTFORPICKUPDRIVER: 'Comment for Pickup Driver',
+  PLACEHOLDERCOMMENTFORDROPUPDRIVER: 'Eg. Do call me before drop off',
+  COMMENTFORDROPUPDRIVER: 'Comment for Dropoff Driver',
+  PLACEHOLDERCOMMENTFORDROPUPDRIVER: 'Eg. Do call me before drop off',
+  COMMENTFORVENDOR: 'Comment for Vendor',
+  PLACEHOLDERCOMMENTFORVENDOR: 'Eg. Please do the whites separately',
+  SCEDULEPICKUP: 'Schedule Pickup',
+  SCEDULEDROP: 'Schedule Dropoff',
+  TOTALSUBSCRIPTION: 'Subscription Discount',
+  TAXES_FEES: 'Taxes & Fees',
+  TOTAL_SERVICE_FEE: 'Service Fee',
+  TAX_AMOUNT: 'Taxes',
+  HOME_1: 'Home',
+  ADD_ADDRESS: 'Add Address',
+  TAP_HERE_ADD_ADDRESS: 'Tap here to add address',
+  SUBMIT:'Submit'
+
+
 };

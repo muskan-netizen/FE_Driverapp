@@ -173,6 +173,7 @@ const shortCodes = {
   sijang: 'cd1429',
   fairexpay: '297dc8',
   cannabis_Club_SF: 'ad36b5',
+  martinonwheels: 'db23d9',
 };
 
 // Goody Dispatch
@@ -861,6 +862,9 @@ const appIds = {
   cannabis_Club_SF: Platform.select({
     ios: 'com.CannabisClubSF.Dispatch',
     android: 'com.CannabisClubSF.royodispatcher',
+  martinonwheels: Platform.select({
+    ios: 'com.Martinonwheels.Dispatch',
+    android: 'com.Martinonwheels.royodispatcher',
   }),
 };
 

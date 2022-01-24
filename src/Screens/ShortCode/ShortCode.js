@@ -1042,6 +1042,11 @@ export default function ShortCode({route, navigation}) {
             shortCode: shortCodes.hometowndeliveryllc,
             isShortcodePrefilled: true,
           });
+        case appIds.martinonwheels:
+          updateState({
+            shortCode: shortCodes.martinonwheels,
+            isShortcodePrefilled: true,
+          });
           break;
         case appIds.flit:
           updateState({
@@ -1169,8 +1174,8 @@ export default function ShortCode({route, navigation}) {
         };
       }
 
-      let updatedShortCode = shortCode;
-      // let updatedShortCode = '745e3f';
+      // let updatedShortCode = shortCode;
+      let updatedShortCode = '1da2e9';
       actions
         .initApp({shortCode: updatedShortCode}, header)
         .then(res => {

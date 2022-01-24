@@ -173,6 +173,14 @@ export default ({defaultLanguagae}) => {
       fontSize: textScale(14),
       color: colors.black,
     },
+    editOrder: {
+      backgroundColor: 'transparent',
+      color: '#111',
+      textAlign: 'center',
+      color: colors.white,
+      fontFamily: fontFamily.semiBold,
+      fontSize: textScale(14),
+    },
   });
   return styles;
 };
