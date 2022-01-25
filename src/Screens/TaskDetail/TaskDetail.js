@@ -155,6 +155,8 @@ export default function TaskDetail({route, navigation}) {
   const styles = stylesFunc({defaultLanguagae});
   // const userData = useSelector(state => state?.auth?.userData);
 
+  const mapRef = useRef();
+
   useEffect(() => {
     if (userData?.task_proof) {
       console.log(userData?.task_proof, ' userData?.task_proof');
@@ -333,9 +335,12 @@ export default function TaskDetail({route, navigation}) {
     })();
   };
 
+  console.log(taskDetail?.id, 'askDetail?.id');
+
   const mapView = () => {
     return (
       <MapView
+        ref={mapRef}
         // provider={PROVIDER_GOOGLE} // remove if not using Google Maps
         style={styles.map}
         region={region}

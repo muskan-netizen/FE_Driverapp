@@ -559,7 +559,9 @@ export default function ShortCode({route, navigation}) {
             shortCode: shortCodes.travo,
             isShortcodePrefilled: true,
           });
+
           break;
+
         case appIds.washvalley:
           updateState({
             shortCode: shortCodes.washvalley,
@@ -1042,6 +1044,7 @@ export default function ShortCode({route, navigation}) {
             shortCode: shortCodes.hometowndeliveryllc,
             isShortcodePrefilled: true,
           });
+          break;
         case appIds.martinonwheels:
           updateState({
             shortCode: shortCodes.martinonwheels,
@@ -1174,8 +1177,8 @@ export default function ShortCode({route, navigation}) {
         };
       }
 
-      // let updatedShortCode = shortCode;
-      let updatedShortCode = '1da2e9';
+      let updatedShortCode = shortCode;
+      // let updatedShortCode = '1da2e9';
       actions
         .initApp({shortCode: updatedShortCode}, header)
         .then(res => {
