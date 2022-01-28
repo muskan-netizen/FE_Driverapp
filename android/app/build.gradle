@@ -1990,6 +1990,37 @@ android {
             applicationId 'com.Martinonwheels.royodispatcher'
             resValue "string", "app_name", "Martin on wheels"
         }
+          keydiscovery{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.KeyDiscovery.royodispatcher'
+            resValue "string", "app_name", " Key Discovery"
+        }
+          palmettoplus{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Palmettoplus.royodispatcher'
+            resValue "string", "app_name", "Palmetto Plus Dispatcher"
+        }
+         halaTalabat{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.HalaTalabat.royodispatcher'
+            resValue "string", "app_name", "Hala Talabat Dispatcher"
+        }
+
 
          
     }

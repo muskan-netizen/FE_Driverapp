@@ -1118,6 +1118,24 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.keydiscovery:
+          updateState({
+            shortCode: shortCodes.keydiscovery,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.palmettoplus:
+          updateState({
+            shortCode: shortCodes.palmettoplus,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.halaTalabat:
+          updateState({
+            shortCode: shortCodes.halaTalabat,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);

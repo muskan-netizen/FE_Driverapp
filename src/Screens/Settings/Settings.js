@@ -76,6 +76,11 @@ export default function Settings({route, navigation}) {
         label: 'Portuguese - (Brazil)',
         value: 'ptBr',
       },
+      {
+        id: 8,
+        label: 'Sweden',
+        value: 'sv',
+      },
     ],
     selectedLangauge: defaultLanguage?.label
       ? defaultLanguage

@@ -2,7 +2,7 @@
 //export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-//export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // export const API_BASE_URL = 'http://192.168.96.152:8006/'; // preet local url
 // export const API_BASE_URL = 'http://192.168.102.23:8005/'; // Gourav.s local url
@@ -29,7 +29,7 @@
 // cannabusxpress
 // export const API_BASE_URL = 'https://dispatch.cannabusxpress.com/'
 // govachow
-export const API_BASE_URL = 'https://dispatch.govachow.com/';
+//export const API_BASE_URL = 'https://dispatch.govachow.com/';
 // africanize
 // export const API_BASE_URL = 'https://dispatch.africanize.co/'
 // orderchekout
@@ -101,7 +101,7 @@ export const API_BASE_URL = 'https://dispatch.govachow.com/';
 //export const API_BASE_URL = 'https://dispatch.taquick.com/';
 
 //stonses live domain
-//export const API_BASE_URL = 'https://verofax.rdstaging.com/';
+//export const API_BASE_URL = 'https://dispatcher.verofax.com/';
 
 export const personaltoken = 'TMJdbQlNWkYl1JzMONzRgF4zQFuP8s';
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;

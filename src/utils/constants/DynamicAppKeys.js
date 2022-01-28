@@ -174,6 +174,9 @@ const shortCodes = {
   fairexpay: '297dc8',
   cannabis_Club_SF: 'ad36b5',
   martinonwheels: 'db23d9',
+  keydiscovery: 'fd305f',
+  palmettoplus: '557bc4',
+  halaTalabat: '55ffea',
 };
 
 // Goody Dispatch
@@ -866,6 +869,18 @@ const appIds = {
   martinonwheels: Platform.select({
     ios: 'com.Martinonwheels.Dispatch',
     android: 'com.Martinonwheels.royodispatcher',
+  }),
+  keydiscovery: Platform.select({
+    ios: 'com.KEYDiscovery.Dispatch',
+    android: 'com.KeyDiscovery.royodispatcher',
+  }),
+  palmettoplus: Platform.select({
+    ios: 'com.Palmettoplus.Dispatch',
+    android: 'com.Palmettoplus.royodispatcher',
+  }),
+  halaTalabat: Platform.select({
+    ios: 'com.HalaTalabat.Dispatch',
+    android: 'com.HalaTalabat.royodispatcher',
   }),
 };
 
