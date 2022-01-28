@@ -67,7 +67,7 @@ const shortCodes = {
   grub: 'b68843',
   punnet: '87444d',
   suel: 'b11cb2',
-  shooraFresh: '1fac68',
+  shooraFresh: '845409',
   gusto: '057ff8',
   click2Deliver: '208939',
   truckTireNow: '4be0a5',
@@ -591,7 +591,7 @@ const appIds = {
     android: 'com.BoozieDoozie.royodispatcher',
   }),
   yoho: Platform.select({
-    ios: 'com.codebrew.driver.yoho',
+    ios: 'com.Yohoapp.Dispatcher',
     android: 'com.Yoho.royodispatcher',
   }),
   marasym: Platform.select({

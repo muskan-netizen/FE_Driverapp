@@ -1916,7 +1916,6 @@
 		84C8C496274E211200B1133D /* Yoho(Development).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 84C8C495274E211200B1133D /* Yoho(Development).xcconfig */; };
 		84C8C562274E212600B1133D /* Yoho(Production).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 84C8C561274E212600B1133D /* Yoho(Production).xcconfig */; };
 		84C8C564274E213300B1133D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84C8C563274E213300B1133D /* Images.xcassets */; };
-		84C8C5CB274E215400B1133D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84C8C5CA274E215300B1133D /* GoogleService-Info.plist */; };
 		84C8C632274E21F200B1133D /* YohoInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84C8C631274E21F200B1133D /* YohoInfo.plist */; };
 		84C8CAE0274E4D9900B1133D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		84C8CAE1274E4D9900B1133D /* RoyoDriverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E4480626E87ED800452095 /* RoyoDriverApp.swift */; };
@@ -2459,6 +2458,7 @@
 		84E4480726E87ED800452095 /* RoyoDriverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E4480626E87ED800452095 /* RoyoDriverApp.swift */; };
 		84E4B0E32785A7EC002574C4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84E4B0E22785A7EC002574C4 /* GoogleService-Info.plist */; };
 		84E4BBEE2771F7EA00630795 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84E4BBED2771F7EA00630795 /* GoogleService-Info.plist */; };
+		84E7767827A3F1580066B0A2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84E7767727A3F1570066B0A2 /* GoogleService-Info.plist */; };
 		84E9E702273E76F4008E1169 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		84E9E703273E76F4008E1169 /* RoyoDriverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E4480626E87ED800452095 /* RoyoDriverApp.swift */; };
 		84E9E704273E76F4008E1169 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -3867,7 +3867,6 @@
 		84C8C495274E211200B1133D /* Yoho(Development).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Yoho(Development).xcconfig"; sourceTree = "<group>"; };
 		84C8C561274E212600B1133D /* Yoho(Production).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Yoho(Production).xcconfig"; sourceTree = "<group>"; };
 		84C8C563274E213300B1133D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		84C8C5CA274E215300B1133D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84C8C631274E21F200B1133D /* YohoInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = YohoInfo.plist; sourceTree = "<group>"; };
 		84C8CB39274E4D9900B1133D /* Marasym.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marasym.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C8CCD8274E4E5B00B1133D /* MarasymInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = MarasymInfo.plist; sourceTree = "<group>"; };
@@ -4080,6 +4079,7 @@
 		84E4481826E8C73F00452095 /* RoyoDispatcher(Production).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "RoyoDispatcher(Production).xcconfig"; sourceTree = "<group>"; };
 		84E4B0E22785A7EC002574C4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84E4BBED2771F7EA00630795 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		84E7767727A3F1570066B0A2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84E9E73D273E76F4008E1169 /* Drus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Drus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E9E7B0273E7729008E1169 /* EquMD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EquMD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E9E7E7273E7837008E1169 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -7703,7 +7703,7 @@
 		84C8C494274E20CE00B1133D /* Yoho */ = {
 			isa = PBXGroup;
 			children = (
-				84C8C5CA274E215300B1133D /* GoogleService-Info.plist */,
+				84E7767727A3F1570066B0A2 /* GoogleService-Info.plist */,
 				84C8C495274E211200B1133D /* Yoho(Development).xcconfig */,
 				84C8C561274E212600B1133D /* Yoho(Production).xcconfig */,
 				84C8C563274E213300B1133D /* Images.xcassets */,
@@ -10419,6 +10419,7 @@
 				84674B51273FAA4400C74B93 /* Resources */,
 				86C47C0855E117A9FFA23250 /* [CP] Embed Pods Frameworks */,
 				B06363A8ACFB17871C8667D2 /* [CP] Copy Pods Resources */,
+				84E7772627A414C50066B0A2 /* Start Packager */,
 			);
 			buildRules = (
 			);
@@ -15076,13 +15077,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84E7767827A3F1580066B0A2 /* GoogleService-Info.plist in Resources */,
 				84C8C3B5274E206200B1133D /* LaunchScreen.storyboard in Resources */,
 				84C8C562274E212600B1133D /* Yoho(Production).xcconfig in Resources */,
 				84C8C3B6274E206200B1133D /* RoyoDriverInfo.plist in Resources */,
 				84C8C3B7274E206200B1133D /* Images.xcassets in Resources */,
 				84C8C632274E21F200B1133D /* YohoInfo.plist in Resources */,
 				84C8C564274E213300B1133D /* Images.xcassets in Resources */,
-				84C8C5CB274E215400B1133D /* GoogleService-Info.plist in Resources */,
 				84C8C3B8274E206200B1133D /* campton-light.ttf in Resources */,
 				84C8C3B9274E206200B1133D /* campton-medium.ttf in Resources */,
 				84C8C3BA274E206200B1133D /* notification.mp3 in Resources */,
@@ -23935,7 +23936,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open \"$SRCROOT/../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n  fi\nfi\n";
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n\nexport RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open \"$SRCROOT/../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n  fi\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		84C2F7E02742371E00C82ABC /* Bundle React Native code and images */ = {
@@ -24860,6 +24861,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-BksTaxi/Pods-available_pods-BksTaxi-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		84E7772627A414C50066B0A2 /* Start Packager */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Start Packager";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n\nexport RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open \"$SRCROOT/../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n  fi\nfi\n";
 		};
 		84E9E700273E76F4008E1169 /* Bundle React Native code and images */ = {
 			isa = PBXShellScriptBuildPhase;
