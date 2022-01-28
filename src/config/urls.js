@@ -1,5 +1,5 @@
 //live
-export const API_BASE_URL = 'https://api.royodispatch.com/';
+// export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
@@ -42,12 +42,8 @@ export const API_BASE_URL = 'https://api.royodispatch.com/';
 //export const API_BASE_URL = 'https://dispatch.hairstonexpressgo.com/';
 
 //Developement
-<<<<<<< HEAD
-//export const API_BASE_URL = 'https://api.winhires.com/';
-=======
 export const API_BASE_URL = 'https://api.winhires.com/';
 
->>>>>>> dev_sandy
 //export const API_BASE_URL = 'http://192.168.96.20:8010/';
 // export const API_BASE_URL = 'http://192.168.103.73:8005';
 // export const API_BASE_URL = 'https://api.williamherrick.com/';
@@ -153,8 +149,5 @@ export const DAMAGE_REPORTS = getApiUrl('api/agent/reportdamange');
 //Reimbursement
 export const GET_REIMBURSEMENT_TYPES = getApiUrl('api/reimbursementtypes');
 export const REIMBURSEMENT = getApiUrl('api/agent/create/reimbursement');
-<<<<<<< HEAD
-=======
 export const GETORDERDETAILFORTASK = getApiUrl('edit-order/vendor/products/getProductsInCart');
 
->>>>>>> dev_sandy

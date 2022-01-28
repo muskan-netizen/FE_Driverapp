@@ -36,7 +36,6 @@ const TaskListCard = ({
 
   const getDate = date => {
     const local = moment.utc(date).local().format('DD MMM YYYY hh:mm:a');
-
     return local;
   };
 

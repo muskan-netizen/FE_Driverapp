@@ -862,6 +862,7 @@ const appIds = {
   cannabis_Club_SF: Platform.select({
     ios: 'com.CannabisClubSF.Dispatch',
     android: 'com.CannabisClubSF.royodispatcher',
+  }),
   martinonwheels: Platform.select({
     ios: 'com.Martinonwheels.Dispatch',
     android: 'com.Martinonwheels.royodispatcher',

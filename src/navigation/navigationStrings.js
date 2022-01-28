@@ -31,6 +31,8 @@ export default {
   REIMBURSEMENT:"Reimbursement",
   CART:"Cart",
   PLACEHOLDERCOMMENTFORPICKUPDRIVER: 'Eg. Please reach before time if possible',
+  SEARCHPRODUCTOVENDOR: 'SearchProductVendorItem',
+  PRODUCTDETAIL: 'productDetail'
 
 
 };

@@ -23,6 +23,14 @@ export function stylesFunc({defaultLanguagae}) {
       marginRight: moderateScale(20),
       alignSelf: 'center',
     },
+    editOrder: {
+      backgroundColor: 'transparent',
+      color: '#111',
+      textAlign: 'center',
+      color: colors.blue,
+      fontFamily: fontFamily.bold,
+      fontSize: textScale(13),
+    },
 
     mainComponent: {
       flex: 1,

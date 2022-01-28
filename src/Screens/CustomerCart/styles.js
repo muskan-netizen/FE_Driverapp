@@ -41,6 +41,14 @@ export default ({ themeColors, isDarkMode, MyDarkTheme}) => {
       fontFamily: fontFamily.semiBold,
       fontSize: textScale(14),
     },
+    text2: {
+      backgroundColor: 'transparent',
+      color: '#111',
+      textAlign: 'center',
+      color: colors.white,
+      fontFamily: fontFamily.semiBold,
+      fontSize: textScale(12),
+    },
     headerText: {
       ...commonStyles.mediumFont14,
       marginRight: moderateScale(20),

@@ -273,3 +273,86 @@ export const increaseDecreaseItemQty = (url = '', data, headers = {}) => {
       });
   });
 };
+
+//searchAction
+export const searchAction = (url = '', data, headers = {}) => {
+  return new Promise((resolve, reject) => {
+    apiPost(url, data, headers)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+};
+
+//getProductDetailByProductId
+export const getProductDetailByProductId = (url = '', data, headers = {}) => {
+  return new Promise((resolve, reject) => {
+    apiPost(url, data, headers)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+};
+
+
+//getProductDetailByProductId
+export const addProductsToCart = (url = '', data, headers = {}) => {
+  return new Promise((resolve, reject) => {
+    apiPost(url, data, headers)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+};
+
+
+//Remove product from cart
+export const removeProductFromCart = (url = '', data, headers = {}) => {
+  return new Promise((resolve, reject) => {
+    apiPost(url, data, headers)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+};
+
+
+//submit temp cart informataion to client
+export const submitTempCartInformation = (url = '', data, headers = {}) => {
+  return new Promise((resolve, reject) => {
+    apiPost(url, data, headers)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+};
+
+
+
+//remove temp cart informataion 
+export const removeTempCartInformation = (url = '', data, headers = {}) => {
+  return new Promise((resolve, reject) => {
+    apiPost(url, data, headers)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+};
