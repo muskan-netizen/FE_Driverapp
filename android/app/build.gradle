@@ -2020,6 +2020,16 @@ android {
             applicationId 'com.HalaTalabat.royodispatcher'
             resValue "string", "app_name", "Hala Talabat Dispatcher"
         }
+        alloTaxi{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.AlloTaxi.royodispatcher'
+            resValue "string", "app_name", "Allo Taxi"
+        }
 
 
          

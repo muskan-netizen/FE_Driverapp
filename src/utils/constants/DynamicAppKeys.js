@@ -177,6 +177,7 @@ const shortCodes = {
   keydiscovery: 'fd305f',
   palmettoplus: '557bc4',
   halaTalabat: '55ffea',
+  alloTaxi: '8b056f',
 };
 
 // Goody Dispatch
@@ -881,6 +882,10 @@ const appIds = {
   halaTalabat: Platform.select({
     ios: 'com.HalaTalabat.Dispatch',
     android: 'com.HalaTalabat.royodispatcher',
+  }),
+  alloTaxi: Platform.select({
+    ios: 'com.AlloTaxi.Dispatch',
+    android: 'com.AlloTaxi.royodispatcher',
   }),
 };
 

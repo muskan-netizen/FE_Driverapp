@@ -353,6 +353,8 @@
     "palmettoplusdispatcherRelease": "cd android && ./gradlew assemblePalmettoplusRelease",
     "halaTalabatdispatcher": "react-native run-android --variant=halaTalabatDebug",
     "halaTalabatdispatcherRelease": "cd android && ./gradlew assembleHalaTalabatRelease",
+    "alloTaxidispatcher": "react-native run-android --variant=alloTaxiDebug",
+    "alloTaxidispatcherRelease": "cd android && ./gradlew assembleAlloTaxiRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",

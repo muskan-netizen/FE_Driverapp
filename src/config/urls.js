@@ -147,5 +147,6 @@ export const DAMAGE_REPORTS = getApiUrl('api/agent/reportdamange');
 //Reimbursement
 export const GET_REIMBURSEMENT_TYPES = getApiUrl('api/reimbursementtypes');
 export const REIMBURSEMENT = getApiUrl('api/agent/create/reimbursement');
-export const GETORDERDETAILFORTASK = getApiUrl('edit-order/vendor/products/getProductsInCart');
-
+export const GETORDERDETAILFORTASK = getApiUrl(
+  'edit-order/vendor/products/getProductsInCart',
+);
