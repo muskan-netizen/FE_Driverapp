@@ -272,7 +272,11 @@ export default {
   HOME_1: 'Home',
   ADD_ADDRESS: 'Add Address',
   TAP_HERE_ADD_ADDRESS: 'Tap here to add address',
-  SUBMIT:'Submit'
-
+  SUBMIT:'Submit',
+  PRODUCT_ADDED_SUCCESS: 'Product successfully added in your cart',
+  SEARCH_PRODUCT_VENDOR_ITEM: 'Search product, vendor, item',
+  CARTSUBMITEED:'You have already submited the cart updation. Wait for the customer response',
+  AREYOUSURETEMPCART:"Are you sure you want to submit this updation , Please check twice all the details because once submitted it can't be changed",
+  AREYOUSURETEMPCARTCLAER:'Are you sure you want to clear the cart? This will remove all your chanegs.'
 
 };

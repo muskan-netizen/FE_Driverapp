@@ -332,6 +332,8 @@ export default function TaskDetail({route, navigation}) {
   const _onPressTaskDetails = item => {
     moveToNewScreen(navigationStrings.ORDERDETAIL, {
       item: taskDetail?.order?.call_back_url,
+      taskDetail:taskDetail,
+      apiData:apiData
     })();
   };
 
@@ -597,36 +599,41 @@ export default function TaskDetail({route, navigation}) {
   };
 
   const _onPressEditOrder = () => {
-    if (apiData) {
-      updateState({isLoading: true});
-      let data = {};
-      data['order_vendor_id'] = apiData?.vendors[0]?.id;
-      data['user_id'] = apiData?.user_id;
-      data['address_id'] = apiData?.address_id;
+    moveToNewScreen(navigationStrings.CART, {
+      // cartData: res?.data,
+      taskDetail: taskDetail,
+      apiData:apiData
+    })();
+    // if (apiData) {
+    //   updateState({isLoading: true});
+    //   let data = {};
+    //   data['order_vendor_id'] = apiData?.vendors[0]?.id;
+    //   data['user_id'] = apiData?.user_id;
+    //   data['address_id'] = apiData?.address_id;
 
-      console.log(data, '_onPressEditOrder');
+    //   console.log(data, '_onPressEditOrder');
 
-      let url = `https://${getHostName(
-        taskDetail?.order?.call_back_url,
-      )}/edit-order/vendor/products/getProductsInCart`;
-      actions
-        .getCustomerOrderDetail(url, data, {client: clientInfo?.database_name})
-        .then(res => {
-          console.log(res?.data, 'all response after hit order api');
-          updateState({
-            isLoading: false,
-          });
-          moveToNewScreen(navigationStrings.CART, {
-            cartData: res?.data,
-            taskDetail: taskDetail,
-          })();
-        })
-        .catch(error =>
-          updateState({
-            isLoading: false,
-          }),
-        );
-    }
+    //   let url = `https://${getHostName(
+    //     taskDetail?.order?.call_back_url,
+    //   )}/edit-order/vendor/products/getProductsInCart`;
+    //   actions
+    //     .getCustomerOrderDetail(url, data, {client: clientInfo?.database_name})
+    //     .then(res => {
+    //       console.log(res?.data, 'all response after hit order api');
+    //       updateState({
+    //         isLoading: false,
+    //       });
+    //       moveToNewScreen(navigationStrings.CART, {
+    //         cartData: res?.data,
+    //         taskDetail: taskDetail,
+    //       })();
+    //     })
+    //     .catch(error =>
+    //       updateState({
+    //         isLoading: false,
+    //       }),
+    //     );
+    // }
   };
 
   const taskDetailView = () => {

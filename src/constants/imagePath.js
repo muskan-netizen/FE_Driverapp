@@ -21,7 +21,7 @@ export default {
   listMenu: require('../assets/images/ic_list.png'),
   locationOff: require('../assets/images/ic_location_off.png'),
   locationOn: require('../assets/images/ic_location_on.png'),
-  logout: require('../assets/images/ic_Logout.png'),
+  logout: require('../assets/images/ic_logout.png'),
   map: require('../assets/images/ic_map.png'),
   menu: require('../assets/images/ic_menu.png'),
   notesBlue: require('../assets/images/ic_notes_blue.png'),
@@ -89,6 +89,8 @@ export default {
   damagereport: require('../assets/images/ic_damagereport.png'),
   placeholderbee: require('../assets/images/ic_placeholderbee.png'),
   searchIcon: require('../assets/images/ic_search.png'),
+  delete: require('../assets/images/ic_delete.png'),
+
 
 
   

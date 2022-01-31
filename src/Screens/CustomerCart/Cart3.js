@@ -40,6 +40,7 @@ import ProductListLoader from '../../Components/Loaders/ProductListLoader';
 import WrapperContainer from '../../Components/WrapperContainer';
 import imagePath from '../../constants/imagePath';
 import strings from '../../constants/lang';
+import staticStrings from '../../constants/staticStrings';
 import navigationStrings from '../../navigation/navigationStrings';
 import actions from '../../redux/actions';
 import colors from '../../styles/colors';
@@ -74,6 +75,7 @@ export default function Cart({navigation, route}) {
   const isDarkMode = toggleTheme ? darkthemeusingDevice : theme;
   let paramsData = route?.params?.data?.cartData;
   let taskDetail = route?.params?.data?.taskDetail;
+  let apiData = route?.params?.data?.apiData;
 
   console.log(paramsData, 'Cart>>>paramsData');
   console.log(taskDetail, 'taskDetail>>>paramsData');
@@ -128,6 +130,7 @@ export default function Cart({navigation, route}) {
     selectedDateFromCalendar: '',
     availableTimeSlots: [],
     selectedTimeSlots: '',
+    isLoading: false,
   });
   const {
     viewHeight,
@@ -135,6 +138,7 @@ export default function Cart({navigation, route}) {
     cartItems,
     cartData,
     isLoadingB,
+    isLoading,
     isModalVisibleForClearCart,
     isVisibleAddressModal,
     isVisible,
@@ -204,104 +208,16 @@ export default function Cart({navigation, route}) {
 
   useFocusEffect(
     React.useCallback(() => {
-      if (paramsData && paramsData?.selectedMethod) {
-        updateState({selectedPayment: paramsData?.selectedMethod});
-      }
-      // alert('run')
-      if (!checkCartItem?.data?.item_count) {
-        updateState({isLoadingB: true});
-      }
+      updateState({isLoading: true});
       getCartDetail();
-      // getAllWishListData();
-      // if (!!checkCartItem?.data) {
-      //   getCartDetail();
-      // } else {
-      //   getAllWishListData();
-      // }
-      return () => {
-        // alert('blur')
-      };
-    }, [
-      currencies,
-      languages,
-      route?.params?.promocodeDetail,
-      allAddresss,
-      selectedAddress,
-      paramsData,
-      isRefreshing,
-      checkCartItem?.data?.item_count,
-    ]),
+      return () => {};
+    }, [isRefreshing]),
   );
-
-  useEffect(() => {
-    if (
-      !!checkCartItem?.data &&
-      !!checkCartItem?.data?.products &&
-      !!checkCartItem?.data?.products.length
-    ) {
-      checkforAddressUpdate();
-      console.log('useEffect 1', checkCartItem);
-    }
-  }, [selectedAddress, allAddresss]);
-
-  //check for addreess Update and change
-  const checkforAddressUpdate = () => {
-    if (allAddresss.length == 0) {
-      updateState({selectedAddress: null});
-      actions.saveAddress(null);
-    }
-    if (!selectedAddress && allAddresss.length) {
-      let find = allAddresss.find(x => x.is_primary);
-
-      if (find) {
-        updateState({selectedAddress: find});
-        actions.saveAddress(find);
-      } else {
-        selectAddress(allAddresss[0]);
-      }
-    }
-    if (selectedAddress && allAddresss.length) {
-      let find = allAddresss.find(
-        x =>
-          x.id == selectedAddress.id &&
-          x.is_primary == selectedAddress.is_primary,
-      );
-      if (find) {
-        selectAddress(find);
-      } else {
-        selectAddress(allAddresss[0]);
-        // updateState({selectedAddress: null});
-        // actions.saveAddress(null);
-      }
-    }
-  };
-
-  //get All address
-  const getAllAddress = () => {
-    if (!!userData?.auth_token) {
-      actions
-        .getAddress(
-          {},
-          {
-            code: appData?.profile?.code,
-          },
-        )
-        .then(res => {
-          updateState({
-            isLoadingB: false,
-          });
-          if (res.data) {
-            actions.saveAllUserAddress(res.data);
-          }
-        })
-        .catch(errorMethod);
-    }
-  };
 
   //get the entire cart detail
   const getCartDetail = () => {
     // alert("cart detail hit")
-    updateState({isLoadingB: false});
+    // updateState({isLoadingB: false});
     let checkDate = !!paramsData?.scheduled_date_time;
 
     if (!!checkDate && paramsData.schedule_type == 'schedule') {
@@ -337,89 +253,115 @@ export default function Cart({navigation, route}) {
       });
     }
 
-    updateState({
-      isRefreshing: false,
-      isLoadingB: false,
-      pickupDriverComment: paramsData?.comment_for_pickup_driver
-        ? paramsData?.comment_for_pickup_driver
-        : pickupDriverComment,
-      dropOffDriverComment: paramsData?.comment_for_dropoff_driver
-        ? paramsData?.comment_for_dropoff_driver
-        : dropOffDriverComment,
-      vendorComment: paramsData?.comment_for_vendor
-        ? paramsData?.comment_for_vendor
-        : vendorComment,
-      sheduledorderdate: paramsData?.scheduled_date_time,
-      sheduleddropoffdate: paramsData?.schedule_dropoff,
-      sheduledpickupdate: paramsData?.schedule_pickup,
-      scheduleType: paramsData?.schedule_type,
-      selectedTimeOption:
-        paramsData?.schedule_type == 'now'
-          ? {id: 1, title: strings.NOW, type: 'now'}
-          : paramsData?.schedule_type == 'schedule'
-          ? {id: 2, title: strings.SCHEDULE_ORDER, type: 'schedule'}
-          : {id: 1, title: strings.NOW, type: 'now'},
-    });
-    if (paramsData) {
-      if (
-        !!paramsData.vendor_details.vendor_tables &&
-        paramsData.vendor_details.vendor_tables.length > 0
-      ) {
-        paramsData.vendor_details.vendor_tables.forEach(
-          (item, indx) =>
-            (tableData[indx] = {
-              id: item.id,
-              label: `${strings.CATEGORY}: ${
-                item.category.title ? item.category.title : ''
-              } | ${strings.TABLE}: ${
-                item.table_number ? item.table_number : 0
-              } | ${strings.SEAT_CAPACITY}: ${
-                item.seating_number ? item.seating_number : 0
-              }`,
-              value: `${strings.CATEGORY}: ${
-                item.category.title ? item.category.title : ''
-              } | ${strings.TABLE}: ${
-                item.table_number ? item.table_number : 0
-              } | ${strings.SEAT_CAPACITY}: ${
-                item.seating_number ? item.seating_number : 0
-              }`,
-              title: item.category.title,
-              table_number: item.table_number,
-              seating_number: item.seating_number,
-              vendor_id: paramsData.vendor_details.vendor_address.id,
-            }),
+    if (apiData) {
+      // updateState({isLoading: true});
+      let data = {};
+      data['order_vendor_id'] = apiData?.vendors[0]?.id;
+      data['user_id'] = apiData?.user_id;
+      data['address_id'] = apiData?.address_id;
+
+      console.log(data, '_onPressEditOrder');
+
+      let url = `https://${getHostName(
+        taskDetail?.order?.call_back_url,
+      )}/edit-order/vendor/products/getProductsInCart`;
+      actions
+        .getCustomerOrderDetail(url, data, {client: clientInfo?.database_name})
+        .then(res => {
+          console.log(res, 'all response after hit order api');
+
           updateState({
-            tableData: tableData,
+            isRefreshing: false,
+            isLoadingB: false,
+            isLoading: false,
+            pickupDriverComment: res?.data?.comment_for_pickup_driver
+              ? res?.data?.comment_for_pickup_driver
+              : pickupDriverComment,
+            dropOffDriverComment: res?.data?.comment_for_dropoff_driver
+              ? res?.data?.comment_for_dropoff_driver
+              : dropOffDriverComment,
+            vendorComment: res?.data?.comment_for_vendor
+              ? res?.data?.comment_for_vendor
+              : vendorComment,
+            sheduledorderdate: res?.data?.scheduled_date_time,
+            sheduleddropoffdate: res?.data?.schedule_dropoff,
+            sheduledpickupdate: res?.data?.schedule_pickup,
+            scheduleType: res?.data?.schedule_type,
+            selectedTimeOption:
+              res?.data?.schedule_type == 'now'
+                ? {id: 1, title: strings.NOW, type: 'now'}
+                : res?.data?.schedule_type == 'schedule'
+                ? {id: 2, title: strings.SCHEDULE_ORDER, type: 'schedule'}
+                : {id: 1, title: strings.NOW, type: 'now'},
+          });
+          if (res?.data) {
+            if (
+              !!res?.data.vendor_details.vendor_tables &&
+              res?.data.vendor_details.vendor_tables.length > 0
+            ) {
+              res?.data.vendor_details.vendor_tables.forEach(
+                (item, indx) =>
+                  (tableData[indx] = {
+                    id: item.id,
+                    label: `${strings.CATEGORY}: ${
+                      item.category.title ? item.category.title : ''
+                    } | ${strings.TABLE}: ${
+                      item.table_number ? item.table_number : 0
+                    } | ${strings.SEAT_CAPACITY}: ${
+                      item.seating_number ? item.seating_number : 0
+                    }`,
+                    value: `${strings.CATEGORY}: ${
+                      item.category.title ? item.category.title : ''
+                    } | ${strings.TABLE}: ${
+                      item.table_number ? item.table_number : 0
+                    } | ${strings.SEAT_CAPACITY}: ${
+                      item.seating_number ? item.seating_number : 0
+                    }`,
+                    title: item.category.title,
+                    table_number: item.table_number,
+                    seating_number: item.seating_number,
+                    vendor_id: res?.data.vendor_details.vendor_address.id,
+                  }),
+                updateState({
+                  tableData: tableData,
+                }),
+              );
+              const data = {
+                vendor_id: tableData[0].vendor_id,
+                table: tableData[0].id,
+              };
+              _vendorTableCart(data, tableData[0]);
+            }
+            updateState({
+              cartItems: res?.data.products,
+              vendorAddress: res?.data.address,
+              cartData: res?.data,
+              availableTimeSlots: res?.data.slots,
+              isLoadingB: false,
+              isRefreshing: false,
+              selectedTipvalue:
+                res?.data?.total_payable_amount == 0 ? 'custom' : null,
+            });
+            if (!res?.data?.schedule_type && res?.data.products.length > 0) {
+              //if schedule type is null then hit the api again with now option
+              setDateAndTimeSchedule();
+            }
+          } else {
+            updateState({
+              cartData: {},
+              cartItems: [],
+              vendorAddress: '',
+              isLoadingB: false,
+              isLoading: false,
+              isRefreshing: false,
+            });
+          }
+        })
+        .catch(error =>
+          updateState({
+            isLoading: false,
           }),
         );
-        const data = {
-          vendor_id: tableData[0].vendor_id,
-          table: tableData[0].id,
-        };
-        _vendorTableCart(data, tableData[0]);
-      }
-      updateState({
-        cartItems: paramsData.products,
-        vendorAddress: paramsData.address,
-        cartData: paramsData,
-        availableTimeSlots: paramsData.slots,
-        isLoadingB: false,
-        isRefreshing: false,
-        selectedTipvalue:
-          paramsData?.total_payable_amount == 0 ? 'custom' : null,
-      });
-      if (!paramsData?.schedule_type && paramsData.products.length > 0) {
-        //if schedule type is null then hit the api again with now option
-        setDateAndTimeSchedule();
-      }
-    } else {
-      updateState({
-        cartData: {},
-        cartItems: [],
-        vendorAddress: '',
-        isLoadingB: false,
-        isRefreshing: false,
-      });
     }
   };
 
@@ -449,7 +391,7 @@ export default function Cart({navigation, route}) {
       data['quantity'] = quanitity;
       data['cart_product_id'] = itemToUpdate?.id;
       data['cart_id'] = itemToUpdate?.cart_id;
-      data['user_id'] = paramsData?.user_id;
+      data['user_id'] = cartData?.user_id;
       // data['type'] = dineInType;
       console.log(data, 'datadatadata');
 
@@ -461,36 +403,36 @@ export default function Cart({navigation, route}) {
         .increaseDecreaseItemQty(url, data, {client: clientInfo?.database_name})
         .then(res => {
           console.log('cart detail', res);
-          actions.cartItemQty(res);
+          // actions.cartItemQty(res);
           updateState({
-            // cartItems: res.data.products,
-            // cartData: res.data,
+            cartItems: res.data.products,
+            cartData: res.data,
             btnLoader: false,
           });
         })
         .catch(errorMethod);
     } else {
-      updateState({btnLoader: true});
+      updateState({btnLoader: true, btnLoadrId: item?.id});
       removeItem('selectedTable');
-      // removeProductFromCart(itemToUpdate);
+      removeProductFromCart(itemToUpdate);
     }
   };
 
   //decrementing/removeing products from cart
   const removeProductFromCart = item => {
     let data = {};
-    data['cart_id'] = item?.cart_id;
     data['cart_product_id'] = item?.id;
-    data['type'] = dineInType;
+    data['cart_id'] = item?.cart_id;
+    data['user_id'] = cartData?.user_id;
+
+    let url = `https://${getHostName(
+      taskDetail?.order?.call_back_url,
+    )}/edit-order/temp-cart/product/remove`;
     actions
-      .removeProductFromCart(data, {
-        code: appData?.profile?.code,
-        currency: currencies?.primary_currency?.id,
-        language: languages?.primary_language?.id,
-        systemuser: DeviceInfo.getUniqueId(),
-      })
+      .removeProductFromCart(url, data, {client: clientInfo?.database_name})
+
       .then(res => {
-        actions.cartItemQty(res);
+        // actions.cartItemQty(res);
         updateState({
           cartItems: res.data.products,
           cartData: res.data,
@@ -700,74 +642,6 @@ export default function Cart({navigation, route}) {
       .catch(errorMethod);
   };
 
-  const _directOrderPlace = () => {
-    let data = {};
-    data['address_id'] =
-      paramsData?.selectedAddressData?.id || selectedAddressData?.id;
-    data['payment_option_id'] =
-      paramsData?.selectedPayment?.id || selectedPayment?.id;
-
-    data['type'] = dineInType || '';
-    data['is_gift'] = isGiftBoxSelected ? 1 : 0;
-
-    if (paramsData?.transactionId) {
-      data['transaction_id'] = paramsData?.transactionId;
-    }
-    if (!!selectedTipAmount) {
-      data['tip'] = selectedTipAmount || '';
-    }
-    placeOrderData(data);
-  };
-
-  console.log(location, 'locationlocationlocation', dineInType);
-
-  const placeOrderData = data => {
-    console.log('Sending data', data);
-
-    actions
-      .placeOrder(data, {
-        code: appData?.profile?.code,
-        currency: currencies?.primary_currency?.id,
-        language: languages?.primary_language?.id,
-        latitude: !isEmpty(location) ? location?.latitude.toString() : '',
-        longitude: !isEmpty(location) ? location?.longitude.toString() : '',
-        // systemuser: DeviceInfo.getUniqueId(),
-      })
-      .then(res => {
-        updateState({
-          isLoadingB: false,
-          placeLoader: false,
-          pickupDriverComment: null,
-          dropOffDriverComment: null,
-          vendorComment: null,
-          localePickupDate: null,
-          localeDropOffDate: null,
-          modalType: null,
-          sheduledpickupdate: null,
-          sheduleddropoffdate: null,
-          selectedTipvalue: null,
-          selectedTipAmount: null,
-        });
-        actions.cartItemQty({});
-        checkPaymentOptions(res);
-        if (paramsData?.selectedMethod?.id != 17) {
-          updateState({
-            cartItems: [],
-            cartData: {},
-          });
-          if (
-            paramsData?.selectedMethod?.id == 1 ||
-            res?.data?.payable_amount == 0
-          ) {
-            showSuccess(res?.message);
-            return;
-          }
-          return;
-        }
-      })
-      .catch(errorMethod);
-  };
-
   const _getOrderDetail = ({order_id, vendor_id}) => {
     // return;
     let data = {};
@@ -874,145 +748,7 @@ export default function Cart({navigation, route}) {
     //   .catch(errorMethod);
   };
 
-  const _finalPayment = () => {
-    if (selectedPayment?.id == 4 && selectedPayment?.off_site == 0) {
-      _offineLinePayment();
-      return;
-    }
-    if (selectedPayment?.id == 10 && selectedPayment?.off_site == 0) {
-      _renderRazor();
-      return;
-    }
-    if (
-      selectedPayment?.id === 3 &&
-      selectedPayment?.off_site === 1 &&
-      !!(
-        Number(cartData?.total_payable_amount) + Number(selectedTipAmount) !==
-        0
-      )
-    ) {
-      _webPayment();
-      return;
-    } else {
-      _directOrderPlace();
-    }
-
-    // !!(Number(cartData?.total_payable_amount) !== 0) ||
-    //   Number(selectedTipAmount) !== 0) {
-    //   _webPayment()
-    // }
-
-    // else if (selectedPayment?.off_site == 1 && selectedPayment?.id === 3) {
-    //   _webPayment();
-    //   return;
-    // } else if (
-    //   selectedPayment?.off_site == 1 &&
-    //   !!(
-    //     selectedPayment?.id === 6 ||
-    //     selectedPayment?.id === 7 ||
-    //     selectedPayment?.id === 8 ||
-    //     selectedPayment?.id === 9
-    //   )
-    // ) {
-    //   _directOrderPlace();
-    //   return;
-    // }
-    // _offineLinePayment();
-  };
-
   console.log('cartDatacartData', cartItems);
-
-  //Clear cart
-  const placeOrder = () => {
-    if (!!userData?.auth_token) {
-      if (!!cartData?.delay_date && !localeSheduledOrderDate) {
-        showInfo(strings.SCHEDULE_DATE_REQUIRED);
-        return;
-      }
-      if (!!cartData?.pickup_delay_date && !!cartData?.dropoff_delay_date) {
-        showInfo(strings.SCHEDULE_DATE_REQUIRED);
-        return;
-      }
-      if (isEmpty(selectedPayment)) {
-        // showError(strings.PLEASE_SELECT_PAYMENT_METHOD);
-        moveToNewScreen(navigationStrings.ALL_PAYMENT_METHODS)();
-        return;
-      }
-
-      updateState({placeLoader: true});
-      var d1 = new Date();
-      var d2 = new Date(sheduledorderdate);
-      if (!selectedAddressData) {
-        // showError(strings.PLEASE_SELECT_ADDRESS);
-        setModalVisible(true);
-      } else if (!selectedPayment) {
-        errorMethod(strings.PLEASE_SELECT_PAYMENT_METHOD);
-      } else if (scheduleType == 'schedule' && d1.getTime() >= d2.getTime()) {
-        errorMethod(strings.INVALID_SCHEDULED_DATE);
-      } else {
-        if (!!userData) {
-          if (!!userData) {
-            if (
-              !!userData?.client_preference?.verify_email &&
-              !!userData?.client_preference?.verify_phone
-            ) {
-              updateState({placeLoader: false});
-
-              if (
-                !!userData?.verify_details?.is_email_verified &&
-                !!userData?.verify_details?.is_phone_verified
-              ) {
-                setDateAndTimeSchedule(true);
-                setTimeout(() => {
-                  _finalPayment();
-                }, 500);
-              } else {
-                moveToNewScreen(navigationStrings.VERIFY_ACCOUNT, {
-                  formCart: true,
-                })();
-              }
-            } else if (
-              !!userData?.client_preference?.verify_email ||
-              !!userData?.client_preference?.verify_phone
-            ) {
-              if (
-                !!userData?.verify_details?.is_email_verified ||
-                !!userData?.verify_details?.is_phone_verified
-              ) {
-                setDateAndTimeSchedule(true);
-                setTimeout(() => {
-                  _finalPayment();
-                }, 500);
-              } else {
-                updateState({placeLoader: false});
-
-                moveToNewScreen(navigationStrings.VERIFY_ACCOUNT, {
-                  formCart: true,
-                })();
-              }
-            } else {
-              setDateAndTimeSchedule(true);
-              setTimeout(() => {
-                _finalPayment();
-              }, 500);
-            }
-          }
-        } else {
-          _finalPayment();
-        }
-      }
-    } else {
-      updateState({placeLoader: false});
-      moveToNewScreen(navigationStrings.OUTER_SCREEN, {})();
-    }
-  };
-
-  useEffect(() => {
-    if (paramsData?.redirectFrom && !!checkCartItem?.data) {
-      _directOrderPlace();
-      console.log('useEffect 3');
-    }
-  }, [paramsData?.redirectFrom]);
 
   const swipeRef = useRef(null);
 
@@ -3186,6 +2922,209 @@ export default function Cart({navigation, route}) {
     );
   };
 
+  const checkVendorSlots = async date => {
+    console.log('vendro slot date', date);
+    try {
+      let vendorId = cartItems[0].vendor.id;
+      // vendor_id,date,delivery
+      const res = await actions.checkVendorSlots(
+        `?vendor_id=${vendorId}&date=${date}&delivery=${dineInType}`,
+        {
+          code: appData?.profile?.code,
+          // currency: currencies?.primary_currency?.id,
+          // language: languages?.primary_language?.id,
+          // systemuser: DeviceInfo.getUniqueId(),
+          timezone: RNLocalize.getTimeZone(),
+          // device_token: DeviceInfo.getUniqueId(),
+        },
+      );
+      console.log('avail slots++', res);
+      updateState({
+        availableTimeSlots: res,
+      });
+      if (res.length == 0) {
+        updateState({selectedTimeSlots: ''});
+      }
+    } catch (error) {
+      console.log('error riased', error);
+    }
+  };
+  const onSelectTime = item => {
+    console.log('sleecte time slots', item);
+    updateState({selectedTimeSlots: item.value});
+  };
+
+  //Submit the temp cart information to customer
+  const _submitTempCartFinal = () => {
+    updateState({
+      isLoading: true,
+    });
+    let data = {};
+    data['cart_id'] = cartData?.id;
+    let url = `https://${getHostName(
+      taskDetail?.order?.call_back_url,
+    )}/edit-order/temp-cart/submit`;
+    actions
+      .submitTempCartInformation(url, data, {client: clientInfo?.database_name})
+      .then(res => {
+        console.log('submitTempCartInformation detail', res);
+        // actions.cartItemQty(res);
+        updateState({
+          cartItems: res.data.products,
+          cartData: res.data,
+          isLoading: false,
+        });
+      })
+      .catch(errorMethod);
+  };
+
+  //Permission popup for temp cart
+  const _submitTempCart = () => {
+    Alert.alert('', strings.AREYOUSURETEMPCART, [
+      {
+        text: strings.CANCEL,
+        onPress: () => console.log('Cancel Pressed'),
+        style: 'cancel',
+      },
+      {
+        text: strings.OK,
+        onPress: () => {
+          console.log('progress');
+          // logout();
+          _submitTempCartFinal();
+          // navigation.toggleDrawer();
+        },
+      },
+    ]);
+  };
+  const buttonView = () => {
+    if (cartData?.is_submitted) {
+      return (
+        <View style={styles.container}>
+          <TouchableWithoutFeedback>
+            <View style={[styles.button, {backgroundColor: 'transparent'}]}>
+              <Text style={[styles.text2, {color: colors.green}]}>
+                {strings.CARTSUBMITEED}
+              </Text>
+            </View>
+          </TouchableWithoutFeedback>
+        </View>
+      );
+    }
+
+    return (
+      <View style={styles.container}>
+        <TouchableWithoutFeedback onPress={_submitTempCart}>
+          <View style={[styles.button]}>
+            <Text style={styles.text}>{strings.SUBMIT}</Text>
+          </View>
+        </TouchableWithoutFeedback>
+      </View>
+    );
+  };
+
+  const renderTimeSlots = ({item, index}) => {
+    return (
+      <TouchableOpacity
+        key={String(index)}
+        activeOpacity={0.8}
+        onPress={() => onSelectTime(item)}
+        style={{
+          backgroundColor:
+            selectedTimeSlots == item.value
+              ? themeColors.primary_color
+              : colors.white,
+          padding: 8,
+          borderRadius: 8,
+          borderWidth: selectedTimeSlots == item.value ? 0 : 1,
+        }}>
+        <Text
+          style={{
+            color:
+              selectedTimeSlots == item.value ? colors.white : colors.black,
+            fontFamily: fontFamily.regular,
+            fontSize: textScale(11),
+          }}>
+          {item?.value}
+        </Text>
+      </TouchableOpacity>
+    );
+  };
+
+  const onSelectDateFromCalendar = day => {
+    updateState({
+      selectedDateFromCalendar: day.dateString,
+      modalType: 'schedule',
+    });
+    console.log('selected day', day);
+    checkVendorSlots(day.dateString);
+  };
+
+  const _onPressSearchButton = () => {
+    console.log(cartData, 'cartData?.vendor_details');
+    moveToNewScreen(navigationStrings.SEARCHPRODUCTOVENDOR, {
+      type: staticStrings.VENDOR,
+      id: cartData?.vendor_details?.vendor_address?.id,
+      taskDetail: taskDetail,
+      cartDetail: cartData,
+      apiData: apiData,
+    })();
+  };
+
+  const areyouSureYouwantToClearCart = () => {
+    Alert.alert('', strings.AREYOUSURETEMPCARTCLAER, [
+      {
+        text: strings.CANCEL,
+        onPress: () => console.log('Cancel Pressed'),
+        style: 'cancel',
+      },
+      {
+        text: strings.OK,
+        onPress: () => {
+          console.log('progress');
+          updateState({
+            isLoading: true,
+          });
+          let data = {};
+          data['cart_id'] = cartData?.id;
+          let url = `https://${getHostName(
+            taskDetail?.order?.call_back_url,
+          )}/edit-order/temp-cart/remove`;
+          actions
+            .removeTempCartInformation(url, data, {
+              client: clientInfo?.database_name,
+            })
+            .then(res => {
+              console.log('cart detail', res);
+              // actions.cartItemQty(res);
+              updateState({
+                isLoading: false,
+              });
+              navigation.goBack();
+            })
+            .catch(errorMethod);
+        },
+      },
+    ]);
+  };
+
+  const customRightView = () => {
+    if(cartData?.is_submitted){
+      return null
+    }
+    return (
+      <View style={{flexDirection: 'row',alignItems:'center'}}>
+        <TouchableOpacity
+          style={{marginRight: 20}}
+          onPress={() => areyouSureYouwantToClearCart()}>
+          <Image source={imagePath?.delete} style={{tintColor:colors.blackB}} />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => _onPressSearchButton()}>
+          <Image source={imagePath?.searchIcon} />
+        </TouchableOpacity>
+      </View>
+    );
+  };
   if (isLoadingB) {
     return (
       <WrapperContainer
@@ -3351,92 +3290,6 @@ export default function Cart({navigation, route}) {
       </WrapperContainer>
     );
   }
-
-  const checkVendorSlots = async date => {
-    console.log('vendro slot date', date);
-    try {
-      let vendorId = cartItems[0].vendor.id;
-      // vendor_id,date,delivery
-      const res = await actions.checkVendorSlots(
-        `?vendor_id=${vendorId}&date=${date}&delivery=${dineInType}`,
-        {
-          code: appData?.profile?.code,
-          // currency: currencies?.primary_currency?.id,
-          // language: languages?.primary_language?.id,
-          // systemuser: DeviceInfo.getUniqueId(),
-          timezone: RNLocalize.getTimeZone(),
-          // device_token: DeviceInfo.getUniqueId(),
-        },
-      );
-      console.log('avail slots++', res);
-      updateState({
-        availableTimeSlots: res,
-      });
-      if (res.length == 0) {
-        updateState({selectedTimeSlots: ''});
-      }
-    } catch (error) {
-      console.log('error riased', error);
-    }
-  };
-  const onSelectTime = item => {
-    console.log('sleecte time slots', item);
-    updateState({selectedTimeSlots: item.value});
-  };
-
-  const buttonView = () => {
-    return (
-      <View style={styles.container}>
-        <TouchableWithoutFeedback>
-          <View style={[styles.button]}>
-            <Text style={styles.text}>{strings.SUBMIT}</Text>
-          </View>
-        </TouchableWithoutFeedback>
-      </View>
-    );
-  };
-
-  const renderTimeSlots = ({item, index}) => {
-    return (
-      <TouchableOpacity
-        key={String(index)}
-        activeOpacity={0.8}
-        onPress={() => onSelectTime(item)}
-        style={{
-          backgroundColor:
-            selectedTimeSlots == item.value
-              ? themeColors.primary_color
-              : colors.white,
-          padding: 8,
-          borderRadius: 8,
-          borderWidth: selectedTimeSlots == item.value ? 0 : 1,
-        }}>
-        <Text
-          style={{
-            color:
-              selectedTimeSlots == item.value ? colors.white : colors.black,
-            fontFamily: fontFamily.regular,
-            fontSize: textScale(11),
-          }}>
-          {item?.value}
-        </Text>
-      </TouchableOpacity>
-    );
-  };
-
-  const onSelectDateFromCalendar = day => {
-    updateState({
-      selectedDateFromCalendar: day.dateString,
-      modalType: 'schedule',
-    });
-    console.log('selected day', day);
-    checkVendorSlots(day.dateString);
-  };
-
-  const _onPressSearchButton=()=>{
-    alert("123")
-  }
-
   return (
     <WrapperContainer
       bgColor={
@@ -3444,15 +3297,14 @@ export default function Cart({navigation, route}) {
       }
       statusBarColor={colors.backgroundGrey}
       source={loaderOne}
-      // isLoadingB={isLoadingB}
-    >
+      isLoadingB={isLoading}>
       <Header
         centerTitle={strings.CART}
         // noLeftIcon
-        rightIcon={imagePath?.searchIcon}
+        // rightIcon={imagePath?.searchIcon}
         leftIconStyle={{tintColor: colors.themeColor}}
-        // isRightText={cartItems && cartItems?.length}
-        onPressRight={() => _onPressSearchButton()}
+        customRight={customRightView}
+        // onPressRight={() => _onPressSearchButton()}
       />
 
       <View

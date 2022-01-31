@@ -5,6 +5,7 @@ import Header from '../../Components/Header';
 import WrapperContainer from '../../Components/WrapperContainer';
 import imagePath from '../../constants/imagePath';
 import strings from '../../constants/lang';
+import navigationStrings from '../../navigation/navigationStrings';
 import actions from '../../redux/actions';
 import colors from '../../styles/colors';
 import fontFamily from '../../styles/fontFamily';
@@ -21,6 +22,8 @@ import {stylesFunc} from './styles';
 export default function OrderDetail({route, navigation}) {
 
   let paramData = route?.params?.data?.item;
+  let taskDetail = route?.params?.data?.taskDetail;
+  let apiData = route?.params?.data?.apiData;
 
   const [state, setState] = useState({
     allVendorsData: [],
@@ -33,6 +36,11 @@ export default function OrderDetail({route, navigation}) {
   const defaultLanguagae = useSelector(
     state => state?.initBoot?.defaultLanguage,
   );
+   //Naviagtion to specific screen
+   const moveToNewScreen = (screenName, data) => () => {
+    navigation.navigate(screenName, {data});
+  };
+
   const styles = stylesFunc({defaultLanguagae});
 
   const new_dispatch_traking_url = paramData
@@ -478,6 +486,15 @@ export default function OrderDetail({route, navigation}) {
     );
   };
 
+  const _onPressEditOrder = () => {
+    moveToNewScreen(navigationStrings.CART, {
+      // cartData: res?.data,
+      taskDetail: taskDetail,
+      apiData:apiData
+    })();
+    
+  };
+
   return (
     <WrapperContainer
       bgColor={colors.backgroundGrey}
@@ -488,6 +505,11 @@ export default function OrderDetail({route, navigation}) {
         headerStyle={{backgroundColor: colors.white}}
         leftIcon={imagePath.backArrow}
         centerTitle={strings.ORDERDETAILS}
+        // customRight={()=>(<TouchableOpacity
+        //   onPress={_onPressEditOrder}
+        //   >
+        //   <Text style={styles.editOrder}>{'Edit'}</Text>
+        // </TouchableOpacity>)}
         // onPressLeft={() => navigation.toggleDrawer()}
         // hideRight={true}
         // customCenter={() => customCenter()}

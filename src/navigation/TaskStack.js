@@ -10,6 +10,8 @@ import {
   TaskCompleteDocument,
   TaskDetail,
   TaskHistory,
+  SearchProductVendorItem2,
+  ProductDetail
 } from '../Screens';
 import Cart from '../Screens/CustomerCart/Cart3';
 import navigationStrings from './navigationStrings';
@@ -57,6 +59,11 @@ export default function () {
         component={Scanner}
         options={{headerShown: false}}
       />
+       <Stack.Screen
+        name={navigationStrings.SEARCHPRODUCTOVENDOR}
+        component={SearchProductVendorItem2}
+        options={{headerShown: false}}
+      />
       <Stack.Screen
         name={navigationStrings.WALLETSTACK}
         component={WalletStack}
@@ -75,6 +82,11 @@ export default function () {
         <Stack.Screen
         name={navigationStrings.CART}
         component={Cart}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name={navigationStrings.PRODUCTDETAIL}
+        component={ProductDetail}
         options={{headerShown: false}}
       />
     </Stack.Navigator>
