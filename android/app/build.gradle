@@ -1213,8 +1213,8 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.NaDelivery.royodispatcher'
-            resValue "string", "app_name", "Na Deliver Dispatcher"
+            applicationId 'com.NaDelivery.dispatcher'
+            resValue "string", "app_name", "Na Deliver Driver"
         }
         iNeed{
             dimension "appType"
@@ -1411,7 +1411,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId "com.WeEat.royodispatcher"
-            resValue "string", "app_name", "WeEat Dispatch"
+            resValue "string", "app_name", "WeEat Driver"
         }
            
         servze{
@@ -2029,6 +2029,16 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.AlloTaxi.royodispatcher'
             resValue "string", "app_name", "Allo Taxi"
+        }
+        jadorDrive{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.JadorDrive.royodispatcher'
+            resValue "string", "app_name", "Jador Drive"
         }
 
 

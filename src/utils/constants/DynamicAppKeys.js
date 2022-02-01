@@ -178,6 +178,7 @@ const shortCodes = {
   palmettoplus: '557bc4',
   halaTalabat: '55ffea',
   alloTaxi: '8b056f',
+  jadorDrive: '1871c3',
 };
 
 // Goody Dispatch
@@ -576,8 +577,8 @@ const appIds = {
     android: 'com.INeed.royodispatcher',
   }),
   naDelivery: Platform.select({
-    ios: 'com.NaDelivery.Dispatch',
-    android: 'com.NaDelivery.royodispatcher',
+    ios: 'com.NaDelivery.Dispatcher',
+    android: 'com.NaDelivery.dispatcher',
   }),
   chipeTaxi: Platform.select({
     ios: 'com.ChipeTaxi.Dispatch',
@@ -886,6 +887,10 @@ const appIds = {
   alloTaxi: Platform.select({
     ios: 'com.AlloTaxi.Dispatch',
     android: 'com.AlloTaxi.royodispatcher',
+  }),
+  jadorDrive: Platform.select({
+    ios: 'com.JadorDrive.Dispatch',
+    android: 'com.JadorDrive.royodispatcher',
   }),
 };
 
