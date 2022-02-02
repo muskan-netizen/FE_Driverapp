@@ -9001,6 +9001,7 @@
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				6323FB7164603D7783D233DE /* [CP] Embed Pods Frameworks */,
 				1455268EBB4AD629DBE3A035 /* [CP] Copy Pods Resources */,
+				84C5140F27AA6BEA0051603B /* Bundle React Native code and images */,
 			);
 			buildRules = (
 			);
@@ -24320,6 +24321,24 @@
 			inputPaths = (
 			);
 			name = "Bundle React Native code and images";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
+		};
+		84C5140F27AA6BEA0051603B /* Bundle React Native code and images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Bundle React Native code and images";
+			outputFileListPaths = (
+			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -44532,7 +44551,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = 6FXUMT5X23;
+				DEVELOPMENT_TEAM = D5CFAQZ522;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -44553,7 +44572,7 @@
 				PROJECT_BUNDLE_ID = "$(PROJECT_BUNDLE_ID)";
 				PROJECT_NAME = "${PROJECT_NAME}";
 				PROJECT_PLIST = "$(PROJECT_PLIST)";
-				PROVISIONING_PROFILE_SPECIFIER = "Drus [AppStore]";
+				PROVISIONING_PROFILE_SPECIFIER = DrusDriver;
 				SWIFT_OBJC_BRIDGING_HEADER = "RoyoDriverApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";

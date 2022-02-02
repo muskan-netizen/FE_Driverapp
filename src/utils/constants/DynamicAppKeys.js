@@ -401,7 +401,7 @@ const appIds = {
     android: 'com.equamd.royodispatcher',
   }),
   drus: Platform.select({
-    ios: 'com.Drus.Dispatch',
+    ios: 'com.drusdrivernew',
     android: 'com.drus.royodispatcher',
   }),
   shariff: Platform.select({
