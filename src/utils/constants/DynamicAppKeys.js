@@ -179,6 +179,10 @@ const shortCodes = {
   halaTalabat: '55ffea',
   alloTaxi: '8b056f',
   jadorDrive: '1871c3',
+  kongaFood: '012d11',
+  theHouse: '7764e4',
+  uberCann: 'dd07b1',
+  launch: '258511',
 };
 
 // Goody Dispatch
@@ -891,6 +895,22 @@ const appIds = {
   jadorDrive: Platform.select({
     ios: 'com.JadorDrive.Dispatch',
     android: 'com.JadorDrive.royodispatcher',
+  }),
+  kongaFood: Platform.select({
+    ios: 'com.KongaFood.Dispatcher',
+    android: 'com.KongaFood.royodispatcher',
+  }),
+  theHouse: Platform.select({
+    ios: 'com.TheHouse.Dispatch',
+    android: 'com.TheHouse.royodispatcher',
+  }),
+  uberCann: Platform.select({
+    ios: 'com.UberCann.Dispatch',
+    android: 'com.UberCann.royodispatcher',
+  }),
+  launch: Platform.select({
+    ios: 'com.Launch.Dispatch',
+    android: 'com.Launch.royodispatcher',
   }),
 };
 

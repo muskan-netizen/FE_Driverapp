@@ -357,6 +357,14 @@
     "alloTaxidispatcherRelease": "cd android && ./gradlew assembleAlloTaxiRelease",
     "jadorDrivedispatcher": "react-native run-android --variant=jadorDriveDebug",
     "jadorDrivedispatcherRelease": "cd android && ./gradlew assembleJadorDriveRelease",
+    "kongaFooddispatcher": "react-native run-android --variant=kongaFoodDebug",
+    "kongaFooddispatcherRelease": "cd android && ./gradlew assembleKongaFoodRelease",
+    "theHousedispatcher": "react-native run-android --variant=theHouseDebug",
+    "theHousedispatcherRelease": "cd android && ./gradlew assembleTheHouseRelease",
+    "uberCanndispatcher": "react-native run-android --variant=uberCannDebug",
+    "uberCanndispatcherRelease": "cd android && ./gradlew assembleUberCannRelease",
+    "launchdispatcher": "react-native run-android --variant=launchDebug",
+    "launchdispatcherRelease": "cd android && ./gradlew assembleLaunchRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
@@ -364,6 +372,7 @@
     "lint": "eslint .",
     "clean": "cd ./android && ./gradlew clean",
     "uninstallAll": "cd android && ./gradlew uninstallAll"
+    
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.15.7",

@@ -2040,6 +2040,46 @@ android {
             applicationId 'com.JadorDrive.royodispatcher'
             resValue "string", "app_name", "Jador Drive"
         }
+         kongaFood{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.KongaFood.royodispatcher'
+            resValue "string", "app_name", "konga Food Driver"
+        }
+         theHouse{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.TheHouse.royodispatcher'
+            resValue "string", "app_name", "The House Dispatcher"
+        }
+        uberCann{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.UberCann.royodispatcher'
+            resValue "string", "app_name", "UberCann Dispatcher"
+        }
+          launch{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Launch.royodispatcher'
+            resValue "string", "app_name", "Launch Dispatcher"
+        }
 
 
          

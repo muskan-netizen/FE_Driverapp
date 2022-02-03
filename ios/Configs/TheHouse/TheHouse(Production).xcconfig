@@ -1,0 +1,9 @@
+#include "Pods/Target Support Files/Pods-available_pods-TheHouse/Pods-available_pods-TheHouse.release.xcconfig"
+
+
+PROJECT_BUNDLE_ID = com.TheHouse.Dispatch
+PROJECT_APP_VERSION = 1.0
+PROJECT_BUILD_NUMBER = 1
+PROJECT_APP_NAME =The House Dispatcher
+PROJECT_PLIST =TheHouseInfo
+PROJECT_ENTITLEMENT=RoyoDriverAppRelease
