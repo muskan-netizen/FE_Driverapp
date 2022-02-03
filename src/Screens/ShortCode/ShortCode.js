@@ -1136,6 +1136,18 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.alloTaxi:
+          updateState({
+            shortCode: shortCodes.alloTaxi,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.jadorDrive:
+          updateState({
+            shortCode: shortCodes.jadorDrive,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);

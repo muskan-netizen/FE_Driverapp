@@ -1,5 +1,5 @@
 //live
-//export const API_BASE_URL = 'https://api.royodispatch.com/';
+export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
@@ -98,7 +98,7 @@ export const API_BASE_URL = 'https://api.winhires.com/';
 //export const API_BASE_URL = 'https://dispatch.sunshinerideshare.com/';
 
 //taquick live domain
-//export const API_BASE_URL = 'https://dispatch.taquick.com/';
+//export const API_BASE_URL = 'https://dispatch-dev.taquick.com/';
 
 //stonses live domain
 //export const API_BASE_URL = 'https://dispatcher.verofax.com/';
@@ -147,5 +147,6 @@ export const DAMAGE_REPORTS = getApiUrl('api/agent/reportdamange');
 //Reimbursement
 export const GET_REIMBURSEMENT_TYPES = getApiUrl('api/reimbursementtypes');
 export const REIMBURSEMENT = getApiUrl('api/agent/create/reimbursement');
-export const GETORDERDETAILFORTASK = getApiUrl('edit-order/vendor/products/getProductsInCart');
-
+export const GETORDERDETAILFORTASK = getApiUrl(
+  'edit-order/vendor/products/getProductsInCart',
+);
