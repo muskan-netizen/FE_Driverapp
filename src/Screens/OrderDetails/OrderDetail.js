@@ -20,7 +20,6 @@ import {getImageUrl} from '../../utils/helperFunctions';
 import {stylesFunc} from './styles';
 
 export default function OrderDetail({route, navigation}) {
-
   let paramData = route?.params?.data?.item;
   let taskDetail = route?.params?.data?.taskDetail;
   let apiData = route?.params?.data?.apiData;
@@ -36,8 +35,8 @@ export default function OrderDetail({route, navigation}) {
   const defaultLanguagae = useSelector(
     state => state?.initBoot?.defaultLanguage,
   );
-   //Naviagtion to specific screen
-   const moveToNewScreen = (screenName, data) => () => {
+  //Naviagtion to specific screen
+  const moveToNewScreen = (screenName, data) => () => {
     navigation.navigate(screenName, {data});
   };
 
@@ -490,9 +489,8 @@ export default function OrderDetail({route, navigation}) {
     moveToNewScreen(navigationStrings.CART, {
       // cartData: res?.data,
       taskDetail: taskDetail,
-      apiData:apiData
+      apiData: apiData,
     })();
-    
   };
 
   return (
@@ -505,11 +503,11 @@ export default function OrderDetail({route, navigation}) {
         headerStyle={{backgroundColor: colors.white}}
         leftIcon={imagePath.backArrow}
         centerTitle={strings.ORDERDETAILS}
-        // customRight={()=>(<TouchableOpacity
-        //   onPress={_onPressEditOrder}
-        //   >
-        //   <Text style={styles.editOrder}>{'Edit'}</Text>
-        // </TouchableOpacity>)}
+        customRight={() => (
+          <TouchableOpacity onPress={_onPressEditOrder}>
+            <Text style={styles.editOrder}>{'Edit'}</Text>
+          </TouchableOpacity>
+        )}
         // onPressLeft={() => navigation.toggleDrawer()}
         // hideRight={true}
         // customCenter={() => customCenter()}
