@@ -150,7 +150,7 @@ const shortCodes = {
   SXM2GO: 'f91ebf',
   farmerSouq: '351a84',
   yogo_lift: '656c4a',
-  mozmarcas: '716d69',
+  mozmarcas: '875d07',
   stichesonSite: 'f2c554',
   tmgShops: '25ecdb',
   gasGiant: '0b57d0',
@@ -183,6 +183,10 @@ const shortCodes = {
   theHouse: '7764e4',
   uberCann: 'dd07b1',
   launch: '258511',
+  kampick: '260a5c',
+  iPicknDrop: '7b1b44',
+  bluebolt: 'faa76b',
+  cabio: '9fcc02',
 };
 
 // Goody Dispatch
@@ -405,7 +409,7 @@ const appIds = {
     android: 'com.equamd.royodispatcher',
   }),
   drus: Platform.select({
-    ios: 'com.drusdrivernew',
+    ios: 'com.Drus.Dispatcher',
     android: 'com.drus.royodispatcher',
   }),
   shariff: Platform.select({
@@ -911,6 +915,22 @@ const appIds = {
   launch: Platform.select({
     ios: 'com.Launch.Dispatch',
     android: 'com.Launch.royodispatcher',
+  }),
+  kampick: Platform.select({
+    ios: 'com.Kampick.Dispatch',
+    android: 'com.Kampick.royodispatcher',
+  }),
+  IPicknDrop: Platform.select({
+    ios: 'com.IPicknDrop.Dispatch',
+    android: 'com.IPicknDrop.royodispatcher',
+  }),
+  bluebolt: Platform.select({
+    ios: 'com.Bluebolt.Dispatch',
+    android: 'com.Bluebolt.royodispatcher',
+  }),
+  cabio: Platform.select({
+    ios: 'com.Cabio.Dispatch',
+    android: 'com.Cabio.royodispatcher',
   }),
 };
 

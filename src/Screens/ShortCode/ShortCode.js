@@ -1172,6 +1172,30 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.kampick:
+          updateState({
+            shortCode: shortCodes.kampick,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.IPicknDrop:
+          updateState({
+            shortCode: shortCodes.iPicknDrop,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.bluebolt:
+          updateState({
+            shortCode: shortCodes.bluebolt,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.cabio:
+          updateState({
+            shortCode: shortCodes.cabio,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);

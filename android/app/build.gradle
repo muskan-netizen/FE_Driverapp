@@ -1757,7 +1757,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.Mozmarcas.royodispatcher'
-            resValue "string", "app_name", "Mozmarcas Dispatcher"
+            resValue "string", "app_name", "Pakela Driver"
         }
         stichesonSite{
             dimension "appType"
@@ -2080,8 +2080,49 @@ android {
             applicationId 'com.Launch.royodispatcher'
             resValue "string", "app_name", "Launch Dispatcher"
         }
+        kampick{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Kampick.royodispatcher'
+            resValue "string", "app_name", "Kampick Dispatcher"
+        }
+       
+        iPicknDrop{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.IPicknDrop.royodispatcher'
+            resValue "string", "app_name", "iPicknDrop Dispatcher"
+        }
 
+        bluebolt{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Bluebolt.royodispatcher'
+            resValue "string", "app_name", "Bluebolt Dispatcher"
+        }
 
+        cabio{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Cabio.royodispatcher'
+            resValue "string", "app_name", "Cabio Dispatcher"
+        }
          
     }
 }
