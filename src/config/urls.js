@@ -17,6 +17,12 @@ export const API_BASE_URL = 'https://api.royodispatch.com/';
 // VICI
 // export const API_BASE_URL = 'https://envios.vici.la/'
 
+//trucktirenow
+//export const API_BASE_URL = 'https://dispatch.trucktirenow.com/';
+
+//AgreeOnline
+//export const API_BASE_URL = 'https://dispatch.agrionline.ph/';
+
 // fleety staging domain
 //export const API_BASE_URL = 'https://fleety.rdstaging.com/';
 
