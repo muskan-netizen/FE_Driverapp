@@ -1,5 +1,5 @@
 //live
-export const API_BASE_URL = 'https://api.royodispatch.com/';
+//export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
@@ -18,7 +18,7 @@ export const API_BASE_URL = 'https://api.royodispatch.com/';
 //export const API_BASE_URL = 'https://dispatch.trucktirenow.com/';
 
 //AgreeOnline
-//export const API_BASE_URL = 'https://dispatch.agrionline.ph/';
+export const API_BASE_URL = 'https://dispatch.agrionline.ph/';
 
 // fleety staging domain
 //export const API_BASE_URL = 'https://fleety.rdstaging.com/';
@@ -46,7 +46,7 @@ export const API_BASE_URL = 'https://api.royodispatch.com/';
 //export const API_BASE_URL = 'https://dispatch.hairstonexpressgo.com/';
 
 //Developement
-export const API_BASE_URL = 'https://api.winhires.com/';
+//export const API_BASE_URL = 'https://api.winhires.com/';
 
 //export const API_BASE_URL = 'http://192.168.96.20:8010/';
 // export const API_BASE_URL = 'http://192.168.103.73:8005';
