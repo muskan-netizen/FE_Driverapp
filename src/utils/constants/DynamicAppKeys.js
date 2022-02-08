@@ -429,7 +429,7 @@ const appIds = {
     android: 'com.helpnowrightnow.royodispatcher',
   }),
   agriOnline: Platform.select({
-    ios: 'com.AgriOnline.Dispatch',
+    ios: 'com.AgriOnline.Dispatcher',
     android: 'com.AgriOnline.royodispatcher',
   }),
   clickeat: Platform.select({
