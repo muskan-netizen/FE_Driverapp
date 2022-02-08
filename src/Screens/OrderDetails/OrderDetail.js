@@ -503,11 +503,11 @@ export default function OrderDetail({route, navigation}) {
         headerStyle={{backgroundColor: colors.white}}
         leftIcon={imagePath.backArrow}
         centerTitle={strings.ORDERDETAILS}
-        customRight={() => (
-          <TouchableOpacity onPress={_onPressEditOrder}>
-            <Text style={styles.editOrder}>{'Edit'}</Text>
-          </TouchableOpacity>
-        )}
+        // customRight={() => (
+        //   <TouchableOpacity onPress={_onPressEditOrder}>
+        //     <Text style={styles.editOrder}>{'Edit'}</Text>
+        //   </TouchableOpacity>
+        // )}
         // onPressLeft={() => navigation.toggleDrawer()}
         // hideRight={true}
         // customCenter={() => customCenter()}
