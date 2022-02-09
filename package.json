@@ -372,7 +372,9 @@
     "blueboltdispatcher": "react-native run-android --variant=blueboltDebug",
     "blueboltdispatcherRelease": "cd android && ./gradlew assembleBlueboltRelease",
     "cabiodispatcher": "react-native run-android --variant=cabioDebug",
-    "cabiodispatcherRelease": "cd android && ./gradlew assembleabioRelease",
+    "cabiodispatcherRelease": "cd android && ./gradlew assembleCabioRelease",
+    "tumbakispatcher": "react-native run-android --variant=tumbakebug",
+    "tumbakispatcherRelease": "cd android && ./gradlew assembleTumbakRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
@@ -380,7 +382,6 @@
     "lint": "eslint .",
     "clean": "cd ./android && ./gradlew clean",
     "uninstallAll": "cd android && ./gradlew uninstallAll"
-    
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.15.7",

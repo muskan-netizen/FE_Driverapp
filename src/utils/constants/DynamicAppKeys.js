@@ -187,6 +187,7 @@ const shortCodes = {
   iPicknDrop: '7b1b44',
   bluebolt: 'faa76b',
   cabio: '9fcc02',
+  tumbak: '6a3ba4',
 };
 
 // Goody Dispatch
@@ -493,7 +494,7 @@ const appIds = {
     android: 'com.Share.royodispatcher',
   }),
   yeboy: Platform.select({
-    ios: 'com.Yeboy.Dispatch',
+    ios: 'com.Yeboy.Dispatcher',
     android: 'com.Yeboy.royodispatcher',
   }),
   moboErrandsService: Platform.select({
@@ -931,6 +932,10 @@ const appIds = {
   cabio: Platform.select({
     ios: 'com.Cabio.Dispatch',
     android: 'com.Cabio.royodispatcher',
+  }),
+  tumbak: Platform.select({
+    ios: 'com.Tumbak.Dispatch',
+    android: 'com.Tumbak.royodispatcher',
   }),
 };
 

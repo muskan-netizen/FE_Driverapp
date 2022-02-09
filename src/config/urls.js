@@ -2,7 +2,7 @@
 //export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // export const API_BASE_URL = 'http://192.168.96.152:8006/'; // preet local url
 // export const API_BASE_URL = 'http://192.168.102.23:8005/'; // Gourav.s local url
@@ -11,6 +11,9 @@
 //MARTINONWHEELSz
 // export const API_BASE_URL = 'https://dispatch.martinionwheelsllc.org/';
 
+//YEBOY
+//export const API_BASE_URL = 'https://dispatch.yeboy.mx/';
+
 // VICI
 // export const API_BASE_URL = 'https://envios.vici.la/'
 
@@ -18,7 +21,7 @@
 //export const API_BASE_URL = 'https://dispatch.trucktirenow.com/';
 
 //AgreeOnline
-export const API_BASE_URL = 'https://dispatch.agrionline.ph/';
+//export const API_BASE_URL = 'https://dispatch.agrionline.ph/';
 
 // fleety staging domain
 //export const API_BASE_URL = 'https://fleety.rdstaging.com/';
