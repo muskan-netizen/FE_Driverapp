@@ -20,7 +20,7 @@ export const API_BASE_URL = 'https://api.royodispatch.com/';
 //loopwhole
 //export const API_BASE_URL = 'https://dispatch.loopwhole.ca/';
 
-//MARTINONWHEELSz
+//MARTINONWHEELS
 // export const API_BASE_URL = 'https://dispatch.martinionwheelsllc.org/';
 
 //YEBOY

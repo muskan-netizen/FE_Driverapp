@@ -1202,6 +1202,18 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.meateasy:
+          updateState({
+            shortCode: shortCodes.meateasy,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.boltDelivery:
+          updateState({
+            shortCode: shortCodes.boltDelivery,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);

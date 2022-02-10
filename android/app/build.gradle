@@ -2134,6 +2134,27 @@ android {
             applicationId 'com.Tumbak.royodispatcher'
             resValue "string", "app_name", "Tumbak Dispatcher"
         }
+
+         meatEasy{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.MeatEasy.royodispatcher'
+            resValue "string", "app_name", "MeatEasy Dispatcher"
+        }
+           boltDelivery{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.BoltDelivery.royodispatcher'
+            resValue "string", "app_name", "BoltDelivery Dispatcher"
+        }
          
     }
 }

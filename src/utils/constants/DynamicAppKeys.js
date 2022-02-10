@@ -188,6 +188,8 @@ const shortCodes = {
   bluebolt: 'faa76b',
   cabio: '9fcc02',
   tumbak: '6a3ba4',
+  meateasy: '379f98',
+  boltDelivery: '495304',
 };
 
 // Goody Dispatch
@@ -294,7 +296,7 @@ const appIds = {
     android: 'com.zuzuclean.royodispatcher',
   }),
   loopWhole: Platform.select({
-    ios: 'com.LoopWhole.Dispatch',
+    ios: 'com.LoopWhole.Dispatcher',
     android: 'com.Loopwhole.Dispatcher',
   }),
   donepacked: Platform.select({
@@ -936,6 +938,14 @@ const appIds = {
   tumbak: Platform.select({
     ios: 'com.Tumbak.Dispatch',
     android: 'com.Tumbak.royodispatcher',
+  }),
+  meateasy: Platform.select({
+    ios: 'com.MeatEasy.Dispatch',
+    android: 'com.MeatEasy.royodispatcher',
+  }),
+  boltDelivery: Platform.select({
+    ios: 'com.BoltDelivery.Dispatch',
+    android: 'com.BoltDelivery.royodispatcher',
   }),
 };
 
