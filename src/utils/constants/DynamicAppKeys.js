@@ -295,7 +295,7 @@ const appIds = {
   }),
   loopWhole: Platform.select({
     ios: 'com.LoopWhole.Dispatch',
-    android: 'com.loopwhole.royodispatcher',
+    android: 'com.Loopwhole.Dispatcher',
   }),
   donepacked: Platform.select({
     ios: 'com.donepacked.royodispatcher',
@@ -822,8 +822,8 @@ const appIds = {
     android: 'com.Myfiji.royodispatcher',
   }),
   ritenow: Platform.select({
-    ios: 'com.Ritenow.Dispatch',
-    android: 'com.Ritenow.royodispatcher',
+    ios: 'com.Ritenow.Driver',
+    android: 'com.Ritenow.Dispatcher',
   }),
   fastMikes: Platform.select({
     ios: 'com.fastMikes.Dispatch',

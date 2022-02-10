@@ -10046,7 +10046,7 @@
 				84108747273BD7B700C9D9C8 /* Frameworks */,
 				84108763273BD7B700C9D9C8 /* Resources */,
 				84108770273BD7B700C9D9C8 /* Bundle React Native code and images */,
-				EBCCB647EAF441D20F5083C7 /* ShellScript */,
+				EBCCB647EAF441D20F5083C7 /* Start Packager */,
 				BFBBE06A317DEFB456E9DD26 /* [CP] Embed Pods Frameworks */,
 				E77488AB29273C8F4E76AD7C /* [CP] Copy Pods Resources */,
 			);
@@ -31137,17 +31137,18 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-MoboErrandsService/Pods-available_pods-MoboErrandsService-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EBCCB647EAF441D20F5083C7 /* ShellScript */ = {
+		EBCCB647EAF441D20F5083C7 /* Start Packager */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
+			name = "Start Packager";
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Zest-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Goody/Pods-Goody-frameworks.sh\"\n";
+			shellScript = "export RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open \"$SRCROOT/../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n  fi\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		EC457052334DDC1D29D71ED4 /* [CP] Copy Pods Resources */ = {
@@ -45464,7 +45465,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = 6FXUMT5X23;
+				DEVELOPMENT_TEAM = 34FK88DY6H;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -45489,7 +45490,7 @@
 				PROJECT_BUNDLE_ID = "$(PROJECT_BUNDLE_ID)";
 				PROJECT_NAME = "${PROJECT_NAME}";
 				PROJECT_PLIST = "$(PROJECT_PLIST)";
-				PROVISIONING_PROFILE_SPECIFIER = "RiteNow Dispatcher Provision";
+				PROVISIONING_PROFILE_SPECIFIER = "Ritenow Driver";
 				SWIFT_OBJC_BRIDGING_HEADER = "RoyoDriverApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
