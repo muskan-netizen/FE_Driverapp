@@ -484,7 +484,7 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.loopwhole.royodispatcher'
+            applicationId 'com.Loopwhole.Dispatcher'
             resValue "string", "app_name", "LoopWhole Dispatch"
         }
         menus {
@@ -633,7 +633,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.Dishefs.royodispatcher'
-            resValue "string", "app_name", "Dishefs Dispatch"
+            resValue "string", "app_name", "Gofers"
         
         }
         gumastas {
@@ -819,13 +819,13 @@ android {
         }
         agriOnline{
             dimension "appType"
-            versionCode 1
+            versionCode 2
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId "com.AgriOnline.royodispatcher"
-            resValue "string", "app_name", "AgriOnline Rider Dispatch"
+            resValue "string", "app_name", "AgriOnline Rider"
         
         }
         click_eat{
@@ -1208,7 +1208,7 @@ android {
         }
         naDelivery{
             dimension "appType"
-            versionCode 1
+            versionCode 2
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
@@ -1528,7 +1528,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.KurbsideKings.royodispatcher'
-            resValue "string", "app_name", "Kurbside Kings Dispatch"
+            resValue "string", "app_name", "Instaride driver"
            
         }
         movingWheels{
@@ -1846,7 +1846,7 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.Ritenow.royodispatcher'
+            applicationId 'com.Ritenow.Dispatcher'
             resValue "string", "app_name", "RiteNow Driver"
         }
           fastMikes{
@@ -2122,6 +2122,17 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.Cabio.royodispatcher'
             resValue "string", "app_name", "Cabio Dispatcher"
+        }
+
+          tumbak{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Tumbak.royodispatcher'
+            resValue "string", "app_name", "Tumbak Dispatcher"
         }
          
     }
