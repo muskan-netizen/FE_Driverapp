@@ -190,6 +190,7 @@ const shortCodes = {
   tumbak: '6a3ba4',
   meateasy: '379f98',
   boltDelivery: '495304',
+  onTheGo: '9331db',
 };
 
 // Goody Dispatch
@@ -946,6 +947,10 @@ const appIds = {
   boltDelivery: Platform.select({
     ios: 'com.BoltDelivery.Dispatch',
     android: 'com.BoltDelivery.royodispatcher',
+  }),
+  onTheGo: Platform.select({
+    ios: 'com.OnTheGo.Dispatch',
+    android: 'com.OnTheGo.royodispatcher',
   }),
 };
 

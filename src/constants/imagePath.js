@@ -90,4 +90,5 @@ export default {
   placeholderbee: require('../assets/images/ic_placeholderbee.png'),
   searchIcon: require('../assets/images/ic_search.png'),
   delete: require('../assets/images/ic_delete.png'),
+  ripple: require('../assets/images/ripple.gif'),
 };

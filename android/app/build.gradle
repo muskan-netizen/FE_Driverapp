@@ -2155,6 +2155,16 @@ android {
             applicationId 'com.BoltDelivery.royodispatcher'
             resValue "string", "app_name", "BoltDelivery Dispatcher"
         }
+         onTheGo{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.OnTheGo.royodispatcher'
+            resValue "string", "app_name", "OnTheGo Dispatcher"
+        }
          
     }
 }
@@ -2169,7 +2179,7 @@ android {
 dependencies {
    
     implementation 'com.android.support:multidex:1.0.3'
-    implementation 'com.facebook.fresco:animated-gif:1.12.0'
+ implementation 'com.facebook.fresco:animated-gif:2.5.0'
     // For WebP support, including animated WebP
     implementation 'com.facebook.fresco:animated-webp:1.+'
     implementation 'com.facebook.fresco:webpsupport:1.+'

@@ -1,8 +1,8 @@
 //live
-export const API_BASE_URL = 'https://api.royodispatch.com/';
+//export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-//export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // export const API_BASE_URL = 'http://192.168.96.152:8006/'; // preet local url
 // export const API_BASE_URL = 'http://192.168.102.23:8005/'; // Gourav.s local url
@@ -49,14 +49,19 @@ export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 // cannabusxpress
 // export const API_BASE_URL = 'https://dispatch.cannabusxpress.com/'
+
 // govachow
 //export const API_BASE_URL = 'https://dispatch.govachow.com/';
+
 // africanize
 // export const API_BASE_URL = 'https://dispatch.africanize.co/'
+
 // orderchekout
 //export const API_BASE_URL = 'https://dispatch.orderchekout.com/';
+
 // carroi
 // export const API_BASE_URL = 'https://carroi.rdstaging.com/';
+
 // hairstonexpressgo
 //export const API_BASE_URL = 'https://dispatch.hairstonexpressgo.com/';
 
@@ -78,7 +83,7 @@ export const API_BASE_URL = 'https://api.royodispatch.com/';
 //export const API_BASE_URL = 'https://dispatch.destinationops.com/';
 
 // somame live domain
-// export const API_BASE_URL = 'https://dispatch.somame-247.com/'
+//export const API_BASE_URL = 'https://dispatch.somame-247.com/';
 
 // codiner live domain
 //export const API_BASE_URL = 'https://dispatch.codiner.com/';

@@ -1214,6 +1214,12 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.onTheGo:
+          updateState({
+            shortCode: shortCodes.onTheGo,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);
@@ -1274,7 +1280,7 @@ export default function ShortCode({route, navigation}) {
       }
 
       let updatedShortCode = shortCode;
-      //let updatedShortCode = '1da2e9';
+      //  let updatedShortCode = '8e3eef';
       actions
         .initApp({shortCode: updatedShortCode}, header)
         .then(res => {

@@ -21,11 +21,16 @@ import {
 import TaskListCard from '../../Components/TaskListCard';
 import {
   getColorCodeWithOpactiyNumber,
+  getCurrentLocation,
   showError,
 } from '../../utils/helperFunctions';
 import ListEmptyComponent from '../../Components/ListEmptyComponent';
 import strings from '../../constants/lang';
-import MapView from 'react-native-maps'; // remove PROVIDER_GOOGLE import if not using Google Maps
+import MapView, {
+  AnimatedRegion,
+  Marker,
+  PROVIDER_GOOGLE,
+} from 'react-native-maps'; // remove PROVIDER_GOOGLE import if not using Google Maps
 import styles from './styles';
 import DeviceInfo from 'react-native-device-info';
 import navigationStrings from '../../navigation/navigationStrings';
@@ -40,6 +45,9 @@ navigator.geolocation = require('react-native-geolocation-service');
 import Geocoder from 'react-native-geocoding';
 import {requestUserPermission} from '../../utils/notificationServices';
 import Geolocation_ from '@react-native-community/geolocation';
+import geocoder from 'react-native-geocoder/js/geocoder';
+import {rippleLoader} from '../../Components/Loaders/AnimatedLoaderFiles/index';
+import LottieAnimation from 'lottie-react-native';
 // import BackgroundTimer from 'react-native-background-timer';
 
 export default function DashBoard({route, navigation}) {
@@ -70,7 +78,7 @@ export default function DashBoard({route, navigation}) {
       latitudeDelta: 0.015,
       longitudeDelta: 0.0121,
     },
-    enableMap: false,
+    enableMap: true,
     markers: [],
     isLoadingSwitch: false,
     fcm_token: null,
@@ -202,6 +210,14 @@ export default function DashBoard({route, navigation}) {
           longitude: position.coords.longitude,
           heading: position.coords.heading,
         });
+
+        getCurrentLocation(
+          position.coords.latitude,
+          position.coords.longitude,
+          'address',
+        )
+          .then(res => alert(res))
+          .catch(error => alert(error));
       },
       error => console.log(error.message),
       {
@@ -567,53 +583,63 @@ export default function DashBoard({route, navigation}) {
   const mapRef = useRef();
 
   const fitPadding = newArray => {
+    // console.log([[{latitude, longitude}, ...newArray], 'newArraynewArray');
     if (mapRef.current) {
-      mapRef.current.fitToCoordinates(newArray, {
-        edgePadding: {top: 40, right: 40, bottom: 40, left: 40},
+      mapRef.current.fitToCoordinates([{latitude, longitude}, ...newArray], {
+        edgePadding: {top: 80, right: 80, bottom: 80, left: 80},
         animated: true,
       });
     }
   };
 
+  const animation = React.createRef();
+
   const mapView = () => {
-    if (markers.length)
-      return (
-        <MapView
-          ref={mapRef}
-          //   provider={PROVIDER_GOOGLE} // remove if not using Google Maps
-          style={styles.map}
-          region={region}
-          // initialRegion={region}
-          showsUserLocation={true}
-          showsMyLocationButton={true}
-          // onLayout={() => fitToMap()}
-          //   customMapStyle={mapStyle}
-          onRegionChangeComplete={_onRegionChange}>
-          {markers.map((coordinate, index) => (
-            <MapView.Marker
-              tracksViewChanges={false}
-              zIndex={index}
-              key={`coordinate_${index}`}
-              image={imagePath.pinRed}
-              onPress={() => {
-                _onPressTask(coordinate);
-              }}
-              coordinate={{
-                latitude: Number(coordinate?.location?.latitude),
-                longitude: Number(coordinate?.location?.longitude),
-              }}></MapView.Marker>
-          ))}
-        </MapView>
-      );
+    // if (markers.length)
     return (
-      <ListEmptyComponent
-        isLoading={isLoading}
-        message={strings.NOTASK}
-        subMessage={strings.NOTASKASSIGNED}
-        containerStyle={{backgroundColor: colors.backGround}}
-      />
+      <MapView
+        ref={mapRef}
+        //  provider={PROVIDER_GOOGLE} // remove if not using Google Maps
+        style={styles.map}
+        region={region}
+        // initialRegion={region}
+        // showsUserLocation={true}
+        showsMyLocationButton={true}
+        // onLayout={() => fitToMap()}
+        //   customMapStyle={mapStyle}
+        onRegionChangeComplete={_onRegionChange}>
+        {markers.map((coordinate, index) => (
+          <Marker
+            tracksViewChanges={false}
+            zIndex={index}
+            key={`coordinate_${index}`}
+            image={imagePath.pinRed}
+            onPress={() => {
+              _onPressTask(coordinate);
+            }}
+            coordinate={{
+              latitude: Number(coordinate?.location?.latitude),
+              longitude: Number(coordinate?.location?.longitude),
+            }}></Marker>
+        ))}
+        <Marker
+          image={imagePath.pinBlue}
+          coordinate={{
+            latitude: Number(latitude),
+            longitude: Number(longitude),
+          }}></Marker>
+      </MapView>
     );
+    // return (
+    //   <ListEmptyComponent
+    //     isLoading={isLoading}
+    //     message={strings.NOTASK}
+    //     subMessage={strings.NOTASKASSIGNED}
+    //     containerStyle={{backgroundColor: colors.backGround}}
+    //   />
+    // );
   };
+  console.log(isEnabled, enableMap, 'isEnabledisEnabled');
 
   const renderComponents = () => {
     switch (isEnabled) {
@@ -645,7 +671,7 @@ export default function DashBoard({route, navigation}) {
         onPressLeft={() => navigation.toggleDrawer()}
         // hideRight={true}
         customCenter={() => customCenter()}
-        rightIcon={enableMap ? imagePath.listMenu : imagePath.map}
+        rightIcon={!enableMap ? imagePath.listMenu : imagePath.map}
         onPressRight={() => {
           updateState({enableMap: !enableMap});
           // navigation.navigate(navigationStrings.SEARCHPRODUCTOVENDOR)
