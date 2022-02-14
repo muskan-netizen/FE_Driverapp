@@ -2165,6 +2165,36 @@ android {
             applicationId 'com.OnTheGo.royodispatcher'
             resValue "string", "app_name", "OnTheGo Dispatcher"
         }
+         mylaGlobal{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.MylaGlobal.royodispatcher'
+            resValue "string", "app_name", "MylaGlobal Dispatcher"
+        }
+        gamaDelivery{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.GamaDelivery.royodispatcher'
+            resValue "string", "app_name", "Gama Delivery"
+        }
+        ambuTap{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.AmbuTap.royodispatcher'
+            resValue "string", "app_name", "AmbuTap Dispatcher"
+        }
          
     }
 }

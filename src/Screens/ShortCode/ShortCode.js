@@ -1220,6 +1220,24 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.mylaGlobal:
+          updateState({
+            shortCode: shortCodes.mylaGlobal,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.gamaDelivery:
+          updateState({
+            shortCode: shortCodes.gamaDelivery,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.ambuTap:
+          updateState({
+            shortCode: shortCodes.ambuTap,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);

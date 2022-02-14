@@ -191,6 +191,9 @@ const shortCodes = {
   meateasy: '379f98',
   boltDelivery: '495304',
   onTheGo: '9331db',
+  mylaGlobal: '3eedfb',
+  gamaDelivery: '0b6870',
+  ambuTap: 'c4481d',
 };
 
 // Goody Dispatch
@@ -951,6 +954,18 @@ const appIds = {
   onTheGo: Platform.select({
     ios: 'com.OnTheGo.Dispatch',
     android: 'com.OnTheGo.royodispatcher',
+  }),
+  mylaGlobal: Platform.select({
+    ios: 'com.MylaGlobal.Dispatch',
+    android: 'com.MylaGlobal.royodispatcher',
+  }),
+  gamaDelivery: Platform.select({
+    ios: 'com.GamaDelivery.Dispatch',
+    android: 'com.GamaDelivery.royodispatcher',
+  }),
+  ambuTap: Platform.select({
+    ios: 'com.AmbuTap.Dispatch',
+    android: 'com.AmbuTap.royodispatcher',
   }),
 };
 

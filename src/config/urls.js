@@ -48,7 +48,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //export const API_BASE_URL = 'https://dispatch.yohopartner.com/';
 
 // cannabusxpress
-// export const API_BASE_URL = 'https://dispatch.cannabusxpress.com/'
+//export const API_BASE_URL = 'https://dispatch.cannabusxpress.com/';
 
 // govachow
 //export const API_BASE_URL = 'https://dispatch.govachow.com/';
