@@ -1382,7 +1382,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId "com.cannabusexpress.royodispatcher"
-            resValue "string", "app_name", "Cannabus Express Dispatch"
+            resValue "string", "app_name", "Cannabus Dispatcher"
         }
         flying_horse{
             dimension "appType"
