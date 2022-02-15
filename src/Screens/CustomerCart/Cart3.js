@@ -357,11 +357,12 @@ export default function Cart({navigation, route}) {
             });
           }
         })
-        .catch(error =>
+        .catch((error) =>{
+          console.log(error,"error>>error")
           updateState({
             isLoading: false,
-          }),
-        );
+          })
+        });
     }
   };
 
@@ -1448,6 +1449,7 @@ export default function Cart({navigation, route}) {
                                               numberOfLines={1}>
                                               {j.addon_title}:
                                             </Text>
+                                            <View style={{flexDirection:'row'}}>
                                             <Text
                                               style={
                                                 isDarkMode
@@ -1464,6 +1466,25 @@ export default function Cart({navigation, route}) {
                                               numberOfLines={
                                                 1
                                               }>{`(${j.option_title})`}</Text>
+                                              <Text
+                                              style={
+                                                isDarkMode
+                                                  ? [
+                                                      styles.cartItemWeight3,
+                                                      {
+                                                        color:
+                                                          MyDarkTheme.colors
+                                                            .text,
+                                                      },
+                                                    ]
+                                                  : [styles.cartItemWeight3,{fontWeight:'bold'}]
+                                              }
+                                              numberOfLines={
+                                                1
+                                              }>{`: ${cartData?.currency?.symbol}${Number(j.quantity_price)}`}</Text>
+                                            </View>
+                                            
+                                         
                                           </View>
                                         </View>
                                         // <View
