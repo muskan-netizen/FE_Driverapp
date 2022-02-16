@@ -194,6 +194,10 @@ const shortCodes = {
   mylaGlobal: '3eedfb',
   gamaDelivery: '0b6870',
   ambuTap: 'c4481d',
+  swiffyLLC: 'a5c8d0',
+  sabroson: '6be6c3',
+  localdropoff: '8b39d1',
+  hivefair: 'd826e4',
 };
 
 // Goody Dispatch
@@ -966,6 +970,22 @@ const appIds = {
   ambuTap: Platform.select({
     ios: 'com.AmbuTap.Dispatch',
     android: 'com.AmbuTap.royodispatcher',
+  }),
+  swiffyLLC: Platform.select({
+    ios: 'com.SwiffyLLC.Dispatch',
+    android: 'com.SwiffyLLC.royodispatcher',
+  }),
+  sabroson: Platform.select({
+    ios: 'com.Sabroson.Dispatch',
+    android: 'com.Sabroson.royodispatcher',
+  }),
+  localdropoff: Platform.select({
+    ios: 'com.Localdropoff.Dispatch',
+    android: 'com.Localdropoff.royodispatcher',
+  }),
+  hivefair: Platform.select({
+    ios: 'com.Hivefair.Dispatch',
+    android: 'com.Hivefair.royodispatcher',
   }),
 };
 

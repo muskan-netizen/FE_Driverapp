@@ -1238,6 +1238,30 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.swiffyLLC:
+          updateState({
+            shortCode: shortCodes.swiffyLLC,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.sabroson:
+          updateState({
+            shortCode: shortCodes.sabroson,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.localdropoff:
+          updateState({
+            shortCode: shortCodes.localdropoff,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.hivefair:
+          updateState({
+            shortCode: shortCodes.hivefair,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);

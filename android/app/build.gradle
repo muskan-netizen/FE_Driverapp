@@ -744,8 +744,8 @@ android {
         }
         drus{
             dimension "appType"
-            versionCode 1
-            versionName "1.0"
+            versionCode 2
+            versionName "1.1"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
@@ -2195,7 +2195,48 @@ android {
             applicationId 'com.AmbuTap.royodispatcher'
             resValue "string", "app_name", "AmbuTap Dispatcher"
         }
-         
+
+           swiffyLLC{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.SwiffyLLC.royodispatcher'
+            resValue "string", "app_name", "Swiffy LLC Dispatcher"
+        }
+        sabroson{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Sabroson.royodispatcher'
+            resValue "string", "app_name", "Sabroson Dispatcher"
+        }
+         localdropoff{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Localdropoff.royodispatcher'
+            resValue "string", "app_name", "localdropoff Dispatcher"
+        }
+
+        hivefair{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Hivefair.royodispatcher'
+            resValue "string", "app_name", "hivefair Dispatcher"
+        }
     }
 }
 
