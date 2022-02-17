@@ -2237,6 +2237,47 @@ android {
             applicationId 'com.Hivefair.royodispatcher'
             resValue "string", "app_name", "hivefair Dispatcher"
         }
+
+            beakMe{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.BeakMe.royodispatcher'
+            resValue "string", "app_name", "BeakMe Driver"
+        }
+           onscart{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Onscart.royodispatcher'
+            resValue "string", "app_name", "Onscart Dispatcher"
+        }
+           foodies{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Foodies.royodispatcher'
+            resValue "string", "app_name", "Foodies Dispatcher"
+        }
+        go{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Go.royodispatcher'
+            resValue "string", "app_name", "Go Dispatcher"
+        }
     }
 }
 

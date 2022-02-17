@@ -1262,6 +1262,30 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.beakMe:
+          updateState({
+            shortCode: shortCodes.beakMe,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.onscart:
+          updateState({
+            shortCode: shortCodes.onscart,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.foodies:
+          updateState({
+            shortCode: shortCodes.foodies,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.go:
+          updateState({
+            shortCode: shortCodes.go,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);

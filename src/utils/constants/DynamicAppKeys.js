@@ -198,6 +198,10 @@ const shortCodes = {
   sabroson: '6be6c3',
   localdropoff: '8b39d1',
   hivefair: 'd826e4',
+  beakMe: '2a9c69',
+  onscart: 'e22c51',
+  foodies: 'c420d1',
+  go: 'da3f7b',
 };
 
 // Goody Dispatch
@@ -986,6 +990,22 @@ const appIds = {
   hivefair: Platform.select({
     ios: 'com.Hivefair.Dispatch',
     android: 'com.Hivefair.royodispatcher',
+  }),
+  beakMe: Platform.select({
+    ios: 'com.BeakMe.Dispatch',
+    android: 'com.BeakMe.royodispatcher',
+  }),
+  onscart: Platform.select({
+    ios: 'com.Onscart.Dispatch',
+    android: 'com.Onscart.royodispatcher',
+  }),
+  foodies: Platform.select({
+    ios: 'com.Foodies.Dispatch',
+    android: 'com.Foodies.royodispatcher',
+  }),
+  go: Platform.select({
+    ios: 'com.Go.Dispatch',
+    android: 'com.Go.royodispatcher',
   }),
 };
 
