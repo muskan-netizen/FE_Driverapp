@@ -58,13 +58,17 @@ import {
   getHostName,
   getImageUrl,
   getParameterByName,
+  hapticEffects,
   showError,
   showInfo,
   showSuccess,
   timeInLocalLangauge,
+  playHapticEffect,
 } from '../../utils/helperFunctions';
 import {getItem, removeItem, setItem} from '../../utils/utils';
 import stylesFun from './styles';
+import BottomSheet, {BottomSheetScrollView} from '@gorhom/bottom-sheet';
+import VariantAddons from '../../Components/VariantAddons';
 
 export default function Cart({navigation, route}) {
   const theme = useSelector(state => state?.initBoot?.themeColor);
@@ -82,6 +86,7 @@ export default function Cart({navigation, route}) {
 
   const appMainData = useSelector(state => state?.home?.appMainData);
   const recommendedVendorsdata = appMainData?.vendors;
+  const bottomSheetRef = useRef(null);
 
   const [state, setState] = useState({
     isVisibleTimeModal: false,
@@ -131,8 +136,18 @@ export default function Cart({navigation, route}) {
     availableTimeSlots: [],
     selectedTimeSlots: '',
     isLoading: false,
+    isVisibleModal: false,
+    showShimmer: true,
+    selectedCartItem: null,
+    selectedSection: null,
+    typeId: null,
   });
   const {
+    typeId,
+    selectedSection,
+    selectedCartItem,
+    showShimmer,
+    isVisibleModal,
     viewHeight,
     isVisibleTimeModal,
     cartItems,
@@ -357,11 +372,11 @@ export default function Cart({navigation, route}) {
             });
           }
         })
-        .catch((error) =>{
-          console.log(error,"error>>error")
+        .catch(error => {
+          console.log(error, 'error>>error');
           updateState({
             isLoading: false,
-          })
+          });
         });
     }
   };
@@ -1449,42 +1464,46 @@ export default function Cart({navigation, route}) {
                                               numberOfLines={1}>
                                               {j.addon_title}:
                                             </Text>
-                                            <View style={{flexDirection:'row'}}>
-                                            <Text
-                                              style={
-                                                isDarkMode
-                                                  ? [
-                                                      styles.cartItemWeight2,
-                                                      {
-                                                        color:
-                                                          MyDarkTheme.colors
-                                                            .text,
-                                                      },
-                                                    ]
-                                                  : styles.cartItemWeight2
-                                              }
-                                              numberOfLines={
-                                                1
-                                              }>{`(${j.option_title})`}</Text>
+                                            <View
+                                              style={{flexDirection: 'row'}}>
                                               <Text
-                                              style={
-                                                isDarkMode
-                                                  ? [
-                                                      styles.cartItemWeight3,
-                                                      {
-                                                        color:
-                                                          MyDarkTheme.colors
-                                                            .text,
-                                                      },
-                                                    ]
-                                                  : [styles.cartItemWeight3,{fontWeight:'bold'}]
-                                              }
-                                              numberOfLines={
-                                                1
-                                              }>{`: ${cartData?.currency?.symbol}${Number(j.quantity_price)}`}</Text>
+                                                style={
+                                                  isDarkMode
+                                                    ? [
+                                                        styles.cartItemWeight2,
+                                                        {
+                                                          color:
+                                                            MyDarkTheme.colors
+                                                              .text,
+                                                        },
+                                                      ]
+                                                    : styles.cartItemWeight2
+                                                }
+                                                numberOfLines={
+                                                  1
+                                                }>{`(${j.option_title})`}</Text>
+                                              <Text
+                                                style={
+                                                  isDarkMode
+                                                    ? [
+                                                        styles.cartItemWeight3,
+                                                        {
+                                                          color:
+                                                            MyDarkTheme.colors
+                                                              .text,
+                                                        },
+                                                      ]
+                                                    : [
+                                                        styles.cartItemWeight3,
+                                                        {fontWeight: 'bold'},
+                                                      ]
+                                                }
+                                                numberOfLines={1}>{`: ${
+                                                cartData?.currency?.symbol
+                                              }${Number(
+                                                j.quantity_price,
+                                              )}`}</Text>
                                             </View>
-                                            
-                                         
                                           </View>
                                         </View>
                                         // <View
@@ -3130,15 +3149,18 @@ export default function Cart({navigation, route}) {
   };
 
   const customRightView = () => {
-    if(cartData?.is_submitted){
-      return null
+    if (cartData?.is_submitted) {
+      return null;
     }
     return (
-      <View style={{flexDirection: 'row',alignItems:'center'}}>
+      <View style={{flexDirection: 'row', alignItems: 'center'}}>
         <TouchableOpacity
           style={{marginRight: 20}}
           onPress={() => areyouSureYouwantToClearCart()}>
-          <Image source={imagePath?.delete} style={{tintColor:colors.blackB}} />
+          <Image
+            source={imagePath?.delete}
+            style={{tintColor: colors.blackB}}
+          />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => _onPressSearchButton()}>
           <Image source={imagePath?.searchIcon} />
@@ -3146,6 +3168,62 @@ export default function Cart({navigation, route}) {
       </View>
     );
   };
+
+  const updateCartItems = (item, quanitity, productId, cartID) => {
+    playHapticEffect(hapticEffects.impactLight);
+    console.log('selcted section', selectedSection);
+
+    if (!!selectedSection) {
+      let updatedSection = selectedSection.data.map((x, xnx) => {
+        if (x?.id == item?.id) {
+          return {
+            ...x,
+            qty: quanitity,
+            cart_product_id: productId,
+            isRemove: false,
+          };
+        }
+        return x;
+      });
+      selectedSection['data'] = updatedSection;
+      updateState({
+        sectionListData: sectionListData.map((f, fnx) => {
+          if (f?.id == selectedSection?.id) {
+            return selectedSection;
+          }
+          return f;
+        }),
+        cloneSectionList: cloneSectionList.map((f, fnx) => {
+          if (f?.id == selectedSection?.id) {
+            return selectedSection;
+          }
+          return f;
+        }),
+        cartId: cartID,
+        storeLocalQty: quanitity,
+        isVisibleModal: false,
+      });
+    } else {
+      let updateArray = productListData.map((val, i) => {
+        if (val.id == item.id) {
+          return {
+            ...val,
+            qty: quanitity,
+            cart_product_id: productId,
+            isRemove: false,
+          };
+        }
+        updateState({storeLocalQty: quanitity});
+        return val;
+      });
+      updateState({
+        cartId: cartID,
+        productListData: updateArray,
+        isVisibleModal: false,
+      });
+    }
+  };
+
   if (isLoadingB) {
     return (
       <WrapperContainer
@@ -3594,6 +3672,56 @@ export default function Cart({navigation, route}) {
         </View>
       </Modal>
       {buttonView()}
+
+      {false && (
+        <BottomSheet
+          ref={bottomSheetRef}
+          index={1}
+          snapPoints={[height / 1.5, height / 1.25]}
+          activeOffsetY={[-1, 1]}
+          failOffsetX={[-5, 5]}
+          animateOnMount={true}
+          handleComponent={() => (
+            <View
+              style={{
+                height: 0,
+                borderTopLeftRadius: 20,
+                backgroundColor: 'rgba(0,0,0,0)',
+              }}
+            />
+          )}
+          onChange={index => {
+            if (index === 0) {
+              updateState({isVisibleModal: false, showShimmer: true});
+            }
+            playHapticEffect(hapticEffects.impactMedium);
+          }}>
+          <BottomSheetScrollView
+            keyboardShouldPersistTaps="handled"
+            showsVerticalScrollIndicator={false}
+            style={{
+              borderTopLeftRadius: moderateScale(15),
+              borderTopRightRadius: moderateScale(15),
+              backgroundColor: isDarkMode
+                ? MyDarkTheme.colors.background
+                : colors.white,
+            }}>
+            <VariantAddons
+              addonSet={selectedCartItem?.add_on}
+              variantData={selectedCartItem?.variantSet}
+              isVisible={true}
+              productdetail={selectedCartItem}
+              onClose={() =>
+                updateState({isVisibleModal: false, showShimmer: true})
+              }
+              typeId={typeId}
+              showShimmer={showShimmer}
+              shimmerClose={val => updateState({showShimmer: val})}
+              updateCartItems={updateCartItems}
+            />
+          </BottomSheetScrollView>
+        </BottomSheet>
+      )}
     </WrapperContainer>
   );
 }
