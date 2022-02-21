@@ -403,6 +403,10 @@
     "foodiesdispatcherRelease": "cd android && ./gradlew assembleFoodiesRelease",
     "godispatcher": "react-native run-android --variant=goebug",
     "godispatcherRelease": "cd android && ./gradlew assembleGoRelease",
+    "baubaudispatcher": "react-native run-android --variant=baubauebug",
+    "baubaudispatcherRelease": "cd android && ./gradlew assembleBaubauRelease",
+    "bookarydedispatcher": "react-native run-android --variant=bookarydeebug",
+    "bookarydedispatcherRelease": "cd android && ./gradlew assembleBookarydeRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
@@ -411,6 +415,7 @@
     "clean": "cd ./android && ./gradlew clean",
     "uninstallAll": "cd android && ./gradlew uninstallAll"
   },
+  
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.15.7",
     "@react-native-community/clipboard": "^1.5.1",

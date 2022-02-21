@@ -158,7 +158,7 @@ const shortCodes = {
   citysuds: 'c8e593',
   drivva: '9fcc7d',
   easyu: '23f79d',
-  myfiji: '4e5abe',
+  myfiji: '35d41a',
   ritenow: '521391',
   fastMikes: '5f0e8f',
   hometowndeliveryllc: '80bac3',
@@ -202,6 +202,8 @@ const shortCodes = {
   onscart: 'e22c51',
   foodies: 'c420d1',
   go: 'da3f7b',
+  baubau: '616729',
+  bookaryde: 'dba7d7',
 };
 
 // Goody Dispatch
@@ -1006,6 +1008,14 @@ const appIds = {
   go: Platform.select({
     ios: 'com.Go.Dispatch',
     android: 'com.Go.royodispatcher',
+  }),
+  baubau: Platform.select({
+    ios: 'com.Baubau.Dispatch',
+    android: 'com.Baubau.royodispatcher',
+  }),
+  bookaryde: Platform.select({
+    ios: 'com.Bookaryde.Dispatch',
+    android: 'com.Bookaryde.royodispatcher',
   }),
 };
 

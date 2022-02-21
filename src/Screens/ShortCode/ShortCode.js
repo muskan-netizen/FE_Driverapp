@@ -1286,6 +1286,18 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.baubau:
+          updateState({
+            shortCode: shortCodes.baubau,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.bookaryde:
+          updateState({
+            shortCode: shortCodes.bookaryde,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);
