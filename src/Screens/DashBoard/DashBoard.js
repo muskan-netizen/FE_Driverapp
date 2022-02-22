@@ -124,6 +124,10 @@ export default function DashBoard({route, navigation}) {
   );
   const fcmToken = useSelector(state => state?.initBoot?.fcmToken);
   const zendeskKeys = useSelector(state => state?.initBoot?.zendeskKeys);
+  console.log(
+    refreshHomeData,
+    'drivreedispatcherdrivreedispatcherdrivreedispatcher',
+  );
 
   const initWatchPosition = () => {
     Geolocation_.watchPosition(
@@ -160,6 +164,14 @@ export default function DashBoard({route, navigation}) {
     })();
     return () => {};
   }, []);
+
+  useEffect(() => {
+    if (refreshHomeData && enableMap) {
+      updateState({
+        enableMap: false,
+      });
+    }
+  }, [refreshHomeData]);
 
   // useEffect(() => {
   //     BackgroundTimer.runBackgroundTimer(() => {
@@ -582,8 +594,10 @@ export default function DashBoard({route, navigation}) {
 
   const mapRef = useRef();
 
+  console.log(latitude, longitude, 'latitude, longitude');
+
   const fitPadding = newArray => {
-    // console.log([[{latitude, longitude}, ...newArray], 'newArraynewArray');
+    console.log([{latitude, longitude}, ...newArray], 'newArraynewArray');
     if (mapRef.current) {
       mapRef.current.fitToCoordinates([{latitude, longitude}, ...newArray], {
         edgePadding: {top: 80, right: 80, bottom: 80, left: 80},
@@ -595,7 +609,6 @@ export default function DashBoard({route, navigation}) {
   const animation = React.createRef();
 
   const mapView = () => {
-    // if (markers.length)
     return (
       <MapView
         ref={mapRef}
@@ -608,7 +621,7 @@ export default function DashBoard({route, navigation}) {
         // onLayout={() => fitToMap()}
         //   customMapStyle={mapStyle}
         onRegionChangeComplete={_onRegionChange}>
-        {markers.map((coordinate, index) => (
+        {markers?.map((coordinate, index) => (
           <Marker
             tracksViewChanges={false}
             zIndex={index}
@@ -630,6 +643,7 @@ export default function DashBoard({route, navigation}) {
           }}></Marker>
       </MapView>
     );
+
     // return (
     //   <ListEmptyComponent
     //     isLoading={isLoading}

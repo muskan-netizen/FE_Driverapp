@@ -332,12 +332,12 @@ export default function TaskDetail({route, navigation}) {
   const _onPressTaskDetails = item => {
     moveToNewScreen(navigationStrings.ORDERDETAIL, {
       item: taskDetail?.order?.call_back_url,
-      taskDetail:taskDetail,
-      apiData:apiData
+      taskDetail: taskDetail,
+      apiData: apiData,
     })();
   };
 
-  console.log(taskDetail?.id, 'askDetail?.id');
+  console.log(taskDetail, 'taskDetail?.id');
 
   const mapView = () => {
     return (
@@ -602,7 +602,7 @@ export default function TaskDetail({route, navigation}) {
     moveToNewScreen(navigationStrings.CART, {
       // cartData: res?.data,
       taskDetail: taskDetail,
-      apiData:apiData
+      apiData: apiData,
     })();
     // if (apiData) {
     //   updateState({isLoading: true});
