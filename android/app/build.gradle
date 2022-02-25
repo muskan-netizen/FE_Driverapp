@@ -2298,6 +2298,26 @@ android {
             applicationId 'com.Bookaryde.royodispatcher'
             resValue "string", "app_name", "Book-A-Ryde Dispatcher"
         }
+         mandaExpress{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.MandaExpress.royodispatcher'
+            resValue "string", "app_name", "MandaExpress Dispatcher"
+        }
+         yalary{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Yalary.royodispatcher'
+            resValue "string", "app_name", "Yalary Dispatcher"
+        }
     }
 }
 

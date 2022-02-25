@@ -8,6 +8,11 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'http://192.168.102.23:8005/'; // Gourav.s local url
 // export const API_BASE_URL = 'http://192.168.97.104:8010/'; // Sujata.s local url
 
+//export const API_BASE_URL = 'http://192.168.103.186:8005/'; // harbans local url
+
+//mml
+// export const API_BASE_URL = 'https://dispatch.mml.mobi/';
+
 //sirvu
 //export const API_BASE_URL = 'https://dispatch.sirvu.ca/';
 

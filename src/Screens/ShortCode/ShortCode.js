@@ -1298,6 +1298,18 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.mandaExpress:
+          updateState({
+            shortCode: shortCodes.mandaExpress,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.yalary:
+          updateState({
+            shortCode: shortCodes.yalary,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);

@@ -204,6 +204,8 @@ const shortCodes = {
   go: 'da3f7b',
   baubau: '616729',
   bookaryde: 'dba7d7',
+  mandaExpress: '8f5c56',
+  yalary: '03b030',
 };
 
 // Goody Dispatch
@@ -1016,6 +1018,14 @@ const appIds = {
   bookaryde: Platform.select({
     ios: 'com.Bookaryde.Dispatch',
     android: 'com.Bookaryde.royodispatcher',
+  }),
+  mandaExpress: Platform.select({
+    ios: 'com.MandaExpress.Dispatch',
+    android: 'com.MandaExpress.royodispatcher',
+  }),
+  yalary: Platform.select({
+    ios: 'com.Yalary.Dispatch',
+    android: 'com.Yalary.royodispatcher',
   }),
 };
 

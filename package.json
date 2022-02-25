@@ -407,6 +407,10 @@
     "baubaudispatcherRelease": "cd android && ./gradlew assembleBaubauRelease",
     "bookarydedispatcher": "react-native run-android --variant=bookarydeebug",
     "bookarydedispatcherRelease": "cd android && ./gradlew assembleBookarydeRelease",
+    "mandaExpressdispatcher": "react-native run-android --variant=mandaExpressebug",
+    "mandaExpressdispatcherRelease": "cd android && ./gradlew assembleMandaExpressRelease",
+    "yalarydispatcher": "react-native run-android --variant=yalaryebug",
+    "yalarydispatcherRelease": "cd android && ./gradlew assembleYalaryRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
@@ -415,7 +419,6 @@
     "clean": "cd ./android && ./gradlew clean",
     "uninstallAll": "cd android && ./gradlew uninstallAll"
   },
-  
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.15.7",
     "@react-native-community/clipboard": "^1.5.1",
@@ -432,6 +435,7 @@
     "country-data": "^0.0.31",
     "crypto-js": "^4.1.1",
     "date-fns": "^2.24.0",
+    "geolib": "^3.3.3",
     "i": "^0.3.7",
     "is_js": "^0.9.0",
     "lodash": "^4.17.21",

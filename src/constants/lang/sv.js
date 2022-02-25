@@ -254,4 +254,6 @@ export default {
   PLEASENTERTRUCKNUMBER: 'Ange lastbilsnummer',
   CUSTOMERTYPE: 'Kundtyp',
   PLEASESELECTCUSTOMERTYPE: 'Välj kundtyp',
+  TOTALDISTANCE: 'Total Distance',
+  TOTALTIME: 'Total Time',
 };
