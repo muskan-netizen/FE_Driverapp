@@ -281,6 +281,7 @@ export default {
     "Are you sure you want to submit this updation , Please check twice all the details because once submitted it can't be changed",
   AREYOUSURETEMPCARTCLAER:
     'Are you sure you want to clear the cart? This will remove all your chanegs.',
+  EDIT: 'Edit',
   TOTALDISTANCE: ' Total Distance',
   TOTALTIME: 'Total Time',
 };

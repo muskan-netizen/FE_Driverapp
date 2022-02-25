@@ -457,7 +457,9 @@ PODS:
     - React-Core
   - RNPermissions (3.1.0):
     - React-Core
-  - RNReanimated (2.2.4):
+  - RNReactNativeHapticFeedback (1.13.0):
+    - React-Core
+  - RNReanimated (2.4.1):
     - DoubleConversion
     - FBLazyVector
     - FBReactNativeSpec
@@ -483,7 +485,6 @@ PODS:
     - React-RCTNetwork
     - React-RCTSettings
     - React-RCTText
-    - React-RCTVibration
     - ReactCommon/turbomodule/core
     - Yoga
   - RNScreens (3.10.0):
@@ -581,6 +582,7 @@ DEPENDENCIES:
   - RNImageCropPicker (from `../node_modules/react-native-image-crop-picker`)
   - RNLocalize (from `../node_modules/react-native-localize`)
   - RNPermissions (from `../node_modules/react-native-permissions`)
+  - RNReactNativeHapticFeedback (from `../node_modules/react-native-haptic-feedback`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - RNSVG (from `../node_modules/react-native-svg`)
@@ -748,6 +750,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-localize"
   RNPermissions:
     :path: "../node_modules/react-native-permissions"
+  RNReactNativeHapticFeedback:
+    :path: "../node_modules/react-native-haptic-feedback"
   RNReanimated:
     :path: "../node_modules/react-native-reanimated"
   RNScreens:
@@ -842,7 +846,8 @@ SPEC CHECKSUMS:
   RNImageCropPicker: 73891a709e6fd8a47d32104d942757971f220aee
   RNLocalize: b8980509fc4db6895953aa95b90c8d81cb984603
   RNPermissions: b3588a19e12bff03fe21bc46911fd32343666dc0
-  RNReanimated: f58d4f027fcea2197b63588138decdf5f8ac5e89
+  RNReactNativeHapticFeedback: b83bfb4b537bdd78eb4f6ffe63c6884f7b049ead
+  RNReanimated: f1b73ebfdd510dc56b8970bf19444cb0d5acd35a
   RNScreens: 03ba504f8c98607ad1f07808e71040e0afa335ec
   RNSVG: 551acb6562324b1d52a4e0758f7ca0ec234e278f
   RNZendeskChat: 5a73a4353497c0670f81e30f06d45e183d0137aa

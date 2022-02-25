@@ -220,6 +220,10 @@ export default ({ themeColors, isDarkMode, MyDarkTheme}) => {
       color: colors.textGreyB,
       fontSize: moderateScaleVertical(11),
     },
+    cartItemWeight3: {
+      color: colors.black,
+      fontSize: moderateScaleVertical(11),
+    },
     rattingContainer: {
       paddingRight: moderateScale(16),
       width: moderateScaleVertical(100),

@@ -15,6 +15,7 @@ import {textScale} from '../styles/responsiveSize';
 import actions from '../redux/actions';
 import strings from './../constants/lang/index';
 import {setUserData} from './utils';
+import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 
 const getCurrentLocation = type =>
   new Promise((resolve, reject) => {
@@ -381,8 +382,44 @@ if (hostName != null) {
 return domain;
 }
 
+const playHapticEffect = (effect = 'clockTick') => {
+  const options = {
+    enableVibrateFallback: true,
+    ignoreAndroidSystemSettings: true,
+  };
+
+  ReactNativeHapticFeedback.trigger(effect, options);
+};
+
+const hapticEffects = {
+  effectClick: 'effectClick',
+  effectDoubleClick: 'effectDoubleClick',
+  effectHeavyClick: 'effectHeavyClick',
+  effectTick: 'effectTick',
+  impactHeavy: 'impactHeavy',
+  impactMedium: 'impactMedium',
+  impactLight: 'impactLight',
+  notificationError: 'notificationError',
+  notificationSuccess: 'notificationSuccess',
+  notificationWarning: 'notificationWarning',
+  rigid: 'rigid',
+  selection: 'selection',
+  soft: 'soft',
+
+  // (Android only)
+  clockTick: 'clockTick',
+  contextClick: 'contextClick',
+  keyboardPress: 'keyboardPress',
+  keyboardRelease: 'keyboardRelease',
+  keyboardTap: 'keyboardTap',
+  longPress: 'longPress',
+  textHandleMove: 'textHandleMove',
+  virtualKey: 'virtualKey',
+  virtualKeyRelease: 'virtualKeyRelease',
+};
 
 export {
+  hapticEffects,
   showError,
   showSuccess,
   showInfo,
@@ -392,5 +429,6 @@ export {
   getParameterByName,
   getUrlRoutes,
   getHostName,
-  getDomain
+  getDomain,
+  playHapticEffect
 };
