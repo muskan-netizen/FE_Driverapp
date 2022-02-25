@@ -356,3 +356,17 @@ export const removeTempCartInformation = (url = '', data, headers = {}) => {
       });
   });
 };
+
+
+//Get customre order detail
+export function getAllAndVariantDetail(url = '', data = {}, headers = {}) {
+  return new Promise((resolve, reject) => {
+    apiPost(url, data, headers)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+}
