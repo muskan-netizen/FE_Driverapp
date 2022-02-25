@@ -31,7 +31,9 @@ export default function OrderDetail({route, navigation}) {
   });
   const {allVendorsData, cartData, isLoading} = state;
   const updateState = data => setState(state => ({...state, ...data}));
-
+  const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
+  const userData = useSelector(state => state?.auth?.userData);
+console.log(userData,"userData");
   const defaultLanguagae = useSelector(
     state => state?.initBoot?.defaultLanguage,
   );
@@ -223,17 +225,25 @@ export default function OrderDetail({route, navigation}) {
                             {i?.product_addons.length
                               ? i?.product_addons.map((j, jnx) => {
                                   return (
-                                    <View style={{flexDirection: 'row'}}>
+                                    <View>
                                       <Text
                                         style={styles.cartItemWeight2}
                                         numberOfLines={1}>
                                         {j.addon_title}{' '}
                                       </Text>
+                                      <View style={{flexDirection:'row'}}>
                                       <Text
                                         style={styles.cartItemWeight2}
                                         numberOfLines={
                                           1
                                         }>{`(${j.option_title})`}</Text>
+                                         <Text
+                                        style={styles.cartItemWeight2}
+                                        numberOfLines={
+                                          1
+                                        }>{` ${Number(j?.quantity_price).toFixed(2)}`}</Text>
+                                      </View>
+                                     
                                     </View>
                                   );
                                 })
@@ -275,7 +285,7 @@ export default function OrderDetail({route, navigation}) {
 
         {!!Number(item?.discount_amount) && (
           <View style={styles.itemPriceDiscountTaxView}>
-            <Text style={istyles.priceItemLabel}>{strings.DISCOUNT}</Text>
+            <Text style={styles.priceItemLabel}>{strings.DISCOUNT}</Text>
             <Text style={styles.priceItemLabel}>
               {item?.discount_amount > 0 && item?.discount_amount}
             </Text>
@@ -503,11 +513,16 @@ export default function OrderDetail({route, navigation}) {
         headerStyle={{backgroundColor: colors.white}}
         leftIcon={imagePath.backArrow}
         centerTitle={strings.ORDERDETAILS}
-        // customRight={() => (
+        customRight={() => (
+          <TouchableOpacity onPress={_onPressEditOrder}>
+            <Text style={styles.editOrder}>{'Edit'}</Text>
+          </TouchableOpacity>
+        )}
+        // customRight={userData && userData?.client_preference?.is_edit_order_driver ?() => (
         //   <TouchableOpacity onPress={_onPressEditOrder}>
         //     <Text style={styles.editOrder}>{'Edit'}</Text>
         //   </TouchableOpacity>
-        // )}
+        // ):null}
         // onPressLeft={() => navigation.toggleDrawer()}
         // hideRight={true}
         // customCenter={() => customCenter()}
