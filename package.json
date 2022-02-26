@@ -435,6 +435,8 @@
     "myRidedispatcherRelease": "cd android && ./gradlew assembleMyRideRelease",
     "delivadrinksdispatcher": "react-native run-android --variant=delivadrinksDebug",
     "delivadrinksdispatcherRelease": "cd android && ./gradlew assembleDelivadrinksRelease",
+    "getfixdispatcher": "react-native run-android --variant=getfixDebug",
+    "getfixdispatcherRelease": "cd android && ./gradlew assembleGetfixRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",

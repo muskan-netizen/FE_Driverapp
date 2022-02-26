@@ -218,6 +218,7 @@ const shortCodes = {
   gRN: '138973',
   myRide: 'e22883',
   delivadrinks: '5d5894',
+  getfix: 'c81748',
 };
 
 // Goody Dispatch
@@ -1086,6 +1087,10 @@ const appIds = {
   delivadrinks: Platform.select({
     ios: 'com.Delivadrinks.Dispatch',
     android: 'com.Delivadrinks.royodispatcher',
+  }),
+  getfix: Platform.select({
+    ios: 'com.Getfix.Dispatch',
+    android: 'com.Getfix.royodispatcher',
   }),
 };
 
