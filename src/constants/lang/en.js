@@ -278,6 +278,10 @@ export default {
   CARTSUBMITEED:'You have already submited the cart updation. Wait for the customer response',
   AREYOUSURETEMPCART:"Are you sure you want to submit this updation , Please check twice all the details because once submitted it can't be changed",
   AREYOUSURETEMPCARTCLAER:'Are you sure you want to clear the cart? This will remove all your chanegs.',
-  EDIT:'Edit'
+  EDIT:'Edit',
+  CANCELORDER:"Cancel Order",
+  CANCELORDERMESSAGE: "If you want to cancel the order,Press 'OK'",
+  RESEONCANCEL:"Reason"
+
 
 };

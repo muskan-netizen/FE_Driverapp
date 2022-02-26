@@ -459,7 +459,7 @@ PODS:
     - React-Core
   - RNReactNativeHapticFeedback (1.13.0):
     - React-Core
-  - RNReanimated (2.4.1):
+  - RNReanimated (2.2.1):
     - DoubleConversion
     - FBLazyVector
     - FBReactNativeSpec
@@ -485,6 +485,7 @@ PODS:
     - React-RCTNetwork
     - React-RCTSettings
     - React-RCTText
+    - React-RCTVibration
     - ReactCommon/turbomodule/core
     - Yoga
   - RNScreens (3.12.0):
@@ -503,17 +504,17 @@ PODS:
     - SDWebImage/Core (~> 5.10)
   - TOCropViewController (2.6.1)
   - Yoga (1.14.0)
-  - ZendeskChatProvidersSDK (2.11.1)
-  - ZendeskChatSDK (2.11.1):
-    - ZendeskChatProvidersSDK (~> 2.11.1)
-    - ZendeskMessagingSDK (~> 3.8.2)
-  - ZendeskCommonUISDK (6.1.1)
-  - ZendeskMessagingAPISDK (3.8.2):
-    - ZendeskSDKConfigurationsSDK (~> 1.1.8)
-  - ZendeskMessagingSDK (3.8.2):
-    - ZendeskCommonUISDK (~> 6.1.1)
-    - ZendeskMessagingAPISDK (~> 3.8.2)
-  - ZendeskSDKConfigurationsSDK (1.1.8)
+  - ZendeskChatProvidersSDK (2.11.2)
+  - ZendeskChatSDK (2.11.2):
+    - ZendeskChatProvidersSDK (= 2.11.2)
+    - ZendeskMessagingSDK (= 3.8.3)
+  - ZendeskCommonUISDK (6.1.2)
+  - ZendeskMessagingAPISDK (3.8.3):
+    - ZendeskSDKConfigurationsSDK (= 1.1.9)
+  - ZendeskMessagingSDK (3.8.3):
+    - ZendeskCommonUISDK (= 6.1.2)
+    - ZendeskMessagingAPISDK (= 3.8.3)
+  - ZendeskSDKConfigurationsSDK (1.1.9)
 
 DEPENDENCIES:
   - BVLinearGradient (from `../node_modules/react-native-linear-gradient`)
@@ -847,7 +848,7 @@ SPEC CHECKSUMS:
   RNLocalize: 6571ea792a7dcb6d217c98c14d9147e9417cef62
   RNPermissions: f7ebe52db07c00901127966ca080b4ec6a6ceb0a
   RNReactNativeHapticFeedback: b83bfb4b537bdd78eb4f6ffe63c6884f7b049ead
-  RNReanimated: f1b73ebfdd510dc56b8970bf19444cb0d5acd35a
+  RNReanimated: d29057cf85e771be4f0180ba1d00a7185e423a7d
   RNScreens: 2559f98b0835103cbef3b26ba77fa61d4bb37ae7
   RNSVG: 551acb6562324b1d52a4e0758f7ca0ec234e278f
   RNZendeskChat: c3835f664be1746b121b69736d5c95e236cae382
@@ -855,12 +856,12 @@ SPEC CHECKSUMS:
   SDWebImageWebPCoder: f93010f3f6c031e2f8fb3081ca4ee6966c539815
   TOCropViewController: edfd4f25713d56905ad1e0b9f5be3fbe0f59c863
   Yoga: aa0cb45287ebe1004c02a13f279c55a95f1572f4
-  ZendeskChatProvidersSDK: 37901c1c7529722d71ffade971bb984edd74a5e1
-  ZendeskChatSDK: e312c1899c52eff0ef2b7219385c5aaac3d9e76e
-  ZendeskCommonUISDK: 5808802951ad2bb424f0bed4259dc3c0ce9b52ec
-  ZendeskMessagingAPISDK: 144e0fb0e633a3c4e73149b781ab65338938d5a8
-  ZendeskMessagingSDK: 500e83d9413481e95180c37ddca0d4ef9d515600
-  ZendeskSDKConfigurationsSDK: 8371b468db0d09e9198f6c5a97818826943ee1ee
+  ZendeskChatProvidersSDK: 450e0a6f56b8c5c82b21106914818a5a3c094cc5
+  ZendeskChatSDK: db9c0c420542c38d03c4345061d8a0b5ae9cf937
+  ZendeskCommonUISDK: 5f0a83f412e07ae23701f18c412fe783b3249ef5
+  ZendeskMessagingAPISDK: db91be0c5cb88229d22f0e560ed99ba6e1dce02e
+  ZendeskMessagingSDK: ce2750c0a3dbd40918ea2e2d44dd0dbe34d21bc8
+  ZendeskSDKConfigurationsSDK: f91f54f3b41aa36ffbc43a37af9956752a062055
 
 PODFILE CHECKSUM: 5d1496dee8f3778f69e0859933a6298de6bd5538
 

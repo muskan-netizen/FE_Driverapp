@@ -12,6 +12,11 @@ export const API_BASE_URL = 'https://api.winhires.com/';
 // export const API_BASE_URL = 'http://192.168.102.23:8005/'; // Gourav.s local url
 // export const API_BASE_URL = 'http://192.168.97.104:8010/'; // Sujata.s local url
 
+
+//Soorafresh
+// export const API_BASE_URL = 'https://delivery.shoorafresh.com.au/';
+
+
 //sirvu
 //export const API_BASE_URL = 'https://dispatch.sirvu.ca/';
 
@@ -186,3 +191,7 @@ export const REIMBURSEMENT = getApiUrl('api/agent/create/reimbursement');
 export const GETORDERDETAILFORTASK = getApiUrl(
   'edit-order/vendor/products/getProductsInCart',
 );
+export const GETCANCELORDERREASONLIST = getApiUrl('api/order/cancel/reasons');
+export const CANCELORDER = getApiUrl('api/order/cancel/request/create');
+
+

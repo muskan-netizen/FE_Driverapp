@@ -15,6 +15,8 @@ import {
   GET_DAMAGE_TYPES,
   DAMAGE_REPORTS,
   GETORDERDETAILFORTASK,
+  GETCANCELORDERREASONLIST,
+  CANCELORDER,
 } from '../../config/urls';
 import {apiGet, apiPost} from '../../utils/utils';
 import store from '../store';
@@ -300,7 +302,6 @@ export const getProductDetailByProductId = (url = '', data, headers = {}) => {
   });
 };
 
-
 //getProductDetailByProductId
 export const addProductsToCart = (url = '', data, headers = {}) => {
   return new Promise((resolve, reject) => {
@@ -313,7 +314,6 @@ export const addProductsToCart = (url = '', data, headers = {}) => {
       });
   });
 };
-
 
 //Remove product from cart
 export const removeProductFromCart = (url = '', data, headers = {}) => {
@@ -328,7 +328,6 @@ export const removeProductFromCart = (url = '', data, headers = {}) => {
   });
 };
 
-
 //submit temp cart informataion to client
 export const submitTempCartInformation = (url = '', data, headers = {}) => {
   return new Promise((resolve, reject) => {
@@ -342,9 +341,7 @@ export const submitTempCartInformation = (url = '', data, headers = {}) => {
   });
 };
 
-
-
-//remove temp cart informataion 
+//remove temp cart informataion
 export const removeTempCartInformation = (url = '', data, headers = {}) => {
   return new Promise((resolve, reject) => {
     apiPost(url, data, headers)
@@ -357,11 +354,36 @@ export const removeTempCartInformation = (url = '', data, headers = {}) => {
   });
 };
 
-
 //Get customre order detail
 export function getAllAndVariantDetail(url = '', data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
     apiPost(url, data, headers)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+}
+
+//GET ALL CANCEL REASON
+export function getListOfAllCancelReason(data = {}, headers = {}) {
+  return new Promise((resolve, reject) => {
+    apiGet(GETCANCELORDERREASONLIST, data, headers)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+}
+
+//Submit request by driver to cancel order and sent to admin
+export function submitCancelOrderRequest(url = '', data = {}, headers = {}) {
+  return new Promise((resolve, reject) => {
+    apiPost(CANCELORDER + url, data, headers)
       .then(res => {
         resolve(res);
       })
