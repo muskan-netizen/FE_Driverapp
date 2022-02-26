@@ -1341,6 +1341,49 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.lOPHT:
+          updateState({
+            shortCode: shortCodes.lOPHT,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.seratho:
+          updateState({
+            shortCode: shortCodes.seratho,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.xborne:
+          updateState({
+            shortCode: shortCodes.xborne,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.fawaz:
+          updateState({
+            shortCode: shortCodes.fawaz,
+            isShortcodePrefilled: true,
+          });
+          break;
+          break;
+        case appIds.gRN:
+          updateState({
+            shortCode: shortCodes.gRN,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.myRide:
+          updateState({
+            shortCode: shortCodes.myRide,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.delivadrinks:
+          updateState({
+            shortCode: shortCodes.delivadrinks,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);

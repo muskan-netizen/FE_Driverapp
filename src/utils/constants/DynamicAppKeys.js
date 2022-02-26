@@ -211,6 +211,13 @@ const shortCodes = {
   yoloSonic: '67d210',
   mrHealth: 'b465ce',
   ubi: '085703',
+  lOPHT: '9fadbd',
+  seratho: '908fb7',
+  xborne: '893da3',
+  fawaz: 'b3e0fe',
+  gRN: '138973',
+  myRide: 'e22883',
+  delivadrinks: '5d5894',
 };
 
 // Goody Dispatch
@@ -1051,6 +1058,34 @@ const appIds = {
   ubi: Platform.select({
     ios: 'com.Ubi.Dispatch',
     android: 'com.Ubi.royodispatcher',
+  }),
+  lOPHT: Platform.select({
+    ios: 'com.LOPHT.Dispatch',
+    android: 'com.LOPHT.royodispatcher',
+  }),
+  seratho: Platform.select({
+    ios: 'com.Seratho.Dispatch',
+    android: 'com.Seratho.royodispatcher',
+  }),
+  xborne: Platform.select({
+    ios: 'com.Xborne.Dispatch',
+    android: 'com.Xborne.royodispatcher',
+  }),
+  fawaz: Platform.select({
+    ios: 'com.Fawaz.Dispatch',
+    android: 'com.Fawaz.royodispatcher',
+  }),
+  myRide: Platform.select({
+    ios: 'com.MyRide.Dispatch',
+    android: 'com.MyRide.royodispatcher',
+  }),
+  gRN: Platform.select({
+    ios: 'com.GRN.Dispatch',
+    android: 'com.GRN.royodispatcher',
+  }),
+  delivadrinks: Platform.select({
+    ios: 'com.Delivadrinks.Dispatch',
+    android: 'com.Delivadrinks.royodispatcher',
   }),
 };
 
