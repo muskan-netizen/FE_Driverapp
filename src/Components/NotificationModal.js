@@ -414,6 +414,7 @@ const NotificationModal = () => {
         });
         actions.updateHomepage(true);
       })
+
       .catch(errorMethod);
   };
 

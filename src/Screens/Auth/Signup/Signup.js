@@ -301,6 +301,7 @@ export default function Signup({route, navigation}) {
       return;
     }
 
+console.log(dummyTags,"dummyTagsdummyTagsdummyTags");
     // if (!selectedVehicleType) {
     //   return showError(strings.SELECTTRANSPORTATION);
     // }
@@ -317,10 +318,10 @@ export default function Signup({route, navigation}) {
       showError(strings.PLEASESELECTCUSTOMERTYPE);
       return;
     }
-    if (isEmpty(selectedTags)) {
-      showError(`${strings.PLEASE_SELECT} ${strings.ONE_TAG}`);
-      return;
-    }
+    // if (isEmpty(selectedTags)) {
+    //   showError(`${strings.PLEASE_SELECT} ${strings.ONE_TAG}`);
+    //   return;
+    // }
 
     let formdata = new FormData();
     formdata.append('name', fullName);
@@ -331,7 +332,7 @@ export default function Signup({route, navigation}) {
     formdata.append('color', vehicleColor);
     formdata.append('vehicle_type_id', selectedVehicleType?.id);
     formdata.append('team_id', !!selectedTeam ? selectedTeam?.id : '');
-    formdata.append('tags', dummyTags);
+    formdata.append('tags', dummyTags ? dummyTags :'');
     if (getBundleId() == appIds?.trucxi && selectedCustomerType) {
       formdata.append('customer_type_id', selectedCustomerType?.id);
     }
@@ -741,6 +742,8 @@ export default function Signup({route, navigation}) {
   const _onCloseModal = () => {
     updateState({isDatePicker: false, selectedDate: new Date()});
   };
+
+  console.log(customerType,"customerTypecustomerType");
 
   return (
     <WrapperContainer

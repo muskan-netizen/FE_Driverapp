@@ -14,12 +14,40 @@ import {getColorCodeWithOpactiyNumber} from '../../utils/helperFunctions';
 export default ({ themeColors, isDarkMode, MyDarkTheme}) => {
   const commonStyles = commonStylesFun({fontFamily});
   const styles = StyleSheet.create({
+    container: {
+      // flex: 1,
+      // flexDirection: 'column',
+      justifyContent: 'flex-end',
+      // marginBottom: -15,
+    },
     scrollviewHorizontal: {
       borderTopWidth: 1,
       borderBottomWidth: 1,
       height: moderateScaleVertical(50),
       flex: undefined,
       borderColor: colors.borderLight,
+    },
+    button: {
+      padding: 15,
+      borderWidth: 0,
+      borderColor: '#111',
+      backgroundColor: colors.themeColor,
+    },
+    text: {
+      backgroundColor: 'transparent',
+      color: '#111',
+      textAlign: 'center',
+      color: colors.white,
+      fontFamily: fontFamily.semiBold,
+      fontSize: textScale(14),
+    },
+    text2: {
+      backgroundColor: 'transparent',
+      color: '#111',
+      textAlign: 'center',
+      color: colors.white,
+      fontFamily: fontFamily.semiBold,
+      fontSize: textScale(12),
     },
     headerText: {
       ...commonStyles.mediumFont14,
@@ -190,6 +218,10 @@ export default ({ themeColors, isDarkMode, MyDarkTheme}) => {
     },
     cartItemWeight2: {
       color: colors.textGreyB,
+      fontSize: moderateScaleVertical(11),
+    },
+    cartItemWeight3: {
+      color: colors.black,
       fontSize: moderateScaleVertical(11),
     },
     rattingContainer: {

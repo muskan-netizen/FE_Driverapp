@@ -1,0 +1,9 @@
+#include "Pods/Target Support Files/Pods-available_pods-BksTaxi/Pods-available_pods-BksTaxi.release.xcconfig"
+
+
+PROJECT_BUNDLE_ID = com.BksTaxi.Dispatch
+PROJECT_APP_VERSION = 1.0
+PROJECT_BUILD_NUMBER = 2
+PROJECT_APP_NAME =BksTaxi Dispatcher
+PROJECT_PLIST =BksTaxiInfo
+PROJECT_ENTITLEMENT=RoyoDriverAppRelease

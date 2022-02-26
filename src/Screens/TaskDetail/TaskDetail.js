@@ -155,6 +155,9 @@ export default function TaskDetail({route, navigation}) {
   const styles = stylesFunc({defaultLanguagae});
   // const userData = useSelector(state => state?.auth?.userData);
 
+  console.log(defaultLanguagae, 'defaultLanguagae');
+  const mapRef = useRef();
+
   useEffect(() => {
     if (userData?.task_proof) {
       console.log(userData?.task_proof, ' userData?.task_proof');
@@ -330,12 +333,17 @@ export default function TaskDetail({route, navigation}) {
   const _onPressTaskDetails = item => {
     moveToNewScreen(navigationStrings.ORDERDETAIL, {
       item: taskDetail?.order?.call_back_url,
+      taskDetail: taskDetail,
+      apiData: apiData,
     })();
   };
+
+  console.log(taskDetail, 'taskDetail?.id');
 
   const mapView = () => {
     return (
       <MapView
+        ref={mapRef}
         // provider={PROVIDER_GOOGLE} // remove if not using Google Maps
         style={styles.map}
         region={region}
@@ -424,12 +432,15 @@ export default function TaskDetail({route, navigation}) {
     let data = {};
     data['task_status'] = getUpdatedStatus();
     data['task_id'] = taskDetail?.id;
-    
+
     console.log(data, 'updateTaskStatus>>>DATA');
 
     updateState({isLoading: true});
     actions
-      .updateTask(data, {client: clientInfo?.database_name})
+      .updateTask(data, {
+        client: clientInfo?.database_name,
+        language: defaultLanguagae?.value ? defaultLanguagae?.value : 'en',
+      })
       .then(res => {
         console.log(res, 'updateTaskStatus>res>res');
         updateState({isLoading: false});
@@ -507,7 +518,9 @@ export default function TaskDetail({route, navigation}) {
     data['task_id'] = taskDetail?.id;
     console.log(data, 'data');
     actions
-      .sendOtpToDriver(data, {client: clientInfo?.database_name})
+      .sendOtpToDriver(data, {
+        client: clientInfo?.database_name,
+      })
       .then(res => {
         console.log(res, 'sendOtpToDriver>res>res');
         if (res?.status == 200) {
@@ -592,33 +605,41 @@ export default function TaskDetail({route, navigation}) {
   };
 
   const _onPressEditOrder = () => {
-    if (apiData) {
-      updateState({isLoading: true});
-      let data = {};
-      data['order_vendor_id'] = apiData?.vendors[0]?.id;
-      data['user_id'] = apiData?.user_id;
-      data['address_id'] = apiData?.address_id;
+    moveToNewScreen(navigationStrings.CART, {
+      // cartData: res?.data,
+      taskDetail: taskDetail,
+      apiData: apiData,
+    })();
+    // if (apiData) {
+    //   updateState({isLoading: true});
+    //   let data = {};
+    //   data['order_vendor_id'] = apiData?.vendors[0]?.id;
+    //   data['user_id'] = apiData?.user_id;
+    //   data['address_id'] = apiData?.address_id;
 
-      console.log(data, '_onPressEditOrder');
+    //   console.log(data, '_onPressEditOrder');
 
-      let url = `https://${getHostName(
-        taskDetail?.order?.call_back_url,
-      )}/edit-order/vendor/products/getProductsInCart`;
-      actions
-        .getCustomerOrderDetail(url, data, {client: clientInfo?.database_name})
-        .then(res => {
-          console.log(res?.data, 'all response after hit order api');
-          updateState({
-            isLoading: false,
-          });
-          moveToNewScreen(navigationStrings.CART, {cartData: res?.data})()
-        })
-        .catch(error =>
-          updateState({
-            isLoading: false,
-          }),
-        );
-    }
+    //   let url = `https://${getHostName(
+    //     taskDetail?.order?.call_back_url,
+    //   )}/edit-order/vendor/products/getProductsInCart`;
+    //   actions
+    //     .getCustomerOrderDetail(url, data, {client: clientInfo?.database_name})
+    //     .then(res => {
+    //       console.log(res?.data, 'all response after hit order api');
+    //       updateState({
+    //         isLoading: false,
+    //       });
+    //       moveToNewScreen(navigationStrings.CART, {
+    //         cartData: res?.data,
+    //         taskDetail: taskDetail,
+    //       })();
+    //     })
+    //     .catch(error =>
+    //       updateState({
+    //         isLoading: false,
+    //       }),
+    //     );
+    // }
   };
 
   const taskDetailView = () => {
@@ -661,8 +682,7 @@ export default function TaskDetail({route, navigation}) {
                   <Image source={imagePath?.barcode2} />
                 </View>
               )}
-{/* 
-              <TouchableOpacity
+              {/* <TouchableOpacity
                 onPress={_onPressEditOrder}
                 style={{
                   padding: 5,

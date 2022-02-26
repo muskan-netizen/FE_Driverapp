@@ -1,0 +1,9 @@
+#include "Pods/Target Support Files/Pods-available_pods-AmbuTap/Pods-available_pods-AmbuTap.release.xcconfig"
+
+
+PROJECT_BUNDLE_ID = com.AmbuTap.Dispatch
+PROJECT_APP_VERSION = 1.0
+PROJECT_BUILD_NUMBER = 1
+PROJECT_APP_NAME =AmbuTap Dispatcher
+PROJECT_PLIST =AmbuTapInfo
+PROJECT_ENTITLEMENT=RoyoDriverAppRelease

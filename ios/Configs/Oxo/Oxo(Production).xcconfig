@@ -1,0 +1,9 @@
+#include "Pods/Target Support Files/Pods-available_pods-Oxo/Pods-available_pods-Oxo.release.xcconfig"
+
+
+PROJECT_BUNDLE_ID = com.OXO.Dispatch
+PROJECT_APP_VERSION = 1.0
+PROJECT_BUILD_NUMBER = 2
+PROJECT_APP_NAME =OXO Dispatcher
+PROJECT_PLIST =OxoInfo
+PROJECT_ENTITLEMENT=RoyoDriverAppRelease

@@ -14,7 +14,7 @@ import {
   AGENT_BANK_DETAILS,
   GET_DAMAGE_TYPES,
   DAMAGE_REPORTS,
-  GETORDERDETAILFORTASK
+  GETORDERDETAILFORTASK,
 } from '../../config/urls';
 import {apiGet, apiPost} from '../../utils/utils';
 import store from '../store';
@@ -222,8 +222,6 @@ export function damageReport(data = {}, headers = {}) {
   });
 }
 
-
-
 //Get Reimbursement types
 export function getAllReimbursementTypes(data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
@@ -251,7 +249,7 @@ export function reimbursement(data = {}, headers = {}) {
 }
 
 //Get customre order detail
-export function getCustomerOrderDetail(url='',data = {}, headers = {}) {
+export function getCustomerOrderDetail(url = '', data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
     apiPost(url, data, headers)
       .then(res => {
@@ -263,5 +261,112 @@ export function getCustomerOrderDetail(url='',data = {}, headers = {}) {
   });
 }
 
+//add delete product from cart
+export const increaseDecreaseItemQty = (url = '', data, headers = {}) => {
+  return new Promise((resolve, reject) => {
+    apiPost(url, data, headers)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+};
+
+//searchAction
+export const searchAction = (url = '', data, headers = {}) => {
+  return new Promise((resolve, reject) => {
+    apiPost(url, data, headers)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+};
+
+//getProductDetailByProductId
+export const getProductDetailByProductId = (url = '', data, headers = {}) => {
+  return new Promise((resolve, reject) => {
+    apiPost(url, data, headers)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+};
 
 
+//getProductDetailByProductId
+export const addProductsToCart = (url = '', data, headers = {}) => {
+  return new Promise((resolve, reject) => {
+    apiPost(url, data, headers)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+};
+
+
+//Remove product from cart
+export const removeProductFromCart = (url = '', data, headers = {}) => {
+  return new Promise((resolve, reject) => {
+    apiPost(url, data, headers)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+};
+
+
+//submit temp cart informataion to client
+export const submitTempCartInformation = (url = '', data, headers = {}) => {
+  return new Promise((resolve, reject) => {
+    apiPost(url, data, headers)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+};
+
+
+
+//remove temp cart informataion 
+export const removeTempCartInformation = (url = '', data, headers = {}) => {
+  return new Promise((resolve, reject) => {
+    apiPost(url, data, headers)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+};
+
+
+//Get customre order detail
+export function getAllAndVariantDetail(url = '', data = {}, headers = {}) {
+  return new Promise((resolve, reject) => {
+    apiPost(url, data, headers)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+}

@@ -27,7 +27,10 @@ import fontFamily from '../../styles/fontFamily';
 import {moderateScale, width} from '../../styles/responsiveSize';
 import {cameraHandler} from '../../utils/commonFunction';
 import {showError, showSuccess} from '../../utils/helperFunctions';
-import {checkCameraPermission} from '../../utils/permissions';
+import {
+  checkCameraPermission,
+  chekLocationPermission,
+} from '../../utils/permissions';
 import stylesFunc from './styles';
 import ImagePicker from 'react-native-image-crop-picker';
 import FaceSDK, {
@@ -43,6 +46,9 @@ import {showMessage} from 'react-native-flash-message';
 import {openCamera} from '../../utils/imagePicker';
 import {useFocusEffect} from '@react-navigation/native';
 import {isEmpty} from 'lodash';
+import {getDistance, getPreciseDistance} from 'geolib';
+import ModalView from '../../Components/Modal';
+navigator.geolocation = require('react-native-geolocation-service');
 
 var image1 = new FaceImage();
 var image2 = new FaceImage();
@@ -54,7 +60,7 @@ export default function TaskCompleteDocument({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
   const taskDetail = route?.params?.data?.taskDetail;
   const updatedProofArray = route?.params?.data?.updatedProofArray;
-  console.log(updatedProofArray, 'updatedProofArray');
+  console.log(taskDetail, 'taskDetailtaskDetailtaskDetail');
   const findDataToCheck = route?.params?.data?.findDataToCheck;
   const params = route?.params;
   const [state, setState] = useState({
@@ -75,6 +81,10 @@ export default function TaskCompleteDocument({route, navigation}) {
     img2: null,
     similarity: null,
     liveness: null,
+    currrentlatitude: null,
+    currrentlongitude: null,
+    speed: null,
+    isModalVisible: false,
   });
 
   const {
@@ -94,6 +104,10 @@ export default function TaskCompleteDocument({route, navigation}) {
     otpField,
     similarity,
     liveness,
+    currrentlatitude,
+    currrentlongitude,
+    speed,
+    isModalVisible,
   } = state;
   const commonStyles = commonStylesFunc({fontFamily});
   const updateState = data => setState(state => ({...state, ...data}));
@@ -108,6 +122,41 @@ export default function TaskCompleteDocument({route, navigation}) {
   //Naviagtion to specific screen
   const moveToNewScreen = (screenName, data) => () => {
     navigation.navigate(screenName, {data});
+  };
+
+  useEffect(() => {
+    (async () => {
+      currentLocation();
+    })();
+    return () => {};
+  }, []);
+
+  const currentLocation = () => {
+    chekLocationPermission()
+      .then(result => {
+        if (result !== 'goback') {
+          getCurrentPosition();
+        }
+      })
+      .catch(error => console.log('error while accessing location ', error));
+  };
+
+  const getCurrentPosition = () => {
+    return navigator.geolocation.default.getCurrentPosition(
+      position => {
+        console.log(position, 'position');
+        updateState({
+          currrentlatitude: position.coords.latitude,
+          currrentlongitude: position.coords.longitude,
+          speed: position.coords.speed,
+        });
+      },
+      error => console.log(error.message),
+      {
+        enableHighAccuracy: true,
+        timeout: 20000,
+      },
+    );
   };
 
   useEffect(() => {
@@ -560,6 +609,106 @@ export default function TaskCompleteDocument({route, navigation}) {
     console.log(faceImage, 'faceImage');
   }, [faceImage]);
 
+  const completeAllTask = () => {
+    if (taskDetail?.tasktype?.name == 'Drop') {
+      // Alert.alert(
+      //   ``,
+      //   '',
+      //   [
+      //     {
+      //       text: 'Cancel',
+      //     },
+      //     {
+      //       text: 'Ok',
+      //       onPress: () => {
+
+      //       },
+      //     },
+      //   ],
+      //   {cancelable: true},
+      // );
+      updateState({
+        isModalVisible: true,
+      });
+    } else {
+      _onPressDone();
+    }
+  };
+
+  const calculatePreciseDistance = (data, latitude, longitude) => {
+    if (currrentlatitude && currrentlongitude && data) {
+      var pdis = getDistance(
+        {latitude: currrentlatitude, longitude: currrentlongitude},
+        {
+          latitude: data?.latitude,
+          longitude: data?.longitude,
+        },
+      );
+
+      return pdis / 1000;
+    }
+    return 0;
+  };
+
+  const totalCalculatedTime = () => {
+    if (Number(speed).toFixed(1) != 0) {
+      return (
+        calculatePreciseDistance(
+          taskDetail?.location,
+          currrentlatitude,
+          currrentlongitude,
+        ).toFixed(2) /
+        (Number(speed).toFixed(1) * 18) /
+        5
+      );
+    } else return 0.0;
+  };
+
+  const closeModal = () => {
+    updateState({
+      isModalVisible: false,
+    });
+  };
+
+  const modalMainView = () => {
+    return (
+      <View style={styles.modalMainContainer}>
+        <View style={{flexDirection: 'row', justifyContent: 'space-around'}}>
+          <View>
+            <Text style={styles.distanceTimeTitleTextStyle}>
+              {strings.TOTALDISTANCE}
+            </Text>
+            <Text style={styles.distanceTimeTextStyle}>
+              {calculatePreciseDistance(
+                taskDetail?.location,
+                currrentlatitude,
+                currrentlongitude,
+              ).toFixed(2)}{' '}
+              KM
+            </Text>
+          </View>
+          <View>
+            <Text style={styles.distanceTimeTitleTextStyle}>
+              {strings.TOTALTIME}
+            </Text>
+            <Text style={styles.distanceTimeTextStyle}>
+              {totalCalculatedTime().toFixed(2)}{' '}
+            </Text>
+          </View>
+        </View>
+        <View style={styles.modealBottomContainer} />
+        <View style={styles.modalBottomButtonContainer}>
+          <TouchableOpacity onPress={closeModal}>
+            <Text style={styles.modalText}>{strings.CANCEL}</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => _onPressDone()}>
+            <Text style={styles.modalText}>{strings.OK}</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    );
+  };
+
   return (
     <WrapperContainer
       statusBarColor={colors.white}
@@ -711,8 +860,14 @@ export default function TaskCompleteDocument({route, navigation}) {
       </View>
 
       <View style={{flex: 0.2, paddingVertical: moderateScale(20)}}>
-        <ButtonComponent buttonTitle={strings.DONE} onPress={_onPressDone} />
+        <ButtonComponent
+          buttonTitle={strings.DONE}
+          onPress={() => _onPressDone()}
+        />
       </View>
+      <ModalView isVisible={isModalVisible} modalMainContent={modalMainView} />
     </WrapperContainer>
   );
 }
+
+//completeAllTask

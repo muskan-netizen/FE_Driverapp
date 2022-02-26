@@ -5,6 +5,7 @@ import Header from '../../Components/Header';
 import WrapperContainer from '../../Components/WrapperContainer';
 import imagePath from '../../constants/imagePath';
 import strings from '../../constants/lang';
+import navigationStrings from '../../navigation/navigationStrings';
 import actions from '../../redux/actions';
 import colors from '../../styles/colors';
 import fontFamily from '../../styles/fontFamily';
@@ -19,8 +20,9 @@ import {getImageUrl} from '../../utils/helperFunctions';
 import {stylesFunc} from './styles';
 
 export default function OrderDetail({route, navigation}) {
-
   let paramData = route?.params?.data?.item;
+  let taskDetail = route?.params?.data?.taskDetail;
+  let apiData = route?.params?.data?.apiData;
 
   const [state, setState] = useState({
     allVendorsData: [],
@@ -29,10 +31,17 @@ export default function OrderDetail({route, navigation}) {
   });
   const {allVendorsData, cartData, isLoading} = state;
   const updateState = data => setState(state => ({...state, ...data}));
-
+  const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
+  const userData = useSelector(state => state?.auth?.userData);
+console.log(userData,"userData");
   const defaultLanguagae = useSelector(
     state => state?.initBoot?.defaultLanguage,
   );
+  //Naviagtion to specific screen
+  const moveToNewScreen = (screenName, data) => () => {
+    navigation.navigate(screenName, {data});
+  };
+
   const styles = stylesFunc({defaultLanguagae});
 
   const new_dispatch_traking_url = paramData
@@ -216,17 +225,25 @@ export default function OrderDetail({route, navigation}) {
                             {i?.product_addons.length
                               ? i?.product_addons.map((j, jnx) => {
                                   return (
-                                    <View style={{flexDirection: 'row'}}>
+                                    <View>
                                       <Text
                                         style={styles.cartItemWeight2}
                                         numberOfLines={1}>
                                         {j.addon_title}{' '}
                                       </Text>
+                                      <View style={{flexDirection:'row'}}>
                                       <Text
                                         style={styles.cartItemWeight2}
                                         numberOfLines={
                                           1
                                         }>{`(${j.option_title})`}</Text>
+                                         <Text
+                                        style={styles.cartItemWeight2}
+                                        numberOfLines={
+                                          1
+                                        }>{` ${Number(j?.quantity_price).toFixed(2)}`}</Text>
+                                      </View>
+                                     
                                     </View>
                                   );
                                 })
@@ -268,7 +285,7 @@ export default function OrderDetail({route, navigation}) {
 
         {!!Number(item?.discount_amount) && (
           <View style={styles.itemPriceDiscountTaxView}>
-            <Text style={istyles.priceItemLabel}>{strings.DISCOUNT}</Text>
+            <Text style={styles.priceItemLabel}>{strings.DISCOUNT}</Text>
             <Text style={styles.priceItemLabel}>
               {item?.discount_amount > 0 && item?.discount_amount}
             </Text>
@@ -478,6 +495,14 @@ export default function OrderDetail({route, navigation}) {
     );
   };
 
+  const _onPressEditOrder = () => {
+    moveToNewScreen(navigationStrings.CART, {
+      // cartData: res?.data,
+      taskDetail: taskDetail,
+      apiData: apiData,
+    })();
+  };
+
   return (
     <WrapperContainer
       bgColor={colors.backgroundGrey}
@@ -488,6 +513,16 @@ export default function OrderDetail({route, navigation}) {
         headerStyle={{backgroundColor: colors.white}}
         leftIcon={imagePath.backArrow}
         centerTitle={strings.ORDERDETAILS}
+        customRight={() => (
+          <TouchableOpacity onPress={_onPressEditOrder}>
+            <Text style={styles.editOrder}>{'Edit'}</Text>
+          </TouchableOpacity>
+        )}
+        // customRight={userData && userData?.client_preference?.is_edit_order_driver ?() => (
+        //   <TouchableOpacity onPress={_onPressEditOrder}>
+        //     <Text style={styles.editOrder}>{'Edit'}</Text>
+        //   </TouchableOpacity>
+        // ):null}
         // onPressLeft={() => navigation.toggleDrawer()}
         // hideRight={true}
         // customCenter={() => customCenter()}
