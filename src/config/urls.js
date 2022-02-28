@@ -14,7 +14,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //export const API_BASE_URL = 'http://192.168.103.186:8005/'; // harbans local url
 
-export const API_BASE_URL = 'https://delivery.shoorafresh.com.au/';
+//export const API_BASE_URL = 'https://delivery.shoorafresh.com.au/';
 
 //mml
 // export const API_BASE_URL = 'https://dispatch.mml.mobi/';
