@@ -115,6 +115,7 @@ export default function OrderCancel({route, navigation}) {
           console.log(res, 'submitReason>res>res');
           updateState({isLoading: false});
           navigation.navigate(navigationStrings.DASHBOARD);
+          showError(res?.message);
           //   if (res?.data) {
           //     navigation.navigate(navigationStrings.DASHBOARD);
           //   }
