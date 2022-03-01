@@ -157,6 +157,7 @@ export default function TaskDetail({route, navigation}) {
   const styles = stylesFunc({defaultLanguagae});
   // const userData = useSelector(state => state?.auth?.userData);
 
+  console.log(defaultLanguagae, 'defaultLanguagae');
   const mapRef = useRef();
 
   useEffect(() => {
@@ -439,7 +440,10 @@ export default function TaskDetail({route, navigation}) {
 
     updateState({isLoading: true});
     actions
-      .updateTask(data, {client: clientInfo?.database_name})
+      .updateTask(data, {
+        client: clientInfo?.database_name,
+        language: defaultLanguagae?.value ? defaultLanguagae?.value : 'en',
+      })
       .then(res => {
         console.log(res, 'updateTaskStatus>res>res');
         updateState({isLoading: false});
@@ -517,7 +521,9 @@ export default function TaskDetail({route, navigation}) {
     data['task_id'] = taskDetail?.id;
     console.log(data, 'data');
     actions
-      .sendOtpToDriver(data, {client: clientInfo?.database_name})
+      .sendOtpToDriver(data, {
+        client: clientInfo?.database_name,
+      })
       .then(res => {
         console.log(res, 'sendOtpToDriver>res>res');
         if (res?.status == 200) {

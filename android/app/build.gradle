@@ -2298,6 +2298,156 @@ android {
             applicationId 'com.Bookaryde.royodispatcher'
             resValue "string", "app_name", "Book-A-Ryde Dispatcher"
         }
+         mandaExpress{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.MandaExpress.royodispatcher'
+            resValue "string", "app_name", "MandaExpress Dispatcher"
+        }
+         yalary{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Yalary.royodispatcher'
+            resValue "string", "app_name", "Yalary Dispatcher"
+        }
+         heyBuddy{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.HeyBuddy.royodispatcher'
+            resValue "string", "app_name", "HeyBuddy Dispatcher"
+        }
+        petsChoice{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.PetsChoice.royodispatcher'
+            resValue "string", "app_name", "PetsChoice Dispatcher"
+        }
+        yoloSonic{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.YoloSonic.royodispatcher'
+            resValue "string", "app_name", "YoloSonic Dispatcher"
+        }
+         mrHealth{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.MrHealth.royodispatcher'
+            resValue "string", "app_name", "MrHealth Dispatcher"
+        }
+        ubi{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Ubi.royodispatcher'
+            resValue "string", "app_name", "Ubi Dispatcher"
+        }
+         lOPHT{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.LOPHT.royodispatcher'
+            resValue "string", "app_name", "LOPHT Dispatcher"
+        }
+         seratho{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Seratho.royodispatcher'
+            resValue "string", "app_name", "Seratho Dispatcher"
+        }
+        xborne{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Xborne.royodispatcher'
+            resValue "string", "app_name", "Xborne Dispatcher"
+        }
+        fawaz{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Fawaz.royodispatcher'
+            resValue "string", "app_name", "Fawaz Dispatcher"
+        }
+         myRide{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.MyRide.royodispatcher'
+            resValue "string", "app_name", "MyRide Dispatcher"
+        }
+        gRN{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.GRN.royodispatcher'
+            resValue "string", "app_name", "GRN Dispatcher"
+        }
+        delivadrinks{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Delivadrinks.royodispatcher'
+            resValue "string", "app_name", "Delivadrinks Dispatcher"
+        }
+         getfix{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Getfix.royodispatcher'
+            resValue "string", "app_name", "Getfix Dispatcher"
+        }
     }
 }
 

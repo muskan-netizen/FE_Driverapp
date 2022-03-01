@@ -69,22 +69,22 @@ export default function DashBoard({route, navigation}) {
     region: {
       latitude: 20.5937,
       longitude: 78.9629,
-      latitudeDelta: 0.015,
-      longitudeDelta: 0.0121,
+      latitudeDelta: 0.025,
+      longitudeDelta: 0.0221,
     },
     coordinate: {
       latitude: 20.5937,
       longitude: 78.9629,
-      latitudeDelta: 0.015,
-      longitudeDelta: 0.0121,
+      latitudeDelta: 0.025,
+      longitudeDelta: 0.0221,
     },
     enableMap: true,
     markers: [],
     isLoadingSwitch: false,
     fcm_token: null,
     statusChanged: false,
-    longitude: null,
-    latitude: null,
+    longitude: 77.4753352147053,
+    latitude: 27.685284872673407,
     heading: 0,
     isWarningAlert: false,
     warningStatus: false,
@@ -124,10 +124,6 @@ export default function DashBoard({route, navigation}) {
   );
   const fcmToken = useSelector(state => state?.initBoot?.fcmToken);
   const zendeskKeys = useSelector(state => state?.initBoot?.zendeskKeys);
-  console.log(
-    refreshHomeData,
-    'drivreedispatcherdrivreedispatcherdrivreedispatcher',
-  );
 
   const initWatchPosition = () => {
     Geolocation_.watchPosition(
@@ -559,6 +555,27 @@ export default function DashBoard({route, navigation}) {
     fitToMap();
   }, [markers, enableMap]);
 
+  useEffect(() => {
+    if (latitude && longitude) {
+      console.log('regionregion', region);
+      // {"latitude": 20.5937, "latitudeDelta": 0.015, "longitude": 78.9629, "longitudeDelta": 0.0121}
+      fitPadding([
+        {
+          latitude: Number(latitude),
+          longitude: Number(longitude),
+          latitudeDelta: 0.035,
+          longitudeDelta: 0.0321,
+        },
+        {
+          latitude: Number(latitude) - 0.001,
+          longitude: Number(longitude) - 0.01,
+          latitudeDelta: 0.035,
+          longitudeDelta: 0.0321,
+        },
+      ]);
+    }
+  }, [latitude, longitude]);
+
   //show warrning
 
   const _onOpenSettings = () => {
@@ -594,10 +611,7 @@ export default function DashBoard({route, navigation}) {
 
   const mapRef = useRef();
 
-  console.log(latitude, longitude, 'latitude, longitude');
-
   const fitPadding = newArray => {
-    console.log([{latitude, longitude}, ...newArray], 'newArraynewArray');
     if (mapRef.current) {
       mapRef.current.fitToCoordinates([{latitude, longitude}, ...newArray], {
         edgePadding: {top: 80, right: 80, bottom: 80, left: 80},
@@ -612,13 +626,14 @@ export default function DashBoard({route, navigation}) {
     return (
       <MapView
         ref={mapRef}
-        //  provider={PROVIDER_GOOGLE} // remove if not using Google Maps
+        //provider={PROVIDER_GOOGLE} // remove if not using Google Maps
         style={styles.map}
         region={region}
-        // initialRegion={region}
+        zoomEnabled={true}
+        initialRegion={region}
         // showsUserLocation={true}
-        showsMyLocationButton={true}
-        // onLayout={() => fitToMap()}
+        //showsMyLocationButton={true}
+        onLayout={() => fitToMap()}
         //   customMapStyle={mapStyle}
         onRegionChangeComplete={_onRegionChange}>
         {markers?.map((coordinate, index) => (

@@ -383,7 +383,6 @@ export default function Cart({navigation, route}) {
 
   //add /delete products from cart
   const addDeleteCartItems = (item, index, type) => {
-    
     console.log(item, 'itemitemitemitem');
     console.log(cartData, 'cartDatacartDatacartDatacartData');
     let quanitity = null;

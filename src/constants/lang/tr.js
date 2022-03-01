@@ -239,4 +239,6 @@ export default {
   PLEASEENTERDAMAGETITLE: 'Please enter the damage title',
   ADDCOMMENT: 'Please add the comment',
   ATLEASEONEIMAGE: 'Please upload atlease one image',
+  TOTALDISTANCE: 'Total Distance',
+  TOTALTIME: 'Total Time',
 };

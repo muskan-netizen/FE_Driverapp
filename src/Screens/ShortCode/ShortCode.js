@@ -1298,6 +1298,98 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.mandaExpress:
+          updateState({
+            shortCode: shortCodes.mandaExpress,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.yalary:
+          updateState({
+            shortCode: shortCodes.yalary,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.heyBuddy:
+          updateState({
+            shortCode: shortCodes.heyBuddy,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.petsChoice:
+          updateState({
+            shortCode: shortCodes.petsChoice,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.yoloSonic:
+          updateState({
+            shortCode: shortCodes.yoloSonic,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.mrHealth:
+          updateState({
+            shortCode: shortCodes.mrHealth,
+            isShortcodePrefilled: true,
+          });
+          break;
+          break;
+        case appIds.ubi:
+          updateState({
+            shortCode: shortCodes.ubi,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.lOPHT:
+          updateState({
+            shortCode: shortCodes.lOPHT,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.seratho:
+          updateState({
+            shortCode: shortCodes.seratho,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.xborne:
+          updateState({
+            shortCode: shortCodes.xborne,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.fawaz:
+          updateState({
+            shortCode: shortCodes.fawaz,
+            isShortcodePrefilled: true,
+          });
+          break;
+          break;
+        case appIds.gRN:
+          updateState({
+            shortCode: shortCodes.gRN,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.myRide:
+          updateState({
+            shortCode: shortCodes.myRide,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.delivadrinks:
+          updateState({
+            shortCode: shortCodes.delivadrinks,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.getfix:
+          updateState({
+            shortCode: shortCodes.getfix,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);
@@ -1357,8 +1449,8 @@ export default function ShortCode({route, navigation}) {
         };
       }
 
-      // let updatedShortCode = shortCode;
-      let updatedShortCode = '1da2e9';
+      let updatedShortCode = shortCode;
+      // let updatedShortCode = '1da2e9';
       actions
         .initApp({shortCode: updatedShortCode}, header)
         .then(res => {
