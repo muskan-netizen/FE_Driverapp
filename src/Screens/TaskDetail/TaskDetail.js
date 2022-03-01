@@ -676,7 +676,7 @@ export default function TaskDetail({route, navigation}) {
             </View>
             <View>
               <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                {!fromHistory && (
+                {!fromHistory && checkCallBackUrlForShowOrderDeatils() && (
                   <TouchableOpacity
                     onPress={cancelOrder}
                     disabled={cancelRequestExit ? true : false}
@@ -719,14 +719,16 @@ export default function TaskDetail({route, navigation}) {
               </TouchableOpacity> */}
               </View>
 
-              <View>
-                <Text
-                  style={{color: colors.black, fontFamily: fontFamily?.bold}}>
-                  {cancelRequestExit && cancelRequestExit != ''
-                    ? `Status: ${cancelRequestExit.status}`
-                    : ''}
-                </Text>
-              </View>
+              {!fromHistory && checkCallBackUrlForShowOrderDeatils() && (
+                <View>
+                  <Text
+                    style={{color: colors.black, fontFamily: fontFamily?.bold}}>
+                    {cancelRequestExit && cancelRequestExit != ''
+                      ? `Status: ${cancelRequestExit.status}`
+                      : ''}
+                  </Text>
+                </View>
+              )}
             </View>
           </View>
 
