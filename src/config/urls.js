@@ -16,13 +16,9 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //export const API_BASE_URL = 'https://delivery.shoorafresh.com.au/';
 
-<<<<<<< HEAD
-
 //DOORSTEP
 // export const API_BASE_URL = 'https://dispatch.doorstep.sd/';
 
-=======
->>>>>>> 46e1a4c53e8a9f324383e97470a0d661d7cfeafd
 //
 //export const API_BASE_URL = 'https://dispatch.samakeemart.com/';
 
@@ -205,5 +201,3 @@ export const GETORDERDETAILFORTASK = getApiUrl(
 );
 export const GETCANCELORDERREASONLIST = getApiUrl('api/order/cancel/reasons');
 export const CANCELORDER = getApiUrl('api/order/cancel/request/create');
-
-
