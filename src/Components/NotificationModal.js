@@ -231,7 +231,9 @@ const NotificationModal = () => {
                 {` ${taskId}`}
               </Text>
             </View>
-            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            {
+              orderCost && 
+              <View style={{flexDirection: 'row', alignItems: 'center'}}>
               <Text
                 numberOfLines={1}
                 style={{
@@ -255,6 +257,8 @@ const NotificationModal = () => {
                 {` ${orderCost}`}
               </Text>
             </View>
+            }
+            
           </View>
           <View style={{flexDirection: 'row'}}>
             <View>
@@ -313,7 +317,9 @@ const NotificationModal = () => {
                 </View>
               )}
             </View>
-            <View style={{alignItems: 'center'}}>
+            {
+              totalDistance && 
+              <View style={{alignItems: 'center'}}>
               <Text
                 style={[styles.dateTimeStyle, {marginTop: moderateScale(10)}]}>
                 {strings.TASKDISTANCE}
@@ -328,6 +334,8 @@ const NotificationModal = () => {
                 {`${totalDistance}`}
               </Text>
             </View>
+            }
+           
           </View>
         </View>
         {data?.type == 'AR' ? (
