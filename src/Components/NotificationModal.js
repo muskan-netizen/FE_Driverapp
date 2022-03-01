@@ -66,16 +66,20 @@ const NotificationModal = () => {
 
   useEffect(() => {
     let data = notificationData?.notificationData?.data;
-    getCustomNotificationData();
-    if (data) {
-      updateState({
-        region: {
-          latitude: Number(data?.lat),
-          longitude: Number(data?.long),
-          latitudeDelta: 0.015,
-          longitudeDelta: 0.0121,
-        },
-      });
+    if (data && data?.order_id) {
+      getCustomNotificationData();
+    }
+    if (data?.lat && data?.long) {
+      if (data) {
+        updateState({
+          region: {
+            latitude: Number(data?.lat),
+            longitude: Number(data?.long),
+            latitudeDelta: 0.015,
+            longitudeDelta: 0.0121,
+          },
+        });
+      }
     }
   }, [notificationData?.notificationData?.data]);
 

@@ -23,6 +23,13 @@ export default function OrderDetail({route, navigation}) {
   let paramData = route?.params?.data?.item;
   let taskDetail = route?.params?.data?.taskDetail;
   let apiData = route?.params?.data?.apiData;
+  let fromNotification = route?.params?.data?.fromNotification;
+  console.log(route, 'rute data');
+  console.log(route?.params?.data, 'allparams');
+  console.log(paramData, 'paramData');
+  console.log(taskDetail, 'taskDetail');
+  console.log(apiData, 'apiData');
+  console.log(fromNotification, 'fromNotification');
 
   const [state, setState] = useState({
     allVendorsData: [],
@@ -33,7 +40,7 @@ export default function OrderDetail({route, navigation}) {
   const updateState = data => setState(state => ({...state, ...data}));
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
   const userData = useSelector(state => state?.auth?.userData);
-console.log(userData,"userData");
+  console.log(userData, 'userData');
   const defaultLanguagae = useSelector(
     state => state?.initBoot?.defaultLanguage,
   );
@@ -231,19 +238,18 @@ console.log(userData,"userData");
                                         numberOfLines={1}>
                                         {j.addon_title}{' '}
                                       </Text>
-                                      <View style={{flexDirection:'row'}}>
-                                      <Text
-                                        style={styles.cartItemWeight2}
-                                        numberOfLines={
-                                          1
-                                        }>{`(${j.option_title})`}</Text>
-                                         <Text
-                                        style={styles.cartItemWeight2}
-                                        numberOfLines={
-                                          1
-                                        }>{` ${Number(j?.quantity_price).toFixed(2)}`}</Text>
+                                      <View style={{flexDirection: 'row'}}>
+                                        <Text
+                                          style={styles.cartItemWeight2}
+                                          numberOfLines={
+                                            1
+                                          }>{`(${j.option_title})`}</Text>
+                                        <Text
+                                          style={styles.cartItemWeight2}
+                                          numberOfLines={1}>{` ${Number(
+                                          j?.quantity_price,
+                                        ).toFixed(2)}`}</Text>
                                       </View>
-                                     
                                     </View>
                                   );
                                 })
@@ -513,11 +519,13 @@ console.log(userData,"userData");
         headerStyle={{backgroundColor: colors.white}}
         leftIcon={imagePath.backArrow}
         centerTitle={strings.ORDERDETAILS}
-        customRight={() => (
-          <TouchableOpacity onPress={_onPressEditOrder}>
-            <Text style={styles.editOrder}>{'Edit'}</Text>
-          </TouchableOpacity>
-        )}
+        customRight={() =>
+          !fromNotification && (
+            <TouchableOpacity onPress={_onPressEditOrder}>
+              <Text style={styles.editOrder}>{'Edit'}</Text>
+            </TouchableOpacity>
+          )
+        }
         // customRight={userData && userData?.client_preference?.is_edit_order_driver ?() => (
         //   <TouchableOpacity onPress={_onPressEditOrder}>
         //     <Text style={styles.editOrder}>{'Edit'}</Text>

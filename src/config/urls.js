@@ -12,10 +12,19 @@ export const API_BASE_URL = 'https://api.winhires.com/';
 // export const API_BASE_URL = 'http://192.168.102.23:8005/'; // Gourav.s local url
 // export const API_BASE_URL = 'http://192.168.97.104:8010/'; // Sujata.s local url
 
+//export const API_BASE_URL = 'http://192.168.103.186:8005/'; // harbans local url
 
-//Soorafresh
-// export const API_BASE_URL = 'https://delivery.shoorafresh.com.au/';
+//export const API_BASE_URL = 'https://delivery.shoorafresh.com.au/';
 
+
+//DOORSTEP
+// export const API_BASE_URL = 'https://dispatch.doorstep.sd/';
+
+//
+//export const API_BASE_URL = 'https://dispatch.samakeemart.com/';
+
+//mml
+// export const API_BASE_URL = 'https://dispatch.mml.mobi/';
 
 //sirvu
 //export const API_BASE_URL = 'https://dispatch.sirvu.ca/';
@@ -69,7 +78,7 @@ export const API_BASE_URL = 'https://api.winhires.com/';
 //export const API_BASE_URL = 'https://dispatch.cannabusxpress.com/';
 
 // govachow
-//export const API_BASE_URL = 'https://dispatch.govachow.com/';
+// export const API_BASE_URL = 'https://dispatch.govachow.com/';
 
 // africanize
 // export const API_BASE_URL = 'https://dispatch.africanize.co/'
@@ -133,7 +142,7 @@ export const API_BASE_URL = 'https://api.winhires.com/';
 //export const API_BASE_URL = 'https://dispatch.donepacked.com/';
 
 // elcheregio live domain
-//export const API_BASE_URL = 'https://dispatch.elcheregio.mx/';
+//export const API_BASE_URL = 'https://dispatch.elcheregio.mx/';f
 
 // sunshinerideshare live domain
 //export const API_BASE_URL = 'https://dispatch.sunshinerideshare.com/';
@@ -144,7 +153,7 @@ export const API_BASE_URL = 'https://api.winhires.com/';
 //stonses live domain
 //export const API_BASE_URL = 'https://dispatcher.verofax.com/';
 
-export const personaltoken = 'TMJdbQlNWkYl1JzMONzRgF4zQFuP8s';
+// export const personaltoken = 'TMJdbQlNWkYl1JzMONzRgF4zQFuP8s';
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;
 
 export const SEND_OTP = getApiUrl('api/auth/login');

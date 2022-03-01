@@ -4,6 +4,8 @@ import PushNotificationIOS from '@react-native-community/push-notification-ios';
 import messaging from '@react-native-firebase/messaging';
 import PushNotification from 'react-native-push-notification';
 import actions from '../redux/actions';
+import {navigate} from '../navigation/NavigationService';
+import navigationStrings from '../navigation/navigationStrings';
 
 const ShowNotificationForeground = props => {
   useEffect(() => {
@@ -11,7 +13,6 @@ const ShowNotificationForeground = props => {
       console.log('remote message foreground', JSON.stringify(remoteMessage));
       const {data, messageId, notification} = remoteMessage;
 
-      
       {
         Platform.OS == 'ios'
           ? PushNotificationIOS.addNotificationRequest({
@@ -37,19 +38,29 @@ const ShowNotificationForeground = props => {
         Platform.OS == 'android' &&
         notification.android.sound == 'notification'
       ) {
-        if (data?.type != 'N') {
+        if (data && data?.type && data?.type != 'N') {
           actions.isModalVisibleForAcceptReject({
             isModalVisibleForAcceptReject: true,
             notificationData: remoteMessage,
           });
         }
+        if (data?.callback_url != '' && data?.callback_url != null) {
+          navigate(navigationStrings.ORDERDETAIL, {
+            data: {item: data?.callback_url, fromNotification: true},
+          });
+        }
       }
       if (Platform.OS == 'ios' && notification.sound == 'notification.mp3') {
         console.log('here>>3');
-        if (data?.type != 'N') {
+        if (data && data?.type && data?.type != 'N') {
           actions.isModalVisibleForAcceptReject({
             isModalVisibleForAcceptReject: true,
             notificationData: remoteMessage,
+          });
+        }
+        if (data?.callback_url != '' && data?.callback_url != null) {
+          navigate(navigationStrings.ORDERDETAIL, {
+            data: {item: data?.callback_url, fromNotification: true},
           });
         }
       }
