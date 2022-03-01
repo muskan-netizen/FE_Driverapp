@@ -16,6 +16,9 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //export const API_BASE_URL = 'https://delivery.shoorafresh.com.au/';
 
+//
+//export const API_BASE_URL = 'https://dispatch.samakeemart.com/';
+
 //mml
 // export const API_BASE_URL = 'https://dispatch.mml.mobi/';
 
@@ -71,7 +74,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //export const API_BASE_URL = 'https://dispatch.cannabusxpress.com/';
 
 // govachow
-//export const API_BASE_URL = 'https://dispatch.govachow.com/';
+// export const API_BASE_URL = 'https://dispatch.govachow.com/';
 
 // africanize
 // export const API_BASE_URL = 'https://dispatch.africanize.co/'
@@ -135,7 +138,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //export const API_BASE_URL = 'https://dispatch.donepacked.com/';
 
 // elcheregio live domain
-//export const API_BASE_URL = 'https://dispatch.elcheregio.mx/';
+//export const API_BASE_URL = 'https://dispatch.elcheregio.mx/';f
 
 // sunshinerideshare live domain
 //export const API_BASE_URL = 'https://dispatch.sunshinerideshare.com/';
