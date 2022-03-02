@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     fontFamily: fontFamily.semiBold,
     color: colors.black,
   },
-  textInputStyle: {width: width / 2},
+  textInputStyle: {width: width - 40},
 });
 
 export default SwitchSelectorComponent;

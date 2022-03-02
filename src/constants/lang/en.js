@@ -284,4 +284,7 @@ export default {
   EDIT: 'Edit',
   TOTALDISTANCE: ' Total Distance',
   TOTALTIME: 'Total Time',
+  CANCELORDER:"Cancel Order",
+  CANCELORDERMESSAGE: "If you want to cancel the order,Press 'OK'",
+  RESEONCANCEL:"Reason"
 };

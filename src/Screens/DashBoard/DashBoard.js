@@ -330,7 +330,7 @@ export default function DashBoard({route, navigation}) {
   const getTasks = () => {
     actions
       .getListOfTasks(
-        `?all=${initial}`,
+        `?all=${selectedOption}`,
         {},
         {client: clientInfo?.database_name},
       )
@@ -413,7 +413,7 @@ export default function DashBoard({route, navigation}) {
   };
 
   const updateContent = value => {
-    updateState({initial: value, isLoading: true});
+    updateState({selectedOption: value, isLoading: true});
   };
   const customCenter = () => {
     return (
@@ -700,7 +700,7 @@ export default function DashBoard({route, navigation}) {
         onPressLeft={() => navigation.toggleDrawer()}
         // hideRight={true}
         customCenter={() => customCenter()}
-        rightIcon={!enableMap ? imagePath.listMenu : imagePath.map}
+        rightIcon={!enableMap ? imagePath.map : imagePath.listMenu}
         onPressRight={() => {
           updateState({enableMap: !enableMap});
           // navigation.navigate(navigationStrings.SEARCHPRODUCTOVENDOR)
@@ -769,7 +769,7 @@ export default function DashBoard({route, navigation}) {
         {isEnabled ? (
           <SwitchSelectorComponent
             options={options}
-            initial={initial}
+            initial={selectedOption}
             onPress={value => updateContent(value)}
           />
         ) : (

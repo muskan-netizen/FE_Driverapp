@@ -1596,7 +1596,7 @@ export default function Cart({navigation, route}) {
                             </View>
                           </View>
                         </View>
-                        <TouchableOpacity
+                        {/* <TouchableOpacity
                           onPress={() => _selectItemToUpdate(item)}
                           style={{marginTop: moderateScale(5)}}>
                           <Text
@@ -1607,7 +1607,7 @@ export default function Cart({navigation, route}) {
                             }}>
                             {strings.EDIT}
                           </Text>
-                        </TouchableOpacity>
+                        </TouchableOpacity> */}
 
                         <TouchableOpacity
                           style={{

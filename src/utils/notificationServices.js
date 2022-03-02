@@ -2,6 +2,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import messaging from '@react-native-firebase/messaging';
 
 import PushNotification, {Importance} from 'react-native-push-notification';
+import {navigate} from '../navigation/NavigationService';
+import navigationStrings from '../navigation/navigationStrings';
 import actions from '../redux/actions';
 
 export async function requestUserPermission(callback = () => {}) {
@@ -95,11 +97,23 @@ export const notificationListener = async () => {
       notification?.sound == 'notification.mp3' ||
       notification?.android?.sound == 'notification'
     ) {
-      console.log('here>>1');
-      actions.isModalVisibleForAcceptReject({
-        isModalVisibleForAcceptReject: true,
-        notificationData: remoteMessage,
-      });
+      if (
+        notification?.data?.callback_url != '' &&
+        notification?.data?.callback_url != null
+      ) {
+        navigate(navigationStrings.ORDERDETAIL, {
+          data: {
+            item: notification?.data?.callback_url,
+            fromNotification: true,
+          },
+        });
+      } else {
+        console.log('here>>1');
+        actions.isModalVisibleForAcceptReject({
+          isModalVisibleForAcceptReject: true,
+          notificationData: remoteMessage,
+        });
+      }
     }
   });
 
@@ -121,11 +135,23 @@ export const notificationListener = async () => {
           notification?.sound == 'notification.mp3' ||
           notification?.android?.sound == 'notification'
         ) {
-          console.log('here>>2');
-          actions.isModalVisibleForAcceptReject({
-            isModalVisibleForAcceptReject: true,
-            notificationData: remoteMessage,
-          });
+          if (
+            notification?.data?.callback_url != '' &&
+            notification?.data?.callback_url != null
+          ) {
+            navigate(navigationStrings.ORDERDETAIL, {
+              data: {
+                item: notification?.data?.callback_url,
+                fromNotification: true,
+              },
+            });
+          } else {
+            console.log('here>>2');
+            actions.isModalVisibleForAcceptReject({
+              isModalVisibleForAcceptReject: true,
+              notificationData: remoteMessage,
+            });
+          }
         }
       }
     });

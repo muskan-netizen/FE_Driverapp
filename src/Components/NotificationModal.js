@@ -66,16 +66,20 @@ const NotificationModal = () => {
 
   useEffect(() => {
     let data = notificationData?.notificationData?.data;
-    getCustomNotificationData();
-    if (data) {
-      updateState({
-        region: {
-          latitude: Number(data?.lat),
-          longitude: Number(data?.long),
-          latitudeDelta: 0.015,
-          longitudeDelta: 0.0121,
-        },
-      });
+    if (data && data?.order_id) {
+      getCustomNotificationData();
+    }
+    if (data?.lat && data?.long) {
+      if (data) {
+        updateState({
+          region: {
+            latitude: Number(data?.lat),
+            longitude: Number(data?.long),
+            latitudeDelta: 0.015,
+            longitudeDelta: 0.0121,
+          },
+        });
+      }
     }
   }, [notificationData?.notificationData?.data]);
 
@@ -227,7 +231,9 @@ const NotificationModal = () => {
                 {` ${taskId}`}
               </Text>
             </View>
-            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            {
+              orderCost && 
+              <View style={{flexDirection: 'row', alignItems: 'center'}}>
               <Text
                 numberOfLines={1}
                 style={{
@@ -251,6 +257,8 @@ const NotificationModal = () => {
                 {` ${orderCost}`}
               </Text>
             </View>
+            }
+            
           </View>
           <View style={{flexDirection: 'row'}}>
             <View>
@@ -309,7 +317,9 @@ const NotificationModal = () => {
                 </View>
               )}
             </View>
-            <View style={{alignItems: 'center'}}>
+            {
+              totalDistance && 
+              <View style={{alignItems: 'center'}}>
               <Text
                 style={[styles.dateTimeStyle, {marginTop: moderateScale(10)}]}>
                 {strings.TASKDISTANCE}
@@ -324,6 +334,8 @@ const NotificationModal = () => {
                 {`${totalDistance}`}
               </Text>
             </View>
+            }
+           
           </View>
         </View>
         {data?.type == 'AR' ? (

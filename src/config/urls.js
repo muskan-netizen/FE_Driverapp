@@ -16,6 +16,12 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //export const API_BASE_URL = 'https://delivery.shoorafresh.com.au/';
 
+//DOORSTEP
+// export const API_BASE_URL = 'https://dispatch.doorstep.sd/';
+
+//
+//export const API_BASE_URL = 'https://dispatch.samakeemart.com/';
+
 //mml
 // export const API_BASE_URL = 'https://dispatch.mml.mobi/';
 
@@ -71,7 +77,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //export const API_BASE_URL = 'https://dispatch.cannabusxpress.com/';
 
 // govachow
-//export const API_BASE_URL = 'https://dispatch.govachow.com/';
+// export const API_BASE_URL = 'https://dispatch.govachow.com/';
 
 // africanize
 // export const API_BASE_URL = 'https://dispatch.africanize.co/'
@@ -135,7 +141,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //export const API_BASE_URL = 'https://dispatch.donepacked.com/';
 
 // elcheregio live domain
-//export const API_BASE_URL = 'https://dispatch.elcheregio.mx/';
+//export const API_BASE_URL = 'https://dispatch.elcheregio.mx/';f
 
 // sunshinerideshare live domain
 //export const API_BASE_URL = 'https://dispatch.sunshinerideshare.com/';
@@ -146,7 +152,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //stonses live domain
 //export const API_BASE_URL = 'https://dispatcher.verofax.com/';
 
-export const personaltoken = 'TMJdbQlNWkYl1JzMONzRgF4zQFuP8s';
+// export const personaltoken = 'TMJdbQlNWkYl1JzMONzRgF4zQFuP8s';
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;
 
 export const SEND_OTP = getApiUrl('api/auth/login');
@@ -193,3 +199,5 @@ export const REIMBURSEMENT = getApiUrl('api/agent/create/reimbursement');
 export const GETORDERDETAILFORTASK = getApiUrl(
   'edit-order/vendor/products/getProductsInCart',
 );
+export const GETCANCELORDERREASONLIST = getApiUrl('api/order/cancel/reasons');
+export const CANCELORDER = getApiUrl('api/order/cancel/request/create');

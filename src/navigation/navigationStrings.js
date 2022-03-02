@@ -32,7 +32,8 @@ export default {
   CART:"Cart",
   PLACEHOLDERCOMMENTFORPICKUPDRIVER: 'Eg. Please reach before time if possible',
   SEARCHPRODUCTOVENDOR: 'SearchProductVendorItem',
-  PRODUCTDETAIL: 'productDetail'
+  PRODUCTDETAIL: 'productDetail',
+  ORDERCANCEL:"Ordercancel"
 
 
 };

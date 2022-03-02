@@ -124,9 +124,11 @@ export default function TaskDetail({route, navigation}) {
     findDataToCheck: null,
     productAllInsrucations: [],
     apiData: null,
+    cancelRequestExit: null,
   });
 
   const {
+    cancelRequestExit,
     vendors,
     findDataToCheck,
     updatedProofArray,
@@ -306,10 +308,11 @@ export default function TaskDetail({route, navigation}) {
     actions
       .getProductUpdateDetails(new_dispatch_traking_url(), {})
       .then(res => {
-        console.log(res?.data, 'all response after hit order api');
+        console.log(res, 'all response after hit order api');
         updateState({
           vendors: res?.data?.vendors[0]?.vendor,
           apiData: res.data,
+          cancelRequestExit: res?.data?.vendors[0]?.cancel_request,
         });
 
         const productAllInsrucations = res?.data?.vendors.map((item, index) => {
@@ -585,7 +588,8 @@ export default function TaskDetail({route, navigation}) {
         </View>
       );
     }
-    return (
+    return cancelRequestExit ? null : (
+      // return (
       <View style={styles.container}>
         <TouchableWithoutFeedback
           onPressIn={taskStatus == 3 ? redirectToDoneScreen : handlePressIn}
@@ -676,13 +680,39 @@ export default function TaskDetail({route, navigation}) {
                 }`}
               </Text>
             </View>
-            <View style={{flexDirection: 'row', alignItems: 'center'}}>
-              {taskDetail?.barcode && (
-                <View style={{justifyContent: 'center'}}>
-                  <Image source={imagePath?.barcode2} />
-                </View>
-              )}
-              {/* <TouchableOpacity
+            <View>
+              <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                {!fromHistory && checkCallBackUrlForShowOrderDeatils() && (
+                  <TouchableOpacity
+                    onPress={cancelOrder}
+                    disabled={cancelRequestExit ? true : false}
+                    style={[
+                      styles.statusView,
+                      {
+                        backgroundColor: colors.themeColor,
+                        borderRadius: moderateScale(5),
+                        // backgroundColor: getBackGroudColor(taskDetail?.tasktype?.name),
+                        marginVertical: moderateScaleVertical(5),
+                      },
+                    ]}>
+                    <Text
+                      style={[
+                        styles.taskNameTextstyle,
+                        // {color: getTextColor(taskDetail?.tasktype?.name)},
+                        {color: colors.white, opacity: 1},
+                      ]}>
+                      {strings.CANCELORDER}
+                    </Text>
+                  </TouchableOpacity>
+                )}
+
+                {taskDetail?.barcode && (
+                  <View style={{justifyContent: 'center'}}>
+                    <Image source={imagePath?.barcode2} />
+                  </View>
+                )}
+
+                {/* <TouchableOpacity
                 onPress={_onPressEditOrder}
                 style={{
                   padding: 5,
@@ -693,6 +723,18 @@ export default function TaskDetail({route, navigation}) {
                 }}>
                 <Text style={styles.editOrder}>{'Edit order'}</Text>
               </TouchableOpacity> */}
+              </View>
+
+              {!fromHistory && checkCallBackUrlForShowOrderDeatils() && (
+                <View>
+                  <Text
+                    style={{color: colors.black, fontFamily: fontFamily?.bold}}>
+                    {cancelRequestExit && cancelRequestExit != ''
+                      ? `Status: ${cancelRequestExit.status}`
+                      : ''}
+                  </Text>
+                </View>
+              )}
             </View>
           </View>
 
@@ -1202,6 +1244,21 @@ export default function TaskDetail({route, navigation}) {
         text: strings.OK,
         onPress: () =>
           moveToNewScreen(navigationStrings.TASKCANCEL, taskDetail)(),
+      },
+    ]);
+  };
+
+  const cancelOrder = () => {
+    Alert.alert('', strings.CANCELORDERMESSAGE, [
+      {
+        text: strings.CANCEL,
+        onPress: () => console.log('Cancel Pressed'),
+        style: 'cancel',
+      },
+      {
+        text: strings.OK,
+        onPress: () =>
+          moveToNewScreen(navigationStrings.ORDERCANCEL, taskDetail)(),
       },
     ]);
   };

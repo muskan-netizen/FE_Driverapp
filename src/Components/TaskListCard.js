@@ -110,13 +110,37 @@ const TaskListCard = ({
         opacity={getDynamicUpdateOnValues().blur}
         style={{
           ...styles.shadowStyle,
+
+          borderTopRadius: 8,
+          borderLeftRadius: 8,
+          borderRightRadius: 8,
+          borderBottomRadius:
+            allTasks[index]?.order.id == allTasks[index + 1]?.order.id ? 0 : 8,
           marginBottom:
-            allTasks[index]?.order.id == allTasks[index + 1]?.order.id ? 1 : 20,
+            allTasks[index]?.order.id == allTasks[index + 1]?.order.id
+              ? -2
+              : 20,
+          ...generateBoxShadowStyle(
+            -2,
+            allTasks[index]?.order.id == allTasks[index + 1]?.order.id ? -2 : 4,
+            '#171717',
+            0.2,
+            3,
+            4,
+            '#171717',
+          ),
         }}>
         <View
           style={[
             styles.borderLine,
-            {backgroundColor: getDynamicUpdateOnValues().backgroundColor},
+
+            {
+              backgroundColor: getDynamicUpdateOnValues().backgroundColor,
+              borderBottomLeftRadius:
+                allTasks[index]?.order.id == allTasks[index + 1]?.order.id
+                  ? 0
+                  : 8,
+            },
           ]}
         />
         <View style={styles.mainContainer}>
@@ -188,7 +212,8 @@ const TaskListCard = ({
             <Text
               style={[
                 styles.taskTypeName,
-                {color: getTextColor(data?.tasktype?.name)},
+                // {color: getTextColor(data?.tasktype?.name)},
+                {color: colors.black},
               ]}>
               {`${
                 (data?.tasktype?.name).toLowerCase() == 'drop'
@@ -218,16 +243,14 @@ export function stylesFunc({defaultLanguagae}) {
       borderWidth: 1,
       marginHorizontal: moderateScale(10),
       borderColor: colors.grey2,
-      borderRadius: 8,
+
       backgroundColor: colors.white,
       height: moderateScaleVertical(100),
-      ...generateBoxShadowStyle(-2, 4, '#171717', 0.2, 3, 4, '#171717'),
     },
     borderLine: {
       width: moderateScale(5),
-
-      borderBottomLeftRadius: 8,
       borderTopLeftRadius: 8,
+      borderBottomLeftRadius: 8,
     },
     dateTimeStyle: {
       fontFamily: fontFamily.semiBold,
@@ -273,7 +296,7 @@ export function stylesFunc({defaultLanguagae}) {
     },
     taskTypeName: {
       textAlign: 'center',
-      fontFamily: fontFamily.medium,
+      fontFamily: fontFamily.bold,
       fontSize: textScale(10),
     },
   });
