@@ -71,7 +71,7 @@
 //export const API_BASE_URL = 'https://dispatch.pinkjettaxi.com/';
 
 // Yoho
-//export const API_BASE_URL = 'https://dispatch.yohopartner.com/';
+export const API_BASE_URL = 'https://dispatch.yohopartner.com/';
 
 // cannabusxpress
 //export const API_BASE_URL = 'https://dispatch.cannabusxpress.com/';
