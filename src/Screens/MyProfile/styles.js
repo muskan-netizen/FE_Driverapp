@@ -48,7 +48,7 @@ export default ({defaultLanguagae}) => {
       marginVertical: moderateScale(20),
     },
     personalInfoContainer: {
-      marginTop: moderateScale(20),
+      marginTop: moderateScale(30),
     },
     transportationViewStyle: {
       height: moderateScaleVertical(60),
@@ -69,6 +69,13 @@ export default ({defaultLanguagae}) => {
     },
     textInputStyle: {
       textAlign: defaultLanguagae?.value === 'ar' ? 'right' : 'left',
+    },
+    label2: {
+      marginBottom: moderateScaleVertical(5),
+  
+      fontSize: textScale(12),
+      fontFamily: fontFamily.medium,
+      color: colors.lightGreyBg2,
     },
   });
   return styles;

@@ -2,7 +2,7 @@
 // export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //Developement
 // export const API_BASE_URL = 'https://api.winhires.com/';
@@ -16,13 +16,10 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //export const API_BASE_URL = 'https://delivery.shoorafresh.com.au/';
 
-<<<<<<< HEAD
 
 //DOORSTEP
 // export const API_BASE_URL = 'https://dispatch.doorstep.sd/';
 
-=======
->>>>>>> 46e1a4c53e8a9f324383e97470a0d661d7cfeafd
 //
 //export const API_BASE_URL = 'https://dispatch.samakeemart.com/';
 
@@ -75,7 +72,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //export const API_BASE_URL = 'https://dispatch.pinkjettaxi.com/';
 
 // Yoho
-//export const API_BASE_URL = 'https://dispatch.yohopartner.com/';
+export const API_BASE_URL = 'https://dispatch.yohopartner.com/';
 
 // cannabusxpress
 //export const API_BASE_URL = 'https://dispatch.cannabusxpress.com/';
