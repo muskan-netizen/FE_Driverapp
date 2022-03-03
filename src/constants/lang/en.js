@@ -187,7 +187,7 @@ export default {
   PAYOUT_REQUEST: 'Payout',
   BENEFICIARY_NAME: 'Account holder name',
   BENEFICIARY_AC_NUMBER: 'Bank account number',
-  BENEFICIARY_IFSC: 'IFSC Code',
+  BENEFICIARY_IFSC: 'IFSC/SWIFT Code',
   BENEFICIARY_ADDRESS: 'Beneficiary Address',
   PLEASE_ENTER: 'Please enter',
   NOTIFICATION: 'Notification',

@@ -57,7 +57,7 @@
 // export const API_BASE_URL = 'https://envios.vici.la/'
 
 //trucktirenow
-//export const API_BASE_URL = 'https://dispatch.trucktirenow.com/';
+export const API_BASE_URL = 'https://dispatch.trucktirenow.com/';
 
 //AgreeOnline
 //export const API_BASE_URL = 'https://dispatch.agrionline.ph/';
@@ -72,7 +72,7 @@
 //export const API_BASE_URL = 'https://dispatch.pinkjettaxi.com/';
 
 // Yoho
-export const API_BASE_URL = 'https://dispatch.yohopartner.com/';
+// export const API_BASE_URL = 'https://dispatch.yohopartner.com/';
 
 // cannabusxpress
 //export const API_BASE_URL = 'https://dispatch.cannabusxpress.com/';
@@ -84,7 +84,7 @@ export const API_BASE_URL = 'https://dispatch.yohopartner.com/';
 // export const API_BASE_URL = 'https://dispatch.africanize.co/'
 
 // orderchekout
-//export const API_BASE_URL = 'https://dispatch.orderchekout.com/';
+// export const API_BASE_URL = 'https://dispatch.orderchekout.com/';
 
 // carroi
 // export const API_BASE_URL = 'https://carroi.rdstaging.com/';
