@@ -779,7 +779,7 @@ const appIds = {
   }),
   mml: Platform.select({
     ios: 'com.MML.Dispatch',
-    android: 'com.MML.royodispatcher',
+    android: 'com.app.MML.royodispatcher',
   }),
   bimol: Platform.select({
     ios: 'com.Bimol.Dispatch',

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Image, View, Text, ScrollView} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {useSelector} from 'react-redux';
@@ -16,6 +16,7 @@ import fontFamily from '../../styles/fontFamily';
 import {
   moderateScale,
   moderateScaleVertical,
+  textScale,
   width,
 } from '../../styles/responsiveSize';
 import imagePath from '../../constants/imagePath';
@@ -38,9 +39,14 @@ export default function MyProfile({route, navigation}) {
     modelMake: userData?.make_model ? userData?.make_model : '',
     vehicleColor: userData?.color ? userData?.color : '',
     plateNumber: userData?.plate_number ? userData?.plate_number : '',
+
+    type: userData?.type ? userData?.type : null,
+    team: userData?.team ? userData?.team : null,
   });
 
   const {
+    team,
+    type,
     isLoading,
     fullName,
     phoneNumber,
@@ -54,6 +60,9 @@ export default function MyProfile({route, navigation}) {
   } = state;
   const commonStyles = commonStylesFunc({fontFamily});
 
+  useEffect(() => {
+    console.log(transportationArray, 'transportationArray');
+  }, [transportationArray]);
   const updateState = data => setState(state => ({...state, ...data}));
 
   const defaultLanguagae = useSelector(
@@ -100,47 +109,183 @@ export default function MyProfile({route, navigation}) {
             )}
           </View>
           <View style={styles.personalInfoContainer}>
-            <Text style={styles.label}>{strings.PERSONAL}</Text>
+            <View
+              style={{
+                borderBottomColor: colors.greySearchBackground,
+                borderBottomWidth: 1,
+                paddingBottom: 10,
+              }}>
+              <Text style={styles.label}>{strings.PERSONAL}</Text>
+            </View>
             <View style={styles.personalInfoContainer}>
-              <TextInputWithlabel
+              {/* <TextInputWithlabel
                 labelStyle={styles.textInputStyle}
                 label={strings.FULLNAME}
                 value={fullName}
                 textInputStyle={styles.textInputStyle}
-              />
-              <TextInputWithlabel
+              /> */}
+              <View
+                style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+                <View style={{flex: 0.5, marginBottom: moderateScale(20)}}>
+                  <View>
+                    <Text style={[styles.label2, styles.textInputStyle]}>
+                      {strings.FULLNAME}
+                    </Text>
+                  </View>
+                  <Text
+                    style={{
+                      color: colors.black,
+                      fontFamily: fontFamily.semiBold,
+                      fontSize: textScale(12),
+                    }}>
+                    {fullName}
+                  </Text>
+                </View>
+
+                <View style={{flex: 0.5, marginBottom: moderateScale(20)}}>
+                  <View>
+                    <Text style={[styles.label2, styles.textInputStyle]}>
+                      {strings.PHONENUMBER}
+                    </Text>
+                  </View>
+                  <Text
+                    style={{
+                      color: colors.black,
+                      fontFamily: fontFamily.semiBold,
+                      fontSize: textScale(12),
+                    }}>
+                    {phoneNumber}
+                  </Text>
+                </View>
+              </View>
+
+              {!!type && (
+                <View style={{marginBottom: moderateScale(20)}}>
+                  <View>
+                    <Text style={[styles.label2, styles.textInputStyle]}>
+                      {strings.JOBTYPE}
+                    </Text>
+                  </View>
+                  <Text
+                    style={{
+                      color: colors.black,
+                      fontFamily: fontFamily.semiBold,
+                      fontSize: textScale(12),
+                    }}>
+                    {type}
+                  </Text>
+                </View>
+              )}
+
+              {!!team && (
+                <View style={{marginBottom: moderateScale(20)}}>
+                  <View>
+                    <Text style={[styles.label2, styles.textInputStyle]}>
+                      {strings.ASSIGNEDTEAM}
+                    </Text>
+                  </View>
+                  <Text
+                    style={{
+                      color: colors.black,
+                      fontFamily: fontFamily.semiBold,
+                      fontSize: textScale(12),
+                    }}>
+                    {team?.name}
+                  </Text>
+                </View>
+              )}
+
+              {/* <TextInputWithlabel
                 labelStyle={styles.textInputStyle}
                 label={strings.PHONENUMBER}
                 value={phoneNumber}
                 textInputStyle={styles.textInputStyle}
-              />
+              /> */}
             </View>
 
-            <View style={styles.personalInfoContainer}>
-              <Text style={styles.label}>{strings.TRASNPORTATION}</Text>
-            </View>
-            <View>
-              <ScrollView
-                horizontal
-                alwaysBounceHorizontal={false}
-                style={styles.transportationViewStyle}>
-                {allTransportation.map((i, inx) => {
-                  return (
-                    <View style={styles.transportationImageStyle}>
-                      <Image
-                        source={
-                          selectedVehicleType == inx
-                            ? i.activeIcon
-                            : i.inactiveIcon
-                        }
-                      />
-                    </View>
-                  );
-                })}
-              </ScrollView>
-            </View>
+            {!!selectedVehicleType && (
+              <View>
+                <View style={styles.personalInfoContainer}>
+                  <Text style={styles.label}>{strings.TRASNPORTATION}</Text>
+                </View>
+                <View>
+                  <ScrollView
+                    horizontal
+                    alwaysBounceHorizontal={false}
+                    style={styles.transportationViewStyle}>
+                    {allTransportation.map((i, inx) => {
+                      return (
+                        <View style={styles.transportationImageStyle}>
+                          <Image
+                            source={
+                              selectedVehicleType == inx
+                                ? i.activeIcon
+                                : i.inactiveIcon
+                            }
+                          />
+                        </View>
+                      );
+                    })}
+                  </ScrollView>
+                </View>
+              </View>
+            )}
             <View style={styles.carInfoStyle}>
-              <TextInputWithlabel
+              {!!modelMake && (
+                <View style={{marginBottom: moderateScale(20)}}>
+                  <View>
+                    <Text style={[styles.label2, styles.textInputStyle]}>
+                      {strings.MODELMAKE}
+                    </Text>
+                  </View>
+                  <Text
+                    style={{
+                      color: colors.black,
+                      fontFamily: fontFamily.semiBold,
+                      fontSize: textScale(14),
+                    }}>
+                    {modelMake}
+                  </Text>
+                </View>
+              )}
+
+              {!!vehicleColor && (
+                <View style={{marginBottom: moderateScale(20)}}>
+                  <View>
+                    <Text style={[styles.label2, styles.textInputStyle]}>
+                      {strings.COLOR}
+                    </Text>
+                  </View>
+                  <Text
+                    style={{
+                      color: colors.black,
+                      fontFamily: fontFamily.semiBold,
+                      fontSize: textScale(14),
+                    }}>
+                    {vehicleColor}
+                  </Text>
+                </View>
+              )}
+
+              {!!plateNumber && (
+                <View style={{marginBottom: moderateScale(20)}}>
+                  <View>
+                    <Text style={[styles.label2, styles.textInputStyle]}>
+                      {strings.PLATEORDER}
+                    </Text>
+                  </View>
+                  <Text
+                    style={{
+                      color: colors.black,
+                      fontFamily: fontFamily.semiBold,
+                      fontSize: textScale(14),
+                    }}>
+                    {plateNumber}
+                  </Text>
+                </View>
+              )}
+
+              {/* <TextInputWithlabel
                 labelStyle={styles.textInputStyle}
                 label={strings.MODELMAKE}
                 value={modelMake}
@@ -157,7 +302,7 @@ export default function MyProfile({route, navigation}) {
                 label={strings.PLATEORDER}
                 value={plateNumber}
                 textInputStyle={styles.textInputStyle}
-              />
+              /> */}
             </View>
           </View>
         </KeyboardAwareScrollView>

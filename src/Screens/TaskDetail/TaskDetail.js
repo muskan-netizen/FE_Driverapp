@@ -588,8 +588,8 @@ export default function TaskDetail({route, navigation}) {
         </View>
       );
     }
-    return cancelRequestExit ? null : (
-      // return (
+    // return cancelRequestExit ? null : (
+    return (
       <View style={styles.container}>
         <TouchableWithoutFeedback
           onPressIn={taskStatus == 3 ? redirectToDoneScreen : handlePressIn}
@@ -682,7 +682,7 @@ export default function TaskDetail({route, navigation}) {
             </View>
             <View>
               <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                {!fromHistory && checkCallBackUrlForShowOrderDeatils() && (
+                {/* {!fromHistory && checkCallBackUrlForShowOrderDeatils() && (
                   <TouchableOpacity
                     onPress={cancelOrder}
                     disabled={cancelRequestExit ? true : false}
@@ -704,7 +704,7 @@ export default function TaskDetail({route, navigation}) {
                       {strings.CANCELORDER}
                     </Text>
                   </TouchableOpacity>
-                )}
+                )} */}
 
                 {taskDetail?.barcode && (
                   <View style={{justifyContent: 'center'}}>
@@ -725,7 +725,7 @@ export default function TaskDetail({route, navigation}) {
               </TouchableOpacity> */}
               </View>
 
-              {!fromHistory && checkCallBackUrlForShowOrderDeatils() && (
+              {/* {!fromHistory && checkCallBackUrlForShowOrderDeatils() && (
                 <View>
                   <Text
                     style={{color: colors.black, fontFamily: fontFamily?.bold}}>
@@ -734,7 +734,7 @@ export default function TaskDetail({route, navigation}) {
                       : ''}
                   </Text>
                 </View>
-              )}
+              )} */}
             </View>
           </View>
 

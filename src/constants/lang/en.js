@@ -28,7 +28,7 @@ export default {
   OFFDUTYMESSAGE:
     'You have no tasks assigned or your all tasks were completed. We’ll notify you when new tasks arrive.',
   PROFILE: 'Profile',
-  PERSONAL: 'Personal',
+  PERSONAL: 'Personal Details',
   FULLNAME: 'Full Name',
   TRASNPORTATION: 'Transportation',
   MODELMAKE: 'Model, Make',
@@ -187,7 +187,7 @@ export default {
   PAYOUT_REQUEST: 'Payout',
   BENEFICIARY_NAME: 'Account holder name',
   BENEFICIARY_AC_NUMBER: 'Bank account number',
-  BENEFICIARY_IFSC: 'IFSC Code',
+  BENEFICIARY_IFSC: 'IFSC/SWIFT Code',
   BENEFICIARY_ADDRESS: 'Beneficiary Address',
   PLEASE_ENTER: 'Please enter',
   NOTIFICATION: 'Notification',
@@ -286,5 +286,7 @@ export default {
   TOTALTIME: 'Total Time',
   CANCELORDER:"Cancel Order",
   CANCELORDERMESSAGE: "If you want to cancel the order,Press 'OK'",
-  RESEONCANCEL:"Reason"
+  RESEONCANCEL:"Reason",
+  JOBTYPE:'Job Type',
+  ASSIGNEDTEAM:"Assigned Team"
 };

@@ -11,7 +11,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'http://192.168.96.152:8006/'; // preet local url
 // export const API_BASE_URL = 'http://192.168.102.23:8005/'; // Gourav.s local url
 // export const API_BASE_URL = 'http://192.168.97.104:8010/'; // Sujata.s local url
-
+//
 //export const API_BASE_URL = 'http://192.168.103.186:8005/'; // harbans local url
 
 //export const API_BASE_URL = 'https://delivery.shoorafresh.com.au/';
@@ -23,7 +23,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //export const API_BASE_URL = 'https://dispatch.samakeemart.com/';
 
 //mml
-// export const API_BASE_URL = 'https://dispatch.mml.mobi/';
+//export const API_BASE_URL = 'https://dispatch.mml.mobi/';
 
 //sirvu
 //export const API_BASE_URL = 'https://dispatch.sirvu.ca/';
@@ -71,7 +71,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //export const API_BASE_URL = 'https://dispatch.pinkjettaxi.com/';
 
 // Yoho
-//export const API_BASE_URL = 'https://dispatch.yohopartner.com/';
+// export const API_BASE_URL = 'https://dispatch.yohopartner.com/';
 
 // cannabusxpress
 //export const API_BASE_URL = 'https://dispatch.cannabusxpress.com/';
@@ -83,7 +83,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.africanize.co/'
 
 // orderchekout
-//export const API_BASE_URL = 'https://dispatch.orderchekout.com/';
+// export const API_BASE_URL = 'https://dispatch.orderchekout.com/';
 
 // carroi
 // export const API_BASE_URL = 'https://carroi.rdstaging.com/';
