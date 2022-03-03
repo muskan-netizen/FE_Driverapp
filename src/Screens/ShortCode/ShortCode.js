@@ -1069,7 +1069,6 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
-
         case appIds.privatepremiumpickups:
           updateState({
             shortCode: shortCodes.privatepremiumpickups,
@@ -1334,7 +1333,6 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
-          break;
         case appIds.ubi:
           updateState({
             shortCode: shortCodes.ubi,
@@ -1364,7 +1362,6 @@ export default function ShortCode({route, navigation}) {
             shortCode: shortCodes.fawaz,
             isShortcodePrefilled: true,
           });
-          break;
           break;
         case appIds.gRN:
           updateState({
