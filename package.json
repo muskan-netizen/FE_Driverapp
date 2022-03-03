@@ -437,6 +437,8 @@
     "delivadrinksdispatcherRelease": "cd android && ./gradlew assembleDelivadrinksRelease",
     "getfixdispatcher": "react-native run-android --variant=getfixDebug",
     "getfixdispatcherRelease": "cd android && ./gradlew assembleGetfixRelease",
+    "scoopaTechnologiesdispatcher": "react-native run-android --variant=scoopaTechnologiesDebug",
+    "scoopaTechnologiesdispatcherRelease": "cd android && ./gradlew assembleScoopaTechnologiesRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",

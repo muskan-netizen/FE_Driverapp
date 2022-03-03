@@ -1390,6 +1390,12 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+          case appIds.scoopaTechnologies:
+            updateState({
+              shortCode: shortCodes.scoopaTechnologies,
+              isShortcodePrefilled: true,
+            });
+            break;
       }
     })();
   }, [internetConnection]);
