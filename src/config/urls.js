@@ -50,7 +50,7 @@
 // export const API_BASE_URL = 'https://dispatch.martinionwheelsllc.org/';
 
 //YEBOY
-//export const API_BASE_URL = 'https://dispatch.yeboy.mx/';
+export const API_BASE_URL = 'https://dispatch.yeboy.mx/';
 
 // VICI
 // export const API_BASE_URL = 'https://envios.vici.la/'
@@ -71,7 +71,7 @@
 //export const API_BASE_URL = 'https://dispatch.pinkjettaxi.com/';
 
 // Yoho
-export const API_BASE_URL = 'https://dispatch.yohopartner.com/';
+//export const API_BASE_URL = 'https://dispatch.yohopartner.com/';
 
 // cannabusxpress
 //export const API_BASE_URL = 'https://dispatch.cannabusxpress.com/';
