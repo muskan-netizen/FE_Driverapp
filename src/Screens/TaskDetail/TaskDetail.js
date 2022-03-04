@@ -589,7 +589,7 @@ export default function TaskDetail({route, navigation}) {
       );
     }
     // return cancelRequestExit ? null : (
-      return (
+    return (
       <View style={styles.container}>
         <TouchableWithoutFeedback
           onPressIn={taskStatus == 3 ? redirectToDoneScreen : handlePressIn}

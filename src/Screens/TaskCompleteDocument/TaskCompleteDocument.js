@@ -45,9 +45,10 @@ import RNFetchBlob from 'rn-fetch-blob';
 import {showMessage} from 'react-native-flash-message';
 import {openCamera} from '../../utils/imagePicker';
 import {useFocusEffect} from '@react-navigation/native';
-import {isEmpty} from 'lodash';
+import {isEmpty, update} from 'lodash';
 import {getDistance, getPreciseDistance} from 'geolib';
 import ModalView from '../../Components/Modal';
+import {getAllTravelDetails} from '../../utils/googlePlaceApi';
 navigator.geolocation = require('react-native-geolocation-service');
 
 var image1 = new FaceImage();
@@ -85,6 +86,7 @@ export default function TaskCompleteDocument({route, navigation}) {
     currrentlongitude: null,
     speed: null,
     isModalVisible: false,
+    totalTravelData: null,
   });
 
   const {
@@ -108,6 +110,7 @@ export default function TaskCompleteDocument({route, navigation}) {
     currrentlongitude,
     speed,
     isModalVisible,
+    totalTravelData,
   } = state;
   const commonStyles = commonStylesFunc({fontFamily});
   const updateState = data => setState(state => ({...state, ...data}));
@@ -127,9 +130,25 @@ export default function TaskCompleteDocument({route, navigation}) {
   useEffect(() => {
     (async () => {
       currentLocation();
+      getAllMovingDetails([
+        {pickupAddress: taskDetail?.order?.task[0]?.location?.address},
+        {dropAddress: taskDetail?.order?.task[1]?.location?.address},
+      ]);
     })();
     return () => {};
   }, []);
+
+  const getAllMovingDetails = data => {
+    getAllTravelDetails(data)
+      .then(res => {
+        updateState({
+          totalTravelData: res?.rows[0]?.elements[0],
+        });
+      })
+      .catch(error => {
+        console.log(error, 'error error error');
+      });
+  };
 
   const currentLocation = () => {
     chekLocationPermission()
@@ -605,63 +624,14 @@ export default function TaskCompleteDocument({route, navigation}) {
     );
   };
 
-  useEffect(() => {
-    console.log(faceImage, 'faceImage');
-  }, [faceImage]);
-
   const completeAllTask = () => {
     if (taskDetail?.tasktype?.name == 'Drop') {
-      // Alert.alert(
-      //   ``,
-      //   '',
-      //   [
-      //     {
-      //       text: 'Cancel',
-      //     },
-      //     {
-      //       text: 'Ok',
-      //       onPress: () => {
-
-      //       },
-      //     },
-      //   ],
-      //   {cancelable: true},
-      // );
       updateState({
         isModalVisible: true,
       });
     } else {
       _onPressDone();
     }
-  };
-
-  const calculatePreciseDistance = (data, latitude, longitude) => {
-    if (currrentlatitude && currrentlongitude && data) {
-      var pdis = getDistance(
-        {latitude: currrentlatitude, longitude: currrentlongitude},
-        {
-          latitude: data?.latitude,
-          longitude: data?.longitude,
-        },
-      );
-
-      return pdis / 1000;
-    }
-    return 0;
-  };
-
-  const totalCalculatedTime = () => {
-    if (Number(speed).toFixed(1) != 0) {
-      return (
-        calculatePreciseDistance(
-          taskDetail?.location,
-          currrentlatitude,
-          currrentlongitude,
-        ).toFixed(2) /
-        (Number(speed).toFixed(1) * 18) /
-        5
-      );
-    } else return 0.0;
   };
 
   const closeModal = () => {
@@ -679,10 +649,11 @@ export default function TaskCompleteDocument({route, navigation}) {
               {strings.TOTALDISTANCE}
             </Text>
             <Text style={styles.distanceTimeTextStyle}>
-              {calculatePreciseDistance(
-                taskDetail?.location,
-                currrentlatitude,
-                currrentlongitude,
+              {Number(
+                totalTravelData?.distance?.text.substring(
+                  0,
+                  totalTravelData?.distance?.text.length - 2,
+                ) * 1.609344,
               ).toFixed(2)}{' '}
               KM
             </Text>
@@ -692,7 +663,7 @@ export default function TaskCompleteDocument({route, navigation}) {
               {strings.TOTALTIME}
             </Text>
             <Text style={styles.distanceTimeTextStyle}>
-              {totalCalculatedTime().toFixed(2)}{' '}
+              {totalTravelData?.duration?.text}
             </Text>
           </View>
         </View>
@@ -860,10 +831,7 @@ export default function TaskCompleteDocument({route, navigation}) {
       </View>
 
       <View style={{flex: 0.2, paddingVertical: moderateScale(20)}}>
-        <ButtonComponent
-          buttonTitle={strings.DONE}
-          onPress={() => _onPressDone()}
-        />
+        <ButtonComponent buttonTitle={strings.DONE} onPress={completeAllTask} />
       </View>
       <ModalView isVisible={isModalVisible} modalMainContent={modalMainView} />
     </WrapperContainer>
