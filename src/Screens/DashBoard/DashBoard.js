@@ -246,7 +246,7 @@ export default function DashBoard({route, navigation}) {
         data['app_version'] = DeviceInfo.getVersion();
         data['on_route'] = 'y';
         data['battery_level'] = (await DeviceInfo.getBatteryLevel()) * 100;
-        data['all'] = initial;
+        data['all'] = selectedOption;
         // data['current_speed'] = 'y';
         data['long'] = callFrom === 'callFromWatchPosition' ? lng : longitude;
         data['lat'] = callFrom === 'callFromWatchPosition' ? lat : latitude;
@@ -293,11 +293,11 @@ export default function DashBoard({route, navigation}) {
     }, 2000);
   };
 
-  useEffect(() => {
-    setTimeout(() => {
-      fetchgentLogs(latitude, longitude, heading, '');
-    }, 5000);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     fetchgentLogs(latitude, longitude, heading, '');
+  //   }, 5000);
+  // }, []);
 
   useInterval(
     () => fetchgentLogs(latitude, longitude, heading, ''),
@@ -311,7 +311,7 @@ export default function DashBoard({route, navigation}) {
   useFocusEffect(
     React.useCallback(() => {
       getTasks();
-    }, [initial]),
+    }, [selectedOption]),
   );
 
   useEffect(() => {
