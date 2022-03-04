@@ -288,5 +288,6 @@ export default {
   CANCELORDERMESSAGE: "If you want to cancel the order,Press 'OK'",
   RESEONCANCEL:"Reason",
   JOBTYPE:'Job Type',
-  ASSIGNEDTEAM:"Assigned Team"
+  ASSIGNEDTEAM:"Assigned Team",
+  ORDERCANCEL:"Order Cancelled"
 };

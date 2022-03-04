@@ -1,10 +1,18 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, FlatList, Image, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  FlatList,
+  TouchableWithoutFeedback,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
 import {useSelector} from 'react-redux';
 import Header from '../../Components/Header';
 import WrapperContainer from '../../Components/WrapperContainer';
 import imagePath from '../../constants/imagePath';
 import strings from '../../constants/lang';
+import {navigate} from '../../navigation/NavigationService';
 import navigationStrings from '../../navigation/navigationStrings';
 import actions from '../../redux/actions';
 import colors from '../../styles/colors';
@@ -71,6 +79,7 @@ export default function OrderDetail({route, navigation}) {
     actions
       .getProductUpdateDetails(new_dispatch_traking_url, {})
       .then(res => {
+        console.log(res, '_getproductUpdateDetails');
         updateState({
           allVendorsData: res?.data?.vendors,
           cartData: res?.data,
@@ -293,7 +302,8 @@ export default function OrderDetail({route, navigation}) {
           <View style={styles.itemPriceDiscountTaxView}>
             <Text style={styles.priceItemLabel}>{strings.DISCOUNT}</Text>
             <Text style={styles.priceItemLabel}>
-              {item?.discount_amount > 0 && item?.discount_amount}
+              {item?.discount_amount > 0 &&
+                Number(item?.discount_amount).toFixed()}
             </Text>
           </View>
         )}
@@ -301,14 +311,14 @@ export default function OrderDetail({route, navigation}) {
           <View style={styles.itemPriceDiscountTaxView}>
             <Text style={styles.priceItemLabel}>{strings.DELIVERYFEE}</Text>
             <Text style={styles.priceItemLabel}>
-              {item?.delivery_fee > 0 && item?.delivery_fee}
+              {item?.delivery_fee > 0 && Number(item?.delivery_fee).toFixed(2)}
             </Text>
           </View>
         )}
         <View style={styles.itemPriceDiscountTaxView}>
           <Text style={styles.priceItemLabel2}>{strings.AMOUNT}</Text>
           <Text style={styles.priceItemLabel2}>
-            {item?.payable_amount ? item?.payable_amount : 0}
+            {item?.payable_amount ? Number(item?.payable_amount).toFixed(2) : 0}
           </Text>
         </View>
       </View>
@@ -326,14 +336,16 @@ export default function OrderDetail({route, navigation}) {
           ]}>
           <Text style={styles.priceItemLabel}>{strings.SUBTOTAL}</Text>
           <Text style={styles.priceItemLabel}>
-            {cartData?.total_amount > 0 && cartData?.total_amount}
+            {cartData?.total_amount > 0 &&
+              Number(cartData?.total_amount).toFixed(2)}
           </Text>
         </View>
         {cartData?.wallet_amount_used > 0 && (
           <View style={styles.bottomTabLableValue}>
             <Text style={styles.priceItemLabel}>{strings.WALLET}</Text>
             <Text style={styles.priceItemLabel}>
-              {cartData?.wallet_amount_used > 0 && cartData?.wallet_amount_used}
+              {cartData?.wallet_amount_used > 0 &&
+                Number(cartData?.wallet_amount_used).toFixed(2)}
             </Text>
           </View>
         )}
@@ -342,7 +354,7 @@ export default function OrderDetail({route, navigation}) {
             <Text style={styles.priceItemLabel}>{strings.LOYALTY}</Text>
             <Text style={styles.priceItemLabel}>
               {cartData?.loyalty_amount_saved
-                ? cartData?.loyalty_amount_saved
+                ? Number(cartData?.loyalty_amount_saved).toFixed(2)
                 : 0}
             </Text>
           </View>
@@ -352,7 +364,7 @@ export default function OrderDetail({route, navigation}) {
           <View style={styles.bottomTabLableValue}>
             <Text style={styles.priceItemLabel}>{strings.TOTALDISCOUNT}</Text>
             <Text style={styles.priceItemLabel}>
-              {cartData?.total_discount}
+              {Number(cartData?.total_discount).toFixed(2)}
             </Text>
           </View>
         )}
@@ -360,7 +372,7 @@ export default function OrderDetail({route, navigation}) {
           <View style={styles.bottomTabLableValue}>
             <Text style={styles.priceItemLabel}>{strings.TAXAMOUNT}</Text>
             <Text style={styles.priceItemLabel}>
-              {cartData?.taxable_amount}
+              {Number(cartData?.taxable_amount).toFixed(2)}
             </Text>
           </View>
         )}
@@ -378,7 +390,7 @@ export default function OrderDetail({route, navigation}) {
               styles.priceItemLabel2,
               {marginTop: moderateScaleVertical(5)},
             ]}>
-            {cartData?.payable_amount}
+            {Number(cartData?.payable_amount).toFixed(2)}
           </Text>
         </View>
       </View>
@@ -509,6 +521,33 @@ export default function OrderDetail({route, navigation}) {
     })();
   };
 
+  const _onPressLeft = () => {
+    if (fromNotification) {
+      // navigate(navigationStrings.TASKHISTORY);
+      navigation.goBack();
+    } else {
+      navigation.goBack();
+    }
+  };
+
+  const buttonView = () => {
+    return (
+      <View style={styles.container}>
+        <TouchableWithoutFeedback>
+          <View
+            style={[
+              styles.button,
+              {
+                backgroundColor: colors.redB,
+              },
+            ]}>
+            <Text style={styles.text}>{strings.ORDERCANCEL}</Text>
+          </View>
+        </TouchableWithoutFeedback>
+      </View>
+    );
+  };
+
   return (
     <WrapperContainer
       bgColor={colors.backgroundGrey}
@@ -519,7 +558,7 @@ export default function OrderDetail({route, navigation}) {
         headerStyle={{backgroundColor: colors.white}}
         leftIcon={imagePath.backArrow}
         centerTitle={strings.ORDERDETAILS}
-        // onPressLeft={}
+        onPressLeft={_onPressLeft}
         customRight={() =>
           !fromNotification && (
             <TouchableOpacity onPress={_onPressEditOrder}>
@@ -552,6 +591,10 @@ export default function OrderDetail({route, navigation}) {
             }}
           />
         ) : null}
+
+        {!!(
+          taskDetail?.order?.status == 'cancelled' && allVendorsData?.length
+        ) && <View>{buttonView()}</View>}
       </View>
     </WrapperContainer>
   );
