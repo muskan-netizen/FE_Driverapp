@@ -258,6 +258,7 @@ export default function DashBoard({route, navigation}) {
         actions
           .logsApi(data, {client: clientInfo?.database_name})
           .then(res => {
+            console.log(res,"logs data");
             if (
               res?.data?.user?.client_preference
                 ?.customer_support_application_id != null &&
@@ -303,8 +304,8 @@ export default function DashBoard({route, navigation}) {
     () => fetchgentLogs(latitude, longitude, heading, ''),
     userData && userData?.access_token
       ? userData?.team?.location_frequency
-        ? Number(userData?.team?.location_frequency) * 60000
-        : 60000
+        ? Number(userData?.team?.location_frequency) * 6000
+        : 6000
       : null,
   );
 

@@ -519,6 +519,7 @@ export default function OrderDetail({route, navigation}) {
         headerStyle={{backgroundColor: colors.white}}
         leftIcon={imagePath.backArrow}
         centerTitle={strings.ORDERDETAILS}
+        // onPressLeft={}
         customRight={() =>
           !fromNotification && (
             <TouchableOpacity onPress={_onPressEditOrder}>

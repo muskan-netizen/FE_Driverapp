@@ -128,6 +128,7 @@ export default function PhoneVerification({navigation, route}) {
     actions
       .verifyAccount(data, {client: clientInfo?.database_name})
       .then(res => {
+        console.log(res,"verifyAccountverifyAccount");
         updateState({isLoading: false});
         // setTimeout(() => {
         //   if (res?.data) {
