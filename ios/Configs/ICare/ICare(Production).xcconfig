@@ -1,0 +1,9 @@
+#include "Pods/Target Support Files/Pods-available_pods-ICare/Pods-available_pods-ICare.release.xcconfig"
+
+
+PROJECT_BUNDLE_ID = com.ICare.Dispatch
+PROJECT_APP_VERSION = 1.0
+PROJECT_BUILD_NUMBER = 1
+PROJECT_APP_NAME =ICare Dispatcher
+PROJECT_PLIST =ICareInfo
+PROJECT_ENTITLEMENT=RoyoDriverAppRelease

@@ -1387,12 +1387,51 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
-          case appIds.scoopaTechnologies:
-            updateState({
-              shortCode: shortCodes.scoopaTechnologies,
-              isShortcodePrefilled: true,
-            });
-            break;
+        case appIds.scoopaTechnologies:
+          updateState({
+            shortCode: shortCodes.scoopaTechnologies,
+            isShortcodePrefilled: true,
+          });
+          break;
+
+        // /////// ************
+
+        case appIds.slider:
+          updateState({
+            shortCode: shortCodes.slider,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.iCare:
+          updateState({
+            shortCode: shortCodes.iCare,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.qrider:
+          updateState({
+            shortCode: shortCodes.qrider,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.dlvrd:
+          updateState({
+            shortCode: shortCodes.dlvrd,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.delivery:
+          updateState({
+            shortCode: shortCodes.delivery,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.timHomeServices:
+          updateState({
+            shortCode: shortCodes.timHomeServices,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);

@@ -2459,6 +2459,70 @@ android {
             applicationId 'com.ScoopaTechnologies.royodispatcher'
             resValue "string", "app_name", "ScoopaTechnologies Dispatcher"
         }
+        // added below 
+
+        slider{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Slider.royodispatcher'
+            resValue "string", "app_name", "Slider Dispatcher"
+        }
+        iCare{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.ICare.royodispatcher'
+            resValue "string", "app_name", "ICare Dispatcher"
+        }
+        qrider{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Qrider.royodispatcher'
+            resValue "string", "app_name", "Qrider Dispatcher"
+        }
+        dlvrd{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Dlvrd.royodispatcher'
+            resValue "string", "app_name", "Dlvrd Dispatcher"
+        }
+        delivery{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Delivery.royodispatcher'
+            resValue "string", "app_name", "Delivery Dispatcher"
+        }
+        timHomeServices{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.TimHomeServices.royodispatcher'
+            resValue "string", "app_name", "TimHomeServices Dispatcher"
+        }
+
+
     }
 }
 
