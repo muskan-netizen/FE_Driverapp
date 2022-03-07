@@ -559,18 +559,12 @@ export default function OrderDetail({route, navigation}) {
         leftIcon={imagePath.backArrow}
         centerTitle={strings.ORDERDETAILS}
         onPressLeft={_onPressLeft}
-        customRight={() =>
-          !fromNotification && (
-            <TouchableOpacity onPress={_onPressEditOrder}>
-              <Text style={styles.editOrder}>{'Edit'}</Text>
-            </TouchableOpacity>
-          )
-        }
-        // customRight={userData && userData?.client_preference?.is_edit_order_driver ?() => (
-        //   <TouchableOpacity onPress={_onPressEditOrder}>
-        //     <Text style={styles.editOrder}>{'Edit'}</Text>
-        //   </TouchableOpacity>
-        // ):null}
+       
+        customRight={!fromNotification && userData && userData?.client_preference?.is_edit_order_driver ?() => (
+          <TouchableOpacity onPress={_onPressEditOrder}>
+            <Text style={styles.editOrder}>{'Edit'}</Text>
+          </TouchableOpacity>
+        ):null}
         // onPressLeft={() => navigation.toggleDrawer()}
         // hideRight={true}
         // customCenter={() => customCenter()}
