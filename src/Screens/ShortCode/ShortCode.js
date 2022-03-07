@@ -1426,9 +1426,15 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
-        case appIds.timHomeServices:
+        case appIds.dbairro:
           updateState({
-            shortCode: shortCodes.timHomeServices,
+            shortCode: shortCodes.dbairro,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.knockknock:
+          updateState({
+            shortCode: shortCodes.knockknock,
             isShortcodePrefilled: true,
           });
           break;

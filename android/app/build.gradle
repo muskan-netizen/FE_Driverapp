@@ -2521,6 +2521,26 @@ android {
             applicationId 'com.TimHomeServices.royodispatcher'
             resValue "string", "app_name", "TimHomeServices Dispatcher"
         }
+        dbairro{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Dbairro.royodispatcher'
+            resValue "string", "app_name", "Dbairro Dispatcher"
+        }
+        knockknock{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Knockknock.royodispatcher'
+            resValue "string", "app_name", "Knockknock Dispatcher"
+        }
 
 
     }

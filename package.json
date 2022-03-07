@@ -439,7 +439,6 @@
     "getfixdispatcherRelease": "cd android && ./gradlew assembleGetfixRelease",
     "scoopaTechnologiesdispatcher": "react-native run-android --variant=scoopaTechnologiesDebug",
     "scoopaTechnologiesdispatcherRelease": "cd android && ./gradlew assembleScoopaTechnologiesRelease",
-
     "sliderdispatcher": "react-native run-android --variant=sliderDebug",
     "sliderdispatcherRelease": "cd android && ./gradlew assembleSliderRelease",
     "iCaredispatcher": "react-native run-android --variant=iCareDebug",
@@ -452,6 +451,11 @@
     "deliverydispatcherRelease": "cd android && ./gradlew assembleDeliveryRelease",
     "timHomeServicesdispatcher": "react-native run-android --variant=timHomeServicesDebug",
     "timHomeServicesdispatcherRelease": "cd android && ./gradlew assembleTimHomeServicesRelease",
+
+    "dbairrodispatcher": "react-native run-android --variant=dbairroDebug",
+    "dbairrodispatcherRelease": "cd android && ./gradlew assembleDbairroRelease",
+    "knockknockdispatcher": "react-native run-android --variant=knockknockDebug",
+    "knockknockdispatcherRelease": "cd android && ./gradlew assembleKnockknockRelease",
 
     
     "android": "react-native run-android",

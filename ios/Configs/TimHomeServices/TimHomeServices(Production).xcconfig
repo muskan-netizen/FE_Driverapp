@@ -1,0 +1,9 @@
+#include "Pods/Target Support Files/Pods-available_pods-TimHomeServices/Pods-available_pods-TimHomeServices.release.xcconfig"
+
+
+PROJECT_BUNDLE_ID = com.TimHomeServices.Dispatch
+PROJECT_APP_VERSION = 1.0
+PROJECT_BUILD_NUMBER = 1
+PROJECT_APP_NAME =TimHomeServices Dispatcher
+PROJECT_PLIST =TimHomeServicesInfo
+PROJECT_ENTITLEMENT=RoyoDriverAppRelease

@@ -226,6 +226,9 @@ const shortCodes = {
   dlvrd: '039f9d',
   delivery: 'f6be38',
   timHomeServices: 'c4ee46',
+  dbairro:'c1dfa6',
+  knockknock:'ee66a0',
+
 };
 
 // Goody Dispatch
@@ -1126,6 +1129,14 @@ const appIds = {
   timHomeServices: Platform.select({
     ios: 'com.TimHomeServices.Dispatch',
     android: 'com.TimHomeServices.royodispatcher',
+  }),
+  dbairro: Platform.select({
+    ios: 'com.Dbairro.Dispatch',
+    android: 'com.Dbairro.royodispatcher',
+  }),
+  knockknock: Platform.select({
+    ios: 'com.Knockknock.Dispatch',
+    android: 'com.Knockknock.royodispatcher',
   }),
 };
 
