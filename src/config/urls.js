@@ -2,10 +2,10 @@
 // export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //Developement
-export const API_BASE_URL = 'https://api.winhires.com/';
+//export const API_BASE_URL = 'https://api.winhires.com/';
 // export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
 
 // export const API_BASE_URL = 'http://192.168.96.152:8006/'; // preet local url
@@ -14,6 +14,9 @@ export const API_BASE_URL = 'https://api.winhires.com/';
 //
 //export const API_BASE_URL = 'http://192.168.103.186:8005/'; // harbans local url
 //export const API_BASE_URL = 'https://delivery.shoorafresh.com.au/';
+
+//hellodeliver
+//export const API_BASE_URL = 'https://dispatch.hellodeliver.in/';
 
 //DOORSTEP
 // export const API_BASE_URL = 'https://dispatch.doorstep.sd/';

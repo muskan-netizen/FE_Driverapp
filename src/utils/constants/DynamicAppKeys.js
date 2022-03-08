@@ -219,7 +219,8 @@ const shortCodes = {
   myRide: 'e22883',
   delivadrinks: '5d5894',
   getfix: 'c81748',
-  scoopaTechnologies:'39e238',
+  scoopaTechnologies: '39e238',
+  helloDeliver: '02745f',
 };
 
 // Goody Dispatch
@@ -1096,6 +1097,10 @@ const appIds = {
   scoopaTechnologies: Platform.select({
     ios: 'com.ScoopaTechnologies.Dispatch',
     android: 'com.ScoopaTechnologies.royodispatcher',
+  }),
+  helloDeliver: Platform.select({
+    ios: 'com.HelloDeliver.Dispatch',
+    android: 'com.HelloDeliver.royodispatcher',
   }),
 };
 
