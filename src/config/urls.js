@@ -2,7 +2,7 @@
 // export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //Developement
 // export const API_BASE_URL = 'https://api.winhires.com/';
@@ -19,7 +19,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.doorstep.sd/';
 
 //
-//export const API_BASE_URL = 'https://dispatch.samakeemart.com/';
+export const API_BASE_URL = 'https://dispatch.samakeemart.com/';
 
 //mml
 //export const API_BASE_URL = 'https://dispatch.mml.mobi/';
@@ -124,7 +124,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //export const API_BASE_URL = 'https://dispatcher.drivereeshops.com/';
 
 // helpNowRightNow live domain
-//export const API_BASE_URL = 'https://dispatch.helpnowrightnow.com/';
+// export const API_BASE_URL = 'https://dispatch.helpnowrightnow.com/';
 
 // tranzit live domain
 //export const API_BASE_URL = 'https://dispatch.tranzit.app/';

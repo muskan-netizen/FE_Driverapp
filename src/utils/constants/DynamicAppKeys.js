@@ -1,5 +1,5 @@
-import {Platform} from 'react-native';
-import {getBundleId} from 'react-native-device-info';
+import { Platform } from 'react-native';
+import { getBundleId } from 'react-native-device-info';
 
 const shortCodes = {
   runrun: 'cbec70',
@@ -226,8 +226,8 @@ const shortCodes = {
   dlvrd: '039f9d',
   delivery: 'f6be38',
   timHomeServices: 'c4ee46',
-  dbairro:'c1dfa6',
-  knockknock:'ee66a0',
+  dbairro: 'c1dfa6',
+  knockknock: 'ee66a0',
 
 };
 
@@ -655,7 +655,7 @@ const appIds = {
     android: 'com.Mobi.royodispatcher',
   }),
   samakeeMart: Platform.select({
-    ios: 'com.SamakeeMart.Dispatch',
+    ios: 'com.SamakeeMart.Dispatcher',
     android: 'com.SamakeeMart.royodispatcher',
   }),
   silvestre: Platform.select({
@@ -1140,4 +1140,4 @@ const appIds = {
   }),
 };
 
-export {appIds, shortCodes};
+export { appIds, shortCodes };
