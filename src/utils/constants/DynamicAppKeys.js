@@ -219,7 +219,16 @@ const shortCodes = {
   myRide: 'e22883',
   delivadrinks: '5d5894',
   getfix: 'c81748',
-  scoopaTechnologies:'39e238',
+  scoopaTechnologies: '39e238',
+  slider: '312003',
+  iCare: '4b73a9',
+  qrider: '56375f',
+  dlvrd: '039f9d',
+  delivery: 'f6be38',
+  timHomeServices: 'c4ee46',
+  dbairro:'c1dfa6',
+  knockknock:'ee66a0',
+
 };
 
 // Goody Dispatch
@@ -1096,6 +1105,38 @@ const appIds = {
   scoopaTechnologies: Platform.select({
     ios: 'com.ScoopaTechnologies.Dispatch',
     android: 'com.ScoopaTechnologies.royodispatcher',
+  }),
+  slider: Platform.select({
+    ios: 'com.Slider.Dispatch',
+    android: 'com.Slider.royodispatcher',
+  }),
+  iCare: Platform.select({
+    ios: 'com.ICare.Dispatch',
+    android: 'com.ICare.royodispatcher',
+  }),
+  qrider: Platform.select({
+    ios: 'com.Qrider.Dispatch',
+    android: 'com.Qrider.royodispatcher',
+  }),
+  dlvrd: Platform.select({
+    ios: 'com.Dlvrd.Dispatch',
+    android: 'com.Dlvrd.royodispatcher',
+  }),
+  delivery: Platform.select({
+    ios: 'com.Delivery.Dispatch',
+    android: 'com.Delivery.royodispatcher',
+  }),
+  timHomeServices: Platform.select({
+    ios: 'com.TimHomeServices.Dispatch',
+    android: 'com.TimHomeServices.royodispatcher',
+  }),
+  dbairro: Platform.select({
+    ios: 'com.Dbairro.Dispatch',
+    android: 'com.Dbairro.royodispatcher',
+  }),
+  knockknock: Platform.select({
+    ios: 'com.Knockknock.Dispatch',
+    android: 'com.Knockknock.royodispatcher',
   }),
 };
 
