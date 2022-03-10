@@ -1460,6 +1460,12 @@ export default function ShortCode({ route, navigation }) {
             isShortcodePrefilled: true,
           });
           break;
+        // case appIds.sunShineRideShare:
+        //   updateState({
+        //     shortCode: shortCodes.sunShineRideShare,
+        //     isShortcodePrefilled: true,
+        //   });
+        //   break;
       }
     })();
   }, [internetConnection]);

@@ -232,6 +232,7 @@ const shortCodes = {
   viversBox: '2439e7',
   scootz: 'e67d2f',
   ola: 'aaa34e',
+  // sunShineRideShare: '2766da',
 };
 
 // Goody Dispatch
@@ -690,7 +691,7 @@ const appIds = {
     android: 'com.destinationOpsApp.royodispatcher',
   }),
   cannabus_express: Platform.select({
-    ios: 'com.CannabusExpress.Dispatch',
+    ios: 'com.CannabusExpress.Dispatcher',
     android: 'com.cannabusexpress.royodispatcher',
   }),
   flying_horse: Platform.select({
@@ -1157,6 +1158,10 @@ const appIds = {
     ios: 'com.Ola.Dispatch',
     android: 'com.Ola.royodispatcher',
   }),
+  // sunShineRideShare: Platform.select({
+  //   ios: 'com.SunShineRideShare.Dispatch',
+  //   android: 'com.SunShineRideShare.royodispatcher',
+  // }),
 };
 
 export { appIds, shortCodes };

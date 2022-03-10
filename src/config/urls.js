@@ -34,7 +34,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //export const API_BASE_URL = 'https://dispatch.drusdeliveries.com/';
 
 //cannabusxpress
-//export const API_BASE_URL = 'https://dispatch.cannabusxpress.com/';
+// export const API_BASE_URL = 'https://dispatch.cannabusxpress.com/';
 
 //36kl
 //export const API_BASE_URL = 'https://dispatch.36kel.com.ph/';
