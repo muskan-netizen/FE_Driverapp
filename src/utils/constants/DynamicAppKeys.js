@@ -228,7 +228,10 @@ const shortCodes = {
   timHomeServices: 'c4ee46',
   dbairro: 'c1dfa6',
   knockknock: 'ee66a0',
-
+  helloDeliver: '02745f',
+  viversBox: '2439e7',
+  scootz: 'e67d2f',
+  ola: 'aaa34e',
 };
 
 // Goody Dispatch
@@ -1137,6 +1140,22 @@ const appIds = {
   knockknock: Platform.select({
     ios: 'com.Knockknock.Dispatch',
     android: 'com.Knockknock.royodispatcher',
+  }),
+  helloDeliver: Platform.select({
+    ios: 'com.HelloDeliver.Dispatch',
+    android: 'com.HelloDeliver.royodispatcher',
+  }),
+  viversBox: Platform.select({
+    ios: 'com.App.ViversBox.Dispatch',
+    android: 'com.ViversBox.royodispatcher',
+  }),
+  scootz: Platform.select({
+    ios: 'com.App.Scootz.Dispatch',
+    android: 'com.Scootz.royodispatcher',
+  }),
+  ola: Platform.select({
+    ios: 'com.Ola.Dispatch',
+    android: 'com.Ola.royodispatcher',
   }),
 };
 

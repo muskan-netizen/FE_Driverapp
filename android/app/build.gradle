@@ -2471,6 +2471,18 @@ android {
             applicationId 'com.Slider.royodispatcher'
             resValue "string", "app_name", "Slider Dispatcher"
         }
+
+  helloDeliver{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.HelloDeliver.royodispatcher'
+            resValue "string", "app_name", "HelloDeliver Dispatcher"
+        }
+
         iCare{
             dimension "appType"
             versionCode 1
@@ -2542,6 +2554,38 @@ android {
             resValue "string", "app_name", "Knockknock Dispatcher"
         }
 
+        viversBox{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.ViversBox.royodispatcher'
+            resValue "string", "app_name", "Viversbox Dispatcher"
+        }
+
+        scootz{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Scootz.royodispatcher'
+            resValue "string", "app_name", "Scootz Dispatcher"
+        }
+
+        ola{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Ola.royodispatcher'
+            resValue "string", "app_name", "Ola Dispatcher"
+        }
 
     }
 }

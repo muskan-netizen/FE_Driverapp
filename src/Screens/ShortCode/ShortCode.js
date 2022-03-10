@@ -1393,9 +1393,6 @@ export default function ShortCode({ route, navigation }) {
             isShortcodePrefilled: true,
           });
           break;
-
-        // /////// ************
-
         case appIds.slider:
           updateState({
             shortCode: shortCodes.slider,
@@ -1435,6 +1432,31 @@ export default function ShortCode({ route, navigation }) {
         case appIds.knockknock:
           updateState({
             shortCode: shortCodes.knockknock,
+            isShortcodePrefilled: true,
+          });
+          break;
+
+        case appIds.helloDeliver:
+          updateState({
+            shortCode: shortCodes.helloDeliver,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.viversBox:
+          updateState({
+            shortCode: shortCodes.viversBox,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.scootz:
+          updateState({
+            shortCode: shortCodes.scootz,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.ola:
+          updateState({
+            shortCode: shortCodes.ola,
             isShortcodePrefilled: true,
           });
           break;
