@@ -305,10 +305,7 @@ export default function TaskDetail({route, navigation}) {
       });
       _getproductUpdateDetails();
     }
-    if (
-      taskDetail?.order?.task[0]?.location?.address &&
-      taskDetail?.order?.task[1]?.location?.address
-    ) {
+    if (fromHistory) {
       getAllMovingDetails([
         {pickupAddress: taskDetail?.order?.task[0]?.location?.address},
         {dropAddress: taskDetail?.order?.task[1]?.location?.address},
