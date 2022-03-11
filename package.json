@@ -96,7 +96,7 @@
     "gokabdispatcher": "react-native run-android --variant=gokabDebug",
     "gokabdispatcherRelease": "cd android && ./gradlew assembleGokabRelease",
     "bezaliodispatcher": "react-native run-android --variant=bezalioDebug",
-    "bezaliodispatcherRelease": "cd android && ./gradlew assembleDezalioRelease",
+    "bezaliodispatcherRelease": "cd android && ./gradlew assembleBezalioRelease",
     "doleyPharmacydispatcher": "react-native run-android --variant=doleyPharmacyDebug",
     "doleyPharmacydispatcherRelease": "cd android && ./gradlew assembleDoleyPharmacyRelease",
     "taquickdispatcher": "react-native run-android --variant=taquickDebug",
