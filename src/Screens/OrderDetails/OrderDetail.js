@@ -198,7 +198,9 @@ export default function OrderDetail({route, navigation}) {
                                   ? 'flex-start'
                                   : 'flex-end',
                             }}>
-                            <Text style={styles.cartItemPrice}>{i?.price}</Text>
+                            <Text style={styles.cartItemPrice}>
+                              {Number(i?.price).toFixed(2)}
+                            </Text>
                           </View>
                         </View>
 
@@ -559,12 +561,17 @@ export default function OrderDetail({route, navigation}) {
         leftIcon={imagePath.backArrow}
         centerTitle={strings.ORDERDETAILS}
         onPressLeft={_onPressLeft}
-       
-        customRight={!fromNotification && userData && userData?.client_preference?.is_edit_order_driver ?() => (
-          <TouchableOpacity onPress={_onPressEditOrder}>
-            <Text style={styles.editOrder}>{'Edit'}</Text>
-          </TouchableOpacity>
-        ):null}
+        customRight={
+          !fromNotification &&
+          userData &&
+          userData?.client_preference?.is_edit_order_driver
+            ? () => (
+                <TouchableOpacity onPress={_onPressEditOrder}>
+                  <Text style={styles.editOrder}>{'Edit'}</Text>
+                </TouchableOpacity>
+              )
+            : null
+        }
         // onPressLeft={() => navigation.toggleDrawer()}
         // hideRight={true}
         // customCenter={() => customCenter()}

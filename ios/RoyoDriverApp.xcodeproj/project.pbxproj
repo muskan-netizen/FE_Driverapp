@@ -11656,7 +11656,6 @@
 				842321F9272121A50063F4AF /* Resources */,
 				84232204272121A50063F4AF /* Bundle React Native code and images */,
 				4FF7351175515B5CB2C80F85 /* [CP] Embed Pods Frameworks */,
-				DC755C69772EEB306F0BE3FE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -37057,23 +37056,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-Menus/Pods-available_pods-Menus-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DC755C69772EEB306F0BE3FE /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-available_pods-YogoFood/Pods-available_pods-YogoFood-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-available_pods-YogoFood/Pods-available_pods-YogoFood-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-YogoFood/Pods-available_pods-YogoFood-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DC76DEEB98D37EAC1462FA7C /* [CP] Embed Pods Frameworks */ = {
