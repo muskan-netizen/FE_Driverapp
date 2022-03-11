@@ -1460,12 +1460,24 @@ export default function ShortCode({ route, navigation }) {
             isShortcodePrefilled: true,
           });
           break;
-        // case appIds.sunShineRideShare:
-        //   updateState({
-        //     shortCode: shortCodes.sunShineRideShare,
-        //     isShortcodePrefilled: true,
-        //   });
-        //   break;
+        case appIds.sunShineRideShare:
+          updateState({
+            shortCode: shortCodes.sunShineRideShare,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.spliffNation:
+          updateState({
+            shortCode: shortCodes.spliffNation,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.sourcesServices:
+          updateState({
+            shortCode: shortCodes.sourcesServices,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);

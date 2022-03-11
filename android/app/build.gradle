@@ -1642,7 +1642,7 @@ android {
         }
         mml{
             dimension "appType"
-            versionCode 1
+            versionCode 2
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
@@ -2585,6 +2585,39 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.Ola.royodispatcher'
             resValue "string", "app_name", "Ola Dispatcher"
+        }
+
+        sunShineRideShare{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.SunShineRideShare.royodispatcher'
+            resValue "string", "app_name", "SunShineRideShare Dispatcher"
+        }
+
+        spliffNation{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.SpliffNation.royodispatcher'
+            resValue "string", "app_name", "SpliffNation Dispatcher"
+        }
+
+        sourcesServices{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.SourcesServices.royodispatcher'
+            resValue "string", "app_name", "SourcesServices Dispatcher"
         }
 
     }

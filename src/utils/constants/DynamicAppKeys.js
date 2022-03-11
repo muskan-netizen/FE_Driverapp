@@ -232,7 +232,9 @@ const shortCodes = {
   viversBox: '2439e7',
   scootz: 'e67d2f',
   ola: 'aaa34e',
-  // sunShineRideShare: '2766da',
+  sunShineRideShare: '2766da',
+  spliffNation: '26834d',
+  sourcesServices: '53929f',
 };
 
 // Goody Dispatch
@@ -1158,10 +1160,18 @@ const appIds = {
     ios: 'com.Ola.Dispatch',
     android: 'com.Ola.royodispatcher',
   }),
-  // sunShineRideShare: Platform.select({
-  //   ios: 'com.SunShineRideShare.Dispatch',
-  //   android: 'com.SunShineRideShare.royodispatcher',
-  // }),
+  sunShineRideShare: Platform.select({
+    ios: 'com.SunShineRideShare.Dispatcher',
+    android: 'com.SunShineRideShare.royodispatcher',
+  }),
+  spliffNation: Platform.select({
+    ios: 'com.SpliffNation.Dispatcher',
+    android: 'com.SpliffNation.royodispatcher',
+  }),
+  sourcesServices: Platform.select({
+    ios: 'com.SourcesServices.Dispatcher',
+    android: 'com.SourcesServices.royodispatcher',
+  }),
 };
 
 export { appIds, shortCodes };
