@@ -51,6 +51,7 @@ import {
 import stylesFunc from './styles';
 import ButtonComponent from '../../Components/ButtonComponent';
 import {mapStyle} from '../../utils/constants/MapStyle';
+import {getAllTravelDetails} from '../../utils/googlePlaceApi';
 
 var ACTION_TIMER = 1500;
 var COLORS = ['#8FEE90', '#27A468'];
@@ -125,6 +126,7 @@ export default function TaskDetail({route, navigation}) {
     productAllInsrucations: [],
     apiData: null,
     cancelRequestExit: null,
+    totalTravelData: null,
   });
 
   const {
@@ -145,6 +147,7 @@ export default function TaskDetail({route, navigation}) {
     buttonText,
     productAllInsrucations,
     apiData,
+    totalTravelData,
   } = state;
   const commonStyles = commonStylesFunc({fontFamily});
   const updateState = data => setState(state => ({...state, ...data}));
@@ -302,7 +305,24 @@ export default function TaskDetail({route, navigation}) {
       });
       _getproductUpdateDetails();
     }
+    getAllMovingDetails([
+      {pickupAddress: taskDetail?.order?.task[0]?.location?.address},
+      {dropAddress: taskDetail?.order?.task[1]?.location?.address},
+    ]);
   }, []);
+
+  const getAllMovingDetails = data => {
+    getAllTravelDetails(data)
+      .then(res => {
+        console.log(res, 'response +++++++++++');
+        updateState({
+          totalTravelData: res?.rows[0]?.elements[0],
+        });
+      })
+      .catch(error => {
+        console.log(error, 'error error error');
+      });
+  };
 
   const _getproductUpdateDetails = () => {
     actions
@@ -645,6 +665,8 @@ export default function TaskDetail({route, navigation}) {
     //     );
     // }
   };
+
+  console.log(totalTravelData, 'totalTravelDatatotalTravelDatatotalTravelData');
 
   const taskDetailView = () => {
     return (
@@ -1241,6 +1263,37 @@ export default function TaskDetail({route, navigation}) {
               </View>
             </View>
           ) : null}
+          {fromHistory && totalTravelData && (
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                marginVertical: moderateScaleVertical(5),
+              }}>
+              <View>
+                <Text style={styles.distanceTimeTitleTextStyle}>
+                  {strings.TOTALDISTANCE}
+                </Text>
+                <Text style={styles.distanceTimeTextStyle}>
+                  {Number(
+                    totalTravelData?.distance?.text.substring(
+                      0,
+                      totalTravelData?.distance?.text.length - 2,
+                    ) * 1.609344,
+                  ).toFixed(2)}{' '}
+                  KM
+                </Text>
+              </View>
+              <View>
+                <Text style={styles.distanceTimeTitleTextStyle}>
+                  {strings.TOTALTIME}
+                </Text>
+                <Text style={styles.distanceTimeTextStyle}>
+                  {totalTravelData?.duration?.text}
+                </Text>
+              </View>
+            </View>
+          )}
         </View>
       </ScrollView>
     );
