@@ -259,4 +259,5 @@ export default {
   ATLEASEONEIMAGE: 'Please upload atlease one image',
   TOTALDISTANCE: ' Total Distance',
   TOTALTIME: 'Total Time',
+  DEBIT_FROM: 'Debit from',
 };

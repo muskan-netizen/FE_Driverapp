@@ -79,6 +79,11 @@ export default () => {
       fontSize: textScale(16),
       marginVertical: moderateScale(10),
     },
+   
+    inputAmountText: {
+      fontFamily: fontFamily.bold,
+      color: colors.walletTextD,
+    },
   });
   return styles;
 };

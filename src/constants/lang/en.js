@@ -290,4 +290,6 @@ export default {
   JOBTYPE: 'Job Type',
   ASSIGNEDTEAM: 'Assigned Team',
   ORDERCANCEL: 'Order Cancelled',
+  DEBIT_FROM: 'Debit from',
+
 };

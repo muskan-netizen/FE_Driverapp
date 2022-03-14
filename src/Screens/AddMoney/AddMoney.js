@@ -7,6 +7,7 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+  ScrollView,
 } from 'react-native';
 import RazorpayCheckout from 'react-native-razorpay';
 import {useSelector} from 'react-redux';
@@ -27,11 +28,22 @@ import {
 import {currencyNumberFormatter} from '../../utils/commonFunction';
 import {showError} from '../../utils/helperFunctions';
 import stylesFun from './styles';
+import {
+  CardField,
+  createToken,
+  initStripe,
+  StripeProvider,
+} from '@stripe/stripe-react-native';
+import {useDarkMode} from 'react-native-dark-mode';
 
 export default function AddMoney({navigation}) {
-  const {clientInfo} = useSelector(state => state?.initBoot);
+  const {clientInfo, themeColor, themeToggle} = useSelector(
+    state => state?.initBoot,
+  );
   const {userData} = useSelector(state => state?.auth);
-
+  const darkthemeusingDevice = useDarkMode();
+  const isDarkMode = themeToggle ? darkthemeusingDevice : themeColor;
+  console.log(userData, 'userData');
   const [state, setState] = useState({
     customAmount: [
       {id: 0, amount: 300},
@@ -41,11 +53,15 @@ export default function AddMoney({navigation}) {
     isLoading: true,
     amount: '',
     allPaymentOptions: [],
-    seletedPaymentGateway: {},
+    seletedPaymentGateway: null,
+    allAvailAblePaymentMethods: [],
+    cardInfo: null,
   });
 
   const styles = stylesFun();
   const {
+    cardInfo,
+    allAvailAblePaymentMethods,
     amount,
     customAmount,
     isLoading,
@@ -54,6 +70,18 @@ export default function AddMoney({navigation}) {
   } = state;
 
   useEffect(() => {
+    if (
+      'pk_test_51Jr0IMSHo9Ezp4MLFPvjUcHU552nN6qrIEvleBlGnHPwN7zcG1rhq2SPIUVvfWTGLPLdqp1i2sanMPN8saqXe0MR00KFbv5QVr' !=
+        '' &&
+      'pk_test_51Jr0IMSHo9Ezp4MLFPvjUcHU552nN6qrIEvleBlGnHPwN7zcG1rhq2SPIUVvfWTGLPLdqp1i2sanMPN8saqXe0MR00KFbv5QVr' !=
+        null
+    ) {
+      initStripe({
+        publishableKey:
+          'pk_test_51Jr0IMSHo9Ezp4MLFPvjUcHU552nN6qrIEvleBlGnHPwN7zcG1rhq2SPIUVvfWTGLPLdqp1i2sanMPN8saqXe0MR00KFbv5QVr',
+        merchantIdentifier: 'merchant.identifier',
+      });
+    }
     getWalletData();
   }, []);
 
@@ -69,7 +97,9 @@ export default function AddMoney({navigation}) {
       .then(res => {
         console.log(res, '<<<res all payment gateways');
         updateState({
-          allPaymentOptions: res?.data,
+          allAvailAblePaymentMethods: res?.data,
+          // updateState({allAvailAblePaymentMethods: res?.data});
+
           isLoading: false,
         });
       })
@@ -156,6 +186,43 @@ export default function AddMoney({navigation}) {
           </View>
         </View>
         <View />
+        <ScrollView keyboardShouldPersistTaps={'handled'}>
+          <View style={{flex: 1}}>
+            <View
+              style={{
+                marginTop: moderateScaleVertical(20),
+                marginHorizontal: moderateScale(20),
+              }}>
+              {!!(
+                allAvailAblePaymentMethods && allAvailAblePaymentMethods.length
+              ) && (
+                <Text
+                  style={
+                    isDarkMode
+                      ? [styles.debitFrom, {color: MyDarkTheme.colors.text}]
+                      : styles.debitFrom
+                  }>
+                  {strings.DEBIT_FROM}
+                </Text>
+              )}
+              <FlatList
+                data={allAvailAblePaymentMethods}
+                showsVerticalScrollIndicator={false}
+                showsHorizontalScrollIndicator={false}
+                keyboardShouldPersistTaps={'handled'}
+                // horizontal
+                style={{marginTop: moderateScaleVertical(10)}}
+                keyExtractor={(item, index) => String(index)}
+                renderItem={_renderItemPayments}
+                ListEmptyComponent={() => (
+                  <Text style={{textAlign: 'center'}}>
+                    {strings.NO_PAYMENT_METHOD}
+                  </Text>
+                )}
+              />
+            </View>
+          </View>
+        </ScrollView>
 
         {/* botttom add money button */}
         <View style={styles.bottomButtonStyle}>
@@ -171,17 +238,131 @@ export default function AddMoney({navigation}) {
     );
   };
 
-  const _onTopUp = () => {
-    if (amount > 0) {
-      if (seletedPaymentGateway.id === 10) {
-        _onRazorPay();
-      } else {
-        showError(strings.PLEASE_SELECT_PAYMENT_METHOD);
-      }
+  const _webPayment = () => {
+    let selectedMethod = seletedPaymentGateway.code;
+    let returnUrl = `payment/${selectedMethod}/completeCheckout/${userData?.auth_token}/wallet`;
+    let cancelUrl = `payment/${selectedMethod}/completeCheckout/${userData?.auth_token}/wallet`;
+
+    updateState({isLoadingB: true});
+    actions
+      .openPaymentWebUrl(
+        `/${selectedMethod}?amount=${amount}&returnUrl=${returnUrl}&cancelUrl=${cancelUrl}&payment_option_id=${selectedPaymentMethod?.id}&action=wallet`,
+        {},
+        {
+          code: appData?.profile?.code,
+          currency: currencies?.primary_currency?.id,
+          language: languages?.primary_language?.id,
+        },
+      )
+      .then(res => {
+        updateState({isLoadingB: false, isRefreshing: false});
+        // const URL = queryString.parseUrl(res.data);
+        console.log('res==>>>>', res);
+        if (res && res?.status == 'Success' && res?.data) {
+          let sendingData = {
+            id: seletedPaymentGateway.id,
+            title: seletedPaymentGateway.title,
+            screenName: navigationStrings.WALLET,
+            paymentUrl: res.data,
+            action: 'wallet',
+          };
+
+          navigation.navigate(navigationStrings.ALL_IN_ONE_PAYMENTS, {
+            data: sendingData,
+          });
+        }
+      })
+      .catch(errorMethod);
+  };
+
+  //Offline payments
+  const _offineLinePayment = async () => {
+    if (cardInfo) {
+      // alert("123")
+      // updateState({isLoadingB: true});
+      await createToken(cardInfo)
+        .then(res => {
+          console.log(res, 'res>>STRIpe');
+          if (res && res?.token && res.token?.id) {
+            let selectedMethod = seletedPaymentGateway.code.toLowerCase();
+            // updateState({isLoading: true});
+            actions
+              .openPaymentWebUrl(
+                `/${selectedMethod}?amount=${amount}&payment_option_id=${seletedPaymentGateway?.id}&action=wallet&stripe_token=${res.token?.id}`,
+                {},
+                {
+                  client: clientInfo?.database_name,
+                },
+              )
+              .then(res => {
+                updateState({isLoading: false, isRefreshing: false});
+                if (res && res?.status == 'Success' && res?.data) {
+                  // updateState({allAvailAblePaymentMethods: res?.data});
+                  // alert('Payment successfull');
+                  Alert.alert('', strings.PAYMENT_SUCCESS, [
+                    {
+                      text: strings.OK,
+                      onPress: () => console.log('Cancel Pressed'),
+                      // style: 'destructive',
+                    },
+                  ]);
+                  navigation.navigate(navigationStrings.WALLET);
+                }
+              })
+              .catch(errorMethod);
+          } else {
+            updateState({isLoading: false});
+          }
+        })
+        .catch(errorMethod);
     } else {
-      showError(strings.PLEASE_ENTER_VALID_AMOUNT);
+      showError('Please enter the card details');
     }
   };
+
+  const _onTopUp = () => {
+    console.log(seletedPaymentGateway, 'seletedPaymentGateway');
+    if (amount == '') {
+      showError(strings.PLEASE_ENTER_VALID_AMOUNT);
+    } else if (!seletedPaymentGateway) {
+      showError(strings.PLEASE_SELECT_PAYMENT_METHOD);
+    } else {
+      if (
+        seletedPaymentGateway?.off_site == 0 &&
+        seletedPaymentGateway?.id == 10
+      ) {
+        _onRazorPay();
+        return;
+      }
+
+      if (seletedPaymentGateway?.off_site == 1) {
+        // _webPayment();
+        return;
+      } else {
+        // _offineLinePayment();
+      }
+    }
+  };
+
+  // const _onTopUp = () => {
+  //   if (amount > 0) {
+  //     if (seletedPaymentGateway?.id === 10) {
+  //       _onRazorPay();
+  //     } else {
+  //       showError(strings.PLEASE_SELECT_PAYMENT_METHOD);
+  //     }
+
+  //     if (seletedPaymentGateway?.off_site == 1) {
+  //       // _webPayment();
+  //       return;
+  //     } else {
+  //       _offineLinePayment();
+  //     }
+
+  //   } else {
+  //     showError(strings.PLEASE_ENTER_VALID_AMOUNT);
+  //   }
+  // };
 
   const errorMethod = error => {
     updateState({isLoading: false});
@@ -229,51 +410,171 @@ export default function AddMoney({navigation}) {
       .catch(err => showError(err?.error?.description));
   };
 
-  const _renderPaymentOptions = ({item, index}) => {
+  const _selectPaymentMethod = item => {
+    console.log(item, 'seletedPaymentGateway');
+    {
+      seletedPaymentGateway && seletedPaymentGateway?.id == item?.id
+        ? updateState({seletedPaymentGateway: null})
+        : updateState({seletedPaymentGateway: item});
+    }
+  };
+
+  const _onChangeStripeData = cardDetails => {
+    if (cardDetails?.complete) {
+      updateState({
+        cardInfo: cardDetails,
+      });
+    } else {
+      updateState({cardInfo: null});
+    }
+  };
+
+  const _renderItemPayments = ({item, index}) => {
     return (
-      <TouchableOpacity
-        onPress={() =>
-          updateState({
-            seletedPaymentGateway: item,
-          })
-        }
-        activeOpacity={0.7}
-        style={{
-          paddingHorizontal: moderateScale(15),
-          paddingVertical: moderateScale(12),
-          backgroundColor: colors.borderColorB,
-          flexDirection: 'row',
-          alignItems: 'center',
-          borderWidth: seletedPaymentGateway?.id === item.id ? 1 : 0,
-          borderColor:
-            seletedPaymentGateway?.id === item.id
-              ? colors.themeColor
-              : colors.transparent,
-          borderRadius: moderateScale(5),
-        }}>
-        <Image
-          source={
-            seletedPaymentGateway?.id === item.id
-              ? imagePath.icRadioActive
-              : imagePath.icRadio
-          }
-          style={{
-            tintColor:
-              seletedPaymentGateway?.id === item.id
-                ? colors.themeColor
-                : colors.grey2,
-          }}
-        />
-        <Text
-          style={{
-            fontFamily: fontFamily.regular,
-            marginLeft: moderateScale(5),
-          }}>
-          {item?.title_lng ? item?.title_lng : item?.title}
-        </Text>
-      </TouchableOpacity>
+      <>
+        <TouchableOpacity onPress={() => _selectPaymentMethod(item)}>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              paddingVertical: moderateScaleVertical(5),
+            }}>
+            <Image
+              source={
+                seletedPaymentGateway && seletedPaymentGateway?.id == item.id
+                  ? imagePath.radioActive
+                  : imagePath.radioInActive
+              }
+            />
+            <Text
+              style={[
+                styles.title,
+                {
+                  color:
+                    seletedPaymentGateway &&
+                    seletedPaymentGateway?.id == item.id
+                      ? isDarkMode
+                        ? colors.white
+                        : colors.blackC
+                      : colors.textGreyJ,
+                },
+              ]}>
+              {item?.title_lng ? item?.title_lng : item?.title}
+            </Text>
+          </View>
+        </TouchableOpacity>
+
+        {seletedPaymentGateway &&
+          seletedPaymentGateway?.id == item.id &&
+          seletedPaymentGateway?.off_site == 0 &&
+          seletedPaymentGateway?.id === 4 && (
+            <View>
+              <CardField
+                postalCodeEnabled={false}
+                placeholder={{
+                  number: '4242 4242 4242 4242',
+                }}
+                cardStyle={{
+                  backgroundColor: '#FFFFFF',
+                  textColor: '#000000',
+                }}
+                style={{
+                  width: '100%',
+                  height: 50,
+                  marginVertical: 10,
+                }}
+                onCardChange={cardDetails => {
+                  // console.log('cardDetails', cardDetails);
+                  _onChangeStripeData(cardDetails);
+                }}
+                onFocus={focusedField => {
+                  console.log('focusField', focusedField);
+                }}
+                onBlur={() => {
+                  Keyboard.dismiss();
+                }}
+              />
+            </View>
+          )}
+
+        {seletedPaymentGateway &&
+          seletedPaymentGateway?.id == item.id &&
+          seletedPaymentGateway?.off_site == 0 &&
+          seletedPaymentGateway?.id === 17 && (
+            <CheckoutPaymentView
+              cardTokenized={e => {
+                if (e.token) {
+                  _checkoutPayment(e.token);
+                }
+              }}
+              cardTokenizationFailed={e => {
+                setTimeout(() => {
+                  updateState({isLoadingB: false});
+                  showError(strings.INVALID_CARD_DETAILS);
+                }, 1000);
+              }}
+              onPressSubmit={res => {
+                updateState({
+                  isLoadingB: true,
+                });
+              }}
+              btnTitle={strings.ADD}
+              isSubmitBtn
+              submitBtnStyle={{
+                width: '100%',
+                height: moderateScale(40),
+              }}
+            />
+          )}
+      </>
     );
   };
+
+  // const _renderPaymentOptions = ({item, index}) => {
+  //   return (
+  //     <TouchableOpacity
+  //       onPress={() =>
+  //         updateState({
+  //           seletedPaymentGateway: item,
+  //         })
+  //       }
+  //       activeOpacity={0.7}
+  //       style={{
+  //         paddingHorizontal: moderateScale(15),
+  //         paddingVertical: moderateScale(12),
+  //         backgroundColor: colors.borderColorB,
+  //         flexDirection: 'row',
+  //         alignItems: 'center',
+  //         borderWidth: seletedPaymentGateway?.id === item.id ? 1 : 0,
+  //         borderColor:
+  //           seletedPaymentGateway?.id === item.id
+  //             ? colors.themeColor
+  //             : colors.transparent,
+  //         borderRadius: moderateScale(5),
+  //       }}>
+  //       <Image
+  //         source={
+  //           seletedPaymentGateway?.id === item.id
+  //             ? imagePath.icRadioActive
+  //             : imagePath.icRadio
+  //         }
+  //         style={{
+  //           tintColor:
+  //             seletedPaymentGateway?.id === item.id
+  //               ? colors.themeColor
+  //               : colors.grey2,
+  //         }}
+  //       />
+  //       <Text
+  //         style={{
+  //           fontFamily: fontFamily.regular,
+  //           marginLeft: moderateScale(5),
+  //         }}>
+  //         {item?.title_lng ? item?.title_lng : item?.title}
+  //       </Text>
+  //     </TouchableOpacity>
+  //   );
+  // };
 
   return (
     <WrapperContainer
@@ -294,8 +595,19 @@ export default function AddMoney({navigation}) {
           opacity: 0.26,
         }}
       />
-      {mainView()}
-      <View style={{marginHorizontal: moderateScale(15)}}>
+
+      {false ? (
+        <StripeProvider
+          publishableKey={preferences?.stripe_publishable_key}
+          merchantIdentifier="merchant.identifier">
+          {mainView()}
+        </StripeProvider>
+      ) : (
+        mainView()
+      )}
+
+      {/* {mainView()} */}
+      {/* <View style={{marginHorizontal: moderateScale(15)}}>
         <Text style={styles.selectPaymentTxt}>{strings.PAYMENT_METHODS}</Text>
         <FlatList
           data={allPaymentOptions}
@@ -306,7 +618,7 @@ export default function AddMoney({navigation}) {
             </Text>
           )}
         />
-      </View>
+      </View> */}
     </WrapperContainer>
   );
 }

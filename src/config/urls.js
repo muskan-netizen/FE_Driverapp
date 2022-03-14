@@ -5,7 +5,7 @@
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //Developement
-// export const API_BASE_URL = 'https://api.winhires.com/';
+export const API_BASE_URL = 'https://api.winhires.com/';
 // export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
 
 // export const API_BASE_URL = 'http://192.168.96.152:8006/'; // preet local url
@@ -73,7 +73,7 @@
 // export const API_BASE_URL = 'https://delivery.snabbhem.se/';
 
 // pinkjet
-//export const API_BASE_URL = 'https://dispatch.pinkjettaxi.com/';
+// export const API_BASE_URL = 'https://dispatch.pinkjettaxi.com/';
 
 // Yoho
 // export const API_BASE_URL = 'https://dispatch.yohopartner.com/';
@@ -108,7 +108,7 @@
 // export const API_BASE_URL = 'https://grub.royodispatch.com/'
 
 // destinationops app domain
-export const API_BASE_URL = 'https://dispatch.destinationops.com/';
+// export const API_BASE_URL = 'https://dispatch.destinationops.com/';
 
 // somame live domain
 //export const API_BASE_URL = 'https://dispatch.somame-247.com/';
@@ -209,3 +209,4 @@ export const GETORDERDETAILFORTASK = getApiUrl(
 );
 export const GETCANCELORDERREASONLIST = getApiUrl('api/order/cancel/reasons');
 export const CANCELORDER = getApiUrl('api/order/cancel/request/create');
+export const GETWEBURL = getApiUrl('api/payment');
