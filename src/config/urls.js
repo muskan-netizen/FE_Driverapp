@@ -21,6 +21,9 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //DOORSTEP
 // export const API_BASE_URL = 'https://dispatch.doorstep.sd/';
 
+//GROUPY
+// export const API_BASE_URL = 'https://dispatch.groupystore.com/';
+
 //
 // export const API_BASE_URL = 'https://dispatch.samakeemart.com/';
 
@@ -70,7 +73,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://delivery.snabbhem.se/';
 
 // pinkjet
-//export const API_BASE_URL = 'https://dispatch.pinkjettaxi.com/';
+// export const API_BASE_URL = 'https://dispatch.pinkjettaxi.com/';
 
 // Yoho
 // export const API_BASE_URL = 'https://dispatch.yohopartner.com/';
@@ -146,7 +149,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //export const API_BASE_URL = 'https://dispatch.elcheregio.mx/';f
 
 // sunshinerideshare live domain
-//export const API_BASE_URL = 'https://dispatch.sunshinerideshare.com/';
+// export const API_BASE_URL = 'https://dispatch.sunshinerideshare.com/';
 
 //taquick live domain
 //export const API_BASE_URL = 'https://dispatch-dev.taquick.com/';

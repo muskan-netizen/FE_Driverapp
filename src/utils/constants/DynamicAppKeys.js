@@ -617,7 +617,7 @@ const appIds = {
     android: 'com.LaundryOrders.royodispatcher',
   }),
   groupy: Platform.select({
-    ios: 'com.Groupy.Dispatch',
+    ios: 'com.Groupy.Dispatcher',
     android: 'com.Groupy.royodispatcher',
   }),
   docta_transportation: Platform.select({
