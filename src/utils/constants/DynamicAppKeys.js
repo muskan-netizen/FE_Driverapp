@@ -235,6 +235,8 @@ const shortCodes = {
   sunShineRideShare: '2766da',
   spliffNation: '26834d',
   sourcesServices: '53929f',
+  beachHop: '8a4f77',
+  wer: 'fd0b92',
 };
 
 // Goody Dispatch
@@ -1171,6 +1173,14 @@ const appIds = {
   sourcesServices: Platform.select({
     ios: 'com.SourcesServices.Dispatcher',
     android: 'com.SourcesServices.royodispatcher',
+  }),
+  beachHop: Platform.select({
+    ios: 'com.BeachHop.Dispatcher',
+    android: 'com.BeachHop.royodispatcher',
+  }),
+  wer: Platform.select({
+    ios: 'com.Wer.Dispatcher',
+    android: 'com.Wer.royodispatcher',
   }),
 };
 

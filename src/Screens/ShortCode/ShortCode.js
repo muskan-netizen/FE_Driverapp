@@ -1478,6 +1478,18 @@ export default function ShortCode({ route, navigation }) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.beachHop:
+          updateState({
+            shortCode: shortCodes.beachHop,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.wer:
+          updateState({
+            shortCode: shortCodes.wer,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);

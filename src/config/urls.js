@@ -2,7 +2,7 @@
 //export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 
 
@@ -57,7 +57,7 @@
 //export const API_BASE_URL = 'https://dispatch.nadeliver.com/';
 
 //loopwhole
-//export const API_BASE_URL = 'https://dispatch.loopwhole.ca/';
+// export const API_BASE_URL = 'https://dispatch.loopwhole.ca/';
 
 //MARTINONWHEELS
 // export const API_BASE_URL = 'https://dispatch.martinionwheelsllc.org/';
@@ -119,7 +119,7 @@
 //export const API_BASE_URL = 'https://dispatch.destinationops.com/';
 
 // somame live domain
-export const API_BASE_URL = 'https://dispatch.somame-247.com/';
+// export const API_BASE_URL = 'https://dispatch.somame-247.com/';
 
 // codiner live domain
 //export const API_BASE_URL = 'https://dispatch.codiner.com/';
@@ -148,7 +148,7 @@ export const API_BASE_URL = 'https://dispatch.somame-247.com/';
 // export const API_BASE_URL = 'https://dispatch.swiftandvalu.com/'
 
 //loopwhole live domain
-//export const API_BASE_URL = 'https://dispatch.loopwhole.ca/';
+// export const API_BASE_URL = 'https://dispatch.loopwhole.ca/';
 
 //donepacked live domain
 //export const API_BASE_URL = 'https://dispatch.donepacked.com/';
