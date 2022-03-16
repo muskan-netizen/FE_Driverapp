@@ -117,7 +117,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //export const API_BASE_URL = 'https://dispatch.destinationops.com/';
 
 // somame live domain
-export const API_BASE_URL = 'https://dispatch.somame-247.com/';
+//export const API_BASE_URL = 'https://dispatch.somame-247.com/';
 
 // codiner live domain
 //export const API_BASE_URL = 'https://dispatch.codiner.com/';
