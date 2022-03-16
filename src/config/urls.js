@@ -2,10 +2,10 @@
 // export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //Developement
-//export const API_BASE_URL = 'https://api.winhires.com/';
+export const API_BASE_URL = 'https://api.winhires.com/';
 // export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
 //UFOOD
 // export const API_BASE_URL = 'https://dispatch.ufood.ca/';
