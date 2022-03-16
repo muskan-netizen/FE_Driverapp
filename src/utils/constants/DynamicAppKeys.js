@@ -376,7 +376,7 @@ const appIds = {
   }),
   hmc: Platform.select({
     ios: 'com.app.HMC.Dispatcher',
-    android: 'com.app.HMC.royodispatcher',
+    android: 'com.eatkareem.halalnow',
   }),
   expressdeliverys: Platform.select({
     ios: 'com.ExpressDeliverysLLC.Dispatch',

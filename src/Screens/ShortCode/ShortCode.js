@@ -1428,11 +1428,9 @@ export default function ShortCode({route, navigation}) {
   };
 
   useEffect(() => {
-    (async () => {
-      if (changeInShortCode) {
-        initApiHit();
-      }
-    })();
+    if (changeInShortCode) {
+      initApiHit();
+    }
   }, [changeInShortCode]);
 
   //On click login button
@@ -1623,7 +1621,6 @@ export default function ShortCode({route, navigation}) {
                 <ButtonWithLoader
                   color={colors.black}
                   btnStyle={styles.buttonStyle}
-                  btnTextStyle={{color: colors.textBlue}}
                   onPress={_onSubmitShortCode}
                   btnText={strings.LOGIN}
                   btnTextStyle={{

@@ -103,11 +103,11 @@ PODS:
     - nanopb/encode (= 2.30908.0)
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
-  - Permission-Camera (3.3.0):
+  - Permission-Camera (3.3.1):
     - RNPermissions
-  - Permission-LocationAlways (3.3.0):
+  - Permission-LocationAlways (3.3.1):
     - RNPermissions
-  - Permission-LocationWhenInUse (3.3.0):
+  - Permission-LocationWhenInUse (3.3.1):
     - RNPermissions
   - PromisesObjC (2.0.0)
   - razorpay-pod (1.1.18)
@@ -424,7 +424,7 @@ PODS:
     - React-Core
   - RNCPushNotificationIOS (1.10.1):
     - React-Core
-  - RNDeviceInfo (8.4.9):
+  - RNDeviceInfo (8.5.0):
     - React-Core
   - RNFaceApi (0.0.38):
     - FaceSDK (= 3.1.952)
@@ -455,17 +455,17 @@ PODS:
     - TOCropViewController
   - RNLocalize (2.2.0):
     - React-Core
-  - RNPermissions (3.3.0):
+  - RNPermissions (3.3.1):
     - React-Core
-  - RNReactNativeHapticFeedback (1.13.0):
+  - RNReactNativeHapticFeedback (1.13.1):
     - React-Core
   - RNReanimated (1.13.4):
     - React-Core
-  - RNScreens (3.13.0):
+  - RNScreens (3.13.1):
     - React-Core
     - React-RCTImage
-  - RNSVG (12.1.1):
-    - React
+  - RNSVG (12.3.0):
+    - React-Core
   - RNZendeskChat (0.4.1):
     - React-Core
     - ZendeskChatSDK (~> 2.9)
@@ -759,9 +759,9 @@ SPEC CHECKSUMS:
   lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
   lottie-react-native: b561920bba7ec727ec94a473b683cffba00faece
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
-  Permission-Camera: 4b7c865046e1c7f77f6c7961fe5762c997c52dc1
-  Permission-LocationAlways: a4f058a50511db71592da67381991ef340938043
-  Permission-LocationWhenInUse: d617fb35bf93c1e1047a1e0e0c617c7ba9611c4e
+  Permission-Camera: 273b78e214eae8d734d1c497b67aa0030838c006
+  Permission-LocationAlways: e250497fb714f608bc45c19229d160f4414ac1cb
+  Permission-LocationWhenInUse: 50736c907dff5a77d80a3503d3b333831148288b
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
   razorpay-pod: 9aca3a303ef2f9281232c2f742fc6de937679500
   RCT-Folly: 0dd9e1eb86348ecab5ba76f910b56f4b5fef3c46
@@ -810,8 +810,8 @@ SPEC CHECKSUMS:
   RNCAsyncStorage: c0754b486fec6e532d358bfd7337cb45c8d2c897
   RNCClipboard: 5e299c6df8e0c98f3d7416b86ae563d3a9f768a3
   RNCPushNotificationIOS: 089da3b657e1e3d464f38195fd2e3069608ef5af
-  RNDeviceInfo: d73a8976e404f39f73de4cab74c80c80076bb4e4
-  RNFaceApi: 9e30ed7d031d1b2a232da2c68f7cb49a47c8e05f
+  RNDeviceInfo: 240b4cc18b24ac8ba1bffeae7e72a289b93dcfd9
+  RNFaceApi: 41b913c5e240b5f2a29c32e7cde78f4ca230abc5
   RNFastImage: 1f2cab428712a4baaf78d6169eaec7f622556dd7
   RNFBApp: 729c0666395b1953198dc4a1ec6deb8fbe1c302e
   RNFBMessaging: 8415ec196e5c1196caa26ec0742cdb48ed4d0f97
@@ -819,11 +819,11 @@ SPEC CHECKSUMS:
   RNGestureHandler: a479ebd5ed4221a810967000735517df0d2db211
   RNImageCropPicker: 73891a709e6fd8a47d32104d942757971f220aee
   RNLocalize: 8cfa9e1264c9aa169f6adb33a5232f970508a793
-  RNPermissions: b4522b438784c979764461e1beba55250654bada
-  RNReactNativeHapticFeedback: b83bfb4b537bdd78eb4f6ffe63c6884f7b049ead
+  RNPermissions: 7ad8d93b004e6bc85c89e27a102afcde90e07efa
+  RNReactNativeHapticFeedback: 4085973f5a38b40d3c6793a3ee5724773eae045e
   RNReanimated: c1b56d030d1616239861534d9adb531f8cffab68
-  RNScreens: aa12070b21c1d6011b3627a0b1d09b627232b070
-  RNSVG: 551acb6562324b1d52a4e0758f7ca0ec234e278f
+  RNScreens: 40a2cb40a02a609938137a1e0acfbf8fc9eebf19
+  RNSVG: 302bfc9905bd8122f08966dc2ce2d07b7b52b9f8
   RNZendeskChat: 5a73a4353497c0670f81e30f06d45e183d0137aa
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
   SDWebImageWebPCoder: f93010f3f6c031e2f8fb3081ca4ee6966c539815
