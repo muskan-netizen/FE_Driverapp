@@ -17,6 +17,7 @@ import {
   GETORDERDETAILFORTASK,
   GETCANCELORDERREASONLIST,
   CANCELORDER,
+  GETWEBURL,
 } from '../../config/urls';
 import {apiGet, apiPost} from '../../utils/utils';
 import store from '../store';
@@ -388,6 +389,22 @@ export function submitCancelOrderRequest(url = '', data = {}, headers = {}) {
         resolve(res);
       })
       .catch(error => {
+        reject(error);
+      });
+  });
+}
+
+
+//Get List of payment method
+export function openPaymentWebUrl(query = '', data = {}, headers = {}) {
+  console.log("payment++ query", query)
+  console.log("payment++ data", data)
+  return new Promise((resolve, reject) => {
+    apiGet(GETWEBURL + query, data, headers)
+      .then((res) => {
+        resolve(res);
+      })
+      .catch((error) => {
         reject(error);
       });
   });

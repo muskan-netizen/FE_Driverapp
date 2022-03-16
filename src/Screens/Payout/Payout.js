@@ -19,6 +19,7 @@ import TextInputWithlabel from '../../Components/TextInputWithlabel';
 import WrapperContainer from '../../Components/WrapperContainer';
 import imagePath from '../../constants/imagePath';
 import strings from '../../constants/lang';
+import navigationStrings from '../../navigation/navigationStrings';
 import actions from '../../redux/actions';
 import colors from '../../styles/colors';
 import fontFamily from '../../styles/fontFamily';
@@ -27,6 +28,7 @@ import {
   moderateScale,
   moderateScaleVertical,
   textScale,
+  width,
 } from '../../styles/responsiveSize';
 import {currencyNumberFormatter} from '../../utils/commonFunction';
 import {showError, showSuccess} from '../../utils/helperFunctions';
@@ -51,10 +53,12 @@ export default function AddMoney({navigation}) {
     agentPayoutList: [],
     pageNo: 1,
     limit: 10,
+    stripeExistOrNot: false,
   });
 
   const styles = stylesFun();
   const {
+    stripeExistOrNot,
     isPayoutModal,
     isLoading,
     payoutAmount,
@@ -71,7 +75,10 @@ export default function AddMoney({navigation}) {
   } = state;
 
   const updateState = data => setState(state => ({...state, ...data}));
-
+  //Naviagtion to specific screen
+  const moveToNewScreen = (screenName, data) => () => {
+    navigation.navigate(screenName, {data});
+  };
   useFocusEffect(
     React.useCallback(() => {
       getPayoutDetails();
@@ -126,6 +133,9 @@ export default function AddMoney({navigation}) {
         console.log(res, 'resFromServer');
         updateState({
           payoutDetails: res?.data,
+          stripeExistOrNot: res?.data?.payout_options.find(
+            x => x?.code == 'stripe',
+          ),
           agentPayoutList:
             pageNo === 1
               ? res?.data?.agent_payout_list?.data
@@ -179,6 +189,10 @@ export default function AddMoney({navigation}) {
     if (!checkValid) {
       return;
     }
+    if (selectedPayoutOption?.id == 2 && !selectedPayoutOption?.is_connected) {
+      alert(strings.STRIPENOTCONNECTED)
+      return;
+    }
     const data = {};
     if (selectedPayoutOption.id == 4) {
       const checkValid = isValidBankData();
@@ -195,19 +209,20 @@ export default function AddMoney({navigation}) {
       data['amount'] = payoutAmount;
       data['payout_option_id'] = selectedPayoutOption?.id;
     }
-
-    actions
-      .agentPayoutCreate(`/${userData?.id}`, data, {
-        client: clientInfo?.database_name,
-      })
-      .then(res => {
-        console.log(res, 'responseFromServer');
-        updateState({isPayoutModal: false});
-        getBankDetails();
-        getPayoutDetails();
-        showSuccess(res?.message, 2000);
-      })
-      .catch(errorMethod);
+    console.log(data, 'selectedPayoutOption>>>DATA');
+    console.log(selectedPayoutOption, 'selectedPayoutOption');
+    // actions
+    //   .agentPayoutCreate(`/${userData?.id}`, data, {
+    //     client: clientInfo?.database_name,
+    //   })
+    //   .then(res => {
+    //     console.log(res, 'responseFromServer');
+    //     updateState({isPayoutModal: false});
+    //     getBankDetails();
+    //     getPayoutDetails();
+    //     showSuccess(res?.message, 2000);
+    //   })
+    //   .catch(errorMethod);
   };
 
   const errorMethod = error => {
@@ -350,6 +365,12 @@ export default function AddMoney({navigation}) {
     updateState({pageNo: pageNo + 1});
   };
 
+  const _connectStipe = () => {
+    console.log(stripeExistOrNot, 'stripeExistOrNot');
+
+    moveToNewScreen(navigationStrings.WEBCONNECTIONS, stripeExistOrNot)();
+  };
+
   return (
     <WrapperContainer
       bgColor={colors.white}
@@ -383,6 +404,16 @@ export default function AddMoney({navigation}) {
           strings.AVAILABLE_FUNDS,
         )}
       </View>
+      {!!(stripeExistOrNot && !stripeExistOrNot?.is_connected) && (
+        <View style={styles.mainViewStripe}>
+          <TouchableOpacity
+            onPress={_connectStipe}
+            style={styles.stripeuttonLayout}>
+            <Text style={styles.stipeText}>{strings.CONNECTSTRIPE}</Text>
+          </TouchableOpacity>
+          {/* payoutDetails.payout_options */}
+        </View>
+      )}
 
       <View style={{flex: 1, marginHorizontal: moderateScale(15)}}>
         <View

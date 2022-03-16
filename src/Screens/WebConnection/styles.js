@@ -1,14 +1,11 @@
 import {I18nManager, StyleSheet} from 'react-native';
 import colors from '../../styles/colors';
-import fontFamily from '../../styles/fontFamily';
 import {
   moderateScale,
   moderateScaleVertical,
-  textScale,
-  width,
 } from '../../styles/responsiveSize';
 
-export default () => {
+export default ({fontFamily}) => {
   const styles = StyleSheet.create({
     addMoneyTopCon: {
       paddingHorizontal: moderateScaleVertical(15),
@@ -16,7 +13,7 @@ export default () => {
       backgroundColor: colors.white,
     },
     addMoneyInputField: {
-      width: width,
+      borderBottomWidth: 0.5,
       paddingLeft: moderateScaleVertical(14),
       paddingVertical: moderateScaleVertical(8),
       textAlign: I18nManager.isRTL ? 'right' : 'left',
@@ -28,7 +25,6 @@ export default () => {
     currencySymble: {
       fontFamily: fontFamily.bold,
       fontSize: moderateScale(17),
-      position: 'absolute',
     },
     selectAmountCon: {
       borderWidth: 0.5,
@@ -49,40 +45,22 @@ export default () => {
       fontSize: moderateScale(16),
       color: colors.textGreyJ,
       paddingLeft: moderateScale(10),
-      textAlign: 'left',
     },
     debitFrom: {
       fontFamily: fontFamily.bold,
       fontSize: moderateScale(16),
       color: colors.blackC,
-      textAlign: 'left',
     },
     bottomButtonStyle: {
       position: 'absolute',
-      bottom: 22,
+      bottom: 10,
       left: 20,
       right: 20,
     },
-
+   
     input: {
       fontSize: 16,
-      color: 'black',
-    },
-    noPaymentFound: {
-      textAlign: 'center',
-      fontFamily: fontFamily.regular,
-      fontSize: textScale(13),
-      marginTop: moderateScale(20),
-    },
-    selectPaymentTxt: {
-      fontFamily: fontFamily.medium,
-      fontSize: textScale(16),
-      marginVertical: moderateScale(10),
-    },
-   
-    inputAmountText: {
-      fontFamily: fontFamily.bold,
-      color: colors.walletTextD,
+      color: "black",
     },
   });
   return styles;

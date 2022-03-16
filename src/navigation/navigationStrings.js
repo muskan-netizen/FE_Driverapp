@@ -33,7 +33,8 @@ export default {
   PLACEHOLDERCOMMENTFORPICKUPDRIVER: 'Eg. Please reach before time if possible',
   SEARCHPRODUCTOVENDOR: 'SearchProductVendorItem',
   PRODUCTDETAIL: 'productDetail',
-  ORDERCANCEL:"Ordercancel"
+  ORDERCANCEL:"Ordercancel",
+  WEBCONNECTIONS:"Webconnections"
 
 
 };
