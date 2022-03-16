@@ -86,6 +86,24 @@ export default () => {
       fontFamily: fontFamily.medium,
       fontSize: textScale(16),
     },
+    stripeuttonLayout:{
+      borderRadius: width / 2.5 / 2,
+      borderWidth: 2,
+      borderColor: colors.themeColor,
+      width: width / 2.5,
+      padding: 10,
+      alignItems: 'center',
+    },
+    stipeText:{
+      fontFamily: fontFamily?.bold,
+      fontSize: 14,
+      color: colors?.themeColor,
+    },
+    mainViewStripe:{
+      justifyContent: 'flex-end',
+      alignItems: 'flex-end',
+      marginHorizontal: 10,
+    }
   });
   return styles;
 };

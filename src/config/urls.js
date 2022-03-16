@@ -5,10 +5,10 @@
 //export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //Developement
-// export const API_BASE_URL = 'https://api.winhires.com/';
+export const API_BASE_URL = 'https://api.winhires.com/';
 // export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
 
-export const API_BASE_URL = 'http://192.168.96.152:8006/'; // preet local url
+// export const API_BASE_URL = 'http://192.168.96.152:8006/'; // preet local url
 // export const API_BASE_URL = 'http://192.168.102.23:8005/'; // Gourav.s local url
 // export const API_BASE_URL = 'http://192.168.97.104:8010/'; // Sujata.s local url
 //

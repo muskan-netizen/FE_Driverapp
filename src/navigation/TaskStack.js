@@ -11,7 +11,8 @@ import {
   TaskDetail,
   TaskHistory,
   SearchProductVendorItem2,
-  ProductDetail
+  ProductDetail,
+  WebConnection,
 } from '../Screens';
 import Cart from '../Screens/CustomerCart/Cart3';
 import OrderCancel from '../Screens/OrderCancel/OrderCancel';
@@ -60,7 +61,7 @@ export default function () {
         component={Scanner}
         options={{headerShown: false}}
       />
-       <Stack.Screen
+      <Stack.Screen
         name={navigationStrings.SEARCHPRODUCTOVENDOR}
         component={SearchProductVendorItem2}
         options={{headerShown: false}}
@@ -80,7 +81,7 @@ export default function () {
         component={OrderDetail}
         options={{headerShown: false}}
       />
-        <Stack.Screen
+      <Stack.Screen
         name={navigationStrings.CART}
         component={Cart}
         options={{headerShown: false}}
@@ -90,9 +91,14 @@ export default function () {
         component={ProductDetail}
         options={{headerShown: false}}
       />
-       <Stack.Screen
+      <Stack.Screen
         name={navigationStrings.ORDERCANCEL}
         component={OrderCancel}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name={navigationStrings.WEBCONNECTIONS}
+        component={WebConnection}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

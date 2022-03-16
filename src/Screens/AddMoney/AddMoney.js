@@ -44,6 +44,7 @@ export default function AddMoney({navigation}) {
   const darkthemeusingDevice = useDarkMode();
   const isDarkMode = themeToggle ? darkthemeusingDevice : themeColor;
   console.log(userData, 'userData');
+  const {client_preference} = userData;
   const [state, setState] = useState({
     customAmount: [
       {id: 0, amount: 300},
@@ -71,14 +72,11 @@ export default function AddMoney({navigation}) {
 
   useEffect(() => {
     if (
-      'pk_test_51Jr0IMSHo9Ezp4MLFPvjUcHU552nN6qrIEvleBlGnHPwN7zcG1rhq2SPIUVvfWTGLPLdqp1i2sanMPN8saqXe0MR00KFbv5QVr' !=
-        '' &&
-      'pk_test_51Jr0IMSHo9Ezp4MLFPvjUcHU552nN6qrIEvleBlGnHPwN7zcG1rhq2SPIUVvfWTGLPLdqp1i2sanMPN8saqXe0MR00KFbv5QVr' !=
-        null
+      client_preference?.stripe_publishable_key != '' &&
+      client_preference?.stripe_publishable_key != null
     ) {
       initStripe({
-        publishableKey:
-          'pk_test_51Jr0IMSHo9Ezp4MLFPvjUcHU552nN6qrIEvleBlGnHPwN7zcG1rhq2SPIUVvfWTGLPLdqp1i2sanMPN8saqXe0MR00KFbv5QVr',
+        publishableKey: client_preference?.stripe_publishable_key,
         merchantIdentifier: 'merchant.identifier',
       });
     }
@@ -597,9 +595,10 @@ export default function AddMoney({navigation}) {
         }}
       />
 
-      {false ? (
+      {client_preference?.stripe_publishable_key != '' &&
+      client_preference?.stripe_publishable_key != null ? (
         <StripeProvider
-          publishableKey={preferences?.stripe_publishable_key}
+          publishableKey={client_preference?.stripe_publishable_key}
           merchantIdentifier="merchant.identifier">
           {mainView()}
         </StripeProvider>
