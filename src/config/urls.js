@@ -155,7 +155,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //export const API_BASE_URL = 'https://dispatch.donepacked.com/';
 
 // elcheregio live domain
-//export const API_BASE_URL = 'https://dispatch.elcheregio.mx/';f
+//export const API_BASE_URL = 'https://dispatch.elcheregio.mx/';
 
 // sunshinerideshare live domain
 // export const API_BASE_URL = 'https://dispatch.sunshinerideshare.com/';
