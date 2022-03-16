@@ -2461,6 +2461,16 @@ android {
             applicationId 'com.ScoopaTechnologies.royodispatcher'
             resValue "string", "app_name", "ScoopaTechnologies Dispatcher"
         }
+         helloDeliver{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.HelloDeliver.royodispatcher'
+            resValue "string", "app_name", "HelloDeliver Dispatcher"
+        }
     }
 }
 

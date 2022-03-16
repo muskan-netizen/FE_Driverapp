@@ -459,6 +459,8 @@ PODS:
     - React-Core
   - RNReactNativeHapticFeedback (1.13.0):
     - React-Core
+  - RNReanimated (1.13.1):
+    - React
   - RNScreens (3.13.0):
     - React-Core
     - React-RCTImage
@@ -473,23 +475,19 @@ PODS:
   - SDWebImageWebPCoder (0.8.4):
     - libwebp (~> 1.0)
     - SDWebImage/Core (~> 5.10)
-  - Stripe (21.12.0):
-    - Stripe/Stripe3DS2 (= 21.12.0)
-    - StripeApplePay (= 21.12.0)
-    - StripeCore (= 21.12.0)
-    - StripeUICore (= 21.12.0)
-  - stripe-react-native (0.4.0):
+  - Stripe (21.9.1):
+    - Stripe/Stripe3DS2 (= 21.9.1)
+    - StripeCore (= 21.9.1)
+    - StripeUICore (= 21.9.1)
+  - stripe-react-native (0.2.3):
     - React-Core
-    - Stripe (~> 21.12.0)
-  - Stripe/Stripe3DS2 (21.12.0):
-    - StripeApplePay (= 21.12.0)
-    - StripeCore (= 21.12.0)
-    - StripeUICore (= 21.12.0)
-  - StripeApplePay (21.12.0):
-    - StripeCore (= 21.12.0)
-  - StripeCore (21.12.0)
-  - StripeUICore (21.12.0):
-    - StripeCore (= 21.12.0)
+    - Stripe (~> 21.9.0)
+  - Stripe/Stripe3DS2 (21.9.1):
+    - StripeCore (= 21.9.1)
+    - StripeUICore (= 21.9.1)
+  - StripeCore (21.9.1)
+  - StripeUICore (21.9.1):
+    - StripeCore (= 21.9.1)
   - TOCropViewController (2.6.1)
   - Yoga (1.14.0)
   - ZendeskChatProvidersSDK (2.11.2)
@@ -572,6 +570,7 @@ DEPENDENCIES:
   - RNLocalize (from `../node_modules/react-native-localize`)
   - RNPermissions (from `../node_modules/react-native-permissions`)
   - RNReactNativeHapticFeedback (from `../node_modules/react-native-haptic-feedback`)
+  - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - RNSVG (from `../node_modules/react-native-svg`)
   - RNZendeskChat (from `../node_modules/react-native-zendesk-chat`)
@@ -603,7 +602,6 @@ SPEC REPOS:
     - SDWebImage
     - SDWebImageWebPCoder
     - Stripe
-    - StripeApplePay
     - StripeCore
     - StripeUICore
     - TOCropViewController
@@ -745,6 +743,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-permissions"
   RNReactNativeHapticFeedback:
     :path: "../node_modules/react-native-haptic-feedback"
+  RNReanimated:
+    :path: "../node_modules/react-native-reanimated"
   RNScreens:
     :path: "../node_modules/react-native-screens"
   RNSVG:
@@ -840,16 +840,16 @@ SPEC CHECKSUMS:
   RNLocalize: 6571ea792a7dcb6d217c98c14d9147e9417cef62
   RNPermissions: bcd846e8f5a7f39e921cc7ca7172e2de0e698b6f
   RNReactNativeHapticFeedback: b83bfb4b537bdd78eb4f6ffe63c6884f7b049ead
+  RNReanimated: dd8c286ab5dd4ba36d3a7fef8bff7e08711b5476
   RNScreens: aa12070b21c1d6011b3627a0b1d09b627232b070
   RNSVG: 551acb6562324b1d52a4e0758f7ca0ec234e278f
   RNZendeskChat: c3835f664be1746b121b69736d5c95e236cae382
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
   SDWebImageWebPCoder: f93010f3f6c031e2f8fb3081ca4ee6966c539815
-  Stripe: c3692f360abcdfeef9751e3c240e7efbc68b921f
-  stripe-react-native: 624b96fa6725576f96d1c4af566ac00c3f1c3e8d
-  StripeApplePay: 14db90fdf89abb2809ce41fc68bc6b1a86221408
-  StripeCore: 5e38cdea3dc176a32d8797ef312fe1ab41571272
-  StripeUICore: c28e371b385f968388ae38bedb93a2723c078442
+  Stripe: 22c1b8da5ee20a1aaf40fd198160efa72e71644a
+  stripe-react-native: 980f3d19f52a7dc4b373c6c20d30ebd760bc39e5
+  StripeCore: 91ea038ac0abbb72f11014044dfd1e5d39089714
+  StripeUICore: 7edf64b24c9c178bfd97e988f2cffdbb7a7628b0
   TOCropViewController: edfd4f25713d56905ad1e0b9f5be3fbe0f59c863
   Yoga: aa0cb45287ebe1004c02a13f279c55a95f1572f4
   ZendeskChatProvidersSDK: 450e0a6f56b8c5c82b21106914818a5a3c094cc5
@@ -859,6 +859,6 @@ SPEC CHECKSUMS:
   ZendeskMessagingSDK: ce2750c0a3dbd40918ea2e2d44dd0dbe34d21bc8
   ZendeskSDKConfigurationsSDK: f91f54f3b41aa36ffbc43a37af9956752a062055
 
-PODFILE CHECKSUM: fe8dd2147eea34e8f24e4de7e6a5c63bb0404a76
+PODFILE CHECKSUM: fed7a444a0291163af4de0c34e5999b5696894a0
 
 COCOAPODS: 1.11.2

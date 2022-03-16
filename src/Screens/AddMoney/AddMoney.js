@@ -285,7 +285,7 @@ export default function AddMoney({navigation}) {
           console.log(res, 'res>>STRIpe');
           if (res && res?.token && res.token?.id) {
             let selectedMethod = seletedPaymentGateway.code.toLowerCase();
-            // updateState({isLoading: true});
+            updateState({isLoading: true});
             actions
               .openPaymentWebUrl(
                 `/${selectedMethod}?amount=${amount}&payment_option_id=${seletedPaymentGateway?.id}&action=wallet&stripe_token=${res.token?.id}`,
@@ -295,8 +295,9 @@ export default function AddMoney({navigation}) {
                 },
               )
               .then(res => {
+                console.log(res, 'openPaymentWebUrl>res');
                 updateState({isLoading: false, isRefreshing: false});
-                if (res && res?.status == 'Success' && res?.data) {
+                if (res && res?.status == 'Success') {
                   // updateState({allAvailAblePaymentMethods: res?.data});
                   // alert('Payment successfull');
                   Alert.alert('', strings.PAYMENT_SUCCESS, [
@@ -339,7 +340,7 @@ export default function AddMoney({navigation}) {
         // _webPayment();
         return;
       } else {
-        // _offineLinePayment();
+        _offineLinePayment();
       }
     }
   };

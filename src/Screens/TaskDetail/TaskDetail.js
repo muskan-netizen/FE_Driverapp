@@ -305,10 +305,12 @@ export default function TaskDetail({route, navigation}) {
       });
       _getproductUpdateDetails();
     }
-    getAllMovingDetails([
-      {pickupAddress: taskDetail?.order?.task[0]?.location?.address},
-      {dropAddress: taskDetail?.order?.task[1]?.location?.address},
-    ]);
+    if (fromHistory) {
+      getAllMovingDetails([
+        {pickupAddress: taskDetail?.order?.task[0]?.location?.address},
+        {dropAddress: taskDetail?.order?.task[1]?.location?.address},
+      ]);
+    }
   }, []);
 
   const getAllMovingDetails = data => {
@@ -360,8 +362,6 @@ export default function TaskDetail({route, navigation}) {
       apiData: apiData,
     })();
   };
-
-  console.log(taskDetail, 'taskDetail?.id');
 
   const mapView = () => {
     return (
@@ -609,7 +609,7 @@ export default function TaskDetail({route, navigation}) {
       );
     }
     return cancelRequestExit ? null : (
-    // return (
+      // return (
       <View style={styles.container}>
         <TouchableWithoutFeedback
           onPressIn={taskStatus == 3 ? redirectToDoneScreen : handlePressIn}

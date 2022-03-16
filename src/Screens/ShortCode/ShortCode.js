@@ -1387,12 +1387,18 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
-          case appIds.scoopaTechnologies:
-            updateState({
-              shortCode: shortCodes.scoopaTechnologies,
-              isShortcodePrefilled: true,
-            });
-            break;
+        case appIds.scoopaTechnologies:
+          updateState({
+            shortCode: shortCodes.scoopaTechnologies,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.helloDeliver:
+          updateState({
+            shortCode: shortCodes.helloDeliver,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);
@@ -1453,7 +1459,7 @@ export default function ShortCode({route, navigation}) {
       }
 
       // let updatedShortCode = shortCode;
-      let updatedShortCode = '1da2e9';
+      let updatedShortCode = '745e3f';
       actions
         .initApp({shortCode: updatedShortCode}, header)
         .then(res => {
