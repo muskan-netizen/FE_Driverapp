@@ -1714,7 +1714,7 @@ export default function ShortCode({ route, navigation }) {
                 <ButtonWithLoader
                   color={colors.black}
                   btnStyle={styles.buttonStyle}
-                  btnTextStyle={{ color: colors.textBlue }}
+                  // btnTextStyle={{ color: colors.textBlue }}
                   onPress={_onSubmitShortCode}
                   btnText={strings.LOGIN}
                   btnTextStyle={{
