@@ -539,7 +539,7 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.app.HMC.royodispatcher'
+            applicationId 'com.eatkareem.halalnow'
             resValue "string", "app_name", "HMC Dispatch"
         }
 
