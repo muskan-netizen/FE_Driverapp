@@ -238,6 +238,8 @@ const shortCodes = {
   beachHop: '8a4f77',
   wer: 'fd0b92',
   qseek: '960e91',
+  delvento: '97a408',
+  rideShare: '69b572',
 };
 
 // Goody Dispatch
@@ -1186,6 +1188,14 @@ const appIds = {
   qseek: Platform.select({
     ios: 'com.Qseek.Dispatch',
     android: 'com.Qseek.royodispatcher',
+  }),
+  delvento: Platform.select({
+    ios: 'com.Delvento.Dispatch',
+    android: 'com.Delvento.royodispatcher',
+  }),
+  rideShare: Platform.select({
+    ios: 'com.RideShare.Dispatch',
+    android: 'com.RideShare.royodispatcher',
   }),
 };
 

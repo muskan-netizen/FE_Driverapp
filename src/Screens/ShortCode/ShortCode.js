@@ -1496,6 +1496,18 @@ export default function ShortCode({ route, navigation }) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.delvento:
+          updateState({
+            shortCode: shortCodes.delvento,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.rideShare:
+          updateState({
+            shortCode: shortCodes.rideShare,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);
