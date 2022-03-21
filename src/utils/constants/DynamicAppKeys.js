@@ -237,6 +237,7 @@ const shortCodes = {
   sourcesServices: '53929f',
   beachHop: '8a4f77',
   wer: 'fd0b92',
+  qseek: '960e91',
 };
 
 // Goody Dispatch
@@ -703,7 +704,7 @@ const appIds = {
     android: 'com.FlyingHorse.royodispatcher',
   }),
   ufood: Platform.select({
-    ios: 'com.UFood.Dispatch',
+    ios: 'com.UFood.Dispatcher',
     android: 'com.ufood.royodispatcher',
   }),
   servze: Platform.select({
@@ -795,7 +796,7 @@ const appIds = {
     android: 'com.Sofia.royodispatcher',
   }),
   mml: Platform.select({
-    ios: 'com.MML.Dispatch',
+    ios: 'com.App.MML.Dispatcher',
     android: 'com.app.MML.royodispatcher',
   }),
   bimol: Platform.select({
@@ -1181,6 +1182,10 @@ const appIds = {
   wer: Platform.select({
     ios: 'com.Wer.Dispatcher',
     android: 'com.Wer.royodispatcher',
+  }),
+  qseek: Platform.select({
+    ios: 'com.Qseek.Dispatch',
+    android: 'com.Qseek.royodispatcher',
   }),
 };
 

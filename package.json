@@ -473,6 +473,8 @@
     "beachHopdispatcherRelease": "cd android && ./gradlew assembleBeachHopRelease",
     "werdispatcher": "react-native run-android --variant=werDebug",
     "werdispatcherRelease": "cd android && ./gradlew assembleWerRelease",
+    "qseekdispatcher": "react-native run-android --variant=qseekDebug",
+    "qseekdispatcherRelease": "cd android && ./gradlew assembleQseekRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
