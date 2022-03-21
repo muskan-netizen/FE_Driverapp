@@ -2,7 +2,8 @@ export default {
   LOGINUSING: 'Faça Login Usando',
   COMPANYCODE: 'Código da Empresa',
   PHONENUMBER: 'Número de telefone',
-  WENEDDCOMPNAYCODE: 'Precisamos do código da sua empresa para configurar o login',
+  WENEDDCOMPNAYCODE:
+    'Precisamos do código da sua empresa para configurar o login',
   WENEDDPHONENUMBER: 'Precisamos do seu número de telefone para identificá-lo',
   LOGIN: 'Login',
   WHEREICANSIGNUP: 'Onde posso me inscrever??',
@@ -16,7 +17,7 @@ export default {
   AND: '&',
   VERIFICATION: 'Verificação',
   CODESENTTO: 'Código enviado para',
-  DIDNTRECIEVEANYCODE: "Ainda não recebeu o código? ",
+  DIDNTRECIEVEANYCODE: 'Ainda não recebeu o código? ',
   RESENTCODE: 'Reenviar código',
   TASKHISTORY: 'Histórico de Tarefas',
   SETTING: 'Configurações',
@@ -38,7 +39,7 @@ export default {
   CLEAR: 'Limpar',
   SELECTADATE: 'Selecione uma data',
   SELECTDATEANDTIME: 'Selecione Data e Hora',
-  TODAYSTASK: "Tarefas de hoje",
+  TODAYSTASK: 'Tarefas de hoje',
   ALLTASKS: 'Todas as Tarefas',
   TASK: 'Tarefa',
   TASKDETAIL: 'Detalhes da Tarefa',
@@ -113,7 +114,7 @@ export default {
   CONTACT: 'Contato',
   GETINTOUCH: 'Entre em contato',
   WANTTOGET:
-    "Quer entrar em contato? Adoraríamos ouvir de você, veja como você pode entrar em contato conosco.",
+    'Quer entrar em contato? Adoraríamos ouvir de você, veja como você pode entrar em contato conosco.',
   CASHCOLLECTEDCAPS: 'COLETA DE DINHEIRO',
   ORDEREARNING: 'GANHOS DO PEDIDO',
   NET: 'NET',
@@ -205,7 +206,7 @@ export default {
   REQUIRE_SIX_CHAR: 'Requer no mínimo 6 caracteres',
   IS_INCORRECT: 'incorreto',
   CONFIRM_PASS: 'Confirme a senha',
-  PASS_NOT_MATCHED: "Nova senha e confirmação de senha não correspondem",
+  PASS_NOT_MATCHED: 'Nova senha e confirmação de senha não correspondem',
   MESSAGE: 'mensagem',
   PAYOUT_AMOUNT: 'Valor do pagamento',
   A_PAYOUT_OPTION: 'Uma opção de pagamento',
@@ -220,10 +221,10 @@ export default {
   COMPELETED: 'Completo',
   CANCELLED: 'Cancelado',
   SPECIAL_INSTRUCTIONS: 'Instruções Especiais',
-  DONT_HAVE_ACCOUNT: "Não tem uma conta ?",
+  DONT_HAVE_ACCOUNT: 'Não tem uma conta ?',
   TASKID: 'ID da Tarefa: ',
   PRICE: 'Dinheiro a ser coletado:',
-  TASKDISTANCE: Distância da Tarefa',
+  TASKDISTANCE: 'Distância da Tarefa',
   DAMAGEREPORT: 'Relatório de Dano',
   MAXIMUM_PHOTO_SELECTION_LIMIT_REACHED:
     'Limite máximo de seleção de fotos atingido',
@@ -262,7 +263,8 @@ export default {
   COMMENTFORDROPUPDRIVER: 'Comentário para Motorista de Entrega',
   PLACEHOLDERCOMMENTFORDROPUPDRIVER: 'Ex. Me ligue antes de deixar',
   COMMENTFORVENDOR: 'Comentário para o Lojista',
-  PLACEHOLDERCOMMENTFORVENDOR: Por exemplo, Por favor, faça os brancos separadamente',
+  PLACEHOLDERCOMMENTFORVENDOR:
+    'Por exemplo, Por favor, faça os brancos separadamente',
   SCEDULEPICKUP: 'Agendar Retirada',
   SCEDULEDROP: 'Agendar Entrega',
   TOTALSUBSCRIPTION: 'Desconto de Assinatura',
@@ -278,7 +280,7 @@ export default {
   CARTSUBMITEED:
     'Você já enviou a alteração do carrinho. Aguarde a resposta do cliente',
   AREYOUSURETEMPCART:
-    "Tem certeza de que deseja enviar esta alteração? Por favor, verifique duas vezes todos os detalhes, uma vez enviado, não pode ser alterado",
+    'Tem certeza de que deseja enviar esta alteração? Por favor, verifique duas vezes todos os detalhes, uma vez enviado, não pode ser alterado',
   AREYOUSURETEMPCARTCLAER:
     'Tem certeza de que deseja limpar o carrinho? Isso removerá todas as suas alterações.',
   EDIT: 'Editar',
@@ -289,5 +291,5 @@ export default {
   RESEONCANCEL: 'Razão',
   JOBTYPE: 'Tipo de trabalho',
   ASSIGNEDTEAM: 'Equipe Atribuída',
-  ORDERCANCEL:'Pedido Cancelado',
+  ORDERCANCEL: 'Pedido Cancelado',
 };
