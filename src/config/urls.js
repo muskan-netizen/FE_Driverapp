@@ -19,7 +19,7 @@
 //export const API_BASE_URL = 'https://delivery.shoorafresh.com.au/';
 
 //hellodeliver
-export const API_BASE_URL = 'https://dispatch.hellodeliver.in/';
+// export const API_BASE_URL = 'https://dispatch.hellodeliver.in/';
 
 //export const API_BASE_URL = 'https://pinkydeli.rdstaging.com/';
 //export const API_BASE_URL = 'https://dispatcher.releezer.shop';
@@ -36,7 +36,7 @@ export const API_BASE_URL = 'https://dispatch.hellodeliver.in/';
 // export const API_BASE_URL = 'https://dispatch.samakeemart.com/';
 
 //mml
-// export const API_BASE_URL = 'https://dispatch.mml.mobi/';
+export const API_BASE_URL = 'https://dispatch.mml.mobi/';
 
 //sirvu
 //export const API_BASE_URL = 'https://dispatch.sirvu.ca/';
@@ -158,6 +158,9 @@ export const API_BASE_URL = 'https://dispatch.hellodeliver.in/';
 
 // sunshinerideshare live domain
 // export const API_BASE_URL = 'https://dispatch.sunshinerideshare.com/';
+
+//Swiffy live domain
+// export const API_BASE_URL = 'https://swiffy.us/';
 
 //taquick live domain
 //export const API_BASE_URL = 'https://dispatch-dev.taquick.com/';

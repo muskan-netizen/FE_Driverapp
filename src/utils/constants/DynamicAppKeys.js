@@ -240,6 +240,7 @@ const shortCodes = {
   qseek: '960e91',
   delvento: '97a408',
   rideShare: '69b572',
+  newYorkMiniMart: '5e4b3b',
 };
 
 // Goody Dispatch
@@ -1196,6 +1197,10 @@ const appIds = {
   rideShare: Platform.select({
     ios: 'com.RideShare.Dispatch',
     android: 'com.RideShare.royodispatcher',
+  }),
+  newYorkMiniMart: Platform.select({
+    ios: 'com.NewYorkMiniMart.Dispatch',
+    android: 'com.NewYorkMiniMart.royodispatcher',
   }),
 };
 

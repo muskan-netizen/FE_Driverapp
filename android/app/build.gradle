@@ -1642,7 +1642,7 @@ android {
         }
         mml{
             dimension "appType"
-            versionCode 3
+            versionCode 4
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
@@ -2673,6 +2673,17 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.RideShare.royodispatcher'
             resValue "string", "app_name", "RideShare Dispatcher"
+        }
+
+        newYorkMiniMart{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.NewYorkMiniMart.royodispatcher'
+            resValue "string", "app_name", "NewYorkMiniMart Dispatcher"
         }
 
     }
