@@ -334,7 +334,7 @@ PODS:
     - React-Core
   - react-native-maps (0.29.4):
     - React-Core
-  - react-native-netinfo (6.2.1):
+  - react-native-netinfo (8.2.0):
     - React-Core
   - react-native-razorpay (2.2.8):
     - razorpay-pod
@@ -346,6 +346,8 @@ PODS:
   - react-native-signature-capture (0.4.12):
     - React
   - react-native-splash-screen (3.3.0):
+    - React-Core
+  - react-native-webview (11.17.2):
     - React-Core
   - React-perflogger (0.65.1)
   - React-RCTActionSheet (0.65.1):
@@ -418,13 +420,13 @@ PODS:
   - RegulaCommon (5.8.59)
   - rn-fetch-blob (0.12.0):
     - React-Core
-  - RNCAsyncStorage (1.16.3):
+  - RNCAsyncStorage (1.17.0):
     - React-Core
   - RNCClipboard (1.5.1):
     - React-Core
   - RNCPushNotificationIOS (1.10.1):
     - React-Core
-  - RNDeviceInfo (8.5.0):
+  - RNDeviceInfo (8.5.1):
     - React-Core
   - RNFaceApi (0.0.38):
     - FaceSDK (= 3.1.952)
@@ -475,6 +477,19 @@ PODS:
   - SDWebImageWebPCoder (0.8.4):
     - libwebp (~> 1.0)
     - SDWebImage/Core (~> 5.10)
+  - Stripe (21.11.1):
+    - Stripe/Stripe3DS2 (= 21.11.1)
+    - StripeCore (= 21.11.1)
+    - StripeUICore (= 21.11.1)
+  - stripe-react-native (0.2.4):
+    - React-Core
+    - Stripe (~> 21.11.1)
+  - Stripe/Stripe3DS2 (21.11.1):
+    - StripeCore (= 21.11.1)
+    - StripeUICore (= 21.11.1)
+  - StripeCore (21.11.1)
+  - StripeUICore (21.11.1):
+    - StripeCore (= 21.11.1)
   - TOCropViewController (2.6.1)
   - Yoga (1.14.0)
   - ZendeskChatProvidersSDK (2.11.2)
@@ -528,6 +543,7 @@ DEPENDENCIES:
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - react-native-signature-capture (from `../node_modules/react-native-signature-capture`)
   - react-native-splash-screen (from `../node_modules/react-native-splash-screen`)
+  - react-native-webview (from `../node_modules/react-native-webview`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
   - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
@@ -561,6 +577,7 @@ DEPENDENCIES:
   - RNScreens (from `../node_modules/react-native-screens`)
   - RNSVG (from `../node_modules/react-native-svg`)
   - RNZendeskChat (from `../node_modules/react-native-zendesk-chat`)
+  - "stripe-react-native (from `../node_modules/@stripe/stripe-react-native`)"
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
   - ZendeskChatProvidersSDK
   - ZendeskChatSDK
@@ -587,6 +604,9 @@ SPEC REPOS:
     - RegulaCommon
     - SDWebImage
     - SDWebImageWebPCoder
+    - Stripe
+    - StripeCore
+    - StripeUICore
     - TOCropViewController
     - ZendeskChatProvidersSDK
     - ZendeskChatSDK
@@ -668,6 +688,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-signature-capture"
   react-native-splash-screen:
     :path: "../node_modules/react-native-splash-screen"
+  react-native-webview:
+    :path: "../node_modules/react-native-webview"
   React-perflogger:
     :path: "../node_modules/react-native/ReactCommon/reactperflogger"
   React-RCTActionSheet:
@@ -734,6 +756,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-svg"
   RNZendeskChat:
     :path: "../node_modules/react-native-zendesk-chat"
+  stripe-react-native:
+    :path: "../node_modules/@stripe/stripe-react-native"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -785,12 +809,13 @@ SPEC CHECKSUMS:
   react-native-geolocation-service: c0efb872258ed9240f1003a70fca9e9757e5c785
   react-native-google-maps: 34517207071d54f3bc23c68752bbec0217bfc79e
   react-native-maps: a421fe6aeb74279597c4ea9598f25796108e2d89
-  react-native-netinfo: 877946c7b4eb85a639cf1ea31333dadc2be999a1
+  react-native-netinfo: 1929cb10180c83da2f7875bef715ae482e37831f
   react-native-razorpay: b35ef0a8067a725a288d9fb70a356d38d441bbe1
   react-native-restart: d4ea7637e193da7558d229b3704d500ec0d75f9c
   react-native-safe-area-context: 5b8a418400eb3d8364aa87300e865c0262cc17b9
   react-native-signature-capture: 73f2077f43a3fae9979b76e8cbf703c735bf44f4
   react-native-splash-screen: 4312f786b13a81b5169ef346d76d33bc0c6dc457
+  react-native-webview: 77ee909f73e1fcab76380f7dcc3344771fe61bd8
   React-perflogger: fd28ee1f2b5b150b00043f0301d96bd417fdc339
   React-RCTActionSheet: 7f3fa0855c346aa5d7c60f9ced16e067db6d29fa
   React-RCTAnimation: 2119a18ee26159004b001bc56404ca5dbaae6077
@@ -807,10 +832,10 @@ SPEC CHECKSUMS:
   ReactNativeLocalization: be60e3a0e6e8db88d9f8190719ffb75e1cdab22a
   RegulaCommon: 601c50267470f36652f94174e87d79b8a0608af2
   rn-fetch-blob: f065bb7ab7fb48dd002629f8bdcb0336602d3cba
-  RNCAsyncStorage: a9954b3d9fcc16112e984c559c96d27b9e9251a8
+  RNCAsyncStorage: f385be27befc6e094ef1be9e5d640bdf4cc1be4e
   RNCClipboard: 5e299c6df8e0c98f3d7416b86ae563d3a9f768a3
   RNCPushNotificationIOS: 089da3b657e1e3d464f38195fd2e3069608ef5af
-  RNDeviceInfo: 240b4cc18b24ac8ba1bffeae7e72a289b93dcfd9
+  RNDeviceInfo: 84bc8b2f6e2a17361d6246e5623ff93f1389869f
   RNFaceApi: 90fd61fb9c681c9cb1205f615034ff7dde6d41c8
   RNFastImage: 1f2cab428712a4baaf78d6169eaec7f622556dd7
   RNFBApp: 729c0666395b1953198dc4a1ec6deb8fbe1c302e
@@ -827,6 +852,10 @@ SPEC CHECKSUMS:
   RNZendeskChat: 5a73a4353497c0670f81e30f06d45e183d0137aa
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
   SDWebImageWebPCoder: f93010f3f6c031e2f8fb3081ca4ee6966c539815
+  Stripe: f2bed8369154c35c8ec794704e042e05240d6f21
+  stripe-react-native: 93063122415d8c677c61e44d6e1f13d30f8e794f
+  StripeCore: 36571be19dae15e90c8ad47e1af45712aea93f5a
+  StripeUICore: 1b32566d6a69581be786609a032872b0fb5a6823
   TOCropViewController: edfd4f25713d56905ad1e0b9f5be3fbe0f59c863
   Yoga: aa0cb45287ebe1004c02a13f279c55a95f1572f4
   ZendeskChatProvidersSDK: 450e0a6f56b8c5c82b21106914818a5a3c094cc5

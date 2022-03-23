@@ -31,6 +31,7 @@ import {
 import {
   getColorCodeWithOpactiyNumber,
   showError,
+  showSuccess
 } from '../../utils/helperFunctions';
 import styles from './styles';
 import Communications from 'react-native-communications';
@@ -115,7 +116,7 @@ export default function OrderCancel({route, navigation}) {
           console.log(res, 'submitReason>res>res');
           updateState({isLoading: false});
           navigation.navigate(navigationStrings.DASHBOARD);
-          showError(res?.message);
+          showSuccess(res?.message);
           //   if (res?.data) {
           //     navigation.navigate(navigationStrings.DASHBOARD);
           //   }

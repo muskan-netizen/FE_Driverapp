@@ -143,6 +143,7 @@ export default function Login({navigation, route}) {
 
   //Error handling in api
   const errorMethod = error => {
+    console.log(error, 'error>>>>>');
     updateState({isLoading: false});
     showError(error?.message || error?.error, 10000);
   };

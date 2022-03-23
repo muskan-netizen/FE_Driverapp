@@ -1,7 +1,7 @@
 import React, {Fragment, useEffect, useState} from 'react';
 import {Alert} from 'react-native';
 import {Text, TouchableOpacity, View, Image} from 'react-native';
-import Animated from 'react-native-reanimated';
+// import Animated from 'react-native-reanimated';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useSelector} from 'react-redux';
 import imagePath from '../constants/imagePath';

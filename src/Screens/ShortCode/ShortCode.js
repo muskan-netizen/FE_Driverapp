@@ -1514,6 +1514,18 @@ export default function ShortCode({ route, navigation }) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.airlinesRecruiter:
+          updateState({
+            shortCode: shortCodes.airlinesRecruiter,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.upStreet:
+          updateState({
+            shortCode: shortCodes.upStreet,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);
@@ -1543,11 +1555,9 @@ export default function ShortCode({ route, navigation }) {
   };
 
   useEffect(() => {
-    (async () => {
-      if (changeInShortCode) {
-        initApiHit();
-      }
-    })();
+    if (changeInShortCode) {
+      initApiHit();
+    }
   }, [changeInShortCode]);
 
   //On click login button
@@ -1574,7 +1584,7 @@ export default function ShortCode({ route, navigation }) {
       }
 
       let updatedShortCode = shortCode;
-      //let updatedShortCode = '1da2e9';
+      // let updatedShortCode = '1da2e9';
       actions
         .initApp({ shortCode: updatedShortCode }, header)
         .then(res => {
@@ -1738,7 +1748,6 @@ export default function ShortCode({ route, navigation }) {
                 <ButtonWithLoader
                   color={colors.black}
                   btnStyle={styles.buttonStyle}
-                  btnTextStyle={{ color: colors.textBlue }}
                   onPress={_onSubmitShortCode}
                   btnText={strings.LOGIN}
                   btnTextStyle={{

@@ -19,5 +19,6 @@ export {default as AddMoney} from './AddMoney/AddMoney';
 export {default as Payout} from './Payout/Payout';
 export {default as SearchProductVendorItem2} from './SearchProductVendorItem/SearchProductVendorItem2';
 export {default as ProductDetail} from './ProductDetail/ProductDetail';
+export {default as WebConnection} from './WebConnection/WebConnection';
 
 

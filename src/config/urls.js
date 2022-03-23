@@ -1,15 +1,13 @@
 //live
-//export const API_BASE_URL = 'https://api.royodispatch.com/';
+// export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
-
-
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //Developement
-// export const API_BASE_URL = 'https://api.winhires.com/';
+//export const API_BASE_URL = 'https://api.winhires.com/';
 // export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
-//UFOOD 
+//UFOOD
 // export const API_BASE_URL = 'https://dispatch.ufood.ca/';
 // export const API_BASE_URL = 'http://192.168.96.152:8006/'; // preet local url
 // export const API_BASE_URL = 'http://192.168.102.23:8005/'; // Gourav.s local url
@@ -27,6 +25,9 @@
 //DOORSTEP
 // export const API_BASE_URL = 'https://dispatch.doorstep.sd/';
 
+//Bezaliohub
+// export const API_BASE_URL = 'https://dispatch.bezaliohub.com/'
+
 //RXNOW
 // export const API_BASE_URL = 'https://dispatch.rxnowweb.com/';
 //GROUPY
@@ -36,7 +37,7 @@
 // export const API_BASE_URL = 'https://dispatch.samakeemart.com/';
 
 //mml
-export const API_BASE_URL = 'https://dispatch.mml.mobi/';
+// export const API_BASE_URL = 'https://dispatch.mml.mobi/';
 
 //sirvu
 //export const API_BASE_URL = 'https://dispatch.sirvu.ca/';
@@ -116,7 +117,7 @@ export const API_BASE_URL = 'https://dispatch.mml.mobi/';
 // export const API_BASE_URL = 'https://grub.royodispatch.com/'
 
 // destinationops app domain
-//export const API_BASE_URL = 'https://dispatch.destinationops.com/';
+// export const API_BASE_URL = 'https://dispatch.destinationops.com/';
 
 // somame live domain
 // export const API_BASE_URL = 'https://dispatch.somame-247.com/';
@@ -154,13 +155,15 @@ export const API_BASE_URL = 'https://dispatch.mml.mobi/';
 //export const API_BASE_URL = 'https://dispatch.donepacked.com/';
 
 // elcheregio live domain
-//export const API_BASE_URL = 'https://dispatch.elcheregio.mx/';f
+//export const API_BASE_URL = 'https://dispatch.elcheregio.mx/';
 
 // sunshinerideshare live domain
 // export const API_BASE_URL = 'https://dispatch.sunshinerideshare.com/';
 
 //Swiffy live domain
 // export const API_BASE_URL = 'https://swiffy.us/';
+//We eat live
+// export const API_BASE_URL = 'https://weeat.royodispatch.com/';
 
 //taquick live domain
 //export const API_BASE_URL = 'https://dispatch-dev.taquick.com/';
@@ -217,3 +220,4 @@ export const GETORDERDETAILFORTASK = getApiUrl(
 );
 export const GETCANCELORDERREASONLIST = getApiUrl('api/order/cancel/reasons');
 export const CANCELORDER = getApiUrl('api/order/cancel/request/create');
+export const GETWEBURL = getApiUrl('api/payment');

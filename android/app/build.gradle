@@ -121,7 +121,8 @@ def jscFlavor = 'org.webkit:android-jsc:+'
 def enableHermes = project.ext.react.get("enableHermes", false);
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
+    // compileSdkVersion rootProject.ext.compileSdkVersion
+    compileSdkVersion 31
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -134,7 +135,8 @@ android {
     defaultConfig {
         applicationId "com.royodriverapp"
         minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
+        // targetSdkVersion rootProject.ext.targetSdkVersion
+         targetSdkVersion 31
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
@@ -537,7 +539,7 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.app.HMC.royodispatcher'
+            applicationId 'com.eatkareem.halalnow'
             resValue "string", "app_name", "HMC Dispatch"
         }
 
@@ -2684,6 +2686,28 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.NewYorkMiniMart.royodispatcher'
             resValue "string", "app_name", "NewYorkMiniMart Dispatcher"
+        }
+
+        airlinesRecruiter{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.AirlinesRecruiter.royodispatcher'
+            resValue "string", "app_name", "AirlinesRecruiter Dispatcher"
+        }
+
+        upStreet{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.UpStreet.royodispatcher'
+            resValue "string", "app_name", "UpStreet Dispatcher"
         }
 
     }

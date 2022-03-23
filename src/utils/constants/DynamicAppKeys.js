@@ -240,7 +240,9 @@ const shortCodes = {
   qseek: '960e91',
   delvento: '97a408',
   rideShare: '69b572',
-  newYorkMiniMart: '5e4b3b',
+  newYorkMiniMart: '7bb34e',
+  airlinesRecruiter: 'deb34c',
+  upStreet: 'bcf8e0',
 };
 
 // Goody Dispatch
@@ -396,7 +398,7 @@ const appIds = {
   }),
   hmc: Platform.select({
     ios: 'com.app.HMC.Dispatcher',
-    android: 'com.app.HMC.royodispatcher',
+    android: 'com.eatkareem.halalnow',
   }),
   expressdeliverys: Platform.select({
     ios: 'com.ExpressDeliverysLLC.Dispatch',
@@ -1201,6 +1203,14 @@ const appIds = {
   newYorkMiniMart: Platform.select({
     ios: 'com.NewYorkMiniMart.Dispatch',
     android: 'com.NewYorkMiniMart.royodispatcher',
+  }),
+  airlinesRecruiter: Platform.select({
+    ios: 'com.AirlinesRecruiter.Dispatch',
+    android: 'com.AirlinesRecruiter.royodispatcher',
+  }),
+  upStreet: Platform.select({
+    ios: 'com.UpStreet.Dispatch',
+    android: 'com.UpStreet.royodispatcher',
   }),
 };
 
