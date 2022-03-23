@@ -243,6 +243,7 @@ const shortCodes = {
   newYorkMiniMart: '7bb34e',
   airlinesRecruiter: 'deb34c',
   upStreet: 'bcf8e0',
+  nineOneTwo: '5a1f38',
 };
 
 // Goody Dispatch
@@ -1211,6 +1212,10 @@ const appIds = {
   upStreet: Platform.select({
     ios: 'com.UpStreet.Dispatch',
     android: 'com.UpStreet.royodispatcher',
+  }),
+  nineOneTwo: Platform.select({
+    ios: 'com.NineOneTwo.Dispatch',
+    android: 'com.NineOneTwo.royodispatcher',
   }),
 };
 

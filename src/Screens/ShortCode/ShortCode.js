@@ -1526,6 +1526,12 @@ export default function ShortCode({ route, navigation }) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.nineOneTwo:
+          updateState({
+            shortCode: shortCodes.nineOneTwo,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);
