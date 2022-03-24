@@ -211,18 +211,18 @@ export default function AddMoney({navigation}) {
     }
     console.log(data, 'selectedPayoutOption>>>DATA');
     console.log(selectedPayoutOption, 'selectedPayoutOption');
-    // actions
-    //   .agentPayoutCreate(`/${userData?.id}`, data, {
-    //     client: clientInfo?.database_name,
-    //   })
-    //   .then(res => {
-    //     console.log(res, 'responseFromServer');
-    //     updateState({isPayoutModal: false});
-    //     getBankDetails();
-    //     getPayoutDetails();
-    //     showSuccess(res?.message, 2000);
-    //   })
-    //   .catch(errorMethod);
+    actions
+      .agentPayoutCreate(`/${userData?.id}`, data, {
+        client: clientInfo?.database_name,
+      })
+      .then(res => {
+        console.log(res, 'responseFromServer');
+        updateState({isPayoutModal: false});
+        getBankDetails();
+        getPayoutDetails();
+        showSuccess(res?.message, 2000);
+      })
+      .catch(errorMethod);
   };
 
   const errorMethod = error => {
