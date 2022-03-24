@@ -50,7 +50,7 @@ const App = () => {
   function codePushStatusDidChange(syncStatus) {
     switch (syncStatus) {
       case codePush.SyncStatus.CHECKING_FOR_UPDATE:
-        console.log('codepush status Checking for update');
+        console.log('status Checking for update');
         break;
       case codePush.SyncStatus.DOWNLOADING_PACKAGE:
         console.log('codepush status Downloading package');
