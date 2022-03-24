@@ -83,7 +83,7 @@ export default function Settings({route, navigation}) {
       },
       {
         id: 9,
-        label: 'Vietname',
+        label: 'Vietnamese',
         value: 'vi',
       },
     ],
@@ -141,7 +141,7 @@ export default function Settings({route, navigation}) {
     return (
       <View
         style={{
-          height: height / 1.5,
+          height: height / 1.4,
         }}>
         <Text
           style={[
@@ -151,37 +151,40 @@ export default function Settings({route, navigation}) {
           {strings.LANGUAGE}
         </Text>
         <View style={styles.lineViewstyle} />
-
-        <View style={{height: height / 1.8}}>
-          {allLanguages.map((item, index) => {
-            return (
-              <TouchableOpacity onPress={() => _selecLangauge(item)}>
-                <View style={styles.languageListItemContainer}>
-                  <TouchableOpacity onPress={() => _selecLangauge(item)}>
-                    <Image
-                      source={
-                        selectedLangauge?.id == item?.id
-                          ? imagePath.redioSelectedButton
-                          : imagePath.redioUnSelectedButton
-                      }
-                    />
-                  </TouchableOpacity>
-                  <TouchableOpacity onPress={() => _selecLangauge(item)}>
-                    <Text
-                      style={{
-                        marginHorizontal: moderateScale(20),
-                        fontFamily: fontFamily.semiBold,
-                        color: colors.textGrey,
-                      }}>
-                      {item?.label}
-                    </Text>
-                  </TouchableOpacity>
-                </View>
-              </TouchableOpacity>
-            );
-          })}
-        </View>
-
+        <ScrollView>
+          <View
+            style={{
+              height: height / 1.8,
+            }}>
+            {allLanguages.map((item, index) => {
+              return (
+                <TouchableOpacity onPress={() => _selecLangauge(item)}>
+                  <View style={styles.languageListItemContainer}>
+                    <TouchableOpacity onPress={() => _selecLangauge(item)}>
+                      <Image
+                        source={
+                          selectedLangauge?.id == item?.id
+                            ? imagePath.redioSelectedButton
+                            : imagePath.redioUnSelectedButton
+                        }
+                      />
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => _selecLangauge(item)}>
+                      <Text
+                        style={{
+                          marginHorizontal: moderateScale(20),
+                          fontFamily: fontFamily.semiBold,
+                          color: colors.textGrey,
+                        }}>
+                        {item?.label}
+                      </Text>
+                    </TouchableOpacity>
+                  </View>
+                </TouchableOpacity>
+              );
+            })}
+          </View>
+        </ScrollView>
         <View style={styles.modealBottomContainer} />
         <View style={styles.modalBottomButtonContainer}>
           <TouchableOpacity onPress={() => setFinalSelectedLanguage('cancel')}>
