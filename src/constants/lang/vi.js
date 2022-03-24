@@ -109,7 +109,7 @@ export default {
   SUCCESSSIGNUP: 'ÄÄƒng kÃ½ thÃ nh cÃ´ng.',
   WALLET: 'VÃ­',
   WALLETAMOUNT: 'Sá»‘ lÆ°á»£ng',
-  TOTALREVNUE: 'Current balance',
+  TOTALREVNUE: 'Số dư hiện tại',
   TRANSACTIONHISTORY: 'Lá»‹ch sá»­ váº­n chuyá»ƒn',
   LANGUAGECHANGED: 'Thay Ä‘á»•i ngÃ´n ngá»¯',
   LIFETIMEEARNING: 'thu nháº­p suá»‘t Ä‘á»i',

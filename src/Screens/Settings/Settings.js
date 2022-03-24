@@ -77,12 +77,12 @@ export default function Settings({route, navigation}) {
         value: 'ptBr',
       },
       {
-        id: 8,
+        id: 9,
         label: 'Sweden',
         value: 'sv',
       },
       {
-        id: 9,
+        id: 10,
         label: 'Vietnamese',
         value: 'vi',
       },
@@ -151,11 +151,10 @@ export default function Settings({route, navigation}) {
           {strings.LANGUAGE}
         </Text>
         <View style={styles.lineViewstyle} />
-        <ScrollView>
-          <View
-            style={{
-              height: height / 1.8,
-            }}>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          style={{height: moderateScaleVertical(height)}}>
+          <View>
             {allLanguages.map((item, index) => {
               return (
                 <TouchableOpacity onPress={() => _selecLangauge(item)}>
