@@ -38,7 +38,7 @@ import {
   employeetypeArray,
   transportationArray,
 } from '../../../utils/constants/ConstantValues';
-import {shortCodes} from '../../../utils/constants/DynamicAppKeys';
+import {appIds, shortCodes} from '../../../utils/constants/DynamicAppKeys';
 import {showError, showSuccess} from '../../../utils/helperFunctions';
 import {androidCameraPermission} from '../../../utils/permissions';
 import {getItem} from '../../../utils/utils';
@@ -51,6 +51,7 @@ import Modal from 'react-native-modal';
 import DatePicker from 'react-native-date-picker';
 import DatePickerModal from '../../../Components/DatePickerModal';
 import moment from 'moment';
+import {getBundleId} from 'react-native-device-info';
 
 export default function Signup({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
@@ -96,9 +97,19 @@ export default function Signup({route, navigation}) {
     isDatePicker: false,
     selectedDateField: {},
     selectedDate: new Date(),
+    customerType: [
+      {id: 1, name: 'Individual'},
+      {id: 2, name: 'Retail Store'},
+      {id: 3, name: 'Distribution center'},
+    ],
+    selectedCustomerType: null,
+    isCustomer: false,
   });
 
   const {
+    isCustomer,
+    selectedCustomerType,
+    customerType,
     userImage,
     vehiclePlateNumber,
     isLoading,
@@ -290,6 +301,7 @@ export default function Signup({route, navigation}) {
       return;
     }
 
+console.log(dummyTags,"dummyTagsdummyTagsdummyTags");
     // if (!selectedVehicleType) {
     //   return showError(strings.SELECTTRANSPORTATION);
     // }
@@ -301,10 +313,15 @@ export default function Signup({route, navigation}) {
       showError(`${strings.PLEASE_SELECT} ${strings.A_TEAM}`);
       return;
     }
-    if (isEmpty(selectedTags)) {
-      showError(`${strings.PLEASE_SELECT} ${strings.ONE_TAG}`);
+    if (getBundleId() == appIds?.trucxi && !selectedCustomerType) {
+      alert(getBundleId() == appIds?.trucxi)
+      showError(strings.PLEASESELECTCUSTOMERTYPE);
       return;
     }
+    // if (isEmpty(selectedTags)) {
+    //   showError(`${strings.PLEASE_SELECT} ${strings.ONE_TAG}`);
+    //   return;
+    // }
 
     let formdata = new FormData();
     formdata.append('name', fullName);
@@ -315,8 +332,10 @@ export default function Signup({route, navigation}) {
     formdata.append('color', vehicleColor);
     formdata.append('vehicle_type_id', selectedVehicleType?.id);
     formdata.append('team_id', !!selectedTeam ? selectedTeam?.id : '');
-    formdata.append('tags', dummyTags);
-
+    formdata.append('tags', dummyTags ? dummyTags :'');
+    if (getBundleId() == appIds?.trucxi && selectedCustomerType) {
+      formdata.append('customer_type_id', selectedCustomerType?.id);
+    }
     formdata.append('profile_picture', {
       type: 'image/jpeg',
       name: `${Math.random()
@@ -724,6 +743,8 @@ export default function Signup({route, navigation}) {
     updateState({isDatePicker: false, selectedDate: new Date()});
   };
 
+  console.log(customerType,"customerTypecustomerType");
+
   return (
     <WrapperContainer
       statusBarColor={colors.white}
@@ -807,7 +828,7 @@ export default function Signup({route, navigation}) {
               {strings.TEAMS}
             </Text>
 
-            <View style={{zIndex: 5}}>
+            <View style={{zIndex: 10}}>
               <TouchableOpacity
                 style={{
                   borderRadius: 8,
@@ -893,6 +914,107 @@ export default function Signup({route, navigation}) {
               )}
             </View>
 
+            {/* Select Customer type */}
+
+            {getBundleId() == appIds.trucxi && (
+              <View>
+                <Text
+                  style={{
+                    ...styles.labelTxt,
+                    marginVertical: moderateScaleVertical(10),
+                  }}>
+                  {strings.CUSTOMERTYPE}
+                </Text>
+
+                <View style={{zIndex: 5}}>
+                  <TouchableOpacity
+                    style={{
+                      borderRadius: 8,
+                      height: moderateScaleVertical(44),
+                      paddingHorizontal: moderateScale(5),
+                      borderWidth: 1,
+                      borderColor: colors.borderLight,
+                      flexDirection: 'row',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                    }}
+                    activeOpacity={0.7}
+                    onPress={() =>
+                      updateState({
+                        isCustomer: !isCustomer,
+                        isDriverType: false,
+                        isTagsShow: false,
+                      })
+                    }>
+                    <Text
+                      style={{
+                        ...styles.labelTxt,
+                        marginBottom: 0,
+                      }}>
+                      {!!selectedCustomerType
+                        ? selectedCustomerType?.name
+                        : strings.SELECT_TEAM}
+                    </Text>
+                    <Image source={imagePath.dropDownNew} />
+                  </TouchableOpacity>
+
+                  {isCustomer && (
+                    <View
+                      style={{
+                        borderWidth: 1,
+                        borderColor: colors.borderColorB,
+                        backgroundColor: colors.white,
+                        width: '100%',
+                        paddingHorizontal: moderateScale(10),
+                        paddingVertical: moderateScale(5),
+                        shadowOffset: {width: 0, height: 1},
+                        shadowOpacity: 0.1,
+                        minHeight: moderateScale(50),
+                        borderRadius: moderateScale(5),
+                        maxHeight: moderateScale(150),
+                      }}>
+                      <ScrollView>
+                        {customerType.length > 0 ? (
+                          <View>
+                            {customerType.map((itm, indx) => {
+                              return (
+                                <TouchableOpacity
+                                  key={indx}
+                                  onPress={() =>
+                                    updateState({
+                                      selectedCustomerType: itm,
+                                      isCustomer: false,
+                                    })
+                                  }
+                                  style={{
+                                    marginVertical: moderateScale(5),
+                                  }}>
+                                  <Text>{itm.name}</Text>
+                                </TouchableOpacity>
+                              );
+                            })}
+                          </View>
+                        ) : (
+                          <View
+                            style={{
+                              ...styles.noDataFound,
+                              backgroundColor: colors.white,
+                            }}>
+                            <Text
+                              style={{
+                                fontFamily: fontFamily.medium,
+                                fontSize: moderateScale(13),
+                              }}>
+                              {strings.NODATAFOUND}
+                            </Text>
+                          </View>
+                        )}
+                      </ScrollView>
+                    </View>
+                  )}
+                </View>
+              </View>
+            )}
             <Text
               style={{
                 marginVertical: moderateScaleVertical(10),

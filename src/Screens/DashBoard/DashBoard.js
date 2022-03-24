@@ -21,11 +21,16 @@ import {
 import TaskListCard from '../../Components/TaskListCard';
 import {
   getColorCodeWithOpactiyNumber,
+  getCurrentLocation,
   showError,
 } from '../../utils/helperFunctions';
 import ListEmptyComponent from '../../Components/ListEmptyComponent';
 import strings from '../../constants/lang';
-import MapView from 'react-native-maps'; // remove PROVIDER_GOOGLE import if not using Google Maps
+import MapView, {
+  AnimatedRegion,
+  Marker,
+  PROVIDER_GOOGLE,
+} from 'react-native-maps'; // remove PROVIDER_GOOGLE import if not using Google Maps
 import styles from './styles';
 import DeviceInfo from 'react-native-device-info';
 import navigationStrings from '../../navigation/navigationStrings';
@@ -40,11 +45,14 @@ navigator.geolocation = require('react-native-geolocation-service');
 import Geocoder from 'react-native-geocoding';
 import {requestUserPermission} from '../../utils/notificationServices';
 import Geolocation_ from '@react-native-community/geolocation';
+import geocoder from 'react-native-geocoder/js/geocoder';
+import {rippleLoader} from '../../Components/Loaders/AnimatedLoaderFiles/index';
+import LottieAnimation from 'lottie-react-native';
 // import BackgroundTimer from 'react-native-background-timer';
 
 export default function DashBoard({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
-
+  console.log(userData,"userData");
   const [state, setState] = useState({
     isLoading: false,
     isEnabled: userData && userData?.is_available ? true : false,
@@ -61,22 +69,22 @@ export default function DashBoard({route, navigation}) {
     region: {
       latitude: 20.5937,
       longitude: 78.9629,
-      latitudeDelta: 0.015,
-      longitudeDelta: 0.0121,
+      latitudeDelta: 0.025,
+      longitudeDelta: 0.0221,
     },
     coordinate: {
       latitude: 20.5937,
       longitude: 78.9629,
-      latitudeDelta: 0.015,
-      longitudeDelta: 0.0121,
+      latitudeDelta: 0.025,
+      longitudeDelta: 0.0221,
     },
-    enableMap: false,
+    enableMap: true,
     markers: [],
     isLoadingSwitch: false,
     fcm_token: null,
     statusChanged: false,
-    longitude: null,
-    latitude: null,
+    longitude: 77.4753352147053,
+    latitude: 27.685284872673407,
     heading: 0,
     isWarningAlert: false,
     warningStatus: false,
@@ -153,6 +161,14 @@ export default function DashBoard({route, navigation}) {
     return () => {};
   }, []);
 
+  useEffect(() => {
+    if (refreshHomeData && enableMap) {
+      updateState({
+        enableMap: false,
+      });
+    }
+  }, [refreshHomeData]);
+
   // useEffect(() => {
   //     BackgroundTimer.runBackgroundTimer(() => {
   //       console.log('this is background');
@@ -202,6 +218,14 @@ export default function DashBoard({route, navigation}) {
           longitude: position.coords.longitude,
           heading: position.coords.heading,
         });
+
+        getCurrentLocation(
+          position.coords.latitude,
+          position.coords.longitude,
+          'address',
+        )
+          .then(res => alert(res))
+          .catch(error => alert(error));
       },
       error => console.log(error.message),
       {
@@ -222,7 +246,7 @@ export default function DashBoard({route, navigation}) {
         data['app_version'] = DeviceInfo.getVersion();
         data['on_route'] = 'y';
         data['battery_level'] = (await DeviceInfo.getBatteryLevel()) * 100;
-        data['all'] = initial;
+        data['all'] = selectedOption;
         // data['current_speed'] = 'y';
         data['long'] = callFrom === 'callFromWatchPosition' ? lng : longitude;
         data['lat'] = callFrom === 'callFromWatchPosition' ? lat : latitude;
@@ -234,6 +258,7 @@ export default function DashBoard({route, navigation}) {
         actions
           .logsApi(data, {client: clientInfo?.database_name})
           .then(res => {
+            console.log(res,"logs data");
             if (
               res?.data?.user?.client_preference
                 ?.customer_support_application_id != null &&
@@ -269,25 +294,25 @@ export default function DashBoard({route, navigation}) {
     }, 2000);
   };
 
-  useEffect(() => {
-    setTimeout(() => {
-      fetchgentLogs(latitude, longitude, heading, '');
-    }, 5000);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     fetchgentLogs(latitude, longitude, heading, '');
+  //   }, 5000);
+  // }, []);
 
   useInterval(
     () => fetchgentLogs(latitude, longitude, heading, ''),
     userData && userData?.access_token
       ? userData?.team?.location_frequency
-        ? Number(userData?.team?.location_frequency) * 60000
-        : 60000
+        ? Number(userData?.team?.location_frequency) * 6000
+        : 6000
       : null,
   );
 
   useFocusEffect(
     React.useCallback(() => {
       getTasks();
-    }, [initial]),
+    }, [selectedOption]),
   );
 
   useEffect(() => {
@@ -306,7 +331,7 @@ export default function DashBoard({route, navigation}) {
   const getTasks = () => {
     actions
       .getListOfTasks(
-        `?all=${initial}`,
+        `?all=${selectedOption}`,
         {},
         {client: clientInfo?.database_name},
       )
@@ -389,7 +414,7 @@ export default function DashBoard({route, navigation}) {
   };
 
   const updateContent = value => {
-    updateState({initial: value, isLoading: true});
+    updateState({selectedOption: value, isLoading: true});
   };
   const customCenter = () => {
     return (
@@ -531,6 +556,27 @@ export default function DashBoard({route, navigation}) {
     fitToMap();
   }, [markers, enableMap]);
 
+  useEffect(() => {
+    if (latitude && longitude) {
+      console.log('regionregion', region);
+      // {"latitude": 20.5937, "latitudeDelta": 0.015, "longitude": 78.9629, "longitudeDelta": 0.0121}
+      fitPadding([
+        {
+          latitude: Number(latitude),
+          longitude: Number(longitude),
+          latitudeDelta: 0.035,
+          longitudeDelta: 0.0321,
+        },
+        {
+          latitude: Number(latitude) - 0.001,
+          longitude: Number(longitude) - 0.01,
+          latitudeDelta: 0.035,
+          longitudeDelta: 0.0321,
+        },
+      ]);
+    }
+  }, [latitude, longitude]);
+
   //show warrning
 
   const _onOpenSettings = () => {
@@ -568,52 +614,62 @@ export default function DashBoard({route, navigation}) {
 
   const fitPadding = newArray => {
     if (mapRef.current) {
-      mapRef.current.fitToCoordinates(newArray, {
-        edgePadding: {top: 40, right: 40, bottom: 40, left: 40},
+      mapRef.current.fitToCoordinates([{latitude, longitude}, ...newArray], {
+        edgePadding: {top: 80, right: 80, bottom: 80, left: 80},
         animated: true,
       });
     }
   };
 
+  const animation = React.createRef();
+
   const mapView = () => {
-    if (markers.length)
-      return (
-        <MapView
-          ref={mapRef}
-          //   provider={PROVIDER_GOOGLE} // remove if not using Google Maps
-          style={styles.map}
-          region={region}
-          // initialRegion={region}
-          showsUserLocation={true}
-          showsMyLocationButton={true}
-          // onLayout={() => fitToMap()}
-          //   customMapStyle={mapStyle}
-          onRegionChangeComplete={_onRegionChange}>
-          {markers.map((coordinate, index) => (
-            <MapView.Marker
-              tracksViewChanges={false}
-              zIndex={index}
-              key={`coordinate_${index}`}
-              image={imagePath.pinRed}
-              onPress={() => {
-                _onPressTask(coordinate);
-              }}
-              coordinate={{
-                latitude: Number(coordinate?.location?.latitude),
-                longitude: Number(coordinate?.location?.longitude),
-              }}></MapView.Marker>
-          ))}
-        </MapView>
-      );
     return (
-      <ListEmptyComponent
-        isLoading={isLoading}
-        message={strings.NOTASK}
-        subMessage={strings.NOTASKASSIGNED}
-        containerStyle={{backgroundColor: colors.backGround}}
-      />
+      <MapView
+        ref={mapRef}
+        //provider={PROVIDER_GOOGLE} // remove if not using Google Maps
+        style={styles.map}
+        region={region}
+        zoomEnabled={true}
+        initialRegion={region}
+        // showsUserLocation={true}
+        //showsMyLocationButton={true}
+        onLayout={() => fitToMap()}
+        //   customMapStyle={mapStyle}
+        onRegionChangeComplete={_onRegionChange}>
+        {markers?.map((coordinate, index) => (
+          <Marker
+            tracksViewChanges={false}
+            zIndex={index}
+            key={`coordinate_${index}`}
+            image={imagePath.pinRed}
+            onPress={() => {
+              _onPressTask(coordinate);
+            }}
+            coordinate={{
+              latitude: Number(coordinate?.location?.latitude),
+              longitude: Number(coordinate?.location?.longitude),
+            }}></Marker>
+        ))}
+        <Marker
+          image={imagePath.pinBlue}
+          coordinate={{
+            latitude: Number(latitude),
+            longitude: Number(longitude),
+          }}></Marker>
+      </MapView>
     );
+
+    // return (
+    //   <ListEmptyComponent
+    //     isLoading={isLoading}
+    //     message={strings.NOTASK}
+    //     subMessage={strings.NOTASKASSIGNED}
+    //     containerStyle={{backgroundColor: colors.backGround}}
+    //   />
+    // );
   };
+  console.log(isEnabled, enableMap, 'isEnabledisEnabled');
 
   const renderComponents = () => {
     switch (isEnabled) {
@@ -645,7 +701,7 @@ export default function DashBoard({route, navigation}) {
         onPressLeft={() => navigation.toggleDrawer()}
         // hideRight={true}
         customCenter={() => customCenter()}
-        rightIcon={enableMap ? imagePath.listMenu : imagePath.map}
+        rightIcon={!enableMap ? imagePath.map : imagePath.listMenu}
         onPressRight={() => {
           updateState({enableMap: !enableMap});
           // navigation.navigate(navigationStrings.SEARCHPRODUCTOVENDOR)
@@ -714,7 +770,7 @@ export default function DashBoard({route, navigation}) {
         {isEnabled ? (
           <SwitchSelectorComponent
             options={options}
-            initial={initial}
+            initial={selectedOption}
             onPress={value => updateContent(value)}
           />
         ) : (

@@ -1,4 +1,4 @@
-import {requireNativeComponent} from 'react-native';
+import { requireNativeComponent } from 'react-native';
 
 export default {
   analyctiSelected: require('../assets/images/ic_analyctis_selected.png'),
@@ -83,4 +83,12 @@ export default {
   icPayout: require('../assets/images/ic_payout.png'),
   icRadio: require('../assets/images/ic_radio.png'),
   icRadioActive: require('../assets/images/ic_radioActive.png'),
+  icCamIcon: require('../assets/images/ic_capture.png'),
+  ic_cross_red: require('../assets/images/ic_cross_red.png'),
+  reimbursement: require('../assets/images/ic_reimbursement.png'),
+  damagereport: require('../assets/images/ic_damagereport.png'),
+  placeholderbee: require('../assets/images/ic_placeholderbee.png'),
+  searchIcon: require('../assets/images/ic_search.png'),
+  delete: require('../assets/images/ic_delete.png'),
+  ripple: require('../assets/images/ripple.gif'),
 };

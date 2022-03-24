@@ -1,4 +1,4 @@
-#include "Pods/Target Support Files/Pods-Suel/Pods-Suel.release.xcconfig"
+#include "Pods/Target Support Files/Pods-available_pods-Suel/Pods-available_pods-Suel.release.xcconfig"
 
 
 PROJECT_BUNDLE_ID = com.Suel.Dispatch
@@ -7,4 +7,4 @@ PROJECT_BUILD_NUMBER = 8
 PROJECT_APP_NAME =Suel Dispatch
 PROJECT_PLIST =SuelInfo
 PROJECT_ENTITLEMENT=RoyoDriverAppRelease
-
+CODE_PUSH_KEY = DwEpC9kVckcmeL6hoGmhkPy6gfyVBM3pu6rAk

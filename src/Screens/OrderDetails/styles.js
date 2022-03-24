@@ -10,7 +10,28 @@ import {
   width,
 } from '../../styles/responsiveSize';
 export function stylesFunc({defaultLanguagae}) {
+  
   const styles = StyleSheet.create({
+    container: {
+      // flex: 1,
+      // flexDirection: 'column',
+      justifyContent: 'flex-end',
+      // marginBottom: -15,
+    },
+    text: {
+      backgroundColor: 'transparent',
+      color: '#111',
+      textAlign: 'center',
+      color: colors.white,
+      fontFamily: fontFamily.semiBold,
+      fontSize: textScale(14),
+    },
+    button: {
+      padding: 15,
+      borderWidth: 0,
+      borderColor: '#111',
+      backgroundColor: colors.themeColor,
+    },
     scrollviewHorizontal: {
       borderTopWidth: 1,
       borderBottomWidth: 1,
@@ -22,6 +43,14 @@ export function stylesFunc({defaultLanguagae}) {
       ...commonStyles.mediumFont14,
       marginRight: moderateScale(20),
       alignSelf: 'center',
+    },
+    editOrder: {
+      backgroundColor: 'transparent',
+      color: '#111',
+      textAlign: 'center',
+      color: colors.blue,
+      fontFamily: fontFamily.bold,
+      fontSize: textScale(13),
     },
 
     mainComponent: {

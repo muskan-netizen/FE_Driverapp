@@ -101,6 +101,28 @@ export default ({defaultLanguagae}) => {
       marginRight: moderateScale(10),
       marginBottom: moderateScale(5),
     },
+    distanceTimeTitleTextStyle: {
+      fontSize: textScale(14),
+      fontFamily: fontFamily.bold,
+    },
+    distanceTimeTextStyle: {
+      fontSize: textScale(14),
+      fontFamily: fontFamily.regular,
+      marginVertical: moderateScaleVertical(5),
+    },
+    modealBottomContainer: {
+      height: 0.5,
+      backgroundColor: colors.textGreyLight,
+      marginTop: moderateScaleVertical(10),
+      flexDirection: 'row',
+    },
+    modalBottomButtonContainer: {
+      // marginTop: moderateScaleVertical(16),
+      // width: width / 2,
+      flexDirection: 'row',
+      justifyContent: 'space-around',
+      marginVertical: moderateScaleVertical(12),
+    },
   });
 
   return styles;

@@ -35,28 +35,28 @@ export default function CustomDrawerContent({
   const [states, setState] = useState({
     routes: [
       {
-        id: 0,
+        id: 1,
         label: strings.TASKHISTORY,
         image: imagePath.taskHistory,
         key: navigationStrings.TASKSTACK,
         subRoute: navigationStrings.TASKHISTORY,
       },
       {
-        id: 1,
+        id: 2,
         label: strings.PROFILE,
         image: imagePath.profileImage,
         key: navigationStrings.PROFILESTACK,
         // subRoute:navigationStrings.MYPROFILE
       },
       {
-        id: 2,
+        id: 3,
         label: strings.SETTING,
         image: imagePath.settingsIcon,
         key: navigationStrings.SETTINGS,
         // subRoute:navigationStrings.MYPROFILE
       },
       {
-        id: 3,
+        id: 4,
         label: strings.WALLET,
         image: imagePath.wallet,
         key: navigationStrings.TASKSTACK,
@@ -65,7 +65,7 @@ export default function CustomDrawerContent({
         // subRoute:navigationStrings.MYPROFILE
       },
       {
-        id: 4,
+        id: 5,
         label: strings.CONTACT,
         image: imagePath.contact2,
         key: navigationStrings.TASKSTACK,
@@ -82,8 +82,26 @@ export default function CustomDrawerContent({
         // key: navigationStrings.PROFILESTACK,
         // subRoute:navigationStrings.MYPROFILE
       },
+      appIds.transportSystem === DeviceInfo.getBundleId()
+      ? {
+          id: 7,
+          label: strings.DAMAGEREPORT,
+          image: imagePath.damagereport,
+          key: navigationStrings.DAMAGEREPORT,
+          // subRoute:navigationStrings.MYPROFILE
+        }
+      : {},
+    appIds.transportSystem === DeviceInfo.getBundleId()
+      ? {
+          id: 7,
+          label: strings.REIMBURSEMENT,
+          image: imagePath.reimbursement,
+          key: navigationStrings.REIMBURSEMENT,
+          // subRoute:navigationStrings.MYPROFILE
+        }
+      : {},
       {
-        id: 5,
+        id: 8,
         label: strings.LOGOUT,
         image: imagePath.logout,
         // key: navigationStrings.PROFILESTACK,
@@ -109,28 +127,28 @@ export default function CustomDrawerContent({
     updateState({
       routes: [
         {
-          id: 0,
+          id: 1,
           label: strings.TASKHISTORY,
           image: imagePath.taskHistory,
           key: navigationStrings.TASKSTACK,
           subRoute: navigationStrings.TASKHISTORY,
         },
         {
-          id: 1,
+          id: 2,
           label: strings.PROFILE,
           image: imagePath.profileImage,
           key: navigationStrings.PROFILESTACK,
           // subRoute:navigationStrings.MYPROFILE
         },
         {
-          id: 2,
+          id: 3,
           label: strings.SETTING,
           image: imagePath.settingsIcon,
           key: navigationStrings.SETTINGS,
           // subRoute:navigationStrings.MYPROFILE
         },
         {
-          id: 3,
+          id: 4,
           label: strings.WALLET,
           image: imagePath.wallet,
           key: navigationStrings.WALLETSTACK,
@@ -139,7 +157,7 @@ export default function CustomDrawerContent({
           // subRoute:navigationStrings.MYPROFILE
         },
         {
-          id: 4,
+          id: 5,
           label: strings.PAYOUT,
           image: imagePath.icPayout,
           key: navigationStrings.PAYOUT_STACK,
@@ -164,10 +182,29 @@ export default function CustomDrawerContent({
           // key: navigationStrings.PROFILESTACK,
           // subRoute:navigationStrings.MYPROFILE
         },
+        appIds.transportSystem === DeviceInfo.getBundleId()
+          ? {
+              id: 7,
+              label: strings.DAMAGEREPORT,
+              image: imagePath.damagereport,
+              key: navigationStrings.DAMAGEREPORT,
+              // subRoute:navigationStrings.MYPROFILE
+            }
+          : {},
+        appIds.transportSystem === DeviceInfo.getBundleId()
+          ? {
+              id: 7,
+              label: strings.REIMBURSEMENT,
+              image: imagePath.reimbursement,
+              key: navigationStrings.REIMBURSEMENT,
+              // subRoute:navigationStrings.MYPROFILE
+            }
+          : {},
+
         appIds.goody === DeviceInfo.getBundleId()
           ? {}
           : {
-              id: 7,
+              id: 8,
               label: strings.LOGOUT,
               image: imagePath.logout,
               // key: navigationStrings.PROFILESTACK,
@@ -233,7 +270,7 @@ export default function CustomDrawerContent({
         style={{
           height: height,
           marginTop: moderateScale(10),
-        }}
+          }}
         colors={[colors.white, colors.white]}>
         {/* client logo */}
         <View
@@ -257,7 +294,7 @@ export default function CustomDrawerContent({
         {routes.map((route, index) => {
           // const {options} = descriptors[route.key];
           const isFocused = selectedDrawerItem?.index === index;
-          const label = route.label;
+          const label = route?.label;
           const onPress = () => {
             if (route?.key) {
               if (route?.subRoute) {
@@ -284,13 +321,13 @@ export default function CustomDrawerContent({
             // navigation.navigate(route.key, { screen: navigationStrings.subRoute });
           };
 
-          return (
-            <Fragment key={route.name}>
+          return route?.id ? (
+            <Fragment key={route?.name}>
               <TouchableOpacity
                 key={index}
                 accessibilityRole="button"
                 accessibilityStates={isFocused ? ['selected'] : []}
-                testID={JSON.stringify(route.id)}
+                testID={JSON.stringify(route?.id)}
                 onPress={onPress}
                 // onLongPress={onLongPress}
                 style={{
@@ -301,7 +338,7 @@ export default function CustomDrawerContent({
                 }}>
                 {/* {options.drawerIcon({focused: isFocused})} */}
                 <View style={{flex: 0.15}}>
-                  <Image source={route.image} />
+                  <Image source={route?.image} />
                 </View>
 
                 <View style={{flex: 0.85}}>
@@ -319,7 +356,7 @@ export default function CustomDrawerContent({
                 </View>
               </TouchableOpacity>
             </Fragment>
-          );
+          ) : null;
         })}
         <View
           style={{

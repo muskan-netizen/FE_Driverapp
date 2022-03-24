@@ -8,6 +8,7 @@ import tr from './tr';
 import zh from './zh';
 import ru from './ru';
 import ptBr from './ptBr';
+import sv from './sv';
 
 let strings = new LocalizedStrings({
   en: en,
@@ -19,6 +20,7 @@ let strings = new LocalizedStrings({
   zh: zh,
   ru: ru,
   ptBr: ptBr,
+  sv: sv,
 });
 export const changeLaguage = languageKey => {
   strings.setLanguage(languageKey);

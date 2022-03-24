@@ -1,4 +1,4 @@
-#include "Pods/Target Support Files/Pods-Elixir/Pods-Elixir.debug.xcconfig"
+#include "Pods/Target Support Files/Pods-available_pods-Elixir/Pods-available_pods-Elixir.debug.xcconfig"
 
 
 PROJECT_BUNDLE_ID = com.Elixir.Dispatch
@@ -7,3 +7,4 @@ PROJECT_BUILD_NUMBER = 8
 PROJECT_APP_NAME =Elixir Dispatch
 PROJECT_PLIST =ElixirInfo
 PROJECT_ENTITLEMENT=RoyoDriverAppRelease
+CODE_PUSH_KEY = rwA_2E2aXQXjVzjRla4LqPuqq5fz4hScVRGth

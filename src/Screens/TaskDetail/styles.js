@@ -1,7 +1,12 @@
 import {StyleSheet} from 'react-native';
 import colors from '../../styles/colors';
 import fontFamily from '../../styles/fontFamily';
-import {moderateScale, textScale, width} from '../../styles/responsiveSize';
+import {
+  moderateScale,
+  moderateScaleVertical,
+  textScale,
+  width,
+} from '../../styles/responsiveSize';
 
 export default ({defaultLanguagae}) => {
   const styles = StyleSheet.create({
@@ -172,6 +177,23 @@ export default ({defaultLanguagae}) => {
       fontFamily: fontFamily.bold,
       fontSize: textScale(14),
       color: colors.black,
+    },
+    editOrder: {
+      backgroundColor: 'transparent',
+      color: '#111',
+      textAlign: 'center',
+      color: colors.white,
+      fontFamily: fontFamily.semiBold,
+      fontSize: textScale(14),
+    },
+    distanceTimeTitleTextStyle: {
+      fontSize: textScale(14),
+      fontFamily: fontFamily.bold,
+    },
+    distanceTimeTextStyle: {
+      fontSize: textScale(14),
+      fontFamily: fontFamily.regular,
+      marginVertical: moderateScaleVertical(5),
     },
   });
   return styles;
