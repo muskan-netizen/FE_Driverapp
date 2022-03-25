@@ -260,4 +260,5 @@ export default {
   TOTALDISTANCE: ' المسافة الكلية',
   TOTALTIME: 'الوقت الكلي',
   DEBIT_FROM: 'الخصم من',
+  VERSION: 'Version',
 };

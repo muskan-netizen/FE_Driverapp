@@ -331,10 +331,12 @@ export default function CustomDrawerContent({
                 onPress={onPress}
                 // onLongPress={onLongPress}
                 style={{
-                  margin: moderateScale(10),
+                  margin: moderateScale(8),
                   // alignItems: 'center',
                   flexDirection: 'row',
                   alignItems: 'center',
+
+                  justifyContent: 'center',
                 }}>
                 {/* {options.drawerIcon({focused: isFocused})} */}
                 <View style={{flex: 0.15}}>
@@ -373,7 +375,7 @@ export default function CustomDrawerContent({
               color: colors.lightGreyBg2,
               fontSize: textScale(12),
             }}>
-            {`Version ${DeviceInfo.getVersion()} `}
+            {`${strings.VERSION} ${DeviceInfo.getVersion()} `}
             <Text>{`(${DeviceInfo.getBuildNumber()})`}</Text>
           </Text>
         </View>

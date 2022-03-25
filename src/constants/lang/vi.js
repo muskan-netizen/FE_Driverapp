@@ -300,4 +300,5 @@ export default {
   JOBTYPE: ' Loáº¡i cÃ´ng viá»‡c',
   ASSIGNEDTEAM: 'NhÃ³m chá»‰ Ä‘á»‹nh',
   ORDERCANCEL: 'ÄÆ¡n hÃ ng bá»‹ huá»·',
+  VERSION: 'Phiên bản',
 };

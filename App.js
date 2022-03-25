@@ -10,7 +10,10 @@ import NoInternetModal from './src/Components/NoInternetModal';
 import Container from './src/library/toastify-react-native';
 import Routes from './src/navigation/Routes';
 import store from './src/redux/store';
-import {updateInternetConnection} from './src/redux/actions/init';
+import {
+  setDefaultLanguage,
+  updateInternetConnection,
+} from './src/redux/actions/init';
 import {moderateScaleVertical, width} from './src/styles/responsiveSize';
 import types from './src/redux/types';
 import {getItem, getUserData} from './src/utils/utils';
@@ -23,6 +26,9 @@ import ShowNotificationForeground from './src/utils/ShowNotificationForeground';
 import NotificationModal from './src/Components/NotificationModal';
 import strings from './src/constants/lang';
 import PushNotification from 'react-native-push-notification';
+import DeviceInfo from 'react-native-device-info';
+import {appIds} from './src/utils/constants/DynamicAppKeys';
+
 const App = () => {
   const [internetConnection, setInternet] = useState(true);
 
@@ -30,7 +36,19 @@ const App = () => {
     requestUserPermission();
     notificationListener();
   };
+
+  const setInitialLanguage = () => {
+    if (appIds.bluebolt == DeviceInfo.getBundleId()) {
+      setDefaultLanguage({
+        id: 9,
+        label: 'Vietnamese',
+        value: 'vi',
+      });
+    }
+  };
+
   useEffect(() => {
+    setInitialLanguage();
     notificationConfig();
     checkExistChannel();
     setTimeout(() => {
@@ -55,6 +73,7 @@ const App = () => {
       const userData = await getUserData();
       const defaultLanguage = await getItem('defaultLanguage');
       console.log(userData, 'userdata in app.js');
+      console.log(defaultLanguage, 'defaultLanguage in app.js');
       // if (userData && !!userData?.access_token) {
       //   notificationConfig();
       // }

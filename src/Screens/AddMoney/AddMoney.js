@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   View,
   ScrollView,
+  Keyboard
 } from 'react-native';
 import RazorpayCheckout from 'react-native-razorpay';
 import {useSelector} from 'react-redux';
@@ -184,7 +185,7 @@ export default function AddMoney({navigation}) {
           </View>
         </View>
         <View />
-        <ScrollView keyboardShouldPersistTaps={'handled'}>
+        {/* <ScrollView keyboardShouldPersistTaps={'handled'}> */}
           <View style={{flex: 1}}>
             <View
               style={{
@@ -220,7 +221,7 @@ export default function AddMoney({navigation}) {
               />
             </View>
           </View>
-        </ScrollView>
+        {/* </ScrollView> */}
 
         {/* botttom add money button */}
         <View style={styles.bottomButtonStyle}>
