@@ -119,11 +119,13 @@ export default function CustomDrawerContent({
     state => state?.initBoot?.defaultLanguage,
   );
 
+  console.log(zendeskKeys, 'keys >>>>>>>>>>>>');
   useEffect(() => {
     ZendeskChat.init(
-      `${zendeskKeys?.keys?.account_key}`,
-      `${zendeskKeys?.keys?.application_id}`,
+      zendeskKeys?.keys?.account_key,
+      zendeskKeys?.keys?.application_id,
     );
+
     updateState({
       routes: [
         {

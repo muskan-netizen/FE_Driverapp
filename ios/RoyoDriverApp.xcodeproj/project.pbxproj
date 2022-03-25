@@ -16290,7 +16290,7 @@
 				84E15231271FE1FE00E906B8 /* Resources */,
 				CB9E3B42A6FB980B13FE805F /* [CP] Copy Pods Resources */,
 				841EE03C27ED8C28003002D6 /* Bundle React Native code and images */,
-				90426AB32535D4306438B442 /* [CP] Embed Pods Frameworks */,
+				6AA4E60086E413F864E92AB0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -27349,6 +27349,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-DestinationOps/Pods-available_pods-DestinationOps-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		6AA4E60086E413F864E92AB0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-available_pods-Tranzit/Pods-available_pods-Tranzit-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-available_pods-Tranzit/Pods-available_pods-Tranzit-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-Tranzit/Pods-available_pods-Tranzit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		6BB98E3EF905C30DD185D1F1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -36363,23 +36380,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-Fawaz/Pods-available_pods-Fawaz-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		90426AB32535D4306438B442 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-available_pods-Tranzit/Pods-available_pods-Tranzit-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-available_pods-Tranzit/Pods-available_pods-Tranzit-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-Tranzit/Pods-available_pods-Tranzit-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		90AEFDCFBD115D96268A969E /* [CP] Embed Pods Frameworks */ = {
