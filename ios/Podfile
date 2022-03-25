@@ -1354,6 +1354,37 @@ target 'RideShare' do
 
 end
 
+#NineOneTwo
+target 'NineOneTwo' do
+
+end
+
+#UpStreet
+target 'UpStreet' do
+
+end
+
+#AirlinesRecruiter
+target 'AirlinesRecruiter' do
+
+end
+
+#NewYorkMiniMart
+target 'NewYorkMiniMart' do
+
+end
+
+post_install do |installer|
+  installer.pods_project.build_configurations.each do |config|
+    config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
+  end
+  installer.pods_project.targets.each do |target|
+    if target.name == "React-Core.common-AccessibilityResources"
+      target.remove_from_project
+    end
+  end
+end
+
 end
 
 
