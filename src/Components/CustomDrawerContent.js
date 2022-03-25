@@ -83,23 +83,23 @@ export default function CustomDrawerContent({
         // subRoute:navigationStrings.MYPROFILE
       },
       appIds.transportSystem === DeviceInfo.getBundleId()
-      ? {
-          id: 7,
-          label: strings.DAMAGEREPORT,
-          image: imagePath.damagereport,
-          key: navigationStrings.DAMAGEREPORT,
-          // subRoute:navigationStrings.MYPROFILE
-        }
-      : {},
-    appIds.transportSystem === DeviceInfo.getBundleId()
-      ? {
-          id: 7,
-          label: strings.REIMBURSEMENT,
-          image: imagePath.reimbursement,
-          key: navigationStrings.REIMBURSEMENT,
-          // subRoute:navigationStrings.MYPROFILE
-        }
-      : {},
+        ? {
+            id: 7,
+            label: strings.DAMAGEREPORT,
+            image: imagePath.damagereport,
+            key: navigationStrings.DAMAGEREPORT,
+            // subRoute:navigationStrings.MYPROFILE
+          }
+        : {},
+      appIds.transportSystem === DeviceInfo.getBundleId()
+        ? {
+            id: 7,
+            label: strings.REIMBURSEMENT,
+            image: imagePath.reimbursement,
+            key: navigationStrings.REIMBURSEMENT,
+            // subRoute:navigationStrings.MYPROFILE
+          }
+        : {},
       {
         id: 8,
         label: strings.LOGOUT,
@@ -270,7 +270,7 @@ export default function CustomDrawerContent({
         style={{
           height: height,
           marginTop: moderateScale(10),
-          }}
+        }}
         colors={[colors.white, colors.white]}>
         {/* client logo */}
         <View

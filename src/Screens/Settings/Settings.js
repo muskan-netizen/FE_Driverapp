@@ -35,55 +35,75 @@ export default function Settings({route, navigation}) {
   const styles = stylesFunc({defaultLanguage});
   const [state, setState] = useState({
     isLoading: false,
-    allLanguages: [
-      {
-        id: 1,
-        label: 'English',
-        value: 'en',
-      },
-      {
-        id: 2,
-        label: 'Spanish',
-        value: 'es',
-      },
-      {
-        id: 3,
-        label: 'Arabic',
-        value: 'ar',
-      },
-      // {
-      //   id: 4,
-      //   label: 'German',
-      //   value: 'de',
-      // },
-      {
-        id: 5,
-        label: 'French',
-        value: 'fr',
-      },
-      {
-        id: 6,
-        label: 'Chinese',
-        value: 'zh',
-      },
-      {
-        id: 7,
-        label: 'Russian',
-        value: 'Ru',
-      },
-      {
-        id: 8,
-        label: 'Portuguese - (Brazil)',
-        value: 'ptBr',
-      },
-      {
-        id: 8,
-        label: 'Sweden',
-        value: 'sv',
-      },
-    ],
+    allLanguages:
+      appIds.bluebolt == DeviceInfo.getBundleId()
+        ? [
+            {
+              id: 9,
+              label: 'Vietnamese',
+              value: 'vi',
+            },
+          ]
+        : [
+            {
+              id: 1,
+              label: 'English',
+              value: 'en',
+            },
+            {
+              id: 2,
+              label: 'Spanish',
+              value: 'es',
+            },
+            {
+              id: 3,
+              label: 'Arabic',
+              value: 'ar',
+            },
+            // {
+            //   id: 4,
+            //   label: 'German',
+            //   value: 'de',
+            // },
+            {
+              id: 5,
+              label: 'French',
+              value: 'fr',
+            },
+            {
+              id: 6,
+              label: 'Chinese',
+              value: 'zh',
+            },
+            {
+              id: 7,
+              label: 'Russian',
+              value: 'Ru',
+            },
+            {
+              id: 8,
+              label: 'Portuguese - (Brazil)',
+              value: 'ptBr',
+            },
+            {
+              id: 8,
+              label: 'Sweden',
+              value: 'sv',
+            },
+            {
+              id: 9,
+              label: 'Vietnamese',
+              value: 'vi',
+            },
+          ],
     selectedLangauge: defaultLanguage?.label
       ? defaultLanguage
+      : appIds.bluebolt == DeviceInfo.getBundleId()
+      ? {
+          id: 9,
+          label: 'Vietnamese',
+          value: 'vi',
+        }
       : {
           id: 1,
           label: 'English',
