@@ -87,7 +87,7 @@ export default function AddMoney({navigation}) {
   );
 
   useEffect(() => {
-    if (isRefreshing || pageNo !== 1) {
+    if (isRefreshing || pageNo != 1) {
       getPayoutDetails();
     }
   }, [isRefreshing, pageNo]);
@@ -211,13 +211,15 @@ export default function AddMoney({navigation}) {
     }
     console.log(data, 'selectedPayoutOption>>>DATA');
     console.log(selectedPayoutOption, 'selectedPayoutOption');
+    updateState({isRefreshing:true});
+
     actions
       .agentPayoutCreate(`/${userData?.id}`, data, {
         client: clientInfo?.database_name,
       })
       .then(res => {
         console.log(res, 'responseFromServer');
-        updateState({isPayoutModal: false});
+        updateState({isPayoutModal: false,isRefreshing:false});
         getBankDetails();
         getPayoutDetails();
         showSuccess(res?.message, 2000);

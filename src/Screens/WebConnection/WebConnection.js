@@ -31,7 +31,6 @@ export default function WebConnection({navigation, route}) {
 
   const onNavigationStateChange = navState => {
     console.log(navState, 'navState>>>UPDATE');
-    console.log(navState, 'navState>>>UPDATE');
     const URL = queryString.parseUrl(navState.url);
     const queryParams = URL.query;
     const nonQueryURL = URL.url;
