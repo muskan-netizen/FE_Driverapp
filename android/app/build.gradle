@@ -746,8 +746,8 @@ android {
         }
         drus{
             dimension "appType"
-            versionCode 3
-            versionName "1.1"
+            versionCode 4
+            versionName "1.2"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
@@ -2458,7 +2458,7 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.ScoopaTechnologies.royodispatcher'
+            applicationId 'com.app.ScoopaTechnologies.royodispatcher'
             resValue "string", "app_name", "Scoopa Driver"
         }
         // added below 

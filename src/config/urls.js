@@ -1,14 +1,16 @@
 //live
-//export const API_BASE_URL = 'https://api.royodispatch.com/';
+// export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //Developement
 //export const API_BASE_URL = 'https://api.winhires.com/';
 // export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
 //UFOOD
 // export const API_BASE_URL = 'https://dispatch.ufood.ca/';
+//Pickmeup
+// export const API_BASE_URL = 'https://canupickmeup.com/';
 // export const API_BASE_URL = 'http://192.168.96.152:8006/'; // preet local url
 // export const API_BASE_URL = 'http://192.168.102.23:8005/'; // Gourav.s local url
 // export const API_BASE_URL = 'http://192.168.97.104:8010/'; // Sujata.s local url
@@ -22,6 +24,11 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //export const API_BASE_URL = 'https://pinkydeli.rdstaging.com/';
 //export const API_BASE_URL = 'https://dispatcher.releezer.shop';
 
+//hemptify
+export const API_BASE_URL = 'https://dispatch.hemptify.com';
+
+//Express Delivery
+// export const API_BASE_URL = 'https://expresdeliverys.com';
 //DOORSTEP
 // export const API_BASE_URL = 'https://dispatch.doorstep.sd/';
 
@@ -40,7 +47,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.mml.mobi/';
 
 //sirvu
-//export const API_BASE_URL = 'https://dispatch.sirvu.ca/';
+// export const API_BASE_URL = 'https://dispatch.sirvu.ca/';
 
 //drus
 //export const API_BASE_URL = 'https://dispatch.drusdeliveries.com/';
@@ -142,7 +149,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.helpnowrightnow.com/';
 
 // tranzit live domain
-//export const API_BASE_URL = 'https://dispatch.tranzit.app/';
+// export const API_BASE_URL = 'https://dispatch.tranzit.app/';
 // africanvillage
 // export const API_BASE_URL = 'https://dispatch.africanvillage.market/'
 // swiftandvalu

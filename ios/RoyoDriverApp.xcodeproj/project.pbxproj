@@ -435,7 +435,6 @@
 		8409CE59275F5B32000A2F39 /* campton-book.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC526E9E6D20066EEEE /* campton-book.ttf */; };
 		8409CE5E275F5B32000A2F39 /* campton-semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC326E9E6D20066EEEE /* campton-semibold.ttf */; };
 		8409CF4E275F5B69000A2F39 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8409CF4D275F5B69000A2F39 /* Images.xcassets */; };
-		8409CFC2275F5B7C000A2F39 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8409CFC1275F5B7B000A2F39 /* GoogleService-Info.plist */; };
 		8409CFC4275F5B8F000A2F39 /* CannabusExpress(Development).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 8409CFC3275F5B8F000A2F39 /* CannabusExpress(Development).xcconfig */; };
 		8409D038275F5BA1000A2F39 /* CannabusExpress(Production).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 8409D037275F5BA1000A2F39 /* CannabusExpress(Production).xcconfig */; };
 		8409D0AC275F5C0B000A2F39 /* CannabusExpressInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8409D0AB275F5C0B000A2F39 /* CannabusExpressInfo.plist */; };
@@ -3158,6 +3157,7 @@
 		84D5FD7C278D5D6600795558 /* campton-semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC326E9E6D20066EEEE /* campton-semibold.ttf */; };
 		84D5FEC1278D5E5600795558 /* FastMikes(Development).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 84D5FEC0278D5E5600795558 /* FastMikes(Development).xcconfig */; };
 		84D5FFFF278D5E7D00795558 /* FastMikes(Production).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 84D5FFFE278D5E7D00795558 /* FastMikes(Production).xcconfig */; };
+		84D93F8D27ED96CE00CE8499 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		84DA615B273E6F7800D8E1CE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		84DA615D273E6F7800D8E1CE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		84DA6182273E6F7800D8E1CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
@@ -3235,7 +3235,6 @@
 		84E15228271FE1FE00E906B8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		84E1522A271FE1FE00E906B8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		84E15232271FE1FE00E906B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		84E15234271FE1FE00E906B8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		84E15235271FE1FE00E906B8 /* campton-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC426E9E6D20066EEEE /* campton-light.ttf */; };
 		84E15236271FE1FE00E906B8 /* campton-medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC626E9E6D20066EEEE /* campton-medium.ttf */; };
 		84E15237271FE1FE00E906B8 /* notification.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84C27C3E270EFAF100C30CA4 /* notification.mp3 */; };
@@ -3433,6 +3432,7 @@
 		84E3D2132796EFBE00488605 /* campton-semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC326E9E6D20066EEEE /* campton-semibold.ttf */; };
 		84E4B0E32785A7EC002574C4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84E4B0E22785A7EC002574C4 /* GoogleService-Info.plist */; };
 		84E4BBEE2771F7EA00630795 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84E4BBED2771F7EA00630795 /* GoogleService-Info.plist */; };
+		84E6201427EDA64200E18E31 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84E6201327EDA64100E18E31 /* GoogleService-Info.plist */; };
 		84E7767827A3F1580066B0A2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84E7767727A3F1570066B0A2 /* GoogleService-Info.plist */; };
 		84E9E702273E76F4008E1169 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		84E9E704273E76F4008E1169 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -4502,7 +4502,6 @@
 		8409CB38275F433E000A2F39 /* DestinationOpsInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DestinationOpsInfo.plist; sourceTree = "<group>"; };
 		8409CE66275F5B32000A2F39 /* CannabusExpress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CannabusExpress.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8409CF4D275F5B69000A2F39 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		8409CFC1275F5B7B000A2F39 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8409CFC3275F5B8F000A2F39 /* CannabusExpress(Development).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "CannabusExpress(Development).xcconfig"; sourceTree = "<group>"; };
 		8409D037275F5BA1000A2F39 /* CannabusExpress(Production).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "CannabusExpress(Production).xcconfig"; sourceTree = "<group>"; };
 		8409D0AB275F5C0B000A2F39 /* CannabusExpressInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CannabusExpressInfo.plist; sourceTree = "<group>"; };
@@ -5641,6 +5640,7 @@
 		84E4481826E8C73F00452095 /* RoyoDispatcher(Production).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "RoyoDispatcher(Production).xcconfig"; sourceTree = "<group>"; };
 		84E4B0E22785A7EC002574C4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84E4BBED2771F7EA00630795 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		84E6201327EDA64100E18E31 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84E7767727A3F1570066B0A2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84E9E73D273E76F4008E1169 /* Drus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Drus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E9E7B0273E7729008E1169 /* EquMD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EquMD.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -9003,7 +9003,7 @@
 		8409CF4C275F5B55000A2F39 /* CannabusExpress */ = {
 			isa = PBXGroup;
 			children = (
-				8409CFC1275F5B7B000A2F39 /* GoogleService-Info.plist */,
+				84E6201327EDA64100E18E31 /* GoogleService-Info.plist */,
 				8409CF4D275F5B69000A2F39 /* Images.xcassets */,
 				8409CFC3275F5B8F000A2F39 /* CannabusExpress(Development).xcconfig */,
 				8409D037275F5BA1000A2F39 /* CannabusExpress(Production).xcconfig */,
@@ -17886,6 +17886,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84E6201427EDA64200E18E31 /* GoogleService-Info.plist in Resources */,
 				8409D038275F5BA1000A2F39 /* CannabusExpress(Production).xcconfig in Resources */,
 				8409CE53275F5B32000A2F39 /* LaunchScreen.storyboard in Resources */,
 				8409CFC4275F5B8F000A2F39 /* CannabusExpress(Development).xcconfig in Resources */,
@@ -17898,7 +17899,6 @@
 				8409CE59275F5B32000A2F39 /* campton-book.ttf in Resources */,
 				8409CE5E275F5B32000A2F39 /* campton-semibold.ttf in Resources */,
 				8409D0AC275F5C0B000A2F39 /* CannabusExpressInfo.plist in Resources */,
-				8409CFC2275F5B7C000A2F39 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -21286,10 +21286,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84D93F8D27ED96CE00CE8499 /* Images.xcassets in Resources */,
 				84E1525A271FE2D800E906B8 /* Tranzit(Development).xcconfig in Resources */,
 				84E15232271FE1FE00E906B8 /* LaunchScreen.storyboard in Resources */,
 				84E15291271FE3A500E906B8 /* Images.xcassets in Resources */,
-				84E15234271FE1FE00E906B8 /* Images.xcassets in Resources */,
 				84E15268271FE2ED00E906B8 /* Tranzit(Production).xcconfig in Resources */,
 				84E15235271FE1FE00E906B8 /* campton-light.ttf in Resources */,
 				84E15236271FE1FE00E906B8 /* campton-medium.ttf in Resources */,
@@ -62284,6 +62284,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = RoyoDriverApp/RoyoDriverAppRelease.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
@@ -62307,6 +62309,7 @@
 				PROJECT_BUNDLE_ID = "$(PROJECT_BUNDLE_ID)";
 				PROJECT_NAME = "${PROJECT_NAME}";
 				PROJECT_PLIST = "$(PROJECT_PLIST)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "RoyoDriverApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
