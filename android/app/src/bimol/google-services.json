@@ -1,41 +1,76 @@
 {
   "project_info": {
-    "project_number": "26366465123",
-    "firebase_url": "https://royo-dispatch-3-default-rtdb.firebaseio.com",
-    "project_id": "royo-dispatch-3",
-    "storage_bucket": "royo-dispatch-3.appspot.com"
+    "project_number": "694056211454",
+    "project_id": "royodispatcher-10",
+    "storage_bucket": "royodispatcher-10.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:26366465123:android:24d419a648298f7afcd456",
+        "mobilesdk_app_id": "1:694056211454:android:3bd86a935603bd5381e6af",
+        "android_client_info": {
+          "package_name": "com.AirlinesRecruiter.royodispatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "694056211454-jkkcsnn4itpastsi3ge38v2ucuvb5u13.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7Wszn7yFaleGPdPftjl8HhgBw8e4bQ1w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "694056211454-jkkcsnn4itpastsi3ge38v2ucuvb5u13.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "694056211454-5ing41psi0i8lbdr3hgfs996hq2856ed.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.RideShare.Dispatch"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:694056211454:android:d59c57454b6e9bb181e6af",
         "android_client_info": {
           "package_name": "com.Bimol.royodispatcher"
         }
       },
       "oauth_client": [
         {
-          "client_id": "26366465123-mtcei6sdhbo9096r3i1fmlc6vnpahu03.apps.googleusercontent.com",
+          "client_id": "694056211454-jkkcsnn4itpastsi3ge38v2ucuvb5u13.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC_Nmb97trKwC5EA-JjQNQkSlFNbn4NlLk"
+          "current_key": "AIzaSyA7Wszn7yFaleGPdPftjl8HhgBw8e4bQ1w"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "26366465123-mtcei6sdhbo9096r3i1fmlc6vnpahu03.apps.googleusercontent.com",
+              "client_id": "694056211454-jkkcsnn4itpastsi3ge38v2ucuvb5u13.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "26366465123-19c0lmrkjj261gn3prt4ccm8obmu3qpa.apps.googleusercontent.com",
+              "client_id": "694056211454-5ing41psi0i8lbdr3hgfs996hq2856ed.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.BharatMove.Dispatch"
+                "bundle_id": "com.RideShare.Dispatch"
               }
             }
           ]
@@ -44,34 +79,34 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:26366465123:android:8e62b38376186152fcd456",
+        "mobilesdk_app_id": "1:694056211454:android:bc075add78976eff81e6af",
         "android_client_info": {
-          "package_name": "com.DimaVega.royodispatcher"
+          "package_name": "com.Delvento.royodispatcher"
         }
       },
       "oauth_client": [
         {
-          "client_id": "26366465123-mtcei6sdhbo9096r3i1fmlc6vnpahu03.apps.googleusercontent.com",
+          "client_id": "694056211454-jkkcsnn4itpastsi3ge38v2ucuvb5u13.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC_Nmb97trKwC5EA-JjQNQkSlFNbn4NlLk"
+          "current_key": "AIzaSyA7Wszn7yFaleGPdPftjl8HhgBw8e4bQ1w"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "26366465123-mtcei6sdhbo9096r3i1fmlc6vnpahu03.apps.googleusercontent.com",
+              "client_id": "694056211454-jkkcsnn4itpastsi3ge38v2ucuvb5u13.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "26366465123-19c0lmrkjj261gn3prt4ccm8obmu3qpa.apps.googleusercontent.com",
+              "client_id": "694056211454-5ing41psi0i8lbdr3hgfs996hq2856ed.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.BharatMove.Dispatch"
+                "bundle_id": "com.RideShare.Dispatch"
               }
             }
           ]
@@ -80,34 +115,34 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:26366465123:android:acf7c2929b87ab07fcd456",
+        "mobilesdk_app_id": "1:694056211454:android:ad9fdcfaf82e3eea81e6af",
         "android_client_info": {
-          "package_name": "com.FarmerSouq.royodispatcher"
+          "package_name": "com.NewYorkMiniMart.royodispatcher"
         }
       },
       "oauth_client": [
         {
-          "client_id": "26366465123-mtcei6sdhbo9096r3i1fmlc6vnpahu03.apps.googleusercontent.com",
+          "client_id": "694056211454-jkkcsnn4itpastsi3ge38v2ucuvb5u13.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC_Nmb97trKwC5EA-JjQNQkSlFNbn4NlLk"
+          "current_key": "AIzaSyA7Wszn7yFaleGPdPftjl8HhgBw8e4bQ1w"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "26366465123-mtcei6sdhbo9096r3i1fmlc6vnpahu03.apps.googleusercontent.com",
+              "client_id": "694056211454-jkkcsnn4itpastsi3ge38v2ucuvb5u13.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "26366465123-19c0lmrkjj261gn3prt4ccm8obmu3qpa.apps.googleusercontent.com",
+              "client_id": "694056211454-5ing41psi0i8lbdr3hgfs996hq2856ed.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.BharatMove.Dispatch"
+                "bundle_id": "com.RideShare.Dispatch"
               }
             }
           ]
@@ -116,34 +151,34 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:26366465123:android:45a1c8a034398246fcd456",
+        "mobilesdk_app_id": "1:694056211454:android:f3dde4d3547ab99e81e6af",
         "android_client_info": {
-          "package_name": "com.Kudhyo.royodispatcher"
+          "package_name": "com.NineOneTwo.royodispatcher"
         }
       },
       "oauth_client": [
         {
-          "client_id": "26366465123-mtcei6sdhbo9096r3i1fmlc6vnpahu03.apps.googleusercontent.com",
+          "client_id": "694056211454-jkkcsnn4itpastsi3ge38v2ucuvb5u13.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC_Nmb97trKwC5EA-JjQNQkSlFNbn4NlLk"
+          "current_key": "AIzaSyA7Wszn7yFaleGPdPftjl8HhgBw8e4bQ1w"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "26366465123-mtcei6sdhbo9096r3i1fmlc6vnpahu03.apps.googleusercontent.com",
+              "client_id": "694056211454-jkkcsnn4itpastsi3ge38v2ucuvb5u13.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "26366465123-19c0lmrkjj261gn3prt4ccm8obmu3qpa.apps.googleusercontent.com",
+              "client_id": "694056211454-5ing41psi0i8lbdr3hgfs996hq2856ed.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.BharatMove.Dispatch"
+                "bundle_id": "com.RideShare.Dispatch"
               }
             }
           ]
@@ -152,34 +187,34 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:26366465123:android:f44bc5975eefececfcd456",
+        "mobilesdk_app_id": "1:694056211454:android:c90a9dca69db51f181e6af",
         "android_client_info": {
-          "package_name": "com.MML.royodispatcher"
+          "package_name": "com.Qseek.royodispatcher"
         }
       },
       "oauth_client": [
         {
-          "client_id": "26366465123-mtcei6sdhbo9096r3i1fmlc6vnpahu03.apps.googleusercontent.com",
+          "client_id": "694056211454-jkkcsnn4itpastsi3ge38v2ucuvb5u13.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC_Nmb97trKwC5EA-JjQNQkSlFNbn4NlLk"
+          "current_key": "AIzaSyA7Wszn7yFaleGPdPftjl8HhgBw8e4bQ1w"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "26366465123-mtcei6sdhbo9096r3i1fmlc6vnpahu03.apps.googleusercontent.com",
+              "client_id": "694056211454-jkkcsnn4itpastsi3ge38v2ucuvb5u13.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "26366465123-19c0lmrkjj261gn3prt4ccm8obmu3qpa.apps.googleusercontent.com",
+              "client_id": "694056211454-5ing41psi0i8lbdr3hgfs996hq2856ed.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.BharatMove.Dispatch"
+                "bundle_id": "com.RideShare.Dispatch"
               }
             }
           ]
@@ -188,34 +223,34 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:26366465123:android:cfa923102768789ffcd456",
+        "mobilesdk_app_id": "1:694056211454:android:113a6ab4619e177381e6af",
         "android_client_info": {
-          "package_name": "com.Pickmeup.royodispatcher"
+          "package_name": "com.RideShare.royodispatcher"
         }
       },
       "oauth_client": [
         {
-          "client_id": "26366465123-mtcei6sdhbo9096r3i1fmlc6vnpahu03.apps.googleusercontent.com",
+          "client_id": "694056211454-jkkcsnn4itpastsi3ge38v2ucuvb5u13.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC_Nmb97trKwC5EA-JjQNQkSlFNbn4NlLk"
+          "current_key": "AIzaSyA7Wszn7yFaleGPdPftjl8HhgBw8e4bQ1w"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "26366465123-mtcei6sdhbo9096r3i1fmlc6vnpahu03.apps.googleusercontent.com",
+              "client_id": "694056211454-jkkcsnn4itpastsi3ge38v2ucuvb5u13.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "26366465123-19c0lmrkjj261gn3prt4ccm8obmu3qpa.apps.googleusercontent.com",
+              "client_id": "694056211454-5ing41psi0i8lbdr3hgfs996hq2856ed.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.BharatMove.Dispatch"
+                "bundle_id": "com.RideShare.Dispatch"
               }
             }
           ]
@@ -224,286 +259,34 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:26366465123:android:f457e207810b886bfcd456",
+        "mobilesdk_app_id": "1:694056211454:android:b7732624e577fb1981e6af",
         "android_client_info": {
-          "package_name": "com.PinkyDeli.royodispatcher"
+          "package_name": "com.UpStreet.royodispatcher"
         }
       },
       "oauth_client": [
         {
-          "client_id": "26366465123-mtcei6sdhbo9096r3i1fmlc6vnpahu03.apps.googleusercontent.com",
+          "client_id": "694056211454-jkkcsnn4itpastsi3ge38v2ucuvb5u13.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC_Nmb97trKwC5EA-JjQNQkSlFNbn4NlLk"
+          "current_key": "AIzaSyA7Wszn7yFaleGPdPftjl8HhgBw8e4bQ1w"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "26366465123-mtcei6sdhbo9096r3i1fmlc6vnpahu03.apps.googleusercontent.com",
+              "client_id": "694056211454-jkkcsnn4itpastsi3ge38v2ucuvb5u13.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "26366465123-19c0lmrkjj261gn3prt4ccm8obmu3qpa.apps.googleusercontent.com",
+              "client_id": "694056211454-5ing41psi0i8lbdr3hgfs996hq2856ed.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.BharatMove.Dispatch"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:26366465123:android:ba56d6fd59837184fcd456",
-        "android_client_info": {
-          "package_name": "com.Releezer.royodispatcher"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "26366465123-mtcei6sdhbo9096r3i1fmlc6vnpahu03.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyC_Nmb97trKwC5EA-JjQNQkSlFNbn4NlLk"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "26366465123-mtcei6sdhbo9096r3i1fmlc6vnpahu03.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "26366465123-19c0lmrkjj261gn3prt4ccm8obmu3qpa.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.BharatMove.Dispatch"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:26366465123:android:bdc750f173461d5afcd456",
-        "android_client_info": {
-          "package_name": "com.SXM2GO.royodispatcher"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "26366465123-mtcei6sdhbo9096r3i1fmlc6vnpahu03.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyC_Nmb97trKwC5EA-JjQNQkSlFNbn4NlLk"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "26366465123-mtcei6sdhbo9096r3i1fmlc6vnpahu03.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "26366465123-19c0lmrkjj261gn3prt4ccm8obmu3qpa.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.BharatMove.Dispatch"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:26366465123:android:2aa5f43a3f13fb7efcd456",
-        "android_client_info": {
-          "package_name": "com.Skoop.royodispatcher"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "26366465123-mtcei6sdhbo9096r3i1fmlc6vnpahu03.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyC_Nmb97trKwC5EA-JjQNQkSlFNbn4NlLk"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "26366465123-mtcei6sdhbo9096r3i1fmlc6vnpahu03.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "26366465123-19c0lmrkjj261gn3prt4ccm8obmu3qpa.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.BharatMove.Dispatch"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:26366465123:android:a448016be2efff50fcd456",
-        "android_client_info": {
-          "package_name": "com.Sofia.royodispatcher"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "26366465123-mtcei6sdhbo9096r3i1fmlc6vnpahu03.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyC_Nmb97trKwC5EA-JjQNQkSlFNbn4NlLk"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "26366465123-mtcei6sdhbo9096r3i1fmlc6vnpahu03.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "26366465123-19c0lmrkjj261gn3prt4ccm8obmu3qpa.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.BharatMove.Dispatch"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:26366465123:android:e8d2c74db58be87cfcd456",
-        "android_client_info": {
-          "package_name": "com.TripTCI.royodispatcher"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "26366465123-mtcei6sdhbo9096r3i1fmlc6vnpahu03.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyC_Nmb97trKwC5EA-JjQNQkSlFNbn4NlLk"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "26366465123-mtcei6sdhbo9096r3i1fmlc6vnpahu03.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "26366465123-19c0lmrkjj261gn3prt4ccm8obmu3qpa.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.BharatMove.Dispatch"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:26366465123:android:366975822c286a23fcd456",
-        "android_client_info": {
-          "package_name": "com.Vendoor.royodispatcher"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "26366465123-mtcei6sdhbo9096r3i1fmlc6vnpahu03.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyC_Nmb97trKwC5EA-JjQNQkSlFNbn4NlLk"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "26366465123-mtcei6sdhbo9096r3i1fmlc6vnpahu03.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "26366465123-19c0lmrkjj261gn3prt4ccm8obmu3qpa.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.BharatMove.Dispatch"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:26366465123:android:3027cceb505afdfefcd456",
-        "android_client_info": {
-          "package_name": "com.VendorSpot.royodispatcher"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "26366465123-mtcei6sdhbo9096r3i1fmlc6vnpahu03.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyC_Nmb97trKwC5EA-JjQNQkSlFNbn4NlLk"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "26366465123-mtcei6sdhbo9096r3i1fmlc6vnpahu03.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "26366465123-19c0lmrkjj261gn3prt4ccm8obmu3qpa.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.BharatMove.Dispatch"
+                "bundle_id": "com.RideShare.Dispatch"
               }
             }
           ]

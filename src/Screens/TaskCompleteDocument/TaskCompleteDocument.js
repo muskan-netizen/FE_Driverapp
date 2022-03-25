@@ -629,7 +629,7 @@ export default function TaskCompleteDocument({route, navigation}) {
   const completeAllTask = () => {
     if (
       taskDetail?.tasktype?.name == 'Drop' &&
-      taskDetail?.order?.task &&
+      taskDetail?.order?.task?.length >= 1 &&
       taskDetail?.order?.task[0]?.location?.address &&
       taskDetail?.order?.task[1]?.location?.address
     ) {
