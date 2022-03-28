@@ -239,8 +239,7 @@ export default {
   TOTALDISTANCE: ' Total Distance',
   TOTALTIME: 'Total Time',
   DEBIT_FROM: 'Debit from',
-  CONNECTSTRIPE:'Connect Stripe',
-  STRIPENOTCONNECTED:'Stripe is not connected'
-
-
+  CONNECTSTRIPE: 'Connect Stripe',
+  STRIPENOTCONNECTED: 'Stripe is not connected',
+  VERSION: 'Version',
 };

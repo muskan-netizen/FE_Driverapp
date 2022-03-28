@@ -15,6 +15,8 @@ import {
   LOGSAPI,
   CUSTOMNOTIFICATIONPAYLOAD,
 } from '../../config/urls';
+import DeviceInfo from 'react-native-device-info';
+import { appIds } from '../../utils/constants/DynamicAppKeys';
 
 export function initApp(data = {}, headers = {}, reload = false) {
   return new Promise((resolve, reject) => {
@@ -22,6 +24,9 @@ export function initApp(data = {}, headers = {}, reload = false) {
       .then(async res => {
         console.log(res, 'somamae is urnning1');
         let data = res?.data;
+        
+      
+
         setClientInfo(data).then(suc => {
           dispatch({
             type: types.APP_INIT,

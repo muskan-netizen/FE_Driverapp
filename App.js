@@ -10,7 +10,10 @@ import NoInternetModal from './src/Components/NoInternetModal';
 import Container from './src/library/toastify-react-native';
 import Routes from './src/navigation/Routes';
 import store from './src/redux/store';
-import {updateInternetConnection} from './src/redux/actions/init';
+import {
+  setDefaultLanguage,
+  updateInternetConnection,
+} from './src/redux/actions/init';
 import {moderateScaleVertical, width} from './src/styles/responsiveSize';
 import types from './src/redux/types';
 import {getItem, getUserData} from './src/utils/utils';
@@ -23,14 +26,90 @@ import ShowNotificationForeground from './src/utils/ShowNotificationForeground';
 import NotificationModal from './src/Components/NotificationModal';
 import strings from './src/constants/lang';
 import PushNotification from 'react-native-push-notification';
+import DeviceInfo from 'react-native-device-info';
+import {appIds} from './src/utils/constants/DynamicAppKeys';
+import Modal from 'react-native-modal';
+import codePush from 'react-native-code-push';
+import * as Progress from 'react-native-progress';
+import colors from './src/styles/colors';
+import fontFamily from './src/styles/fontFamily';
+import {View, Text} from 'react-native';
+
+let CodePushOptions = {checkFrequency: codePush.CheckFrequency.MANUAL};
+
 const App = () => {
   const [internetConnection, setInternet] = useState(true);
+  const [progress, setProgress] = useState(false);
+
+  useEffect(() => {
+    codePush.sync(
+      {
+        installMode: codePush.InstallMode.IMMEDIATE,
+        updateDialog: true,
+      },
+      codePushStatusDidChange,
+      codePushDownloadDidProgress,
+    );
+  }, []);
+
+  function codePushStatusDidChange(syncStatus) {
+    switch (syncStatus) {
+      case codePush.SyncStatus.CHECKING_FOR_UPDATE:
+        console.log('status Checking for update');
+        break;
+      case codePush.SyncStatus.DOWNLOADING_PACKAGE:
+        console.log(' status Downloading package');
+        break;
+      case codePush.SyncStatus.AWAITING_USER_ACTION:
+        console.log('codepush status Awaiting user action');
+        break;
+      case codePush.SyncStatus.INSTALLING_UPDATE:
+        console.log('codepush status Installing update');
+        setProgress(false);
+        break;
+      case codePush.SyncStatus.UP_TO_DATE:
+        console.log('codepush status App up to date');
+        setProgress(false);
+        break;
+      case codePush.SyncStatus.UPDATE_IGNORED:
+        console.log('codepush status Update cancelled by user');
+        setProgress(false);
+        break;
+      case codePush.SyncStatus.UPDATE_INSTALLED:
+        console.log(
+          'codepush status Update installed and will be applied on restart',
+        );
+        setProgress(false);
+        break;
+      case codePush.SyncStatus.UNKNOWN_ERROR:
+        console.log('codepush status An unknown error occurred.');
+        setProgress(false);
+        break;
+    }
+  }
+
+  function codePushDownloadDidProgress(progress) {
+    console.log('codepush status progress status', progress);
+    setProgress(progress);
+  }
 
   const notificationConfig = () => {
     requestUserPermission();
     notificationListener();
   };
+
+  const setInitialLanguage = () => {
+    if (appIds.bluebolt == DeviceInfo.getBundleId()) {
+      setDefaultLanguage({
+        id: 9,
+        label: 'Vietnamese',
+        value: 'vi',
+      });
+    }
+  };
+
   useEffect(() => {
+    setInitialLanguage();
     notificationConfig();
     checkExistChannel();
     setTimeout(() => {
@@ -55,6 +134,7 @@ const App = () => {
       const userData = await getUserData();
       const defaultLanguage = await getItem('defaultLanguage');
       console.log(userData, 'userdata in app.js');
+      console.log(defaultLanguage, 'defaultLanguage in app.js');
       // if (userData && !!userData?.access_token) {
       //   notificationConfig();
       // }
@@ -92,10 +172,81 @@ const App = () => {
     return () => removeNetInfoSubscription();
   }, []);
 
+  const progressView = () => {
+    return (
+      <View>
+        <Modal isVisible={true}>
+          <View
+            style={{
+              backgroundColor: colors.white,
+              borderRadius: moderateScale(8),
+              padding: moderateScale(16),
+            }}>
+            <Text
+              style={{
+                alignSelf: 'center',
+                fontFamily: fontFamily.medium,
+                color: colors.textGreyOpcaity7,
+                fontSize: textScale(14),
+              }}>
+              In Progress...
+            </Text>
+
+            <View
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                marginTop: moderateScaleVertical(12),
+                marginBottom: moderateScaleVertical(4),
+              }}>
+              <Text
+                style={{
+                  fontFamily: fontFamily.medium,
+                  color: colors.textGreyOpcaity7,
+                  fontSize: textScale(12),
+                }}>{`${(Number(progress?.receivedBytes) / 1048576).toFixed(
+                2,
+              )}MB/${(Number(progress.totalBytes) / 1048576).toFixed(
+                2,
+              )}MB`}</Text>
+
+              <Text
+                style={{
+                  color: colors.black,
+                  fontFamily: fontFamily.medium,
+                  fontSize: textScale(12),
+                }}>
+                {(
+                  (Number(progress?.receivedBytes) /
+                    Number(progress.totalBytes)) *
+                  100
+                ).toFixed(0)}
+                %
+              </Text>
+            </View>
+
+            <Progress.Bar
+              progress={
+                (
+                  (Number(progress?.receivedBytes) /
+                    Number(progress.totalBytes)) *
+                  100
+                ).toFixed(0) / 100
+              }
+              width={width / 1.2}
+              color={colors.black}
+            />
+          </View>
+        </Modal>
+      </View>
+    );
+  };
   return (
     <SafeAreaProvider>
       <Provider store={store}>
         <ShowNotificationForeground />
+        {progress ? progressView() : null}
         <Routes />
         <NotificationModal />
       </Provider>
@@ -111,4 +262,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default codePush(CodePushOptions)(App);

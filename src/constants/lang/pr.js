@@ -265,6 +265,8 @@ export default {
   COMMENTFORVENDOR: 'Comentário para o Lojista',
   PLACEHOLDERCOMMENTFORVENDOR:
     'Por exemplo, Por favor, faça os brancos separadamente',
+  PLACEHOLDERCOMMENTFORVENDOR:
+    'Por exemplo, Por favor, faça os brancos separadamente',
   SCEDULEPICKUP: 'Agendar Retirada',
   SCEDULEDROP: 'Agendar Entrega',
   TOTALSUBSCRIPTION: 'Desconto de Assinatura',
@@ -292,4 +294,5 @@ export default {
   JOBTYPE: 'Tipo de trabalho',
   ASSIGNEDTEAM: 'Equipe Atribuída',
   ORDERCANCEL: 'Pedido Cancelado',
+  VERSION: 'Version',
 };

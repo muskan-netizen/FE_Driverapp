@@ -22,7 +22,7 @@ import {useFocusEffect} from '@react-navigation/native';
 import {cloneDeep} from 'lodash';
 import ScaledImage from 'react-native-scalable-image';
 import DeviceInfo from 'react-native-device-info';
-import ZendeskChat from 'react-native-zendesk-chat';
+import ZendeskChat from '../library/react-native-zendesk-chat';
 import {appIds} from '../utils/constants/DynamicAppKeys';
 
 export default function CustomDrawerContent({
@@ -119,11 +119,13 @@ export default function CustomDrawerContent({
     state => state?.initBoot?.defaultLanguage,
   );
 
+  console.log(zendeskKeys, 'keys >>>>>>>>>>>>');
   useEffect(() => {
     ZendeskChat.init(
-      `${zendeskKeys?.keys?.account_key}`,
-      `${zendeskKeys?.keys?.application_id}`,
+      zendeskKeys?.keys?.account_key,
+      zendeskKeys?.keys?.application_id,
     );
+
     updateState({
       routes: [
         {
@@ -331,10 +333,12 @@ export default function CustomDrawerContent({
                 onPress={onPress}
                 // onLongPress={onLongPress}
                 style={{
-                  margin: moderateScale(10),
+                  margin: moderateScale(8),
                   // alignItems: 'center',
                   flexDirection: 'row',
                   alignItems: 'center',
+
+                  justifyContent: 'center',
                 }}>
                 {/* {options.drawerIcon({focused: isFocused})} */}
                 <View style={{flex: 0.15}}>
@@ -373,7 +377,7 @@ export default function CustomDrawerContent({
               color: colors.lightGreyBg2,
               fontSize: textScale(12),
             }}>
-            {`Version ${DeviceInfo.getVersion()} `}
+            {`${strings.VERSION} ${DeviceInfo.getVersion()} `}
             <Text>{`(${DeviceInfo.getBuildNumber()})`}</Text>
           </Text>
         </View>
