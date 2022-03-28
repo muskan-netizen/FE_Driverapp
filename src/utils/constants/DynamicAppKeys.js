@@ -1112,7 +1112,7 @@ const appIds = {
   }),
   scoopaTechnologies: Platform.select({
     ios: 'com.ScoopaTechnologies.Dispatch',
-    android: 'com.ScoopaTechnologies.royodispatcher',
+    android: 'com.app.ScoopaTechnologies.royodispatcher',
   }),
   slider: Platform.select({
     ios: 'com.Slider.Dispatch',
