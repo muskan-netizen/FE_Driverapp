@@ -250,7 +250,7 @@ export default function Wallet({route, navigation}) {
                   : `- ${
                       userData?.client_preference?.currency?.symbol
                     }${currencyNumberFormatter(Number(item?.dr).toFixed(2))}`
-                : item?.task_type_id && `Task# ${item?.id}`}
+                : item?.task_type_id && `${strings.TASK} ${item?.id}`}
             </Text>
           </View>
         </View>

@@ -51,4 +51,10 @@ export function getImageUrl(url1, url2, dimentions) {
   return `${url1}${dimentions}${url2}`;
 }
 
-export {cameraHandler, currencyNumberFormatter};
+const kFormatter = num => {
+  return Math.abs(num) > 999
+    ? Math.sign(num) * (Math.abs(num) / 1000).toFixed(1) + 'k'
+    : Math.sign(num) * Math.abs(num);
+};
+
+export {cameraHandler, currencyNumberFormatter, kFormatter};
