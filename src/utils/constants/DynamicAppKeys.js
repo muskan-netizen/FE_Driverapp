@@ -7,7 +7,6 @@ const shortCodes = {
   deliverstat: 'e6b31c',
   africanVillageMarket: '6c786d',
   africanize: 'a98da0',
-  tranzit: 'f84785',
   hemptify: '33eba1',
   goody: 'da11cf',
   yogofood: '883082',
@@ -245,6 +244,7 @@ const shortCodes = {
   upStreet: 'bcf8e0',
   nineOneTwo: '5a1f38',
   trip: '5a79f3',
+  tranzit: 'f84785'
 };
 
 // Goody Dispatch
@@ -270,7 +270,7 @@ const appIds = {
     android: 'com.africanize.royodispatcher',
   }),
   tranzit: Platform.select({
-    ios: 'com.Tranzit.Dispatch',
+    ios: 'com.Tranzit.Dispatcher',
     android: 'com.tranzit.royodispatcher',
   }),
   hemptify: Platform.select({

@@ -248,16 +248,6 @@ android {
             applicationId 'com.africanize.royodispatcher'
             resValue "string", "app_name", "Africanize Deliveries"
         } 
-        tranzit {
-            dimension "appType"
-            versionCode 2
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.tranzit.royodispatcher'
-            resValue "string", "app_name", "Tranzit Driver"
-        } 
         hemptify {
             dimension "appType"
             versionCode 1
@@ -2730,6 +2720,17 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.Trip.royodispatcher'
             resValue "string", "app_name", "Trip Dispatcher"
+        }
+
+        tranzit{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.tranzit.royodispatcher'
+            resValue "string", "app_name", "Tranzit Dispatcher"
         }
 
     }

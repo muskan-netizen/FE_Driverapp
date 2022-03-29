@@ -105,7 +105,7 @@
 // export const API_BASE_URL = 'https://dispatch.govachow.com/';
 
 // africanize
-// export const API_BASE_URL = 'https://dispatch.africanize.co/'
+export const API_BASE_URL = 'https://dispatch.africanize.co/';
 
 // orderchekout
 // export const API_BASE_URL = 'https://dispatch.orderchekout.com/';
@@ -172,7 +172,7 @@
 // export const API_BASE_URL = 'https://dispatch.sunshinerideshare.com/';
 
 //Swiffy live domain
-export const API_BASE_URL = 'https://dispatch.swiffy.us/';
+// export const API_BASE_URL = 'https://dispatch.swiffy.us/';
 //We eat live
 // export const API_BASE_URL = 'https://weeat.royodispatch.com/';
 
