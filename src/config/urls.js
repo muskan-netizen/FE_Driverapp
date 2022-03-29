@@ -78,7 +78,7 @@
 //export const API_BASE_URL = 'https://dispatch.yeboy.mx/';
 
 // VICI
-// export const API_BASE_URL = 'https://envios.vici.la/'
+export const API_BASE_URL = 'https://envios.vici.la/';
 
 //trucktirenow
 // export const API_BASE_URL = 'https://dispatch.trucktirenow.com/';
@@ -105,7 +105,7 @@
 // export const API_BASE_URL = 'https://dispatch.govachow.com/';
 
 // africanize
-export const API_BASE_URL = 'https://dispatch.africanize.co/';
+// export const API_BASE_URL = 'https://dispatch.africanize.co/';
 
 // orderchekout
 // export const API_BASE_URL = 'https://dispatch.orderchekout.com/';
@@ -140,7 +140,7 @@ export const API_BASE_URL = 'https://dispatch.africanize.co/';
 // export const API_BASE_URL = 'https://dispatcher.click-eat.com/'
 
 // halalhmc
-//export const API_BASE_URL = 'https://dispatcher.halalhmc.org/';
+// export const API_BASE_URL = 'https://dispatcher.halalhmc.org/';
 // tranznet online
 // export const API_BASE_URL = 'https://dispatcher.tranzonline.com/'
 // runrun live domain
