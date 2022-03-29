@@ -16288,9 +16288,9 @@
 				84E15227271FE1FE00E906B8 /* Sources */,
 				84E1522B271FE1FE00E906B8 /* Frameworks */,
 				84E15231271FE1FE00E906B8 /* Resources */,
-				CB9E3B42A6FB980B13FE805F /* [CP] Copy Pods Resources */,
 				841EE03C27ED8C28003002D6 /* Bundle React Native code and images */,
-				6AA4E60086E413F864E92AB0 /* [CP] Embed Pods Frameworks */,
+				B670065B01FBE90C864ABDCB /* [CP] Embed Pods Frameworks */,
+				FA0B2F4D0185EBAFE491A11E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -27349,23 +27349,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-DestinationOps/Pods-available_pods-DestinationOps-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6AA4E60086E413F864E92AB0 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-available_pods-Tranzit/Pods-available_pods-Tranzit-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-available_pods-Tranzit/Pods-available_pods-Tranzit-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-Tranzit/Pods-available_pods-Tranzit-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		6BB98E3EF905C30DD185D1F1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -38202,6 +38185,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-Delivery/Pods-available_pods-Delivery-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B670065B01FBE90C864ABDCB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-available_pods-Tranzit/Pods-available_pods-Tranzit-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-available_pods-Tranzit/Pods-available_pods-Tranzit-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-Tranzit/Pods-available_pods-Tranzit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B6D7785C231269FDD23EA146 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -39202,23 +39202,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-BotSeat/Pods-available_pods-BotSeat-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CB9E3B42A6FB980B13FE805F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-available_pods-Tranzit/Pods-available_pods-Tranzit-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-available_pods-Tranzit/Pods-available_pods-Tranzit-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-Tranzit/Pods-available_pods-Tranzit-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CBCABE830AA452E07224C6F6 /* [CP] Copy Pods Resources */ = {
@@ -41494,6 +41477,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FA0B2F4D0185EBAFE491A11E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-available_pods-Tranzit/Pods-available_pods-Tranzit-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-available_pods-Tranzit/Pods-available_pods-Tranzit-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-Tranzit/Pods-available_pods-Tranzit-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FA4BFDE3EA86D8F591AB3510 /* [CP] Copy Pods Resources */ = {

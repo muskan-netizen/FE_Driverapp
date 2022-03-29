@@ -292,4 +292,12 @@ export default {
   JOBTYPE: 'Tipo de Trabajo',
   ASSIGNEDTEAM: 'Equipo Asignado',
   ORDERCANCEL: 'Órden Cancelada',
+  TASK: 'Task#',
+  DRIVERVEHICLE: 'Driver/Vehicle Incident',
+  DESTINATIONUNREACHABLE: 'Destination Unreachable',
+  RECIPIENTUNAVAILABLE: 'Recipent Unavailable',
+  REFUSEDINCORRECTMISSING: 'Refused - Incorrect/Missing items',
+  REFUSEDDAMAGED: 'Refused - Damage',
+  UNABLETOLOCATE: 'Unable to Locate',
+  OTHER: 'Other',
 };
