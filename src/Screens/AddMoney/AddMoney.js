@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   View,
   ScrollView,
+  Keyboard,
 } from 'react-native';
 import RazorpayCheckout from 'react-native-razorpay';
 import {useSelector} from 'react-redux';
@@ -184,43 +185,43 @@ export default function AddMoney({navigation}) {
           </View>
         </View>
         <View />
-        <ScrollView keyboardShouldPersistTaps={'handled'}>
-          <View style={{flex: 1}}>
-            <View
-              style={{
-                marginTop: moderateScaleVertical(20),
-                marginHorizontal: moderateScale(20),
-              }}>
-              {!!(
-                allAvailAblePaymentMethods && allAvailAblePaymentMethods.length
-              ) && (
-                <Text
-                  style={
-                    isDarkMode
-                      ? [styles.debitFrom, {color: MyDarkTheme.colors.text}]
-                      : styles.debitFrom
-                  }>
-                  {strings.DEBIT_FROM}
+        {/* <ScrollView keyboardShouldPersistTaps={'handled'}> */}
+        <View style={{flex: 1}}>
+          <View
+            style={{
+              marginTop: moderateScaleVertical(20),
+              marginHorizontal: moderateScale(20),
+            }}>
+            {!!(
+              allAvailAblePaymentMethods && allAvailAblePaymentMethods.length
+            ) && (
+              <Text
+                style={
+                  isDarkMode
+                    ? [styles.debitFrom, {color: MyDarkTheme.colors.text}]
+                    : styles.debitFrom
+                }>
+                {strings.DEBIT_FROM}
+              </Text>
+            )}
+            <FlatList
+              data={allAvailAblePaymentMethods}
+              showsVerticalScrollIndicator={false}
+              showsHorizontalScrollIndicator={false}
+              keyboardShouldPersistTaps={'handled'}
+              // horizontal
+              style={{marginTop: moderateScaleVertical(10)}}
+              keyExtractor={(item, index) => String(index)}
+              renderItem={_renderItemPayments}
+              ListEmptyComponent={() => (
+                <Text style={{textAlign: 'center'}}>
+                  {strings.NO_PAYMENT_METHOD}
                 </Text>
               )}
-              <FlatList
-                data={allAvailAblePaymentMethods}
-                showsVerticalScrollIndicator={false}
-                showsHorizontalScrollIndicator={false}
-                keyboardShouldPersistTaps={'handled'}
-                // horizontal
-                style={{marginTop: moderateScaleVertical(10)}}
-                keyExtractor={(item, index) => String(index)}
-                renderItem={_renderItemPayments}
-                ListEmptyComponent={() => (
-                  <Text style={{textAlign: 'center'}}>
-                    {strings.NO_PAYMENT_METHOD}
-                  </Text>
-                )}
-              />
-            </View>
+            />
           </View>
-        </ScrollView>
+        </View>
+        {/* </ScrollView> */}
 
         {/* botttom add money button */}
         <View style={styles.bottomButtonStyle}>

@@ -231,34 +231,32 @@ const NotificationModal = () => {
                 {` ${taskId}`}
               </Text>
             </View>
-            {
-              orderCost && 
+            {orderCost && (
               <View style={{flexDirection: 'row', alignItems: 'center'}}>
-              <Text
-                numberOfLines={1}
-                style={{
-                  marginVertical: moderateScaleVertical(10),
-                  textAlign: 'right',
-                  fontSize: textScale(10),
-                  color: colors.green,
-                  fontFamily: fontFamily.bold,
-                }}>
-                {strings.PRICE}
-              </Text>
-              <Text
-                numberOfLines={1}
-                style={{
-                  marginVertical: moderateScaleVertical(10),
-                  textAlign: 'right',
-                  fontSize: textScale(12),
-                  color: colors.green,
-                  fontFamily: fontFamily.bold,
-                }}>
-                {` ${orderCost}`}
-              </Text>
-            </View>
-            }
-            
+                <Text
+                  numberOfLines={1}
+                  style={{
+                    marginVertical: moderateScaleVertical(10),
+                    textAlign: 'right',
+                    fontSize: textScale(10),
+                    color: colors.green,
+                    fontFamily: fontFamily.bold,
+                  }}>
+                  {strings.PRICE}
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  style={{
+                    marginVertical: moderateScaleVertical(10),
+                    textAlign: 'right',
+                    fontSize: textScale(12),
+                    color: colors.green,
+                    fontFamily: fontFamily.bold,
+                  }}>
+                  {` ${orderCost}`}
+                </Text>
+              </View>
+            )}
           </View>
           <View style={{flexDirection: 'row'}}>
             <View>
@@ -317,25 +315,26 @@ const NotificationModal = () => {
                 </View>
               )}
             </View>
-            {
-              totalDistance && 
+            {totalDistance && (
               <View style={{alignItems: 'center'}}>
-              <Text
-                style={[styles.dateTimeStyle, {marginTop: moderateScale(10)}]}>
-                {strings.TASKDISTANCE}
-              </Text>
-              <Text
-                numberOfLines={1}
-                style={{
-                  fontSize: textScale(14),
-                  color: colors.redB,
-                  fontFamily: fontFamily.bold,
-                }}>
-                {`${totalDistance}`}
-              </Text>
-            </View>
-            }
-           
+                <Text
+                  style={[
+                    styles.dateTimeStyle,
+                    {marginTop: moderateScale(10)},
+                  ]}>
+                  {strings.TASKDISTANCE}
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  style={{
+                    fontSize: textScale(14),
+                    color: colors.redB,
+                    fontFamily: fontFamily.bold,
+                  }}>
+                  {`${totalDistance}`}
+                </Text>
+              </View>
+            )}
           </View>
         </View>
         {data?.type == 'AR' ? (
@@ -433,7 +432,12 @@ const NotificationModal = () => {
   //Error handling in api
   const errorMethod = error => {
     console.log(error, 'error');
-    updateState({isLoading: false, isRefreshing: false, isLoading: false});
+    updateState({
+      isLoading: false,
+      isRefreshing: false,
+      isLoading: false,
+      isModalVisibleForAcceptReject: false,
+    });
     showError(error?.message || error?.error);
   };
 

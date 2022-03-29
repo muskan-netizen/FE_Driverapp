@@ -48,11 +48,12 @@ import Geolocation_ from '@react-native-community/geolocation';
 import geocoder from 'react-native-geocoder/js/geocoder';
 import {rippleLoader} from '../../Components/Loaders/AnimatedLoaderFiles/index';
 import LottieAnimation from 'lottie-react-native';
+import ZendeskChat from '../../library/react-native-zendesk-chat';
 // import BackgroundTimer from 'react-native-background-timer';
 
 export default function DashBoard({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
-  console.log(userData,"userData");
+  console.log(userData, 'userData');
   const [state, setState] = useState({
     isLoading: false,
     isEnabled: userData && userData?.is_available ? true : false,
@@ -236,7 +237,11 @@ export default function DashBoard({route, navigation}) {
   };
 
   const fetchgentLogs = (lat, lng, heading_, callFrom) => {
-    console.log('<<<<<<<<jhjhjh', callFrom, lat, '   ' + lng);
+    ZendeskChat.init(
+      zendeskKeys?.keys?.account_key,
+      zendeskKeys?.keys?.application_id,
+    );
+
     getCurrentPosition();
     setTimeout(() => {
       (async () => {
@@ -258,7 +263,7 @@ export default function DashBoard({route, navigation}) {
         actions
           .logsApi(data, {client: clientInfo?.database_name})
           .then(res => {
-            console.log(res,"logs data");
+            console.log(res, 'logs data');
             if (
               res?.data?.user?.client_preference
                 ?.customer_support_application_id != null &&

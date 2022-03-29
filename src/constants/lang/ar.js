@@ -260,4 +260,13 @@ export default {
   TOTALDISTANCE: ' المسافة الكلية',
   TOTALTIME: 'الوقت الكلي',
   DEBIT_FROM: 'الخصم من',
+  VERSION: 'Version',
+  TASK: 'Task#',
+  DRIVERVEHICLE: 'Driver/Vehicle Incident',
+  DESTINATIONUNREACHABLE: 'Destination Unreachable',
+  RECIPIENTUNAVAILABLE: 'Recipent Unavailable',
+  REFUSEDINCORRECTMISSING: 'Refused - Incorrect/Missing items',
+  REFUSEDDAMAGED: 'Refused - Damage',
+  UNABLETOLOCATE: 'Unable to Locate',
+  OTHER: 'Other',
 };

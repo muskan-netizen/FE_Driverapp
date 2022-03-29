@@ -1,7 +1,13 @@
 PODS:
+  - Base64 (1.1.2)
   - boost-for-react-native (1.63.0)
   - BVLinearGradient (2.5.6):
     - React
+  - CodePush (7.0.4):
+    - Base64 (~> 1.1)
+    - JWT (~> 3.0.0-beta.12)
+    - React-Core
+    - SSZipArchive (~> 2.2.2)
   - DoubleConversion (1.1.6)
   - FaceSDK (3.1.952):
     - RegulaCommon (= 5.8.59)
@@ -85,6 +91,8 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (7.7.0):
     - GoogleUtilities/Logger
+  - JWT (3.0.0-beta.14):
+    - Base64 (~> 1.1.2)
   - libwebp (1.2.1):
     - libwebp/demux (= 1.2.1)
     - libwebp/mux (= 1.2.1)
@@ -110,7 +118,7 @@ PODS:
   - Permission-LocationWhenInUse (3.3.1):
     - RNPermissions
   - PromisesObjC (2.0.0)
-  - razorpay-pod (1.1.19)
+  - razorpay-pod (1.1.18)
   - RCT-Folly (2021.04.26.00):
     - boost-for-react-native
     - DoubleConversion
@@ -347,8 +355,6 @@ PODS:
     - React
   - react-native-splash-screen (3.3.0):
     - React-Core
-  - react-native-webview (11.17.2):
-    - React-Core
   - React-perflogger (0.65.1)
   - React-RCTActionSheet (0.65.1):
     - React-Core/RCTActionSheetHeaders (= 0.65.1)
@@ -420,13 +426,13 @@ PODS:
   - RegulaCommon (5.8.59)
   - rn-fetch-blob (0.12.0):
     - React-Core
-  - RNCAsyncStorage (1.17.0):
+  - RNCAsyncStorage (1.17.1):
     - React-Core
   - RNCClipboard (1.5.1):
     - React-Core
   - RNCPushNotificationIOS (1.10.1):
     - React-Core
-  - RNDeviceInfo (8.5.1):
+  - RNDeviceInfo (8.6.0):
     - React-Core
   - RNFaceApi (0.0.38):
     - FaceSDK (= 3.1.952)
@@ -455,7 +461,7 @@ PODS:
     - React-Core
     - React-RCTImage
     - TOCropViewController
-  - RNLocalize (2.2.0):
+  - RNLocalize (2.2.1):
     - React-Core
   - RNPermissions (3.3.1):
     - React-Core
@@ -477,6 +483,7 @@ PODS:
   - SDWebImageWebPCoder (0.8.4):
     - libwebp (~> 1.0)
     - SDWebImage/Core (~> 5.10)
+  - SSZipArchive (2.2.3)
   - Stripe (21.11.1):
     - Stripe/Stripe3DS2 (= 21.11.1)
     - StripeCore (= 21.11.1)
@@ -506,6 +513,7 @@ PODS:
 
 DEPENDENCIES:
   - BVLinearGradient (from `../node_modules/react-native-linear-gradient`)
+  - CodePush (from `../node_modules/react-native-code-push`)
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
   - FBReactNativeSpec (from `../node_modules/react-native/React/FBReactNativeSpec`)
@@ -543,7 +551,6 @@ DEPENDENCIES:
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - react-native-signature-capture (from `../node_modules/react-native-signature-capture`)
   - react-native-splash-screen (from `../node_modules/react-native-splash-screen`)
-  - react-native-webview (from `../node_modules/react-native-webview`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
   - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
@@ -584,6 +591,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Base64
     - boost-for-react-native
     - FaceSDK
     - Firebase
@@ -596,6 +604,7 @@ SPEC REPOS:
     - GoogleDataTransport
     - GoogleMaps
     - GoogleUtilities
+    - JWT
     - libwebp
     - lottie-ios
     - nanopb
@@ -604,6 +613,7 @@ SPEC REPOS:
     - RegulaCommon
     - SDWebImage
     - SDWebImageWebPCoder
+    - SSZipArchive
     - Stripe
     - StripeCore
     - StripeUICore
@@ -618,6 +628,8 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   BVLinearGradient:
     :path: "../node_modules/react-native-linear-gradient"
+  CodePush:
+    :path: "../node_modules/react-native-code-push"
   DoubleConversion:
     :podspec: "../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec"
   FBLazyVector:
@@ -688,8 +700,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-signature-capture"
   react-native-splash-screen:
     :path: "../node_modules/react-native-splash-screen"
-  react-native-webview:
-    :path: "../node_modules/react-native-webview"
   React-perflogger:
     :path: "../node_modules/react-native/ReactCommon/reactperflogger"
   React-RCTActionSheet:
@@ -762,8 +772,10 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
+  Base64: cecfb41a004124895a7bcee567a89bae5a89d49b
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   BVLinearGradient: e3aad03778a456d77928f594a649e96995f1c872
+  CodePush: 35a0d8be82686010ee70b510c3549ba8df5ca737
   DoubleConversion: 831926d9b8bf8166fd87886c4abab286c2422662
   FaceSDK: 05b4ce8a531d449dc18414759a6642aa083c20a4
   FBLazyVector: 33c82491102f20ecddb6c6a2c273696ace3191e0
@@ -779,6 +791,7 @@ SPEC CHECKSUMS:
   GoogleDataTransport: 629c20a4d363167143f30ea78320d5a7eb8bd940
   GoogleMaps: 32ca02de09de357a10ac773f2c70f1986751392d
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
+  JWT: ef71dfb03e1f842081e64dc42eef0e164f35d251
   libwebp: 98a37e597e40bfdb4c911fc98f2c53d0b12d05fc
   lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
   lottie-react-native: b561920bba7ec727ec94a473b683cffba00faece
@@ -787,7 +800,7 @@ SPEC CHECKSUMS:
   Permission-LocationAlways: e250497fb714f608bc45c19229d160f4414ac1cb
   Permission-LocationWhenInUse: 50736c907dff5a77d80a3503d3b333831148288b
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
-  razorpay-pod: d34454a20429105b94afc700734cfba38b95eea4
+  razorpay-pod: 9aca3a303ef2f9281232c2f742fc6de937679500
   RCT-Folly: 0dd9e1eb86348ecab5ba76f910b56f4b5fef3c46
   RCTRequired: 6cf071ab2adfd769014b3d94373744ee6e789530
   RCTTypeSafety: b829c59453478bb5b02487b8de3336386ab93ab1
@@ -815,7 +828,6 @@ SPEC CHECKSUMS:
   react-native-safe-area-context: 5b8a418400eb3d8364aa87300e865c0262cc17b9
   react-native-signature-capture: 73f2077f43a3fae9979b76e8cbf703c735bf44f4
   react-native-splash-screen: 4312f786b13a81b5169ef346d76d33bc0c6dc457
-  react-native-webview: 77ee909f73e1fcab76380f7dcc3344771fe61bd8
   React-perflogger: fd28ee1f2b5b150b00043f0301d96bd417fdc339
   React-RCTActionSheet: 7f3fa0855c346aa5d7c60f9ced16e067db6d29fa
   React-RCTAnimation: 2119a18ee26159004b001bc56404ca5dbaae6077
@@ -832,18 +844,18 @@ SPEC CHECKSUMS:
   ReactNativeLocalization: be60e3a0e6e8db88d9f8190719ffb75e1cdab22a
   RegulaCommon: 601c50267470f36652f94174e87d79b8a0608af2
   rn-fetch-blob: f065bb7ab7fb48dd002629f8bdcb0336602d3cba
-  RNCAsyncStorage: f385be27befc6e094ef1be9e5d640bdf4cc1be4e
+  RNCAsyncStorage: da4d77f746b3062e8c5e3a1892389372388c0652
   RNCClipboard: 5e299c6df8e0c98f3d7416b86ae563d3a9f768a3
   RNCPushNotificationIOS: 089da3b657e1e3d464f38195fd2e3069608ef5af
-  RNDeviceInfo: 84bc8b2f6e2a17361d6246e5623ff93f1389869f
-  RNFaceApi: 90fd61fb9c681c9cb1205f615034ff7dde6d41c8
+  RNDeviceInfo: 696664601207befe58d6ecb3295b71fe7b353bd3
+  RNFaceApi: 41b913c5e240b5f2a29c32e7cde78f4ca230abc5
   RNFastImage: 1f2cab428712a4baaf78d6169eaec7f622556dd7
   RNFBApp: 729c0666395b1953198dc4a1ec6deb8fbe1c302e
   RNFBMessaging: 8415ec196e5c1196caa26ec0742cdb48ed4d0f97
   RNFS: fc610f78fdf8bfc89a9e5cc2f898519f4dba1002
   RNGestureHandler: a479ebd5ed4221a810967000735517df0d2db211
   RNImageCropPicker: 73891a709e6fd8a47d32104d942757971f220aee
-  RNLocalize: 8cfa9e1264c9aa169f6adb33a5232f970508a793
+  RNLocalize: 414c99a0f6625a58dfee7f5780678d98c4ffabc2
   RNPermissions: 7ad8d93b004e6bc85c89e27a102afcde90e07efa
   RNReactNativeHapticFeedback: 4085973f5a38b40d3c6793a3ee5724773eae045e
   RNReanimated: c1b56d030d1616239861534d9adb531f8cffab68
@@ -852,6 +864,7 @@ SPEC CHECKSUMS:
   RNZendeskChat: 5a73a4353497c0670f81e30f06d45e183d0137aa
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
   SDWebImageWebPCoder: f93010f3f6c031e2f8fb3081ca4ee6966c539815
+  SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
   Stripe: f2bed8369154c35c8ec794704e042e05240d6f21
   stripe-react-native: 93063122415d8c677c61e44d6e1f13d30f8e794f
   StripeCore: 36571be19dae15e90c8ad47e1af45712aea93f5a
