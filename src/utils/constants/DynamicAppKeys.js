@@ -1,5 +1,5 @@
-import { Platform } from 'react-native';
-import { getBundleId } from 'react-native-device-info';
+import {Platform} from 'react-native';
+import {getBundleId} from 'react-native-device-info';
 
 const shortCodes = {
   runrun: 'cbec70',
@@ -1219,4 +1219,4 @@ const appIds = {
   }),
 };
 
-export { appIds, shortCodes };
+export {appIds, shortCodes};

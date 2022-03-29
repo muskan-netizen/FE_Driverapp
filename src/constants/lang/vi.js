@@ -302,4 +302,5 @@ export default {
   REFUSEDDAMAGED: 'BỊ TỪ CHỐI - BỊ THIỆT HẠI',
   UNABLETOLOCATE: 'KHÔNG THỂ XÁC ĐỊNH VỊ TRÍ',
   OTHER: 'KHÁC',
+  DEBIT_FROM: 'Ghi nợ Từ',
 };

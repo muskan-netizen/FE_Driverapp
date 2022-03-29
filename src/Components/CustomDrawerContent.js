@@ -120,12 +120,11 @@ export default function CustomDrawerContent({
   );
 
   console.log(zendeskKeys, 'keys >>>>>>>>>>>>');
+  ZendeskChat.init(
+    zendeskKeys?.keys?.account_key,
+    zendeskKeys?.keys?.application_id,
+  );
   useEffect(() => {
-    ZendeskChat.init(
-      zendeskKeys?.keys?.account_key,
-      zendeskKeys?.keys?.application_id,
-    );
-
     updateState({
       routes: [
         {
@@ -266,6 +265,19 @@ export default function CustomDrawerContent({
     showError(error?.message || error?.error);
   };
 
+  const onStartSupportChat = () => {
+    ZendeskChat.setVisitorInfo({
+      name: userData?.name,
+      phone: userData?.phone_number ? userData?.phone_number : '',
+    });
+    ZendeskChat.startChat({
+      name: userData?.name,
+      phone: userData?.phone_number ? userData?.phone_number : '',
+      withChat: true,
+      color: '#000',
+    });
+  };
+
   return (
     <>
       <View
@@ -307,16 +319,7 @@ export default function CustomDrawerContent({
                 navigation.navigate(route.key);
               }
             } else if (route?.support) {
-              ZendeskChat.setVisitorInfo({
-                name: userData?.name,
-                phone: userData?.phone_number,
-              });
-              ZendeskChat.startChat({
-                name: userData?.name,
-                phone: userData?.phone_number,
-                withChat: true,
-                color: '#000',
-              });
+              onStartSupportChat();
             } else {
               onLogoutPress();
             }
