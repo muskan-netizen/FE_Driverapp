@@ -244,6 +244,7 @@ const shortCodes = {
   airlinesRecruiter: 'deb34c',
   upStreet: 'bcf8e0',
   nineOneTwo: '5a1f38',
+  trip: '5a79f3',
 };
 
 // Goody Dispatch
@@ -1216,6 +1217,10 @@ const appIds = {
   nineOneTwo: Platform.select({
     ios: 'com.NineOneTwo.Dispatch',
     android: 'com.NineOneTwo.royodispatcher',
+  }),
+  trip: Platform.select({
+    ios: 'com.Trip.Dispatch',
+    android: 'com.Trip.royodispatcher',
   }),
 };
 

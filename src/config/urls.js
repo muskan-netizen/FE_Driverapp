@@ -9,6 +9,10 @@
 // export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
 //UFOOD
 // export const API_BASE_URL = 'https://dispatch.ufood.ca/';
+//empire
+// export const API_BASE_URL = 'https://dispatch.empirehub.com/';
+//Ullaz
+// export const API_BASE_URL = 'https://ullaz.co.ke';
 //Pickmeup
 // export const API_BASE_URL = 'https://canupickmeup.com/';
 // export const API_BASE_URL = 'http://192.168.96.152:8006/'; // preet local url
@@ -25,7 +29,7 @@
 //export const API_BASE_URL = 'https://dispatcher.releezer.shop';
 
 //hemptify
-export const API_BASE_URL = 'https://dispatch.hemptify.com';
+// export const API_BASE_URL = 'https://dispatch.hemptify.com';
 
 //Express Delivery
 // export const API_BASE_URL = 'https://expresdeliverys.com';
@@ -168,7 +172,7 @@ export const API_BASE_URL = 'https://dispatch.hemptify.com';
 // export const API_BASE_URL = 'https://dispatch.sunshinerideshare.com/';
 
 //Swiffy live domain
-// export const API_BASE_URL = 'https://swiffy.us/';
+export const API_BASE_URL = 'https://dispatch.swiffy.us/';
 //We eat live
 // export const API_BASE_URL = 'https://weeat.royodispatch.com/';
 
