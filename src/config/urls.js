@@ -25,7 +25,7 @@
 //hellodeliver
 // export const API_BASE_URL = 'https://dispatch.hellodeliver.in/';
 
-//export const API_BASE_URL = 'https://pinkydeli.rdstaging.com/';
+// export const API_BASE_URL = 'https://pinkydeli.rdstaging.com/';
 //export const API_BASE_URL = 'https://dispatcher.releezer.shop';
 
 //hemptify
@@ -54,7 +54,7 @@
 // export const API_BASE_URL = 'https://dispatch.sirvu.ca/';
 
 //drus
-//export const API_BASE_URL = 'https://dispatch.drusdeliveries.com/';
+export const API_BASE_URL = 'https://dispatch.drusdeliveries.com/';
 
 //cannabusxpress
 // export const API_BASE_URL = 'https://dispatch.cannabusxpress.com/';
@@ -78,7 +78,7 @@
 //export const API_BASE_URL = 'https://dispatch.yeboy.mx/';
 
 // VICI
-export const API_BASE_URL = 'https://envios.vici.la/';
+// export const API_BASE_URL = 'https://envios.vici.la/';
 
 //trucktirenow
 // export const API_BASE_URL = 'https://dispatch.trucktirenow.com/';
@@ -126,6 +126,9 @@ export const API_BASE_URL = 'https://envios.vici.la/';
 
 // grub and gusto
 // export const API_BASE_URL = 'https://grub.royodispatch.com/'
+
+// meateasy
+// export const API_BASE_URL = 'https://meateasy.royodispatch.com/';
 
 // destinationops app domain
 //export const API_BASE_URL = 'https://dispatch.destinationops.com/';

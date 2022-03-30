@@ -771,7 +771,7 @@ const appIds = {
     android: 'com.Safewalks.royodispatcher',
   }),
   empire: Platform.select({
-    ios: 'com.Empire.Dispatch',
+    ios: 'com.Empire.Dispatcher',
     android: 'com.Empire.royodispatcher',
   }),
   dimaVega: Platform.select({
@@ -787,7 +787,7 @@ const appIds = {
     android: 'com.Skoop.royodispatcher',
   }),
   pickmeup: Platform.select({
-    ios: 'com.PickMeUp.Dispatch',
+    ios: 'com.PickMeUp.Dispatcher',
     android: 'com.Pickmeup.royodispatcher',
   }),
   kudhyo: Platform.select({
