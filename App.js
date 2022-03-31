@@ -34,6 +34,7 @@ import * as Progress from 'react-native-progress';
 import colors from './src/styles/colors';
 import fontFamily from './src/styles/fontFamily';
 import {View, Text} from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 let CodePushOptions = {checkFrequency: codePush.CheckFrequency.MANUAL};
 
@@ -93,11 +94,6 @@ const App = () => {
     setProgress(progress);
   }
 
-  const notificationConfig = () => {
-    requestUserPermission();
-    notificationListener();
-  };
-
   const setInitialLanguage = () => {
     if (appIds.bluebolt == DeviceInfo.getBundleId()) {
       setDefaultLanguage({
@@ -109,7 +105,24 @@ const App = () => {
   };
 
   useEffect(() => {
-    setInitialLanguage();
+    AsyncStorage.getItem('alreadyLaunched').then(value => {
+      console.log(value, 'valuevaluevaluevalue');
+      // const data = true;
+      if (value == null) {
+        data = JSON.stringify({data: true});
+        AsyncStorage.setItem('alreadyLaunched', data); // No need to wait for `setItem` to finish, although you might want to handle errors
+        setInitialLanguage();
+      } else {
+      }
+    }); // Add some error handling, also you can simply do this.setState({fistLaunch: value == null})
+  }, []);
+
+  const notificationConfig = () => {
+    requestUserPermission();
+    notificationListener();
+  };
+
+  useEffect(() => {
     notificationConfig();
     checkExistChannel();
     setTimeout(() => {

@@ -39,6 +39,11 @@ export default function Settings({route, navigation}) {
       appIds.bluebolt == DeviceInfo.getBundleId()
         ? [
             {
+              id: 1,
+              label: 'English',
+              value: 'en',
+            },
+            {
               id: 9,
               label: 'Vietnamese',
               value: 'vi',

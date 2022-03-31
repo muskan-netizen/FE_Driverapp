@@ -51,31 +51,31 @@ export default function TaskCancel({route, navigation}) {
     cancelReasons: [
       {
         id: 1,
-        reason: 'Driver/Vehicle Incident',
+        reason: strings.DRIVERVEHICLE,
       },
       {
         id: 2,
-        reason: 'Destination Unreachable',
+        reason: strings.DESTINATIONUNREACHABLE,
       },
       {
         id: 3,
-        reason: 'Recipent Unavailable',
+        reason: strings.RECIPIENTUNAVAILABLE,
       },
       {
         id: 4,
-        reason: 'Refused - Incorrect/Missing items',
+        reason: strings.REFUSEDINCORRECTMISSING,
       },
       {
         id: 5,
-        reason: 'Refused - Damage',
+        reason: strings.REFUSEDDAMAGED,
       },
       {
         id: 6,
-        reason: 'Unable to Locate',
+        reason: strings.UNABLETOLOCATE,
       },
       {
         id: 7,
-        reason: 'Other',
+        reason: strings.OTHER,
       },
     ],
     selectedReason: null,
@@ -113,7 +113,7 @@ export default function TaskCancel({route, navigation}) {
       let data = {};
       data['task_status'] = 5;
       data['note'] = selectedReason?.reason;
-      data['task_id']=taskDetail?.id
+      data['task_id'] = taskDetail?.id;
       console.log(data, 'updateTaskStatus>>>DATA');
       actions
         .updateTask(data, {client: clientInfo?.database_name})
