@@ -22,7 +22,7 @@ import {useFocusEffect} from '@react-navigation/native';
 import {cloneDeep} from 'lodash';
 import ScaledImage from 'react-native-scalable-image';
 import DeviceInfo from 'react-native-device-info';
-import ZendeskChat from '../library/react-native-zendesk-chat';
+import ZendeskChat from 'react-native-zendesk-chat';
 import {appIds} from '../utils/constants/DynamicAppKeys';
 
 export default function CustomDrawerContent({
@@ -120,9 +120,13 @@ export default function CustomDrawerContent({
   );
 
   console.log(zendeskKeys, 'keys >>>>>>>>>>>>');
+  // ZendeskChat.init(
+  //   zendeskKeys?.keys?.account_key,
+  //   zendeskKeys?.keys?.application_id,
+  // );
   ZendeskChat.init(
-    zendeskKeys?.keys?.account_key,
-    zendeskKeys?.keys?.application_id,
+    'kI9WjmYer9iy7gCYF2sne4gXUure2AK4',
+    'bdea936e4bdb8130bb3f74cf9be7001aeaf503fe61c1543c',
   );
   useEffect(() => {
     updateState({
@@ -310,6 +314,9 @@ export default function CustomDrawerContent({
           const isFocused = selectedDrawerItem?.index === index;
           const label = route?.label;
           const onPress = () => {
+            console.log(route?.key, 'route?.key>>>');
+            console.log(route?.subRoute, 'route?.subRoute');
+
             if (route?.key) {
               if (route?.subRoute) {
                 navigation.navigate(route.key, {

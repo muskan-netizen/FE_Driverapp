@@ -1027,7 +1027,7 @@ const appIds = {
     android: 'com.Sabroson.royodispatcher',
   }),
   localdropoff: Platform.select({
-    ios: 'com.Localdropoff.Dispatch',
+    ios: 'com.Localdropoff.Dispatcher',
     android: 'com.Localdropoff.royodispatcher',
   }),
   hivefair: Platform.select({
