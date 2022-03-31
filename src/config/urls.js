@@ -129,7 +129,7 @@ export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
 // export const API_BASE_URL = 'https://dispatcher.click-eat.com/'
 
 // halalhmc
-//export const API_BASE_URL = 'https://dispatcher.halalhmc.org/';
+export const API_BASE_URL = 'https://dispatcher.halalhmc.org/';
 // tranznet online
 // export const API_BASE_URL = 'https://dispatcher.tranzonline.com/'
 // runrun live domain
