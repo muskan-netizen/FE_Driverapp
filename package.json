@@ -50,7 +50,7 @@
     "yourLaundryAppdispatcher": "react-native run-android --variant=yourLaundryAppDebug",
     "yourLaundryAppdispatcherRelease": "cd android && ./gradlew assembleyourLaundryAppRelease",
     "yummiidashdispatcher": "react-native run-android --variant=yummiidashDebug",
-    "yummiidashdispatcherRelease": "cd android && ./gradlew bundleyummiidashRelease",
+    "yummiidashdispatcherRelease": "cd android && ./gradlew assembleyummiidashRelease",
     "zuzucleandispatcher": "react-native run-android --variant=zuzucleanDebug",
     "zuzucleandispatcherRelease": "cd android && ./gradlew assemblezuzucleanRelease",
     "donepackeddispatcher": "react-native run-android --variant=donepackedDebug",
