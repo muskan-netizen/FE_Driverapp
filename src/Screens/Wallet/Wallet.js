@@ -25,7 +25,7 @@ import colors from '../../styles/colors';
 import commonStylesFunc from '../../styles/commonStyles';
 import fontFamily from '../../styles/fontFamily';
 import {moderateScale, textScale} from '../../styles/responsiveSize';
-import {currencyNumberFormatter} from '../../utils/commonFunction';
+import {kFormatter, currencyNumberFormatter} from '../../utils/commonFunction';
 import {colorArray} from '../../utils/constants/ConstantValues';
 import {showError} from '../../utils/helperFunctions';
 import stylesFunction from './styles';
@@ -100,6 +100,7 @@ export default function Wallet({route, navigation}) {
         {client: clientInfo?.database_name},
       )
       .then(res => {
+        console.log(res,"getWalletDataOfDriver>res");
         updateState({
           lifetimeAmount: res?.lifetime_earnings,
           currentAmount: Number(res?.final_balance),
@@ -246,7 +247,7 @@ export default function Wallet({route, navigation}) {
                 ? `+ ${
                     userData?.client_preference?.currency?.symbol
                   }${currencyNumberFormatter(Number(item?.amount).toFixed(2))}`
-                : item?.task_type_id && `Task# ${item?.id}`}
+                : item?.task_type_id && `${strings.TASK} ${item?.id}`}
             </Text>
           </View>
         </View>
@@ -355,7 +356,8 @@ export default function Wallet({route, navigation}) {
 
           <Text style={styles.amountText}>
             {userData?.client_preference?.currency?.symbol}
-            {currencyNumberFormatter(Number(lifetimeAmount).toFixed(2))}
+            {kFormatter(lifetimeAmount)}
+            {/* {currencyNumberFormatter(Number(lifetimeAmount).toFixed(2))} */}
           </Text>
         </LinearGradient>
         <LinearGradient
@@ -370,7 +372,8 @@ export default function Wallet({route, navigation}) {
           <Text style={styles.totalRevenue}>{strings.TOTALREVNUE}</Text>
           <Text style={styles.amountText}>
             {userData?.client_preference?.currency?.symbol}
-            {currencyNumberFormatter(Number(currentAmount).toFixed(2))}
+            {kFormatter(currentAmount)}
+            {/* {currencyNumberFormatter(Number(currentAmount).toFixed(2))} */}
           </Text>
         </LinearGradient>
       </View>

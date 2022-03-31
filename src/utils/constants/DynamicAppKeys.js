@@ -1,5 +1,5 @@
-import { Platform } from 'react-native';
-import { getBundleId } from 'react-native-device-info';
+import {Platform} from 'react-native';
+import {getBundleId} from 'react-native-device-info';
 
 const shortCodes = {
   runrun: 'cbec70',
@@ -237,6 +237,13 @@ const shortCodes = {
   sourcesServices: '53929f',
   beachHop: '8a4f77',
   wer: 'fd0b92',
+  qseek: '960e91',
+  delvento: '97a408',
+  rideShare: '69b572',
+  newYorkMiniMart: '7bb34e',
+  airlinesRecruiter: 'deb34c',
+  upStreet: 'bcf8e0',
+  nineOneTwo: '5a1f38',
 };
 
 // Goody Dispatch
@@ -703,7 +710,7 @@ const appIds = {
     android: 'com.FlyingHorse.royodispatcher',
   }),
   ufood: Platform.select({
-    ios: 'com.UFood.Dispatch',
+    ios: 'com.UFood.Dispatcher',
     android: 'com.ufood.royodispatcher',
   }),
   servze: Platform.select({
@@ -795,7 +802,7 @@ const appIds = {
     android: 'com.Sofia.royodispatcher',
   }),
   mml: Platform.select({
-    ios: 'com.MML.Dispatch',
+    ios: 'com.App.MML.Dispatcher',
     android: 'com.app.MML.royodispatcher',
   }),
   bimol: Platform.select({
@@ -1112,7 +1119,7 @@ const appIds = {
   }),
   scoopaTechnologies: Platform.select({
     ios: 'com.ScoopaTechnologies.Dispatch',
-    android: 'com.ScoopaTechnologies.royodispatcher',
+    android: 'com.app.ScoopaTechnologies.royodispatcher',
   }),
   slider: Platform.select({
     ios: 'com.Slider.Dispatch',
@@ -1182,6 +1189,34 @@ const appIds = {
     ios: 'com.Wer.Dispatcher',
     android: 'com.Wer.royodispatcher',
   }),
+  qseek: Platform.select({
+    ios: 'com.Qseek.Dispatch',
+    android: 'com.Qseek.royodispatcher',
+  }),
+  delvento: Platform.select({
+    ios: 'com.Delvento.Dispatch',
+    android: 'com.Delvento.royodispatcher',
+  }),
+  rideShare: Platform.select({
+    ios: 'com.RideShare.Dispatch',
+    android: 'com.RideShare.royodispatcher',
+  }),
+  newYorkMiniMart: Platform.select({
+    ios: 'com.NewYorkMiniMart.Dispatch',
+    android: 'com.NewYorkMiniMart.royodispatcher',
+  }),
+  airlinesRecruiter: Platform.select({
+    ios: 'com.AirlinesRecruiter.Dispatch',
+    android: 'com.AirlinesRecruiter.royodispatcher',
+  }),
+  upStreet: Platform.select({
+    ios: 'com.UpStreet.Dispatch',
+    android: 'com.UpStreet.royodispatcher',
+  }),
+  nineOneTwo: Platform.select({
+    ios: 'com.NineOneTwo.Dispatch',
+    android: 'com.NineOneTwo.royodispatcher',
+  }),
 };
 
-export { appIds, shortCodes };
+export {appIds, shortCodes};

@@ -306,10 +306,17 @@ export default function TaskDetail({route, navigation}) {
       _getproductUpdateDetails();
     }
     if (fromHistory) {
-      getAllMovingDetails([
-        {pickupAddress: taskDetail?.order?.task[0]?.location?.address},
-        {dropAddress: taskDetail?.order?.task[1]?.location?.address},
-      ]);
+      if (
+        taskDetail?.tasktype?.name == 'Drop' &&
+        taskDetail?.order?.task?.length >= 1 &&
+        taskDetail?.order?.task[0]?.location?.address &&
+        taskDetail?.order?.task[1]?.location?.address
+      ) {
+        getAllMovingDetails([
+          {pickupAddress: taskDetail?.order?.task[0]?.location?.address},
+          {dropAddress: taskDetail?.order?.task[1]?.location?.address},
+        ]);
+      }
     }
   }, []);
 

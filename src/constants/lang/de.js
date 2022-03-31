@@ -239,8 +239,15 @@ export default {
   TOTALDISTANCE: ' Total Distance',
   TOTALTIME: 'Total Time',
   DEBIT_FROM: 'Debit from',
-  CONNECTSTRIPE:'Connect Stripe',
-  STRIPENOTCONNECTED:'Stripe is not connected'
-
-
+  CONNECTSTRIPE: 'Connect Stripe',
+  STRIPENOTCONNECTED: 'Stripe is not connected',
+  VERSION: 'Version',
+  TASK: 'Task#',
+  DRIVERVEHICLE: 'Driver/Vehicle Incident',
+  DESTINATIONUNREACHABLE: 'Destination Unreachable',
+  RECIPIENTUNAVAILABLE: 'Recipent Unavailable',
+  REFUSEDINCORRECTMISSING: 'Refused - Incorrect/Missing items',
+  REFUSEDDAMAGED: 'Refused - Damage',
+  UNABLETOLOCATE: 'Unable to Locate',
+  OTHER: 'Other',
 };
