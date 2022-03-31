@@ -8,11 +8,13 @@
 //export const API_BASE_URL = 'https://api.winhires.com/';
 // export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
 //UFOOD
-// export const API_BASE_URL = 'https://dispatch.ufood.ca/';
+export const API_BASE_URL = 'https://dispatch.ufood.ca/';
 //empire
 // export const API_BASE_URL = 'https://dispatch.empirehub.com/';
 //Ullaz
 // export const API_BASE_URL = 'https://ullaz.co.ke';
+//Onscart
+// export const API_BASE_URL = 'https://dispatch.onscart.com';
 //Pickmeup
 // export const API_BASE_URL = 'https://canupickmeup.com/';
 // export const API_BASE_URL = 'http://192.168.96.152:8006/'; // preet local url
@@ -54,7 +56,7 @@
 // export const API_BASE_URL = 'https://dispatch.sirvu.ca/';
 
 //drus
-export const API_BASE_URL = 'https://dispatch.drusdeliveries.com/';
+// export const API_BASE_URL = 'https://dispatch.drusdeliveries.com/';
 
 //cannabusxpress
 // export const API_BASE_URL = 'https://dispatch.cannabusxpress.com/';
@@ -131,7 +133,7 @@ export const API_BASE_URL = 'https://dispatch.drusdeliveries.com/';
 // export const API_BASE_URL = 'https://meateasy.royodispatch.com/';
 
 // destinationops app domain
-//export const API_BASE_URL = 'https://dispatch.destinationops.com/';
+// export const API_BASE_URL = 'https://dispatch.destinationops.com/';
 
 // somame live domain
 // export const API_BASE_URL = 'https://dispatch.somame-247.com/';

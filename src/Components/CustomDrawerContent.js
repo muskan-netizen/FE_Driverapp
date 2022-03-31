@@ -119,11 +119,12 @@ export default function CustomDrawerContent({
     state => state?.initBoot?.defaultLanguage,
   );
 
+  console.log(zendeskKeys, 'keys >>>>>>>>>>>>');
+  ZendeskChat.init(
+    zendeskKeys?.keys?.account_key,
+    zendeskKeys?.keys?.application_id,
+  );
   useEffect(() => {
-    ZendeskChat.init(
-      `${zendeskKeys?.keys?.account_key}`,
-      `${zendeskKeys?.keys?.application_id}`,
-    );
     updateState({
       routes: [
         {
@@ -264,6 +265,19 @@ export default function CustomDrawerContent({
     showError(error?.message || error?.error);
   };
 
+  const onStartSupportChat = () => {
+    ZendeskChat.setVisitorInfo({
+      name: userData?.name,
+      phone: userData?.phone_number ? userData?.phone_number : '',
+    });
+    ZendeskChat.startChat({
+      name: userData?.name,
+      phone: userData?.phone_number ? userData?.phone_number : '',
+      withChat: true,
+      color: '#000',
+    });
+  };
+
   return (
     <>
       <View
@@ -305,16 +319,7 @@ export default function CustomDrawerContent({
                 navigation.navigate(route.key);
               }
             } else if (route?.support) {
-              ZendeskChat.setVisitorInfo({
-                name: userData?.name,
-                phone: userData?.phone_number,
-              });
-              ZendeskChat.startChat({
-                name: userData?.name,
-                phone: userData?.phone_number,
-                withChat: true,
-                color: '#000',
-              });
+              onStartSupportChat();
             } else {
               onLogoutPress();
             }
@@ -331,10 +336,12 @@ export default function CustomDrawerContent({
                 onPress={onPress}
                 // onLongPress={onLongPress}
                 style={{
-                  margin: moderateScale(10),
+                  margin: moderateScale(8),
                   // alignItems: 'center',
                   flexDirection: 'row',
                   alignItems: 'center',
+
+                  justifyContent: 'center',
                 }}>
                 {/* {options.drawerIcon({focused: isFocused})} */}
                 <View style={{flex: 0.15}}>
@@ -373,7 +380,7 @@ export default function CustomDrawerContent({
               color: colors.lightGreyBg2,
               fontSize: textScale(12),
             }}>
-            {`Version ${DeviceInfo.getVersion()} `}
+            {`${strings.VERSION} ${DeviceInfo.getVersion()} `}
             <Text>{`(${DeviceInfo.getBuildNumber()})`}</Text>
           </Text>
         </View>

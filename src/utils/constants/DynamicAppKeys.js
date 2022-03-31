@@ -711,7 +711,7 @@ const appIds = {
     android: 'com.FlyingHorse.royodispatcher',
   }),
   ufood: Platform.select({
-    ios: 'com.UFood.Dispatcher',
+    ios: 'com.App.UFood.Dispatcher',
     android: 'com.ufood.royodispatcher',
   }),
   servze: Platform.select({

@@ -31,6 +31,18 @@ export default function WebConnection({navigation, route}) {
 
   const onNavigationStateChange = navState => {
     console.log(navState, 'navState>>>UPDATE');
+    const URL = queryString.parseUrl(navState.url);
+    const queryParams = URL.query;
+    const nonQueryURL = URL.url;
+    console.log('state change query', queryParams);
+
+    if (queryParams.status == '200') {
+      setTimeout(() => {
+        navigation.goBack();
+      }, 2000);
+    } else {
+      // navigation.navigate(navigationStrings.SUBSCRIPTION);
+    }
   };
 
   return (
