@@ -669,7 +669,6 @@ export default function DashBoard({route, navigation}) {
     //   />
     // );
   };
-  console.log(isEnabled, enableMap, 'isEnabledisEnabled');
 
   const renderComponents = () => {
     switch (isEnabled) {
