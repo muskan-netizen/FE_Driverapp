@@ -246,7 +246,6 @@ const shortCodes = {
   nineOneTwo: '5a1f38',
 };
 
-// Goody Dispatch
 const appIds = {
   royoorder: Platform.select({
     ios: 'com.CodeBrew.Royo.Driver',
