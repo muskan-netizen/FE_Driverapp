@@ -30,6 +30,8 @@
 // export const API_BASE_URL = 'http://192.168.96.152:8006/'; // preet local url
 // export const API_BASE_URL = 'http://192.168.102.23:8005/'; // Gourav.s local url
 // export const API_BASE_URL = 'http://192.168.97.104:8010/'; // Sujata.s local url
+//export const API_BASE_URL = 'http://192.168.100.143:8000/';
+
 //
 //export const API_BASE_URL = 'http://192.168.103.186:8005/'; // harbans local url
 //export const API_BASE_URL = 'https://delivery.shoorafresh.com.au/';
@@ -37,8 +39,13 @@
 //hellodeliver
 // export const API_BASE_URL = 'https://dispatch.hellodeliver.in/';
 
+<<<<<<< HEAD
 // export const API_BASE_URL = 'https://pinkydeli.rdstaging.com/';
 //export const API_BASE_URL = 'https://dispatcher.releezer.shop';
+=======
+//export const API_BASE_URL = 'https://pinkydeli.rdstaging.com/';
+//export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
+>>>>>>> dev_pavan
 
 //hemptify
 // export const API_BASE_URL = 'https://dispatch.hemptify.com';

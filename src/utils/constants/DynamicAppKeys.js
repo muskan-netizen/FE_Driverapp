@@ -247,7 +247,6 @@ const shortCodes = {
   tranzit: 'f84785'
 };
 
-// Goody Dispatch
 const appIds = {
   royoorder: Platform.select({
     ios: 'com.CodeBrew.Royo.Driver',
