@@ -200,7 +200,7 @@ export default function Wallet({route, navigation}) {
                 : strings.PAYMENTDEBITED}
             </Text>
             <Text numberOfLines={1} style={styles.dateTime}>
-              {moment(item?.created_at).format('lll')}
+              {moment(item?.created_at).format('DD/MM/YYYY, hh:mm A')}
             </Text>
           </View>
 
@@ -246,7 +246,7 @@ export default function Wallet({route, navigation}) {
                 ? `+ ${
                     userData?.client_preference?.currency?.symbol
                   }${currencyNumberFormatter(Number(item?.amount).toFixed(2))}`
-                : item?.task_type_id && `${strings.TASK} ${item?.id}`}
+                : item?.task_type_id && `${strings.TASK} #${item?.id}`}
             </Text>
           </View>
         </View>

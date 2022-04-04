@@ -2,20 +2,27 @@
 // export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //Developement
 //export const API_BASE_URL = 'https://api.winhires.com/';
 // export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
 //UFOOD
 // export const API_BASE_URL = 'https://dispatch.ufood.ca/';
+
+//Seratho
+// export const API_BASE_URL = 'https://dispatch.seratho.com/';
+
+//ZestyClickz
+// export const API_BASE_URL = 'https://dispatch.order.veg-hub.com/';
+
 //empire
 // export const API_BASE_URL = 'https://dispatch.empirehub.com/';
 //Ullaz
-// export const API_BASE_URL = 'https://ullaz.co.ke';
+// export const API_BASE_URL = 'https://ullaz.co.ke/';
 
 //LocalDropOff
-export const API_BASE_URL = 'https://dispatch.localdropoff.info/';
+// export const API_BASE_URL = 'https://dispatch.localdropoff.info/';
 //Onscart
 // export const API_BASE_URL = 'https://dispatch.onscart.com/';
 //Pickmeup

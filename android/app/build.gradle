@@ -243,8 +243,8 @@ android {
         } 
         africanize {
             dimension "appType"
-            versionCode 2
-            versionName "1.0"
+            versionCode 3
+            versionName "1.1"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
@@ -527,12 +527,12 @@ android {
 
         hmc {
             dimension "appType"
-            versionCode 3
-            versionName "1.1"
+            versionCode 4
+            versionName "1.2"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.eatkareem.halalnow'
+            applicationId 'com.app.HMC.royodispatcher'
             resValue "string", "app_name", "HMC Now | Rider app"
         }
 

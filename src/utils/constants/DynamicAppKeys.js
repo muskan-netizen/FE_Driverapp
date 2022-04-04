@@ -859,7 +859,7 @@ const appIds = {
     android: 'com.GasGiant.royodispatcher',
   }),
   zestyClickz: Platform.select({
-    ios: 'com.ZestyClickz.Dispatch',
+    ios: 'com.ZestyClickz.Dispatcher',
     android: 'com.ZestyClickz.royodispatcher',
   }),
   citySuds: Platform.select({

@@ -294,7 +294,7 @@ export default {
   CONNECTSTRIPE: 'Connect Stripe',
   STRIPENOTCONNECTED: 'Stripe is not connected',
   VERSION: 'Version',
-  TASK: 'Task#',
+  TASK: 'Task',
   DRIVERVEHICLE: 'Driver/Vehicle Incident',
   DESTINATIONUNREACHABLE: 'Destination Unreachable',
   RECIPIENTUNAVAILABLE: 'Recipent Unavailable',
