@@ -248,7 +248,6 @@ const shortCodes = {
   aauJau: '6dd683'
 };
 
-// Goody Dispatch
 const appIds = {
   royoorder: Platform.select({
     ios: 'com.CodeBrew.Royo.Driver',
