@@ -2,7 +2,7 @@
 // export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //Developement
 //export const API_BASE_URL = 'https://api.winhires.com/';
@@ -15,6 +15,9 @@
 
 //ZestyClickz
 // export const API_BASE_URL = 'https://dispatch.order.veg-hub.com/';
+
+//KongaFood
+// export const API_BASE_URL = 'https://food-dispatch.konga.com/';
 
 //empire
 // export const API_BASE_URL = 'https://dispatch.empirehub.com/';
@@ -44,7 +47,7 @@
 // export const API_BASE_URL = 'https://dispatch.hemptify.com';
 
 //Express Delivery
-// export const API_BASE_URL = 'https://expresdeliverys.com';
+// export const API_BASE_URL = 'https://dispatch.expresdeliverys.com/';
 //DOORSTEP
 // export const API_BASE_URL = 'https://dispatch.doorstep.sd/';
 
@@ -66,7 +69,7 @@
 // export const API_BASE_URL = 'https://dispatch.sirvu.ca/';
 
 //drus
-export const API_BASE_URL = 'https://dispatch.drusdeliveries.com/';
+// export const API_BASE_URL = 'https://dispatch.drusdeliveries.com/';
 
 //cannabusxpress
 // export const API_BASE_URL = 'https://dispatch.cannabusxpress.com/';

@@ -244,7 +244,8 @@ const shortCodes = {
   upStreet: 'bcf8e0',
   nineOneTwo: '5a1f38',
   trip: '5a79f3',
-  tranzit: 'f84785'
+  tranzit: 'f84785',
+  aauJau: '6dd683'
 };
 
 // Goody Dispatch
@@ -1221,6 +1222,10 @@ const appIds = {
   trip: Platform.select({
     ios: 'com.Trip.Dispatch',
     android: 'com.Trip.royodispatcher',
+  }),
+  aauJau: Platform.select({
+    ios: 'com.AauJau.Dispatch',
+    android: 'com.aauJau.royodispatcher',
   }),
 };
 

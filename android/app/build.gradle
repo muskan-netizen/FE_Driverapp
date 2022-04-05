@@ -2667,7 +2667,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.RideShare.royodispatcher'
-            resValue "string", "app_name", "RideShare Dispatcher"
+            resValue "string", "app_name", "Classic Cab Dispatcher"
         }
 
         newYorkMiniMart{
@@ -2678,7 +2678,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.NewYorkMiniMart.royodispatcher'
-            resValue "string", "app_name", "NewYorkMiniMart Dispatcher"
+            resValue "string", "app_name", "Little Bird Dispatcher"
         }
 
         airlinesRecruiter{
@@ -2734,6 +2734,17 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.tranzit.royodispatcher'
             resValue "string", "app_name", "Tranzit Dispatcher"
+        }
+
+        aauJau{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.aauJau.royodispatcher'
+            resValue "string", "app_name", "AauJau Dispatcher"
         }
 
     }

@@ -489,6 +489,8 @@
     "nineOneTwodispatcherRelease": "cd android && ./gradlew assembleNineOneTwoRelease",
     "tripdispatcher": "react-native run-android --variant=tripDebug",
     "tripdispatcherRelease": "cd android && ./gradlew assembleTripRelease",
+    "aauJaudispatcher": "react-native run-android --variant=aauJauDebug",
+    "aauJaudispatcherRelease": "cd android && ./gradlew assembleAauJauRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
