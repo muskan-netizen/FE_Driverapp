@@ -527,13 +527,8 @@ android {
 
         hmc {
             dimension "appType"
-<<<<<<< HEAD
             versionCode 4
             versionName "1.2"
-=======
-            versionCode 3
-            versionName "1.0"
->>>>>>> dev_pavan
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
