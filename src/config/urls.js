@@ -2,7 +2,7 @@
 // export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //Developement
 //export const API_BASE_URL = 'https://api.winhires.com/';
@@ -10,11 +10,14 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //UFOOD
 // export const API_BASE_URL = 'https://dispatch.ufood.ca/';
 
+//Menus
+// export const API_BASE_URL = 'https://dispatch.menusat.app/';
+
 //Seratho
 // export const API_BASE_URL = 'https://dispatch.seratho.com/';
 
 //ZestyClickz
-// export const API_BASE_URL = 'https://dispatch.order.veg-hub.com/';
+export const API_BASE_URL = 'https://dispatch.order.veg-hub.com/';
 
 //KongaFood
 // export const API_BASE_URL = 'https://food-dispatch.konga.com/';
@@ -42,13 +45,8 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //hellodeliver
 // export const API_BASE_URL = 'https://dispatch.hellodeliver.in/';
 
-<<<<<<< HEAD
 // export const API_BASE_URL = 'https://pinkydeli.rdstaging.com/';
 //export const API_BASE_URL = 'https://dispatcher.releezer.shop';
-=======
-//export const API_BASE_URL = 'https://pinkydeli.rdstaging.com/';
-//export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
->>>>>>> dev_pavan
 
 //hemptify
 // export const API_BASE_URL = 'https://dispatch.hemptify.com';
