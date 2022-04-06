@@ -344,7 +344,7 @@ PODS:
     - React-Core
   - react-native-netinfo (8.2.0):
     - React-Core
-  - react-native-razorpay (2.2.8):
+  - react-native-razorpay (2.2.9):
     - razorpay-pod
     - React
   - react-native-restart (0.0.22):
@@ -828,7 +828,7 @@ SPEC CHECKSUMS:
   react-native-google-maps: 34517207071d54f3bc23c68752bbec0217bfc79e
   react-native-maps: a421fe6aeb74279597c4ea9598f25796108e2d89
   react-native-netinfo: 1929cb10180c83da2f7875bef715ae482e37831f
-  react-native-razorpay: b35ef0a8067a725a288d9fb70a356d38d441bbe1
+  react-native-razorpay: 6af5cd0dda0725080381ad8ce7ebb959697784bf
   react-native-restart: d4ea7637e193da7558d229b3704d500ec0d75f9c
   react-native-safe-area-context: 5b8a418400eb3d8364aa87300e865c0262cc17b9
   react-native-signature-capture: 73f2077f43a3fae9979b76e8cbf703c735bf44f4
@@ -854,7 +854,7 @@ SPEC CHECKSUMS:
   RNCClipboard: 5e299c6df8e0c98f3d7416b86ae563d3a9f768a3
   RNCPushNotificationIOS: 089da3b657e1e3d464f38195fd2e3069608ef5af
   RNDeviceInfo: a5bd1c810c609f7b8dd87029fe4b2112ae36136d
-  RNFaceApi: 90fd61fb9c681c9cb1205f615034ff7dde6d41c8
+  RNFaceApi: 9e30ed7d031d1b2a232da2c68f7cb49a47c8e05f
   RNFastImage: 1f2cab428712a4baaf78d6169eaec7f622556dd7
   RNFBApp: 729c0666395b1953198dc4a1ec6deb8fbe1c302e
   RNFBMessaging: 8415ec196e5c1196caa26ec0742cdb48ed4d0f97
@@ -884,6 +884,6 @@ SPEC CHECKSUMS:
   ZendeskMessagingSDK: ce2750c0a3dbd40918ea2e2d44dd0dbe34d21bc8
   ZendeskSDKConfigurationsSDK: f91f54f3b41aa36ffbc43a37af9956752a062055
 
-PODFILE CHECKSUM: de3e382f559b4e6ca4e8d7f67a8aa83bef8e3f87
+PODFILE CHECKSUM: 4379108643986346750b6b7a6a8e7a802e0b1752
 
 COCOAPODS: 1.11.2
