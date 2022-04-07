@@ -491,6 +491,8 @@
     "tripdispatcherRelease": "cd android && ./gradlew assembleTripRelease",
     "aauJaudispatcher": "react-native run-android --variant=aauJauDebug",
     "aauJaudispatcherRelease": "cd android && ./gradlew assembleAauJauRelease",
+    "mediPickdispatcher": "react-native run-android --variant=mediPickDebug",
+    "mediPickdispatcherRelease": "cd android && ./gradlew assembleMediPickRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",

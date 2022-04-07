@@ -1,8 +1,8 @@
 //live
-// export const API_BASE_URL = 'https://api.royodispatch.com/';
+//export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //Developement
 //export const API_BASE_URL = 'https://api.winhires.com/';
@@ -17,7 +17,7 @@
 // export const API_BASE_URL = 'https://dispatch.seratho.com/';
 
 //ZestyClickz
-export const API_BASE_URL = 'https://dispatch.order.veg-hub.com/';
+// export const API_BASE_URL = 'https://dispatch.order.veg-hub.com/';
 
 //KongaFood
 // export const API_BASE_URL = 'https://food-dispatch.konga.com/';

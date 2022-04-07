@@ -2245,8 +2245,8 @@ android {
         }
            onscart{
             dimension "appType"
-            versionCode 1
-            versionName "1.0"
+            versionCode 3
+            versionName "1.1"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
@@ -2745,6 +2745,17 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.aauJau.royodispatcher'
             resValue "string", "app_name", "AauJau Dispatcher"
+        }
+
+        mediPick{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.MediPick.royodispatcher'
+            resValue "string", "app_name", "MediPick Dispatcher"
         }
 
     }
