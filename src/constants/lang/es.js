@@ -16,7 +16,7 @@ export default {
   AND: 'y ',
   VERIFICATION: 'Verificación',
   CODESENTTO: 'Enviar código a',
-  DIDNTRECIEVEANYCODE: 'Aún no recibes tu Código? ',
+  DIDNTRECIEVEANYCODE: "Aún no recibes tu Código? ",
   RESENTCODE: 'Reenviar CódigoO',
   TASKHISTORY: 'Historial de Tareas',
   SETTING: 'Ajustes',
@@ -38,7 +38,7 @@ export default {
   CLEAR: 'Limpiar',
   SELECTADATE: 'Seleccionar Fecha',
   SELECTDATEANDTIME: 'Selecciona Fecha y Hora',
-  TODAYSTASK: 'Tareas de Hoy',
+  TODAYSTASK: "Tareas de Hoy",
   ALLTASKS: 'Todas las Tareas',
   TASK: 'Tareas',
   TASKDETAIL: 'Detalles de Tareas',
@@ -113,7 +113,7 @@ export default {
   CONTACT: 'Contacto',
   GETINTOUCH: 'Ponerse en Contacto',
   WANTTOGET:
-    '¿Quieres ponerte en contacto con nosotros? Nos gustaría saber de Usted, así es como puede comunicarse con nosotros.',
+    "¿Quieres ponerte en contacto con nosotros? Nos gustaría saber de Usted, así es como puede comunicarse con nosotros.",
   CASHCOLLECTEDCAPS: 'Efectivo Recaudado',
   ORDEREARNING: 'Ganancias de la Orden',
   NET: 'Neto',
@@ -121,7 +121,7 @@ export default {
   PAYMENTDEBITED: 'Pago con Débito',
   IMAGEMATCHED: 'Imagen rapeada con éxito',
   FACEIMAGENOTFOUND:
-    'TLa imagen no coincide con tu foto de perfil. Por favor carga la foto de la cara correcta',
+    'TLa imagen no coincide con tu foto de perfil.\ Por favor carga la foto de la cara correcta',
   FACEDETECTION: 'Reconocimiento Facial',
   FACEIMAGEREQUIRED: 'Se requiere de Reconocimiento Facial',
   NAVIGATE: 'Navegar',
@@ -205,8 +205,7 @@ export default {
   REQUIRE_SIX_CHAR: 'Requiere mínimo 6 caracteres',
   IS_INCORRECT: 'es incorrecto',
   CONFIRM_PASS: 'Confirmar Contraseña ',
-  PASS_NOT_MATCHED:
-    'Nueva Contraseña y Confirmación de Contraseña No Coinciden',
+  PASS_NOT_MATCHED: "Nueva Contraseña y Confirmación de Contraseña No Coinciden",
   MESSAGE: 'Mensaje',
   PAYOUT_AMOUNT: 'Monto a Pagar',
   A_PAYOUT_OPTION: 'Opción de Pago',
@@ -221,7 +220,7 @@ export default {
   COMPELETED: 'Completado',
   CANCELLED: 'Cancelado',
   SPECIAL_INSTRUCTIONS: 'Instrucciones Especiales',
-  DONT_HAVE_ACCOUNT: '¿No tienes una cuenta?',
+  DONT_HAVE_ACCOUNT: "¿No tienes una cuenta?",
   TASKID: 'ID de Tareas: ',
   PRICE: 'Efectivo a Recoger:',
   TASKDISTANCE: 'Distancia de la Tarea',
@@ -247,8 +246,7 @@ export default {
   REIMBURSEMENTRECIPT: 'Cargar Recibo',
   PLEASESELECTREIMBURSEMENTTYPE: 'Por favor selecciona el tipo de reembolso',
   PLEASEENTERREIMBURSEMENTAMOUNT: 'Por favor ingrese la cantidad',
-  PLEASEUPLOADREIMBURSEMENTRECIPT:
-    'Por favor cargue al menos una imagen del recibo',
+  PLEASEUPLOADREIMBURSEMENTRECIPT: 'Por favor cargue al menos una imagen del recibo',
   TRAILORNUMBER: 'Número de Remolque',
   TRUCKNUMBER: 'Número de Camión',
   ENTERTRAILORNUMBER: 'Ingrese número de Remolque',
@@ -280,7 +278,7 @@ export default {
   CARTSUBMITEED:
     'Ya ha enviado la actualización del carrito. Espere la respuesta del cliente',
   AREYOUSURETEMPCART:
-    '¿Está seguro de que desea enviar esta actualización? Verifique dos veces todos los detalles porque una vez enviada no se puede cambiar',
+    "¿Está seguro de que desea enviar esta actualización? Verifique dos veces todos los detalles porque una vez enviada no se puede cambiar",
   AREYOUSURETEMPCARTCLAER:
     '¿Estás seguro de que quieres vaciar el carrito? Esto eliminará todos tus cambios..',
   EDIT: 'Editar',
