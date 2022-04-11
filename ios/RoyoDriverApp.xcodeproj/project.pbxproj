@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		004FBA292804505C00F15834 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 004FBA282804505B00F15834 /* GoogleService-Info.plist */; };
 		005EB3B228001F60002AA624 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 005EB3B128001F5F002AA624 /* GoogleService-Info.plist */; };
 		00B7094DA6B6619F0CC20420 /* libPods-available_pods-Easyu.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7248B3BC7DF9F5068A36B78E /* libPods-available_pods-Easyu.a */; };
 		01895657AAB696FBB84A5D0E /* libPods-available_pods-Drivree.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A03715B34D078DDC49DF5E5C /* libPods-available_pods-Drivree.a */; };
@@ -1513,7 +1514,6 @@
 		845B354F27CCF461005FF576 /* LOPHT(Development).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 845B354E27CCF461005FF576 /* LOPHT(Development).xcconfig */; };
 		845B36E727CCF48F005FF576 /* LOPHT(Production).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 845B36E627CCF48F005FF576 /* LOPHT(Production).xcconfig */; };
 		845B36E927CCF4AE005FF576 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 845B36E827CCF4AE005FF576 /* Images.xcassets */; };
-		845B37B627CCF975005FF576 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 845B37B527CCF974005FF576 /* GoogleService-Info.plist */; };
 		845B394E27CCFA94005FF576 /* LOPHTInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 845B394D27CCFA94005FF576 /* LOPHTInfo.plist */; };
 		845B400B27CD04AE005FF576 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		845B400D27CD04AE005FF576 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -4100,6 +4100,7 @@
 
 /* Begin PBXFileReference section */
 		0020BAA728A06081CD67C20C /* Pods-available_pods-MovingWheels.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-MovingWheels.debug.xcconfig"; path = "Target Support Files/Pods-available_pods-MovingWheels/Pods-available_pods-MovingWheels.debug.xcconfig"; sourceTree = "<group>"; };
+		004FBA282804505B00F15834 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		005EB3B128001F5F002AA624 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		00FC538E78376EDFB5C14E1B /* libPods-available_pods-Ola.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-available_pods-Ola.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		019821C832C2DABB1B354A30 /* Pods-available_pods-RoyoDriverApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-RoyoDriverApp.release.xcconfig"; path = "Target Support Files/Pods-available_pods-RoyoDriverApp/Pods-available_pods-RoyoDriverApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -5058,7 +5059,6 @@
 		845B354E27CCF461005FF576 /* LOPHT(Development).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "LOPHT(Development).xcconfig"; sourceTree = "<group>"; };
 		845B36E627CCF48F005FF576 /* LOPHT(Production).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "LOPHT(Production).xcconfig"; sourceTree = "<group>"; };
 		845B36E827CCF4AE005FF576 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		845B37B527CCF974005FF576 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		845B394D27CCFA94005FF576 /* LOPHTInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = LOPHTInfo.plist; sourceTree = "<group>"; };
 		845B402B27CD04AE005FF576 /* Fawaz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fawaz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		845B41C627CD0589005FF576 /* Fawaz(Development).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Fawaz(Development).xcconfig"; sourceTree = "<group>"; };
@@ -10047,7 +10047,7 @@
 		845B354D27CCF411005FF576 /* LOPHT */ = {
 			isa = PBXGroup;
 			children = (
-				845B37B527CCF974005FF576 /* GoogleService-Info.plist */,
+				004FBA282804505B00F15834 /* GoogleService-Info.plist */,
 				845B354E27CCF461005FF576 /* LOPHT(Development).xcconfig */,
 				845B36E627CCF48F005FF576 /* LOPHT(Production).xcconfig */,
 				845B36E827CCF4AE005FF576 /* Images.xcassets */,
@@ -19642,6 +19642,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				004FBA292804505C00F15834 /* GoogleService-Info.plist in Resources */,
 				845B36E727CCF48F005FF576 /* LOPHT(Production).xcconfig in Resources */,
 				845B394E27CCFA94005FF576 /* LOPHTInfo.plist in Resources */,
 				845B346E27CCF35F005FF576 /* LaunchScreen.storyboard in Resources */,
@@ -19652,7 +19653,6 @@
 				845B36E927CCF4AE005FF576 /* Images.xcassets in Resources */,
 				845B347227CCF35F005FF576 /* campton-medium.ttf in Resources */,
 				845B347327CCF35F005FF576 /* notification.mp3 in Resources */,
-				845B37B627CCF975005FF576 /* GoogleService-Info.plist in Resources */,
 				845B347427CCF35F005FF576 /* campton-book.ttf in Resources */,
 				845B347927CCF35F005FF576 /* campton-semibold.ttf in Resources */,
 			);
