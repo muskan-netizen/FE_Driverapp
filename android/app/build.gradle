@@ -243,23 +243,13 @@ android {
         } 
         africanize {
             dimension "appType"
-            versionCode 2
-            versionName "1.0"
+            versionCode 3
+            versionName "1.1"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.africanize.royodispatcher'
             resValue "string", "app_name", "Africanize Deliveries"
-        } 
-        tranzit {
-            dimension "appType"
-            versionCode 2
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.tranzit.royodispatcher'
-            resValue "string", "app_name", "Tranzit Driver"
         } 
         hemptify {
             dimension "appType"
@@ -537,12 +527,12 @@ android {
 
         hmc {
             dimension "appType"
-            versionCode 2
-            versionName "1.0"
+            versionCode 4
+            versionName "1.2"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.eatkareem.halalnow'
+            applicationId 'com.app.HMC.royodispatcher'
             resValue "string", "app_name", "HMC Now | Rider app"
         }
 
@@ -2255,8 +2245,8 @@ android {
         }
            onscart{
             dimension "appType"
-            versionCode 1
-            versionName "1.0"
+            versionCode 3
+            versionName "1.1"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
@@ -2677,7 +2667,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.RideShare.royodispatcher'
-            resValue "string", "app_name", "RideShare Dispatcher"
+            resValue "string", "app_name", "Classic Cab Dispatcher"
         }
 
         newYorkMiniMart{
@@ -2688,7 +2678,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.NewYorkMiniMart.royodispatcher'
-            resValue "string", "app_name", "NewYorkMiniMart Dispatcher"
+            resValue "string", "app_name", "Little Bird Dispatcher"
         }
 
         airlinesRecruiter{
@@ -2733,6 +2723,39 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.Trip.royodispatcher'
             resValue "string", "app_name", "Trip Dispatcher"
+        }
+
+        tranzit{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.tranzit.royodispatcher'
+            resValue "string", "app_name", "Tranzit Dispatcher"
+        }
+
+        aauJau{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.aauJau.royodispatcher'
+            resValue "string", "app_name", "AauJau Dispatcher"
+        }
+
+        mediPick{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.MediPick.royodispatcher'
+            resValue "string", "app_name", "MediPick Dispatcher"
         }
 
     }

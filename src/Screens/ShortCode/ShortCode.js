@@ -1538,6 +1538,18 @@ export default function ShortCode({ route, navigation }) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.aauJau:
+          updateState({
+            shortCode: shortCodes.aauJau,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.mediPick:
+          updateState({
+            shortCode: shortCodes.mediPick,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);

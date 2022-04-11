@@ -1,5 +1,5 @@
-import {Platform} from 'react-native';
-import {getBundleId} from 'react-native-device-info';
+import { Platform } from 'react-native';
+import { getBundleId } from 'react-native-device-info';
 
 const shortCodes = {
   runrun: 'cbec70',
@@ -7,7 +7,6 @@ const shortCodes = {
   deliverstat: 'e6b31c',
   africanVillageMarket: '6c786d',
   africanize: 'a98da0',
-  tranzit: 'f84785',
   hemptify: '33eba1',
   goody: 'da11cf',
   yogofood: '883082',
@@ -245,9 +244,11 @@ const shortCodes = {
   upStreet: 'bcf8e0',
   nineOneTwo: '5a1f38',
   trip: '5a79f3',
+  tranzit: 'f84785',
+  aauJau: '6dd683',
+  mediPick: '768ac7'
 };
 
-// Goody Dispatch
 const appIds = {
   royoorder: Platform.select({
     ios: 'com.CodeBrew.Royo.Driver',
@@ -270,7 +271,7 @@ const appIds = {
     android: 'com.africanize.royodispatcher',
   }),
   tranzit: Platform.select({
-    ios: 'com.Tranzit.Dispatch',
+    ios: 'com.Tranzit.Dispatcher',
     android: 'com.tranzit.royodispatcher',
   }),
   hemptify: Platform.select({
@@ -400,7 +401,7 @@ const appIds = {
   }),
   hmc: Platform.select({
     ios: 'com.app.HMC.Dispatcher',
-    android: 'com.eatkareem.halalnow',
+    android: 'com.app.HMC.royodispatcher',
   }),
   expressdeliverys: Platform.select({
     ios: 'com.ExpressDeliverysLLC.Dispatch',
@@ -711,7 +712,7 @@ const appIds = {
     android: 'com.FlyingHorse.royodispatcher',
   }),
   ufood: Platform.select({
-    ios: 'com.UFood.Dispatcher',
+    ios: 'com.App.UFood.Dispatcher',
     android: 'com.ufood.royodispatcher',
   }),
   servze: Platform.select({
@@ -771,7 +772,7 @@ const appIds = {
     android: 'com.Safewalks.royodispatcher',
   }),
   empire: Platform.select({
-    ios: 'com.Empire.Dispatch',
+    ios: 'com.Empire.Dispatcher',
     android: 'com.Empire.royodispatcher',
   }),
   dimaVega: Platform.select({
@@ -787,7 +788,7 @@ const appIds = {
     android: 'com.Skoop.royodispatcher',
   }),
   pickmeup: Platform.select({
-    ios: 'com.PickMeUp.Dispatch',
+    ios: 'com.PickMeUp.Dispatcher',
     android: 'com.Pickmeup.royodispatcher',
   }),
   kudhyo: Platform.select({
@@ -859,7 +860,7 @@ const appIds = {
     android: 'com.GasGiant.royodispatcher',
   }),
   zestyClickz: Platform.select({
-    ios: 'com.ZestyClickz.Dispatch',
+    ios: 'com.ZestyClickz.Dispatcher',
     android: 'com.ZestyClickz.royodispatcher',
   }),
   citySuds: Platform.select({
@@ -1027,7 +1028,7 @@ const appIds = {
     android: 'com.Sabroson.royodispatcher',
   }),
   localdropoff: Platform.select({
-    ios: 'com.Localdropoff.Dispatch',
+    ios: 'com.Localdropoff.Dispatcher',
     android: 'com.Localdropoff.royodispatcher',
   }),
   hivefair: Platform.select({
@@ -1222,6 +1223,14 @@ const appIds = {
     ios: 'com.Trip.Dispatch',
     android: 'com.Trip.royodispatcher',
   }),
+  aauJau: Platform.select({
+    ios: 'com.AauJau.Dispatch',
+    android: 'com.aauJau.royodispatcher',
+  }),
+  mediPick: Platform.select({
+    ios: 'com.MediPick.Dispatch',
+    android: 'com.MediPick.royodispatcher',
+  }),
 };
 
-export {appIds, shortCodes};
+export { appIds, shortCodes };
