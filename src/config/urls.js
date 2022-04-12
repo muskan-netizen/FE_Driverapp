@@ -1,8 +1,8 @@
 //live
-//export const API_BASE_URL = 'https://api.royodispatch.com/';
+// export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //YogoFood
 // export const API_BASE_URL = 'https://yogofood-dispatch.netsolutionindia.com/';
@@ -73,6 +73,9 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //mml
 // export const API_BASE_URL = 'https://dispatch.mml.mobi/';
 
+//manda
+// export const API_BASE_URL = 'https://dispatch.mandaexpress.com/';
+
 //sirvu
 // export const API_BASE_URL = 'https://dispatch.sirvu.ca/';
 
@@ -107,7 +110,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.trucktirenow.com/';
 
 //AgreeOnline
-//export const API_BASE_URL = 'https://dispatch.agrionline.ph/';
+// export const API_BASE_URL = 'https://dispatch.agrionline.ph/';
 
 // fleety staging domain
 //export const API_BASE_URL = 'https://fleety.rdstaging.com/';
@@ -179,7 +182,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.helpnowrightnow.com/';
 
 // tranzit live domain
-// export const API_BASE_URL = 'https://dispatch.tranzit.app/';
+export const API_BASE_URL = 'https://dispatch.tranzit.app/';
 // africanvillage
 // export const API_BASE_URL = 'https://dispatch.africanvillage.market/'
 // swiftandvalu

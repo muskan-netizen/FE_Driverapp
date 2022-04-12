@@ -2758,6 +2758,39 @@ android {
             resValue "string", "app_name", "MediPick Dispatcher"
         }
 
+         meltivers{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Meltivers.royodispatcher'
+            resValue "string", "app_name", "Meltivers Dispatcher"
+        }
+
+        ensoDigitalAgency{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.EnsoDigitalAgency.royodispatcher'
+            resValue "string", "app_name", "EnsoDigitalAgency Dispatcher"
+        }
+
+        hiperAbasto{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.HiperAbasto.royodispatcher'
+            resValue "string", "app_name", "HiperAbasto Dispatcher"
+        }
+
     }
 }
 

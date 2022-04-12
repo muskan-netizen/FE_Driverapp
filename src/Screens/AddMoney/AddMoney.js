@@ -605,7 +605,9 @@ export default function AddMoney({navigation}) {
       client_preference?.stripe_publishable_key != null ? (
         <StripeProvider
           publishableKey={client_preference?.stripe_publishable_key}
-          merchantIdentifier="merchant.identifier">
+          merchantIdentifier="merchant.identifier"
+        
+          >
           {mainView()}
         </StripeProvider>
       ) : (

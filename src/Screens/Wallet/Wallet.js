@@ -100,6 +100,7 @@ export default function Wallet({route, navigation}) {
         {client: clientInfo?.database_name},
       )
       .then(res => {
+        console.log(res,"getWalletDataOfDriver>res");
         updateState({
           lifetimeAmount: res?.lifetime_earnings,
           currentAmount: Number(res?.final_balance),
@@ -261,7 +262,7 @@ export default function Wallet({route, navigation}) {
               }}>
               <Text style={styles.currency}>
                 {userData?.client_preference?.currency?.symbol}
-                {item?.order?.cash_to_be_collected}
+                {item?.order?.cash_to_be_collected?item?.order?.cash_to_be_collected:'0.00'}
               </Text>
               <Text style={styles.earningBottomTextLable}>
                 {strings.CASHCOLLECTEDCAPS}
@@ -275,7 +276,7 @@ export default function Wallet({route, navigation}) {
               }}>
               <Text style={styles.currency}>
                 {userData?.client_preference?.currency?.symbol}
-                {item?.order?.driver_cost}
+                {item?.order?.driver_cost?item?.order?.driver_cost:'0.00'}
               </Text>
               <Text style={styles.earningBottomTextLable}>
                 {strings.ORDEREARNING}

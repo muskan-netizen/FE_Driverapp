@@ -246,7 +246,10 @@ const shortCodes = {
   trip: '5a79f3',
   tranzit: 'f84785',
   aauJau: '6dd683',
-  mediPick: '768ac7'
+  mediPick: '768ac7',
+  meltivers: 'ca88f8',
+  ensoDigitalAgency: '4e7da7',
+  hiperAbasto: '93cc8d',
 };
 
 const appIds = {
@@ -1060,7 +1063,7 @@ const appIds = {
     android: 'com.Bookaryde.royodispatcher',
   }),
   mandaExpress: Platform.select({
-    ios: 'com.MandaExpress.Dispatch',
+    ios: 'com.MandaExpress.Dispatcher',
     android: 'com.MandaExpress.royodispatcher',
   }),
   yalary: Platform.select({
@@ -1230,6 +1233,18 @@ const appIds = {
   mediPick: Platform.select({
     ios: 'com.MediPick.Dispatch',
     android: 'com.MediPick.royodispatcher',
+  }),
+  meltivers: Platform.select({
+    ios: 'com.Meltivers.Dispatch',
+    android: 'com.Meltivers.royodispatcher',
+  }),
+  ensoDigitalAgency: Platform.select({
+    ios: 'com.EnsoDigitalAgency.Dispatch',
+    android: 'com.EnsoDigitalAgency.royodispatcher',
+  }),
+  hiperAbasto: Platform.select({
+    ios: 'com.HiperAbasto.Dispatch',
+    android: 'com.HiperAbasto.royodispatcher',
   }),
 };
 
