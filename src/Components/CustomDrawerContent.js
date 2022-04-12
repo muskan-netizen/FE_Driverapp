@@ -300,9 +300,7 @@ export default function CustomDrawerContent({
             // backgroundColor:'red'
           }}>
           <ScaledImage
-            style={{
-              width: width / 2,
-            }}
+            width={width / 2}
             source={
               clientInfo && clientInfo?.logo
                 ? {uri: clientInfo?.logo}

@@ -180,9 +180,7 @@ export default function Login({navigation, route}) {
       <View style={{flex: 1, marginHorizontal: 20}}>
         <View style={styles.imageStyle}>
           <ScaledImage
-            style={{
-              width: width / 2,
-            }}
+            width={width / 2}
             source={
               clientInfo && clientInfo?.logo
                 ? {uri: clientInfo?.logo}
