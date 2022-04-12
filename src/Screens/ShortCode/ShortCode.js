@@ -1568,6 +1568,18 @@ export default function ShortCode({ route, navigation }) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.redglee:
+          updateState({
+            shortCode: shortCodes.redglee,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.capitalDiagnostics:
+          updateState({
+            shortCode: shortCodes.capitalDiagnostics,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);

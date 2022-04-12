@@ -250,6 +250,8 @@ const shortCodes = {
   meltivers: 'ca88f8',
   ensoDigitalAgency: '4e7da7',
   hiperAbasto: '93cc8d',
+  redglee: 'fd5938',
+  capitalDiagnostics: '6755bb'
 };
 
 const appIds = {
@@ -1245,6 +1247,14 @@ const appIds = {
   hiperAbasto: Platform.select({
     ios: 'com.HiperAbasto.Dispatch',
     android: 'com.HiperAbasto.royodispatcher',
+  }),
+  redglee: Platform.select({
+    ios: 'com.Redglee.Dispatch',
+    android: 'com.Redglee.royodispatcher',
+  }),
+  capitalDiagnostics: Platform.select({
+    ios: 'com.CapitalDiagnostics.Dispatch',
+    android: 'com.CapitalDiagnostics.royodispatcher',
   }),
 };
 
