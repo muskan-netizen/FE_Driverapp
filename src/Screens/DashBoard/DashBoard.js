@@ -48,7 +48,7 @@ import Geolocation_ from '@react-native-community/geolocation';
 import geocoder from 'react-native-geocoder/js/geocoder';
 import {rippleLoader} from '../../Components/Loaders/AnimatedLoaderFiles/index';
 import LottieAnimation from 'lottie-react-native';
-import ZendeskChat from '../../library/react-native-zendesk-chat';
+
 // import BackgroundTimer from 'react-native-background-timer';
 
 export default function DashBoard({route, navigation}) {
@@ -237,11 +237,6 @@ export default function DashBoard({route, navigation}) {
   };
 
   const fetchgentLogs = (lat, lng, heading_, callFrom) => {
-    ZendeskChat.init(
-      zendeskKeys?.keys?.account_key,
-      zendeskKeys?.keys?.application_id,
-    );
-
     getCurrentPosition();
     setTimeout(() => {
       (async () => {
