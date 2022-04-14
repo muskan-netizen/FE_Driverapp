@@ -729,12 +729,12 @@ android {
 
         sirvu{
              dimension "appType"
-            versionCode 1
-            versionName "1.0"
+            versionCode 2
+            versionName "1.1"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
            applicationId 'com.sirvu.royodispatcher'
-            resValue "string", "app_name", "SirVU Service Provider"
+            resValue "string", "app_name", "SirVU Home Services"
         
         }
         drus{
@@ -1886,8 +1886,8 @@ android {
         }
          ullaz{
             dimension "appType"
-            versionCode 1
-            versionName "1.0"
+            versionCode 2
+            versionName "1.1"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
@@ -2579,7 +2579,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.Ola.royodispatcher'
-            resValue "string", "app_name", "Ola Dispatcher"
+            resValue "string", "app_name", "Suppa Dispatcher"
         }
 
         sunShineRideShare{
@@ -2727,13 +2727,13 @@ android {
 
         tranzit{
             dimension "appType"
-            versionCode 1
-            versionName "1.0"
+            versionCode 2
+            versionName "1.1"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.tranzit.royodispatcher'
-            resValue "string", "app_name", "Tranzit Dispatcher"
+            resValue "string", "app_name", "Tranzit Drivers"
         }
 
         aauJau{
@@ -2811,6 +2811,39 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.CapitalDiagnostics.royodispatcher'
             resValue "string", "app_name", "CapitalDiagnostics Dispatcher"
+        }
+
+        dropitoffusa{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Dropitoffusa.royodispatcher'
+            resValue "string", "app_name", "Dropitoffusa Dispatcher"
+        }
+
+        tjjHub{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.TjjHub.royodispatcher'
+            resValue "string", "app_name", "TJJ Hub Dispatcher"
+        }
+
+        handyPickup{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.HandyPickup.royodispatcher'
+            resValue "string", "app_name", "HandyPickup Dispatcher"
         }
 
     }

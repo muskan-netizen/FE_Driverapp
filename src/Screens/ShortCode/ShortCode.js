@@ -1580,6 +1580,23 @@ export default function ShortCode({ route, navigation }) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.dropitoffusa:
+          updateState({
+            shortCode: shortCodes.dropitoffusa,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.handyPickup:
+          updateState({
+            shortCode: shortCodes.handyPickup,
+            isShortcodePrefilled: true,
+          });
+        case appIds.tjjHub:
+          updateState({
+            shortCode: shortCodes.tjjHub,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);

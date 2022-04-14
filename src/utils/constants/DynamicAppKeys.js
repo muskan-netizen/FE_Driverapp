@@ -251,7 +251,10 @@ const shortCodes = {
   ensoDigitalAgency: '4e7da7',
   hiperAbasto: '93cc8d',
   redglee: 'fd5938',
-  capitalDiagnostics: '6755bb'
+  capitalDiagnostics: '6755bb',
+  handyPickup: '93ff00',
+  dropitoffusa: 'b1aa98',
+  tjjHub: 'da2230'
 };
 
 const appIds = {
@@ -373,7 +376,7 @@ const appIds = {
     android: 'com.ThubaeRides.royodispatcher',
   }),
   menus: Platform.select({
-    ios: 'com.Menus.Dispatch',
+    ios: 'com.Menus.Dispatcher',
     android: 'com.Menus.royodispatcher',
   }),
   maxisdelivery: Platform.select({
@@ -1255,6 +1258,18 @@ const appIds = {
   capitalDiagnostics: Platform.select({
     ios: 'com.CapitalDiagnostics.Dispatch',
     android: 'com.CapitalDiagnostics.royodispatcher',
+  }),
+  dropitoffusa: Platform.select({
+    ios: 'com.Dropitoffusa.Dispatch',
+    android: 'com.Dropitoffusa.royodispatcher',
+  }),
+  handyPickup: Platform.select({
+    ios: 'com.HandyPickup.Dispatch',
+    android: 'com.HandyPickup.royodispatcher',
+  }),
+  tjjHub: Platform.select({
+    ios: 'com.TjjHub.Dispatch',
+    android: 'com.TjjHub.royodispatcher',
   }),
 };
 

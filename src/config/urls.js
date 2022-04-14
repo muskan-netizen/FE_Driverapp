@@ -2,7 +2,10 @@
 // export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/'; s
+
+//YogoFood
+// export const API_BASE_URL = 'https://yogofood-dispatch.netsolutionindia.com/';
 
 //Developement
 //export const API_BASE_URL = 'https://api.winhires.com/';
@@ -25,7 +28,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //empire
 // export const API_BASE_URL = 'https://dispatch.empirehub.com/';
 //Ullaz
-// export const API_BASE_URL = 'https://ullaz.co.ke/';
+// export const API_BASE_URL = 'https://dispatch.ullaz.co.ke/';
 
 //LocalDropOff
 // export const API_BASE_URL = 'https://dispatch.localdropoff.info/';
@@ -39,7 +42,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //export const API_BASE_URL = 'http://192.168.100.143:8000/';
 
 //
-//export const API_BASE_URL = 'http://192.168.103.186:8005/'; // harbans local url
+// export const API_BASE_URL = 'http://192.168.97.192:8005/'; // harbans local url
 //export const API_BASE_URL = 'https://delivery.shoorafresh.com.au/';
 
 //hellodeliver
@@ -145,7 +148,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'http://192.168.103.73:8005/';
 
 // blip
-//export const API_BASE_URL = 'https://dispatch.blipdelivery.com/';
+// export const API_BASE_URL = 'https://dispatch.blipdelivery.com/';
 
 // grub and gusto
 // export const API_BASE_URL = 'https://grub.royodispatch.com/'

@@ -12,7 +12,7 @@ export default {
   PRIVACYPOLICY: 'Privacy Policy',
   CONFIRM: 'Confirm',
   CANCEL: 'Cancel',
-  BYCONTINUE: 'By Continue , you are agree to our',
+  BYCONTINUE: 'By Continuing , you have agreed to our',
   AND: 'and',
   VERIFICATION: 'Verification',
   CODESENTTO: 'Code send to',
