@@ -2,7 +2,7 @@
 // export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-export const API_BASE_URL = 'https://api.rdstaging.com/'; s
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //YogoFood
 // export const API_BASE_URL = 'https://yogofood-dispatch.netsolutionindia.com/';
