@@ -238,9 +238,10 @@ export default function DashBoard({route, navigation}) {
 
   const fetchgentLogs = (lat, lng, heading_, callFrom) => {
     getCurrentPosition();
-    if (userData?.access_token) {
-      setTimeout(() => {
-        (async () => {
+
+    setTimeout(() => {
+      (async () => {
+        if (userData?.access_token) {
           let data = {};
           data['device_type'] = Platform.OS;
           data['os_version'] = DeviceInfo.getSystemVersion();
@@ -292,9 +293,9 @@ export default function DashBoard({route, navigation}) {
               }
             })
             .catch(errorMethod);
-        })();
-      }, 2000);
-    }
+        }
+      })();
+    }, 2000);
   };
 
   // useEffect(() => {
@@ -302,8 +303,6 @@ export default function DashBoard({route, navigation}) {
   //     fetchgentLogs(latitude, longitude, heading, '');
   //   }, 5000);
   // }, []);
-
-  console.log(userData, '>>>>userData');
 
   useInterval(
     () => fetchgentLogs(latitude, longitude, heading, ''),

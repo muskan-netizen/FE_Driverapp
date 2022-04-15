@@ -2505,7 +2505,7 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.Dlvrd.royodispatcher'
+            applicationId 'com.dispatch.dlvrd'
             resValue "string", "app_name", "Dlvrd Dispatcher"
         }
         delivery{
