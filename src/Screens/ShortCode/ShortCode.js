@@ -1597,6 +1597,12 @@ export default function ShortCode({ route, navigation }) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.orbitGroup:
+          updateState({
+            shortCode: shortCodes.orbitGroup,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);

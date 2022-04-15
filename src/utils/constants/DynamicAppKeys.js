@@ -1,5 +1,5 @@
-import {Platform} from 'react-native';
-import {getBundleId} from 'react-native-device-info';
+import { Platform } from 'react-native';
+import { getBundleId } from 'react-native-device-info';
 
 const shortCodes = {
   runrun: 'cbec70',
@@ -254,7 +254,8 @@ const shortCodes = {
   capitalDiagnostics: '6755bb',
   handyPickup: '93ff00',
   dropitoffusa: 'b1aa98',
-  tjjHub: 'da2230'
+  tjjHub: 'da2230',
+  orbitGroup: '5f0ef9'
 };
 
 const appIds = {
@@ -1271,6 +1272,10 @@ const appIds = {
     ios: 'com.TjjHub.Dispatch',
     android: 'com.TjjHub.royodispatcher',
   }),
+  orbitGroup: Platform.select({
+    ios: 'com.OrbitGroup.Dispatch',
+    android: 'com.orbitgroup.royodispatcher',
+  }),
 };
 
-export {appIds, shortCodes};
+export { appIds, shortCodes };
