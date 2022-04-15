@@ -192,6 +192,7 @@ export default function DashBoard({route, navigation}) {
   useFocusEffect(
     React.useCallback(() => {
       updateState({
+        isLoading:true,
         options: [
           {label: strings.TODAYSTASK, value: 0, testID: '1'},
           {label: strings.ALLTASKS, value: 1, testID: '2'},

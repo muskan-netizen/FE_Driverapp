@@ -1,12 +1,12 @@
 //live
-//export const API_BASE_URL = 'https://api.royodispatch.com/';
+// export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
 export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //Developement
 //export const API_BASE_URL = 'https://api.winhires.com/';
-//export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
+
 //UFOOD
 // export const API_BASE_URL = 'https://dispatch.ufood.ca/';
 // export const API_BASE_URL = 'http://192.168.96.152:8006/'; // preet local url
@@ -20,7 +20,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.hellodeliver.in/';
 
 //export const API_BASE_URL = 'https://pinkydeli.rdstaging.com/';
-//export const API_BASE_URL = 'https://dispatcher.releezer.shop';
+// export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
 
 //DOORSTEP
 // export const API_BASE_URL = 'https://dispatch.doorstep.sd/';
@@ -129,7 +129,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatcher.click-eat.com/'
 
 // halalhmc
-//export const API_BASE_URL = 'https://dispatcher.halalhmc.org/';
+// export const API_BASE_URL = 'https://dispatcher.halalhmc.org/';
 // tranznet online
 // export const API_BASE_URL = 'https://dispatcher.tranzonline.com/'
 // runrun live domain
