@@ -1,5 +1,5 @@
-import { Platform } from 'react-native';
-import { getBundleId } from 'react-native-device-info';
+import {Platform} from 'react-native';
+import {getBundleId} from 'react-native-device-info';
 
 const shortCodes = {
   runrun: 'cbec70',
@@ -1140,7 +1140,7 @@ const appIds = {
   }),
   dlvrd: Platform.select({
     ios: 'com.Dlvrd.Dispatch',
-    android: 'com.Dlvrd.royodispatcher',
+    android: 'com.dispatch.dlvrd',
   }),
   delivery: Platform.select({
     ios: 'com.Delivery.Dispatch',
@@ -1248,4 +1248,4 @@ const appIds = {
   }),
 };
 
-export { appIds, shortCodes };
+export {appIds, shortCodes};
