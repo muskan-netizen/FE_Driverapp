@@ -7,6 +7,9 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //YogoFood
 // export const API_BASE_URL = 'https://yogofood-dispatch.netsolutionindia.com/';
 
+//Dlvrd
+// export const API_BASE_URL = 'https://dlvrd-dispatch.netsolutionindia.com/';
+
 //Developement
 //export const API_BASE_URL = 'https://api.winhires.com/';
 // export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
