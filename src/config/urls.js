@@ -2,7 +2,7 @@
 // export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //YogoFood
 // export const API_BASE_URL = 'https://yogofood-dispatch.netsolutionindia.com/';
@@ -26,7 +26,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.order.veg-hub.com/';
 
 //KongaFood
-// export const API_BASE_URL = 'https://food-dispatch.konga.com/';
+export const API_BASE_URL = 'https://food-dispatch.konga.com/';
 
 //empire
 // export const API_BASE_URL = 'https://dispatch.empirehub.com/';

@@ -255,7 +255,10 @@ const shortCodes = {
   handyPickup: '93ff00',
   dropitoffusa: 'b1aa98',
   tjjHub: 'da2230',
-  orbitGroup: '5f0ef9'
+  orbitGroup: '5f0ef9',
+  cartnar: '550805',
+  uven: 'ac954e',
+  pAS41: '989565',
 };
 
 const appIds = {
@@ -1276,6 +1279,22 @@ const appIds = {
     ios: 'com.OrbitGroup.Dispatch',
     android: 'com.orbitgroup.royodispatcher',
   }),
+  cartnar: Platform.select({
+    ios: 'com.Cartnar.Dispatch',
+    android: 'com.Cartnar.royodispatcher',
+  }),
+  uven: Platform.select({
+    ios: 'com.Uven.Dispatch',
+    android: 'com.Uven.royodispatcher',
+  }),
+  pAS41: Platform.select({
+    ios: 'com.PAS41.Dispatch',
+    android: 'com.PAS41.royodispatcher',
+  }),
+  // orbitGroup: Platform.select({
+  //   ios: 'com.OrbitGroup.Dispatch',
+  //   android: 'com.orbitgroup.royodispatcher',
+  // }),
 };
 
 export { appIds, shortCodes };
