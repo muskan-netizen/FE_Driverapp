@@ -2,7 +2,7 @@
 // export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 
 //YogoFood
@@ -74,8 +74,8 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //
 // export const API_BASE_URL = 'https://dispatch.samakeemart.com/';
 
-//mml
-// export const API_BASE_URL = 'https://dispatch.mml.mobi/';
+// mml
+export const API_BASE_URL = 'https://dispatch.mml.mobi/';
 
 //manda
 // export const API_BASE_URL = 'https://dispatch.mandaexpress.com/';
