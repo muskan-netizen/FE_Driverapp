@@ -259,6 +259,8 @@ const shortCodes = {
   cartnar: '550805',
   uven: 'ac954e',
   pAS41: '989565',
+  snabbhem: '01b449',
+  waterTaxi: '217ec5',
 };
 
 const appIds = {
@@ -972,7 +974,7 @@ const appIds = {
     android: 'com.JadorDrive.royodispatcher',
   }),
   kongaFood: Platform.select({
-    ios: 'com.KongaFood.Dispatcher',
+    ios: 'com.konga.food.rider',
     android: 'com.KongaFood.royodispatcher',
   }),
   theHouse: Platform.select({
@@ -1291,10 +1293,14 @@ const appIds = {
     ios: 'com.PAS41.Dispatch',
     android: 'com.PAS41.royodispatcher',
   }),
-  // orbitGroup: Platform.select({
-  //   ios: 'com.OrbitGroup.Dispatch',
-  //   android: 'com.orbitgroup.royodispatcher',
-  // }),
+  snabbhem: Platform.select({
+    ios: 'com.Snabbhem.Dispatch',
+    android: 'com.Snabbhem.royodispatcher',
+  }),
+   waterTaxi: Platform.select({
+    ios: 'com.WaterTaxi.Dispatch',
+    android: 'com.WaterTaxi.royodispatcher',
+  }),
 };
 
 export { appIds, shortCodes };

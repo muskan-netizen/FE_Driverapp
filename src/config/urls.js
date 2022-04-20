@@ -2,13 +2,16 @@
 // export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //YogoFood
 // export const API_BASE_URL = 'https://yogofood-dispatch.netsolutionindia.com/';
 
 //Dlvrd
 // export const API_BASE_URL = 'https://dlvrd-dispatch.netsolutionindia.com/';
+
+//Ored
+// export const API_BASE_URL= 'https://dispatch.ored.co/';
 
 //Developement
 //export const API_BASE_URL = 'https://api.winhires.com/';
@@ -19,6 +22,12 @@
 //Menus
 // export const API_BASE_URL = 'https://dispatch.menusat.app/';
 
+//Snabbhem
+// export const API_BASE_URL = 'https://Snabbhem.rdstaging.com/';
+
+//Fastmikes
+// export const API_BASE_URL = 'https://dispatch.fastmikes.com/';
+
 //Seratho
 // export const API_BASE_URL = 'https://dispatch.seratho.com/';
 
@@ -26,7 +35,7 @@
 // export const API_BASE_URL = 'https://dispatch.order.veg-hub.com/';
 
 //KongaFood
-export const API_BASE_URL = 'https://food-dispatch.konga.com/';
+// export const API_BASE_URL = 'https://food-dispatch.konga.com/';
 
 //empire
 // export const API_BASE_URL = 'https://dispatch.empirehub.com/';

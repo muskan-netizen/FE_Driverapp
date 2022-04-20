@@ -1071,8 +1071,8 @@ android {
         }
         vici{
              dimension "appType"
-            versionCode 1
-            versionName "1.0"
+            versionCode 2
+            versionName "1.1"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
              applicationId 'com.vici.driverapp'
@@ -2889,6 +2889,28 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.PAS41.royodispatcher'
             resValue "string", "app_name", "PAS41 Dispatcher"
+        }
+
+        snabbhem{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Snabbhem.royodispatcher'
+            resValue "string", "app_name", "Snabbhem Dispatcher"
+        }
+
+        waterTaxi{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.WaterTaxi.royodispatcher'
+            resValue "string", "app_name", "WaterTaxi Dispatcher"
         }
     }
 }
