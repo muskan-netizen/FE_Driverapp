@@ -261,6 +261,11 @@ const shortCodes = {
   pAS41: '989565',
   snabbhem: '01b449',
   waterTaxi: '217ec5',
+  freshFarmz: '71542b',
+  ryde: 'd69557',
+  muvpod: '8b3c15',
+  curblerLLC: '14e5e6',
+  smile: '0a0885'
 };
 
 const appIds = {
@@ -1297,9 +1302,29 @@ const appIds = {
     ios: 'com.Snabbhem.Dispatch',
     android: 'com.Snabbhem.royodispatcher',
   }),
-   waterTaxi: Platform.select({
+   freshFarmz: Platform.select({
+    ios: 'com.FreshFarmz.Dispatch',
+    android: 'com.FreshFarmz.royodispatcher',
+  }),
+  ryde: Platform.select({
+    ios: 'com.Ryde.Dispatch',
+    android: 'com.Ryde.royodispatcher',
+  }),
+  muvpod: Platform.select({
+    ios: 'com.Muvpod.Dispatch',
+    android: 'com.Muvpod.royodispatcher',
+  }),
+  waterTaxi: Platform.select({
     ios: 'com.WaterTaxi.Dispatch',
     android: 'com.WaterTaxi.royodispatcher',
+  }),
+  curblerLLC: Platform.select({
+    ios: 'com.CurblerLLC.Dispatch',
+    android: 'com.CurblerLLC.royodispatcher',
+  }),
+  smile: Platform.select({
+    ios: 'com.Smile.Dispatch',
+    android: 'com.Smile.royodispatcher',
   }),
 };
 

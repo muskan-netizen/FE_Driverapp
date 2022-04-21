@@ -1634,18 +1634,36 @@ export default function ShortCode({ route, navigation }) {
             isShortcodePrefilled: true,
           });
           break;
-          // case appIds.orbitGroup:
-          // updateState({
-          //   shortCode: shortCodes.orbitGroup,
-          //   isShortcodePrefilled: true,
-          // });
-          // break;
-          // case appIds.orbitGroup:
-          // updateState({
-          //   shortCode: shortCodes.orbitGroup,
-          //   isShortcodePrefilled: true,
-          // });
-          // break;
+          case appIds.freshFarmz:
+          updateState({
+            shortCode: shortCodes.freshFarmz,
+            isShortcodePrefilled: true,
+          });
+          break;
+          case appIds.ryde:
+          updateState({
+            shortCode: shortCodes.ryde,
+            isShortcodePrefilled: true,
+          });
+          break;
+          case appIds.muvpod:
+          updateState({
+            shortCode: shortCodes.muvpod,
+            isShortcodePrefilled: true,
+          });
+          break;
+          case appIds.curblerLLC:
+          updateState({
+            shortCode: shortCodes.curblerLLC,
+            isShortcodePrefilled: true,
+          });
+          break;
+          case appIds.smile:
+          updateState({
+            shortCode: shortCodes.smile,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);

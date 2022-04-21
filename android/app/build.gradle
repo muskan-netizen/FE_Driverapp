@@ -2912,6 +2912,61 @@ android {
             applicationId 'com.WaterTaxi.royodispatcher'
             resValue "string", "app_name", "WaterTaxi Dispatcher"
         }
+
+        freshFarmz{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.FreshFarmz.royodispatcher'
+            resValue "string", "app_name", "FreshFarmz Dispatcher"
+        }
+
+        ryde{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Ryde.royodispatcher'
+            resValue "string", "app_name", "Ryde Dispatcher"
+        }
+
+        muvpod{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Muvpod.royodispatcher'
+            resValue "string", "app_name", "Muvpod Dispatcher"
+        }
+
+        curblerLLC{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.CurblerLLC.royodispatcher'
+            resValue "string", "app_name", "CurblerLLC Dispatcher"
+        }
+
+        smile{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Smile.royodispatcher'
+            resValue "string", "app_name", "Smile Dispatcher"
+        }
     }
 }
 
