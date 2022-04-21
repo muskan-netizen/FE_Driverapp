@@ -28,12 +28,12 @@ PODS:
     - FirebaseCoreDiagnostics (~> 8.0)
     - GoogleUtilities/Environment (~> 7.4)
     - GoogleUtilities/Logger (~> 7.4)
-  - FirebaseCoreDiagnostics (8.15.0):
+  - FirebaseCoreDiagnostics (8.14.0):
     - GoogleDataTransport (~> 9.1)
     - GoogleUtilities/Environment (~> 7.7)
     - GoogleUtilities/Logger (~> 7.7)
     - nanopb (~> 2.30908.0)
-  - FirebaseInstallations (8.15.0):
+  - FirebaseInstallations (8.14.0):
     - FirebaseCore (~> 8.0)
     - GoogleUtilities/Environment (~> 7.7)
     - GoogleUtilities/UserDefaults (~> 7.7)
@@ -117,8 +117,8 @@ PODS:
     - RNPermissions
   - Permission-LocationWhenInUse (3.3.1):
     - RNPermissions
-  - PromisesObjC (2.1.0)
-  - razorpay-pod (1.2.2)
+  - PromisesObjC (2.0.0)
+  - razorpay-pod (1.2.1)
   - RCT-Folly (2021.04.26.00):
     - boost-for-react-native
     - DoubleConversion
@@ -501,17 +501,17 @@ PODS:
     - StripeCore (= 21.11.1)
   - TOCropViewController (2.6.1)
   - Yoga (1.14.0)
-  - ZendeskChatProvidersSDK (2.11.3)
-  - ZendeskChatSDK (2.11.3):
-    - ZendeskChatProvidersSDK (= 2.11.3)
-    - ZendeskMessagingSDK (= 3.8.4)
-  - ZendeskCommonUISDK (6.1.3)
-  - ZendeskMessagingAPISDK (3.8.4):
-    - ZendeskSDKConfigurationsSDK (= 1.1.10)
-  - ZendeskMessagingSDK (3.8.4):
-    - ZendeskCommonUISDK (= 6.1.3)
-    - ZendeskMessagingAPISDK (= 3.8.4)
-  - ZendeskSDKConfigurationsSDK (1.1.10)
+  - ZendeskChatProvidersSDK (2.11.2)
+  - ZendeskChatSDK (2.11.2):
+    - ZendeskChatProvidersSDK (= 2.11.2)
+    - ZendeskMessagingSDK (= 3.8.3)
+  - ZendeskCommonUISDK (6.1.2)
+  - ZendeskMessagingAPISDK (3.8.3):
+    - ZendeskSDKConfigurationsSDK (= 1.1.9)
+  - ZendeskMessagingSDK (3.8.3):
+    - ZendeskCommonUISDK (= 6.1.2)
+    - ZendeskMessagingAPISDK (= 3.8.3)
+  - ZendeskSDKConfigurationsSDK (1.1.9)
 
 DEPENDENCIES:
   - BVLinearGradient (from `../node_modules/react-native-linear-gradient`)
@@ -787,8 +787,8 @@ SPEC CHECKSUMS:
   FBReactNativeSpec: df8f81d2a7541ee6755a047b398a5cb5a72acd0e
   Firebase: 629510f1a9ddb235f3a7c5c8ceb23ba887f0f814
   FirebaseCore: 98b29e3828f0a53651c363937a7f7d92a19f1ba2
-  FirebaseCoreDiagnostics: 92e07a649aeb66352b319d43bdd2ee3942af84cb
-  FirebaseInstallations: 40bd9054049b2eae9a2c38ef1c3dd213df3605cd
+  FirebaseCoreDiagnostics: fd0c8490f34287229c1d6c103d3a55f81ec85712
+  FirebaseInstallations: 7d1d967a307c12f1aadd76844fc321cef699b1ce
   FirebaseMessaging: 419b5c9d84f294a753c6501d8cfb9ced1ce37304
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   glog: 5337263514dd6f09803962437687240c5dc39aa4
@@ -804,8 +804,8 @@ SPEC CHECKSUMS:
   Permission-Camera: bae27a8503530770c35aadfecbb97ec71823382a
   Permission-LocationAlways: fbf36cbdcabc3101f1168ad1ec45cfc5a6448cc4
   Permission-LocationWhenInUse: 006c85c8de0c05b5d8be8e8029e4f6b813270293
-  PromisesObjC: 99b6f43f9e1044bd87a95a60beff28c2c44ddb72
-  razorpay-pod: dfa66706727a7435d38b4ed79e53cad7a027d980
+  PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
+  razorpay-pod: 372528dcba385d95d384aa8abc44feeb7a644d4e
   RCT-Folly: 0dd9e1eb86348ecab5ba76f910b56f4b5fef3c46
   RCTRequired: 6cf071ab2adfd769014b3d94373744ee6e789530
   RCTTypeSafety: b829c59453478bb5b02487b8de3336386ab93ab1
@@ -854,7 +854,7 @@ SPEC CHECKSUMS:
   RNCClipboard: 41d8d918092ae8e676f18adada19104fa3e68495
   RNCPushNotificationIOS: 87b8d16d3ede4532745e05b03c42cff33a36cc45
   RNDeviceInfo: 36286df381fcaf1933ff9d2d3c34ba2abeb2d8d8
-  RNFaceApi: 55e032cf01b44645d13c92a940680647b3f8ef60
+  RNFaceApi: d35cb55f8f8b94996f7d85bfafd5e73d19e3dd8d
   RNFastImage: 1f2cab428712a4baaf78d6169eaec7f622556dd7
   RNFBApp: 729c0666395b1953198dc4a1ec6deb8fbe1c302e
   RNFBMessaging: 8415ec196e5c1196caa26ec0742cdb48ed4d0f97
@@ -877,13 +877,13 @@ SPEC CHECKSUMS:
   StripeUICore: 1b32566d6a69581be786609a032872b0fb5a6823
   TOCropViewController: edfd4f25713d56905ad1e0b9f5be3fbe0f59c863
   Yoga: aa0cb45287ebe1004c02a13f279c55a95f1572f4
-  ZendeskChatProvidersSDK: 7d8497f65c5ed6cdf39a541523a5bd0462a5a988
-  ZendeskChatSDK: ba49c882379b6c38d4911d0d06f126c60fcf24f0
-  ZendeskCommonUISDK: 42e8d58f8f7cea0959f1e6b653b1f956061667f7
-  ZendeskMessagingAPISDK: ae2d979869cb99ff76215375355feb29e574c7ce
-  ZendeskMessagingSDK: 322d661c85f27970720695a069026eafe88b22da
-  ZendeskSDKConfigurationsSDK: 03dbce2a8371fb7d36882fb8b92fe94c7b2ea069
+  ZendeskChatProvidersSDK: 450e0a6f56b8c5c82b21106914818a5a3c094cc5
+  ZendeskChatSDK: db9c0c420542c38d03c4345061d8a0b5ae9cf937
+  ZendeskCommonUISDK: 5f0a83f412e07ae23701f18c412fe783b3249ef5
+  ZendeskMessagingAPISDK: db91be0c5cb88229d22f0e560ed99ba6e1dce02e
+  ZendeskMessagingSDK: ce2750c0a3dbd40918ea2e2d44dd0dbe34d21bc8
+  ZendeskSDKConfigurationsSDK: f91f54f3b41aa36ffbc43a37af9956752a062055
 
-PODFILE CHECKSUM: 12765289dd94c6d90bc39e589228f0d19d1455bd
+PODFILE CHECKSUM: 9f590895d4771f311630e35cd6aa2cff90f34a52
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.11.2
