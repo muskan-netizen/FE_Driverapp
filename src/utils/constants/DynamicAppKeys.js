@@ -354,7 +354,7 @@ const appIds = {
     android: 'com.noki.royodispatcher',
   }),
   ored: Platform.select({
-    ios: 'com.ored.royodispatcher',
+    ios: 'com.Ored.Dispatch',
     android: 'com.ored.royodispatcher',
   }),
   yourLaundryApp: Platform.select({
@@ -980,7 +980,7 @@ const appIds = {
   }),
   kongaFood: Platform.select({
     ios: 'com.konga.food.rider',
-    android: 'com.KongaFood.royodispatcher',
+    android: 'com.kongafood.kongafood',
   }),
   theHouse: Platform.select({
     ios: 'com.TheHouse.Dispatch',
@@ -1325,6 +1325,10 @@ const appIds = {
   smile: Platform.select({
     ios: 'com.Smile.Dispatch',
     android: 'com.Smile.royodispatcher',
+  }),
+  caronaTaxi: Platform.select({
+    ios: 'com.CaronaTaxi.Dispatch',
+    android: 'com.CaronaTaxi.royodispatcher',
   }),
 };
 

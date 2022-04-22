@@ -531,6 +531,8 @@
     "curblerLLCdispatcherRelease": "cd android && ./gradlew assembleCurblerLLCRelease",
     "smiledispatcher": "react-native run-android --variant=smileDebug",
     "smiledispatcherRelease": "cd android && ./gradlew assembleSmileRelease",
+    "caronaTaxidispatcher": "react-native run-android --variant=caronaTaxiDebug",
+    "caronaTaxidispatcherRelease": "cd android && ./gradlew assembleCaronaTaxiRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",

@@ -1664,6 +1664,12 @@ export default function ShortCode({ route, navigation }) {
             isShortcodePrefilled: true,
           });
           break;
+          case appIds.caronaTaxi:
+          updateState({
+            shortCode: shortCodes.caronaTaxi,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);
