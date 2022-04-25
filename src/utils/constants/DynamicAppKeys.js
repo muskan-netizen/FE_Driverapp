@@ -265,7 +265,12 @@ const shortCodes = {
   ryde: 'd69557',
   muvpod: '8b3c15',
   curblerLLC: '14e5e6',
-  smile: '0a0885'
+  smile: '0a0885',
+  caronaTaxi: '14f5ab',
+  marjMarketplace: '54e429',
+  evsOnTheGo: '310736',
+  kazakazi: '01159e',
+  arwin: 'f2df02'
 };
 
 const appIds = {
@@ -1329,6 +1334,22 @@ const appIds = {
   caronaTaxi: Platform.select({
     ios: 'com.CaronaTaxi.Dispatch',
     android: 'com.CaronaTaxi.royodispatcher',
+  }),
+  marjMarketplace: Platform.select({
+    ios: 'com.MarjMarketplace.Dispatcher',
+    android: 'com.MarjMarketplace.royodispatcher',
+  }),
+  kazakazi: Platform.select({
+    ios: 'com.Kazakazi.Dispatch',
+    android: 'com.Kazakazi.royodispatcher',
+  }),
+  evsOnTheGo: Platform.select({
+    ios: 'com.EvsOnTheGo.Dispatch',
+    android: 'com.EvsOnTheGo.royodispatcher',
+  }),
+  arwin: Platform.select({
+    ios: 'com.Arwin.Dispatch',
+    android: 'com.Arwin.royodispatcher',
   }),
 };
 

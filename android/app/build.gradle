@@ -814,8 +814,8 @@ android {
         }
         agriOnline{
             dimension "appType"
-            versionCode 2
-            versionName "1.0"
+            versionCode 7
+            versionName "1.1"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
@@ -2978,6 +2978,51 @@ android {
             applicationId 'com.CaronaTaxi.royodispatcher'
             resValue "string", "app_name", "CaronaTaxi Dispatcher"
         }
+
+        marjMarketplace{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.MarjMarketplace.royodispatcher'
+            resValue "string", "app_name", "MarjMarketplace Dispatcher"
+        }
+
+        kazakazi{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Kazakazi.royodispatcher'
+            resValue "string", "app_name", "Kazakazi Dispatcher"
+        }
+
+        evsOnTheGo{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.EvsOnTheGo.royodispatcher'
+            resValue "string", "app_name", "EvsOnTheGo Dispatcher"
+        }
+
+        arwin{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Arwin.royodispatcher'
+            resValue "string", "app_name", "Arwin Dispatcher"
+        }
+
     }
 }
 

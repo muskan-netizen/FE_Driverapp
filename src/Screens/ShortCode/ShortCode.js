@@ -1670,6 +1670,31 @@ export default function ShortCode({ route, navigation }) {
             isShortcodePrefilled: true,
           });
           break;
+          case appIds.marjMarketplace:
+          updateState({
+            shortCode: shortCodes.marjMarketplace,
+            isShortcodePrefilled: true,
+          });
+          break;
+          case appIds.kazakazi:
+          updateState({
+            shortCode: shortCodes.kazakazi,
+            isShortcodePrefilled: true,
+          });
+          break;
+          case appIds.evsOnTheGo:
+          updateState({
+            shortCode: shortCodes.evsOnTheGo,
+            isShortcodePrefilled: true,
+          });
+          break;
+          case appIds.arwin:
+          updateState({
+            shortCode: shortCodes.arwin,
+            isShortcodePrefilled: true,
+          });
+          break;
+          
       }
     })();
   }, [internetConnection]);
