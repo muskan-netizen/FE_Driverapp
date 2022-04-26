@@ -270,7 +270,8 @@ const shortCodes = {
   marjMarketplace: '54e429',
   evsOnTheGo: '310736',
   kazakazi: '01159e',
-  arwin: 'f2df02'
+  arwin: 'f2df02',
+  papiRuki: '477912',
 };
 
 const appIds = {
@@ -1350,6 +1351,10 @@ const appIds = {
   arwin: Platform.select({
     ios: 'com.Arwin.Dispatch',
     android: 'com.Arwin.royodispatcher',
+  }),
+  papiRuki: Platform.select({
+    ios: 'com.PapiRuki.Dispatcher',
+    android: 'com.PapiRuki.royodispatcher',
   }),
 };
 

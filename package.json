@@ -541,6 +541,8 @@
     "kazakazidispatcherRelease": "cd android && ./gradlew assembleKazakaziRelease",
     "arwindispatcher": "react-native run-android --variant=arwinDebug",
     "arwindispatcherRelease": "cd android && ./gradlew assembleArwinRelease",
+    "papiRukidispatcher": "react-native run-android --variant=papiRukiDebug",
+    "papiRukidispatcherRelease": "cd android && ./gradlew assemblePapiRukiRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",

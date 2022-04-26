@@ -1694,6 +1694,12 @@ export default function ShortCode({ route, navigation }) {
             isShortcodePrefilled: true,
           });
           break;
+          case appIds.papiRuki:
+          updateState({
+            shortCode: shortCodes.papiRuki,
+            isShortcodePrefilled: true,
+          });
+          break;
           
       }
     })();
