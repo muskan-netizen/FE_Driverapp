@@ -1700,6 +1700,12 @@ export default function ShortCode({ route, navigation }) {
             isShortcodePrefilled: true,
           });
           break;
+          case appIds.markSoublet:
+          updateState({
+            shortCode: shortCodes.markSoublet,
+            isShortcodePrefilled: true,
+          });
+          break;
           
       }
     })();

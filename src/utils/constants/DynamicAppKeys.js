@@ -272,6 +272,7 @@ const shortCodes = {
   kazakazi: '01159e',
   arwin: 'f2df02',
   papiRuki: '477912',
+  markSoublet: '91b4eb'
 };
 
 const appIds = {
@@ -1355,6 +1356,10 @@ const appIds = {
   papiRuki: Platform.select({
     ios: 'com.PapiRuki.Dispatcher',
     android: 'com.PapiRuki.royodispatcher',
+  }),
+  markSoublet: Platform.select({
+    ios: 'com.MarkSoublet.Dispatch',
+    android: 'com.MarkSoublet.royodispatcher',
   }),
 };
 
