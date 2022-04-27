@@ -5,7 +5,7 @@
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //YogoFood
-// export const API_BASE_URL = 'https://yogofood-dispatch.netsolutionindia.com/';
+export const API_BASE_URL = 'https://yogofood-dispatch.netsolutionindia.com/';
 
 //Dlvrd
 // export const API_BASE_URL = 'https://dlvrd-dispatch.netsolutionindia.com/';
@@ -119,7 +119,7 @@
 // export const API_BASE_URL = 'https://envios.vici.la/';
 
 //trucktirenow
-export const API_BASE_URL = 'https://dispatch.trucktirenow.com/';
+// export const API_BASE_URL = 'https://dispatch.trucktirenow.com/';
 
 //AgreeOnline
 // export const API_BASE_URL = 'https://dispatch.agrionline.ph/';

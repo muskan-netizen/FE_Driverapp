@@ -2678,7 +2678,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.NewYorkMiniMart.royodispatcher'
-            resValue "string", "app_name", "Little Bird Dispatcher"
+            resValue "string", "app_name", "LittleBird Driver"
         }
 
         airlinesRecruiter{
