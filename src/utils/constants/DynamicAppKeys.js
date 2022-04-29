@@ -254,7 +254,7 @@ const shortCodes = {
   capitalDiagnostics: '6755bb',
   handyPickup: '93ff00',
   dropitoffusa: 'b1aa98',
-  tjjHub: 'da2230'
+  tjjHub: 'da2230',
 };
 
 const appIds = {
@@ -1097,7 +1097,7 @@ const appIds = {
   }),
   lOPHT: Platform.select({
     ios: 'com.LOPHT.Dispatch',
-    android: 'com.LOPHT.royodispatcher',
+    android: 'com.LOPHT.Dispatch',
   }),
   seratho: Platform.select({
     ios: 'com.Seratho.Dispatch',
