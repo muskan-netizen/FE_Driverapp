@@ -13,6 +13,8 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //Ored
 // export const API_BASE_URL= 'https://dispatch.ored.co/';
 
+// export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
+
 //Developement
 //export const API_BASE_URL = 'https://api.winhires.com/';
 // export const API_BASE_URL = 'https://dispatcher.releezer.shop/';

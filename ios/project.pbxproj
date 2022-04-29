@@ -1862,6 +1862,7 @@
 		845B354F27CCF461005FF576 /* LOPHT(Development).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 845B354E27CCF461005FF576 /* LOPHT(Development).xcconfig */; };
 		845B36E727CCF48F005FF576 /* LOPHT(Production).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 845B36E627CCF48F005FF576 /* LOPHT(Production).xcconfig */; };
 		845B36E927CCF4AE005FF576 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 845B36E827CCF4AE005FF576 /* Images.xcassets */; };
+		845B37B627CCF975005FF576 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 845B37B527CCF974005FF576 /* GoogleService-Info.plist */; };
 		845B394E27CCFA94005FF576 /* LOPHTInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 845B394D27CCFA94005FF576 /* LOPHTInfo.plist */; };
 		845B400B27CD04AE005FF576 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		845B400D27CD04AE005FF576 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -22022,6 +22023,7 @@
 				845B36E927CCF4AE005FF576 /* Images.xcassets in Resources */,
 				845B347227CCF35F005FF576 /* campton-medium.ttf in Resources */,
 				845B347327CCF35F005FF576 /* notification.mp3 in Resources */,
+				845B37B627CCF975005FF576 /* GoogleService-Info.plist in Resources */,
 				845B347427CCF35F005FF576 /* campton-book.ttf in Resources */,
 				845B347927CCF35F005FF576 /* campton-semibold.ttf in Resources */,
 			);

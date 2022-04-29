@@ -910,7 +910,7 @@ const appIds = {
     android: 'com.Ritenow.Dispatcher',
   }),
   fastMikes: Platform.select({
-    ios: 'com.fastMikes.Dispatch',
+    ios: 'com.App.fastMikes.Dispatcher',
     android: 'com.fastMikes.royodispatcher',
   }),
   hometowndeliveryllc: Platform.select({
