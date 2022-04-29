@@ -125,6 +125,7 @@ export default function Login({ navigation, route }) {
     if (checkValid) {
       let data = {};
       data['phone_number'] = `+${callingCode}${phoneNumber}`;
+      console.log(data, 'Here is data')
       // actions.sessionLogoutUser(false);
       updateState({ isLoading: true });
       actions
@@ -143,7 +144,7 @@ export default function Login({ navigation, route }) {
 
   //Error handling in api
   const errorMethod = error => {
-    console.log(error, 'error>>>>>');
+    console.log(error, 'error');
     updateState({ isLoading: false });
     showError(error?.message || error?.error, 10000);
   };

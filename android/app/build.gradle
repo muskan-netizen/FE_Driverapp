@@ -1786,13 +1786,13 @@ android {
         }
         zestyClickz{
             dimension "appType"
-            versionCode 1
-            versionName "1.0"
+            versionCode 2
+            versionName "1.1"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.ZestyClickz.royodispatcher'
-            resValue "string", "app_name", "Zesty Clickz Dispatcher"
+            resValue "string", "app_name", "Veg-Hub Dispatcher"
         }
          citysuds{
             dimension "appType"
@@ -2640,7 +2640,7 @@ android {
         qseek{
             dimension "appType"
             versionCode 1
-            versionName "1.0"
+            versionName "1.0"  
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
