@@ -298,4 +298,7 @@ export default {
   REFUSEDDAMAGED: 'Refused - Damage',
   UNABLETOLOCATE: 'Unable to Locate',
   OTHER: 'Other',
+  YOURDISPATCHERVERIFICATIONCODEIS: 'Su código de verificación de Despachador es',
+  PLEASEENTEROTPTOVERIFYYOURACCOUNT: 'Ingrese OTP para verificar su cuenta.',
+  HIWHATCANWEHELPYOUWITHTODAY: 'Hola. ¿En qué podemos ayudarte hoy?',
 };

@@ -10,6 +10,9 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //Dlvrd
 // export const API_BASE_URL = 'https://dlvrd-dispatch.netsolutionindia.com/';
 
+//Ored
+// export const API_BASE_URL= 'https://dispatch.ored.co/';
+
 //Developement
 // export const API_BASE_URL = 'https://bafb-103-72-170-243.ngrok.io/';
 // export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
@@ -18,6 +21,12 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //Menus
 // export const API_BASE_URL = 'https://dispatch.menusat.app/';
+
+//Snabbhem
+// export const API_BASE_URL = 'https://Snabbhem.rdstaging.com/';
+
+//Fastmikes
+// export const API_BASE_URL = 'https://dispatch.fastmikes.com/';
 
 //Seratho
 // export const API_BASE_URL = 'https://dispatch.seratho.com/';
@@ -37,8 +46,8 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.localdropoff.info/';
 //Onscart
 // export const API_BASE_URL = 'https://dispatch.onscart.com/';
-//Pickmeup
-// export const API_BASE_URL = 'https://canupickmeup.com/';
+//Pickmeup 
+// export const API_BASE_URL = 'https://pickmeup.royodispatch.com/';
 // export const API_BASE_URL = 'http://192.168.96.152:8006/'; // preet local url
 // export const API_BASE_URL = 'http://192.168.102.23:8005/'; // Gourav.s local url
 // export const API_BASE_URL = 'http://192.168.97.104:8010/'; // Sujata.s local url

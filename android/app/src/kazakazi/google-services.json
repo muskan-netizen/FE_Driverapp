@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "492922314261",
+    "project_id": "kazakazi-dispatch",
+    "storage_bucket": "kazakazi-dispatch.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:492922314261:android:32ebb5c9cbf53daeb6b81c",
+        "android_client_info": {
+          "package_name": "com.Kazakazi.royodispatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "492922314261-6f2feeg6sao37kdbltej0i4fk3q23784.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqeLMxEp_uVnovjPdvCTlPeLhBuXi_IZ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "492922314261-6f2feeg6sao37kdbltej0i4fk3q23784.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "492922314261-a2k5qj7ncjbm7pi9oslnueve647rsigu.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.Kazakazi.Dispatch"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
