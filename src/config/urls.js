@@ -11,7 +11,7 @@
 // export const API_BASE_URL = 'https://dlvrd-dispatch.netsolutionindia.com/';
 
 //Ored
-export const API_BASE_URL= 'https://dispatch.ored.co/';
+// export const API_BASE_URL= 'https://dispatch.ored.co/';
 
 // export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
 
@@ -168,7 +168,7 @@ export const API_BASE_URL= 'https://dispatch.ored.co/';
 // export const API_BASE_URL = 'https://grub.royodispatch.com/'
 
 // meateasy
-// export const API_BASE_URL = 'https://meateasy.royodispatch.com/';
+export const API_BASE_URL = 'https://meateasy.royodispatch.com/';
 
 // destinationops app domain
 // export const API_BASE_URL = 'https://dispatch.destinationops.com/';
