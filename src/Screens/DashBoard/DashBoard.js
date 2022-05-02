@@ -48,7 +48,7 @@ import Geolocation_ from '@react-native-community/geolocation';
 import geocoder from 'react-native-geocoder/js/geocoder';
 import {rippleLoader} from '../../Components/Loaders/AnimatedLoaderFiles/index';
 import LottieAnimation from 'lottie-react-native';
-import ZendeskChat from '../../library/react-native-zendesk-chat';
+
 // import BackgroundTimer from 'react-native-background-timer';
 
 export default function DashBoard({route, navigation}) {
@@ -238,64 +238,63 @@ export default function DashBoard({route, navigation}) {
   };
 
   const fetchgentLogs = (lat, lng, heading_, callFrom) => {
-    ZendeskChat.init(
-      zendeskKeys?.keys?.account_key,
-      zendeskKeys?.keys?.application_id,
-    );
-
     getCurrentPosition();
+
     setTimeout(() => {
       (async () => {
-        let data = {};
-        data['device_type'] = Platform.OS;
-        data['os_version'] = DeviceInfo.getSystemVersion();
-        data['app_version'] = DeviceInfo.getVersion();
-        data['on_route'] = 'y';
-        data['battery_level'] = (await DeviceInfo.getBatteryLevel()) * 100;
-        data['all'] = selectedOption;
-        // data['current_speed'] = 'y';
-        data['long'] = callFrom === 'callFromWatchPosition' ? lng : longitude;
-        data['lat'] = callFrom === 'callFromWatchPosition' ? lat : latitude;
-        data['device_token'] = !!fcmToken ? fcmToken : '';
-        data['heading_angle'] =
-          callFrom === 'callFromWatchPosition' ? heading_ : heading;
-        // console.log(data, 'data>data');
-        console.log(data, 'sending data data??????');
-        actions
-          .logsApi(data, {client: clientInfo?.database_name})
-          .then(res => {
-            console.log(res, 'logs data');
-            if (
-              res?.data?.user?.client_preference
-                ?.customer_support_application_id != null &&
-              res?.data?.user?.client_preference?.customer_support_key != null
-            ) {
+        if (userData?.access_token) {
+          let data = {};
+          data['device_type'] = Platform.OS;
+          data['os_version'] = DeviceInfo.getSystemVersion();
+          data['app_version'] = DeviceInfo.getVersion();
+          data['on_route'] = 'y';
+          data['battery_level'] = (await DeviceInfo.getBatteryLevel()) * 100;
+          data['all'] = selectedOption;
+          // data['current_speed'] = 'y';
+          data['long'] = callFrom === 'callFromWatchPosition' ? lng : longitude;
+          data['lat'] = callFrom === 'callFromWatchPosition' ? lat : latitude;
+          data['device_token'] = !!fcmToken ? fcmToken : '';
+          data['heading_angle'] =
+            callFrom === 'callFromWatchPosition' ? heading_ : heading;
+          // console.log(data, 'data>data');
+          console.log(data, 'sending data data??????');
+          actions
+            .logsApi(data, {client: clientInfo?.database_name})
+            .then(res => {
+              console.log(res, 'logs data');
               if (
-                zendeskKeys?.keys?.account_key !=
-                  res?.data?.user?.client_preference?.customer_support_key &&
-                zendeskKeys?.keys?.application_id !=
-                  res?.data?.user?.client_preference
-                    ?.customer_support_application_id
-              )
-                actions?.setZendeskKeys({
-                  keys: {
-                    application_id:
-                      res?.data?.user?.client_preference
-                        ?.customer_support_application_id,
-                    account_key:
-                      res?.data?.user?.client_preference?.customer_support_key,
-                  },
-                });
-            }
-            console.log(res, 'res>>>>>>>agenLog');
+                res?.data?.user?.client_preference
+                  ?.customer_support_application_id != null &&
+                res?.data?.user?.client_preference?.customer_support_key != null
+              ) {
+                if (
+                  zendeskKeys?.keys?.account_key !=
+                    res?.data?.user?.client_preference?.customer_support_key &&
+                  zendeskKeys?.keys?.application_id !=
+                    res?.data?.user?.client_preference
+                      ?.customer_support_application_id
+                )
+                  actions?.setZendeskKeys({
+                    keys: {
+                      application_id:
+                        res?.data?.user?.client_preference
+                          ?.customer_support_application_id,
+                      account_key:
+                        res?.data?.user?.client_preference
+                          ?.customer_support_key,
+                    },
+                  });
+              }
+              console.log(res, 'res>>>>>>>agenLog');
 
-            if (selectedOption == 1) {
-              updateState({allTasks: res?.data?.tasks});
-            } else {
-              updateState({todaysTasks: res?.data?.tasks});
-            }
-          })
-          .catch(errorMethod);
+              if (selectedOption == 1) {
+                updateState({allTasks: res?.data?.tasks});
+              } else {
+                updateState({todaysTasks: res?.data?.tasks});
+              }
+            })
+            .catch(errorMethod);
+        }
       })();
     }, 2000);
   };
@@ -675,7 +674,6 @@ export default function DashBoard({route, navigation}) {
     //   />
     // );
   };
-  console.log(isEnabled, enableMap, 'isEnabledisEnabled');
 
   const renderComponents = () => {
     switch (isEnabled) {

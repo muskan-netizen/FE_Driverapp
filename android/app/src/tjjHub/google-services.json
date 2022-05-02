@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "786308802984",
+    "project_id": "tjj-hub-dispatch",
+    "storage_bucket": "tjj-hub-dispatch.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:786308802984:android:74d5aef4f2294be76c559d",
+        "android_client_info": {
+          "package_name": "com.TjjHub.royodispatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "786308802984-150ifvem3ks09aagphq64js0a2lcq6u0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0zdL6QjUN-rH6LP-wG4QWHM7RrJnrlnc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "786308802984-150ifvem3ks09aagphq64js0a2lcq6u0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "786308802984-if8t340qt259d9sur63t487jiuc2pf5b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.TjjHub.Dispatch"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

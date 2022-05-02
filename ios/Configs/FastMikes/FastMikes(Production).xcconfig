@@ -1,9 +1,8 @@
-#include "Pods/Target Support Files/Pods-FastMikes/Pods-FastMikes.release.xcconfig"
+#include "Pods/Target Support Files/Pods-available_pods-FastMikes/Pods-available_pods-FastMikes.release.xcconfig"
 
-
-PROJECT_BUNDLE_ID = com.fastMikes.Dispatch
+PROJECT_BUNDLE_ID = com.App.fastMikes.Dispatcher
 PROJECT_APP_VERSION = 1.0
-PROJECT_BUILD_NUMBER = 1
+PROJECT_BUILD_NUMBER = 2
 PROJECT_APP_NAME =FastMikes Dispatch
 PROJECT_PLIST =FastMikesInfo
 PROJECT_ENTITLEMENT=RoyoDriverAppRelease

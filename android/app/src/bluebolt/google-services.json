@@ -79,6 +79,42 @@
     },
     {
       "client_info": {
+        "mobilesdk_app_id": "1:561382496937:android:d8b56933338642cde167b8",
+        "android_client_info": {
+          "package_name": "com.Cabio.royodispatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "561382496937-310o18dmch5vquj0hi0c7jj9pp5l04tr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABb2X9UBlHSUrNISSuxWVWCK0rqItxdH8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "561382496937-310o18dmch5vquj0hi0c7jj9pp5l04tr.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "561382496937-3j8vvrb1el13ieb2esd3167s5e5e0nde.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.AlloTaxi.Dispatch"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:561382496937:android:d277ca89c682792fe167b8",
         "android_client_info": {
           "package_name": "com.CannabisClubSF.royodispatcher"
