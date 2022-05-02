@@ -272,7 +272,8 @@ const shortCodes = {
   kazakazi: '01159e',
   arwin: 'f2df02',
   papiRuki: '477912',
-  markSoublet: '91b4eb'
+  markSoublet: '91b4eb',
+  amstaFood: 'f81ae6',
 };
 
 const appIds = {
@@ -361,7 +362,7 @@ const appIds = {
     android: 'com.noki.royodispatcher',
   }),
   ored: Platform.select({
-    ios: 'com.Ored.Dispatch',
+    ios: 'com.Ored.Dispatcher',
     android: 'com.ored.royodispatcher',
   }),
   yourLaundryApp: Platform.select({
@@ -1360,6 +1361,10 @@ const appIds = {
   markSoublet: Platform.select({
     ios: 'com.MarkSoublet.Dispatch',
     android: 'com.MarkSoublet.royodispatcher',
+  }),
+  amstaFood: Platform.select({
+    ios: 'com.AmstaFood.Dispatch',
+    android: 'com.AmstaFood.royodispatcher',
   }),
 };
 
