@@ -250,12 +250,10 @@ export default function AddMoney({navigation}) {
     updateState({isLoadingB: true});
     actions
       .openPaymentWebUrl(
-        `/${selectedMethod}?amount=${amount}&returnUrl=${returnUrl}&cancelUrl=${cancelUrl}&payment_option_id=${selectedPaymentMethod?.id}&action=wallet`,
+        `/${selectedMethod}?amount=${amount}&returnUrl=${returnUrl}&cancelUrl=${cancelUrl}&payment_option_id=${seletedPaymentGateway?.id}&action=wallet`,
         {},
         {
-          code: appData?.profile?.code,
-          currency: currencies?.primary_currency?.id,
-          language: languages?.primary_language?.id,
+          client: clientInfo?.database_name,
         },
       )
       .then(res => {
@@ -341,7 +339,7 @@ export default function AddMoney({navigation}) {
       }
 
       if (seletedPaymentGateway?.off_site == 1) {
-        // _webPayment();
+        _webPayment();
         return;
       } else {
         _offineLinePayment();
@@ -433,6 +431,8 @@ export default function AddMoney({navigation}) {
       updateState({cardInfo: null});
     }
   };
+
+  console.log(seletedPaymentGateway,"seletedPaymentGateway>>>")
 
   const _renderItemPayments = ({item, index}) => {
     return (

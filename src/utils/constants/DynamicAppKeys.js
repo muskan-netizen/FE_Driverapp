@@ -1116,7 +1116,7 @@ const appIds = {
   }),
   lOPHT: Platform.select({
     ios: 'com.LOPHT.Dispatch',
-    android: 'com.LOPHT.royodispatcher',
+    android: 'com.LOPHT.Dispatch',
   }),
   seratho: Platform.select({
     ios: 'com.Seratho.Dispatch',

@@ -16,7 +16,7 @@ export const API_BASE_URL= 'https://dispatch.ored.co/';
 // export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
 
 //Developement
-//export const API_BASE_URL = 'https://api.winhires.com/';
+// export const API_BASE_URL = 'https://bafb-103-72-170-243.ngrok.io/';
 // export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
 //UFOOD
 // export const API_BASE_URL = 'https://dispatch.ufood.ca/';
@@ -84,7 +84,7 @@ export const API_BASE_URL= 'https://dispatch.ored.co/';
 //
 // export const API_BASE_URL = 'https://dispatch.samakeemart.com/';
 
-//mml
+// mml
 // export const API_BASE_URL = 'https://dispatch.mml.mobi/';
 
 //manda
@@ -159,7 +159,7 @@ export const API_BASE_URL= 'https://dispatch.ored.co/';
 //export const API_BASE_URL = 'http://192.168.96.20:8010/';
 // export const API_BASE_URL = 'http://192.168.103.73:8005';
 // export const API_BASE_URL = 'https://api.williamherrick.com/';
-// export const API_BASE_URL = 'http://192.168.103.73:8005/';
+// export const API_BASE_URL = 'http://192.168.99.101:8005/';
 
 // blip
 // export const API_BASE_URL = 'https://dispatch.blipdelivery.com/';
