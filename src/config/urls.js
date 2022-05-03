@@ -5,7 +5,11 @@
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //Developement
-export const API_BASE_URL = 'https://api.winhires.com/';
+// export const API_BASE_URL = 'https://api.winhires.com/';
+
+//indeheet local
+export const API_BASE_URL = 'http://192.168.97.160:9091/';
+
 //YogoFood
 // export const API_BASE_URL = 'https://yogofood-dispatch.netsolutionindia.com/';
 
