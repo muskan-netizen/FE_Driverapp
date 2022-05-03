@@ -547,6 +547,8 @@
     "markSoubletdispatcherRelease": "cd android && ./gradlew assembleMarkSoubletRelease",
     "amastaFooddispatcher": "react-native run-android --variant=amastaFoodDebug",
     "amastaFooddispatcherRelease": "cd android && ./gradlew assembleAmastaFoodRelease",
+    "toordispatcher": "react-native run-android --variant=toorDebug",
+    "toordispatcherRelease": "cd android && ./gradlew assembleToorRelease",
 
     "android": "react-native run-android",
     "ios": "react-native run-ios",

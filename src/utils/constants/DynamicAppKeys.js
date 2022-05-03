@@ -274,6 +274,7 @@ const shortCodes = {
   papiRuki: '477912',
   markSoublet: '91b4eb',
   amstaFood: 'f81ae6',
+  toor: '9d22d4'
 };
 
 const appIds = {
@@ -1365,6 +1366,10 @@ const appIds = {
   amstaFood: Platform.select({
     ios: 'com.AmstaFood.Dispatch',
     android: 'com.AmstaFood.royodispatcher',
+  }),
+  toor: Platform.select({
+    ios: 'com.Toor.Dispatch',
+    android: 'com.Toor.royodispatcher',
   }),
 };
 

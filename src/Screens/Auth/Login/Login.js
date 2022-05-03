@@ -60,6 +60,17 @@ export default function Login({ navigation, route }) {
     return () => backHandler.remove();
   }, []);
 
+
+  const getColors=()=>{
+    switch(getBundleId()){
+      case appIds.lOPHT:
+        return colors.white 
+
+        default :
+       return  colors.black
+    } 
+  }
+
   const { themeColors } = useSelector(state => state?.initBoot);
   //   const fontFamily = appStyle?.fontSizeData;
 
@@ -178,15 +189,16 @@ export default function Login({ navigation, route }) {
           headerStyle={{ backgroundColor: colors.white }}
         />
       )}
-      <View style={{ flex: 1, marginHorizontal: 20 }}>
+      <View style={{ flex: 1, marginHorizontal: 20}}>
         <View style={styles.imageStyle}>
           <ScaledImage
-            width={width / 2}
+            width={width / 2 }
             source={
               clientInfo && clientInfo?.logo
                 ? { uri: clientInfo?.logo }
                 : imagePath.logo
             }
+           
           />
         </View>
         <KeyboardAwareScrollView
@@ -218,15 +230,14 @@ export default function Login({ navigation, route }) {
               // color={isDarkMode ? MyDarkTheme.colors.text : null}
               />
             </View>
-
-            <GradientButton
+             <GradientButton
               containerStyle={{ marginTop: moderateScaleVertical(40) }}
               onPress={() => {
                 _onLogin();
               }}
-              textStyle={{ color: colors.black }}
+              textStyle={{   color: getColors()}}
               btnText={strings.LOGIN}
-              colorsArray={[colors.themeColor, colors.themeColor]}
+              colorsArray={ getBundleId()==appIds.lOPHT ? [colors.lophtBlue, colors.lophtBlue] : [colors.themeColor, colors.themeColor]}
             />
             <View style={[styles.signUpView, { flexDirection: 'row' }]}>
               <Text style={styles.byContinue}>
