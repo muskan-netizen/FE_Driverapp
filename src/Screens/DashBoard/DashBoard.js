@@ -226,7 +226,7 @@ export default function DashBoard({ route, navigation }) {
           'address',
         )
           .then(res => alert(res))
-          .catch(error => alert(error));
+          .catch(error => console.log("error rasied",error));
       },
       error => console.log(error.message),
       {
