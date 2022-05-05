@@ -2,13 +2,17 @@
 // export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //Developement
 // export const API_BASE_URL = 'https://api.winhires.com/';
 
+
+// Preet
+// export const API_BASE_URL = 'http://192.168.96.152:8005/';
+
 //indeheet local
-export const API_BASE_URL = 'http://192.168.97.160:9091/';
+// export const API_BASE_URL = 'http://192.168.97.160:9091/';
 
 //YogoFood
 // export const API_BASE_URL = 'https://yogofood-dispatch.netsolutionindia.com/';
