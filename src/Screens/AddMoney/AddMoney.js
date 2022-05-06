@@ -154,12 +154,17 @@ export default function AddMoney({navigation}) {
                 borderBottomWidth: 0.5,
                 borderBottomColor: colors.textGreyJ,
               }}>
-              <Text style={styles.currencySymble}>
-                {/* {currencies?.primary_currency?.symbol} */}
-                {userData?.client_preference?.currency?.symbol}
-              </Text>
+              {amount != '' && (
+                <Text style={styles.currencySymble}>
+                  {/* {currencies?.primary_currency?.symbol} */}
+                  {userData?.client_preference?.currency?.symbol}
+                </Text>
+              )}
               <TextInput
-                style={styles.addMoneyInputField}
+                style={{
+                  ...styles.addMoneyInputField,
+                  paddingLeft: amount == '' ? 0 : moderateScale(30),
+                }}
                 value={`${amount}`}
                 onChangeText={_onChangeText('amount')}
                 keyboardType={'numeric'}

@@ -294,7 +294,6 @@ export default {
   ASSIGNEDTEAM: 'Nhóm chỉ định',
   ORDERCANCEL: 'Đơn hàng bị huỷ',
   VERSION: 'Phiên bản',
-  TASK: 'Bài tập#',
   DRIVERVEHICLE: 'Sự cố về tài xế / phương tiện',
   DESTINATIONUNREACHABLE: 'ĐIỂM ĐẾN KHÔNG THỂ TRUY CẬP',
   RECIPIENTUNAVAILABLE: 'GẦN ĐÂY CHƯA CÓ ĐƯỢC',

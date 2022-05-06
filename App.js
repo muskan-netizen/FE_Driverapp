@@ -118,6 +118,7 @@ const App = () => {
   }, []);
 
   const notificationConfig = () => {
+    console.log('sdlkfhsjadhf');
     requestUserPermission();
     notificationListener();
   };
