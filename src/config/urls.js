@@ -2,7 +2,7 @@
 // export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //YogoFood
 // export const API_BASE_URL = 'https://yogofood-dispatch.netsolutionindia.com/';
@@ -17,7 +17,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //Developement
 // export const API_BASE_URL = 'https://bafb-103-72-170-243.ngrok.io/';
-// export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
+
 //UFOOD
 // export const API_BASE_URL = 'https://dispatch.ufood.ca/';
 
@@ -50,7 +50,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.onscart.com/';
 //Pickmeup 
 // export const API_BASE_URL = 'https://pickmeup.royodispatch.com/';
-// export const API_BASE_URL = 'http://192.168.96.152:8006/'; // preet local url
+// export const API_BASE_URL = 'http://192.168.101.187:8001/'; // preet local url
 // export const API_BASE_URL = 'http://192.168.102.23:8005/'; // Gourav.s local url
 // export const API_BASE_URL = 'http://192.168.97.104:8010/'; // Sujata.s local url
 //export const API_BASE_URL = 'http://192.168.100.143:8000/';
@@ -63,7 +63,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.hellodeliver.in/';
 
 // export const API_BASE_URL = 'https://pinkydeli.rdstaging.com/';
-//export const API_BASE_URL = 'https://dispatcher.releezer.shop';
+
 
 //hemptify
 // export const API_BASE_URL = 'https://dispatch.hemptify.com';
@@ -127,7 +127,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.agrionline.ph/';
 
 // fleety staging domain
-//export const API_BASE_URL = 'https://fleety.rdstaging.com/';
+// export const API_BASE_URL = 'https://dispatch.pideunfleety.com/';
 
 //klickmat/snabbhem app domain
 // export const API_BASE_URL = 'https://delivery.snabbhem.se/';
@@ -215,7 +215,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.sunshinerideshare.com/';
 
 //Swiffy live domain
-// export const API_BASE_URL = 'https://dispatch.swiffy.us/';
+export const API_BASE_URL = 'https://dispatch.swiffy.us/';
 //We eat live
 // export const API_BASE_URL = 'https://weeat.royodispatch.com/';
 

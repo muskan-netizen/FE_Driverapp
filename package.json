@@ -549,6 +549,12 @@
     "amastaFooddispatcherRelease": "cd android && ./gradlew assembleAmastaFoodRelease",
     "toordispatcher": "react-native run-android --variant=toorDebug",
     "toordispatcherRelease": "cd android && ./gradlew assembleToorRelease",
+    "peerDeliveriesdispatcher": "react-native run-android --variant=peerDeliveriesDebug",
+    "peerDeliveriesdispatcherRelease": "cd android && ./gradlew assemblePeerDeliveriesRelease",
+    "swandispatcher": "react-native run-android --variant=swanDebug",
+    "swandispatcherRelease": "cd android && ./gradlew assembleSwanRelease",
+    "swascootUpndispatcher": "react-native run-android --variant=scootUpDebug",
+    "scootUpdispatcherRelease": "cd android && ./gradlew assembleScootUpRelease",
 
     "android": "react-native run-android",
     "ios": "react-native run-ios",

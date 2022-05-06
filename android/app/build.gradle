@@ -729,8 +729,8 @@ android {
 
         sirvu{
              dimension "appType"
-            versionCode 2
-            versionName "1.1"
+            versionCode 3
+            versionName "1.2"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
            applicationId 'com.sirvu.royodispatcher'
@@ -2199,7 +2199,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.SwiffyLLC.royodispatcher'
-            resValue "string", "app_name", "Swiffy LLC Dispatcher"
+            resValue "string", "app_name", "SwiffyLLC Driver"
         }
         sabroson{
             dimension "appType"
@@ -3065,6 +3065,39 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.Toor.royodispatcher'
             resValue "string", "app_name", "Toor Dispatcher"
+        }
+
+        peerDeliveries{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.PeerDeliveries.royodispatcher'
+            resValue "string", "app_name", "PeerDeliveries Dispatcher"
+        }
+
+        swan{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Swan.royodispatcher'
+            resValue "string", "app_name", "Swan Dispatcher"
+        }
+
+        scootUp{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.ScootUp.royodispatcher'
+            resValue "string", "app_name", "ScootUp Dispatcher"
         }
 
     }

@@ -274,7 +274,10 @@ const shortCodes = {
   papiRuki: '477912',
   markSoublet: '91b4eb',
   amstaFood: 'f81ae6',
-  toor: '9d22d4'
+  toor: '9d22d4',
+  peerDeliveries: '0e00e8',
+  swan: '85938b',
+  scootUp: '98340e'
 };
 
 const appIds = {
@@ -1048,7 +1051,7 @@ const appIds = {
     android: 'com.AmbuTap.royodispatcher',
   }),
   swiffyLLC: Platform.select({
-    ios: 'com.SwiffyLLC.Dispatch',
+    ios: 'com.SwiffyLLC.Dispatcher',
     android: 'com.SwiffyLLC.royodispatcher',
   }),
   sabroson: Platform.select({
@@ -1370,6 +1373,18 @@ const appIds = {
   toor: Platform.select({
     ios: 'com.Toor.Dispatch',
     android: 'com.Toor.royodispatcher',
+  }),
+  peerDeliveries: Platform.select({
+    ios: 'com.PeerDeliveries.Dispatch',
+    android: 'com.PeerDeliveries.royodispatcher',
+  }),
+  swan: Platform.select({
+    ios: 'com.Swan.Dispatch',
+    android: 'com.Swan.royodispatcher',
+  }),
+  scootUp: Platform.select({
+    ios: 'com.ScootUp.Dispatch',
+    android: 'com.ScootUp.royodispatcher',
   }),
 };
 
