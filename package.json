@@ -553,7 +553,7 @@
     "peerDeliveriesdispatcherRelease": "cd android && ./gradlew assemblePeerDeliveriesRelease",
     "swandispatcher": "react-native run-android --variant=swanDebug",
     "swandispatcherRelease": "cd android && ./gradlew assembleSwanRelease",
-    "swascootUpndispatcher": "react-native run-android --variant=scootUpDebug",
+    "scootUpndispatcher": "react-native run-android --variant=scootUpDebug",
     "scootUpdispatcherRelease": "cd android && ./gradlew assembleScootUpRelease",
 
     "android": "react-native run-android",

@@ -1,4 +1,4 @@
-#include "Pods/Target Support Files/Pods-available_pods-ScootUp/Pods-available_pods-ScootUp.debug.xcconfig"
+#include "Pods/Target Support Files/Pods-available_pods-ScootUp/Pods-available_pods-ScootUp.release.xcconfig"
 
 
 PROJECT_BUNDLE_ID = com.ScootUp.Dispatch
@@ -7,4 +7,3 @@ PROJECT_BUILD_NUMBER = 1
 PROJECT_APP_NAME =ScootUp Dispatcher
 PROJECT_PLIST =ScootUpInfo
 PROJECT_ENTITLEMENT=RoyoDriverAppRelease
-

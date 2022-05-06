@@ -2,7 +2,7 @@
 // export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //YogoFood
 // export const API_BASE_URL = 'https://yogofood-dispatch.netsolutionindia.com/';
@@ -215,7 +215,7 @@
 // export const API_BASE_URL = 'https://dispatch.sunshinerideshare.com/';
 
 //Swiffy live domain
-export const API_BASE_URL = 'https://dispatch.swiffy.us/';
+// export const API_BASE_URL = 'https://dispatch.swiffy.us/';
 //We eat live
 // export const API_BASE_URL = 'https://weeat.royodispatch.com/';
 
