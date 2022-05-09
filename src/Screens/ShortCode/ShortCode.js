@@ -1736,6 +1736,24 @@ export default function ShortCode({ route, navigation }) {
               isShortcodePrefilled: true,
             });
             break;
+            case appIds.patrolNow:
+            updateState({
+              shortCode: shortCodes.patrolNow,
+              isShortcodePrefilled: true,
+            });
+            break;
+            case appIds.butlerDelivery:
+            updateState({
+              shortCode: shortCodes.butlerDelivery,
+              isShortcodePrefilled: true,
+            });
+            break;
+            case appIds.swatiRx:
+            updateState({
+              shortCode: shortCodes.swatiRx,
+              isShortcodePrefilled: true,
+            });
+            break;
       }
     })();
   }, [internetConnection]);

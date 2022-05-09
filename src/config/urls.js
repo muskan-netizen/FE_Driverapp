@@ -13,6 +13,10 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //Ored
 // export const API_BASE_URL= 'https://dispatch.ored.co/';
 
+
+//Mr.Health
+// export const API_BASE_URL = 'https://dispatch.mrhealth.in/';
+
 // export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
 
 //Developement
@@ -206,7 +210,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.loopwhole.ca/';
 
 //donepacked live domain
-//export const API_BASE_URL = 'https://dispatch.donepacked.com/';
+// export const API_BASE_URL = 'https://dispatch.donepacked.com/';
 
 // elcheregio live domain
 //export const API_BASE_URL = 'https://dispatch.elcheregio.mx/';
