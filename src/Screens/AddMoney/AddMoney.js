@@ -154,12 +154,17 @@ export default function AddMoney({navigation}) {
                 borderBottomWidth: 0.5,
                 borderBottomColor: colors.textGreyJ,
               }}>
-              <Text style={styles.currencySymble}>
-                {/* {currencies?.primary_currency?.symbol} */}
-                {userData?.client_preference?.currency?.symbol}
-              </Text>
+              {amount != '' && (
+                <Text style={styles.currencySymble}>
+                  {/* {currencies?.primary_currency?.symbol} */}
+                  {userData?.client_preference?.currency?.symbol}
+                </Text>
+              )}
               <TextInput
-                style={styles.addMoneyInputField}
+                style={{
+                  ...styles.addMoneyInputField,
+                  paddingLeft: amount == '' ? 0 : moderateScale(30),
+                }}
                 value={`${amount}`}
                 onChangeText={_onChangeText('amount')}
                 keyboardType={'numeric'}
@@ -245,12 +250,10 @@ export default function AddMoney({navigation}) {
     updateState({isLoadingB: true});
     actions
       .openPaymentWebUrl(
-        `/${selectedMethod}?amount=${amount}&returnUrl=${returnUrl}&cancelUrl=${cancelUrl}&payment_option_id=${selectedPaymentMethod?.id}&action=wallet`,
+        `/${selectedMethod}?amount=${amount}&returnUrl=${returnUrl}&cancelUrl=${cancelUrl}&payment_option_id=${seletedPaymentGateway?.id}&action=wallet`,
         {},
         {
-          code: appData?.profile?.code,
-          currency: currencies?.primary_currency?.id,
-          language: languages?.primary_language?.id,
+          client: clientInfo?.database_name,
         },
       )
       .then(res => {
@@ -336,7 +339,7 @@ export default function AddMoney({navigation}) {
       }
 
       if (seletedPaymentGateway?.off_site == 1) {
-        // _webPayment();
+        _webPayment();
         return;
       } else {
         _offineLinePayment();
@@ -428,6 +431,8 @@ export default function AddMoney({navigation}) {
       updateState({cardInfo: null});
     }
   };
+
+  console.log(seletedPaymentGateway,"seletedPaymentGateway>>>")
 
   const _renderItemPayments = ({item, index}) => {
     return (
@@ -600,7 +605,9 @@ export default function AddMoney({navigation}) {
       client_preference?.stripe_publishable_key != null ? (
         <StripeProvider
           publishableKey={client_preference?.stripe_publishable_key}
-          merchantIdentifier="merchant.identifier">
+          merchantIdentifier="merchant.identifier"
+        
+          >
           {mainView()}
         </StripeProvider>
       ) : (

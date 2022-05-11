@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "375660690911",
+    "project_id": "evsonthego-dispatch",
+    "storage_bucket": "evsonthego-dispatch.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:375660690911:android:92e4f30997983dc66f586a",
+        "android_client_info": {
+          "package_name": "com.EvsOnTheGo.royodispatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "375660690911-nbimgnhfdo00a16qtq4m1j1dr4ghi75u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDi1RX8dfD1SyA8C4ZodcMdnCjUOPoaMn8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "375660690911-nbimgnhfdo00a16qtq4m1j1dr4ghi75u.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "375660690911-96cr9hholl4alg7lovdlvl1r1uh9vpsq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.EvsOnTheGo.Dispatch"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

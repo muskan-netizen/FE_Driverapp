@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "902888293729",
+    "project_id": "scootup-dispatch",
+    "storage_bucket": "scootup-dispatch.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:902888293729:android:4e895b6203847d98143120",
+        "android_client_info": {
+          "package_name": "com.ScootUp.royodispatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "902888293729-e2u3t45i2e3283571c622fjkmphka66c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDU_pPtigVUvsovR4NhEf-V-HHbOzrkMig"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "902888293729-e2u3t45i2e3283571c622fjkmphka66c.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "902888293729-k2jvp1bvmilapfd9dfthh7o8bfdg6109.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ScootUp.Dispatch"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
