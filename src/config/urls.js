@@ -2,10 +2,10 @@
 // export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 
-export const API_BASE_URL ="https://dispatch.ipickndrop.com/"
+// export const API_BASE_URL ="https://dispatch.ipickndrop.com/"
 
 //PeerDeliveries
 // export const API_BASE_URL ='https://dispatch.peerdeliveries.com/'
