@@ -4,6 +4,10 @@
 //Staging
 export const API_BASE_URL = 'https://api.rdstaging.com/';
 
+
+//PeerDeliveries
+// export const API_BASE_URL ='https://dispatch.peerdeliveries.com/'
+
 //YogoFood
 // export const API_BASE_URL = 'https://yogofood-dispatch.netsolutionindia.com/';
 
