@@ -3069,7 +3069,7 @@ android {
 dependencies {
    
     implementation 'com.android.support:multidex:1.0.3'
- implementation 'com.facebook.fresco:animated-gif:2.5.0'
+    implementation 'com.facebook.fresco:animated-gif:2.5.0'
     // For WebP support, including animated WebP
     implementation 'com.facebook.fresco:animated-webp:1.+'
     implementation 'com.facebook.fresco:webpsupport:1.+'
