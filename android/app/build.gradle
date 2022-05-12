@@ -2212,8 +2212,8 @@ android {
         }
          localdropoff{
             dimension "appType"
-            versionCode 1
-            versionName "1.0"
+            versionCode 2
+            versionName "1.1"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
@@ -2244,8 +2244,8 @@ android {
         }
            onscart{
             dimension "appType"
-            versionCode 3
-            versionName "1.1"
+            versionCode 4
+            versionName "1.2"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
@@ -2320,7 +2320,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.HeyBuddy.royodispatcher'
-            resValue "string", "app_name", "HeyBuddy Dispatcher"
+            resValue "string", "app_name", "Soy Buddy"
         }
         petsChoice{
             dimension "appType"
