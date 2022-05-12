@@ -8,6 +8,10 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://api.winhires.com/';
 
 
+//Vishwas
+// export const API_BASE_URL = 'http://192.168.100.185:8005/';
+
+
 // Preet
 // export const API_BASE_URL = 'http://192.168.96.152:8005/';
 
