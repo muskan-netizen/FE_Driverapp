@@ -4,7 +4,10 @@
 //Staging
 export const API_BASE_URL = 'https://api.rdstaging.com/';
 
+//heybuddy
+// export const API_BASE_URL ='https://dispatch.heybuddy.com.mx'
 
+//ipickndrop
 // export const API_BASE_URL ="https://dispatch.ipickndrop.com/"
 
 //PeerDeliveries
@@ -234,6 +237,8 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //stonses live domain
 //export const API_BASE_URL = 'https://dispatcher.verofax.com/';
+
+
 
 // export const personaltoken = 'TMJdbQlNWkYl1JzMONzRgF4zQFuP8s';
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;
