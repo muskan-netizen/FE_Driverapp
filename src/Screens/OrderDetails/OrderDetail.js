@@ -86,11 +86,12 @@ export default function OrderDetail({route, navigation}) {
           isLoading: false,
         });
       })
-      .catch(error =>
+      .catch(err => {
+        console.log(err, 'errroror');
         updateState({
           isLoading: false,
-        }),
-      );
+        });
+      });
   };
 
   const _renderItem = ({item, index}) => {
@@ -582,11 +583,10 @@ export default function OrderDetail({route, navigation}) {
           <FlatList
             data={allVendorsData}
             showsVerticalScrollIndicator={false}
-            style={{backgroundColor: colors.backgroundGrey}}
             keyExtractor={(item, index) => String(index)}
             renderItem={_renderItem}
             ListFooterComponent={getFooter}
-            style={{flex: 1}}
+            style={{flex: 1, backgroundColor: colors.backgroundGrey}}
             contentContainerStyle={{
               flexGrow: 1,
             }}

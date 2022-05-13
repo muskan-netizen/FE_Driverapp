@@ -561,7 +561,6 @@
     "butlerDeliverydispatcherRelease": "cd android && ./gradlew assembleButlerDeliveryRelease",
     "swatiRxdispatcher": "react-native run-android --variant=swatiRxDebug",
     "swatiRxdispatcherRelease": "cd android && ./gradlew assembleSwatiRxRelease",
-
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
@@ -639,6 +638,7 @@
     "react-native-maps": "^0.29.3",
     "react-native-modal": "^13.0.0",
     "react-native-open-maps": "^0.4.0",
+    "react-native-otp-verify": "^1.0.5",
     "react-native-paper": "^4.9.2",
     "react-native-permissions": "^3.0.5",
     "react-native-progress": "^5.0.0",

@@ -432,17 +432,16 @@ android {
 //             resValue "string", "app_name", "YummiidashDispatcher"
             
 //         } 
-//         donepacked {
-//             dimension "appType"
-//             versionCode 1
-//             versionName "1.0"
-//             minSdkVersion rootProject.ext.minSdkVersion
-//             targetSdkVersion rootProject.ext.targetSdkVersion
-//             // applicationIdSuffix ".royoorder"
-//                 applicationId 'com.donepacked.royodispatcher'
-//             resValue "string", "app_name", "Donepacked Dispatch"
+        donepacked {
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+                applicationId 'com.donepacked.royodispatcher'
+            resValue "string", "app_name", "Donepacked Dispatch"
             
-//         } 
+        } 
 
 //          zuzuclean {
 //             dimension "appType"
@@ -2362,16 +2361,16 @@ android {
 //             applicationId 'com.Ubi.royodispatcher'
 //             resValue "string", "app_name", "Ubi Dispatcher"
 //         }
-//          lOPHT{
-//             dimension "appType"
-//             versionCode 1
-//             versionName "1.0"
-//             minSdkVersion rootProject.ext.minSdkVersion
-//             targetSdkVersion rootProject.ext.targetSdkVersion
-//             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.LOPHT.Dispatch'
-//             resValue "string", "app_name", "LOPHT Driver"
-//         }
+         lOPHT{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.LOPHT.Dispatch'
+            resValue "string", "app_name", "LOPHT Driver"
+        }
 //          seratho{
 //             dimension "appType"
 //             versionCode 1
