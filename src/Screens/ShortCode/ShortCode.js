@@ -1706,12 +1706,54 @@ export default function ShortCode({ route, navigation }) {
             isShortcodePrefilled: true,
           });
           break;
-        case appIds.amstaFood:
-          updateState({
-            shortCode: shortCodes.amstaFood,
-            isShortcodePrefilled: true,
-          });
-          break;
+          case appIds.amstaFood:
+            updateState({
+              shortCode: shortCodes.amstaFood,
+              isShortcodePrefilled: true,
+            });
+            break;
+            case appIds.toor:
+            updateState({
+              shortCode: shortCodes.toor,
+              isShortcodePrefilled: true,
+            });
+            break;
+            case appIds.peerDeliveries:
+            updateState({
+              shortCode: shortCodes.peerDeliveries,
+              isShortcodePrefilled: true,
+            });
+            break;
+            case appIds.swan:
+            updateState({
+              shortCode: shortCodes.swan,
+              isShortcodePrefilled: true,
+            });
+            break;
+            case appIds.scootUp:
+            updateState({
+              shortCode: shortCodes.scootUp,
+              isShortcodePrefilled: true,
+            });
+            break;
+            case appIds.patrolNow:
+            updateState({
+              shortCode: shortCodes.patrolNow,
+              isShortcodePrefilled: true,
+            });
+            break;
+            case appIds.butlerDelivery:
+            updateState({
+              shortCode: shortCodes.butlerDelivery,
+              isShortcodePrefilled: true,
+            });
+            break;
+            case appIds.swatiRx:
+            updateState({
+              shortCode: shortCodes.swatiRx,
+              isShortcodePrefilled: true,
+            });
+            break;
       }
     })();
   }, [internetConnection]);

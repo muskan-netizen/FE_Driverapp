@@ -81,6 +81,7 @@ export default function TaskHistory({route, navigation}) {
       url = `?from_date=&to_date=`;
     }
     console.log(url, 'url');
+    console.log(clientInfo?.database_name, "Client>>>>>>>>>")
     actions
       .getListOfTaskHistory(url, {}, {client: clientInfo?.database_name})
       .then(res => {
