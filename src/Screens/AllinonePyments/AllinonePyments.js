@@ -20,7 +20,7 @@ export default function AllinonePyments({ navigation, route }) {
       };
 
   const onNavigationStateChange = (props) => {
-  
+
     const { url } = props;
     const URL = queryString.parseUrl(url);
     const queryParams = URL.query;
@@ -39,20 +39,20 @@ export default function AllinonePyments({ navigation, route }) {
         queryParams?.status == 200 ||
         url.includes('payment/checkoutSuccess')
       ) {
-       
+
         if (paramsData.action == 'wallet') {
           moveToNewScreen(paramsData?.screenName)();
 
           return;
         }
-      } 
+      }
       else if (queryParams?.status == 0) {
-     
-          setTimeout(() => {
-            moveToNewScreen(paramsData?.screenName)();
+
+        setTimeout(() => {
+          moveToNewScreen(paramsData?.screenName)();
 
 
-          }, 1000);
+        }, 1000);
       }
     }, 1500);
   };

@@ -244,8 +244,8 @@ export default function AddMoney({navigation}) {
 
   const _webPayment = () => {
     let selectedMethod = seletedPaymentGateway.code;
-    let returnUrl = `payment/${selectedMethod}/completeCheckout/${userData?.auth_token}/wallet`;
-    let cancelUrl = `payment/${selectedMethod}/completeCheckout/${userData?.auth_token}/wallet`;
+    let returnUrl = `payment/${selectedMethod}/completeCheckout/${userData?.access_token}/wallet`;
+    let cancelUrl = `payment/${selectedMethod}/completeCheckout/${userData?.access_token}/wallet`;
 
     updateState({isLoadingB: true});
     actions

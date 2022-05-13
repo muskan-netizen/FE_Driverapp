@@ -332,8 +332,8 @@ PODS:
     - React-Core
   - react-native-geocoder (0.5.0):
     - React
-  - react-native-geolocation (2.0.2):
-    - React
+  - react-native-geolocation (2.1.0):
+    - React-Core
   - react-native-geolocation-service (5.3.0-beta.4):
     - React
   - react-native-google-maps (0.29.4):
@@ -823,7 +823,7 @@ SPEC CHECKSUMS:
   react-native-date-picker: 211dead8aeaecab3904a07b967f580e6ea3dee88
   react-native-document-picker: ec07866a30707f23660c0f3ae591d669d3e89096
   react-native-geocoder: 757427682892bb256f3b3745858cc90eba148a8e
-  react-native-geolocation: c956aeb136625c23e0dce0467664af2c437888c9
+  react-native-geolocation: 69f4fd37650b8e7fee91816d395e62dd16f5ab8d
   react-native-geolocation-service: c0efb872258ed9240f1003a70fca9e9757e5c785
   react-native-google-maps: 34517207071d54f3bc23c68752bbec0217bfc79e
   react-native-maps: a421fe6aeb74279597c4ea9598f25796108e2d89
