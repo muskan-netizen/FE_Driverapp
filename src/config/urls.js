@@ -2,7 +2,7 @@
 //export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-//export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //Developement
 //export const API_BASE_URL = 'https://api.winhires.com/';
@@ -89,7 +89,7 @@
 // export const API_BASE_URL = 'https://dispatch.martinionwheelsllc.org/';
 
 //YEBOY
-export const API_BASE_URL = 'https://dispatch.yeboy.mx/';
+// export const API_BASE_URL = 'https://dispatch.yeboy.mx/';
 
 // VICI
 // export const API_BASE_URL = 'https://envios.vici.la/';
@@ -183,7 +183,7 @@ export const API_BASE_URL = 'https://dispatch.yeboy.mx/';
 //export const API_BASE_URL = 'https://dispatch.donepacked.com/';
 
 // elcheregio live domain
-//export const API_BASE_URL = 'https://dispatch.elcheregio.mx/';
+export const API_BASE_URL = 'https://dispatch.elcheregio.mx/';
 
 // sunshinerideshare live domain
 // export const API_BASE_URL = 'https://dispatch.sunshinerideshare.com/';
