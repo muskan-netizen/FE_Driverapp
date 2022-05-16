@@ -2,7 +2,7 @@
 // export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //heybuddy
 // export const API_BASE_URL ='https://dispatch.heybuddy.com.mx/'
@@ -12,7 +12,7 @@
 
 //PeerDeliveries
 // export const API_BASE_URL ='https://dispatch.peerdeliveries.com/'
-
+ 
 //YogoFood
 // export const API_BASE_URL = 'https://yogofood-dispatch.netsolutionindia.com/';
 
@@ -219,7 +219,7 @@
 // export const API_BASE_URL = 'https://dispatch.loopwhole.ca/';
 
 //donepacked live domain
-export const API_BASE_URL = 'https://dispatch.donepacked.com/';
+// export const API_BASE_URL = 'https://dispatch.donepacked.com/';
 
 // elcheregio live domain
 //export const API_BASE_URL = 'https://dispatch.elcheregio.mx/';

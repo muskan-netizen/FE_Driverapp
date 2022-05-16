@@ -280,7 +280,11 @@ const shortCodes = {
   scootUp: '98340e',
   patrolNow: '179def',
   butlerDelivery: 'f93d8c',
-  swatiRx: '7fbd6e'
+  swatiRx: '7fbd6e',
+  chowHub:'12f1ce',
+  ginDeliver:'860741',
+  maiz:'cc230e',
+  orderFirst:'1a1705',
 };
 
 const appIds = {
@@ -1400,6 +1404,22 @@ const appIds = {
   swatiRx: Platform.select({
     ios: 'com.SwatiRx.Dispatch',
     android: 'com.SwatiRx.royodispatcher',
+  }),
+  chowHub: Platform.select({
+    ios: 'com.ChowHub.Dispatch',
+    android: 'com.ChowHub.royodispatcher',
+  }),
+  ginDeliver: Platform.select({
+    ios: 'com.GinDeliver.Dispatch',
+    android: 'com.GinDeliver.royodispatcher',
+  }),
+  maiz: Platform.select({
+    ios: 'com.Maiz.Dispatch',
+    android: 'com.Maiz.royodispatcher',
+  }),
+  orderFirst: Platform.select({
+    ios: 'com.OrderFirst.Dispatch',
+    android: 'com.OrderFirst.royodispatcher',
   }),
 };
 

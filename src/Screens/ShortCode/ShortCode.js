@@ -1706,54 +1706,78 @@ export default function ShortCode({ route, navigation }) {
             isShortcodePrefilled: true,
           });
           break;
-          case appIds.amstaFood:
-            updateState({
-              shortCode: shortCodes.amstaFood,
-              isShortcodePrefilled: true,
-            });
-            break;
-            case appIds.toor:
-            updateState({
-              shortCode: shortCodes.toor,
-              isShortcodePrefilled: true,
-            });
-            break;
-            case appIds.peerDeliveries:
-            updateState({
-              shortCode: shortCodes.peerDeliveries,
-              isShortcodePrefilled: true,
-            });
-            break;
-            case appIds.swan:
-            updateState({
-              shortCode: shortCodes.swan,
-              isShortcodePrefilled: true,
-            });
-            break;
-            case appIds.scootUp:
-            updateState({
-              shortCode: shortCodes.scootUp,
-              isShortcodePrefilled: true,
-            });
-            break;
-            case appIds.patrolNow:
-            updateState({
-              shortCode: shortCodes.patrolNow,
-              isShortcodePrefilled: true,
-            });
-            break;
-            case appIds.butlerDelivery:
-            updateState({
-              shortCode: shortCodes.butlerDelivery,
-              isShortcodePrefilled: true,
-            });
-            break;
-            case appIds.swatiRx:
-            updateState({
-              shortCode: shortCodes.swatiRx,
-              isShortcodePrefilled: true,
-            });
-            break;
+        case appIds.amstaFood:
+          updateState({
+            shortCode: shortCodes.amstaFood,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.toor:
+          updateState({
+            shortCode: shortCodes.toor,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.peerDeliveries:
+          updateState({
+            shortCode: shortCodes.peerDeliveries,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.swan:
+          updateState({
+            shortCode: shortCodes.swan,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.scootUp:
+          updateState({
+            shortCode: shortCodes.scootUp,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.patrolNow:
+          updateState({
+            shortCode: shortCodes.patrolNow,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.butlerDelivery:
+          updateState({
+            shortCode: shortCodes.butlerDelivery,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.swatiRx:
+          updateState({
+            shortCode: shortCodes.swatiRx,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.chowHub:
+          updateState({
+            shortCode: shortCodes.chowHub,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.ginDeliver:
+          updateState({
+            shortCode: shortCodes.ginDeliver,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.maiz:
+          updateState({
+            shortCode: shortCodes.maiz,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.orderFirst:
+          updateState({
+            shortCode: shortCodes.orderFirst,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);
@@ -1815,7 +1839,7 @@ export default function ShortCode({ route, navigation }) {
       // let updatedShortCode = '8e3eef';
       // let updatedShortCode = '745e3f';
 
-      
+
       actions
         .initApp({ shortCode: updatedShortCode }, header)
         .then(res => {
