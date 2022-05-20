@@ -191,7 +191,7 @@ export default {
   PLEASE_ENTER: 'Please enter',
   NOTIFICATION: 'Notification',
   SINGNUP_COMPLETED_NOTIFIED_SOON:
-    'It will take 2-5 working days to verify your account. We will notify you via SMS once yout registeration has been verified.',
+    'It will take 2-5 working days to verify your account. We will notify you via SMS once your registeration has been verified.',
   THANKS_MSG: 'Thanks for registering !',
   BENEFICIARY_BANK_NAME: 'Bank name',
   PLEASE_SELECT: 'Please select',
@@ -250,4 +250,5 @@ export default {
   REFUSEDDAMAGED: 'Refused - Damage',
   UNABLETOLOCATE: 'Unable to Locate',
   OTHER: 'Other',
+  FIXED_FEE: '固定费用',
 };
