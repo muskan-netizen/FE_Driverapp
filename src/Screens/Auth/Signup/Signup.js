@@ -52,19 +52,23 @@ import DatePicker from 'react-native-date-picker';
 import DatePickerModal from '../../../Components/DatePickerModal';
 import moment from 'moment';
 import { getBundleId } from 'react-native-device-info';
+import * as RNLocalize from "react-native-localize";
+import codes from 'country-calling-code';
 
 export default function Signup({ route, navigation }) {
   const userData = useSelector(state => state?.auth?.userData);
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
+  var getPhonesCallingCodeAndCountryData = codes.filter(x => x.isoCode2 == RNLocalize.getCountry())
+
   console.log(clientInfo, 'clientInfo');
   const [state, setState] = useState({
     isLoading: false,
     fullName: '',
     phoneNumber: '',
-    callingCode: clientInfo?.get_country_set?.phonecode
+    callingCode: getPhonesCallingCodeAndCountryData && getPhonesCallingCodeAndCountryData.length ? getPhonesCallingCodeAndCountryData[0].countryCodes[0] : clientInfo?.get_country_set?.phonecode
       ? clientInfo?.get_country_set?.phonecode
       : '91',
-    cca2: clientInfo?.get_country_set?.code
+    cca2: getPhonesCallingCodeAndCountryData && getPhonesCallingCodeAndCountryData.length ? getPhonesCallingCodeAndCountryData[0].isoCode2 : clientInfo?.get_country_set?.code
       ? clientInfo?.get_country_set?.code
       : 'IN',
     allTransportation: transportationArray,

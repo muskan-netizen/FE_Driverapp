@@ -34,25 +34,34 @@ import { appIds } from '../../../utils/constants/DynamicAppKeys';
 import Header from '../../../Components/Header';
 import { TouchableOpacity } from 'react-native';
 import { requestUserPermission } from '../../../utils/notificationServices';
+import * as RNLocalize from "react-native-localize";
+import codes from 'country-calling-code';
+var getPhonesCallingCodeAndCountryData = codes.filter(x => x.isoCode2 == RNLocalize.getCountry())
 
 export default function Login({ navigation, route }) {
   const paramData = route?.params?.data;
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
 
   const fcmToken = useSelector(state => state?.initBoot?.fcmToken);
+
+  console.log(getPhonesCallingCodeAndCountryData, "getPhonesCallingCodeAndCountryData");
+
   console.log(clientInfo, 'paramData>paramData');
   const [state, setState] = useState({
     isLoading: false,
-    callingCode: clientInfo?.get_country_set?.phonecode
+    callingCode: getPhonesCallingCodeAndCountryData && getPhonesCallingCodeAndCountryData.length ? getPhonesCallingCodeAndCountryData[0].countryCodes[0] : clientInfo?.get_country_set?.phonecode
       ? clientInfo?.get_country_set?.phonecode
       : '91',
-    cca2: clientInfo?.get_country_set?.code
+    cca2: getPhonesCallingCodeAndCountryData && getPhonesCallingCodeAndCountryData.length ? getPhonesCallingCodeAndCountryData[0].isoCode2 : clientInfo?.get_country_set?.code
       ? clientInfo?.get_country_set?.code
       : 'IN',
     phoneNumber: '',
   });
 
+
   useEffect(() => {
+
+    console.log(callingCode,"callingCode")
     const backHandler = BackHandler.addEventListener(
       'hardwareBackPress',
       () => true,
@@ -61,14 +70,14 @@ export default function Login({ navigation, route }) {
   }, []);
 
 
-  const getColors=()=>{
-    switch(getBundleId()){
+  const getColors = () => {
+    switch (getBundleId()) {
       case appIds.lOPHT:
-        return colors.white 
+        return colors.white
 
-        default :
-       return  colors.black
-    } 
+      default:
+        return colors.black
+    }
   }
 
   const { themeColors } = useSelector(state => state?.initBoot);
@@ -99,12 +108,12 @@ export default function Login({ navigation, route }) {
   useEffect(() => {
     // actions.sessionLogoutUser(false);
     updateState({
-      callingCode: clientInfo?.get_country_set?.phonecode
-        ? clientInfo?.get_country_set?.phonecode
-        : '91',
-      cca2: clientInfo?.get_country_set?.code
-        ? clientInfo?.get_country_set?.code
-        : 'IN',
+      callingCode: getPhonesCallingCodeAndCountryData && getPhonesCallingCodeAndCountryData.length ? getPhonesCallingCodeAndCountryData[0].countryCodes[0] : clientInfo?.get_country_set?.phonecode
+      ? clientInfo?.get_country_set?.phonecode
+      : '91',
+    cca2: getPhonesCallingCodeAndCountryData && getPhonesCallingCodeAndCountryData.length ? getPhonesCallingCodeAndCountryData[0].isoCode2 : clientInfo?.get_country_set?.code
+      ? clientInfo?.get_country_set?.code
+      : 'IN',
     });
   }, [clientInfo]);
 
@@ -189,16 +198,16 @@ export default function Login({ navigation, route }) {
           headerStyle={{ backgroundColor: colors.white }}
         />
       )}
-      <View style={{ flex: 1, marginHorizontal: 20, marginTop: getBundleId()==appIds.lOPHT ? 50 : 0}}>
+      <View style={{ flex: 1, marginHorizontal: 20, marginTop: getBundleId() == appIds.lOPHT ? 50 : 0 }}>
         <View style={styles.imageStyle}>
           <ScaledImage
-            width={getBundleId()==appIds.lOPHT ? width : width / 2 }
+            width={getBundleId() == appIds.lOPHT ? width : width / 2}
             source={
               clientInfo && clientInfo?.logo
                 ? { uri: clientInfo?.logo }
                 : imagePath.logo
             }
-           
+
           />
         </View>
         <KeyboardAwareScrollView
@@ -220,7 +229,7 @@ export default function Login({ navigation, route }) {
                 }
                 cca2={cca2}
                 phoneNumber={phoneNumber}
-                callingCode={state.callingCode}
+                callingCode={callingCode}
                 placeholder={strings.YOUR_PHONE_NUMBER}
                 keyboardType={'phone-pad'}
                 returnKeyType={'done'}
@@ -230,14 +239,14 @@ export default function Login({ navigation, route }) {
               // color={isDarkMode ? MyDarkTheme.colors.text : null}
               />
             </View>
-             <GradientButton
+            <GradientButton
               containerStyle={{ marginTop: moderateScaleVertical(40) }}
               onPress={() => {
                 _onLogin();
               }}
-              textStyle={{   color: getColors()}}
+              textStyle={{ color: getColors() }}
               btnText={strings.LOGIN}
-              colorsArray={ getBundleId()==appIds.lOPHT ? [colors.lophtBlue, colors.lophtBlue] : [colors.themeColor, colors.themeColor]}
+              colorsArray={getBundleId() == appIds.lOPHT ? [colors.lophtBlue, colors.lophtBlue] : [colors.themeColor, colors.themeColor]}
             />
             <View style={[styles.signUpView, { flexDirection: 'row' }]}>
               <Text style={styles.byContinue}>

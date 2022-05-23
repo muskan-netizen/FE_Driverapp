@@ -1706,54 +1706,108 @@ export default function ShortCode({ route, navigation }) {
             isShortcodePrefilled: true,
           });
           break;
-          case appIds.amstaFood:
-            updateState({
-              shortCode: shortCodes.amstaFood,
-              isShortcodePrefilled: true,
-            });
-            break;
-            case appIds.toor:
-            updateState({
-              shortCode: shortCodes.toor,
-              isShortcodePrefilled: true,
-            });
-            break;
-            case appIds.peerDeliveries:
-            updateState({
-              shortCode: shortCodes.peerDeliveries,
-              isShortcodePrefilled: true,
-            });
-            break;
-            case appIds.swan:
-            updateState({
-              shortCode: shortCodes.swan,
-              isShortcodePrefilled: true,
-            });
-            break;
-            case appIds.scootUp:
-            updateState({
-              shortCode: shortCodes.scootUp,
-              isShortcodePrefilled: true,
-            });
-            break;
-            case appIds.patrolNow:
-            updateState({
-              shortCode: shortCodes.patrolNow,
-              isShortcodePrefilled: true,
-            });
-            break;
-            case appIds.butlerDelivery:
-            updateState({
-              shortCode: shortCodes.butlerDelivery,
-              isShortcodePrefilled: true,
-            });
-            break;
-            case appIds.swatiRx:
-            updateState({
-              shortCode: shortCodes.swatiRx,
-              isShortcodePrefilled: true,
-            });
-            break;
+        case appIds.amstaFood:
+          updateState({
+            shortCode: shortCodes.amstaFood,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.toor:
+          updateState({
+            shortCode: shortCodes.toor,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.peerDeliveries:
+          updateState({
+            shortCode: shortCodes.peerDeliveries,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.swan:
+          updateState({
+            shortCode: shortCodes.swan,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.scootUp:
+          updateState({
+            shortCode: shortCodes.scootUp,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.patrolNow:
+          updateState({
+            shortCode: shortCodes.patrolNow,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.butlerDelivery:
+          updateState({
+            shortCode: shortCodes.butlerDelivery,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.swatiRx:
+          updateState({
+            shortCode: shortCodes.swatiRx,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.chowHub:
+          updateState({
+            shortCode: shortCodes.chowHub,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.ginDeliver:
+          updateState({
+            shortCode: shortCodes.ginDeliver,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.maiz:
+          updateState({
+            shortCode: shortCodes.maiz,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.orderFirst:
+          updateState({
+            shortCode: shortCodes.orderFirst,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.dingDongEat:
+          updateState({
+            shortCode: shortCodes.dingDongEat,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.fazeiTeam:
+          updateState({
+            shortCode: shortCodes.fazeiTeam,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.medicab:
+          updateState({
+            shortCode: shortCodes.medicab,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.Jiffex:
+          updateState({
+            shortCode: shortCodes.Jiffex,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.weTogether:
+          updateState({
+            shortCode: shortCodes.weTogether,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);
@@ -1812,10 +1866,10 @@ export default function ShortCode({ route, navigation }) {
       }
 
       let updatedShortCode = shortCode;
-      // let updatedShortCode = '8e3eef';
-      // let updatedShortCode = '745e3f';
+     // updatedShortCode = '745e3f';
+      //  let updatedShortCode = '745e3f';
 
-      
+
       actions
         .initApp({ shortCode: updatedShortCode }, header)
         .then(res => {
