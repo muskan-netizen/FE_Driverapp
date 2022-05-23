@@ -274,7 +274,7 @@ android {
             } 
          yogofood {
                 dimension "appType"
-                versionCode 1
+                versionCode 2
                 versionName "1.0"
                 minSdkVersion rootProject.ext.minSdkVersion
                 targetSdkVersion rootProject.ext.targetSdkVersion
