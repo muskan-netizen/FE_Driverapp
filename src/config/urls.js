@@ -2,15 +2,32 @@
 // export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
 
+//
+// export const API_BASE_URL ='http://192.168.96.84:9090/'
+
+// yogo Food 
+export const API_BASE_URL ='https://dispatcher.yogo.gd/'
+
+
+//dimavega
+// export const API_BASE_URL ='https://dispatch.dimahalal.com/'
+
+//gdotdelivery
+// export const API_BASE_URL ='https://dispatch.gdotdelivery.com/'
+
+//heybuddy
+// export const API_BASE_URL ='https://dispatch.heybuddy.com.mx/'
+
+//ipickndrop
 // export const API_BASE_URL ="https://dispatch.ipickndrop.com/"
 
 //PeerDeliveries
 // export const API_BASE_URL ='https://dispatch.peerdeliveries.com/'
-
+ 
 //YogoFood
-// export const API_BASE_URL = 'https://yogofood-dispatch.netsolutionindia.com/';
+//  export const API_BASE_URL = 'https://dispatcher.yogo.gd/';
 
 //Dlvrd
 // export const API_BASE_URL = 'https://dlvrd-dispatch.netsolutionindia.com/';
@@ -231,6 +248,8 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //stonses live domain
 //export const API_BASE_URL = 'https://dispatcher.verofax.com/';
+
+
 
 // export const personaltoken = 'TMJdbQlNWkYl1JzMONzRgF4zQFuP8s';
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;

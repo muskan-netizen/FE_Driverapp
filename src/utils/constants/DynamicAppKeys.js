@@ -280,7 +280,16 @@ const shortCodes = {
   scootUp: '98340e',
   patrolNow: '179def',
   butlerDelivery: 'f93d8c',
-  swatiRx: '7fbd6e'
+  swatiRx: '7fbd6e',
+  chowHub: '12f1ce',
+  ginDeliver: '860741',
+  maiz: '1a1705',
+  orderFirst: 'cc230e',
+  dingDongEat: '026f29',
+  medicab: '35c021',
+  fazeiTeam: 'e8346f',
+  weTogether:'a4996b',
+  Jiffex:'f4af1e'
 };
 
 const appIds = {
@@ -317,7 +326,7 @@ const appIds = {
     android: 'com.Goody.royodispatcher',
   }),
   yogofood: Platform.select({
-    ios: 'com.YogoFood.Dispatch',
+    ios: 'com.YogoFood.Dispatcher',
     android: 'com.yogofood.royodispatcher',
   }),
   arenaGrub: Platform.select({
@@ -554,7 +563,7 @@ const appIds = {
     android: 'com.Gusto.royodispatcher',
   }),
   click2Deliver: Platform.select({
-    ios: 'com.Click2Deliver.Dispatch',
+    ios: 'com.click2deliver.driver',
     android: 'com.Click2Deliver.royodispatcher',
   }),
   truckTireNow: Platform.select({
@@ -1317,7 +1326,7 @@ const appIds = {
     ios: 'com.Snabbhem.Dispatch',
     android: 'com.Snabbhem.royodispatcher',
   }),
-   freshFarmz: Platform.select({
+  freshFarmz: Platform.select({
     ios: 'com.FreshFarmz.Dispatch',
     android: 'com.FreshFarmz.royodispatcher',
   }),
@@ -1400,6 +1409,44 @@ const appIds = {
   swatiRx: Platform.select({
     ios: 'com.SwatiRx.Dispatch',
     android: 'com.SwatiRx.royodispatcher',
+  }),
+  chowHub: Platform.select({
+    ios: 'com.ChowHub.Dispatch',
+    android: 'com.ChowHub.royodispatcher',
+  }),
+  ginDeliver: Platform.select({
+    ios: 'com.GinDeliver.Dispatch',
+    android: 'com.GinDeliver.royodispatcher',
+  }),
+  maiz: Platform.select({
+    ios: 'com.Maiz.Dispatch',
+    android: 'com.Maiz.royodispatcher',
+  }),
+  orderFirst: Platform.select({
+    ios: 'com.OrderFirst.Dispatch',
+    android: 'com.OrderFirst.royodispatcher',
+  }),
+  dingDongEat: Platform.select({
+    ios: 'com.dingDongEat.Dispatch',
+    android: 'com.dingDongEat.royodispatcher',
+  }),
+  fazeiTeam: Platform.select({
+    ios: 'com.fazeiTeam.Dispatch',
+    android: 'com.fazeiTeam.royodispatcher',
+  }),
+  medicab: Platform.select({
+    ios: 'com.medicab.Dispatch',
+    android: 'com.medicab.royodispatcher',
+  }),
+
+  weTogether: Platform.select({
+    ios: 'com.weTogether.Dispatch',
+    android: 'com.weTogether.royodispatcher',
+  }),
+
+  Jiffex: Platform.select({
+    ios: 'com.jiffex.Dispatch',
+    android: 'com.jiffex.royodispatcher',
   }),
 };
 
