@@ -2,7 +2,20 @@
 // export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
+
+//
+// export const API_BASE_URL ='http://192.168.96.84:9090/'
+
+// yogo Food 
+// export const API_BASE_URL ='https://dispatcher.yogo.gd/'
+
+
+//dimavega
+// export const API_BASE_URL ='https://dispatch.dimahalal.com/'
+
+//gdotdelivery
+// export const API_BASE_URL ='https://dispatch.gdotdelivery.com/'
 
 //heybuddy
 // export const API_BASE_URL ='https://dispatch.heybuddy.com.mx/'
@@ -14,7 +27,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL ='https://dispatch.peerdeliveries.com/'
  
 //YogoFood
-// export const API_BASE_URL = 'https://yogofood-dispatch.netsolutionindia.com/';
+//  export const API_BASE_URL = 'https://dispatcher.yogo.gd/';
 
 //Dlvrd
 // export const API_BASE_URL = 'https://dlvrd-dispatch.netsolutionindia.com/';
@@ -26,7 +39,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //Mr.Health
 // export const API_BASE_URL = 'https://dispatch.mrhealth.in/';
 
-// export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
+export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
 
 //Developement
 // export const API_BASE_URL = 'https://bafb-103-72-170-243.ngrok.io/';

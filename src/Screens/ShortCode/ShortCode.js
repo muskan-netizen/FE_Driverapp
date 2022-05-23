@@ -1778,6 +1778,36 @@ export default function ShortCode({ route, navigation }) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.dingDongEat:
+          updateState({
+            shortCode: shortCodes.dingDongEat,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.fazeiTeam:
+          updateState({
+            shortCode: shortCodes.fazeiTeam,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.medicab:
+          updateState({
+            shortCode: shortCodes.medicab,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.Jiffex:
+          updateState({
+            shortCode: shortCodes.Jiffex,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.weTogether:
+          updateState({
+            shortCode: shortCodes.weTogether,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);
@@ -1836,8 +1866,8 @@ export default function ShortCode({ route, navigation }) {
       }
 
       let updatedShortCode = shortCode;
-      // let updatedShortCode = '8e3eef';
-      // let updatedShortCode = '745e3f';
+     // updatedShortCode = '745e3f';
+      //  let updatedShortCode = '745e3f';
 
 
       actions
