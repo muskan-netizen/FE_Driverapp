@@ -817,7 +817,7 @@ export default function TaskDetail({route, navigation}) {
                         style={{marginRight: moderateScale(5)}}
                       />
                       <Text style={styles.emailAndPhone}>
-                        {taskDetail?.order?.Recipient_email}hdjdhdhdjhdjdhdhdj
+                        {taskDetail?.order?.Recipient_email}
                       </Text>
                     </TouchableOpacity>
                   )}
