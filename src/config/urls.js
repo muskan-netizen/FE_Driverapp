@@ -27,7 +27,7 @@
 // export const API_BASE_URL ='https://dispatch.peerdeliveries.com/'
  
 //YogoFood
-//  export const API_BASE_URL = 'https://dispatcher.yogo.gd/';
+ export const API_BASE_URL = 'https://dispatcher.yogo.gd/';
 
 //Dlvrd
 // export const API_BASE_URL = 'https://dlvrd-dispatch.netsolutionindia.com/';
@@ -39,7 +39,7 @@
 //Mr.Health
 // export const API_BASE_URL = 'https://dispatch.mrhealth.in/';
 
-export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
+// export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
 
 //Developement
 // export const API_BASE_URL = 'https://bafb-103-72-170-243.ngrok.io/';
