@@ -17881,6 +17881,7 @@
 				846FBD8627D773460057DFCE /* Bundle React Native code and images */,
 				BAE85C63E2577CFADECD1C4C /* [CP] Embed Pods Frameworks */,
 				610FC983EA33C1A788E26045 /* [CP] Copy Pods Resources */,
+				E88E99D3283E12F1001875F0 /* ShellScript */,
 			);
 			buildRules = (
 				846FC2AF27D774DA0057DFCE /* PBXBuildRule */,
@@ -49680,6 +49681,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-Shariff/Pods-available_pods-Shariff-frameworks.sh\"\n";
+		};
+		E88E99D3283E12F1001875F0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-KnockKnock/Pods-available_pods-KnockKnock-frameworks.sh\"\n";
 		};
 		E894F0E9ADB5F20EE763F014 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
