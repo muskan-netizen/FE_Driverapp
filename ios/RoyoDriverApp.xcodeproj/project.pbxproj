@@ -18556,6 +18556,7 @@
 				84A510F9280431F3003989DB /* Start Packager */,
 				5FB29456AC6E85B7C2C97E5A /* [CP] Embed Pods Frameworks */,
 				5AF345BAB8436F42B8D307C9 /* [CP] Copy Pods Resources */,
+				E88E99D4283E433D001875F0 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -49698,6 +49699,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-KnockKnock/Pods-available_pods-KnockKnock-frameworks.sh\"\n";
+		};
+		E88E99D4283E433D001875F0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-Meltivers/Pods-available_pods-Meltivers-frameworks.sh\"\n";
 		};
 		E894F0E9ADB5F20EE763F014 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
