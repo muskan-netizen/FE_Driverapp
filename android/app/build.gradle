@@ -536,16 +536,16 @@ android {
 //             resValue "string", "app_name", "HMC Now | Rider app"
 //         }
 
-//         express_deliverys_llc {
-//             dimension "appType"
-//             versionCode 1
-//             versionName "1.0"
-//             minSdkVersion rootProject.ext.minSdkVersion
-//             targetSdkVersion rootProject.ext.targetSdkVersion
-//             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.ExpressDeliverysLLC.royodispatcher'
-//             resValue "string", "app_name", "Express Deliverys LLC Dispatch"
-//         }
+        express_deliverys_llc {
+            dimension "appType"
+            versionCode 2
+            versionName "1.1"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.ExpressDeliverysLLC.royodispatcher'
+            resValue "string", "app_name", "Express Deliverys LLC Dispatch"
+        }
 //         pinkJet {
 //             dimension "appType"
 //             versionCode 3
@@ -3233,9 +3233,29 @@ android {
             applicationId 'com.savannaRags.royodispatcher'
             resValue "string", "app_name", "savannaRags Dispatcher"
         }
+            amazingTaxi{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.amazingTaxi.royodispatcher'
+            resValue "string", "app_name", "AmazingTaxi Dispatcher"
+        }
+         keystoneDelivery{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.keystoneDelivery.royodispatcher'
+            resValue "string", "app_name", "KeystoneDelivery Dispatcher"
+        }
     }
 }
-
+ 
 
 
 

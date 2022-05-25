@@ -581,6 +581,10 @@
     "weTogetherdispatcherRelease": "cd android && ./gradlew assembleWeTogetherRelease",
     "savannaRagsdispatcher": "react-native run-android --variant=savannaRagsDebug",
     "savannaRagsdispatcherRelease": "cd android && ./gradlew assembleSavannaRagsRelease",
+    "amazingTaxidispatcher": "react-native run-android --variant=amazingTaxiDebug",
+    "amazingTaxidispatcherRelease": "cd android && ./gradlew assembleAmazingTaxiRelease",
+    "keystoneDeliverydispatcher": "react-native run-android --variant=keystoneDeliveryDebug",
+    "keystoneDeliverydispatcherRelease": "cd android && ./gradlew assembleKeystoneDeliveryRelease",
 
     "android": "react-native run-android",
     "ios": "react-native run-ios",
