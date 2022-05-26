@@ -289,7 +289,8 @@ const shortCodes = {
   medicab: '35c021',
   fazeiTeam: 'e8346f',
   weTogether:'a4996b',
-  Jiffex:'f4af1e'
+  Jiffex:'f4af1e',
+  jazzyBug:'7e9e5f'
 };
 
 const appIds = {
@@ -1447,6 +1448,10 @@ const appIds = {
   Jiffex: Platform.select({
     ios: 'com.jiffex.Dispatch',
     android: 'com.jiffex.royodispatcher',
+  }),
+  jazzyBug: Platform.select({
+    ios: 'com.jazzyBug.Dispatch',
+    android: 'com.jazzyBug.royodispatcher',
   }),
 };
 

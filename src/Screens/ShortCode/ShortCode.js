@@ -1808,6 +1808,12 @@ export default function ShortCode({ route, navigation }) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.jazzyBug:
+            updateState({
+              shortCode: shortCodes.jazzyBug,
+              isShortcodePrefilled: true,
+            });
+          break;
       }
     })();
   }, [internetConnection]);
