@@ -290,7 +290,10 @@ const shortCodes = {
   fazeiTeam: 'e8346f',
   weTogether:'a4996b',
   Jiffex:'f4af1e',
-  jazzyBug:'7e9e5f'
+  jazzyBug:'7e9e5f',
+  savannaRags:'4e9ab7',
+  amazingTaxi:'693ba8',
+  keystoneDelivery:'182e7b'
 };
 
 const appIds = {
@@ -1452,6 +1455,10 @@ const appIds = {
   jazzyBug: Platform.select({
     ios: 'com.jazzyBug.Dispatch',
     android: 'com.jazzyBug.royodispatcher',
+  }),
+  keystoneDelivery: Platform.select({
+    ios: 'com.keystoneDeliver.Dispatch',
+    android: 'com.keystoneDelivery.royodispatcher',
   }),
 };
 
