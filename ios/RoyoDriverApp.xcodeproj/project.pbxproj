@@ -14678,6 +14678,7 @@
 				0C1336122816A20A00ED22EA /* Start Packager */,
 				E7CA0EE5A58704BC713B4B4B /* [CP] Embed Pods Frameworks */,
 				F359BA9E68540338AD4AD30C /* [CP] Copy Pods Resources */,
+				E88E99D5283E5DAD001875F0 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -49716,6 +49717,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-Meltivers/Pods-available_pods-Meltivers-frameworks.sh\"\n";
+		};
+		E88E99D5283E5DAD001875F0 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-MarjMarketplace/Pods-available_pods-MarjMarketplace-frameworks.sh\"\n";
 		};
 		E894F0E9ADB5F20EE763F014 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
