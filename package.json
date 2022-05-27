@@ -583,6 +583,8 @@
     "weTogetherdispatcherRelease": "cd android && ./gradlew assembleWeTogetherRelease",
     "keystoneDeliverydispatcher": "react-native run-android --variant=keystoneDeliveryDebug",
     "keystoneDeliverydispatcherRelease": "cd android && ./gradlew assembleKeystoneDeliveryRelease",
+    "busTaMovedispatcher": "react-native run-android --variant=busTaMoveDebug",
+    "busTaMovedispatcherRelease": "cd android && ./gradlew assemblebusTaMoveRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",

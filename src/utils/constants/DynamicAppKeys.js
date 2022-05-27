@@ -293,7 +293,8 @@ const shortCodes = {
   jazzyBug:'7e9e5f',
   savannaRags:'4e9ab7',
   amazingTaxi:'693ba8',
-  keystoneDelivery:'182e7b'
+  keystoneDelivery:'182e7b',
+  busTaMove:'6499ab',
 };
 
 const appIds = {
@@ -1463,6 +1464,10 @@ const appIds = {
   amazingTaxi: Platform.select({
     ios: 'com.amazingTaxi.Dispatcher',
     android: 'com.amazingTaxi.royodispatcher',
+  }),
+  busTaMove: Platform.select({
+    // ios: 'com.BusTaMove.Dispatch',
+    android: 'com.BusTaMove.royodispatcher',
   }),
 };
 
