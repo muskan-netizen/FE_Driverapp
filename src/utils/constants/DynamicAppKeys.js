@@ -290,6 +290,7 @@ const shortCodes = {
   fazeiTeam: 'e8346f',
   weTogether:'a4996b',
   Jiffex:'f4af1e',
+  jazzyBug:'7e9e5f',
   savannaRags:'4e9ab7',
   amazingTaxi:'693ba8',
   keystoneDelivery:'182e7b'
@@ -1451,18 +1452,17 @@ const appIds = {
     ios: 'com.jiffex.Dispatch',
     android: 'com.jiffex.royodispatcher',
   }),
-
-  savannaRags: Platform.select({
-    ios: 'com.savannaRags.Dispatch',
-    android: 'com.savannaRags.royodispatcher',
-  }),
-  amazingTaxi: Platform.select({
-    ios: 'com.amazingTaxi.Dispatch',
-    android: 'com.amazingTaxi.royodispatcher',
+  jazzyBug: Platform.select({
+    ios: 'com.jazzyBug.Dispatch',
+    android: 'com.jazzyBug.royodispatcher',
   }),
   keystoneDelivery: Platform.select({
-    ios: 'com.keystoneDelivery.Dispatch',
+    ios: 'com.keystoneDeliver.Dispatch',
     android: 'com.keystoneDelivery.royodispatcher',
+  }),
+  amazingTaxi: Platform.select({
+    ios: 'com.amazingTaxi.Dispatcher',
+    android: 'com.amazingTaxi.royodispatcher',
   }),
 };
 

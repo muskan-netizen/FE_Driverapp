@@ -40,7 +40,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //Mr.Health
 // export const API_BASE_URL = 'https://dispatch.mrhealth.in/';
 
-// export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
+//export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
 
 //Developement
 // export const API_BASE_URL = 'https://bafb-103-72-170-243.ngrok.io/';
@@ -93,7 +93,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 
 //hemptify
-// export const API_BASE_URL = 'https://dispatch.hemptify.com';
+//  export const API_BASE_URL = 'https://dispatch.hemptify.com/';
 
 //Express Delivery
 // export const API_BASE_URL = 'https://dispatch.expresdeliverys.com/';
