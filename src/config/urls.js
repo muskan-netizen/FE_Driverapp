@@ -10,6 +10,9 @@
 // yogo Food 
 // export const API_BASE_URL ='https://dispatcher.yogo.gd/'
 
+// export const API_BASE_URL ='http://192.168.96.84:9090/' // check 
+
+
 
 //dimavega
 // export const API_BASE_URL ='https://dispatch.dimahalal.com/'
@@ -27,13 +30,16 @@
 // export const API_BASE_URL ='https://dispatch.peerdeliveries.com/'
  
 //YogoFood
- export const API_BASE_URL = 'https://dispatcher.yogo.gd/';
+//  export const API_BASE_URL = 'https://dispatcher.yogo.gd/';
 
 //Dlvrd
 // export const API_BASE_URL = 'https://dlvrd-dispatch.netsolutionindia.com/';
 
 //Ored
 // export const API_BASE_URL= 'https://dispatch.ored.co/';
+
+// export const API_BASE_URL= 'https://dispatch.dbairro.com/'
+
 
 
 //Mr.Health
@@ -55,6 +61,8 @@
 
 //Fastmikes
 // export const API_BASE_URL = 'https://dispatch.fastmikes.com/';
+// export const API_BASE_URL = 'https://dispatch.beachhopdelivery.com/';
+export const API_BASE_URL = 'https://dispatch.beachhopdelivery.com/';
 
 //Seratho
 // export const API_BASE_URL = 'https://dispatch.seratho.com/';
@@ -207,6 +215,11 @@
 
 // click-eat
 // export const API_BASE_URL = 'https://dispatcher.click-eat.com/'
+
+// export const API_BASE_URL = 'https://dispatch.click2deliver.co.uk/'
+
+
+
 
 // halalhmc
 // export const API_BASE_URL = 'https://dispatcher.halalhmc.org/';
