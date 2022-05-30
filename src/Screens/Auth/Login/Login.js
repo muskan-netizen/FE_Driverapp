@@ -36,7 +36,23 @@ import { TouchableOpacity } from 'react-native';
 import { requestUserPermission } from '../../../utils/notificationServices';
 import * as RNLocalize from "react-native-localize";
 import codes from 'country-calling-code';
-var getPhonesCallingCodeAndCountryData = codes.filter(x => x.isoCode2 == RNLocalize.getCountry())
+import DeviceCountry, {
+  TYPE_ANY,
+  TYPE_TELEPHONY,
+  TYPE_CONFIGURATION,
+} from 'react-native-device-country';
+var getPhonesCallingCodeAndCountryData = null
+DeviceCountry.getCountryCode()
+  .then((result) => {
+    console.log(result, "getCountryCoderesult");
+    // {"code": "BY", "type": "telephony"}
+    getPhonesCallingCodeAndCountryData = codes.filter(x => x.isoCode2 == (result.code).toUpperCase())
+  })
+  .catch((e) => {
+    console.log(e);
+  });
+
+// var getPhonesCallingCodeAndCountryData = codes.filter(x => x.isoCode2 == RNLocalize.getCountry())
 
 export default function Login({ navigation, route }) {
   const paramData = route?.params?.data;
@@ -61,7 +77,7 @@ export default function Login({ navigation, route }) {
 
   useEffect(() => {
 
-    console.log(callingCode,"callingCode")
+    console.log(callingCode, "callingCode")
     const backHandler = BackHandler.addEventListener(
       'hardwareBackPress',
       () => true,
@@ -109,11 +125,11 @@ export default function Login({ navigation, route }) {
     // actions.sessionLogoutUser(false);
     updateState({
       callingCode: getPhonesCallingCodeAndCountryData && getPhonesCallingCodeAndCountryData.length ? getPhonesCallingCodeAndCountryData[0].countryCodes[0] : clientInfo?.get_country_set?.phonecode
-      ? clientInfo?.get_country_set?.phonecode
-      : '91',
-    cca2: getPhonesCallingCodeAndCountryData && getPhonesCallingCodeAndCountryData.length ? getPhonesCallingCodeAndCountryData[0].isoCode2 : clientInfo?.get_country_set?.code
-      ? clientInfo?.get_country_set?.code
-      : 'IN',
+        ? clientInfo?.get_country_set?.phonecode
+        : '91',
+      cca2: getPhonesCallingCodeAndCountryData && getPhonesCallingCodeAndCountryData.length ? getPhonesCallingCodeAndCountryData[0].isoCode2 : clientInfo?.get_country_set?.code
+        ? clientInfo?.get_country_set?.code
+        : 'IN',
     });
   }, [clientInfo]);
 
