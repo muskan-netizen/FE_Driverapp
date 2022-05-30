@@ -1466,7 +1466,7 @@ const appIds = {
     android: 'com.amazingTaxi.royodispatcher',
   }),
   busTaMove: Platform.select({
-    // ios: 'com.BusTaMove.Dispatch',
+    ios: 'com.BusTaMove.Dispatch',
     android: 'com.BusTaMove.royodispatcher',
   }),
 };
