@@ -2,7 +2,7 @@
  //export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
- export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //
 // export const API_BASE_URL ='http://192.168.96.84:9090/'
@@ -105,7 +105,7 @@
 //RXNOW
 // export const API_BASE_URL = 'https://dispatch.rxnowweb.com/';
 //GROUPY
-// export const API_BASE_URL = 'https://dispatch.groupystore.com/';
+ export const API_BASE_URL = 'https://dispatch.groupystore.com/';
 
 //
 // export const API_BASE_URL = 'https://dispatch.samakeemart.com/';
