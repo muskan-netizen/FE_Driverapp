@@ -288,13 +288,15 @@ const shortCodes = {
   dingDongEat: '026f29',
   medicab: '35c021',
   fazeiTeam: 'e8346f',
-  weTogether:'a4996b',
-  Jiffex:'f4af1e',
-  jazzyBug:'7e9e5f',
-  savannaRags:'4e9ab7',
-  amazingTaxi:'693ba8',
-  keystoneDelivery:'182e7b',
-  busTaMove:'6499ab',
+  weTogether: 'a4996b',
+  Jiffex: 'f4af1e',
+  jazzyBug: '7e9e5f',
+  savannaRags: '4e9ab7',
+  amazingTaxi: '693ba8',
+  keystoneDelivery: '182e7b',
+  busTaMove: '6499ab',
+  valley: '58ccd3',
+
 };
 
 const appIds = {
@@ -1468,6 +1470,10 @@ const appIds = {
   busTaMove: Platform.select({
     ios: 'com.BusTaMove.Dispatch',
     android: 'com.BusTaMove.royodispatcher',
+  }),
+  valley: Platform.select({
+    ios: 'com.valley.Dispatch',
+    android: 'com.valley.royodispatcher',
   }),
 };
 
