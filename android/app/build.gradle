@@ -2468,7 +2468,7 @@ android {
             resValue "string", "app_name", "Slider Dispatcher"
         }
 
-  helloDeliver{
+            helloDeliver{
             dimension "appType"
             versionCode 2
             versionName "1.1"
@@ -3134,7 +3134,7 @@ android {
             resValue "string", "app_name", "SwatiRx Dispatcher"
         }
 
- chowHub{
+            chowHub{
             dimension "appType"
             versionCode 1
             versionName "1.0"
@@ -3164,7 +3164,7 @@ android {
             applicationId 'com.Maiz.royodispatcher'
             resValue "string", "app_name", "Maiz Dispatcher"
         }
-  orderFirst{
+     orderFirst{
             dimension "appType"
             versionCode 1
             versionName "1.0"
@@ -3205,7 +3205,7 @@ android {
             applicationId 'com.medicab.royodispatcher'
             resValue "string", "app_name", "Medicab Dispatcher"
         }
-    weTogether{
+        weTogether{
             dimension "appType"
             versionCode 1
             versionName "1.0"
@@ -3267,7 +3267,16 @@ android {
             applicationId 'com.keystoneDelivery.royodispatcher'
             resValue "string", "app_name", "KeystoneDelivery Dispatcher"
         }
-    
+        busTaMove{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.BusTaMove.royodispatcher'
+            resValue "string", "app_name", "BusTaMove Dispatcher"
+        }
 }
  
 
