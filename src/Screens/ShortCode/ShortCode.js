@@ -1809,10 +1809,10 @@ export default function ShortCode({ route, navigation }) {
           });
           break;
         case appIds.jazzyBug:
-            updateState({
-              shortCode: shortCodes.jazzyBug,
-              isShortcodePrefilled: true,
-            });
+          updateState({
+            shortCode: shortCodes.jazzyBug,
+            isShortcodePrefilled: true,
+          });
         case appIds.savannaRags:
           updateState({
             shortCode: shortCodes.savannaRags,
@@ -1831,12 +1831,25 @@ export default function ShortCode({ route, navigation }) {
             isShortcodePrefilled: true,
           });
           break;
-          case appIds.busTaMove:
+        case appIds.busTaMove:
           updateState({
             shortCode: shortCodes.busTaMove,
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.valley:
+          updateState({
+            shortCode: shortCodes.valley,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.myFarma:
+          updateState({
+            shortCode: shortCodes.myFarma,
+            isShortcodePrefilled: true,
+          });
+          break;
+
       }
     })();
   }, [internetConnection]);
