@@ -86,6 +86,10 @@
 // export const API_BASE_URL = 'http://192.168.97.192:8005/'; // harbans local url
 //export const API_BASE_URL = 'https://delivery.shoorafresh.com.au/';
 
+//dimahalal
+
+// export const API_BASE_URL = 'https://dispatch.dimahalal.com/api/v1';
+
 //hellodeliver
 // export const API_BASE_URL = 'https://dispatch.hellodeliver.in/';
 
