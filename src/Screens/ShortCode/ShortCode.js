@@ -1843,6 +1843,13 @@ export default function ShortCode({ route, navigation }) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.myFarma:
+          updateState({
+            shortCode: shortCodes.myFarma,
+            isShortcodePrefilled: true,
+          });
+          break;
+
       }
     })();
   }, [internetConnection]);

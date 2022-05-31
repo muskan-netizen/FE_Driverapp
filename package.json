@@ -587,6 +587,8 @@
     "busTaMovedispatcherRelease": "cd android && ./gradlew assemblebusTaMoveRelease",
     "valleydispatcher": "react-native run-android --variant=valleyDebug",
     "valleydispatcherRelease": "cd android && ./gradlew assemblevalleyRelease",
+    "myFarmadispatcher": "react-native run-android --variant=myFarmaDebug",
+    "myFarmadispatcherRelease": "cd android && ./gradlew assemblemyFarmaRelease",
 
     "android": "react-native run-android",
     "ios": "react-native run-ios",

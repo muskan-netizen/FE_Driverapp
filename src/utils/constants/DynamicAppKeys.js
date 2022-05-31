@@ -296,7 +296,7 @@ const shortCodes = {
   keystoneDelivery: '182e7b',
   busTaMove: '6499ab',
   valley: '58ccd3',
-
+  myFarma: '56ba56',
 };
 
 const appIds = {
@@ -1474,6 +1474,10 @@ const appIds = {
   valley: Platform.select({
     ios: 'com.valley.Dispatch',
     android: 'com.valley.royodispatcher',
+  }),
+  myFarma: Platform.select({
+    ios: 'com.myFarma.driver',
+    android: 'com.myFarma.royodispatcher',
   }),
 };
 
