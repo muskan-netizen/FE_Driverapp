@@ -297,6 +297,7 @@ const shortCodes = {
   busTaMove: '6499ab',
   valley: '58ccd3',
   myFarma: '56ba56',
+  blueBundles:'408285'
 };
 
 const appIds = {
@@ -1478,6 +1479,10 @@ const appIds = {
   myFarma: Platform.select({
     ios: 'com.myFarma.driver',
     android: 'com.myFarma.royodispatcher',
+  }),
+  blueBundles: Platform.select({
+    ios: 'com.blueBundles.driver',
+    android: 'com.blueBundle.royodispatcher',
   }),
 };
 

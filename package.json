@@ -589,6 +589,8 @@
     "valleydispatcherRelease": "cd android && ./gradlew assemblevalleyRelease",
     "myFarmadispatcher": "react-native run-android --variant=myFarmaDebug",
     "myFarmadispatcherRelease": "cd android && ./gradlew assemblemyFarmaRelease",
+    "blueBundlesdispatcher": "react-native run-android --variant=blueBundlesDebug",
+    "blueBundlesdispatcherRelease": "cd android && ./gradlew assembleBlueBundlesRelease",
 
     "android": "react-native run-android",
     "ios": "react-native run-ios",
