@@ -4,6 +4,9 @@
 //Staging
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
 
+// export const API_BASE_URL = 'https://dispatch.swiffy.us/'
+
+// export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
 //
 // export const API_BASE_URL ='http://192.168.96.84:9090/'
 
@@ -39,7 +42,7 @@
 //Mr.Health
 // export const API_BASE_URL = 'https://dispatch.mrhealth.in/';
 
-export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
+// export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
 
 //Developement
 // export const API_BASE_URL = 'https://bafb-103-72-170-243.ngrok.io/';
@@ -111,7 +114,7 @@ export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
 // export const API_BASE_URL = 'https://dispatch.samakeemart.com/';
 
 // mml
-// export const API_BASE_URL = 'https://dispatch.mml.mobi/';
+export const API_BASE_URL = 'https://dispatch.mml.mobi/';
 
 //manda
 // export const API_BASE_URL = 'https://dispatch.mandaexpress.com/';
