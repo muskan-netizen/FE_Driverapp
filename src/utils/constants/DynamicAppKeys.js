@@ -288,8 +288,19 @@ const shortCodes = {
   dingDongEat: '026f29',
   medicab: '35c021',
   fazeiTeam: 'e8346f',
-  weTogether:'a4996b',
-  Jiffex:'f4af1e'
+  weTogether: 'a4996b',
+  Jiffex: 'f4af1e',
+  jazzyBug: '7e9e5f',
+  savannaRags: '4e9ab7',
+  amazingTaxi: '693ba8',
+  keystoneDelivery: '182e7b',
+  busTaMove: '6499ab',
+  valley: '58ccd3',
+  myFarma: '56ba56',
+  blueBundles:'408285',
+  kartandkarry:'5144d0',
+  atasktt:'d89cb3',
+  quicklube:'d9a19b'
 };
 
 const appIds = {
@@ -1447,6 +1458,46 @@ const appIds = {
   Jiffex: Platform.select({
     ios: 'com.jiffex.Dispatch',
     android: 'com.jiffex.royodispatcher',
+  }),
+  jazzyBug: Platform.select({
+    ios: 'com.jazzyBug.Dispatch',
+    android: 'com.jazzyBug.royodispatcher',
+  }),
+  keystoneDelivery: Platform.select({
+    ios: 'com.keystoneDeliver.Dispatch',
+    android: 'com.keystoneDelivery.royodispatcher',
+  }),
+  amazingTaxi: Platform.select({
+    ios: 'com.amazingTaxi.Dispatcher',
+    android: 'com.amazingTaxi.royodispatcher',
+  }),
+  busTaMove: Platform.select({
+    ios: 'com.BusTaMove.Dispatch',
+    android: 'com.BusTaMove.royodispatcher',
+  }),
+  valley: Platform.select({
+    ios: 'com.valley.Dispatch',
+    android: 'com.valley.royodispatcher',
+  }),
+  myFarma: Platform.select({
+    ios: 'com.myFarma.driver',
+    android: 'com.myFarma.royodispatcher',
+  }),
+  blueBundles: Platform.select({
+    ios: 'com.blueBundles.driver',
+    android: 'com.blueBundle.royodispatcher',
+  }),
+  kartandkarry: Platform.select({
+    ios: 'com.kartandkarry.Dispatch',
+    android: 'com.kartandkarry.royodispatcher',
+  }),
+  atasktt: Platform.select({
+    ios: 'com.atasktt.Dispatch',
+    android: 'com.atasktt.royodispatcher',
+  }),
+  quicklube: Platform.select({
+    ios: 'com.quicklube.Dispatch',
+    android: 'com.quicklube.royodispatcher',
   }),
 };
 
