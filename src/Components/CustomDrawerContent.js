@@ -120,15 +120,16 @@ export default function CustomDrawerContent({
   );
 
   console.log(zendeskKeys, 'keys >>>>>>>>>>>>');
+  
   // ZendeskChat.init(
-  //   zendeskKeys?.keys?.account_key,
-  //   zendeskKeys?.keys?.application_id,
+  //   'kI9WjmYer9iy7gCYF2sne4gXUure2AK4',
+  //   'bdea936e4bdb8130bb3f74cf9be7001aeaf503fe61c1543c',
   // );
-  ZendeskChat.init(
-    'kI9WjmYer9iy7gCYF2sne4gXUure2AK4',
-    'bdea936e4bdb8130bb3f74cf9be7001aeaf503fe61c1543c',
-  );
   useEffect(() => {
+    ZendeskChat.init(
+      `${zendeskKeys?.keys?.account_key}`,
+      `${zendeskKeys?.keys?.application_id}`,
+    );
     updateState({
       routes: [
         {
@@ -217,7 +218,7 @@ export default function CustomDrawerContent({
             },
       ],
     });
-  }, [defaultLanguagae]);
+  }, [defaultLanguagae,zendeskKeys?.keys?.account_key,zendeskKeys?.keys?.application_id]);
 
   //
 
