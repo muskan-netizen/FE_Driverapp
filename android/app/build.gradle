@@ -3317,6 +3317,26 @@ android {
             applicationId 'com.kartandkarry.royodispatcher'
             resValue "string", "app_name", "Blue Bundles Dispatcher"
         }
+         atasktt{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.atasktt.royodispatcher'
+            resValue "string", "app_name", "Atasktt Dispatcher"
+        }
+         quicklube{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.quicklube.royodispatcher'
+            resValue "string", "app_name", "Quicklube Dispatcher"
+        }
 }
  
 

@@ -593,6 +593,10 @@
     "blueBundlesdispatcherRelease": "cd android && ./gradlew assembleBlueBundlesRelease",
     "kartandkarrydispatcher": "react-native run-android --variant=kartandkarryDebug",
     "kartandkarrydispatcherRelease": "cd android && ./gradlew assembleKartandkarryRelease",
+    "ataskttdispatcher": "react-native run-android --variant=ataskttDebug",
+    "ataskttdispatcherRelease": "cd android && ./gradlew assembleAtaskttRelease",
+    "quicklubedispatcher": "react-native run-android --variant=quicklubeDebug",
+    "quicklubedispatcherRelease": "cd android && ./gradlew assembleQuicklubeRelease",
 
     "android": "react-native run-android",
     "ios": "react-native run-ios",

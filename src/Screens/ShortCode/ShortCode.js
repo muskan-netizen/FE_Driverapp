@@ -1861,6 +1861,18 @@ export default function ShortCode({ route, navigation }) {
             isShortcodePrefilled: true,
           });
           break;
+          case appIds.atasktt:
+          updateState({
+            shortCode: shortCodes.atasktt,
+            isShortcodePrefilled: true,
+          });
+          break;
+          case appIds.quicklube:
+            updateState({
+              shortCode: shortCodes.quicklube,
+              isShortcodePrefilled: true,
+            });
+            break;
 
       }
     })();
