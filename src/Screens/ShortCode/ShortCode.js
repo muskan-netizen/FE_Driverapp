@@ -1855,6 +1855,12 @@ export default function ShortCode({ route, navigation }) {
             isShortcodePrefilled: true,
           });
           break;
+          case appIds.kartandkarry:
+          updateState({
+            shortCode: shortCodes.kartandkarry,
+            isShortcodePrefilled: true,
+          });
+          break;
 
       }
     })();

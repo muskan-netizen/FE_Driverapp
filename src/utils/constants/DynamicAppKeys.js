@@ -297,7 +297,8 @@ const shortCodes = {
   busTaMove: '6499ab',
   valley: '58ccd3',
   myFarma: '56ba56',
-  blueBundles:'408285'
+  blueBundles:'408285',
+  kartandkarry:'5144d0'
 };
 
 const appIds = {
@@ -1483,6 +1484,10 @@ const appIds = {
   blueBundles: Platform.select({
     ios: 'com.blueBundles.driver',
     android: 'com.blueBundle.royodispatcher',
+  }),
+  kartandkarry: Platform.select({
+    ios: 'com.kartandkarry.Dispatch',
+    android: 'com.kartandkarry.royodispatcher',
   }),
 };
 
