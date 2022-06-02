@@ -1,9 +1,10 @@
 //live
-// export const API_BASE_URL = 'https://api.royodispatch.com/';
+ //export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
+ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
+//export const API_BASE_URL = 'https://dispatch.runrun.ae/';
 //
 // export const API_BASE_URL ='http://192.168.96.84:9090/'
 
@@ -39,7 +40,7 @@
 //Mr.Health
 // export const API_BASE_URL = 'https://dispatch.mrhealth.in/';
 
-// export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
+//export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
 
 //Developement
 // export const API_BASE_URL = 'https://bafb-103-72-170-243.ngrok.io/';
@@ -68,7 +69,7 @@
 //empire
 // export const API_BASE_URL = 'https://dispatch.empirehub.com/';
 //Ullaz
-export const API_BASE_URL = 'https://dispatch.ullaz.co.ke/';
+// export const API_BASE_URL = 'https://dispatch.ullaz.co.ke/';
 
 //LocalDropOff
 // export const API_BASE_URL = 'https://dispatch.localdropoff.info/';
@@ -85,6 +86,10 @@ export const API_BASE_URL = 'https://dispatch.ullaz.co.ke/';
 // export const API_BASE_URL = 'http://192.168.97.192:8005/'; // harbans local url
 //export const API_BASE_URL = 'https://delivery.shoorafresh.com.au/';
 
+//dimahalal
+
+// export const API_BASE_URL = 'https://dispatch.dimahalal.com/api/v1';
+
 //hellodeliver
 // export const API_BASE_URL = 'https://dispatch.hellodeliver.in/';
 
@@ -92,7 +97,7 @@ export const API_BASE_URL = 'https://dispatch.ullaz.co.ke/';
 
 
 //hemptify
-// export const API_BASE_URL = 'https://dispatch.hemptify.com';
+//  export const API_BASE_URL = 'https://dispatch.hemptify.com/';
 
 //Express Delivery
 // export const API_BASE_URL = 'https://dispatch.expresdeliverys.com/';
@@ -105,7 +110,7 @@ export const API_BASE_URL = 'https://dispatch.ullaz.co.ke/';
 //RXNOW
 // export const API_BASE_URL = 'https://dispatch.rxnowweb.com/';
 //GROUPY
-// export const API_BASE_URL = 'https://dispatch.groupystore.com/';
+ //export const API_BASE_URL = 'https://dispatch.groupystore.com/';
 
 //
 // export const API_BASE_URL = 'https://dispatch.samakeemart.com/';

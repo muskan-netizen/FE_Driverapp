@@ -1808,6 +1808,72 @@ export default function ShortCode({ route, navigation }) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.jazzyBug:
+          updateState({
+            shortCode: shortCodes.jazzyBug,
+            isShortcodePrefilled: true,
+          });
+        case appIds.savannaRags:
+          updateState({
+            shortCode: shortCodes.savannaRags,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.amazingTaxi:
+          updateState({
+            shortCode: shortCodes.amazingTaxi,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.keystoneDelivery:
+          updateState({
+            shortCode: shortCodes.keystoneDelivery,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.busTaMove:
+          updateState({
+            shortCode: shortCodes.busTaMove,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.valley:
+          updateState({
+            shortCode: shortCodes.valley,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.myFarma:
+          updateState({
+            shortCode: shortCodes.myFarma,
+            isShortcodePrefilled: true,
+          });
+          break;
+          case appIds.blueBundles:
+          updateState({
+            shortCode: shortCodes.blueBundles,
+            isShortcodePrefilled: true,
+          });
+          break;
+          case appIds.kartandkarry:
+          updateState({
+            shortCode: shortCodes.kartandkarry,
+            isShortcodePrefilled: true,
+          });
+          break;
+          case appIds.atasktt:
+          updateState({
+            shortCode: shortCodes.atasktt,
+            isShortcodePrefilled: true,
+          });
+          break;
+          case appIds.quicklube:
+            updateState({
+              shortCode: shortCodes.quicklube,
+              isShortcodePrefilled: true,
+            });
+            break;
+
       }
     })();
   }, [internetConnection]);
@@ -1866,7 +1932,7 @@ export default function ShortCode({ route, navigation }) {
       }
 
       let updatedShortCode = shortCode;
-     // updatedShortCode = '745e3f';
+      // updatedShortCode = '745e3f';
       //  let updatedShortCode = '745e3f';
 
 
