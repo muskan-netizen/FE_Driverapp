@@ -300,7 +300,8 @@ const shortCodes = {
   blueBundles:'408285',
   kartandkarry:'5144d0',
   atasktt:'d89cb3',
-  quicklube:'d9a19b'
+  quicklube:'d9a19b',
+  sorDelivery:'db178d',
 };
 
 const appIds = {
@@ -1498,6 +1499,10 @@ const appIds = {
   quicklube: Platform.select({
     ios: 'com.quicklube.Dispatch',
     android: 'com.quicklube.royodispatcher',
+  }),
+  sorDelivery: Platform.select({
+    ios: 'com.sorDelivery.Dispatch',
+    android: 'com.sorDelivery.royodispatcher',
   }),
 };
 

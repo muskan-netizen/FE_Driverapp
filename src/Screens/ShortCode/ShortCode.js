@@ -1873,6 +1873,12 @@ export default function ShortCode({ route, navigation }) {
               isShortcodePrefilled: true,
             });
             break;
+            case appIds.sorDelivery:
+              updateState({
+                shortCode: shortCodes.sorDelivery,
+                isShortcodePrefilled: true,
+              });
+              break;
 
       }
     })();
