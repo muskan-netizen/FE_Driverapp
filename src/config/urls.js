@@ -1,8 +1,8 @@
 //live
- //export const API_BASE_URL = 'https://api.royodispatch.com/';
+//  export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-//  export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // export const API_BASE_URL = 'https://dispatch.swiffy.us/'
 
@@ -119,7 +119,7 @@
 // export const API_BASE_URL = 'https://dispatch.samakeemart.com/';
 
 // mml
-export const API_BASE_URL = 'https://dispatch.mml.mobi/';
+// export const API_BASE_URL = 'https://dispatch.mml.mobi/';
 
 //manda
 // export const API_BASE_URL = 'https://dispatch.mandaexpress.com/';

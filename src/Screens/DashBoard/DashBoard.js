@@ -192,7 +192,7 @@ export default function DashBoard({route, navigation}) {
   useFocusEffect(
     React.useCallback(() => {
       updateState({
-        isLoading:true,
+        isLoading: true,
         options: [
           {label: strings.TODAYSTASK, value: 0, testID: '1'},
           {label: strings.ALLTASKS, value: 1, testID: '2'},
@@ -480,46 +480,48 @@ export default function DashBoard({route, navigation}) {
     return (
       <>
         <View style={{flex: 1}}>
-          <FlatList
-            data={selectedOption ? allTasks : todaysTasks}
-            renderItem={renderTaskList}
-            keyExtractor={(item, index) => String(index)}
-            keyboardShouldPersistTaps="always"
-            showsVerticalScrollIndicator={false}
-            style={{
-              flex: 1,
-              backgroundColor: !!(selectedOption == 1 && !allTasks.length)
-                ? colors.backGround
-                : !!(selectedOption == 0 && !todaysTasks.length)
-                ? colors.backGround
-                : colors.white,
-            }}
-            contentContainerStyle={{
-              flexGrow: 1,
-              // marginVertical: moderateScaleVertical(20),
-            }}
-            refreshing={isRefreshing}
-            refreshControl={
-              <RefreshControl
-                refreshing={isRefreshing}
-                onRefresh={handleRefresh}
-                // tintColor={colors.primary_color}
-              />
-            }
-            onEndReached={onEndReachedDelayed}
-            onEndReachedThreshold={0.5}
-            // ListFooterComponent={() => (
-            //   <View style={{height: moderateScaleVertical(65)}} />
-            // )}
-            ListEmptyComponent={
-              <ListEmptyComponent
-                isLoading={isLoading}
-                message={strings.NOTASK}
-                subMessage={strings.NOTASKASSIGNED}
-                containerStyle={{backgroundColor: colors.backGround}}
-              />
-            }
-          />
+          {(selectedOption ? allTasks?.length : todaysTasks?.length) ? (
+            <FlatList
+              data={selectedOption ? allTasks : todaysTasks}
+              renderItem={renderTaskList}
+              keyExtractor={(item, index) => String(index)}
+              keyboardShouldPersistTaps="always"
+              showsVerticalScrollIndicator={false}
+              style={{
+                flex: 1,
+                backgroundColor: !!(selectedOption == 1 && !allTasks.length)
+                  ? colors.backGround
+                  : !!(selectedOption == 0 && !todaysTasks.length)
+                  ? colors.backGround
+                  : colors.white,
+              }}
+              contentContainerStyle={{
+                flexGrow: 1,
+                // marginVertical: moderateScaleVertical(20),
+              }}
+              refreshing={isRefreshing}
+              refreshControl={
+                <RefreshControl
+                  refreshing={isRefreshing}
+                  onRefresh={handleRefresh}
+                  // tintColor={colors.primary_color}
+                />
+              }
+              onEndReached={onEndReachedDelayed}
+              onEndReachedThreshold={0.5}
+              // ListFooterComponent={() => (
+              //   <View style={{height: moderateScaleVertical(65)}} />
+              // )}
+              ListEmptyComponent={
+                <ListEmptyComponent
+                  isLoading={isLoading}
+                  message={strings.NOTASK}
+                  subMessage={strings.NOTASKASSIGNED}
+                  containerStyle={{backgroundColor: colors.backGround}}
+                />
+              }
+            />
+          ) : null}
         </View>
       </>
     );
@@ -692,6 +694,10 @@ export default function DashBoard({route, navigation}) {
     }
   };
 
+  const _onSwitchMapView = () => {
+    updateState({enableMap: !enableMap});
+  };
+
   return (
     <WrapperContainer
       statusBarColor={colors.white}
@@ -706,10 +712,7 @@ export default function DashBoard({route, navigation}) {
         // hideRight={true}
         customCenter={() => customCenter()}
         rightIcon={!enableMap ? imagePath.map : imagePath.listMenu}
-        onPressRight={() => {
-          updateState({enableMap: !enableMap});
-          // navigation.navigate(navigationStrings.SEARCHPRODUCTOVENDOR)
-        }}
+        onPressRight={_onSwitchMapView}
       />
       <View style={{...commonStyles.headerTopLine}} />
       {isWarningAlert && (
