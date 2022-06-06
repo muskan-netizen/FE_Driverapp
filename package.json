@@ -599,6 +599,8 @@
     "quicklubedispatcherRelease": "cd android && ./gradlew assembleQuicklubeRelease",
     "sorDeliverydispatcher": "react-native run-android --variant=sorDeliveryDebug",
     "sorDeliverydispatcherRelease": "cd android && ./gradlew assembleSorDeliveryRelease",
+    "grubHousedispatcher": "react-native run-android --variant=grubHouseDebug",
+    "grubHousedispatcherRelease": "cd android && ./gradlew assembleGrubHouseRelease",
 
     "android": "react-native run-android",
     "ios": "react-native run-ios",

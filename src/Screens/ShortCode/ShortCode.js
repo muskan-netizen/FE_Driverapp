@@ -1879,6 +1879,12 @@ export default function ShortCode({ route, navigation }) {
                 isShortcodePrefilled: true,
               });
               break;
+              case appIds.grubHouse:
+              updateState({
+                shortCode: shortCodes.grubHouse,
+                isShortcodePrefilled: true,
+              });
+              break;
 
       }
     })();
