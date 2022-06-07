@@ -521,7 +521,12 @@ export default function DashBoard({route, navigation}) {
                 />
               }
             />
-          ) : null}
+          ) : <ListEmptyComponent
+          isLoading={isLoading}
+          message={strings.NOTASK}
+          subMessage={strings.NOTASKASSIGNED}
+          containerStyle={{backgroundColor: colors.backGround}}
+        />}
         </View>
       </>
     );
