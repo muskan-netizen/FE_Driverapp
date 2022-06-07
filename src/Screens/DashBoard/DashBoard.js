@@ -48,6 +48,7 @@ import Geolocation_ from '@react-native-community/geolocation';
 import geocoder from 'react-native-geocoder/js/geocoder';
 import {rippleLoader} from '../../Components/Loaders/AnimatedLoaderFiles/index';
 import LottieAnimation from 'lottie-react-native';
+import BackgroundService from 'react-native-background-actions';
 
 // import BackgroundTimer from 'react-native-background-timer';
 
@@ -127,6 +128,7 @@ export default function DashBoard({route, navigation}) {
   const zendeskKeys = useSelector(state => state?.initBoot?.zendeskKeys);
 
   const initWatchPosition = () => {
+    return;
     Geolocation_.watchPosition(
       position => {
         console.log('position => position => position =>', position);
@@ -182,12 +184,104 @@ export default function DashBoard({route, navigation}) {
   //   }, []);
   useEffect(() => {
     initWatchPosition();
+
     const backHandler = BackHandler.addEventListener(
       'hardwareBackPress',
       () => true,
     );
     return () => backHandler.remove();
   }, []);
+
+  const sleep = time =>
+    new Promise(resolve => setTimeout(() => resolve(), time));
+
+  const BackgroundServiceInit = async () => {
+    const veryIntensiveTask = async taskDataArguments => {
+      const {delay} = taskDataArguments;
+      await new Promise(async resolve => {
+        for (let i = 0; BackgroundService.isRunning(); i++) {
+          // await sleep(delay);
+          await sleep(1000000000000);
+        }
+        startLocatonTrack();
+        fetchgentLogs();
+      });
+    };
+
+    const options = {
+      taskName: 'Location Tracking',
+      taskTitle: 'Location Tracking',
+      taskDesc: `Tracking driver's location in background.`,
+      taskIcon: {
+        name: 'ic_launcher',
+        type: 'mipmap',
+      },
+      color: '#ff00ff',
+      parameters: {
+        delay: 1000 * 60 * 60 * 60,
+      },
+    };
+    await BackgroundService.start(veryIntensiveTask, options).then(res =>
+      console.log('check background task initiate', res),
+    );
+    await BackgroundService.updateNotification({
+      taskDesc: 'Background location track enabled',
+    });
+  };
+
+  useEffect(async () => {
+    if (BackgroundService.isRunning()) {
+      await BackgroundService.stop();
+    }
+    if (!BackgroundService.isRunning()) {
+      BackgroundServiceInit();
+      AsyncStorage.getItem('timerWatch').then(res => {
+        const t = JSON.parse(res);
+
+        clearTimeout(t);
+        startLocatonTrack();
+      });
+    }
+
+    return function cleanup() {
+      console.log(' Will unmount ');
+      watchID != null && Geolocation_.clearWatch(watchID);
+    };
+  }, []);
+
+  const startLocatonTrack = () => {
+    console.log('check callback in startLocatonTrack method call');
+    const timer = __DEV__
+      ? 10000
+      : userData?.team?.location_frequency
+      ? Number(userData?.team?.location_frequency) * 60000
+      : 1000 * 60 * 3;
+
+    console.log(timer, 'timer>>>>timer');
+
+    if (userData && userData?.access_token) {
+      getCurrentPosition();
+      var t = setTimeout(() => {
+        startLocatonTrack();
+      }, timer);
+
+      AsyncStorage.setItem('timerWatch', JSON.stringify(t));
+    }
+
+    // var waiting = false; // Initially, we're not waiting
+    // return function () {
+    //   // We return a throttled function
+    //   if (!waiting) {
+    //     // If we're not waiting
+    //     getCurrentPosition(); // Execute users function
+    //     waiting = true; // Prevent future invocations
+    //     setTimeout(function () {
+    //       // After a period of time
+    //       waiting = false; // And allow future invocations
+    //     }, 2000);
+    //   }
+    // };
+  };
 
   useFocusEffect(
     React.useCallback(() => {
