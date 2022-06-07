@@ -7,10 +7,6 @@
 //
 // export const API_BASE_URL ='http://192.168.96.84:9090/'
 
-// yogo Food 
-export const API_BASE_URL ='https://dispatcher.yogo.gd/'
-
-
 //dimavega
 // export const API_BASE_URL ='https://dispatch.dimahalal.com/'
 
@@ -25,7 +21,7 @@ export const API_BASE_URL ='https://dispatcher.yogo.gd/'
 
 //PeerDeliveries
 // export const API_BASE_URL ='https://dispatch.peerdeliveries.com/'
- 
+
 //YogoFood
 //  export const API_BASE_URL = 'https://dispatcher.yogo.gd/';
 
@@ -230,7 +226,7 @@ export const API_BASE_URL ='https://dispatcher.yogo.gd/'
 // export const API_BASE_URL = 'https://dispatch.loopwhole.ca/';
 
 // donepacked live domain
-// export const API_BASE_URL = 'https://dispatch.donepacked.com/';
+export const API_BASE_URL = 'https://dispatch.donepacked.com/';
 
 // elcheregio live domain
 //export const API_BASE_URL = 'https://dispatch.elcheregio.mx/';
@@ -248,8 +244,6 @@ export const API_BASE_URL ='https://dispatcher.yogo.gd/'
 
 //stonses live domain
 //export const API_BASE_URL = 'https://dispatcher.verofax.com/';
-
-
 
 // export const personaltoken = 'TMJdbQlNWkYl1JzMONzRgF4zQFuP8s';
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;

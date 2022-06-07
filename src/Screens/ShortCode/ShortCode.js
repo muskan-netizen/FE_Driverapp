@@ -1808,6 +1808,12 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+          case appIds.savannaRags:
+          updateState({
+            shortCode: shortCodes.savannaRags,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);
