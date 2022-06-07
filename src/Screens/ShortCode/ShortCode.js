@@ -1885,6 +1885,12 @@ export default function ShortCode({ route, navigation }) {
                 isShortcodePrefilled: true,
               });
               break;
+              case appIds.hitchDelivery:
+                updateState({
+                  shortCode: shortCodes.hitchDelivery,
+                  isShortcodePrefilled: true,
+                });
+                break;
 
       }
     })();

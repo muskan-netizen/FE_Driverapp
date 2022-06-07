@@ -3357,6 +3357,16 @@ android {
             applicationId 'com.grubHouse.dispatcher'
             resValue "string", "app_name", "Grub House Dispatcher"
         }
+       hitchDelivery{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.hitchDelivery.dispatcher'
+            resValue "string", "app_name", "Hitch Delivery Dispatcher"
+        }
 }
  
 

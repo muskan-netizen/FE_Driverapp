@@ -601,6 +601,8 @@
     "sorDeliverydispatcherRelease": "cd android && ./gradlew assembleSorDeliveryRelease",
     "grubHousedispatcher": "react-native run-android --variant=grubHouseDebug",
     "grubHousedispatcherRelease": "cd android && ./gradlew assembleGrubHouseRelease",
+    "hitchDeliverydispatcher": "react-native run-android --variant=hitchDeliveryDebug",
+    "hitchDeliverydispatcherRelease": "cd android && ./gradlew assembleHitchDeliveryRelease",
 
     "android": "react-native run-android",
     "ios": "react-native run-ios",

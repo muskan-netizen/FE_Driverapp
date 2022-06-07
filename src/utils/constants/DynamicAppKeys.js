@@ -303,6 +303,7 @@ const shortCodes = {
   quicklube:'d9a19b',
   sorDelivery:'db178d',
   grubHouse:'8f65f7',
+  hitchDelivery:'2246ee'
 };
 
 const appIds = {
@@ -1506,8 +1507,12 @@ const appIds = {
     android: 'com.sorDelivery.royodispatcher',
   }),
   grubHouse: Platform.select({
-    ios: 'com.sorDelivery.Dispatch',
+    ios: 'com.grubHouse.Dispatch',
     android: 'com.grubHouse.dispatcher',
+  }),
+  hitchDelivery: Platform.select({
+    ios: 'com.hitchDelivery.Dispatch',
+    android: 'com.hitchDelivery.dispatcher',
   }),
 };
 
