@@ -7,7 +7,7 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1020845196491:android:065e0b25c44937c954c74e",
+        "mobilesdk_app_id": "1:1020845196491:android:50da911c63700fa154c74e",
         "android_client_info": {
           "package_name": "com.valley.royodispatcher"
         }
@@ -29,6 +29,13 @@
             {
               "client_id": "1020845196491-95fqns7o388fodfurf3kvqui1g8a4pq0.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "1020845196491-8o902ftev0qg0kpcscchgbm3m80ie1pc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.valley.Dispatch"
+              }
             }
           ]
         }
