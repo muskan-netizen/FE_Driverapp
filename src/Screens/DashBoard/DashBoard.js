@@ -211,7 +211,7 @@ export default function DashBoard({route, navigation}) {
     const options = {
       taskName: 'Location Tracking',
       taskTitle: 'Location Tracking',
-      taskDesc: 'Location will be track on background.',
+      taskDesc: `Tracking driver's location in background.`,
       taskIcon: {
         name: 'ic_launcher',
         type: 'mipmap',
