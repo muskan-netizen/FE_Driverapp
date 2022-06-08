@@ -498,7 +498,7 @@ export default function AddMoney({navigation}) {
             {!isLoading && !!payoutDetails?.available_funds ? (
               <TextInputWithlabel
                 label={strings.AVAILABLE_FUNDS}
-                placeholder={String(payoutDetails?.available_funds.toFixed(2))}
+                placeholder={String(payoutDetails?.available_funds)}
                 mainStyle={{
                   marginTop: moderateScale(5),
                 }}

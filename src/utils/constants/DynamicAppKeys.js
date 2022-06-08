@@ -300,7 +300,10 @@ const shortCodes = {
   blueBundles:'408285',
   kartandkarry:'5144d0',
   atasktt:'d89cb3',
-  quicklube:'d9a19b'
+  quicklube:'d9a19b',
+  sorDelivery:'db178d',
+  grubHouse:'8f65f7',
+  hitchDelivery:'2246ee'
 };
 
 const appIds = {
@@ -1493,11 +1496,23 @@ const appIds = {
   }),
   atasktt: Platform.select({
     ios: 'com.atasktt.Dispatch',
-    android: 'com.atasktt.royodispatcher',
+    android: 'com.atasktt.dispatcher',
   }),
   quicklube: Platform.select({
     ios: 'com.quicklube.Dispatch',
     android: 'com.quicklube.royodispatcher',
+  }),
+  sorDelivery: Platform.select({
+    ios: 'com.sorDelivery.Dispatch',
+    android: 'com.sorDelivery.royodispatcher',
+  }),
+  grubHouse: Platform.select({
+    ios: 'com.grubHouse.Dispatch',
+    android: 'com.grubHouse.dispatcher',
+  }),
+  hitchDelivery: Platform.select({
+    ios: 'com.hitchDelivery.Dispatch',
+    android: 'com.hitchDelivery.dispatcher',
   }),
 };
 
