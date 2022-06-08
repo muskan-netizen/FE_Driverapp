@@ -1174,7 +1174,7 @@ const appIds = {
   }),
   getfix: Platform.select({
     ios: 'com.Getfix.Dispatch',
-    android: 'com.Getfix.royodispatcher',
+    android: 'com.Getfix.dispatcher',
   }),
   scoopaTechnologies: Platform.select({
     ios: 'com.ScoopaTechnologies.Dispatch',

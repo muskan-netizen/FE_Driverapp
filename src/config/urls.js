@@ -2,7 +2,7 @@
  //export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
- export const API_BASE_URL = 'https://api.rdstaging.com/';
+  //export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //export const API_BASE_URL = 'https://dispatch.runrun.ae/';
 //
@@ -194,6 +194,8 @@
 
 // blip
 // export const API_BASE_URL = 'https://dispatch.blipdelivery.com/';
+export const API_BASE_URL = 'https://dispatch.getfix.com.my/';
+
 
 // grub and gusto
 // export const API_BASE_URL = 'https://grub.royodispatch.com/'
