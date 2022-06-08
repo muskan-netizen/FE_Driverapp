@@ -39,11 +39,15 @@
 // export const API_BASE_URL= 'https://dispatch.ored.co/';
 
 // export const API_BASE_URL= 'https://dispatch.dbairro.com/'
+// export const API_BASE_URL= 'https://dispatch.getfix.com.my/' //order 
+
 
 
 
 //Mr.Health
 // export const API_BASE_URL = 'https://dispatch.mrhealth.in/';
+// export const API_BASE_URL = 'https://dispatch.palmettoplusdelivered.com/';
+
 
 // export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
 
@@ -62,7 +66,7 @@
 //Fastmikes
 // export const API_BASE_URL = 'https://dispatch.fastmikes.com/';
 // export const API_BASE_URL = 'https://dispatch.beachhopdelivery.com/';
-export const API_BASE_URL = 'https://dispatch.beachhopdelivery.com/';
+// export const API_BASE_URL = 'https://dispatch.beachhopdelivery.com/';
 
 //Seratho
 // export const API_BASE_URL = 'https://dispatch.seratho.com/';
@@ -99,6 +103,7 @@ export const API_BASE_URL = 'https://dispatch.beachhopdelivery.com/';
 // export const API_BASE_URL = 'https://pinkydeli.rdstaging.com/';
 
 
+
 //hemptify
 // export const API_BASE_URL = 'https://dispatch.hemptify.com';
 
@@ -106,6 +111,8 @@ export const API_BASE_URL = 'https://dispatch.beachhopdelivery.com/';
 // export const API_BASE_URL = 'https://dispatch.expresdeliverys.com/';
 //DOORSTEP
 // export const API_BASE_URL = 'https://dispatch.doorstep.sd/';
+// export const API_BASE_URL = 'https://dispatch.ubercann.com/';
+
 
 //Bezaliohub
 // export const API_BASE_URL = 'https://dispatch.bezaliohub.com/'
@@ -217,6 +224,8 @@ export const API_BASE_URL = 'https://dispatch.beachhopdelivery.com/';
 // export const API_BASE_URL = 'https://dispatcher.click-eat.com/'
 
 // export const API_BASE_URL = 'https://dispatch.click2deliver.co.uk/'
+// export const API_BASE_URL = 'https://dispatch.hometowndelivery21.com/'
+
 
 
 
@@ -254,7 +263,7 @@ export const API_BASE_URL = 'https://dispatch.beachhopdelivery.com/';
 // export const API_BASE_URL = 'https://dispatch.sunshinerideshare.com/';
 
 //Swiffy live domain
-// export const API_BASE_URL = 'https://dispatch.swiffy.us/';
+export const API_BASE_URL = 'https://dispatch.swiffy.us/';
 //We eat live
 // export const API_BASE_URL = 'https://weeat.royodispatch.com/';
 
@@ -263,6 +272,7 @@ export const API_BASE_URL = 'https://dispatch.beachhopdelivery.com/';
 
 //stonses live domain
 //export const API_BASE_URL = 'https://dispatcher.verofax.com/';
+
 
 
 

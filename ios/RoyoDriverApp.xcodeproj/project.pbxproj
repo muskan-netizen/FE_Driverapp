@@ -626,6 +626,7 @@
 		0F4A91DD1B37F69F8F070837 /* libPods-available_pods-Yeboy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 637444976CCC35BB05DB09E1 /* libPods-available_pods-Yeboy.a */; };
 		0F4F3C56FA7CA3DB9A41800A /* libPods-available_pods-Stonses.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A05FD87637B30172B5C4370 /* libPods-available_pods-Stonses.a */; };
 		0FD0BC7F7FABECAA74D7902A /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		1006FD712847892A00506744 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1006FD702847892800506744 /* GoogleService-Info.plist */; };
 		1017771ACD4CD7C16F43244B /* libPods-available_pods-MokabFix.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F0A8AB31F56C5C0DB3DF239 /* libPods-available_pods-MokabFix.a */; };
 		101914FB358F182CEE6A76AB /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		10199C892840A59100E3D361 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 10199C882840A58F00E3D361 /* GoogleService-Info.plist */; };
@@ -2372,7 +2373,6 @@
 		845C6785273A531E00EEDDC9 /* ExpressDeliverys(Development).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 845C6784273A531E00EEDDC9 /* ExpressDeliverys(Development).xcconfig */; };
 		845C683B273A534500EEDDC9 /* ExpressDeliverys(Production).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 845C683A273A534500EEDDC9 /* ExpressDeliverys(Production).xcconfig */; };
 		845C6861273A535900EEDDC9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 845C6860273A535900EEDDC9 /* Images.xcassets */; };
-		845C68AB273A544400EEDDC9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 845C68AA273A544400EEDDC9 /* GoogleService-Info.plist */; };
 		845C6965273A565C00EEDDC9 /* ExpressDeliverysLLCInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 845C6964273A565C00EEDDC9 /* ExpressDeliverysLLCInfo.plist */; };
 		845CE0BA27E07564005D953D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		845CE0BC27E07564005D953D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -5267,6 +5267,7 @@
 		0E38C1EFDF40F9A01A3FD18F /* Pods-available_pods-Oxo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-Oxo.debug.xcconfig"; path = "Target Support Files/Pods-available_pods-Oxo/Pods-available_pods-Oxo.debug.xcconfig"; sourceTree = "<group>"; };
 		0F0A8AB31F56C5C0DB3DF239 /* libPods-available_pods-MokabFix.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-available_pods-MokabFix.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F888282B124BBE67114A861 /* libPods-available_pods-BookARyde.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-available_pods-BookARyde.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1006FD702847892800506744 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		10199C882840A58F00E3D361 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		10AF2A84283F9B73001AECFF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		10E13D15C8BA76CC2EA07DAD /* libPods-available_pods-Drus.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-available_pods-Drus.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -6261,7 +6262,6 @@
 		845C6784273A531E00EEDDC9 /* ExpressDeliverys(Development).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "ExpressDeliverys(Development).xcconfig"; sourceTree = "<group>"; };
 		845C683A273A534500EEDDC9 /* ExpressDeliverys(Production).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "ExpressDeliverys(Production).xcconfig"; sourceTree = "<group>"; };
 		845C6860273A535900EEDDC9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		845C68AA273A544400EEDDC9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		845C6964273A565C00EEDDC9 /* ExpressDeliverysLLCInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ExpressDeliverysLLCInfo.plist; sourceTree = "<group>"; };
 		845CE0D327E07564005D953D /* Wer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		845CE29A27E075F9005D953D /* Wer(Development).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Wer(Development).xcconfig"; sourceTree = "<group>"; };
@@ -12472,7 +12472,7 @@
 		845C6783273A52EA00EEDDC9 /* ExpressDeliverys */ = {
 			isa = PBXGroup;
 			children = (
-				845C68AA273A544400EEDDC9 /* GoogleService-Info.plist */,
+				1006FD702847892800506744 /* GoogleService-Info.plist */,
 				845C6784273A531E00EEDDC9 /* ExpressDeliverys(Development).xcconfig */,
 				845C683A273A534500EEDDC9 /* ExpressDeliverys(Production).xcconfig */,
 				845C6860273A535900EEDDC9 /* Images.xcassets */,
@@ -19857,6 +19857,8 @@
 				84D504C1278D61B100795558 /* Resources */,
 				6C95E2B61C3D42A77E94D347 /* [CP] Embed Pods Frameworks */,
 				7A668B4FAB6C2B82E08360F4 /* [CP] Copy Pods Resources */,
+				1006FD6E28476DC600506744 /* Start Packager */,
+				1006FD6F28476E1600506744 /* Bundle React Native code and images */,
 			);
 			buildRules = (
 			);
@@ -24129,10 +24131,10 @@
 				845C6727273A516E00EEDDC9 /* Images.xcassets in Resources */,
 				845C6785273A531E00EEDDC9 /* ExpressDeliverys(Development).xcconfig in Resources */,
 				845C6728273A516E00EEDDC9 /* campton-light.ttf in Resources */,
+				1006FD712847892A00506744 /* GoogleService-Info.plist in Resources */,
 				845C6861273A535900EEDDC9 /* Images.xcassets in Resources */,
 				845C6729273A516E00EEDDC9 /* campton-medium.ttf in Resources */,
 				845C683B273A534500EEDDC9 /* ExpressDeliverys(Production).xcconfig in Resources */,
-				845C68AB273A544400EEDDC9 /* GoogleService-Info.plist in Resources */,
 				845C672B273A516E00EEDDC9 /* notification.mp3 in Resources */,
 				845C672F273A516E00EEDDC9 /* campton-book.ttf in Resources */,
 				845C6732273A516E00EEDDC9 /* campton-semibold.ttf in Resources */,
@@ -29214,6 +29216,42 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-Ordercheckout/Pods-available_pods-Ordercheckout-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		1006FD6E28476DC600506744 /* Start Packager */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Start Packager";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open \"$SRCROOT/../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n  fi\nfi\n";
+		};
+		1006FD6F28476E1600506744 /* Bundle React Native code and images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Bundle React Native code and images";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
 		102236033C63A1AF21D1E955 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -65917,7 +65955,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = 6FXUMT5X23;
+				DEVELOPMENT_TEAM = 63X7XQ5A7F;
 				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
@@ -65957,7 +65995,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = 6FXUMT5X23;
+				DEVELOPMENT_TEAM = 63X7XQ5A7F;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -65978,7 +66016,7 @@
 				PROJECT_BUNDLE_ID = "$(PROJECT_BUNDLE_ID)";
 				PROJECT_NAME = "${PROJECT_NAME}";
 				PROJECT_PLIST = "$(PROJECT_PLIST)";
-				PROVISIONING_PROFILE_SPECIFIER = "ExpressDeliverysLLC Dispatch[App Store]";
+				PROVISIONING_PROFILE_SPECIFIER = "ExpressDeliverysLLC Dispatcher";
 				SWIFT_OBJC_BRIDGING_HEADER = "RoyoDriverApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";

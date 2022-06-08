@@ -1133,7 +1133,7 @@ android {
         }
         swiftandValu{
             dimension "appType"
-            versionCode 1
+            versionCode 2
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
@@ -1860,7 +1860,7 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.HomeTownDeliveryllc.royodispatcher'
+            applicationId 'com.HomeTownDeliveryllc.dispatcher'
             resValue "string", "app_name", "home Town Delivery llc Dispatcher"
         }
         flit{
@@ -2192,13 +2192,13 @@ android {
 
            swiffyLLC{
             dimension "appType"
-            versionCode 1
+            versionCode 2
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.SwiffyLLC.royodispatcher'
-            resValue "string", "app_name", "SwiffyLLC Driver"
+            resValue "string", "app_name", "SWIFFY DRIVER"
         }
         sabroson{
             dimension "appType"
@@ -2344,12 +2344,12 @@ android {
         }
          mrHealth{
             dimension "appType"
-            versionCode 1
+            versionCode 2
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.MrHealth.royodispatcher'
+            applicationId 'com.MrHealth.Dispatcher'
             resValue "string", "app_name", "MrHealth Dispatcher"
         }
         ubi{
@@ -2529,7 +2529,7 @@ android {
         }
         dbairro{
             dimension "appType"
-            versionCode 1
+            versionCode 2
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
@@ -2616,7 +2616,7 @@ android {
 
         beachHop{
             dimension "appType"
-            versionCode 1
+            versionCode 2
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion

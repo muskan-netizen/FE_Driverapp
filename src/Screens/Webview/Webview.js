@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {View, Text} from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 // import {WebView} from 'react-native-webview';
 import {useSelector} from 'react-redux';
 import Header from '../../Components/Header';
@@ -25,8 +26,10 @@ export default function Webview({navigation, route}) {
   //update your state
   const updateState = data => setState(state => ({...state, ...data}));
 
+
   //Redux Store Data
-  const {appStyle} = useSelector(state => state?.initBoot);
+  const {appData, themeColors, themeLayouts, currencies, languages, appStyle,clientInfo} =
+  useSelector(state => state?.initBoot);
   const fontFamily = appStyle?.fontSizeData;
   const commonStyles = commonStylesFun({fontFamily});
   const styles = stylesFun({fontFamily});
@@ -40,9 +43,10 @@ export default function Webview({navigation, route}) {
     getListOfAllCmsLinks();
   }, []);
 
+
   const getListOfAllCmsLinks = () => {
     actions
-      .getListOfAllCmsLinks(`?cms_id=${paramData?.id}`, {}, {})
+      .getListOfAllCmsLinks(`?cms_id=${paramData?.id}`, {}, {client: clientInfo?.database_name})
       .then(res => {
         console.log('All Cms links', res);
         if (res?.data) {
@@ -73,13 +77,14 @@ export default function Webview({navigation, route}) {
       />
       <View style={{...commonStyles.headerTopLine}} />
       {/* <WebView source={{uri: content}} /> */}
-      <View
+      <ScrollView
+      showsVerticalScrollIndicator={false}
         style={{
           marginHorizontal: moderateScale(20),
           marginTop: moderateScale(20),
         }}>
         <Text style={styles.content}>{content}</Text>
-      </View>
+      </ScrollView>
     </WrapperContainer>
   );
 }

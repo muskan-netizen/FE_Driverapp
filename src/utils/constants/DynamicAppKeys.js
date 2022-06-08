@@ -448,7 +448,7 @@ const appIds = {
     android: 'com.app.HMC.royodispatcher',
   }),
   expressdeliverys: Platform.select({
-    ios: 'com.ExpressDeliverysLLC.Dispatch',
+    ios: 'com.ExpressDeliverysLLC.Dispatcher',
     android: 'com.ExpressDeliverysLLC.royodispatcher',
   }),
   fleety: Platform.select({
@@ -933,7 +933,7 @@ const appIds = {
   }),
   hometowndeliveryllc: Platform.select({
     ios: 'com.HomeTownDeliveryllc.Dispatch',
-    android: 'com.HomeTownDeliveryllc.royodispatcher',
+    android: 'com.HomeTownDeliveryllc.dispatcher',
   }),
   flit: Platform.select({
     ios: 'com.Flit.Dispatch',
@@ -1125,7 +1125,7 @@ const appIds = {
   }),
   mrHealth: Platform.select({
     ios: 'com.MrHealth.Dispatch',
-    android: 'com.MrHealth.royodispatcher',
+    android: 'com.MrHealth.Dispatcher',
   }),
   ubi: Platform.select({
     ios: 'com.Ubi.Dispatch',
