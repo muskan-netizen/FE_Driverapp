@@ -1065,7 +1065,7 @@ const appIds = {
   }),
   swiffyLLC: Platform.select({
     ios: 'com.SwiffyLLC.Dispatcher',
-    android: 'com.SwiffyLLC.royodispatcher',
+    android: 'com.SwiffyLLC',
   }),
   sabroson: Platform.select({
     ios: 'com.Sabroson.Dispatch',
