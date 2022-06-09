@@ -2,10 +2,10 @@
  //export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-//export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //export const API_BASE_URL = 'https://dispatch.runrun.ae/';
-export const API_BASE_URL = 'https://dispatch.palmettoplusdelivered.com/';
+//export const API_BASE_URL = 'https://dispatch.palmettoplusdelivered.com/';
 
 //
 // export const API_BASE_URL ='http://192.168.96.84:9090/'

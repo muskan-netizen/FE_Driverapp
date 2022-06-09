@@ -3377,6 +3377,16 @@ android {
             applicationId 'com.zoodMarket.royodispatcher'
             resValue "string", "app_name", "Zood Market Dispatcher"
         }
+        meow{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.meow.royodispatcher'
+            resValue "string", "app_name", "Meow Dispatcher"
+        }
 }
  
 

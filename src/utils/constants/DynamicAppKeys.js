@@ -305,6 +305,7 @@ const shortCodes = {
   grubHouse:'8f65f7',
   hitchDelivery:'2246ee',
   zoodMarket:'a2bcd2',
+  meow:'f45eea',
 };
 
 const appIds = {
@@ -1518,6 +1519,10 @@ const appIds = {
   zoodMarket: Platform.select({
     ios: 'com.zoodMarket.Dispatch',
     android: 'com.zoodMarket.royodispatcher',
+  }),
+  meow: Platform.select({
+    ios: 'com.meow.Dispatch',
+    android: 'com.meow.royodispatcher',
   }),
 };
 

@@ -605,6 +605,8 @@
     "hitchDeliverydispatcherRelease": "cd android && ./gradlew assembleHitchDeliveryRelease",
     "zoodMarketdispatcher": "react-native run-android --variant=zoodMarketDebug",
     "zoodMarketdispatcherRelease": "cd android && ./gradlew assemblezoodMarketRelease",
+    "meowdispatcher": "react-native run-android --variant=meowDebug",
+    "meowdispatcherRelease": "cd android && ./gradlew assemblemeowRelease",
 
     "android": "react-native run-android",
     "ios": "react-native run-ios",

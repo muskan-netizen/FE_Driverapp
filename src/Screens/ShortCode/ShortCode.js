@@ -1897,6 +1897,12 @@ export default function ShortCode({ route, navigation }) {
                     isShortcodePrefilled: true,
                   });
                   break;
+                  case appIds.meow:
+                    updateState({
+                      shortCode: shortCodes.meow,
+                      isShortcodePrefilled: true,
+                    });
+                    break;
 
       }
     })();
