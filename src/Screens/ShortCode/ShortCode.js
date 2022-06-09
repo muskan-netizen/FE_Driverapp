@@ -1849,49 +1849,48 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
-          case appIds.blueBundles:
+        case appIds.blueBundles:
           updateState({
             shortCode: shortCodes.blueBundles,
             isShortcodePrefilled: true,
           });
           break;
-          case appIds.kartandkarry:
+        case appIds.kartandkarry:
           updateState({
             shortCode: shortCodes.kartandkarry,
             isShortcodePrefilled: true,
           });
           break;
-          case appIds.atasktt:
+        case appIds.atasktt:
           updateState({
             shortCode: shortCodes.atasktt,
             isShortcodePrefilled: true,
           });
           break;
-          case appIds.quicklube:
-            updateState({
-              shortCode: shortCodes.quicklube,
-              isShortcodePrefilled: true,
-            });
-            break;
-            case appIds.sorDelivery:
-              updateState({
-                shortCode: shortCodes.sorDelivery,
-                isShortcodePrefilled: true,
-              });
-              break;
-              case appIds.grubHouse:
-              updateState({
-                shortCode: shortCodes.grubHouse,
-                isShortcodePrefilled: true,
-              });
-              break;
-              case appIds.hitchDelivery:
-                updateState({
-                  shortCode: shortCodes.hitchDelivery,
-                  isShortcodePrefilled: true,
-                });
-                break;
-
+        case appIds.quicklube:
+          updateState({
+            shortCode: shortCodes.quicklube,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.sorDelivery:
+          updateState({
+            shortCode: shortCodes.sorDelivery,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.grubHouse:
+          updateState({
+            shortCode: shortCodes.grubHouse,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.hitchDelivery:
+          updateState({
+            shortCode: shortCodes.hitchDelivery,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);
@@ -1951,8 +1950,7 @@ export default function ShortCode({route, navigation}) {
 
       let updatedShortCode = shortCode;
       // updatedShortCode = '745e3f';
-      //  let updatedShortCode = '745e3f';
-
+      // let updatedShortCode = '745e3f';
 
       actions
         .initApp({shortCode: updatedShortCode}, header)
