@@ -1903,6 +1903,12 @@ export default function ShortCode({ route, navigation }) {
                       isShortcodePrefilled: true,
                     });
                     break;
+                    case appIds.carlitoo:
+                      updateState({
+                        shortCode: shortCodes.carlitoo,
+                        isShortcodePrefilled: true,
+                      });
+                      break;
 
       }
     })();

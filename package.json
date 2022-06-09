@@ -607,6 +607,9 @@
     "zoodMarketdispatcherRelease": "cd android && ./gradlew assemblezoodMarketRelease",
     "meowdispatcher": "react-native run-android --variant=meowDebug",
     "meowdispatcherRelease": "cd android && ./gradlew assemblemeowRelease",
+    "carlitoodispatcher": "react-native run-android --variant=carlitooDebug",
+    "carlitoodispatcherRelease": "cd android && ./gradlew assemblecarlitooRelease",
+
 
     "android": "react-native run-android",
     "ios": "react-native run-ios",
