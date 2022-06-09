@@ -1808,6 +1808,24 @@ export default function ShortCode({ route, navigation }) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.savannaRags:
+          updateState({
+            shortCode: shortCodes.savannaRags,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.amazingTaxi:
+          updateState({
+            shortCode: shortCodes.amazingTaxi,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.keystoneDelivery:
+          updateState({
+            shortCode: shortCodes.keystoneDelivery,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);
@@ -1866,7 +1884,7 @@ export default function ShortCode({ route, navigation }) {
       }
 
       let updatedShortCode = shortCode;
-     // updatedShortCode = '745e3f';
+      // updatedShortCode = '745e3f';
       //  let updatedShortCode = '745e3f';
 
 

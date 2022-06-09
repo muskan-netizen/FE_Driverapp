@@ -289,7 +289,10 @@ const shortCodes = {
   medicab: '35c021',
   fazeiTeam: 'e8346f',
   weTogether:'a4996b',
-  Jiffex:'f4af1e'
+  Jiffex:'f4af1e',
+  savannaRags:'4e9ab7',
+  amazingTaxi:'693ba8',
+  keystoneDelivery:'182e7b'
 };
 
 const appIds = {
@@ -1447,6 +1450,19 @@ const appIds = {
   Jiffex: Platform.select({
     ios: 'com.jiffex.Dispatch',
     android: 'com.jiffex.royodispatcher',
+  }),
+
+  savannaRags: Platform.select({
+    ios: 'com.savannaRags.Dispatch',
+    android: 'com.savannaRags.royodispatcher',
+  }),
+  amazingTaxi: Platform.select({
+    ios: 'com.amazingTaxi.Dispatch',
+    android: 'com.amazingTaxi.royodispatcher',
+  }),
+  keystoneDelivery: Platform.select({
+    ios: 'com.keystoneDelivery.Dispatch',
+    android: 'com.keystoneDelivery.royodispatcher',
   }),
 };
 
