@@ -603,8 +603,11 @@
     "grubHousedispatcherRelease": "cd android && ./gradlew assembleGrubHouseRelease",
     "hitchDeliverydispatcher": "react-native run-android --variant=hitchDeliveryDebug",
     "hitchDeliverydispatcherRelease": "cd android && ./gradlew assembleHitchDeliveryRelease",
-    "savannaRagsdispatcher": "react-native run-android --variant=savannaRagsDebug",
-    "savannaRagsdispatcherRelease": "cd android && ./gradlew assembleSavannaRagsRelease",
+    "zoodMarketdispatcher": "react-native run-android --variant=zoodMarketDebug",
+    "zoodMarketdispatcherRelease": "cd android && ./gradlew assemblezoodMarketRelease",
+    "meowdispatcher": "react-native run-android --variant=meowDebug",
+    "meowdispatcherRelease": "cd android && ./gradlew assemblemeowRelease",
+
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",

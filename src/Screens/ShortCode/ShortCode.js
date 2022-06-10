@@ -1891,6 +1891,18 @@ export default function ShortCode({route, navigation}) {
                   isShortcodePrefilled: true,
                 });
                 break;
+                case appIds.zoodMarket:
+                  updateState({
+                    shortCode: shortCodes.zoodMarket,
+                    isShortcodePrefilled: true,
+                  });
+                  break;
+                  case appIds.meow:
+                    updateState({
+                      shortCode: shortCodes.meow,
+                      isShortcodePrefilled: true,
+                    });
+                    break;
 
       }
     })();
@@ -1951,7 +1963,7 @@ export default function ShortCode({route, navigation}) {
 
       let updatedShortCode = shortCode;
       // updatedShortCode = '745e3f';
-      //  let updatedShortCode = '745e3f';
+      //  let updatedShortCode = 'b077a9';
 
 
       actions
