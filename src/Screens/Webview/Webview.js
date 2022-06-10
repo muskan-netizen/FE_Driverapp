@@ -30,6 +30,7 @@ export default function Webview({navigation, route}) {
   const fontFamily = appStyle?.fontSizeData;
   const commonStyles = commonStylesFun({fontFamily});
   const styles = stylesFun({fontFamily});
+  const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
 
   //Navigation to specific screen
   const moveToNewScreen = (screenName, data) => () => {
@@ -42,7 +43,7 @@ export default function Webview({navigation, route}) {
 
   const getListOfAllCmsLinks = () => {
     actions
-      .getListOfAllCmsLinks(`?cms_id=${paramData?.id}`, {}, {})
+      .getListOfAllCmsLinks(`?cms_id=${paramData?.id}`, {}, {client: clientInfo?.database_name})
       .then(res => {
         console.log('All Cms links', res);
         if (res?.data) {

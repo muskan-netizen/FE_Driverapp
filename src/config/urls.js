@@ -1,14 +1,17 @@
 //live
-// export const API_BASE_URL = 'https://api.royodispatch.com/';
+//  export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
 export const API_BASE_URL = 'https://api.rdstaging.com/';
 
+// export const API_BASE_URL = 'https://dispatch.drusdeliveries.com/';
+
+// export const API_BASE_URL = 'https://dispatch.swiffy.us/'
+
+// export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
+//export const API_BASE_URL = 'https://dispatch.runrun.ae/';
 //
 // export const API_BASE_URL ='http://192.168.96.84:9090/'
-
-// yogo Food
-// export const API_BASE_URL = 'https://dispatcher.yogo.gd/';
 
 //dimavega
 // export const API_BASE_URL ='https://dispatch.dimahalal.com/'
@@ -24,6 +27,9 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //PeerDeliveries
 // export const API_BASE_URL ='https://dispatch.peerdeliveries.com/'
+
+//YogoFood
+//  export const API_BASE_URL = 'https://dispatcher.yogo.gd/';
 
 //Dlvrd
 // export const API_BASE_URL = 'https://dlvrd-dispatch.netsolutionindia.com/';
@@ -80,13 +86,17 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'http://192.168.96.84:9090/'; // harbans local url
 //export const API_BASE_URL = 'https://delivery.shoorafresh.com.au/';
 
+//dimahalal
+
+// export const API_BASE_URL = 'https://dispatch.dimahalal.com/api/v1';
+
 //hellodeliver
 // export const API_BASE_URL = 'https://dispatch.hellodeliver.in/';
 
 // export const API_BASE_URL = 'https://pinkydeli.rdstaging.com/';
 
 //hemptify
-// export const API_BASE_URL = 'https://dispatch.hemptify.com';
+//  export const API_BASE_URL = 'https://dispatch.hemptify.com/';
 
 //Express Delivery
 // export const API_BASE_URL = 'https://dispatch.expresdeliverys.com/';
@@ -99,7 +109,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //RXNOW
 // export const API_BASE_URL = 'https://dispatch.rxnowweb.com/';
 //GROUPY
-// export const API_BASE_URL = 'https://dispatch.groupystore.com/';
+//export const API_BASE_URL = 'https://dispatch.groupystore.com/';
 
 //
 // export const API_BASE_URL = 'https://dispatch.samakeemart.com/';
