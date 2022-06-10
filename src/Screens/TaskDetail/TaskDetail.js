@@ -778,10 +778,10 @@ export default function TaskDetail({route, navigation}) {
               )}
             </View>
           </View>
-
+      
           {/* Phone and email view */}
           {(taskDetail?.tasktype?.name).toLowerCase() == 'drop' ? (
-            <View>
+            <View >
               {!!(
                 taskDetail?.order?.Recipient_email ||
                 taskDetail?.order?.recipient_phone
@@ -810,6 +810,7 @@ export default function TaskDetail({route, navigation}) {
                         flexDirection: 'row',
                         marginTop: moderateScale(10),
                         alignItems: 'center',
+                        flex:0.65
                       }}>
                       <Image
                         source={imagePath.mail2}
@@ -820,6 +821,7 @@ export default function TaskDetail({route, navigation}) {
                       </Text>
                     </TouchableOpacity>
                   )}
+                 
                   {!!taskDetail?.order?.recipient_phone && (
                     <TouchableOpacity
                       onPress={
@@ -836,13 +838,14 @@ export default function TaskDetail({route, navigation}) {
                         flexDirection: 'row',
                         marginTop: moderateScale(10),
                         alignItems: 'center',
+                        flex:0.3
                       }}>
                       <Image
                         source={imagePath.phone2}
                         style={{marginRight: moderateScale(5)}}
                       />
                       <Text style={styles.emailAndPhone}>
-                        {taskDetail?.order?.recipient_phone}
+                        {taskDetail?.location?.phone_number}
                       </Text>
                     </TouchableOpacity>
                   )}
@@ -885,6 +888,7 @@ export default function TaskDetail({route, navigation}) {
                         flexDirection: 'row',
                         marginTop: moderateScale(10),
                         alignItems: 'center',
+                        flex:0.7
                       }}>
                       <Image
                         source={imagePath.mail2}
@@ -906,6 +910,8 @@ export default function TaskDetail({route, navigation}) {
                         flexDirection: 'row',
                         marginTop: moderateScale(10),
                         alignItems: 'center',
+                        flex:0.3
+                    
                       }}>
                       <Image
                         source={imagePath.phone2}

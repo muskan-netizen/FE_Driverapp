@@ -579,6 +579,8 @@
     "jiffexdispatcherRelease": "cd android && ./gradlew assembleJiffexRelease",
     "weTogetherdispatcher": "react-native run-android --variant=weTogetherDebug",
     "weTogetherdispatcherRelease": "cd android && ./gradlew assembleWeTogetherRelease",
+    "savannaRagsdispatcher": "react-native run-android --variant=savannaRagsDebug",
+    "savannaRagsdispatcherRelease": "cd android && ./gradlew assembleSavannaRagsRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
