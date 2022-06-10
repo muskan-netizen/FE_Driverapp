@@ -656,7 +656,7 @@ export default function TaskCompleteDocument({route, navigation}) {
               {strings.TOTALDISTANCE}
             </Text>
             <Text style={styles.distanceTimeTextStyle}>
-              {Number(
+              {taskDetail?.order?.actual_distance?taskDetail?.order?.actual_distance: Number(
                 totalTravelData?.distance?.text.substring(
                   0,
                   totalTravelData?.distance?.text.length - 2,
@@ -670,7 +670,7 @@ export default function TaskCompleteDocument({route, navigation}) {
               {strings.TOTALTIME}
             </Text>
             <Text style={styles.distanceTimeTextStyle}>
-              {totalTravelData?.duration?.text}
+              {taskDetail?.order?.actual_time?taskDetail?.order?.actual_time:totalTravelData?.duration?.text}
             </Text>
           </View>
         </View>
