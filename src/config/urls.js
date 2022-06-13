@@ -1,15 +1,18 @@
 //live
- //export const API_BASE_URL = 'https://api.royodispatch.com/';
+//  export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
 export const API_BASE_URL = 'https://api.rdstaging.com/';
+
+// export const API_BASE_URL = 'https://dispatch.drusdeliveries.com/';
+
+// export const API_BASE_URL = 'https://dispatch.mobimarket.com.mx/'
+// export const API_BASE_URL = 'https://dispatch.swiffy.us/'
+
+// export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
 //export const API_BASE_URL = 'https://dispatch.runrun.ae/';
 //
 // export const API_BASE_URL ='http://192.168.96.84:9090/'
-
-// yogo Food 
-// export const API_BASE_URL ='https://dispatcher.yogo.gd/'
-
 
 //dimavega
 // export const API_BASE_URL ='https://dispatch.dimahalal.com/'
@@ -25,7 +28,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //PeerDeliveries
 // export const API_BASE_URL ='https://dispatch.peerdeliveries.com/'
- 
+
 //YogoFood
 //  export const API_BASE_URL = 'https://dispatcher.yogo.gd/';
 
@@ -34,7 +37,6 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //Ored
 // export const API_BASE_URL= 'https://dispatch.ored.co/';
-
 
 //Mr.Health
 // export const API_BASE_URL = 'https://dispatch.mrhealth.in/';
@@ -74,7 +76,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.localdropoff.info/';
 //Onscart
 // export const API_BASE_URL = 'https://dispatch.onscart.com/';
-//Pickmeup 
+//Pickmeup
 // export const API_BASE_URL = 'https://pickmeup.royodispatch.com/';
 // export const API_BASE_URL = 'http://192.168.101.187:8001/'; // preet local url
 // export const API_BASE_URL = 'http://192.168.102.23:8005/'; // Gourav.s local url
@@ -82,17 +84,20 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //export const API_BASE_URL = 'http://192.168.100.143:8000/';
 
 //
-// export const API_BASE_URL = 'http://192.168.97.192:8005/'; // harbans local url
+// export const API_BASE_URL = 'http://192.168.96.84:9090/'; // harbans local url
 //export const API_BASE_URL = 'https://delivery.shoorafresh.com.au/';
+
+//dimahalal
+
+// export const API_BASE_URL = 'https://dispatch.dimahalal.com/api/v1';
 
 //hellodeliver
 // export const API_BASE_URL = 'https://dispatch.hellodeliver.in/';
 
 // export const API_BASE_URL = 'https://pinkydeli.rdstaging.com/';
 
-
 //hemptify
-// export const API_BASE_URL = 'https://dispatch.hemptify.com';
+//  export const API_BASE_URL = 'https://dispatch.hemptify.com/';
 
 //Express Delivery
 // export const API_BASE_URL = 'https://dispatch.expresdeliverys.com/';
@@ -105,13 +110,14 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //RXNOW
 // export const API_BASE_URL = 'https://dispatch.rxnowweb.com/';
 //GROUPY
-// export const API_BASE_URL = 'https://dispatch.groupystore.com/';
+//export const API_BASE_URL = 'https://dispatch.groupystore.com/';
 
 //
 // export const API_BASE_URL = 'https://dispatch.samakeemart.com/';
 
 // mml
 // export const API_BASE_URL = 'https://dispatch.mml.mobi/';
+
 
 //manda
 // export const API_BASE_URL = 'https://dispatch.mandaexpress.com/';
@@ -231,7 +237,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //loopwhole live domain
 // export const API_BASE_URL = 'https://dispatch.loopwhole.ca/';
 
-//donepacked live domain
+// donepacked live domain
 // export const API_BASE_URL = 'https://dispatch.donepacked.com/';
 
 // elcheregio live domain
@@ -250,8 +256,6 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //stonses live domain
 //export const API_BASE_URL = 'https://dispatcher.verofax.com/';
-
-
 
 // export const personaltoken = 'TMJdbQlNWkYl1JzMONzRgF4zQFuP8s';
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;
