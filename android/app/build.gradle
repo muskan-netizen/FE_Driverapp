@@ -1885,13 +1885,13 @@ android {
         }
          ullaz{
             dimension "appType"
-            versionCode 2
+            versionCode 3
             versionName "1.1"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.Ullaz.royodispatcher'
-            resValue "string", "app_name", "ullaz Dispatcher"
+            resValue "string", "app_name", "ullaz Agent"
         }
         privatepremiumpickups{
             dimension "appType"
@@ -3068,7 +3068,7 @@ android {
 
         peerDeliveries{
             dimension "appType"
-            versionCode 1
+            versionCode 2
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion

@@ -27,7 +27,7 @@
 // export const API_BASE_URL ="https://dispatch.ipickndrop.com/"
 
 //PeerDeliveries
-// export const API_BASE_URL ='https://dispatch.peerdeliveries.com/'
+export const API_BASE_URL ='https://dispatch.peerdeliveries.com/'
  
 //YogoFood
 //  export const API_BASE_URL = 'https://dispatcher.yogo.gd/';
@@ -263,7 +263,7 @@
 // export const API_BASE_URL = 'https://dispatch.sunshinerideshare.com/';
 
 //Swiffy live domain
-export const API_BASE_URL = 'https://dispatch.swiffy.us/';
+// export const API_BASE_URL = 'https://dispatch.swiffy.us/';
 //We eat live
 // export const API_BASE_URL = 'https://weeat.royodispatch.com/';
 
