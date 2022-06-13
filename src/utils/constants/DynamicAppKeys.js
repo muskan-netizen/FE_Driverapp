@@ -1177,7 +1177,7 @@ const appIds = {
     android: 'com.Delivadrinks.royodispatcher',
   }),
   getfix: Platform.select({
-    ios: 'com.Getfix.Dispatch',
+    ios: 'com.Getfix.Dispatcher',
     android: 'com.Getfix.dispatcher',
   }),
   scoopaTechnologies: Platform.select({
@@ -1293,8 +1293,8 @@ const appIds = {
     android: 'com.MediPick.royodispatcher',
   }),
   meltivers: Platform.select({
-    ios: 'com.Meltivers.Dispatch',
-    android: 'com.Meltivers.royodispatcher',
+    ios: 'com.Meltivers.Dispatcher',
+    android: 'com.Meltivers.dispatcher',
   }),
   ensoDigitalAgency: Platform.select({
     ios: 'com.EnsoDigitalAgency.Dispatch',
