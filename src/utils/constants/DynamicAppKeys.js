@@ -303,7 +303,11 @@ const shortCodes = {
   quicklube:'d9a19b',
   sorDelivery:'db178d',
   grubHouse:'8f65f7',
-  hitchDelivery:'2246ee'
+  hitchDelivery:'2246ee',
+  zoodMarket:'a2bcd2',
+  meow:'f45eea',
+  carlitoo:'1a455b',
+  dingDongDelivers:'95d213',
 };
 
 const appIds = {
@@ -1001,8 +1005,8 @@ const appIds = {
     android: 'com.KeyDiscovery.royodispatcher',
   }),
   palmettoplus: Platform.select({
-    ios: 'com.Palmettoplus.Dispatch',
-    android: 'com.Palmettoplus.royodispatcher',
+    ios: 'com.Palmettoplus.Dispatcher',
+    android: 'com.Palmettoplus.dispatcher',
   }),
   halaTalabat: Platform.select({
     ios: 'com.HalaTalabat.Dispatch',
@@ -1174,7 +1178,7 @@ const appIds = {
   }),
   getfix: Platform.select({
     ios: 'com.Getfix.Dispatch',
-    android: 'com.Getfix.royodispatcher',
+    android: 'com.Getfix.dispatcher',
   }),
   scoopaTechnologies: Platform.select({
     ios: 'com.ScoopaTechnologies.Dispatch',
@@ -1513,6 +1517,22 @@ const appIds = {
   hitchDelivery: Platform.select({
     ios: 'com.hitchDelivery.Dispatch',
     android: 'com.hitchDelivery.dispatcher',
+  }),
+  zoodMarket: Platform.select({
+    ios: 'com.zoodMarket.Dispatch',
+    android: 'com.zoodMarket.royodispatcher',
+  }),
+  meow: Platform.select({
+    ios: 'com.meow.Dispatch',
+    android: 'com.meow.royodispatcher',
+  }),
+  carlitoo: Platform.select({
+    ios: 'com.Carlitoo.Dispatch',
+    android: 'com.carlitoo.royodispatcher',
+  }),
+  dingDongDelivers: Platform.select({
+    ios: 'com.dingDongDelivers.Dispatch',
+    android: 'com.dingDongDelivers.royodispatcher',
   }),
 };
 

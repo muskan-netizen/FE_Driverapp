@@ -2,9 +2,12 @@
  //export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
- export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
+//export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
 
 //export const API_BASE_URL = 'https://dispatch.runrun.ae/';
+//export const API_BASE_URL = 'https://dispatch.palmettoplusdelivered.com/';
+
 //
 // export const API_BASE_URL ='http://192.168.96.84:9090/'
 
@@ -94,6 +97,8 @@
 // export const API_BASE_URL = 'https://dispatch.hellodeliver.in/';
 
 // export const API_BASE_URL = 'https://pinkydeli.rdstaging.com/';
+//export const API_BASE_URL = 'https://dispatch.pinkjettaxi.com/';
+
 
 
 //hemptify
@@ -194,6 +199,8 @@
 
 // blip
 // export const API_BASE_URL = 'https://dispatch.blipdelivery.com/';
+//export const API_BASE_URL = 'https://dispatch.getfix.com.my/';
+
 
 // grub and gusto
 // export const API_BASE_URL = 'https://grub.royodispatch.com/'
