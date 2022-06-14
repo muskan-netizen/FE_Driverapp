@@ -308,6 +308,7 @@ const shortCodes = {
   meow:'f45eea',
   carlitoo:'1a455b',
   dingDongDelivers:'95d213',
+  kurs:'e7c7e4',
 };
 
 const appIds = {
@@ -730,7 +731,7 @@ const appIds = {
   }),
   mobi: Platform.select({
     ios: 'com.MOBI.Dispatch',
-    android: 'com.Mobi.royodispatcher',
+    android: 'com.Mobi.dispatcher',
   }),
   samakeeMart: Platform.select({
     ios: 'com.SamakeeMart.Dispatcher',
@@ -1533,6 +1534,10 @@ const appIds = {
   dingDongDelivers: Platform.select({
     ios: 'com.dingDongDelivers.Dispatch',
     android: 'com.dingDongDelivers.royodispatcher',
+  }),
+  kurs: Platform.select({
+    ios: 'com.kurs.Dispatch',
+    android: 'com.kurs.royodispatcher',
   }),
 };
 
