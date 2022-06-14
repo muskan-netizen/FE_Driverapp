@@ -615,8 +615,10 @@
     "carlitoodispatcherRelease": "cd android && ./gradlew assemblecarlitooRelease",
     "dingDongDeliversdispatcher": "react-native run-android --variant=dingDongDeliversDebug",
     "dingDongDeliversdispatcherRelease": "cd android && ./gradlew assembledingDongDeliversRelease",
-
-
+    "kursdispatcher": "react-native run-android --variant=kursDebug",
+    "kursdispatcherRelease": "cd android && ./gradlew assembleKursRelease",
+    "torunzdispatcher": "react-native run-android --variant=torunzDebug",
+    "torunzdispatcherRelease": "cd android && ./gradlew assembleTorunzRelease",
 
     "android": "react-native run-android",
     "ios": "react-native run-ios",

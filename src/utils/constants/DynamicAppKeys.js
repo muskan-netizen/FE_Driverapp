@@ -309,6 +309,7 @@ const shortCodes = {
   carlitoo:'1a455b',
   dingDongDelivers:'95d213',
   kurs:'e7c7e4',
+  torunz:'4786a9'
 };
 
 const appIds = {
@@ -1538,6 +1539,10 @@ const appIds = {
   kurs: Platform.select({
     ios: 'com.kurs.Dispatch',
     android: 'com.kurs.royodispatcher',
+  }),
+  torunz: Platform.select({
+    ios: 'com.torunz.Dispatch',
+    android: 'com.torunz.royodispatcher',
   }),
 };
 

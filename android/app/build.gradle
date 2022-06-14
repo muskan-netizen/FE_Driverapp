@@ -2761,13 +2761,13 @@ android {
 
          meltivers{
             dimension "appType"
-            versionCode 1
+            versionCode 3
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.Meltivers.dispatcher'
-            resValue "string", "app_name", "Meltivers Dispatcher"
+            resValue "string", "app_name", "Meltivers Driver"
         }
 
         ensoDigitalAgency{
@@ -3406,6 +3406,26 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.dingDongDelivers.royodispatcher'
             resValue "string", "app_name", "Ding Dong Delivers Dispatcher"
+        }
+         kurs{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.kurs.royodispatcher'
+            resValue "string", "app_name", "Kurs Dispatcher"
+        }
+         torunz{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.torunz.royodispatcher'
+            resValue "string", "app_name", "Torunz Dispatcher"
         }
 }
  
