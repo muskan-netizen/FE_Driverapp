@@ -306,6 +306,8 @@ const shortCodes = {
   hitchDelivery:'2246ee',
   zoodMarket:'a2bcd2',
   meow:'f45eea',
+  carlitoo:'1a455b',
+  dingDongDelivers:'95d213',
 };
 
 const appIds = {
@@ -1523,6 +1525,14 @@ const appIds = {
   meow: Platform.select({
     ios: 'com.meow.Dispatch',
     android: 'com.meow.royodispatcher',
+  }),
+  carlitoo: Platform.select({
+    ios: 'com.Carlitoo.Dispatch',
+    android: 'com.carlitoo.royodispatcher',
+  }),
+  dingDongDelivers: Platform.select({
+    ios: 'com.dingDongDelivers.Dispatch',
+    android: 'com.dingDongDelivers.royodispatcher',
   }),
 };
 

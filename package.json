@@ -611,6 +611,12 @@
     "zoodMarketdispatcherRelease": "cd android && ./gradlew assemblezoodMarketRelease",
     "meowdispatcher": "react-native run-android --variant=meowDebug",
     "meowdispatcherRelease": "cd android && ./gradlew assemblemeowRelease",
+    "carlitoodispatcher": "react-native run-android --variant=carlitooDebug",
+    "carlitoodispatcherRelease": "cd android && ./gradlew assemblecarlitooRelease",
+    "dingDongDeliversdispatcher": "react-native run-android --variant=dingDongDeliversDebug",
+    "dingDongDeliversdispatcherRelease": "cd android && ./gradlew assembledingDongDeliversRelease",
+
+
 
     "android": "react-native run-android",
     "ios": "react-native run-ios",
