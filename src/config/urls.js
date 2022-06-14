@@ -100,6 +100,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.hellodeliver.in/';
 
 // export const API_BASE_URL = 'https://pinkydeli.rdstaging.com/';
+
 //export const API_BASE_URL = 'https://dispatch.pinkjettaxi.com/';
 
 
@@ -203,7 +204,10 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.blipdelivery.com/';
 //export const API_BASE_URL = 'https://dispatch.getfix.com.my/';
 
+//export const API_BASE_URL = 'https://dispatch.meltivers.com/';
 
+
+//export const API_BASE_URL = 'https://dispatch.mobimarket.com.mx/';
 // grub and gusto
 // export const API_BASE_URL = 'https://grub.royodispatch.com/'
 
