@@ -2,7 +2,7 @@
 //  export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
 //export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
 
@@ -240,7 +240,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.helpnowrightnow.com/';
 
 // tranzit live domain
-// export const API_BASE_URL = 'https://dispatch.tranzit.app/';
+export const API_BASE_URL = 'https://dispatch.tranzit.app/';
 // africanvillage
 // export const API_BASE_URL = 'https://dispatch.africanvillage.market/'
 // swiftandvalu
