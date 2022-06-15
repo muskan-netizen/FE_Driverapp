@@ -407,9 +407,12 @@ const NotificationModal = () => {
     let notifData = notificationData?.notificationData?.data;
 
     let data = {};
-    data['order_id'] = notifData?.order_id;
+    data['order_id'] = !!notifData?.batch_no
+      ? notifData?.batch_no
+      : notifData?.order_id;
     data['driver_id'] = notifData?.driver_id;
     data['status'] = status;
+    data['type'] = !!notifData?.batch_no ? 'B' : 'O';
 
     console.log(data, 'data accept reject');
     actions
