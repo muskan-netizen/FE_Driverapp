@@ -4,6 +4,9 @@
 //Staging
 export const API_BASE_URL = 'https://api.rdstaging.com/';
 
+//Staging
+// export const API_BASE_URL = 'https://api.winhires.com/';
+
 // export const API_BASE_URL = 'https://dispatch.drusdeliveries.com/';
 
 // export const API_BASE_URL = 'https://dispatch.swiffy.us/'
