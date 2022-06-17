@@ -14,14 +14,17 @@
 //export const API_BASE_URL = 'https://dispatch.runrun.ae/';
 //export const API_BASE_URL = 'https://dispatch.palmettoplusdelivered.com/';
 
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
 //export const API_BASE_URL = 'https://dispatch.runrun.ae/';
 //
 // export const API_BASE_URL ='http://192.168.96.84:9090/'
 
+//fairex
+// export const API_BASE_URL = 'https://dispatch.fairexglobal.com/'
 //dimavega
 // export const API_BASE_URL ='https://dispatch.dimahalal.com/'
 
+//beachhop
+// export const API_BASE_URL = 'https://dispatch.beachhopdelivery.com/'
 //gdotdelivery
 // export const API_BASE_URL ='https://dispatch.gdotdelivery.com/'
 
@@ -216,7 +219,8 @@
 
 // destinationops app domain
 // export const API_BASE_URL = 'https://dispatch.destinationops.com/';
-
+// bluebundles
+export const API_BASE_URL = 'https://dispatch.bluebundles.org/'
 // somame live domain
 // export const API_BASE_URL = 'https://dispatch.somame-247.com/';
 
@@ -240,7 +244,7 @@
 // export const API_BASE_URL = 'https://dispatch.helpnowrightnow.com/';
 
 // tranzit live domain
-export const API_BASE_URL = 'https://dispatch.tranzit.app/';
+// export const API_BASE_URL = 'https://dispatch.tranzit.app/';
 // africanvillage
 // export const API_BASE_URL = 'https://dispatch.africanvillage.market/'
 // swiftandvalu
