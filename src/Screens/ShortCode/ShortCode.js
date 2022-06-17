@@ -1927,6 +1927,12 @@ export default function ShortCode({route, navigation}) {
               isShortcodePrefilled: true,
             });
             break;
+            case appIds.spa:
+              updateState({
+                shortCode: shortCodes.spa,
+                isShortcodePrefilled: true,
+              });
+              break;
       }
     })();
   }, [internetConnection]);

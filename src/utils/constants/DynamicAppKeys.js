@@ -309,7 +309,8 @@ const shortCodes = {
   carlitoo:'1a455b',
   dingDongDelivers:'95d213',
   kurs:'e7c7e4',
-  torunz:'4786a9'
+  torunz:'4786a9',
+  spa:'69dd33',
 };
 
 const appIds = {
@@ -731,7 +732,7 @@ const appIds = {
     android: 'com.Marasym.royodispatcher',
   }),
   mobi: Platform.select({
-    ios: 'com.MOBI.Dispatch',
+    ios: 'com.MOBI.Dispatcher',
     android: 'com.Mobi.dispatcher',
   }),
   samakeeMart: Platform.select({
@@ -1335,8 +1336,8 @@ const appIds = {
     android: 'com.Cartnar.royodispatcher',
   }),
   uven: Platform.select({
-    ios: 'com.Uven.Dispatch',
-    android: 'com.Uven.royodispatcher',
+    ios: 'com.Uven.Dispatcher',
+    android: 'com.Uven.dispatcher',
   }),
   pAS41: Platform.select({
     ios: 'com.PAS41.Dispatch',
@@ -1543,6 +1544,10 @@ const appIds = {
   torunz: Platform.select({
     ios: 'com.torunz.Dispatch',
     android: 'com.torunz.royodispatcher',
+  }),
+  spa: Platform.select({
+    ios: 'com.spa.Dispatch',
+    android: 'com.spa.royodispatcher',
   }),
 };
 

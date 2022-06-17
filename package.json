@@ -407,7 +407,7 @@
     "godispatcherRelease": "cd android && ./gradlew assembleGoRelease",
     "baubaudispatcher": "react-native run-android --variant=baubauebug",
     "baubaudispatcherRelease": "cd android && ./gradlew assembleBaubauRelease",
-    "bookarydedispatcher": "react-native run-android --variant=bookarydeebug",
+    "bookarydedispatcher": "react-native run-android --variant=bookarydeDebug",
     "bookarydedispatcherRelease": "cd android && ./gradlew assembleBookarydeRelease",
     "mandaExpressdispatcher": "react-native run-android --variant=mandaExpressebug",
     "mandaExpressdispatcherRelease": "cd android && ./gradlew assembleMandaExpressRelease",
@@ -619,6 +619,8 @@
     "kursdispatcherRelease": "cd android && ./gradlew assembleKursRelease",
     "torunzdispatcher": "react-native run-android --variant=torunzDebug",
     "torunzdispatcherRelease": "cd android && ./gradlew assembleTorunzRelease",
+    "spadispatcher": "react-native run-android --variant=spaDebug",
+    "spadispatcherRelease": "cd android && ./gradlew assembleSpaRelease",
 
     "android": "react-native run-android",
     "ios": "react-native run-ios",
