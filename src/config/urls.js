@@ -222,7 +222,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //export const API_BASE_URL = 'https://dispatcher.runrun.ae/';
 
 // drivree live domain
-//export const API_BASE_URL = 'https://dispatcher.drivereeshops.com/';
+// export const API_BASE_URL = 'https://dispatcher.drivereeshops.com/';
 
 // helpNowRightNow live domain
 // export const API_BASE_URL = 'https://dispatch.helpnowrightnow.com/';
