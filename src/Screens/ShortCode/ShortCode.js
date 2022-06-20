@@ -1891,8 +1891,6 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
-<<<<<<< HEAD
-=======
         case appIds.zoodMarket:
           updateState({
             shortCode: shortCodes.zoodMarket,
@@ -1917,19 +1915,18 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
-          case appIds.kurs:
-            updateState({
-              shortCode: shortCodes.kurs,
-              isShortcodePrefilled: true,
-            });
-            break;
-            case appIds.torunz:
-            updateState({
-              shortCode: shortCodes.torunz,
-              isShortcodePrefilled: true,
-            });
-            break;
->>>>>>> a322ad8237d1638483465480dd65aa95f6ff0fa0
+        case appIds.kurs:
+          updateState({
+            shortCode: shortCodes.kurs,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.torunz:
+          updateState({
+            shortCode: shortCodes.torunz,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);
@@ -1988,7 +1985,7 @@ export default function ShortCode({route, navigation}) {
       }
 
       let updatedShortCode = shortCode;
-    
+
       //  let updatedShortCode = 'b077a9';
 
       actions
