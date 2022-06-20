@@ -1891,6 +1891,45 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+<<<<<<< HEAD
+=======
+        case appIds.zoodMarket:
+          updateState({
+            shortCode: shortCodes.zoodMarket,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.meow:
+          updateState({
+            shortCode: shortCodes.meow,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.carlitoo:
+          updateState({
+            shortCode: shortCodes.carlitoo,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.dingDongDelivers:
+          updateState({
+            shortCode: shortCodes.dingDongDelivers,
+            isShortcodePrefilled: true,
+          });
+          break;
+          case appIds.kurs:
+            updateState({
+              shortCode: shortCodes.kurs,
+              isShortcodePrefilled: true,
+            });
+            break;
+            case appIds.torunz:
+            updateState({
+              shortCode: shortCodes.torunz,
+              isShortcodePrefilled: true,
+            });
+            break;
+>>>>>>> a322ad8237d1638483465480dd65aa95f6ff0fa0
       }
     })();
   }, [internetConnection]);
@@ -1949,7 +1988,8 @@ export default function ShortCode({route, navigation}) {
       }
 
       let updatedShortCode = shortCode;
-      // updatedShortCode = '745e3f';
+    
+      //  let updatedShortCode = 'b077a9';
 
       actions
         .initApp({shortCode: updatedShortCode}, header)
