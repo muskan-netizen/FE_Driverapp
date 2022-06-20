@@ -2,7 +2,7 @@
 // export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //
 // export const API_BASE_URL ='http://192.168.96.84:9090/'
@@ -25,9 +25,10 @@
 
 //ipickndrop
 // export const API_BASE_URL ="https://dispatch.ipickndrop.com/"
+// export const API_BASE_URL ="https://dispatch.grn.green/"
 
 //PeerDeliveries
-export const API_BASE_URL ='https://dispatch.peerdeliveries.com/'
+// export const API_BASE_URL ='https://dispatch.peerdeliveries.com/'
  
 //YogoFood
 //  export const API_BASE_URL = 'https://dispatcher.yogo.gd/';
@@ -51,7 +52,7 @@ export const API_BASE_URL ='https://dispatch.peerdeliveries.com/'
 
 // export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
 
-//Developement
+//Developement  
 // export const API_BASE_URL = 'https://bafb-103-72-170-243.ngrok.io/';
 
 //UFOOD
@@ -108,7 +109,7 @@ export const API_BASE_URL ='https://dispatch.peerdeliveries.com/'
 // export const API_BASE_URL = 'https://dispatch.hemptify.com';
 
 //Express Delivery
-// export const API_BASE_URL = 'https://dispatch.expresdeliverys.com/';
+//  export const API_BASE_URL = 'https://dispatch.expresdeliverys.com/';
 //DOORSTEP
 // export const API_BASE_URL = 'https://dispatch.doorstep.sd/';
 // export const API_BASE_URL = 'https://dispatch.ubercann.com/';
@@ -173,6 +174,9 @@ export const API_BASE_URL ='https://dispatch.peerdeliveries.com/'
 //klickmat/snabbhem app domain
 // export const API_BASE_URL = 'https://delivery.snabbhem.se/';
 
+//  export const API_BASE_URL = 'https://dispatch.fairexglobal.com/';
+
+
 // pinkjet
 // export const API_BASE_URL = 'https://dispatch.pinkjettaxi.com/';
 
@@ -204,6 +208,7 @@ export const API_BASE_URL ='https://dispatch.peerdeliveries.com/'
 
 // blip
 // export const API_BASE_URL = 'https://dispatch.blipdelivery.com/';
+//export const API_BASE_URL = 'https://dispatch.uvennow.com/';
 
 // grub and gusto
 // export const API_BASE_URL = 'https://grub.royodispatch.com/'
