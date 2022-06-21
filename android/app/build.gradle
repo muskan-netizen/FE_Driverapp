@@ -202,15 +202,15 @@ android {
     flavorDimensions "appType"
 
 productFlavors {
-           abbeRides{
+         dingDongDelivers{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.abbeRides.dispatch'
-            resValue "string", "app_name", "Abbe Rides Dispatcher"
+            applicationId 'com.dingDongDelivers.royodispatcher'
+            resValue "string", "app_name", "Ding Dong Delivers Dispatcher"
         }
 }
 
@@ -3458,6 +3458,16 @@ productFlavors {
 //             // applicationIdSuffix ".royoorder"
 //             applicationId 'com.abbeRides.dispatch'
 //             resValue "string", "app_name", "Abbe Rides Dispatcher"
+//         }
+//           nrsa{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.nrsa.dispatch'
+//             resValue "string", "app_name", "NRSA Dispatcher"
 //         }
 // }
  

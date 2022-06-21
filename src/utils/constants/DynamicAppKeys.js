@@ -312,6 +312,7 @@ const shortCodes = {
   torunz:'4786a9',
   spa:'69dd33',
   abbeRides: 'b65020',
+  nrsa: 'b6f11b',
 };
 
 const appIds = {
@@ -1553,6 +1554,10 @@ const appIds = {
   spa: Platform.select({
     ios: 'com.abbeRides.dispatch',
     android: 'com.abbeRides.dispatch',
+  }),
+  nrsa: Platform.select({
+    ios: 'com.nrsa.dispatch',
+    android: 'com.nrsa.dispatch',
   }),
 };
 
