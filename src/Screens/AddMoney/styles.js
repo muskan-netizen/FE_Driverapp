@@ -17,7 +17,6 @@ export default () => {
     },
     addMoneyInputField: {
       width: width,
-      paddingLeft: moderateScaleVertical(14),
       paddingVertical: moderateScaleVertical(8),
       textAlign: I18nManager.isRTL ? 'right' : 'left',
     },
@@ -79,7 +78,7 @@ export default () => {
       fontSize: textScale(16),
       marginVertical: moderateScale(10),
     },
-   
+
     inputAmountText: {
       fontFamily: fontFamily.bold,
       color: colors.walletTextD,

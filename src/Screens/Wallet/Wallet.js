@@ -25,7 +25,7 @@ import colors from '../../styles/colors';
 import commonStylesFunc from '../../styles/commonStyles';
 import fontFamily from '../../styles/fontFamily';
 import {moderateScale, textScale} from '../../styles/responsiveSize';
-import {currencyNumberFormatter} from '../../utils/commonFunction';
+import {kFormatter, currencyNumberFormatter} from '../../utils/commonFunction';
 import {colorArray} from '../../utils/constants/ConstantValues';
 import {showError} from '../../utils/helperFunctions';
 import stylesFunction from './styles';
@@ -100,9 +100,10 @@ export default function Wallet({route, navigation}) {
         {client: clientInfo?.database_name},
       )
       .then(res => {
+        console.log(res?.payments?.data, 'getWalletDataOfDriver>res');
         updateState({
           lifetimeAmount: res?.lifetime_earnings,
-          currentAmount: Number(res?.final_balance),
+          currentAmount: Number(res?.wallet_balance),
           allTaskInHistory:
             pageNo == 1
               ? res?.payments.data
@@ -133,6 +134,7 @@ export default function Wallet({route, navigation}) {
     return colorData[allTaskInHistory.indexOf(data) % colorData.length];
   };
   const renderTaskList = ({item, index}) => {
+    console.log(item, 'itemitemitemitemitem');
     return (
       <View
         style={{
@@ -200,7 +202,7 @@ export default function Wallet({route, navigation}) {
                 : strings.PAYMENTDEBITED}
             </Text>
             <Text numberOfLines={1} style={styles.dateTime}>
-              {moment(item?.created_at).format('lll')}
+              {moment(item?.created_at).format('DD/MM/YYYY, hh:mm A')}
             </Text>
           </View>
 
@@ -246,7 +248,7 @@ export default function Wallet({route, navigation}) {
                 ? `+ ${
                     userData?.client_preference?.currency?.symbol
                   }${currencyNumberFormatter(Number(item?.amount).toFixed(2))}`
-                : item?.task_type_id && `Task# ${item?.id}`}
+                : item?.task_type_id && `${strings.TASK} #${item?.id}`}
             </Text>
           </View>
         </View>
@@ -261,7 +263,9 @@ export default function Wallet({route, navigation}) {
               }}>
               <Text style={styles.currency}>
                 {userData?.client_preference?.currency?.symbol}
-                {item?.order?.cash_to_be_collected}
+                {item?.order?.cash_to_be_collected
+                  ? item?.order?.cash_to_be_collected
+                  : '0.00'}
               </Text>
               <Text style={styles.earningBottomTextLable}>
                 {strings.CASHCOLLECTEDCAPS}
@@ -275,7 +279,7 @@ export default function Wallet({route, navigation}) {
               }}>
               <Text style={styles.currency}>
                 {userData?.client_preference?.currency?.symbol}
-                {item?.order?.driver_cost}
+                {item?.order?.driver_cost ? item?.order?.driver_cost : '0.00'}
               </Text>
               <Text style={styles.earningBottomTextLable}>
                 {strings.ORDEREARNING}
@@ -338,6 +342,7 @@ export default function Wallet({route, navigation}) {
     }
   };
 
+  console.log(currentAmount, 'currentAmountcurrentAmount');
   /*****TOP HEADER REVENUE VIEW***** */
   const revenueView = () => {
     return (
@@ -355,6 +360,7 @@ export default function Wallet({route, navigation}) {
 
           <Text style={styles.amountText}>
             {userData?.client_preference?.currency?.symbol}
+            {/* {kFormatter(lifetimeAmount)} */}
             {currencyNumberFormatter(Number(lifetimeAmount).toFixed(2))}
           </Text>
         </LinearGradient>
@@ -370,6 +376,7 @@ export default function Wallet({route, navigation}) {
           <Text style={styles.totalRevenue}>{strings.TOTALREVNUE}</Text>
           <Text style={styles.amountText}>
             {userData?.client_preference?.currency?.symbol}
+            {/* {kFormatter(currentAmount)} */}
             {currencyNumberFormatter(Number(currentAmount).toFixed(2))}
           </Text>
         </LinearGradient>

@@ -83,23 +83,23 @@ export default function CustomDrawerContent({
         // subRoute:navigationStrings.MYPROFILE
       },
       appIds.transportSystem === DeviceInfo.getBundleId()
-      ? {
-          id: 7,
-          label: strings.DAMAGEREPORT,
-          image: imagePath.damagereport,
-          key: navigationStrings.DAMAGEREPORT,
-          // subRoute:navigationStrings.MYPROFILE
-        }
-      : {},
-    appIds.transportSystem === DeviceInfo.getBundleId()
-      ? {
-          id: 7,
-          label: strings.REIMBURSEMENT,
-          image: imagePath.reimbursement,
-          key: navigationStrings.REIMBURSEMENT,
-          // subRoute:navigationStrings.MYPROFILE
-        }
-      : {},
+        ? {
+            id: 7,
+            label: strings.DAMAGEREPORT,
+            image: imagePath.damagereport,
+            key: navigationStrings.DAMAGEREPORT,
+            // subRoute:navigationStrings.MYPROFILE
+          }
+        : {},
+      appIds.transportSystem === DeviceInfo.getBundleId()
+        ? {
+            id: 7,
+            label: strings.REIMBURSEMENT,
+            image: imagePath.reimbursement,
+            key: navigationStrings.REIMBURSEMENT,
+            // subRoute:navigationStrings.MYPROFILE
+          }
+        : {},
       {
         id: 8,
         label: strings.LOGOUT,
@@ -119,6 +119,12 @@ export default function CustomDrawerContent({
     state => state?.initBoot?.defaultLanguage,
   );
 
+  console.log(zendeskKeys, 'keys >>>>>>>>>>>>');
+  
+  // ZendeskChat.init(
+  //   'kI9WjmYer9iy7gCYF2sne4gXUure2AK4',
+  //   'bdea936e4bdb8130bb3f74cf9be7001aeaf503fe61c1543c',
+  // );
   useEffect(() => {
     ZendeskChat.init(
       `${zendeskKeys?.keys?.account_key}`,
@@ -212,7 +218,7 @@ export default function CustomDrawerContent({
             },
       ],
     });
-  }, [defaultLanguagae]);
+  }, [defaultLanguagae,zendeskKeys?.keys?.account_key,zendeskKeys?.keys?.application_id]);
 
   //
 
@@ -264,13 +270,26 @@ export default function CustomDrawerContent({
     showError(error?.message || error?.error);
   };
 
+  const onStartSupportChat = () => {
+    ZendeskChat.setVisitorInfo({
+      name: userData?.name,
+      phone: userData?.phone_number ? userData?.phone_number : '',
+    });
+    ZendeskChat.startChat({
+      name: userData?.name,
+      phone: userData?.phone_number ? userData?.phone_number : '',
+      withChat: true,
+      color: '#000',
+    });
+  };
+
   return (
     <>
       <View
         style={{
           height: height,
           marginTop: moderateScale(10),
-          }}
+        }}
         colors={[colors.white, colors.white]}>
         {/* client logo */}
         <View
@@ -296,6 +315,9 @@ export default function CustomDrawerContent({
           const isFocused = selectedDrawerItem?.index === index;
           const label = route?.label;
           const onPress = () => {
+            console.log(route?.key, 'route?.key>>>');
+            console.log(route?.subRoute, 'route?.subRoute');
+
             if (route?.key) {
               if (route?.subRoute) {
                 navigation.navigate(route.key, {
@@ -305,16 +327,7 @@ export default function CustomDrawerContent({
                 navigation.navigate(route.key);
               }
             } else if (route?.support) {
-              ZendeskChat.setVisitorInfo({
-                name: userData?.name,
-                phone: userData?.phone_number,
-              });
-              ZendeskChat.startChat({
-                name: userData?.name,
-                phone: userData?.phone_number,
-                withChat: true,
-                color: '#000',
-              });
+              onStartSupportChat();
             } else {
               onLogoutPress();
             }
@@ -331,10 +344,12 @@ export default function CustomDrawerContent({
                 onPress={onPress}
                 // onLongPress={onLongPress}
                 style={{
-                  margin: moderateScale(10),
+                  margin: moderateScale(8),
                   // alignItems: 'center',
                   flexDirection: 'row',
                   alignItems: 'center',
+
+                  justifyContent: 'center',
                 }}>
                 {/* {options.drawerIcon({focused: isFocused})} */}
                 <View style={{flex: 0.15}}>
@@ -373,7 +388,7 @@ export default function CustomDrawerContent({
               color: colors.lightGreyBg2,
               fontSize: textScale(12),
             }}>
-            {`Version ${DeviceInfo.getVersion()} `}
+            {`${strings.VERSION} ${DeviceInfo.getVersion()} `}
             <Text>{`(${DeviceInfo.getBuildNumber()})`}</Text>
           </Text>
         </View>

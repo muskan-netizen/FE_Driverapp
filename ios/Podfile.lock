@@ -1,7 +1,13 @@
 PODS:
+  - Base64 (1.1.2)
   - boost-for-react-native (1.63.0)
   - BVLinearGradient (2.5.6):
     - React
+  - CodePush (7.0.4):
+    - Base64 (~> 1.1)
+    - JWT (~> 3.0.0-beta.12)
+    - React-Core
+    - SSZipArchive (~> 2.2.2)
   - DoubleConversion (1.1.6)
   - FaceSDK (3.1.952):
     - RegulaCommon (= 5.8.59)
@@ -22,12 +28,12 @@ PODS:
     - FirebaseCoreDiagnostics (~> 8.0)
     - GoogleUtilities/Environment (~> 7.4)
     - GoogleUtilities/Logger (~> 7.4)
-  - FirebaseCoreDiagnostics (8.13.0):
+  - FirebaseCoreDiagnostics (8.15.0):
     - GoogleDataTransport (~> 9.1)
     - GoogleUtilities/Environment (~> 7.7)
     - GoogleUtilities/Logger (~> 7.7)
     - nanopb (~> 2.30908.0)
-  - FirebaseInstallations (8.13.0):
+  - FirebaseInstallations (8.15.0):
     - FirebaseCore (~> 8.0)
     - GoogleUtilities/Environment (~> 7.7)
     - GoogleUtilities/UserDefaults (~> 7.7)
@@ -85,6 +91,8 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (7.7.0):
     - GoogleUtilities/Logger
+  - JWT (3.0.0-beta.14):
+    - Base64 (~> 1.1.2)
   - libwebp (1.2.1):
     - libwebp/demux (= 1.2.1)
     - libwebp/mux (= 1.2.1)
@@ -109,8 +117,8 @@ PODS:
     - RNPermissions
   - Permission-LocationWhenInUse (3.3.1):
     - RNPermissions
-  - PromisesObjC (2.0.0)
-  - razorpay-pod (1.2.1)
+  - PromisesObjC (2.1.0)
+  - razorpay-pod (1.2.4)
   - RCT-Folly (2021.04.26.00):
     - boost-for-react-native
     - DoubleConversion
@@ -308,6 +316,8 @@ PODS:
   - React-jsinspector (0.65.1)
   - react-native-appearance (0.3.4):
     - React
+  - react-native-background-actions (2.6.7):
+    - React-Core
   - react-native-background-timer (2.4.1):
     - React-Core
   - react-native-camera (4.2.1):
@@ -318,14 +328,16 @@ PODS:
     - React-Core
   - react-native-camera/RN (4.2.1):
     - React-Core
-  - react-native-date-picker (4.2.0):
+  - react-native-date-picker (4.2.2):
+    - React-Core
+  - react-native-device-country (1.0.2):
     - React-Core
   - react-native-document-picker (7.1.3):
     - React-Core
   - react-native-geocoder (0.5.0):
     - React
-  - react-native-geolocation (2.0.2):
-    - React
+  - react-native-geolocation (2.1.0):
+    - React-Core
   - react-native-geolocation-service (5.3.0-beta.4):
     - React
   - react-native-google-maps (0.29.4):
@@ -334,9 +346,9 @@ PODS:
     - React-Core
   - react-native-maps (0.29.4):
     - React-Core
-  - react-native-netinfo (8.2.0):
+  - react-native-netinfo (8.3.1):
     - React-Core
-  - react-native-razorpay (2.2.8):
+  - react-native-razorpay (2.2.9):
     - razorpay-pod
     - React
   - react-native-restart (0.0.22):
@@ -347,7 +359,7 @@ PODS:
     - React
   - react-native-splash-screen (3.3.0):
     - React-Core
-  - react-native-webview (11.17.2):
+  - react-native-webview (11.21.2):
     - React-Core
   - React-perflogger (0.65.1)
   - React-RCTActionSheet (0.65.1):
@@ -420,13 +432,13 @@ PODS:
   - RegulaCommon (5.8.59)
   - rn-fetch-blob (0.12.0):
     - React-Core
-  - RNCAsyncStorage (1.17.0):
+  - RNCAsyncStorage (1.17.6):
     - React-Core
   - RNCClipboard (1.5.1):
     - React-Core
   - RNCPushNotificationIOS (1.10.1):
     - React-Core
-  - RNDeviceInfo (8.5.1):
+  - RNDeviceInfo (8.7.1):
     - React-Core
   - RNFaceApi (0.0.38):
     - FaceSDK (= 3.1.952)
@@ -442,7 +454,7 @@ PODS:
     - Firebase/Messaging (= 8.8.0)
     - React-Core
     - RNFBApp
-  - RNFS (2.19.0):
+  - RNFS (2.20.0):
     - React-Core
   - RNGestureHandler (1.10.3):
     - React-Core
@@ -455,7 +467,7 @@ PODS:
     - React-Core
     - React-RCTImage
     - TOCropViewController
-  - RNLocalize (2.2.0):
+  - RNLocalize (2.2.2):
     - React-Core
   - RNPermissions (3.3.1):
     - React-Core
@@ -477,35 +489,37 @@ PODS:
   - SDWebImageWebPCoder (0.8.4):
     - libwebp (~> 1.0)
     - SDWebImage/Core (~> 5.10)
-  - Stripe (21.9.1):
-    - Stripe/Stripe3DS2 (= 21.9.1)
-    - StripeCore (= 21.9.1)
-    - StripeUICore (= 21.9.1)
-  - stripe-react-native (0.2.3):
+  - SSZipArchive (2.2.3)
+  - Stripe (21.11.1):
+    - Stripe/Stripe3DS2 (= 21.11.1)
+    - StripeCore (= 21.11.1)
+    - StripeUICore (= 21.11.1)
+  - stripe-react-native (0.2.4):
     - React-Core
-    - Stripe (~> 21.9.0)
-  - Stripe/Stripe3DS2 (21.9.1):
-    - StripeCore (= 21.9.1)
-    - StripeUICore (= 21.9.1)
-  - StripeCore (21.9.1)
-  - StripeUICore (21.9.1):
-    - StripeCore (= 21.9.1)
+    - Stripe (~> 21.11.1)
+  - Stripe/Stripe3DS2 (21.11.1):
+    - StripeCore (= 21.11.1)
+    - StripeUICore (= 21.11.1)
+  - StripeCore (21.11.1)
+  - StripeUICore (21.11.1):
+    - StripeCore (= 21.11.1)
   - TOCropViewController (2.6.1)
   - Yoga (1.14.0)
-  - ZendeskChatProvidersSDK (2.11.2)
-  - ZendeskChatSDK (2.11.2):
-    - ZendeskChatProvidersSDK (= 2.11.2)
-    - ZendeskMessagingSDK (= 3.8.3)
-  - ZendeskCommonUISDK (6.1.2)
-  - ZendeskMessagingAPISDK (3.8.3):
-    - ZendeskSDKConfigurationsSDK (= 1.1.9)
-  - ZendeskMessagingSDK (3.8.3):
-    - ZendeskCommonUISDK (= 6.1.2)
-    - ZendeskMessagingAPISDK (= 3.8.3)
-  - ZendeskSDKConfigurationsSDK (1.1.9)
+  - ZendeskChatProvidersSDK (2.12.0)
+  - ZendeskChatSDK (2.12.0):
+    - ZendeskChatProvidersSDK (= 2.12.0)
+    - ZendeskMessagingSDK (= 3.8.5)
+  - ZendeskCommonUISDK (6.1.4)
+  - ZendeskMessagingAPISDK (3.8.5):
+    - ZendeskSDKConfigurationsSDK (= 1.1.11)
+  - ZendeskMessagingSDK (3.8.5):
+    - ZendeskCommonUISDK (= 6.1.4)
+    - ZendeskMessagingAPISDK (= 3.8.5)
+  - ZendeskSDKConfigurationsSDK (1.1.11)
 
 DEPENDENCIES:
   - BVLinearGradient (from `../node_modules/react-native-linear-gradient`)
+  - CodePush (from `../node_modules/react-native-code-push`)
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
   - FBReactNativeSpec (from `../node_modules/react-native/React/FBReactNativeSpec`)
@@ -528,9 +542,11 @@ DEPENDENCIES:
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - react-native-appearance (from `../node_modules/react-native-appearance`)
+  - react-native-background-actions (from `../node_modules/react-native-background-actions`)
   - react-native-background-timer (from `../node_modules/react-native-background-timer`)
   - react-native-camera (from `../node_modules/react-native-camera`)
   - react-native-date-picker (from `../node_modules/react-native-date-picker`)
+  - react-native-device-country (from `../node_modules/react-native-device-country`)
   - react-native-document-picker (from `../node_modules/react-native-document-picker`)
   - react-native-geocoder (from `../node_modules/react-native-geocoder`)
   - "react-native-geolocation (from `../node_modules/@react-native-community/geolocation`)"
@@ -584,6 +600,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Base64
     - boost-for-react-native
     - FaceSDK
     - Firebase
@@ -596,6 +613,7 @@ SPEC REPOS:
     - GoogleDataTransport
     - GoogleMaps
     - GoogleUtilities
+    - JWT
     - libwebp
     - lottie-ios
     - nanopb
@@ -604,6 +622,7 @@ SPEC REPOS:
     - RegulaCommon
     - SDWebImage
     - SDWebImageWebPCoder
+    - SSZipArchive
     - Stripe
     - StripeCore
     - StripeUICore
@@ -618,6 +637,8 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   BVLinearGradient:
     :path: "../node_modules/react-native-linear-gradient"
+  CodePush:
+    :path: "../node_modules/react-native-code-push"
   DoubleConversion:
     :podspec: "../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec"
   FBLazyVector:
@@ -658,12 +679,16 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
   react-native-appearance:
     :path: "../node_modules/react-native-appearance"
+  react-native-background-actions:
+    :path: "../node_modules/react-native-background-actions"
   react-native-background-timer:
     :path: "../node_modules/react-native-background-timer"
   react-native-camera:
     :path: "../node_modules/react-native-camera"
   react-native-date-picker:
     :path: "../node_modules/react-native-date-picker"
+  react-native-device-country:
+    :path: "../node_modules/react-native-device-country"
   react-native-document-picker:
     :path: "../node_modules/react-native-document-picker"
   react-native-geocoder:
@@ -762,16 +787,18 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
+  Base64: cecfb41a004124895a7bcee567a89bae5a89d49b
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   BVLinearGradient: e3aad03778a456d77928f594a649e96995f1c872
+  CodePush: b51b7ac64c07d4eacfc8cc5750a1dd28adbf2528
   DoubleConversion: 831926d9b8bf8166fd87886c4abab286c2422662
   FaceSDK: 05b4ce8a531d449dc18414759a6642aa083c20a4
   FBLazyVector: 33c82491102f20ecddb6c6a2c273696ace3191e0
   FBReactNativeSpec: df8f81d2a7541ee6755a047b398a5cb5a72acd0e
   Firebase: 629510f1a9ddb235f3a7c5c8ceb23ba887f0f814
   FirebaseCore: 98b29e3828f0a53651c363937a7f7d92a19f1ba2
-  FirebaseCoreDiagnostics: c2836d254a8f0bbb4121ff18f2c2ea39d118fd08
-  FirebaseInstallations: 60edbf7e11d91ae4c751d26c200dfd037099abe0
+  FirebaseCoreDiagnostics: 92e07a649aeb66352b319d43bdd2ee3942af84cb
+  FirebaseInstallations: 40bd9054049b2eae9a2c38ef1c3dd213df3605cd
   FirebaseMessaging: 419b5c9d84f294a753c6501d8cfb9ced1ce37304
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   glog: 5337263514dd6f09803962437687240c5dc39aa4
@@ -779,15 +806,16 @@ SPEC CHECKSUMS:
   GoogleDataTransport: 629c20a4d363167143f30ea78320d5a7eb8bd940
   GoogleMaps: 32ca02de09de357a10ac773f2c70f1986751392d
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
+  JWT: ef71dfb03e1f842081e64dc42eef0e164f35d251
   libwebp: 98a37e597e40bfdb4c911fc98f2c53d0b12d05fc
   lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
   lottie-react-native: b561920bba7ec727ec94a473b683cffba00faece
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
-  Permission-Camera: 273b78e214eae8d734d1c497b67aa0030838c006
-  Permission-LocationAlways: e250497fb714f608bc45c19229d160f4414ac1cb
-  Permission-LocationWhenInUse: 50736c907dff5a77d80a3503d3b333831148288b
-  PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
-  razorpay-pod: 372528dcba385d95d384aa8abc44feeb7a644d4e
+  Permission-Camera: bae27a8503530770c35aadfecbb97ec71823382a
+  Permission-LocationAlways: fbf36cbdcabc3101f1168ad1ec45cfc5a6448cc4
+  Permission-LocationWhenInUse: 006c85c8de0c05b5d8be8e8029e4f6b813270293
+  PromisesObjC: 99b6f43f9e1044bd87a95a60beff28c2c44ddb72
+  razorpay-pod: 65aa012fe4b45c195f3659cf26d05663ce64df07
   RCT-Folly: 0dd9e1eb86348ecab5ba76f910b56f4b5fef3c46
   RCTRequired: 6cf071ab2adfd769014b3d94373744ee6e789530
   RCTTypeSafety: b829c59453478bb5b02487b8de3336386ab93ab1
@@ -799,23 +827,25 @@ SPEC CHECKSUMS:
   React-jsi: 12913c841713a15f64eabf5c9ad98592c0ec5940
   React-jsiexecutor: 43f2542aed3c26e42175b339f8d37fe3dd683765
   React-jsinspector: 41e58e5b8e3e0bf061fdf725b03f2144014a8fb0
-  react-native-appearance: fc2014516054585d531e07aa0b40ab0de1d2be85
-  react-native-background-timer: 117fffdc9b0d6f144444bb49029f94275a45fdb5
-  react-native-camera: 210a872c84d3aa0982a9223047ef9e743ed694fa
-  react-native-date-picker: d83ab9cccbc497642a93fdca783ae76ecd6b17b6
-  react-native-document-picker: 644b4c5658f9d781a2ac4c4625ef414c8f797083
+  react-native-appearance: 0f0e5fc2fcef70e03d48c8fe6b00b9158c2ba8aa
+  react-native-background-actions: 2c251c986f23347f9c1722f05fd296938f60edb1
+  react-native-background-timer: 17ea5e06803401a379ebf1f20505b793ac44d0fe
+  react-native-camera: 3eae183c1d111103963f3dd913b65d01aef8110f
+  react-native-date-picker: 9088350e06918f7d842a34c171acadc66583cb94
+  react-native-device-country: 86affc8758023ca82e2f461eb30d11da31415c95
+  react-native-document-picker: ec07866a30707f23660c0f3ae591d669d3e89096
   react-native-geocoder: 757427682892bb256f3b3745858cc90eba148a8e
-  react-native-geolocation: cbd9d6bd06bac411eed2671810f454d4908484a8
+  react-native-geolocation: 69f4fd37650b8e7fee91816d395e62dd16f5ab8d
   react-native-geolocation-service: c0efb872258ed9240f1003a70fca9e9757e5c785
   react-native-google-maps: 34517207071d54f3bc23c68752bbec0217bfc79e
   react-native-maps: a421fe6aeb74279597c4ea9598f25796108e2d89
-  react-native-netinfo: 1929cb10180c83da2f7875bef715ae482e37831f
-  react-native-razorpay: b35ef0a8067a725a288d9fb70a356d38d441bbe1
-  react-native-restart: d4ea7637e193da7558d229b3704d500ec0d75f9c
-  react-native-safe-area-context: 5b8a418400eb3d8364aa87300e865c0262cc17b9
-  react-native-signature-capture: 73f2077f43a3fae9979b76e8cbf703c735bf44f4
+  react-native-netinfo: 1a6035d3b9780221d407c277ebfb5722ace00658
+  react-native-razorpay: 6d613f3464a509e3a4bb5b9ca43b70013b3d96d4
+  react-native-restart: 733a51ad137f15b0f8dc34c4082e55af7da00979
+  react-native-safe-area-context: 9e40fb181dac02619414ba1294d6c2a807056ab9
+  react-native-signature-capture: 416a3947684e049a5b012cdd6496f878dc797f16
   react-native-splash-screen: 4312f786b13a81b5169ef346d76d33bc0c6dc457
-  react-native-webview: 77ee909f73e1fcab76380f7dcc3344771fe61bd8
+  react-native-webview: 6e600df419b3fb92ee209d0bb7a71c1934e41938
   React-perflogger: fd28ee1f2b5b150b00043f0301d96bd417fdc339
   React-RCTActionSheet: 7f3fa0855c346aa5d7c60f9ced16e067db6d29fa
   React-RCTAnimation: 2119a18ee26159004b001bc56404ca5dbaae6077
@@ -829,42 +859,43 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: 85187f19dd9c47a7c102f9994f9d14e4dc2110de
   ReactCommon: eafed38eec7b591c31751bfa7494801618460459
   ReactNativeDarkMode: 0178ffca3b10f6a7c9f49d6f9810232b328fa949
-  ReactNativeLocalization: be60e3a0e6e8db88d9f8190719ffb75e1cdab22a
+  ReactNativeLocalization: 076497d7ca70341c751cd3b3e7c86187332a182d
   RegulaCommon: 601c50267470f36652f94174e87d79b8a0608af2
   rn-fetch-blob: f065bb7ab7fb48dd002629f8bdcb0336602d3cba
-  RNCAsyncStorage: f385be27befc6e094ef1be9e5d640bdf4cc1be4e
-  RNCClipboard: 5e299c6df8e0c98f3d7416b86ae563d3a9f768a3
-  RNCPushNotificationIOS: 089da3b657e1e3d464f38195fd2e3069608ef5af
-  RNDeviceInfo: 84bc8b2f6e2a17361d6246e5623ff93f1389869f
-  RNFaceApi: 9e30ed7d031d1b2a232da2c68f7cb49a47c8e05f
+  RNCAsyncStorage: 466b9df1a14bccda91da86e0b7d9a345d78e1673
+  RNCClipboard: 41d8d918092ae8e676f18adada19104fa3e68495
+  RNCPushNotificationIOS: 87b8d16d3ede4532745e05b03c42cff33a36cc45
+  RNDeviceInfo: aad3c663b25752a52bf8fce93f2354001dd185aa
+  RNFaceApi: 6b8b4d6b4b76939481c601f45264b3275c9846b2
   RNFastImage: 1f2cab428712a4baaf78d6169eaec7f622556dd7
   RNFBApp: 729c0666395b1953198dc4a1ec6deb8fbe1c302e
   RNFBMessaging: 8415ec196e5c1196caa26ec0742cdb48ed4d0f97
-  RNFS: fc610f78fdf8bfc89a9e5cc2f898519f4dba1002
+  RNFS: 4ac0f0ea233904cb798630b3c077808c06931688
   RNGestureHandler: a479ebd5ed4221a810967000735517df0d2db211
   RNImageCropPicker: 73891a709e6fd8a47d32104d942757971f220aee
-  RNLocalize: 8cfa9e1264c9aa169f6adb33a5232f970508a793
-  RNPermissions: 7ad8d93b004e6bc85c89e27a102afcde90e07efa
+  RNLocalize: 95a43f85e41a966be7bc9cff2437128911c52da0
+  RNPermissions: 34d678157c800b25b22a488e4d8babb57456e796
   RNReactNativeHapticFeedback: 4085973f5a38b40d3c6793a3ee5724773eae045e
   RNReanimated: c1b56d030d1616239861534d9adb531f8cffab68
   RNScreens: 40a2cb40a02a609938137a1e0acfbf8fc9eebf19
   RNSVG: 302bfc9905bd8122f08966dc2ce2d07b7b52b9f8
-  RNZendeskChat: 5a73a4353497c0670f81e30f06d45e183d0137aa
+  RNZendeskChat: c3835f664be1746b121b69736d5c95e236cae382
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
   SDWebImageWebPCoder: f93010f3f6c031e2f8fb3081ca4ee6966c539815
-  Stripe: 22c1b8da5ee20a1aaf40fd198160efa72e71644a
-  stripe-react-native: fc0175ddb50104409197ff336db7d9eca9002bf8
-  StripeCore: 91ea038ac0abbb72f11014044dfd1e5d39089714
-  StripeUICore: 7edf64b24c9c178bfd97e988f2cffdbb7a7628b0
+  SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
+  Stripe: f2bed8369154c35c8ec794704e042e05240d6f21
+  stripe-react-native: 2ba5ddd91db057546757ad88bea950d9bfd4cacc
+  StripeCore: 36571be19dae15e90c8ad47e1af45712aea93f5a
+  StripeUICore: 1b32566d6a69581be786609a032872b0fb5a6823
   TOCropViewController: edfd4f25713d56905ad1e0b9f5be3fbe0f59c863
   Yoga: aa0cb45287ebe1004c02a13f279c55a95f1572f4
-  ZendeskChatProvidersSDK: 450e0a6f56b8c5c82b21106914818a5a3c094cc5
-  ZendeskChatSDK: db9c0c420542c38d03c4345061d8a0b5ae9cf937
-  ZendeskCommonUISDK: 5f0a83f412e07ae23701f18c412fe783b3249ef5
-  ZendeskMessagingAPISDK: db91be0c5cb88229d22f0e560ed99ba6e1dce02e
-  ZendeskMessagingSDK: ce2750c0a3dbd40918ea2e2d44dd0dbe34d21bc8
-  ZendeskSDKConfigurationsSDK: f91f54f3b41aa36ffbc43a37af9956752a062055
+  ZendeskChatProvidersSDK: b3f5a914ed9d518770c994f0f04683952087b00a
+  ZendeskChatSDK: 12fbe34d67b73895882786736329236e7e092b67
+  ZendeskCommonUISDK: ba160fe413b491af9e7bfcb9808afcd494dc83a5
+  ZendeskMessagingAPISDK: 410f9bcf07c79fe98d6f251da102368d6b356c54
+  ZendeskMessagingSDK: 95d396c981dacfab83cc7b9736e8561d51a3052b
+  ZendeskSDKConfigurationsSDK: ebced171fd1f4eb57760e8537d8cfa6a450122be
 
-PODFILE CHECKSUM: bf6bca43d9043d20673eb60a54fe97a24d3a2e23
+PODFILE CHECKSUM: 11588f32de1c14c2fe9e5353b7fa77421639f685
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3

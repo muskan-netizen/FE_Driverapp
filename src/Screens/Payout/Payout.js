@@ -87,7 +87,7 @@ export default function AddMoney({navigation}) {
   );
 
   useEffect(() => {
-    if (isRefreshing || pageNo !== 1) {
+    if (isRefreshing || pageNo != 1) {
       getPayoutDetails();
     }
   }, [isRefreshing, pageNo]);
@@ -211,18 +211,20 @@ export default function AddMoney({navigation}) {
     }
     console.log(data, 'selectedPayoutOption>>>DATA');
     console.log(selectedPayoutOption, 'selectedPayoutOption');
-    // actions
-    //   .agentPayoutCreate(`/${userData?.id}`, data, {
-    //     client: clientInfo?.database_name,
-    //   })
-    //   .then(res => {
-    //     console.log(res, 'responseFromServer');
-    //     updateState({isPayoutModal: false});
-    //     getBankDetails();
-    //     getPayoutDetails();
-    //     showSuccess(res?.message, 2000);
-    //   })
-    //   .catch(errorMethod);
+    updateState({isRefreshing:true});
+
+    actions
+      .agentPayoutCreate(`/${userData?.id}`, data, {
+        client: clientInfo?.database_name,
+      })
+      .then(res => {
+        console.log(res, 'responseFromServer');
+        updateState({isPayoutModal: false,isRefreshing:false});
+        getBankDetails();
+        getPayoutDetails();
+        showSuccess(res?.message, 2000);
+      })
+      .catch(errorMethod);
   };
 
   const errorMethod = error => {
@@ -496,7 +498,7 @@ export default function AddMoney({navigation}) {
             {!isLoading && !!payoutDetails?.available_funds ? (
               <TextInputWithlabel
                 label={strings.AVAILABLE_FUNDS}
-                placeholder={String(payoutDetails?.available_funds.toFixed(2))}
+                placeholder={String(payoutDetails?.available_funds)}
                 mainStyle={{
                   marginTop: moderateScale(5),
                 }}

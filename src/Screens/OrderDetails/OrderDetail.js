@@ -86,11 +86,12 @@ export default function OrderDetail({route, navigation}) {
           isLoading: false,
         });
       })
-      .catch(error =>
+      .catch(err => {
+        console.log(err, 'errroror');
         updateState({
           isLoading: false,
-        }),
-      );
+        });
+      });
   };
 
   const _renderItem = ({item, index}) => {
@@ -346,8 +347,27 @@ export default function OrderDetail({route, navigation}) {
           <View style={styles.bottomTabLableValue}>
             <Text style={styles.priceItemLabel}>{strings.WALLET}</Text>
             <Text style={styles.priceItemLabel}>
-              {cartData?.wallet_amount_used > 0 &&
+              -{cartData?.wallet_amount_used > 0 &&
                 Number(cartData?.wallet_amount_used).toFixed(2)}
+            </Text>
+          </View>
+        )}
+         {Number(cartData?.fixed_fee_amount) > 0 && (
+          <View style={styles.bottomTabLableValue}>
+            <Text style={styles.priceItemLabel}>{strings.FIXED_FEE}</Text>
+            <Text style={styles.priceItemLabel}>
+              {cartData?.fixed_fee_amount > 0 &&
+                Number(cartData?.fixed_fee_amount).toFixed(2)}
+            </Text>
+          </View>
+        )}
+          {cartData?.total_delivery_fee > 0 && (
+          <View style={styles.bottomTabLableValue}>
+            <Text style={styles.priceItemLabel}>{strings.DELIVERYFEE}</Text>
+            <Text style={styles.priceItemLabel}>
+              {cartData?.total_delivery_fee
+                ? Number(cartData?.total_delivery_fee).toFixed(2)
+                : 0}
             </Text>
           </View>
         )}
@@ -355,7 +375,7 @@ export default function OrderDetail({route, navigation}) {
           <View style={styles.bottomTabLableValue}>
             <Text style={styles.priceItemLabel}>{strings.LOYALTY}</Text>
             <Text style={styles.priceItemLabel}>
-              {cartData?.loyalty_amount_saved
+              -{cartData?.loyalty_amount_saved
                 ? Number(cartData?.loyalty_amount_saved).toFixed(2)
                 : 0}
             </Text>
@@ -366,7 +386,7 @@ export default function OrderDetail({route, navigation}) {
           <View style={styles.bottomTabLableValue}>
             <Text style={styles.priceItemLabel}>{strings.TOTALDISCOUNT}</Text>
             <Text style={styles.priceItemLabel}>
-              {Number(cartData?.total_discount).toFixed(2)}
+              -{Number(cartData?.total_discount).toFixed(2)}
             </Text>
           </View>
         )}
@@ -582,11 +602,11 @@ export default function OrderDetail({route, navigation}) {
           <FlatList
             data={allVendorsData}
             showsVerticalScrollIndicator={false}
-            style={{backgroundColor: colors.backgroundGrey}}
+            style={{backgroundColor: colors.backgroundGrey,flex: 1}}
             keyExtractor={(item, index) => String(index)}
             renderItem={_renderItem}
             ListFooterComponent={getFooter}
-            style={{flex: 1}}
+            // style={{flex: 1}}
             contentContainerStyle={{
               flexGrow: 1,
             }}
