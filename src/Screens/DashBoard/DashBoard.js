@@ -21,11 +21,16 @@ import {
 import TaskListCard from '../../Components/TaskListCard';
 import {
   getColorCodeWithOpactiyNumber,
+  getCurrentLocation,
   showError,
 } from '../../utils/helperFunctions';
 import ListEmptyComponent from '../../Components/ListEmptyComponent';
 import strings from '../../constants/lang';
-import MapView from 'react-native-maps'; // remove PROVIDER_GOOGLE import if not using Google Maps
+import MapView, {
+  AnimatedRegion,
+  Marker,
+  PROVIDER_GOOGLE,
+} from 'react-native-maps'; // remove PROVIDER_GOOGLE import if not using Google Maps
 import styles from './styles';
 import DeviceInfo from 'react-native-device-info';
 import navigationStrings from '../../navigation/navigationStrings';
@@ -39,11 +44,17 @@ import {chekLocationPermission} from '../../utils/permissions';
 navigator.geolocation = require('react-native-geolocation-service');
 import Geocoder from 'react-native-geocoding';
 import {requestUserPermission} from '../../utils/notificationServices';
+import Geolocation_ from '@react-native-community/geolocation';
+import geocoder from 'react-native-geocoder/js/geocoder';
+import {rippleLoader} from '../../Components/Loaders/AnimatedLoaderFiles/index';
+import LottieAnimation from 'lottie-react-native';
+import BackgroundService from 'react-native-background-actions';
+
 // import BackgroundTimer from 'react-native-background-timer';
 
 export default function DashBoard({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
-
+  console.log(userData, 'userData');
   const [state, setState] = useState({
     isLoading: false,
     isEnabled: userData && userData?.is_available ? true : false,
@@ -60,28 +71,30 @@ export default function DashBoard({route, navigation}) {
     region: {
       latitude: 20.5937,
       longitude: 78.9629,
-      latitudeDelta: 0.015,
-      longitudeDelta: 0.0121,
+      latitudeDelta: 0.025,
+      longitudeDelta: 0.0221,
     },
     coordinate: {
       latitude: 20.5937,
       longitude: 78.9629,
-      latitudeDelta: 0.015,
-      longitudeDelta: 0.0121,
+      latitudeDelta: 0.025,
+      longitudeDelta: 0.0221,
     },
-    enableMap: false,
+    enableMap: true,
     markers: [],
     isLoadingSwitch: false,
     fcm_token: null,
     statusChanged: false,
-    longitude: null,
-    latitude: null,
+    longitude: 77.4753352147053,
+    latitude: 27.685284872673407,
+    heading: 0,
     isWarningAlert: false,
     warningStatus: false,
   });
   const {
     longitude,
     latitude,
+    heading,
     region,
     coordinate,
     todaysTasks,
@@ -114,6 +127,33 @@ export default function DashBoard({route, navigation}) {
   const fcmToken = useSelector(state => state?.initBoot?.fcmToken);
   const zendeskKeys = useSelector(state => state?.initBoot?.zendeskKeys);
 
+  const initWatchPosition = () => {
+    return;
+    Geolocation_.watchPosition(
+      position => {
+        console.log('position => position => position =>', position);
+        updateState({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+          heading: position.coords.heading,
+        });
+        fetchgentLogs(
+          position.coords.latitude,
+          position.coords.longitude,
+          position.coords.heading,
+          'callFromWatchPosition',
+        );
+      },
+      error => console.log(error.message),
+      {
+        enableHighAccuracy: true,
+        timeout: 20000,
+        maximumAge: 1000,
+        distanceFilter: 100,
+      },
+    );
+  };
+
   useEffect(() => {
     (async () => {
       currentLocation();
@@ -123,6 +163,14 @@ export default function DashBoard({route, navigation}) {
     })();
     return () => {};
   }, []);
+
+  useEffect(() => {
+    if (refreshHomeData && enableMap) {
+      updateState({
+        enableMap: false,
+      });
+    }
+  }, [refreshHomeData]);
 
   // useEffect(() => {
   //     BackgroundTimer.runBackgroundTimer(() => {
@@ -135,6 +183,8 @@ export default function DashBoard({route, navigation}) {
   // BackgroundTimer.stopBackgroundTimer();
   //   }, []);
   useEffect(() => {
+    initWatchPosition();
+
     const backHandler = BackHandler.addEventListener(
       'hardwareBackPress',
       () => true,
@@ -142,9 +192,101 @@ export default function DashBoard({route, navigation}) {
     return () => backHandler.remove();
   }, []);
 
+  const sleep = time =>
+    new Promise(resolve => setTimeout(() => resolve(), time));
+
+  const BackgroundServiceInit = async () => {
+    const veryIntensiveTask = async taskDataArguments => {
+      const {delay} = taskDataArguments;
+      await new Promise(async resolve => {
+        for (let i = 0; BackgroundService.isRunning(); i++) {
+          // await sleep(delay);
+          await sleep(1000000000000);
+        }
+        startLocatonTrack();
+        fetchgentLogs();
+      });
+    };
+
+    const options = {
+      taskName: 'Location Tracking',
+      taskTitle: 'Location Tracking',
+      taskDesc: `Tracking driver's location in background.`,
+      taskIcon: {
+        name: 'ic_launcher',
+        type: 'mipmap',
+      },
+      color: '#ff00ff',
+      parameters: {
+        delay: 1000 * 60 * 60 * 60,
+      },
+    };
+    await BackgroundService.start(veryIntensiveTask, options).then(res =>
+      console.log('check background task initiate', res),
+    );
+    await BackgroundService.updateNotification({
+      taskDesc: 'Background location track enabled',
+    });
+  };
+
+  useEffect(async () => {
+    if (BackgroundService.isRunning()) {
+      await BackgroundService.stop();
+    }
+    if (!BackgroundService.isRunning()) {
+      BackgroundServiceInit();
+      AsyncStorage.getItem('timerWatch').then(res => {
+        const t = JSON.parse(res);
+
+        clearTimeout(t);
+        startLocatonTrack();
+      });
+    }
+
+    return function cleanup() {
+      console.log(' Will unmount ');
+      watchID != null && Geolocation_.clearWatch(watchID);
+    };
+  }, []);
+
+  const startLocatonTrack = () => {
+    console.log('check callback in startLocatonTrack method call');
+    const timer = __DEV__
+      ? 10000
+      : userData?.team?.location_frequency
+      ? Number(userData?.team?.location_frequency) * 60000
+      : 1000 * 60 * 3;
+
+    console.log(timer, 'timer>>>>timer');
+
+    if (userData && userData?.access_token) {
+      getCurrentPosition();
+      var t = setTimeout(() => {
+        startLocatonTrack();
+      }, timer);
+
+      AsyncStorage.setItem('timerWatch', JSON.stringify(t));
+    }
+
+    // var waiting = false; // Initially, we're not waiting
+    // return function () {
+    //   // We return a throttled function
+    //   if (!waiting) {
+    //     // If we're not waiting
+    //     getCurrentPosition(); // Execute users function
+    //     waiting = true; // Prevent future invocations
+    //     setTimeout(function () {
+    //       // After a period of time
+    //       waiting = false; // And allow future invocations
+    //     }, 2000);
+    //   }
+    // };
+  };
+
   useFocusEffect(
     React.useCallback(() => {
       updateState({
+        isLoading: true,
         options: [
           {label: strings.TODAYSTASK, value: 0, testID: '1'},
           {label: strings.ALLTASKS, value: 1, testID: '2'},
@@ -170,87 +312,106 @@ export default function DashBoard({route, navigation}) {
         updateState({
           latitude: position.coords.latitude,
           longitude: position.coords.longitude,
+          heading: position.coords.heading,
         });
+
+        getCurrentLocation(
+          position.coords.latitude,
+          position.coords.longitude,
+          'address',
+        )
+          .then(res => alert(res))
+          .catch(error => alert(error));
       },
       error => console.log(error.message),
-      {enableHighAccuracy: true, timeout: 20000},
+      {
+        enableHighAccuracy: true,
+        timeout: 20000,
+      },
     );
   };
 
-  const fetchgentLogs = () => {
+  const fetchgentLogs = (lat, lng, heading_, callFrom) => {
     getCurrentPosition();
+
     setTimeout(() => {
       (async () => {
-        let data = {};
-        data['device_type'] = Platform.OS;
-        data['os_version'] = DeviceInfo.getSystemVersion();
-        data['app_version'] = DeviceInfo.getVersion();
-        data['on_route'] = 'y';
-        data['battery_level'] = (await DeviceInfo.getBatteryLevel()) * 100;
-        data['all'] = initial;
-        // data['current_speed'] = 'y';
-        data['long'] = longitude;
-        data['lat'] = latitude;
-        data['device_token'] = !!fcmToken ? fcmToken : '';
-        // console.log(data, 'data>data');
-        console.log(data, 'sending data data??????');
-        actions
-          .logsApi(data, {client: clientInfo?.database_name})
-          .then(res => {
-            if (
-              res?.data?.user?.client_preference
-                ?.customer_support_application_id != null &&
-              res?.data?.user?.client_preference?.customer_support_key != null
-            ) {
+        if (userData?.access_token) {
+          let data = {};
+          data['device_type'] = Platform.OS;
+          data['os_version'] = DeviceInfo.getSystemVersion();
+          data['app_version'] = DeviceInfo.getVersion();
+          data['on_route'] = 'y';
+          data['battery_level'] = (await DeviceInfo.getBatteryLevel()) * 100;
+          data['all'] = selectedOption;
+          // data['current_speed'] = 'y';
+          data['long'] = callFrom === 'callFromWatchPosition' ? lng : longitude;
+          data['lat'] = callFrom === 'callFromWatchPosition' ? lat : latitude;
+          data['device_token'] = !!fcmToken ? fcmToken : '';
+          data['heading_angle'] =
+            callFrom === 'callFromWatchPosition' ? heading_ : heading;
+          // console.log(data, 'data>data');
+          console.log(data, 'sending data data??????');
+          actions
+            .logsApi(data, {client: clientInfo?.database_name})
+            .then(res => {
+              console.log(res, 'logs data');
               if (
-                zendeskKeys?.keys?.account_key !=
-                  res?.data?.user?.client_preference?.customer_support_key &&
-                zendeskKeys?.keys?.application_id !=
-                  res?.data?.user?.client_preference
-                    ?.customer_support_application_id
-              )
-                actions?.setZendeskKeys({
-                  keys: {
-                    application_id:
-                      res?.data?.user?.client_preference
-                        ?.customer_support_application_id,
-                    account_key:
-                      res?.data?.user?.client_preference?.customer_support_key,
-                  },
-                });
-            }
-            console.log(res, 'res>>>>>>>agenLog');
+                res?.data?.user?.client_preference
+                  ?.customer_support_application_id != null &&
+                res?.data?.user?.client_preference?.customer_support_key != null
+              ) {
+                if (
+                  zendeskKeys?.keys?.account_key !=
+                    res?.data?.user?.client_preference?.customer_support_key &&
+                  zendeskKeys?.keys?.application_id !=
+                    res?.data?.user?.client_preference
+                      ?.customer_support_application_id
+                )
+                  actions?.setZendeskKeys({
+                    keys: {
+                      application_id:
+                        res?.data?.user?.client_preference
+                          ?.customer_support_application_id,
+                      account_key:
+                        res?.data?.user?.client_preference
+                          ?.customer_support_key,
+                    },
+                  });
+              }
+              console.log(res, 'res>>>>>>>agenLog');
 
-            if (selectedOption == 1) {
-              updateState({allTasks: res?.data?.tasks});
-            } else {
-              updateState({todaysTasks: res?.data?.tasks});
-            }
-          })
-          .catch(errorMethod);
+              if (selectedOption == 1) {
+                updateState({allTasks: res?.data?.tasks});
+              } else {
+                updateState({todaysTasks: res?.data?.tasks});
+              }
+            })
+            .catch(errorMethod);
+        }
       })();
     }, 2000);
   };
 
-  useEffect(() => {
-    setTimeout(() => {
-      fetchgentLogs();
-    }, 5000);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     fetchgentLogs(latitude, longitude, heading, '');
+  //   }, 5000);
+  // }, []);
 
   useInterval(
-    () => fetchgentLogs(),
+    () => fetchgentLogs(latitude, longitude, heading, ''),
     userData && userData?.access_token
       ? userData?.team?.location_frequency
-        ? Number(userData?.team?.location_frequency) * 60000
-        : 60000
+        ? Number(userData?.team?.location_frequency) * 6000
+        : 6000
       : null,
   );
 
   useFocusEffect(
     React.useCallback(() => {
       getTasks();
-    }, [initial]),
+    }, [selectedOption]),
   );
 
   useEffect(() => {
@@ -269,7 +430,7 @@ export default function DashBoard({route, navigation}) {
   const getTasks = () => {
     actions
       .getListOfTasks(
-        `?all=${initial}`,
+        `?all=${selectedOption}`,
         {},
         {client: clientInfo?.database_name},
       )
@@ -340,7 +501,6 @@ export default function DashBoard({route, navigation}) {
       .catch(errorMethod);
   };
 
-  console.log(isEnabled, 'isEnabled');
   const toggleSwitch = () => {
     updateState({
       statusChanged: true,
@@ -353,7 +513,7 @@ export default function DashBoard({route, navigation}) {
   };
 
   const updateContent = value => {
-    updateState({initial: value, isLoading: true});
+    updateState({selectedOption: value, isLoading: true});
   };
   const customCenter = () => {
     return (
@@ -414,46 +574,55 @@ export default function DashBoard({route, navigation}) {
     return (
       <>
         <View style={{flex: 1}}>
-          <FlatList
-            data={selectedOption ? allTasks : todaysTasks}
-            renderItem={renderTaskList}
-            keyExtractor={(item, index) => String(index)}
-            keyboardShouldPersistTaps="always"
-            showsVerticalScrollIndicator={false}
-            style={{
-              flex: 1,
-              backgroundColor: !!(selectedOption == 1 && !allTasks.length)
-                ? colors.backGround
-                : !!(selectedOption == 0 && !todaysTasks.length)
-                ? colors.backGround
-                : colors.white,
-            }}
-            contentContainerStyle={{
-              flexGrow: 1,
-              // marginVertical: moderateScaleVertical(20),
-            }}
-            refreshing={isRefreshing}
-            refreshControl={
-              <RefreshControl
-                refreshing={isRefreshing}
-                onRefresh={handleRefresh}
-                // tintColor={colors.primary_color}
-              />
-            }
-            onEndReached={onEndReachedDelayed}
-            onEndReachedThreshold={0.5}
-            // ListFooterComponent={() => (
-            //   <View style={{height: moderateScaleVertical(65)}} />
-            // )}
-            ListEmptyComponent={
-              <ListEmptyComponent
+          {(selectedOption ? allTasks?.length : todaysTasks?.length) ? (
+            <FlatList
+              data={selectedOption ? allTasks : todaysTasks}
+              renderItem={renderTaskList}
+              keyExtractor={(item, index) => String(index)}
+              keyboardShouldPersistTaps="always"
+              showsVerticalScrollIndicator={false}
+              style={{
+                flex: 1,
+                backgroundColor: !!(selectedOption == 1 && !allTasks.length)
+                  ? colors.backGround
+                  : !!(selectedOption == 0 && !todaysTasks.length)
+                  ? colors.backGround
+                  : colors.white,
+              }}
+              contentContainerStyle={{
+                flexGrow: 1,
+                // marginVertical: moderateScaleVertical(20),
+              }}
+              refreshing={isRefreshing}
+              refreshControl={
+                <RefreshControl
+                  refreshing={isRefreshing}
+                  onRefresh={handleRefresh}
+                  // tintColor={colors.primary_color}
+                />
+              }
+              onEndReached={onEndReachedDelayed}
+              onEndReachedThreshold={0.5}
+              // ListFooterComponent={() => (
+              //   <View style={{height: moderateScaleVertical(65)}} />
+              // )}
+              ListEmptyComponent={
+               ()=>(
+                <ListEmptyComponent
                 isLoading={isLoading}
                 message={strings.NOTASK}
                 subMessage={strings.NOTASKASSIGNED}
                 containerStyle={{backgroundColor: colors.backGround}}
               />
-            }
-          />
+               )
+              }
+            />
+          ) :  <ListEmptyComponent
+          isLoading={isLoading}
+          message={strings.NOTASK}
+          subMessage={strings.NOTASKASSIGNED}
+          containerStyle={{backgroundColor: colors.backGround}}
+        />}
         </View>
       </>
     );
@@ -495,6 +664,27 @@ export default function DashBoard({route, navigation}) {
     fitToMap();
   }, [markers, enableMap]);
 
+  useEffect(() => {
+    if (latitude && longitude) {
+      console.log('regionregion', region);
+      // {"latitude": 20.5937, "latitudeDelta": 0.015, "longitude": 78.9629, "longitudeDelta": 0.0121}
+      fitPadding([
+        {
+          latitude: Number(latitude),
+          longitude: Number(longitude),
+          latitudeDelta: 0.035,
+          longitudeDelta: 0.0321,
+        },
+        {
+          latitude: Number(latitude) - 0.001,
+          longitude: Number(longitude) - 0.01,
+          latitudeDelta: 0.035,
+          longitudeDelta: 0.0321,
+        },
+      ]);
+    }
+  }, [latitude, longitude]);
+
   //show warrning
 
   const _onOpenSettings = () => {
@@ -532,51 +722,60 @@ export default function DashBoard({route, navigation}) {
 
   const fitPadding = newArray => {
     if (mapRef.current) {
-      mapRef.current.fitToCoordinates(newArray, {
-        edgePadding: {top: 40, right: 40, bottom: 40, left: 40},
+      mapRef.current.fitToCoordinates([{latitude, longitude}, ...newArray], {
+        edgePadding: {top: 80, right: 80, bottom: 80, left: 80},
         animated: true,
       });
     }
   };
 
+  const animation = React.createRef();
+
   const mapView = () => {
-    if (markers.length)
-      return (
-        <MapView
-          ref={mapRef}
-          //   provider={PROVIDER_GOOGLE} // remove if not using Google Maps
-          style={styles.map}
-          region={region}
-          // initialRegion={region}
-          showsUserLocation={true}
-          showsMyLocationButton={true}
-          // onLayout={() => fitToMap()}
-          //   customMapStyle={mapStyle}
-          onRegionChangeComplete={_onRegionChange}>
-          {markers.map((coordinate, index) => (
-            <MapView.Marker
-              tracksViewChanges={false}
-              zIndex={index}
-              key={`coordinate_${index}`}
-              image={imagePath.pinRed}
-              onPress={() => {
-                _onPressTask(coordinate);
-              }}
-              coordinate={{
-                latitude: Number(coordinate?.location?.latitude),
-                longitude: Number(coordinate?.location?.longitude),
-              }}></MapView.Marker>
-          ))}
-        </MapView>
-      );
     return (
-      <ListEmptyComponent
-        isLoading={isLoading}
-        message={strings.NOTASK}
-        subMessage={strings.NOTASKASSIGNED}
-        containerStyle={{backgroundColor: colors.backGround}}
-      />
+      <MapView
+        ref={mapRef}
+        //provider={PROVIDER_GOOGLE} // remove if not using Google Maps
+        style={styles.map}
+        region={region}
+        zoomEnabled={true}
+        initialRegion={region}
+        // showsUserLocation={true}
+        //showsMyLocationButton={true}
+        onLayout={() => fitToMap()}
+        //   customMapStyle={mapStyle}
+        onRegionChangeComplete={_onRegionChange}>
+        {markers?.map((coordinate, index) => (
+          <Marker
+            tracksViewChanges={false}
+            zIndex={index}
+            key={`coordinate_${index}`}
+            image={imagePath.pinRed}
+            onPress={() => {
+              _onPressTask(coordinate);
+            }}
+            coordinate={{
+              latitude: Number(coordinate?.location?.latitude),
+              longitude: Number(coordinate?.location?.longitude),
+            }}></Marker>
+        ))}
+        <Marker
+          image={imagePath.pinBlue}
+          coordinate={{
+            latitude: Number(latitude),
+            longitude: Number(longitude),
+          }}></Marker>
+      </MapView>
     );
+
+    // return (
+    //   <ListEmptyComponent
+    //     isLoading={isLoading}
+    //     message={strings.NOTASK}
+    //     subMessage={strings.NOTASKASSIGNED}
+    //     containerStyle={{backgroundColor: colors.backGround}}
+    //   />
+    // );
   };
 
   const renderComponents = () => {
@@ -596,6 +795,10 @@ export default function DashBoard({route, navigation}) {
     }
   };
 
+  const _onSwitchMapView = () => {
+    updateState({enableMap: !enableMap});
+  };
+
   return (
     <WrapperContainer
       statusBarColor={colors.white}
@@ -609,11 +812,8 @@ export default function DashBoard({route, navigation}) {
         onPressLeft={() => navigation.toggleDrawer()}
         // hideRight={true}
         customCenter={() => customCenter()}
-        rightIcon={enableMap ? imagePath.listMenu : imagePath.map}
-        onPressRight={() => {
-          updateState({enableMap: !enableMap});
-          // navigation.navigate(navigationStrings.SEARCHPRODUCTOVENDOR)
-        }}
+        rightIcon={!enableMap ? imagePath.map : imagePath.listMenu}
+        onPressRight={_onSwitchMapView}
       />
       <View style={{...commonStyles.headerTopLine}} />
       {isWarningAlert && (
@@ -648,7 +848,7 @@ export default function DashBoard({route, navigation}) {
                 borderRadius: 8,
               }}
               onPress={() => toggleWarning(false)}>
-              <Text style={{color: colors.white}}>Cancel</Text>
+              <Text style={{color: colors.white}}>{strings.CANCEL}</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={{
@@ -660,7 +860,7 @@ export default function DashBoard({route, navigation}) {
                 borderRadius: 8,
               }}
               onPress={() => _onOpenSettings()}>
-              <Text style={{color: colors.white}}>Enable</Text>
+              <Text style={{color: colors.white}}>{strings.ENABLE}</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -678,7 +878,7 @@ export default function DashBoard({route, navigation}) {
         {isEnabled ? (
           <SwitchSelectorComponent
             options={options}
-            initial={initial}
+            initial={selectedOption}
             onPress={value => updateContent(value)}
           />
         ) : (

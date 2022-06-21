@@ -10,7 +10,12 @@ import {
   TaskCompleteDocument,
   TaskDetail,
   TaskHistory,
+  SearchProductVendorItem2,
+  ProductDetail,
+  WebConnection,
 } from '../Screens';
+import Cart from '../Screens/CustomerCart/Cart3';
+import OrderCancel from '../Screens/OrderCancel/OrderCancel';
 import navigationStrings from './navigationStrings';
 import WalletStack from './WalletStack';
 
@@ -57,6 +62,11 @@ export default function () {
         options={{headerShown: false}}
       />
       <Stack.Screen
+        name={navigationStrings.SEARCHPRODUCTOVENDOR}
+        component={SearchProductVendorItem2}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
         name={navigationStrings.WALLETSTACK}
         component={WalletStack}
         options={{headerShown: false}}
@@ -69,6 +79,26 @@ export default function () {
       <Stack.Screen
         name={navigationStrings.ORDERDETAIL}
         component={OrderDetail}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name={navigationStrings.CART}
+        component={Cart}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name={navigationStrings.PRODUCTDETAIL}
+        component={ProductDetail}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name={navigationStrings.ORDERCANCEL}
+        component={OrderCancel}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name={navigationStrings.WEBCONNECTIONS}
+        component={WebConnection}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

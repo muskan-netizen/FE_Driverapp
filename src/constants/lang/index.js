@@ -1,4 +1,6 @@
 import LocalizedStrings from 'react-native-localization';
+import DeviceInfo from 'react-native-device-info';
+
 import en from './en';
 import ar from './ar';
 import es from './es';
@@ -8,6 +10,10 @@ import tr from './tr';
 import zh from './zh';
 import ru from './ru';
 import ptBr from './ptBr';
+import sv from './sv';
+import pr from './pr';
+import vi from './vi';
+import { appIds } from '../../utils/constants/DynamicAppKeys';
 
 let strings = new LocalizedStrings({
   en: en,
@@ -19,8 +25,11 @@ let strings = new LocalizedStrings({
   zh: zh,
   ru: ru,
   ptBr: ptBr,
+  sv: sv,
+  pr: pr,
+  vi: vi,
 });
 export const changeLaguage = languageKey => {
-  strings.setLanguage(languageKey);
+   strings.setLanguage(languageKey);
 };
 export default strings;

@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "775014967016",
+    "project_id": "zestyclickz-dispatch",
+    "storage_bucket": "zestyclickz-dispatch.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:775014967016:android:e4f6eaeeac16ebd4ec0b5d",
+        "android_client_info": {
+          "package_name": "com.ZestyClickz.royodispatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "775014967016-bu3880ugj83s8ng45lv6p95i52172dg3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLV5x1DP9FR6kVmE7mdFBhJ8WBGuyqHJs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "775014967016-bu3880ugj83s8ng45lv6p95i52172dg3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "775014967016-oj9rmjlj8aao9rv4qgv4g0261vu6lr9s.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ZestyClickz.Dispatcher"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

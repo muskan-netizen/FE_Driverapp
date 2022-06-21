@@ -5,7 +5,7 @@ import {
   SIGNUPDOC,
   SIGNUP_API,
 } from '../../config/urls';
-import {apiGet, apiPost, setUserData} from '../../utils/utils';
+import {apiGet, apiPost, removeItem, setUserData} from '../../utils/utils';
 import store from '../store';
 import types from '../types';
 const {dispatch} = store;
@@ -17,8 +17,15 @@ export const saveUserData = data => {
   });
 };
 
+export const removerUserData = data => {
+  dispatch({
+    type: types.USER_LOGOUT,
+    payload: data,
+  });
+};
+
 export function login(data = {}, headers = {}) {
-  console.log(data, 'login>data>data>data');
+  console.log(data, 'login>data>data>data', headers);
   return new Promise((resolve, reject) => {
     apiPost(LOGIN_API, data, headers)
       .then(async res => {
@@ -74,10 +81,9 @@ export function logout(data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
     apiGet(LOGOUT_API, data, headers)
       .then(async res => {
-        setUserData(null).then(suc => {
-          saveUserData({});
-          resolve(res);
-        });
+        await removeItem('userData');
+        removerUserData();
+        resolve(res);
       })
       .catch(error => {
         reject(error);

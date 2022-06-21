@@ -1,7 +1,12 @@
 import {StyleSheet} from 'react-native';
 import colors from '../../styles/colors';
 import fontFamily from '../../styles/fontFamily';
-import {moderateScale, textScale, width} from '../../styles/responsiveSize';
+import {
+  moderateScale,
+  moderateScaleVertical,
+  textScale,
+  width,
+} from '../../styles/responsiveSize';
 
 export default ({defaultLanguagae}) => {
   const styles = StyleSheet.create({
@@ -71,7 +76,6 @@ export default ({defaultLanguagae}) => {
       fontSize: textScale(12),
       fontFamily: fontFamily.bold,
       color: colors.textGreyOpcaity7,
-      opacity: 0.6,
 
       // paddingBottom: moderateScale(5),
     },
@@ -81,7 +85,6 @@ export default ({defaultLanguagae}) => {
       // color: colors.iconGrey,
       textAlign: defaultLanguagae?.value === 'ar' ? 'right' : 'left',
       color: colors.textGreyOpcaity7,
-      opacity: 0.4,
       // paddingBottom: moderateScale(5),
     },
     taskValue: {
@@ -164,7 +167,7 @@ export default ({defaultLanguagae}) => {
     },
     emailAndPhone: {
       // textAlign: 'center',
-      fontFamily: fontFamily.medium,
+      fontFamily: fontFamily.bold,
       fontSize: textScale(12),
       color: colors.textGreyOpcaity7,
       // paddingBottom: moderateScale(5),
@@ -174,7 +177,23 @@ export default ({defaultLanguagae}) => {
       fontFamily: fontFamily.bold,
       fontSize: textScale(14),
       color: colors.black,
-      opacity: 0.7,
+    },
+    editOrder: {
+      backgroundColor: 'transparent',
+      color: '#111',
+      textAlign: 'center',
+      color: colors.white,
+      fontFamily: fontFamily.semiBold,
+      fontSize: textScale(14),
+    },
+    distanceTimeTitleTextStyle: {
+      fontSize: textScale(14),
+      fontFamily: fontFamily.bold,
+    },
+    distanceTimeTextStyle: {
+      fontSize: textScale(14),
+      fontFamily: fontFamily.regular,
+      marginVertical: moderateScaleVertical(5),
     },
   });
   return styles;

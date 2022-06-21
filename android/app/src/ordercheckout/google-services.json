@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "908648197392",
+    "project_id": "order-checkout",
+    "storage_bucket": "order-checkout.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:908648197392:android:512ace984df26550ea8995",
+        "android_client_info": {
+          "package_name": "com.orderchekout.driver.android1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "908648197392-0j4i3badv8i991ieddoie1csa9k5b3c1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkwLvzxpmLOfJdUB4N2eluk7NiTIeWs_s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "908648197392-0j4i3badv8i991ieddoie1csa9k5b3c1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "908648197392-1ucolvqso9b6o6ga4fvh4bu052fhc5rc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.orderchekout.driver.ios"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

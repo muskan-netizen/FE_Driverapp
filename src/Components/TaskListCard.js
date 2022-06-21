@@ -26,6 +26,7 @@ const TaskListCard = ({
   _onPressTask = () => {},
   showCurrency = false,
   previousData = null,
+  isFromHistory = false,
 }) => {
   //Get Date
   const defaultLanguagae = useSelector(
@@ -35,11 +36,8 @@ const TaskListCard = ({
 
   const getDate = date => {
     const local = moment.utc(date).local().format('DD MMM YYYY hh:mm:a');
-
     return local;
   };
-
-  console.log(data, 'datadata');
 
   //get BackGroundColor
   const getBackGroudColor = name => {
@@ -110,11 +108,39 @@ const TaskListCard = ({
       onPress={_onPressTask}>
       <View
         opacity={getDynamicUpdateOnValues().blur}
-        style={[styles.shadowStyle]}>
+        style={{
+          ...styles.shadowStyle,
+
+          borderTopRadius: 8,
+          borderLeftRadius: 8,
+          borderRightRadius: 8,
+          borderBottomRadius:
+            allTasks[index]?.order.id == allTasks[index + 1]?.order.id ? 0 : 8,
+          marginBottom:
+            allTasks[index]?.order.id == allTasks[index + 1]?.order.id
+              ? -2
+              : 20,
+          ...generateBoxShadowStyle(
+            -2,
+            allTasks[index]?.order.id == allTasks[index + 1]?.order.id ? -2 : 4,
+            '#171717',
+            0.2,
+            3,
+            4,
+            '#171717',
+          ),
+        }}>
         <View
           style={[
             styles.borderLine,
-            {backgroundColor: getDynamicUpdateOnValues().backgroundColor},
+
+            {
+              backgroundColor: getDynamicUpdateOnValues().backgroundColor,
+              borderBottomLeftRadius:
+                allTasks[index]?.order.id == allTasks[index + 1]?.order.id
+                  ? 0
+                  : 8,
+            },
           ]}
         />
         <View style={styles.mainContainer}>
@@ -134,7 +160,9 @@ const TaskListCard = ({
               {/* <Image source={imagePath.dollor} /> */}
               <Text style={styles.dateTimeStyle}>
                 {data?.order?.amount
-                  ? Number(data?.order?.amount).toFixed(2)
+                  ? Number(data?.order?.amount)
+                      .toFixed(2)
+                      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
                   : Number(0).toFixed(2)}
               </Text>
             </View>
@@ -142,7 +170,38 @@ const TaskListCard = ({
         </View>
 
         <View style={styles.dotViewStyle}>
-          <View style={styles.dotBaseViewStyle} />
+          {isFromHistory ? (
+            <View
+              style={{
+                paddingVertical: moderateScale(2),
+                paddingHorizontal: moderateScale(2),
+                backgroundColor:
+                  data?.task_status == '4' ? colors.greenLight : colors.redB,
+                borderRadius: moderateScale(5),
+              }}>
+              <Text
+                style={{
+                  fontFamily: fontFamily.regular,
+                  fontSize: textScale(8),
+                  color: colors.white,
+                }}>
+                {data?.task_status == '4'
+                  ? strings.COMPELETED
+                  : strings.CANCELLED}
+              </Text>
+            </View>
+          ) : (
+            <></>
+          )}
+          <View
+            style={{
+              ...styles.dotBaseViewStyle,
+              backgroundColor:
+                isFromHistory && data?.task_status == '4'
+                  ? colors.green
+                  : colors.redB,
+            }}
+          />
           <View
             style={[
               styles.statusView,
@@ -153,7 +212,8 @@ const TaskListCard = ({
             <Text
               style={[
                 styles.taskTypeName,
-                {color: getTextColor(data?.tasktype?.name)},
+                // {color: getTextColor(data?.tasktype?.name)},
+                {color: colors.black},
               ]}>
               {`${
                 (data?.tasktype?.name).toLowerCase() == 'drop'
@@ -183,17 +243,14 @@ export function stylesFunc({defaultLanguagae}) {
       borderWidth: 1,
       marginHorizontal: moderateScale(10),
       borderColor: colors.grey2,
-      borderRadius: 8,
-      marginVertical: 5,
+
       backgroundColor: colors.white,
       height: moderateScaleVertical(100),
-      ...generateBoxShadowStyle(-2, 4, '#171717', 0.2, 3, 4, '#171717'),
     },
     borderLine: {
       width: moderateScale(5),
-
-      borderBottomLeftRadius: 8,
       borderTopLeftRadius: 8,
+      borderBottomLeftRadius: 8,
     },
     dateTimeStyle: {
       fontFamily: fontFamily.semiBold,
@@ -239,7 +296,7 @@ export function stylesFunc({defaultLanguagae}) {
     },
     taskTypeName: {
       textAlign: 'center',
-      fontFamily: fontFamily.medium,
+      fontFamily: fontFamily.bold,
       fontSize: textScale(10),
     },
   });

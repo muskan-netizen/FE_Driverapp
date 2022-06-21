@@ -1,10 +1,10 @@
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
-import {AppearanceProvider} from 'react-native-appearance';
-import {useSelector} from 'react-redux';
+import { AppearanceProvider } from 'react-native-appearance';
+import { useSelector } from 'react-redux';
 import ShortCode from '../Screens/ShortCode/ShortCode';
-import {navigationRef} from './NavigationService';
+import { navigationRef } from './NavigationService';
 import navigationStrings from './navigationStrings';
 import AuthStack from './AuthStack';
 import DrawerRoutes from './DrawerStack';
@@ -17,7 +17,7 @@ export function shortCode(Stack) {
       <Stack.Screen
         name={navigationStrings.SHORT_CODE}
         component={ShortCode}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
     </>
   );
@@ -29,14 +29,14 @@ export function drawer(Stack) {
       <Stack.Screen
         name={navigationStrings.DRAWER_ROUTES}
         component={DrawerRoutes}
-        options={{headerShown: false, gestureEnabled: false}}
+        options={{ headerShown: false, gestureEnabled: false }}
       />
     </>
   );
 }
 
 export default function Routes() {
-  const userData = useSelector(state => state?.auth?.userData);
+  // const userData = useSelector(state => state?.auth?.userData);
   // const {shortCodeStatus, appStyle} = useSelector(state => state?.initBoot);
 
   return (
@@ -45,12 +45,13 @@ export default function Routes() {
         // theme={scheme == 'dark' ? DarkTheme : DefaultTheme}
         ref={navigationRef}>
         <Stack.Navigator>
+
           {shortCode(Stack)}
           {AuthStack(Stack)}
           <Stack.Screen
             name={navigationStrings.DRAWER_ROUTES}
             component={DrawerRoutes}
-            options={{headerShown: false, gestureEnabled: false}}
+            options={{ headerShown: false, gestureEnabled: false }}
           />
           {/* {userData && userData?.access_token ? (
             <Stack.Screen

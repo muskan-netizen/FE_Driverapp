@@ -1,5 +1,5 @@
-import {cloneDeep} from 'lodash';
-import React, {useEffect, useRef, useState} from 'react';
+import { cloneDeep, isEmpty } from 'lodash';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   I18nManager,
   Image,
@@ -11,11 +11,11 @@ import {
 } from 'react-native';
 import ActionSheet from 'react-native-actionsheet';
 import DocumentPicker from 'react-native-document-picker';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-import {useSelector} from 'react-redux';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { useSelector } from 'react-redux';
 import GradientButton from '../../../Components/GradientButton';
 import Header from '../../../Components/Header';
-import {loaderOne} from '../../../Components/Loaders/AnimatedLoaderFiles';
+import { loaderOne } from '../../../Components/Loaders/AnimatedLoaderFiles';
 import PhoneNumberInput from '../../../Components/PhoneNumberInput';
 import TextInputWithlabel from '../../../Components/TextInputWithlabel';
 import WrapperContainer from '../../../Components/WrapperContainer';
@@ -27,38 +27,64 @@ import colors from '../../../styles/colors';
 import commonStylesFunc from '../../../styles/commonStyles';
 import fontFamily from '../../../styles/fontFamily';
 import {
+  height,
   moderateScale,
   moderateScaleVertical,
   textScale,
   width,
 } from '../../../styles/responsiveSize';
-import {cameraHandler} from '../../../utils/commonFunction';
+import { cameraHandler } from '../../../utils/commonFunction';
 import {
   employeetypeArray,
   transportationArray,
 } from '../../../utils/constants/ConstantValues';
-import {shortCodes} from '../../../utils/constants/DynamicAppKeys';
-import {showError, showSuccess} from '../../../utils/helperFunctions';
-import {androidCameraPermission} from '../../../utils/permissions';
-import {getItem} from '../../../utils/utils';
+import { appIds, shortCodes } from '../../../utils/constants/DynamicAppKeys';
+import { showError, showSuccess } from '../../../utils/helperFunctions';
+import { androidCameraPermission } from '../../../utils/permissions';
+import { getItem } from '../../../utils/utils';
 import {
   default as validations,
   default as validator,
 } from '../../../utils/validations';
 import stylesFunction from './styles';
+import Modal from 'react-native-modal';
+import DatePicker from 'react-native-date-picker';
+import DatePickerModal from '../../../Components/DatePickerModal';
+import moment from 'moment';
+import { getBundleId } from 'react-native-device-info';
+import * as RNLocalize from "react-native-localize";
+import codes from 'country-calling-code';
 
-export default function Signup({route, navigation}) {
+import DeviceCountry, {
+  TYPE_ANY,
+  TYPE_TELEPHONY,
+  TYPE_CONFIGURATION,
+} from 'react-native-device-country';
+var getPhonesCallingCodeAndCountryData = null
+DeviceCountry.getCountryCode()
+  .then((result) => {
+    console.log(result, "getCountryCoderesult");
+    // {"code": "BY", "type": "telephony"}
+    getPhonesCallingCodeAndCountryData = codes.filter(x => x.isoCode2 == (result.code).toUpperCase())
+  })
+  .catch((e) => {
+    console.log(e);
+  });
+
+export default function Signup({ route, navigation }) {
   const userData = useSelector(state => state?.auth?.userData);
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
+  // var getPhonesCallingCodeAndCountryData = codes.filter(x => x.isoCode2 == RNLocalize.getCountry())
+
   console.log(clientInfo, 'clientInfo');
   const [state, setState] = useState({
     isLoading: false,
     fullName: '',
     phoneNumber: '',
-    callingCode: clientInfo?.get_country_set?.phonecode
+    callingCode: getPhonesCallingCodeAndCountryData && getPhonesCallingCodeAndCountryData.length ? getPhonesCallingCodeAndCountryData[0].countryCodes[0] : clientInfo?.get_country_set?.phonecode
       ? clientInfo?.get_country_set?.phonecode
       : '91',
-    cca2: clientInfo?.get_country_set?.code
+    cca2: getPhonesCallingCodeAndCountryData && getPhonesCallingCodeAndCountryData.length ? getPhonesCallingCodeAndCountryData[0].isoCode2 : clientInfo?.get_country_set?.code
       ? clientInfo?.get_country_set?.code
       : 'IN',
     allTransportation: transportationArray,
@@ -86,9 +112,24 @@ export default function Signup({route, navigation}) {
     selectedTeam: '',
     isTeams: false,
     driverTagsAry: [],
+    isWaitingModal: false,
+    additionalDateFields: [],
+    isDatePicker: false,
+    selectedDateField: {},
+    selectedDate: new Date(),
+    customerType: [
+      { id: 1, name: 'Individual' },
+      { id: 2, name: 'Retail Store' },
+      { id: 3, name: 'Distribution center' },
+    ],
+    selectedCustomerType: null,
+    isCustomer: false,
   });
 
   const {
+    isCustomer,
+    selectedCustomerType,
+    customerType,
     userImage,
     vehiclePlateNumber,
     isLoading,
@@ -119,33 +160,38 @@ export default function Signup({route, navigation}) {
     selectedTeam,
     isTeams,
     driverTagsAry,
+    isWaitingModal,
+    additionalDateFields,
+    isDatePicker,
+    selectedDateField,
+    selectedDate,
   } = state;
-  const commonStyles = commonStylesFunc({fontFamily});
+  const commonStyles = commonStylesFunc({ fontFamily });
 
-  const updateState = data => setState(state => ({...state, ...data}));
+  const updateState = data => setState(state => ({ ...state, ...data }));
 
   console.log(clientInfo, 'clientInfo');
   //Naviagtion to specific screen
   const moveToNewScreen = (screenName, data) => () => {
-    navigation.navigate(screenName, {data});
+    navigation.navigate(screenName, { data });
   };
 
   const defaultLanguagae = useSelector(
     state => state?.initBoot?.defaultLanguage,
   );
 
-  const styles = stylesFunction({defaultLanguagae});
+  const styles = stylesFunction({ defaultLanguagae });
 
   //On country change
   const _onCountryChange = data => {
-    updateState({cca2: data.cca2, callingCode: data.callingCode[0]});
+    updateState({ cca2: data.cca2, callingCode: data.callingCode[0] });
     return;
   };
 
   let actionSheet = useRef();
   const showActionSheet = value => {
     console.log(value, 'value>value');
-    updateState({profilePic: value});
+    updateState({ profilePic: value });
     setTimeout(() => {
       actionSheet.current.show();
     }, 500);
@@ -155,9 +201,9 @@ export default function Signup({route, navigation}) {
     (async () => {
       const savedCode = await getItem('saveShortCode');
       if (savedCode == shortCodes?.loopWhole) {
-        updateState({selectedEpmloyeetype: allEmployeeTypes[0]});
+        updateState({ selectedEpmloyeetype: allEmployeeTypes[0] });
       }
-      updateState({savedShortCode: savedCode});
+      updateState({ savedShortCode: savedCode });
     })();
   }, [selectedEpmloyeetype]);
 
@@ -170,7 +216,7 @@ export default function Signup({route, navigation}) {
       const saveShortCode = await getItem('saveShortCode');
       console.log(saveShortCode, 'saveShortCode');
       actions
-        .signupDoc({}, {client: clientInfo?.database_name})
+        .signupDoc({}, { client: clientInfo?.database_name })
         .then(res => {
           console.log(res, 'getRequiredDatas data');
           updateState({
@@ -189,6 +235,9 @@ export default function Signup({route, navigation}) {
               addtionalPdfs: res?.data?.documents.filter(
                 x => x?.file_type == 'Pdf',
               ),
+              additionalDateFields: res?.data?.documents.filter(
+                x => x?.file_type == 'Date',
+              ),
               dataToSet: res?.data?.documents.map((i, inx) => {
                 return {
                   type: i?.file_type,
@@ -197,7 +246,7 @@ export default function Signup({route, navigation}) {
               }),
             });
           }
-          updateState({isLoading: false, documentData: res?.data});
+          updateState({ isLoading: false, documentData: res?.data });
         })
         .catch(errorMethod);
     })();
@@ -219,7 +268,7 @@ export default function Signup({route, navigation}) {
           .then(res => {
             console.log(res, 'res');
             if (profilePic) {
-              updateState({userImage: res?.sourceURL || res?.path});
+              updateState({ userImage: res?.sourceURL || res?.path });
             } else {
               let data = cloneDeep(addtionalImages);
               data[addtionSelectedImageIndex].value =
@@ -232,16 +281,16 @@ export default function Signup({route, navigation}) {
               data[addtionSelectedImageIndex].mime = res?.mime;
               console.log(data, 'data>>>>');
 
-              updateState({addtionalImages: data});
+              updateState({ addtionalImages: data });
             }
           })
-          .catch(err => {});
+          .catch(err => { });
       }
     }
   };
 
   const isValidData = () => {
-    const error = validator({phoneNumber});
+    const error = validator({ phoneNumber });
     if (error) {
       showError(error);
       return;
@@ -251,6 +300,8 @@ export default function Signup({route, navigation}) {
   var dummyTags = '';
 
   const _onSignup = () => {
+    var isRequired = true;
+
     dummyTags = selectedTags.map(item => {
       return item.name;
     });
@@ -270,21 +321,27 @@ export default function Signup({route, navigation}) {
       return;
     }
 
-    if (!selectedVehicleType) {
-      return showError(strings.SELECTTRANSPORTATION);
-    }
-    if (!selectedEpmloyeetype) {
-      return showError(strings.SELECTEMPLOYEETYPE);
-    }
+    console.log(dummyTags, "dummyTagsdummyTagsdummyTags");
+    // if (!selectedVehicleType) {
+    //   return showError(strings.SELECTTRANSPORTATION);
+    // }
+    // if (!selectedEpmloyeetype) {
+    //   return showError(strings.SELECTEMPLOYEETYPE);
+    // }
 
-    const otherErrors = validations({
-      modelMake: modelMake,
-      vehicleColor: vehicleColor,
-      vehiclePlateNumber: vehiclePlateNumber,
-    });
-    if (otherErrors) {
-      return showError(otherErrors);
+    if (selectedTeam == '' && !selectedTeam) {
+      showError(`${strings.PLEASE_SELECT} ${strings.A_TEAM}`);
+      return;
     }
+    if (getBundleId() == appIds?.trucxi && !selectedCustomerType) {
+      alert(getBundleId() == appIds?.trucxi)
+      showError(strings.PLEASESELECTCUSTOMERTYPE);
+      return;
+    }
+    // if (isEmpty(selectedTags)) {
+    //   showError(`${strings.PLEASE_SELECT} ${strings.ONE_TAG}`);
+    //   return;
+    // }
 
     let formdata = new FormData();
     formdata.append('name', fullName);
@@ -295,8 +352,10 @@ export default function Signup({route, navigation}) {
     formdata.append('color', vehicleColor);
     formdata.append('vehicle_type_id', selectedVehicleType?.id);
     formdata.append('team_id', !!selectedTeam ? selectedTeam?.id : '');
-    formdata.append('tags', dummyTags);
-
+    formdata.append('tags', dummyTags ? dummyTags : '');
+    if (getBundleId() == appIds?.trucxi && selectedCustomerType) {
+      formdata.append('customer_type_id', selectedCustomerType?.id);
+    }
     formdata.append('profile_picture', {
       type: 'image/jpeg',
       name: `${Math.random()
@@ -308,11 +367,37 @@ export default function Signup({route, navigation}) {
 
     if (addtionalTextInputs.length) {
       addtionalTextInputs.map((i, inx) => {
-        if (i?.contents != '') {
+        if (i?.contents != '' && !!i?.contents) {
           formdata.append(`files_text[${inx}][file_type]`, i?.file_type);
           formdata.append(`files_text[${inx}][id]`, i?.id);
           formdata.append(`files_text[${inx}][contents]`, i?.contents);
           formdata.append(`files_text[${inx}][label_name]`, i?.label_name);
+        } else if (i?.is_required) {
+          if (isRequired) {
+            showError(`${strings.PLEASE_ENTER} ${i.name.toLowerCase()}`);
+            isRequired = false;
+            return;
+          }
+        }
+      });
+    }
+
+    if (additionalDateFields.length) {
+      additionalDateFields.map((i, inx) => {
+        if (i?.contents != '' && !!i?.contents) {
+          formdata.append(`files_text[${inx}][file_type]`, i?.file_type);
+          formdata.append(`files_text[${inx}][id]`, i?.id);
+          formdata.append(
+            `files_text[${inx}][contents]`,
+            moment(i?.contents).format('YYYY-MM-DD'),
+          );
+          formdata.append(`files_text[${inx}][label_name]`, i?.name);
+        } else if (i?.is_required) {
+          if (isRequired) {
+            showError(`${strings.PLEASE_SELECT} ${i.name.toLowerCase()}`);
+            isRequired = false;
+            return;
+          }
         }
       });
     }
@@ -325,6 +410,12 @@ export default function Signup({route, navigation}) {
           formdata.append(`other[${inx}][file_type]`, i?.file_type);
           formdata.append(`other[${inx}][id]`, i?.id);
           formdata.append(`other[${inx}][filename1]`, i?.filename1);
+        } else if (i?.is_required) {
+          if (isRequired) {
+            showError(`${strings.PLEASE_UPLOAD} ${i.name.toLowerCase()}`);
+            isRequired = false;
+            return;
+          }
         }
       });
     }
@@ -337,27 +428,41 @@ export default function Signup({route, navigation}) {
             type: i?.mime,
             uri: i?.value,
           });
+        } else if (i?.is_required) {
+          if (isRequired) {
+            showError(`${strings.PLEASE_UPLOAD} ${i.name.toLowerCase()}`);
+            isRequired = false;
+            return;
+          }
         }
       });
     }
-    console.log(JSON.stringify(formdata), 'formdata>formdata');
+    if (!isRequired) {
+      return;
+    }
+    console.log(formdata, 'formdata>formdata');
 
-    updateState({isLoading: true});
+    updateState({ isLoading: true });
     actions
       .signUp(formdata, {
         client: clientInfo?.database_name,
         language: defaultLanguagae?.value,
       })
       .then(res => {
-        updateState({isLoading: false});
-        showSuccess(strings.SUCCESSSIGNUP);
-        navigation.goBack();
+        updateState({ isLoading: false, isWaitingModal: true });
+        // showSuccess(strings.SUCCESSSIGNUP, 10000);
+        setTimeout(() => {
+          updateState({
+            isWaitingModal: false,
+          });
+          navigation.goBack();
+        }, 10000);
       })
       .catch(errorMethod);
   };
   const errorMethod = error => {
-    updateState({isLoading: false});
-    showError(error?.message || error?.error, 4000);
+    updateState({ isLoading: false });
+    showError(error?.message || error?.error);
   };
 
   const _selectedTransportation = i => {
@@ -376,25 +481,67 @@ export default function Signup({route, navigation}) {
   const getTextInputField = (type, index) => {
     return (
       <TextInputWithlabel
+        onTouchStart={() => updateState({ isTagsShow: false })}
         labelStyle={styles.textInputlabel}
         editable={true}
-        label={type?.name}
+        label={`${type?.name}${type.is_required ? '*' : ''}`}
         value={addtionalTextInputs[index]?.contents}
         onChangeText={text => updateArray(text, index, type)}
       />
     );
   };
 
+  //Get Date Fields
+
+  const getDateFields = (type, index) => {
+    return (
+      <View
+        style={{ marginVertical: moderateScaleVertical(10) }}
+        key={String(index)}
+        onTouchStart={() => updateState({ isTagsShow: false })}>
+        <Text
+          style={{
+            fontSize: textScale(12),
+            fontFamily: fontFamily.medium,
+            color: colors.lightGreyBg2,
+            marginBottom: moderateScale(10),
+          }}>
+          {type?.name}
+          {type?.is_required ? '*' : ''}
+        </Text>
+        <TouchableOpacity
+          onPress={() =>
+            updateState({ isDatePicker: !isDatePicker, selectedDateField: type })
+          }
+          activeOpacity={0.7}
+          style={{
+            height: moderateScale(45),
+            borderWidth: 1,
+            borderRadius: moderateScaleVertical(4),
+            borderColor: colors.borderLight,
+            justifyContent: 'center',
+            paddingHorizontal: moderateScale(10),
+          }}>
+          <Text
+            style={{ fontFamily: fontFamily.regular, fontSize: textScale(12) }}>
+            {!!type.contents
+              ? moment(type.contents).format('DD-MMMM-YYYY')
+              : ''}
+          </Text>
+        </TouchableOpacity>
+      </View>
+    );
+  };
+
   //Update Images
   const updateImages = (type, index) => {
-    updateState({addtionSelectedImage: type, addtionSelectedImageIndex: index});
+    updateState({ addtionSelectedImage: type, addtionSelectedImageIndex: index });
     showActionSheet(false);
   };
 
   //Get Upload image view
 
   const getImageFieldView = (type, index) => {
-    console.log(' addtionalImages[index]', addtionalImages[index]);
     return (
       <View
         style={{
@@ -406,10 +553,10 @@ export default function Signup({route, navigation}) {
           onPress={() => updateImages(type, index)}
           style={styles.imageUpload}>
           {addtionalImages[index].value != undefined &&
-          addtionalImages[index].value != null &&
-          addtionalImages[index].value != '' ? (
+            addtionalImages[index].value != null &&
+            addtionalImages[index].value != '' ? (
             <Image
-              source={{uri: addtionalImages[index].value}}
+              source={{ uri: addtionalImages[index].value }}
               style={styles.imageStyle2}
             />
           ) : (
@@ -418,8 +565,9 @@ export default function Signup({route, navigation}) {
         </TouchableOpacity>
         <Text
           numberOfLines={2}
-          style={{...styles.label3, minHeight: moderateScale(25)}}>
+          style={{ ...styles.label3, minHeight: moderateScale(25) }}>
           {type?.name}
+          {type.is_required ? '*' : ''}
         </Text>
       </View>
     );
@@ -441,7 +589,7 @@ export default function Signup({route, navigation}) {
         data[index].mime = res[0].type;
 
         console.log(data, 'addtionalPdfs>>>data');
-        updateState({addtionalPdfs: data});
+        updateState({ addtionalPdfs: data });
       }
 
       // console.log(
@@ -464,8 +612,8 @@ export default function Signup({route, navigation}) {
   const getPdfView = (type, index) => {
     return (
       <View
-        style={{marginRight: moderateScale(20), marginTop: moderateScale(20)}}>
-        <Text style={[styles.label3]}>{type?.name}</Text>
+        onTouchStart={() => updateState({ isTagsShow: false })}
+        style={{ marginRight: moderateScale(20), marginTop: moderateScale(20) }}>
         <TouchableOpacity
           onPress={() => getDoc(type, index)}
           style={{
@@ -478,12 +626,16 @@ export default function Signup({route, navigation}) {
           }}>
           <Text style={styles.uploadStyle}>
             {addtionalPdfs[index].value != undefined &&
-            addtionalPdfs[index].value != null &&
-            addtionalPdfs[index].value != ''
+              addtionalPdfs[index].value != null &&
+              addtionalPdfs[index].value != ''
               ? `${addtionalPdfs[index].filename}`
               : `+ ${strings.UPLOAD}`}
           </Text>
         </TouchableOpacity>
+        <Text style={[styles.label3]}>
+          {type?.name}
+          {type.is_required ? '*' : ''}
+        </Text>
       </View>
     );
   };
@@ -498,7 +650,7 @@ export default function Signup({route, navigation}) {
     data[index].file_type = type?.file_type;
     data[index].label_name = type?.name;
     console.log(data, 'data>>>data');
-    updateState({addtionalTextInputs: data});
+    updateState({ addtionalTextInputs: data });
   };
 
   const getEmployeeViewBasedOnClient = code => {
@@ -510,9 +662,9 @@ export default function Signup({route, navigation}) {
         return (
           <View
             onTouchStart={() => {
-              updateState({isTagsShow: false});
+              updateState({ isTagsShow: false });
             }}
-            style={{marginTop: moderateScaleVertical(10)}}>
+            style={{ marginTop: moderateScaleVertical(10) }}>
             <Text style={styles.employeetypeHeadingtext}>
               {strings.EMPLOYEETYPE}
             </Text>
@@ -574,13 +726,9 @@ export default function Signup({route, navigation}) {
 
   const removeTag = (itm, indx) => {
     const selectedTagsAry = [...selectedTags];
-
     const ind = selectedTagsAry.findIndex(item => item.id == itm.id);
-    // const tagIdind = selectedTagIndxsAry.findIndex((item) => item === indx);
     var result = selectedTagsAry.filter((item, idx) => idx !== ind);
-    // var tagIdresult = selectedTagIndxsAry.filter(
-    //   (item, idx) => idx !== tagIdind,
-    // );
+
     updateState({
       selectedTags: result,
     });
@@ -593,11 +741,29 @@ export default function Signup({route, navigation}) {
       searchedAry = driverTagsNewAry.filter(item => {
         return item?.name.toLowerCase().includes(text.toLowerCase());
       });
-      updateState({driverTagsAry: searchedAry});
+      updateState({ driverTagsAry: searchedAry });
     } else {
-      updateState({driverTagsAry: driverTagsNewAry});
+      updateState({ driverTagsAry: driverTagsNewAry });
     }
   };
+
+  const onDateChange = value => {
+    const data = cloneDeep(additionalDateFields);
+    const ind = data.findIndex(item => item.id === selectedDateField?.id);
+    selectedDateField.contents = value;
+    data[ind] = selectedDateField;
+
+    updateState({
+      selectedDate: value,
+      additionalDateFields: [...data],
+    });
+  };
+
+  const _onCloseModal = () => {
+    updateState({ isDatePicker: false, selectedDate: new Date() });
+  };
+
+  console.log(customerType, "customerTypecustomerType");
 
   return (
     <WrapperContainer
@@ -606,12 +772,12 @@ export default function Signup({route, navigation}) {
       isLoadingB={isLoading}
       source={loaderOne}>
       <Header
-        headerStyle={{backgroundColor: colors.white}}
+        headerStyle={{ backgroundColor: colors.white }}
         // hideRight={true}
         // onPressLeft={()=>navigation.goBack()}
         centerTitle={strings.SIGNUP}
       />
-      <View style={{...commonStyles.headerTopLine}} />
+      <View style={{ ...commonStyles.headerTopLine }} />
       <View
         style={{
           marginHorizontal: moderateScale(15),
@@ -627,7 +793,7 @@ export default function Signup({route, navigation}) {
           <View style={styles.imageViewStyle}>
             {userImage ? (
               <TouchableOpacity onPress={() => showActionSheet(true)}>
-                <Image source={{uri: userImage}} style={styles.imageStyle} />
+                <Image source={{ uri: userImage }} style={styles.imageStyle} />
               </TouchableOpacity>
             ) : (
               <TouchableOpacity onPress={() => showActionSheet(true)}>
@@ -638,14 +804,14 @@ export default function Signup({route, navigation}) {
               </TouchableOpacity>
             )}
           </View>
-          <View style={{marginTop: moderateScale(20)}}>
+          <View style={{ marginTop: moderateScale(20) }}>
             <Text style={styles.label}>{strings.PERSONAL}</Text>
-            <View style={{marginTop: moderateScaleVertical(20)}}>
+            <View style={{ marginTop: moderateScaleVertical(20) }}>
               <TextInputWithlabel
                 editable={true}
                 label={strings.FULLNAME}
                 value={fullName}
-                onChangeText={text => updateState({fullName: text})}
+                onChangeText={text => updateState({ fullName: text })}
                 labelStyle={styles.textInputlabel}
               />
 
@@ -655,11 +821,11 @@ export default function Signup({route, navigation}) {
               <PhoneNumberInput
                 onCountryChange={_onCountryChange}
                 onChangePhone={phoneNumber =>
-                  updateState({phoneNumber: phoneNumber.replace(/[^0-9]/g, '')})
+                  updateState({ phoneNumber: phoneNumber.replace(/[^0-9]/g, '') })
                 }
                 cca2={cca2}
                 phoneNumber={phoneNumber}
-                callingCode={state.callingCode}
+                callingCode={callingCode}
                 placeholder={strings.YOUR_PHONE_NUMBER}
                 keyboardType={'phone-pad'}
                 returnKeyType={'done'}
@@ -682,7 +848,7 @@ export default function Signup({route, navigation}) {
               {strings.TEAMS}
             </Text>
 
-            <View style={{zIndex: 5}}>
+            <View style={{ zIndex: 10 }}>
               <TouchableOpacity
                 style={{
                   borderRadius: 8,
@@ -721,7 +887,7 @@ export default function Signup({route, navigation}) {
                     width: '100%',
                     paddingHorizontal: moderateScale(10),
                     paddingVertical: moderateScale(5),
-                    shadowOffset: {width: 0, height: 1},
+                    shadowOffset: { width: 0, height: 1 },
                     shadowOpacity: 0.1,
                     minHeight: moderateScale(50),
                     borderRadius: moderateScale(5),
@@ -751,10 +917,7 @@ export default function Signup({route, navigation}) {
                     ) : (
                       <View
                         style={{
-                          width: '100%',
-                          height: moderateScale(30),
-                          justifyContent: 'center',
-                          alignItems: 'center',
+                          ...styles.noDataFound,
                           backgroundColor: colors.white,
                         }}>
                         <Text
@@ -771,6 +934,107 @@ export default function Signup({route, navigation}) {
               )}
             </View>
 
+            {/* Select Customer type */}
+
+            {getBundleId() == appIds.trucxi && (
+              <View>
+                <Text
+                  style={{
+                    ...styles.labelTxt,
+                    marginVertical: moderateScaleVertical(10),
+                  }}>
+                  {strings.CUSTOMERTYPE}
+                </Text>
+
+                <View style={{ zIndex: 5 }}>
+                  <TouchableOpacity
+                    style={{
+                      borderRadius: 8,
+                      height: moderateScaleVertical(44),
+                      paddingHorizontal: moderateScale(5),
+                      borderWidth: 1,
+                      borderColor: colors.borderLight,
+                      flexDirection: 'row',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                    }}
+                    activeOpacity={0.7}
+                    onPress={() =>
+                      updateState({
+                        isCustomer: !isCustomer,
+                        isDriverType: false,
+                        isTagsShow: false,
+                      })
+                    }>
+                    <Text
+                      style={{
+                        ...styles.labelTxt,
+                        marginBottom: 0,
+                      }}>
+                      {!!selectedCustomerType
+                        ? selectedCustomerType?.name
+                        : strings.SELECT_TEAM}
+                    </Text>
+                    <Image source={imagePath.dropDownNew} />
+                  </TouchableOpacity>
+
+                  {isCustomer && (
+                    <View
+                      style={{
+                        borderWidth: 1,
+                        borderColor: colors.borderColorB,
+                        backgroundColor: colors.white,
+                        width: '100%',
+                        paddingHorizontal: moderateScale(10),
+                        paddingVertical: moderateScale(5),
+                        shadowOffset: { width: 0, height: 1 },
+                        shadowOpacity: 0.1,
+                        minHeight: moderateScale(50),
+                        borderRadius: moderateScale(5),
+                        maxHeight: moderateScale(150),
+                      }}>
+                      <ScrollView>
+                        {customerType.length > 0 ? (
+                          <View>
+                            {customerType.map((itm, indx) => {
+                              return (
+                                <TouchableOpacity
+                                  key={indx}
+                                  onPress={() =>
+                                    updateState({
+                                      selectedCustomerType: itm,
+                                      isCustomer: false,
+                                    })
+                                  }
+                                  style={{
+                                    marginVertical: moderateScale(5),
+                                  }}>
+                                  <Text>{itm.name}</Text>
+                                </TouchableOpacity>
+                              );
+                            })}
+                          </View>
+                        ) : (
+                          <View
+                            style={{
+                              ...styles.noDataFound,
+                              backgroundColor: colors.white,
+                            }}>
+                            <Text
+                              style={{
+                                fontFamily: fontFamily.medium,
+                                fontSize: moderateScale(13),
+                              }}>
+                              {strings.NODATAFOUND}
+                            </Text>
+                          </View>
+                        )}
+                      </ScrollView>
+                    </View>
+                  )}
+                </View>
+              </View>
+            )}
             <Text
               style={{
                 marginVertical: moderateScaleVertical(10),
@@ -781,7 +1045,7 @@ export default function Signup({route, navigation}) {
               {strings.TAGS}
             </Text>
 
-            <View style={{zIndex: 2}}>
+            <View style={{ zIndex: 2, marginBottom: moderateScale(10) }}>
               <View
                 onLayout={event => {
                   updateState({
@@ -800,7 +1064,7 @@ export default function Signup({route, navigation}) {
                 }}>
                 <View>
                   {selectedTags.length > 0 && (
-                    <View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
+                    <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
                       {selectedTags.map((item, index) => {
                         return (
                           <TouchableOpacity
@@ -842,8 +1106,8 @@ export default function Signup({route, navigation}) {
                   )}
                   <TextInput
                     placeholder={strings.SELCTED_TAG}
-                    onFocus={() => updateState({isTagsShow: true})}
-                    onBlur={() => updateState({isTagsShow: false})}
+                    onFocus={() => updateState({ isTagsShow: true })}
+                    onBlur={() => updateState({ isTagsShow: false })}
                     onChangeText={onSearchTags}
                     style={{
                       opacity: 0.7,
@@ -860,33 +1124,25 @@ export default function Signup({route, navigation}) {
                 <View
                   style={{
                     backgroundColor: colors.white,
-                    shadowOffset: {width: 0, height: 1},
+                    shadowOffset: { width: 0, height: 1 },
                     shadowOpacity: 0.1,
                     width: '100%',
                   }}>
                   {driverTagsAry.length > 0 ? (
-                    <View style={{flexWrap: 'wrap', flexDirection: 'row'}}>
+                    <View style={{ flexWrap: 'wrap', flexDirection: 'row' }}>
                       {driverTagsAry.map((item, index) => {
                         return (
                           <TouchableOpacity
                             onPress={() => _onTagSelect(item, index)}
                             activeOpacity={0.7}
                             style={{
-                              borderWidth: 1,
+                              ...styles.driverTagsView,
                               borderColor: selectedTags.includes(item)
                                 ? colors.themeColor
                                 : colors.borderColorB,
-                              width: (width - moderateScale(70)) / 3,
-                              alignItems: 'center',
-                              marginVertical: moderateScale(5),
-                              paddingVertical: moderateScale(5),
-                              marginHorizontal: moderateScale(5),
-                              zIndex: 1,
                               backgroundColor: selectedTags.includes(item)
                                 ? colors.themeColor
                                 : colors.borderColorB,
-                              borderRadius: moderateScale(5),
-                              justifyContent: 'center',
                             }}>
                             <Text
                               numberOfLines={2}
@@ -903,13 +1159,7 @@ export default function Signup({route, navigation}) {
                       })}
                     </View>
                   ) : (
-                    <View
-                      style={{
-                        width: '100%',
-                        height: moderateScale(30),
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                      }}>
+                    <View style={styles.noDataFound}>
                       <Text
                         style={{
                           fontFamily: fontFamily.medium,
@@ -923,7 +1173,7 @@ export default function Signup({route, navigation}) {
               )}
             </View>
 
-            <View
+            {/* <View
               onTouchStart={() => updateState({isTagsShow: false})}
               style={{marginVertical: moderateScaleVertical(20)}}>
               <Text style={styles.label}>{strings.TRASNPORTATION}</Text>
@@ -934,6 +1184,8 @@ export default function Signup({route, navigation}) {
                 alwaysBounceHorizontal={false}
                 style={styles.transporationOuterContainer}>
                 {allTransportation.map((i, inx) => {
+                  if (savedShortCode === shortCodes.drus && inx == 0) return;
+
                   return (
                     <TouchableOpacity
                       style={[
@@ -963,7 +1215,8 @@ export default function Signup({route, navigation}) {
               </ScrollView>
             </View>
             {getEmployeeViewBasedOnClient(savedShortCode)}
-            <View style={{marginTop: moderateScaleVertical(10)}}>
+          */}
+            {/* <View style={{marginTop: moderateScaleVertical(10)}}>
               <TextInputWithlabel
                 labelStyle={styles.textInputlabel}
                 editable={true}
@@ -987,11 +1240,16 @@ export default function Signup({route, navigation}) {
                 value={vehiclePlateNumber}
                 onChangeText={text => updateState({vehiclePlateNumber: text})}
               />
-            </View>
+            </View> */}
 
             {!!(addtionalTextInputs && addtionalTextInputs.length) &&
               addtionalTextInputs.map((item, index) => {
                 return getTextInputField(item, index);
+              })}
+
+            {!isEmpty(additionalDateFields) &&
+              additionalDateFields.map((item, index) => {
+                return getDateFields(item, index);
               })}
 
             {!!(addtionalImages && addtionalImages.length) && (
@@ -1012,15 +1270,16 @@ export default function Signup({route, navigation}) {
           </View>
           <GradientButton
             onPress={_onSignup}
-            containerStyle={{marginVertical: moderateScaleVertical(40)}}
+            containerStyle={{ marginVertical: moderateScaleVertical(40) }}
             // onPress={_onLogin}
             marginTop={moderateScaleVertical(20)}
             marginBottom={moderateScaleVertical(40)}
-            textStyle={{color: colors.black}}
+            textStyle={{ color: colors.black }}
             btnText={strings.SIGNUP}
             colorsArray={[colors.themeColor, colors.themeColor]}
           />
         </KeyboardAwareScrollView>
+
         <ActionSheet
           ref={actionSheet}
           // title={'Choose one option'}
@@ -1030,6 +1289,27 @@ export default function Signup({route, navigation}) {
           onPress={index => cameraHandle(index)}
         />
       </View>
+
+      <DatePickerModal
+        isVisible={isDatePicker}
+        onclose={_onCloseModal}
+        onSelectDate={_onCloseModal}
+        onDateChange={onDateChange}
+        date={selectedDate}
+        mode="date"
+      />
+      <Modal
+        isVisible={isWaitingModal}
+        status
+        style={{ margin: 0, justifyContent: 'flex-end' }}
+        onBackdropPress={() => updateState({ isWaitingModal: false })}>
+        <View style={styles.modalMainView}>
+          <Text style={styles.thanksMsgTxt}>{strings.THANKS_MSG}</Text>
+          <Text style={styles.signupDoneTxt}>
+            {strings.SINGNUP_COMPLETED_NOTIFIED_SOON}
+          </Text>
+        </View>
+      </Modal>
     </WrapperContainer>
   );
 }

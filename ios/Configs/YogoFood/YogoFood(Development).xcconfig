@@ -1,8 +1,8 @@
-#include "Pods/Target Support Files/Pods-YogoFood/Pods-YogoFood.debug.xcconfig"
+#include "Pods/Target Support Files/Pods-available_pods-YogoFood/Pods-available_pods-YogoFood.debug.xcconfig"
 
-PROJECT_BUNDLE_ID = com.YogoFood.Dispatch
+PROJECT_BUNDLE_ID = com.YogoFood.Dispatcher
 PROJECT_APP_VERSION = 1.0
-PROJECT_BUILD_NUMBER = 6
-PROJECT_APP_NAME =YogoFood Dispatch
+PROJECT_BUILD_NUMBER = 1
+PROJECT_APP_NAME =YogoFood Driver
 PROJECT_PLIST = YogoFoodInfo
 PROJECT_ENTITLEMENT=RoyoDriverAppRelease

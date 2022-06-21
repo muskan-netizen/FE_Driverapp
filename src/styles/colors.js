@@ -1,5 +1,6 @@
 export default {
   themeColor: '#2C80FF',
+  lophtBlue: '#0056a4',
   btnABlue: '#61A0F2',
   btnBBlue: '#32A3E0',
   textBlue: '#1A76CA',
@@ -101,4 +102,7 @@ export default {
   lightSkyE: '#F7FAFF',
   lightRed: '#FF7276',
   ligthBlue: '#E7F7FB',
+  greenLight: '#80b34d',
+  textGreyOpcaity6: 'rgba(30,36,40,.6)',
+
 };

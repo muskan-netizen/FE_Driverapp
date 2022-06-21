@@ -8,7 +8,7 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:63196078655:android:d565632619e1de29ac8e8a",
+        "mobilesdk_app_id": "1:63196078655:android:a8e8f310cfd6138fac8e8a",
         "android_client_info": {
           "package_name": "com.africanize.royodispatcher"
         }
@@ -30,6 +30,13 @@
             {
               "client_id": "63196078655-kic8em3iu1k4f21r1ttt5efca0192anq.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "63196078655-pv3taoeige2jf444qmhn3oskvs9hl861.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.Dispatch.AfricanizeApp.ios"
+              }
             }
           ]
         }

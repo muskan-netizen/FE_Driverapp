@@ -1,7 +1,7 @@
 import React, {Fragment, useEffect, useState} from 'react';
 import {Alert} from 'react-native';
 import {Text, TouchableOpacity, View, Image} from 'react-native';
-import Animated from 'react-native-reanimated';
+// import Animated from 'react-native-reanimated';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useSelector} from 'react-redux';
 import imagePath from '../constants/imagePath';
@@ -35,28 +35,28 @@ export default function CustomDrawerContent({
   const [states, setState] = useState({
     routes: [
       {
-        id: 0,
+        id: 1,
         label: strings.TASKHISTORY,
         image: imagePath.taskHistory,
         key: navigationStrings.TASKSTACK,
         subRoute: navigationStrings.TASKHISTORY,
       },
       {
-        id: 1,
+        id: 2,
         label: strings.PROFILE,
         image: imagePath.profileImage,
         key: navigationStrings.PROFILESTACK,
         // subRoute:navigationStrings.MYPROFILE
       },
       {
-        id: 2,
+        id: 3,
         label: strings.SETTING,
         image: imagePath.settingsIcon,
         key: navigationStrings.SETTINGS,
         // subRoute:navigationStrings.MYPROFILE
       },
       {
-        id: 3,
+        id: 4,
         label: strings.WALLET,
         image: imagePath.wallet,
         key: navigationStrings.TASKSTACK,
@@ -65,7 +65,7 @@ export default function CustomDrawerContent({
         // subRoute:navigationStrings.MYPROFILE
       },
       {
-        id: 4,
+        id: 5,
         label: strings.CONTACT,
         image: imagePath.contact2,
         key: navigationStrings.TASKSTACK,
@@ -82,8 +82,26 @@ export default function CustomDrawerContent({
         // key: navigationStrings.PROFILESTACK,
         // subRoute:navigationStrings.MYPROFILE
       },
+      appIds.transportSystem === DeviceInfo.getBundleId()
+        ? {
+            id: 7,
+            label: strings.DAMAGEREPORT,
+            image: imagePath.damagereport,
+            key: navigationStrings.DAMAGEREPORT,
+            // subRoute:navigationStrings.MYPROFILE
+          }
+        : {},
+      appIds.transportSystem === DeviceInfo.getBundleId()
+        ? {
+            id: 7,
+            label: strings.REIMBURSEMENT,
+            image: imagePath.reimbursement,
+            key: navigationStrings.REIMBURSEMENT,
+            // subRoute:navigationStrings.MYPROFILE
+          }
+        : {},
       {
-        id: 5,
+        id: 8,
         label: strings.LOGOUT,
         image: imagePath.logout,
         // key: navigationStrings.PROFILESTACK,
@@ -101,6 +119,12 @@ export default function CustomDrawerContent({
     state => state?.initBoot?.defaultLanguage,
   );
 
+  console.log(zendeskKeys, 'keys >>>>>>>>>>>>');
+  
+  // ZendeskChat.init(
+  //   'kI9WjmYer9iy7gCYF2sne4gXUure2AK4',
+  //   'bdea936e4bdb8130bb3f74cf9be7001aeaf503fe61c1543c',
+  // );
   useEffect(() => {
     ZendeskChat.init(
       `${zendeskKeys?.keys?.account_key}`,
@@ -109,44 +133,44 @@ export default function CustomDrawerContent({
     updateState({
       routes: [
         {
-          id: 0,
+          id: 1,
           label: strings.TASKHISTORY,
           image: imagePath.taskHistory,
           key: navigationStrings.TASKSTACK,
           subRoute: navigationStrings.TASKHISTORY,
         },
         {
-          id: 1,
+          id: 2,
           label: strings.PROFILE,
           image: imagePath.profileImage,
           key: navigationStrings.PROFILESTACK,
           // subRoute:navigationStrings.MYPROFILE
         },
         {
-          id: 2,
+          id: 3,
           label: strings.SETTING,
           image: imagePath.settingsIcon,
           key: navigationStrings.SETTINGS,
           // subRoute:navigationStrings.MYPROFILE
         },
-        // {
-        //   id: 3,
-        //   label: strings.WALLET,
-        //   image: imagePath.wallet,
-        //   key: navigationStrings.WALLETSTACK,
-        //   subRoute: navigationStrings.WALLETSTACK,
-        //   // key: navigationStrings.WALLET,
-        //   // subRoute:navigationStrings.MYPROFILE
-        // },
-        // {
-        //   id: 4,
-        //   label: strings.PAYOUT,
-        //   image: imagePath.icPayout,
-        //   key: navigationStrings.PAYOUT_STACK,
-        //   subRoute: navigationStrings.PAYOUT_STACK,
-        //   // key: navigationStrings.WALLET,
-        //   // subRoute:navigationStrings.MYPROFILE
-        // },
+        {
+          id: 4,
+          label: strings.WALLET,
+          image: imagePath.wallet,
+          key: navigationStrings.WALLETSTACK,
+          subRoute: navigationStrings.WALLETSTACK,
+          // key: navigationStrings.WALLET,
+          // subRoute:navigationStrings.MYPROFILE
+        },
+        {
+          id: 5,
+          label: strings.PAYOUT,
+          image: imagePath.icPayout,
+          key: navigationStrings.PAYOUT_STACK,
+          subRoute: navigationStrings.PAYOUT_STACK,
+          // key: navigationStrings.WALLET,
+          // subRoute:navigationStrings.MYPROFILE
+        },
         {
           id: 5,
           label: strings.CONTACT,
@@ -164,10 +188,29 @@ export default function CustomDrawerContent({
           // key: navigationStrings.PROFILESTACK,
           // subRoute:navigationStrings.MYPROFILE
         },
+        appIds.transportSystem === DeviceInfo.getBundleId()
+          ? {
+              id: 7,
+              label: strings.DAMAGEREPORT,
+              image: imagePath.damagereport,
+              key: navigationStrings.DAMAGEREPORT,
+              // subRoute:navigationStrings.MYPROFILE
+            }
+          : {},
+        appIds.transportSystem === DeviceInfo.getBundleId()
+          ? {
+              id: 7,
+              label: strings.REIMBURSEMENT,
+              image: imagePath.reimbursement,
+              key: navigationStrings.REIMBURSEMENT,
+              // subRoute:navigationStrings.MYPROFILE
+            }
+          : {},
+
         appIds.goody === DeviceInfo.getBundleId()
           ? {}
           : {
-              id: 7,
+              id: 8,
               label: strings.LOGOUT,
               image: imagePath.logout,
               // key: navigationStrings.PROFILESTACK,
@@ -175,7 +218,7 @@ export default function CustomDrawerContent({
             },
       ],
     });
-  }, [defaultLanguagae]);
+  }, [defaultLanguagae,zendeskKeys?.keys?.account_key,zendeskKeys?.keys?.application_id]);
 
   //
 
@@ -227,6 +270,19 @@ export default function CustomDrawerContent({
     showError(error?.message || error?.error);
   };
 
+  const onStartSupportChat = () => {
+    ZendeskChat.setVisitorInfo({
+      name: userData?.name,
+      phone: userData?.phone_number ? userData?.phone_number : '',
+    });
+    ZendeskChat.startChat({
+      name: userData?.name,
+      phone: userData?.phone_number ? userData?.phone_number : '',
+      withChat: true,
+      color: '#000',
+    });
+  };
+
   return (
     <>
       <View
@@ -257,8 +313,11 @@ export default function CustomDrawerContent({
         {routes.map((route, index) => {
           // const {options} = descriptors[route.key];
           const isFocused = selectedDrawerItem?.index === index;
-          const label = route.label;
+          const label = route?.label;
           const onPress = () => {
+            console.log(route?.key, 'route?.key>>>');
+            console.log(route?.subRoute, 'route?.subRoute');
+
             if (route?.key) {
               if (route?.subRoute) {
                 navigation.navigate(route.key, {
@@ -268,40 +327,33 @@ export default function CustomDrawerContent({
                 navigation.navigate(route.key);
               }
             } else if (route?.support) {
-              ZendeskChat.setVisitorInfo({
-                name: userData?.name,
-                phone: userData?.phone_number,
-              });
-              ZendeskChat.startChat({
-                name: userData?.name,
-                phone: userData?.phone_number,
-                withChat: true,
-                color: '#000',
-              });
+              onStartSupportChat();
             } else {
               onLogoutPress();
             }
             // navigation.navigate(route.key, { screen: navigationStrings.subRoute });
           };
 
-          return (
-            <Fragment key={route.name}>
+          return route?.id ? (
+            <Fragment key={route?.name}>
               <TouchableOpacity
                 key={index}
                 accessibilityRole="button"
                 accessibilityStates={isFocused ? ['selected'] : []}
-                testID={JSON.stringify(route.id)}
+                testID={JSON.stringify(route?.id)}
                 onPress={onPress}
                 // onLongPress={onLongPress}
                 style={{
-                  margin: moderateScale(10),
+                  margin: moderateScale(8),
                   // alignItems: 'center',
                   flexDirection: 'row',
                   alignItems: 'center',
+
+                  justifyContent: 'center',
                 }}>
                 {/* {options.drawerIcon({focused: isFocused})} */}
                 <View style={{flex: 0.15}}>
-                  <Image source={route.image} />
+                  <Image source={route?.image} />
                 </View>
 
                 <View style={{flex: 0.85}}>
@@ -319,7 +371,7 @@ export default function CustomDrawerContent({
                 </View>
               </TouchableOpacity>
             </Fragment>
-          );
+          ) : null;
         })}
         <View
           style={{
@@ -336,7 +388,7 @@ export default function CustomDrawerContent({
               color: colors.lightGreyBg2,
               fontSize: textScale(12),
             }}>
-            {`Version ${DeviceInfo.getVersion()} `}
+            {`${strings.VERSION} ${DeviceInfo.getVersion()} `}
             <Text>{`(${DeviceInfo.getBuildNumber()})`}</Text>
           </Text>
         </View>

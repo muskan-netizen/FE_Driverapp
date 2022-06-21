@@ -1,8 +1,8 @@
-#include "Pods/Target Support Files/Pods-Yeboy/Pods-Yeboy.release.xcconfig"
+#include "Pods/Target Support Files/Pods-available_pods-Yeboy/Pods-available_pods-Yeboy.release.xcconfig"
 
-PROJECT_BUNDLE_ID = com.Yeboy.Dispatch
+PROJECT_BUNDLE_ID = com.Yeboy.Dispatcher
 PROJECT_APP_VERSION = 1.0
-PROJECT_BUILD_NUMBER = 1
-PROJECT_APP_NAME =Yeboy Dispatch
+PROJECT_BUILD_NUMBER = 3
+PROJECT_APP_NAME =Yeboy Driver
 PROJECT_PLIST =YeboyInfo
 PROJECT_ENTITLEMENT=RoyoDriverAppRelease

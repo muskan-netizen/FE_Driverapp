@@ -27,4 +27,16 @@ export default {
   ADD_MONEY: 'addMoney',
   PAYOUT_STACK: 'payoutStack',
   PAYOUT: 'payout',
+  DAMAGEREPORT:"Damagereport",
+  REIMBURSEMENT:"Reimbursement",
+  CART:"Cart",
+  PLACEHOLDERCOMMENTFORPICKUPDRIVER: 'Eg. Please reach before time if possible',
+  SEARCHPRODUCTOVENDOR: 'SearchProductVendorItem',
+  PRODUCTDETAIL: 'productDetail',
+  ORDERCANCEL:"Ordercancel",
+  WEBCONNECTIONS:"Webconnections",
+  ALL_IN_ONE_PAYMENTS: 'allInOnePayments',
+
+
+
 };

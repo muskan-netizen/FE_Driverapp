@@ -1,9 +1,9 @@
-#include "Pods/Target Support Files/Pods-Sponge/Pods-Sponge.debug.xcconfig"
+#include "Pods/Target Support Files/Pods-available_pods-Sponge/Pods-available_pods-Sponge.debug.xcconfig"
 
 
 PROJECT_BUNDLE_ID = com.Sponge.Dispatch
 PROJECT_APP_VERSION = 1.0
-PROJECT_BUILD_NUMBER = 1
+PROJECT_BUILD_NUMBER = 3
 PROJECT_APP_NAME =Sponge Dispatch
 PROJECT_PLIST =SpongeInfo
 PROJECT_ENTITLEMENT=RoyoDriverAppRelease

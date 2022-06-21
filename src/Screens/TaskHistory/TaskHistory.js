@@ -1,37 +1,30 @@
 import {debounce} from 'lodash';
-import React, {useState, useEffect} from 'react';
+import moment from 'moment';
+import React, {useEffect, useState} from 'react';
 import {
-  View,
-  Text,
+  FlatList,
   Image,
   RefreshControl,
-  FlatList,
-  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
 } from 'react-native';
 import {useSelector} from 'react-redux';
-import Header, {stylesFunc} from '../../Components/Header';
+import DatePickerModal from '../../Components/DatePickerModal';
+import Header from '../../Components/Header';
 import {loaderOne} from '../../Components/Loaders/AnimatedLoaderFiles';
 import TaskListCard from '../../Components/TaskListCard';
 import WrapperContainer from '../../Components/WrapperContainer';
 import imagePath from '../../constants/imagePath';
 import strings from '../../constants/lang';
+import navigationStrings from '../../navigation/navigationStrings';
 import actions from '../../redux/actions';
 // import store from '../../redux/store';
 import colors from '../../styles/colors';
 import commonStylesFunc from '../../styles/commonStyles';
 import fontFamily from '../../styles/fontFamily';
-import {
-  moderateScale,
-  moderateScaleVertical,
-  width,
-} from '../../styles/responsiveSize';
-import {transportationArray} from '../../utils/constants/ConstantValues';
+import {moderateScaleVertical} from '../../styles/responsiveSize';
 import {showError} from '../../utils/helperFunctions';
-import DatePicker from 'react-native-date-picker';
-import DatePickerModal from '../../Components/DatePickerModal';
-import {TouchableOpacity} from 'react-native';
-import moment from 'moment';
-import navigationStrings from '../../navigation/navigationStrings';
 import stylesFunction from './styles';
 export default function TaskHistory({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
@@ -88,14 +81,19 @@ export default function TaskHistory({route, navigation}) {
       url = `?from_date=&to_date=`;
     }
     console.log(url, 'url');
+    console.log(clientInfo?.database_name, "Client>>>>>>>>>")
     actions
       .getListOfTaskHistory(url, {}, {client: clientInfo?.database_name})
       .then(res => {
         console.log(res, 'getAllTaskHistory>>>getAllTaskHistory data');
+        let totalAmount =
+          res?.data?.totalCashCollected
+            .toFixed(2)
+            .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') || 0.0;
         updateState({
           isLoading: false,
           isRefreshing: false,
-          totalCashCollected: res?.data?.totalCashCollected,
+          totalCashCollected: totalAmount,
           allTaskInHistory: res?.data?.tasks,
         });
       })
@@ -112,7 +110,6 @@ export default function TaskHistory({route, navigation}) {
   const onEndReached = ({distanceFromEnd}) => {
     updateState({pageNo: pageNo + 1});
   };
-
   const onEndReachedDelayed = debounce(onEndReached, 1000, {
     leading: true,
     trailing: false,
@@ -132,6 +129,7 @@ export default function TaskHistory({route, navigation}) {
         allTasks={allTaskInHistory}
         showCurrency={true}
         _onPressTask={() => _onPressTask(item)}
+        isFromHistory={true}
       />
     );
   };
@@ -181,9 +179,10 @@ export default function TaskHistory({route, navigation}) {
 
       <View style={styles.cashCollectionContainer}>
         <View style={styles.cashTextView}>
-          <Text style={styles.cashCollected}>{`${
-            strings.CASHCOLLECTED
-          } :- ${totalCashCollected.toFixed(2)}`}</Text>
+          <Text
+            style={
+              styles.cashCollected
+            }>{`${strings.CASHCOLLECTED} :- ${totalCashCollected}`}</Text>
         </View>
         <View style={styles.clearViewStyle}>
           <TouchableOpacity
@@ -216,33 +215,37 @@ export default function TaskHistory({route, navigation}) {
       </View>
 
       <View style={{backgroundColor: colors.backGround, flex: 1}}>
-        <FlatList
-          data={allTaskInHistory}
-          extraData={allTaskInHistory}
-          renderItem={renderTaskList}
-          keyExtractor={(item, index) => String(index)}
-          keyboardShouldPersistTaps="always"
-          showsVerticalScrollIndicator={false}
-          style={{
-            flex: 1,
-          }}
-          contentContainerStyle={{
-            flexGrow: 1,
-            marginVertical: moderateScaleVertical(20),
-          }}
-          refreshControl={
-            <RefreshControl
-              refreshing={isRefreshing}
-              onRefresh={handleRefresh}
-              tintColor={colors.themeColor}
-            />
-          }
-          onEndReached={onEndReachedDelayed}
-          onEndReachedThreshold={0.5}
-          ListFooterComponent={() => (
-            <View style={{height: moderateScaleVertical(65)}} />
-          )}
-        />
+        {!isLoading ? (
+          <FlatList
+            data={allTaskInHistory}
+            extraData={allTaskInHistory}
+            renderItem={renderTaskList}
+            keyExtractor={(item, index) => String(index)}
+            keyboardShouldPersistTaps="always"
+            showsVerticalScrollIndicator={false}
+            style={{
+              flex: 1,
+            }}
+            contentContainerStyle={{
+              flexGrow: 1,
+              marginVertical: moderateScaleVertical(20),
+            }}
+            refreshControl={
+              <RefreshControl
+                refreshing={isRefreshing}
+                onRefresh={handleRefresh}
+                tintColor={colors.themeColor}
+              />
+            }
+            onEndReached={onEndReachedDelayed}
+            onEndReachedThreshold={0.5}
+            ListFooterComponent={() => (
+              <View style={{height: moderateScaleVertical(65)}} />
+            )}
+          />
+        ) : (
+          <></>
+        )}
       </View>
       <DatePickerModal
         isVisible={isModalVisibleForDateTime}

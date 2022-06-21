@@ -15,12 +15,19 @@ import {
   LOGSAPI,
   CUSTOMNOTIFICATIONPAYLOAD,
 } from '../../config/urls';
+import DeviceInfo from 'react-native-device-info';
+import { appIds } from '../../utils/constants/DynamicAppKeys';
 
 export function initApp(data = {}, headers = {}, reload = false) {
+  console.log(APP_INITIAL_SETTINGS,data);
   return new Promise((resolve, reject) => {
     apiPost(APP_INITIAL_SETTINGS, data, headers)
       .then(async res => {
+        console.log(res, 'somamae is urnning1');
         let data = res?.data;
+        
+      
+
         setClientInfo(data).then(suc => {
           dispatch({
             type: types.APP_INIT,
@@ -142,7 +149,6 @@ export function setDefaultLanguage(data = {}) {
 }
 
 export const saveFcmToken = data => {
-  console.log(data, 'datadata');
   dispatch({
     type: types.FCMTOKEN,
     payload: data,

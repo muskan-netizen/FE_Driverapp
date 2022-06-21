@@ -1,0 +1,9 @@
+#include "Pods/Target Support Files/Pods-available_pods-Launch/Pods-available_pods-Launch.release.xcconfig"
+
+
+PROJECT_BUNDLE_ID = com.Launch.Dispatch
+PROJECT_APP_VERSION = 1.0
+PROJECT_BUILD_NUMBER = 1
+PROJECT_APP_NAME =Launch Dispatcher
+PROJECT_PLIST =LaunchInfo
+PROJECT_ENTITLEMENT=RoyoDriverAppRelease

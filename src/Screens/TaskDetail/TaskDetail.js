@@ -45,11 +45,13 @@ import moment from 'moment';
 import {
   getColorCodeWithOpactiyNumber,
   getCurrentLocation,
+  getHostName,
   showError,
 } from '../../utils/helperFunctions';
 import stylesFunc from './styles';
 import ButtonComponent from '../../Components/ButtonComponent';
 import {mapStyle} from '../../utils/constants/MapStyle';
+import {getAllTravelDetails} from '../../utils/googlePlaceApi';
 
 var ACTION_TIMER = 1500;
 var COLORS = ['#8FEE90', '#27A468'];
@@ -61,6 +63,7 @@ export default function TaskDetail({route, navigation}) {
   let fromHistory = route?.params?.data?.fromHistory;
 
   const [state, setState] = useState({
+    vendors: {},
     isLoading: false,
     region: {
       latitude: Number(taskDetail?.location?.latitude),
@@ -121,9 +124,14 @@ export default function TaskDetail({route, navigation}) {
     updatedProofArray: [],
     findDataToCheck: null,
     productAllInsrucations: [],
+    apiData: null,
+    cancelRequestExit: null,
+    totalTravelData: null,
   });
 
   const {
+    cancelRequestExit,
+    vendors,
     findDataToCheck,
     updatedProofArray,
     taskProofArray,
@@ -138,6 +146,8 @@ export default function TaskDetail({route, navigation}) {
     buttonPressComplete,
     buttonText,
     productAllInsrucations,
+    apiData,
+    totalTravelData,
   } = state;
   const commonStyles = commonStylesFunc({fontFamily});
   const updateState = data => setState(state => ({...state, ...data}));
@@ -149,6 +159,9 @@ export default function TaskDetail({route, navigation}) {
 
   const styles = stylesFunc({defaultLanguagae});
   // const userData = useSelector(state => state?.auth?.userData);
+
+  console.log(defaultLanguagae, 'defaultLanguagae');
+  const mapRef = useRef();
 
   useEffect(() => {
     if (userData?.task_proof) {
@@ -258,6 +271,12 @@ export default function TaskDetail({route, navigation}) {
         '/dispatch-order-status-update/',
       )
     ) {
+      // const url = "https://www.example.com/blog?search=hello&world";
+      // let domain = (new URL(url));
+      // console.log(domain, 'domain');
+
+      console.log(getHostName(taskDetail?.order?.call_back_url), 'domain2');
+
       return (taskDetail?.order?.call_back_url).replace(
         '/dispatch-order-status-update/',
         '/dispatch-order-status-update-details/',
@@ -285,12 +304,45 @@ export default function TaskDetail({route, navigation}) {
       });
       _getproductUpdateDetails();
     }
+    if (fromHistory) {
+      if (
+        taskDetail?.tasktype?.name == 'Drop' &&
+        taskDetail?.order?.task?.length >= 1 &&
+        taskDetail?.order?.task[0]?.location?.address &&
+        taskDetail?.order?.task[1]?.location?.address
+      ) {
+        getAllMovingDetails([
+          {pickupAddress: taskDetail?.order?.task[0]?.location?.address},
+          {dropAddress: taskDetail?.order?.task[1]?.location?.address},
+        ]);
+      }
+    }
   }, []);
+
+  const getAllMovingDetails = data => {
+    getAllTravelDetails(data)
+      .then(res => {
+        console.log(res, 'response +++++++++++');
+        updateState({
+          totalTravelData: res?.rows[0]?.elements[0],
+        });
+      })
+      .catch(error => {
+        console.log(error, 'error error error');
+      });
+  };
 
   const _getproductUpdateDetails = () => {
     actions
       .getProductUpdateDetails(new_dispatch_traking_url(), {})
       .then(res => {
+        console.log(res, 'all response after hit order api');
+        updateState({
+          vendors: res?.data?.vendors[0]?.vendor,
+          apiData: res.data,
+          cancelRequestExit: res?.data?.vendors[0]?.cancel_request,
+        });
+
         const productAllInsrucations = res?.data?.vendors.map((item, index) => {
           return item?.products?.map((item, index) => {
             return item?.user_product_order_form;
@@ -312,12 +364,15 @@ export default function TaskDetail({route, navigation}) {
   const _onPressTaskDetails = item => {
     moveToNewScreen(navigationStrings.ORDERDETAIL, {
       item: taskDetail?.order?.call_back_url,
+      taskDetail: taskDetail,
+      apiData: apiData,
     })();
   };
 
   const mapView = () => {
     return (
       <MapView
+        ref={mapRef}
         // provider={PROVIDER_GOOGLE} // remove if not using Google Maps
         style={styles.map}
         region={region}
@@ -406,11 +461,15 @@ export default function TaskDetail({route, navigation}) {
     let data = {};
     data['task_status'] = getUpdatedStatus();
     data['task_id'] = taskDetail?.id;
+
     console.log(data, 'updateTaskStatus>>>DATA');
 
     updateState({isLoading: true});
     actions
-      .updateTask(data, {client: clientInfo?.database_name})
+      .updateTask(data, {
+        client: clientInfo?.database_name,
+        language: defaultLanguagae?.value ? defaultLanguagae?.value : 'en',
+      })
       .then(res => {
         console.log(res, 'updateTaskStatus>res>res');
         updateState({isLoading: false});
@@ -449,10 +508,20 @@ export default function TaskDetail({route, navigation}) {
         updateState({buttonText: strings.HOLDTOARRIVE});
         break;
       case 3:
-        updateState({buttonText: strings.HOLDTOCOMPLETE});
+        updateState({
+          buttonText:
+            taskDetail?.tasktype?.name == 'Drop'
+              ? strings.HOLDTOCOMPLETE
+              : strings.HOLDTOPICK,
+        });
         break;
       case 4:
-        updateState({buttonText: strings.HOLDTOCOMPLETE});
+        updateState({
+          buttonText:
+            taskDetail?.tasktype?.name == 'Drop'
+              ? strings.HOLDTOCOMPLETE
+              : strings.HOLDTOPICK,
+        });
         break;
       default:
         break;
@@ -478,7 +547,9 @@ export default function TaskDetail({route, navigation}) {
     data['task_id'] = taskDetail?.id;
     console.log(data, 'data');
     actions
-      .sendOtpToDriver(data, {client: clientInfo?.database_name})
+      .sendOtpToDriver(data, {
+        client: clientInfo?.database_name,
+      })
       .then(res => {
         console.log(res, 'sendOtpToDriver>res>res');
         if (res?.status == 200) {
@@ -543,7 +614,8 @@ export default function TaskDetail({route, navigation}) {
         </View>
       );
     }
-    return (
+    return cancelRequestExit ? null : (
+      // return (
       <View style={styles.container}>
         <TouchableWithoutFeedback
           onPressIn={taskStatus == 3 ? redirectToDoneScreen : handlePressIn}
@@ -561,6 +633,46 @@ export default function TaskDetail({route, navigation}) {
     const local = moment.utc(date).local().format('DD MMM YYYY hh:mm:a');
     return local;
   };
+
+  const _onPressEditOrder = () => {
+    moveToNewScreen(navigationStrings.CART, {
+      // cartData: res?.data,
+      taskDetail: taskDetail,
+      apiData: apiData,
+    })();
+    // if (apiData) {
+    //   updateState({isLoading: true});
+    //   let data = {};
+    //   data['order_vendor_id'] = apiData?.vendors[0]?.id;
+    //   data['user_id'] = apiData?.user_id;
+    //   data['address_id'] = apiData?.address_id;
+
+    //   console.log(data, '_onPressEditOrder');
+
+    //   let url = `https://${getHostName(
+    //     taskDetail?.order?.call_back_url,
+    //   )}/edit-order/vendor/products/getProductsInCart`;
+    //   actions
+    //     .getCustomerOrderDetail(url, data, {client: clientInfo?.database_name})
+    //     .then(res => {
+    //       console.log(res?.data, 'all response after hit order api');
+    //       updateState({
+    //         isLoading: false,
+    //       });
+    //       moveToNewScreen(navigationStrings.CART, {
+    //         cartData: res?.data,
+    //         taskDetail: taskDetail,
+    //       })();
+    //     })
+    //     .catch(error =>
+    //       updateState({
+    //         isLoading: false,
+    //       }),
+    //     );
+    // }
+  };
+
+  console.log(totalTravelData, 'totalTravelDatatotalTravelDatatotalTravelData');
 
   const taskDetailView = () => {
     return (
@@ -596,92 +708,241 @@ export default function TaskDetail({route, navigation}) {
                 }`}
               </Text>
             </View>
-            {taskDetail?.barcode && (
-              <View style={{justifyContent: 'center'}}>
-                <Image source={imagePath?.barcode2} />
-              </View>
-            )}
-          </View>
+            <View>
+              <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                {!!(
+                  !fromHistory &&
+                  userData &&
+                  userData?.client_preference?.is_cancel_order_driver &&
+                  checkCallBackUrlForShowOrderDeatils()
+                ) && (
+                  <TouchableOpacity
+                    onPress={cancelOrder}
+                    disabled={cancelRequestExit ? true : false}
+                    style={[
+                      styles.statusView,
+                      {
+                        backgroundColor: colors.themeColor,
+                        borderRadius: moderateScale(5),
+                        // backgroundColor: getBackGroudColor(taskDetail?.tasktype?.name),
+                        marginVertical: moderateScaleVertical(5),
+                      },
+                    ]}>
+                    <Text
+                      style={[
+                        styles.taskNameTextstyle,
+                        // {color: getTextColor(taskDetail?.tasktype?.name)},
+                        {color: colors.white, opacity: 1},
+                      ]}>
+                      {strings.CANCELORDER}
+                    </Text>
+                  </TouchableOpacity>
+                )}
 
-          {/* Phone and email view */}
-          {!!(
-            taskDetail?.order?.Recipient_email ||
-            taskDetail?.order?.recipient_phone
-          ) && (
-            <View
-              style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-              {!!taskDetail?.order?.Recipient_email && (
-                <TouchableOpacity
-                  onPress={() =>
-                    // Communications.email(
-                    //   [taskDetail?.order?.Recipient_email, ''],
-                    //   null,
-                    //   null,
-                    //   '',
-                    //   '',
-                    // )
-                    Linking.openURL(
-                      `mailto:${taskDetail?.order?.Recipient_email}`,
-                    )
-                  }
-                  style={{
-                    flexDirection: 'row',
-                    marginTop: moderateScale(10),
-                    alignItems: 'center',
-                  }}>
-                  <Image
-                    source={imagePath.mail2}
-                    style={{marginRight: moderateScale(5)}}
-                  />
-                  <Text style={styles.emailAndPhone}>
-                    {taskDetail?.order?.Recipient_email}
+                {taskDetail?.barcode && (
+                  <View style={{justifyContent: 'center'}}>
+                    <Image source={imagePath?.barcode2} />
+                  </View>
+                )}
+
+                {/* <TouchableOpacity
+                onPress={_onPressEditOrder}
+                style={{
+                  padding: 5,
+                  marginLeft: moderateScale(10),
+                  borderRadius: moderateScale(5),
+                  backgroundColor: colors.themeColor,
+                  // alignItems:'center'
+                }}>
+                <Text style={styles.editOrder}>{'Edit order'}</Text>
+              </TouchableOpacity> */}
+              </View>
+
+              {!!(
+                !fromHistory &&
+                userData &&
+                userData?.client_preference?.is_cancel_order_driver &&
+                checkCallBackUrlForShowOrderDeatils()
+              ) && (
+                <View>
+                  <Text
+                    style={{
+                      color: colors.black,
+                      fontFamily: fontFamily?.bold,
+                    }}>
+                    {cancelRequestExit && cancelRequestExit != ''
+                      ? `Status: ${cancelRequestExit.status}`
+                      : ''}
                   </Text>
-                </TouchableOpacity>
-              )}
-              {!!taskDetail?.order?.recipient_phone && (
-                <TouchableOpacity
-                  onPress={
-                    () =>
-                      Linking.openURL(
-                        `tel:${taskDetail?.order?.recipient_phone}`,
-                      )
-                    // Communications.phonecall(
-                    //   taskDetail?.order?.recipient_phone,
-                    //   true,
-                    // )
-                  }
-                  style={{
-                    flexDirection: 'row',
-                    marginTop: moderateScale(10),
-                    alignItems: 'center',
-                  }}>
-                  <Image
-                    source={imagePath.phone2}
-                    style={{marginRight: moderateScale(5)}}
-                  />
-                  <Text style={styles.emailAndPhone}>
-                    {taskDetail?.order?.recipient_phone}
-                  </Text>
-                </TouchableOpacity>
+                </View>
               )}
             </View>
-          )}
+          </View>
+      
+          {/* Phone and email view */}
+          {(taskDetail?.tasktype?.name).toLowerCase() == 'drop' ? (
+            <View >
+              {!!(
+                taskDetail?.order?.Recipient_email ||
+                taskDetail?.order?.recipient_phone
+              ) && (
+                <View
+                  style={{
+                    opacity: 0.5,
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                  }}>
+                  {!!taskDetail?.order?.Recipient_email && (
+                    <TouchableOpacity
+                      onPress={() =>
+                        // Communications.email(
+                        //   [taskDetail?.order?.Recipient_email, ''],
+                        //   null,
+                        //   null,
+                        //   '',
+                        //   '',
+                        // )
+                        Linking.openURL(
+                          `mailto:${taskDetail?.order?.Recipient_email}`,
+                        )
+                      }
+                      style={{
+                        flexDirection: 'row',
+                        marginTop: moderateScale(10),
+                        alignItems: 'center',
+                        flex:0.65
+                      }}>
+                      <Image
+                        source={imagePath.mail2}
+                        style={{marginRight: moderateScale(5)}}
+                      />
+                      <Text style={styles.emailAndPhone}>
+                        {taskDetail?.order?.Recipient_email}
+                      </Text>
+                    </TouchableOpacity>
+                  )}
+                 
+                  {!!taskDetail?.order?.recipient_phone && (
+                    <TouchableOpacity
+                      onPress={
+                        () =>
+                          Linking.openURL(
+                            `tel:${taskDetail?.order?.recipient_phone}`,
+                          )
+                        // Communications.phonecall(
+                        //   taskDetail?.order?.recipient_phone,
+                        //   true,
+                        // )
+                      }
+                      style={{
+                        flexDirection: 'row',
+                        marginTop: moderateScale(10),
+                        alignItems: 'center',
+                        flex:0.3
+                      }}>
+                      <Image
+                        source={imagePath.phone2}
+                        style={{marginRight: moderateScale(5)}}
+                      />
+                      <Text style={styles.emailAndPhone}>
+                        {taskDetail?.location?.phone_number}
+                      </Text>
+                    </TouchableOpacity>
+                  )}
+                </View>
+              )}
 
-          {/* location and address */}
-          {!!taskDetail?.location?.address && (
-            <View
-              style={{
-                flexDirection: 'row',
-                marginTop: moderateScale(10),
-                alignItems: 'center',
-              }}>
-              <Image
-                source={imagePath?.location2}
-                style={{marginRight: moderateScale(5)}}
-              />
-              <Text numberOfLines={2} style={styles.emailAndPhone}>
-                {taskDetail?.location?.address}
-              </Text>
+              {/* location and address */}
+              {!!taskDetail?.location?.address && (
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    marginTop: moderateScale(10),
+                    alignItems: 'center',
+                  }}>
+                  <Image
+                    source={imagePath?.location2}
+                    style={{marginRight: moderateScale(5)}}
+                  />
+                  <Text numberOfLines={2} style={styles.emailAndPhone}>
+                    {taskDetail?.location?.address}
+                  </Text>
+                </View>
+              )}
+            </View>
+          ) : (
+            <View>
+              {!!(vendors?.email || vendors?.phone_no) && (
+                <View
+                  style={{
+                    opacity: 0.5,
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                  }}>
+                  {!!vendors?.email && (
+                    <TouchableOpacity
+                      onPress={() =>
+                        Linking.openURL(`mailto:${vendors?.email}`)
+                      }
+                      style={{
+                        flexDirection: 'row',
+                        marginTop: moderateScale(10),
+                        alignItems: 'center',
+                        flex:0.7
+                      }}>
+                      <Image
+                        source={imagePath.mail2}
+                        style={{marginRight: moderateScale(5)}}
+                      />
+                      <Text style={styles.emailAndPhone}>{vendors?.email}</Text>
+                    </TouchableOpacity>
+                  )}
+                  {!!vendors?.phone_no && (
+                    <TouchableOpacity
+                      onPress={
+                        () => Linking.openURL(`tel:${vendors?.phone_no}`)
+                        // Communications.phonecall(
+                        //   vendors?.recipient_phone,
+                        //   true,
+                        // )
+                      }
+                      style={{
+                        flexDirection: 'row',
+                        marginTop: moderateScale(10),
+                        alignItems: 'center',
+                        flex:0.3
+                    
+                      }}>
+                      <Image
+                        source={imagePath.phone2}
+                        style={{marginRight: moderateScale(5)}}
+                      />
+                      <Text style={styles.emailAndPhone}>
+                        {vendors?.phone_no}
+                      </Text>
+                    </TouchableOpacity>
+                  )}
+                </View>
+              )}
+
+              {/* location and address */}
+              {!!vendors?.address && (
+                <View
+                  style={{
+                    opacity: 0.5,
+                    flexDirection: 'row',
+                    marginTop: moderateScale(10),
+                    alignItems: 'center',
+                  }}>
+                  <Image
+                    source={imagePath?.location2}
+                    style={{marginRight: moderateScale(5)}}
+                  />
+                  <Text numberOfLines={2} style={styles.emailAndPhone}>
+                    {vendors?.address}
+                  </Text>
+                </View>
+              )}
             </View>
           )}
 
@@ -695,6 +956,7 @@ export default function TaskDetail({route, navigation}) {
             {!!taskDetail?.quantity && (
               <View
                 style={{
+                  opacity: 0.5,
                   flexDirection: 'row',
                   alignItems: 'center',
                 }}>
@@ -713,6 +975,7 @@ export default function TaskDetail({route, navigation}) {
                 style={{
                   flexDirection: 'row',
                   alignItems: 'center',
+                  opacity: 0.5,
                 }}>
                 <Image
                   source={imagePath?.postal}
@@ -783,7 +1046,7 @@ export default function TaskDetail({route, navigation}) {
               <Text style={styles.customerName}>
                 {taskDetail?.order?.customer?.name}
               </Text>
-              <Text style={{fontFamily: fontFamily.medium}}>
+              <Text style={{fontFamily: fontFamily.bold}}>
                 {strings.TRACKINGID}:-{taskDetail?.order?.unique_id}
               </Text>
             </View>
@@ -997,11 +1260,57 @@ export default function TaskDetail({route, navigation}) {
                 </View>
               );
             })}
+
+          {!!apiData && apiData?.comment_for_vendor ? (
+            <View style={{flexDirection: 'row', marginTop: moderateScale(15)}}>
+              <View>
+                <Text style={styles.taskLable}>
+                  {strings.SPECIAL_INSTRUCTIONS.toUpperCase()}
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  style={[styles.emailAndPhone, {marginTop: moderateScale(5)}]}>
+                  {apiData?.comment_for_vendor}
+                </Text>
+              </View>
+            </View>
+          ) : null}
+          {fromHistory && totalTravelData && (
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                marginVertical: moderateScaleVertical(5),
+              }}>
+              <View>
+                <Text style={styles.distanceTimeTitleTextStyle}>
+                  {strings.TOTALDISTANCE}
+                </Text>
+                <Text style={styles.distanceTimeTextStyle}>
+                  {Number(
+                    totalTravelData?.distance?.text.substring(
+                      0,
+                      totalTravelData?.distance?.text.length - 2,
+                    ) * 1.609344,
+                  ).toFixed(2)}{' '}
+                  KM
+                </Text>
+              </View>
+              <View>
+                <Text style={styles.distanceTimeTitleTextStyle}>
+                  {strings.TOTALTIME}
+                </Text>
+                <Text style={styles.distanceTimeTextStyle}>
+                  {totalTravelData?.duration?.text}
+                </Text>
+              </View>
+            </View>
+          )}
         </View>
       </ScrollView>
     );
   };
-
+  console.log(vendors, 'this is vendor');
   const cancelTask = () => {
     Alert.alert('', strings.CANCELMESSAGE, [
       {
@@ -1013,6 +1322,21 @@ export default function TaskDetail({route, navigation}) {
         text: strings.OK,
         onPress: () =>
           moveToNewScreen(navigationStrings.TASKCANCEL, taskDetail)(),
+      },
+    ]);
+  };
+
+  const cancelOrder = () => {
+    Alert.alert('', strings.CANCELORDERMESSAGE, [
+      {
+        text: strings.CANCEL,
+        onPress: () => console.log('Cancel Pressed'),
+        style: 'cancel',
+      },
+      {
+        text: strings.OK,
+        onPress: () =>
+          moveToNewScreen(navigationStrings.ORDERCANCEL, taskDetail)(),
       },
     ]);
   };
@@ -1109,7 +1433,11 @@ export default function TaskDetail({route, navigation}) {
         // onPressLeft={()=>navigation.goBack()}
         centerTitle={`${strings.TASK} #${taskDetail?.id}`}
         customRight={() =>
-          !!(taskStatus != '1' && !fromHistory) && (
+          !!(
+            taskStatus == 1 &&
+            !fromHistory &&
+            taskDetail?.tasktype?.id != 2
+          ) && (
             <TouchableOpacity onPress={cancelTask}>
               <Text
                 style={{

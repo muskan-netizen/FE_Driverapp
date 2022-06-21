@@ -8,4 +8,14 @@ import loaderSix from './Files/66934-tumbleweed-rolling.json';
 import searchLoader from './Files/searchloader.json';
 import noDataFound from './Files/nodatafound.json';
 
-export {defaultLoader, loaderOne, loaderTwo, loaderThree, loaderFour,loaderFive,loaderSix,searchLoader,noDataFound};
+export {
+  defaultLoader,
+  loaderOne,
+  loaderTwo,
+  loaderThree,
+  loaderFour,
+  loaderFive,
+  loaderSix,
+  searchLoader,
+  noDataFound,
+};

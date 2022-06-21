@@ -1,0 +1,9 @@
+#include "Pods/Target Support Files/Pods-available_pods-Pickmeup/Pods-available_pods-Pickmeup.debug.xcconfig"
+
+
+PROJECT_BUNDLE_ID = com.PickMeUp.Dispatcher
+PROJECT_APP_VERSION = 1.0
+PROJECT_BUILD_NUMBER = 2
+PROJECT_APP_NAME =PickMeUp Driver
+PROJECT_PLIST =PickmeupInfo
+PROJECT_ENTITLEMENT=RoyoDriverAppRelease

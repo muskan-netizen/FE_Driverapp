@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "334143540138",
+    "project_id": "swiffy-dispatch",
+    "storage_bucket": "swiffy-dispatch.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:334143540138:android:91dc022ef760e2d0c7b9d3",
+        "android_client_info": {
+          "package_name": "com.SwiffyLLC.royodispatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "334143540138-ktv0cc8dp1eeug5jfsqh3ca9f5ejaenp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpbeVp8gg3rryGi_tgWpdbf5XuQ0e6Eac"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "334143540138-ktv0cc8dp1eeug5jfsqh3ca9f5ejaenp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "334143540138-9ivkup02ls4k9apdrnr4g4a67mnnv3k0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.SwiffyLLC.Dispatcher"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

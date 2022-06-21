@@ -1,10 +1,19 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, FlatList, Image, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  FlatList,
+  TouchableWithoutFeedback,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
 import {useSelector} from 'react-redux';
 import Header from '../../Components/Header';
 import WrapperContainer from '../../Components/WrapperContainer';
 import imagePath from '../../constants/imagePath';
 import strings from '../../constants/lang';
+import {navigate} from '../../navigation/NavigationService';
+import navigationStrings from '../../navigation/navigationStrings';
 import actions from '../../redux/actions';
 import colors from '../../styles/colors';
 import fontFamily from '../../styles/fontFamily';
@@ -20,6 +29,15 @@ import {stylesFunc} from './styles';
 
 export default function OrderDetail({route, navigation}) {
   let paramData = route?.params?.data?.item;
+  let taskDetail = route?.params?.data?.taskDetail;
+  let apiData = route?.params?.data?.apiData;
+  let fromNotification = route?.params?.data?.fromNotification;
+  console.log(route, 'rute data');
+  console.log(route?.params?.data, 'allparams');
+  console.log(paramData, 'paramData');
+  console.log(taskDetail, 'taskDetail');
+  console.log(apiData, 'apiData');
+  console.log(fromNotification, 'fromNotification');
 
   const [state, setState] = useState({
     allVendorsData: [],
@@ -28,10 +46,17 @@ export default function OrderDetail({route, navigation}) {
   });
   const {allVendorsData, cartData, isLoading} = state;
   const updateState = data => setState(state => ({...state, ...data}));
-
+  const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
+  const userData = useSelector(state => state?.auth?.userData);
+  console.log(userData, 'userData');
   const defaultLanguagae = useSelector(
     state => state?.initBoot?.defaultLanguage,
   );
+  //Naviagtion to specific screen
+  const moveToNewScreen = (screenName, data) => () => {
+    navigation.navigate(screenName, {data});
+  };
+
   const styles = stylesFunc({defaultLanguagae});
 
   const new_dispatch_traking_url = paramData
@@ -54,17 +79,19 @@ export default function OrderDetail({route, navigation}) {
     actions
       .getProductUpdateDetails(new_dispatch_traking_url, {})
       .then(res => {
+        console.log(res, '_getproductUpdateDetails');
         updateState({
           allVendorsData: res?.data?.vendors,
           cartData: res?.data,
           isLoading: false,
         });
       })
-      .catch(error =>
+      .catch(err => {
+        console.log(err, 'errroror');
         updateState({
           isLoading: false,
-        }),
-      );
+        });
+      });
   };
 
   const _renderItem = ({item, index}) => {
@@ -172,7 +199,9 @@ export default function OrderDetail({route, navigation}) {
                                   ? 'flex-start'
                                   : 'flex-end',
                             }}>
-                            <Text style={styles.cartItemPrice}>{i?.price}</Text>
+                            <Text style={styles.cartItemPrice}>
+                              {Number(i?.price).toFixed(2)}
+                            </Text>
                           </View>
                         </View>
 
@@ -215,17 +244,24 @@ export default function OrderDetail({route, navigation}) {
                             {i?.product_addons.length
                               ? i?.product_addons.map((j, jnx) => {
                                   return (
-                                    <View style={{flexDirection: 'row'}}>
+                                    <View>
                                       <Text
                                         style={styles.cartItemWeight2}
                                         numberOfLines={1}>
                                         {j.addon_title}{' '}
                                       </Text>
-                                      <Text
-                                        style={styles.cartItemWeight2}
-                                        numberOfLines={
-                                          1
-                                        }>{`(${j.option_title})`}</Text>
+                                      <View style={{flexDirection: 'row'}}>
+                                        <Text
+                                          style={styles.cartItemWeight2}
+                                          numberOfLines={
+                                            1
+                                          }>{`(${j.option_title})`}</Text>
+                                        <Text
+                                          style={styles.cartItemWeight2}
+                                          numberOfLines={1}>{` ${Number(
+                                          j?.quantity_price,
+                                        ).toFixed(2)}`}</Text>
+                                      </View>
                                     </View>
                                   );
                                 })
@@ -267,9 +303,10 @@ export default function OrderDetail({route, navigation}) {
 
         {!!Number(item?.discount_amount) && (
           <View style={styles.itemPriceDiscountTaxView}>
-            <Text style={istyles.priceItemLabel}>{strings.DISCOUNT}</Text>
+            <Text style={styles.priceItemLabel}>{strings.DISCOUNT}</Text>
             <Text style={styles.priceItemLabel}>
-              {item?.discount_amount > 0 && item?.discount_amount}
+              {item?.discount_amount > 0 &&
+                Number(item?.discount_amount).toFixed()}
             </Text>
           </View>
         )}
@@ -277,14 +314,14 @@ export default function OrderDetail({route, navigation}) {
           <View style={styles.itemPriceDiscountTaxView}>
             <Text style={styles.priceItemLabel}>{strings.DELIVERYFEE}</Text>
             <Text style={styles.priceItemLabel}>
-              {item?.delivery_fee > 0 && item?.delivery_fee}
+              {item?.delivery_fee > 0 && Number(item?.delivery_fee).toFixed(2)}
             </Text>
           </View>
         )}
         <View style={styles.itemPriceDiscountTaxView}>
           <Text style={styles.priceItemLabel2}>{strings.AMOUNT}</Text>
           <Text style={styles.priceItemLabel2}>
-            {item?.payable_amount ? item?.payable_amount : 0}
+            {item?.payable_amount ? Number(item?.payable_amount).toFixed(2) : 0}
           </Text>
         </View>
       </View>
@@ -302,14 +339,35 @@ export default function OrderDetail({route, navigation}) {
           ]}>
           <Text style={styles.priceItemLabel}>{strings.SUBTOTAL}</Text>
           <Text style={styles.priceItemLabel}>
-            {cartData?.total_amount > 0 && cartData?.total_amount}
+            {cartData?.total_amount > 0 &&
+              Number(cartData?.total_amount).toFixed(2)}
           </Text>
         </View>
         {cartData?.wallet_amount_used > 0 && (
           <View style={styles.bottomTabLableValue}>
             <Text style={styles.priceItemLabel}>{strings.WALLET}</Text>
             <Text style={styles.priceItemLabel}>
-              {cartData?.wallet_amount_used > 0 && cartData?.wallet_amount_used}
+              -{cartData?.wallet_amount_used > 0 &&
+                Number(cartData?.wallet_amount_used).toFixed(2)}
+            </Text>
+          </View>
+        )}
+         {Number(cartData?.fixed_fee_amount) > 0 && (
+          <View style={styles.bottomTabLableValue}>
+            <Text style={styles.priceItemLabel}>{strings.FIXED_FEE}</Text>
+            <Text style={styles.priceItemLabel}>
+              {cartData?.fixed_fee_amount > 0 &&
+                Number(cartData?.fixed_fee_amount).toFixed(2)}
+            </Text>
+          </View>
+        )}
+          {cartData?.total_delivery_fee > 0 && (
+          <View style={styles.bottomTabLableValue}>
+            <Text style={styles.priceItemLabel}>{strings.DELIVERYFEE}</Text>
+            <Text style={styles.priceItemLabel}>
+              {cartData?.total_delivery_fee
+                ? Number(cartData?.total_delivery_fee).toFixed(2)
+                : 0}
             </Text>
           </View>
         )}
@@ -317,8 +375,8 @@ export default function OrderDetail({route, navigation}) {
           <View style={styles.bottomTabLableValue}>
             <Text style={styles.priceItemLabel}>{strings.LOYALTY}</Text>
             <Text style={styles.priceItemLabel}>
-              {cartData?.loyalty_amount_saved
-                ? cartData?.loyalty_amount_saved
+              -{cartData?.loyalty_amount_saved
+                ? Number(cartData?.loyalty_amount_saved).toFixed(2)
                 : 0}
             </Text>
           </View>
@@ -328,7 +386,7 @@ export default function OrderDetail({route, navigation}) {
           <View style={styles.bottomTabLableValue}>
             <Text style={styles.priceItemLabel}>{strings.TOTALDISCOUNT}</Text>
             <Text style={styles.priceItemLabel}>
-              {cartData?.total_discount}
+              -{Number(cartData?.total_discount).toFixed(2)}
             </Text>
           </View>
         )}
@@ -336,7 +394,7 @@ export default function OrderDetail({route, navigation}) {
           <View style={styles.bottomTabLableValue}>
             <Text style={styles.priceItemLabel}>{strings.TAXAMOUNT}</Text>
             <Text style={styles.priceItemLabel}>
-              {cartData?.taxable_amount}
+              {Number(cartData?.taxable_amount).toFixed(2)}
             </Text>
           </View>
         )}
@@ -354,7 +412,7 @@ export default function OrderDetail({route, navigation}) {
               styles.priceItemLabel2,
               {marginTop: moderateScaleVertical(5)},
             ]}>
-            {cartData?.payable_amount}
+            {Number(cartData?.payable_amount).toFixed(2)}
           </Text>
         </View>
       </View>
@@ -477,6 +535,41 @@ export default function OrderDetail({route, navigation}) {
     );
   };
 
+  const _onPressEditOrder = () => {
+    moveToNewScreen(navigationStrings.CART, {
+      // cartData: res?.data,
+      taskDetail: taskDetail,
+      apiData: apiData,
+    })();
+  };
+
+  const _onPressLeft = () => {
+    if (fromNotification) {
+      // navigate(navigationStrings.TASKHISTORY);
+      navigation.goBack();
+    } else {
+      navigation.goBack();
+    }
+  };
+
+  const buttonView = () => {
+    return (
+      <View style={styles.container}>
+        <TouchableWithoutFeedback>
+          <View
+            style={[
+              styles.button,
+              {
+                backgroundColor: colors.redB,
+              },
+            ]}>
+            <Text style={styles.text}>{strings.ORDERCANCEL}</Text>
+          </View>
+        </TouchableWithoutFeedback>
+      </View>
+    );
+  };
+
   return (
     <WrapperContainer
       bgColor={colors.backgroundGrey}
@@ -487,6 +580,18 @@ export default function OrderDetail({route, navigation}) {
         headerStyle={{backgroundColor: colors.white}}
         leftIcon={imagePath.backArrow}
         centerTitle={strings.ORDERDETAILS}
+        onPressLeft={_onPressLeft}
+        customRight={
+          !fromNotification &&
+          userData &&
+          userData?.client_preference?.is_edit_order_driver
+            ? () => (
+                <TouchableOpacity onPress={_onPressEditOrder}>
+                  <Text style={styles.editOrder}>{'Edit'}</Text>
+                </TouchableOpacity>
+              )
+            : null
+        }
         // onPressLeft={() => navigation.toggleDrawer()}
         // hideRight={true}
         // customCenter={() => customCenter()}
@@ -497,16 +602,20 @@ export default function OrderDetail({route, navigation}) {
           <FlatList
             data={allVendorsData}
             showsVerticalScrollIndicator={false}
-            style={{backgroundColor: colors.backgroundGrey}}
+            style={{backgroundColor: colors.backgroundGrey,flex: 1}}
             keyExtractor={(item, index) => String(index)}
             renderItem={_renderItem}
             ListFooterComponent={getFooter}
-            style={{flex: 1}}
+            // style={{flex: 1}}
             contentContainerStyle={{
               flexGrow: 1,
             }}
           />
         ) : null}
+
+        {!!(
+          taskDetail?.order?.status == 'cancelled' && allVendorsData?.length
+        ) && <View>{buttonView()}</View>}
       </View>
     </WrapperContainer>
   );
