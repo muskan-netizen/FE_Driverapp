@@ -86,11 +86,12 @@ export default function OrderDetail({route, navigation}) {
           isLoading: false,
         });
       })
-      .catch(error =>
+      .catch(err => {
+        console.log(err, 'errroror');
         updateState({
           isLoading: false,
-        }),
-      );
+        });
+      });
   };
 
   const _renderItem = ({item, index}) => {
