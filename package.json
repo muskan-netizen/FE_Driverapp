@@ -621,6 +621,8 @@
     "torunzdispatcherRelease": "cd android && ./gradlew assembleTorunzRelease",
     "spadispatcher": "react-native run-android --variant=spaDebug",
     "spadispatcherRelease": "cd android && ./gradlew assembleSpaRelease",
+    "abbeRidesdispatcher": "react-native run-android --variant=abbeRidesDebug",
+    "abbeRidesdispatcherRelease": "cd android && ./gradlew assembleabbeRidesRelease",
 
     "android": "react-native run-android",
     "ios": "react-native run-ios",

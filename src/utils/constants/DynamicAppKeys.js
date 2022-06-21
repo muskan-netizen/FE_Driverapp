@@ -311,6 +311,7 @@ const shortCodes = {
   kurs:'e7c7e4',
   torunz:'4786a9',
   spa:'69dd33',
+  abbeRides: 'b65020',
 };
 
 const appIds = {
@@ -1548,6 +1549,10 @@ const appIds = {
   spa: Platform.select({
     ios: 'com.spa.Dispatch',
     android: 'com.spa.royodispatcher',
+  }),
+  spa: Platform.select({
+    ios: 'com.abbeRides.dispatch',
+    android: 'com.abbeRides.dispatch',
   }),
 };
 
