@@ -1891,6 +1891,61 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.zoodMarket:
+          updateState({
+            shortCode: shortCodes.zoodMarket,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.meow:
+          updateState({
+            shortCode: shortCodes.meow,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.carlitoo:
+          updateState({
+            shortCode: shortCodes.carlitoo,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.dingDongDelivers:
+          updateState({
+            shortCode: shortCodes.dingDongDelivers,
+            isShortcodePrefilled: true,
+          });
+          break;
+          case appIds.kurs:
+            updateState({
+              shortCode: shortCodes.kurs,
+              isShortcodePrefilled: true,
+            });
+            break;
+            case appIds.torunz:
+            updateState({
+              shortCode: shortCodes.torunz,
+              isShortcodePrefilled: true,
+            });
+            break;
+            case appIds.spa:
+              updateState({
+                shortCode: shortCodes.spa,
+                isShortcodePrefilled: true,
+              });
+              break;
+              case appIds.abbeRides:
+              updateState({
+                shortCode: shortCodes.abbeRides,
+                isShortcodePrefilled: true,
+              });
+              break;
+
+              case appIds.nrsa:
+                updateState({
+                  shortCode: shortCodes.nrsa,
+                  isShortcodePrefilled: true,
+                });
+                break;
       }
     })();
   }, [internetConnection]);
@@ -1950,7 +2005,7 @@ export default function ShortCode({route, navigation}) {
 
       let updatedShortCode = shortCode;
       // updatedShortCode = '745e3f';
-      // let updatedShortCode = '745e3f';
+      //  let updatedShortCode = 'b077a9';
 
       actions
         .initApp({shortCode: updatedShortCode}, header)

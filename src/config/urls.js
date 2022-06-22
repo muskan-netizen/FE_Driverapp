@@ -2,7 +2,10 @@
 //  export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
+//export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
+// export const API_BASE_URL = "https://fairexglobal.com/"
 
 // export const API_BASE_URL = 'https://dispatch.drusdeliveries.com/';
 
@@ -11,12 +14,21 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
 //export const API_BASE_URL = 'https://dispatch.runrun.ae/';
+//export const API_BASE_URL = 'https://dispatch.palmettoplusdelivered.com/';
+
+//export const API_BASE_URL = 'https://dispatch.runrun.ae/';
 //
 // export const API_BASE_URL ='http://192.168.96.84:9090/'
 
+export const API_BASE_URL = 'https://dispatch.dingdongdelivers.com/'
+
+//fairex
+// export const API_BASE_URL = 'https://dispatch.fairexglobal.com/'
 //dimavega
 // export const API_BASE_URL ='https://dispatch.dimahalal.com/'
 
+//beachhop
+// export const API_BASE_URL = 'https://dispatch.beachhopdelivery.com/'
 //gdotdelivery
 // export const API_BASE_URL ='https://dispatch.gdotdelivery.com/'
 
@@ -95,6 +107,10 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.hellodeliver.in/';
 
 // export const API_BASE_URL = 'https://pinkydeli.rdstaging.com/';
+
+// export const API_BASE_URL = 'https://dispatch.pinkjettaxi.com/';
+
+// export const API_BASE_URL = 'https://dispatch.uvennow.com/';
 
 //hemptify
 //  export const API_BASE_URL = 'https://dispatch.hemptify.com/';
@@ -195,7 +211,12 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // blip
 // export const API_BASE_URL = 'https://dispatch.blipdelivery.com/';
+//export const API_BASE_URL = 'https://dispatch.getfix.com.my/';
 
+//export const API_BASE_URL = 'https://dispatch.meltivers.com/';
+
+
+ //export const API_BASE_URL = 'https://dispatch.mobimarket.com.mx/';
 // grub and gusto
 // export const API_BASE_URL = 'https://grub.royodispatch.com/'
 
@@ -204,7 +225,8 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // destinationops app domain
 // export const API_BASE_URL = 'https://dispatch.destinationops.com/';
-
+// bluebundles
+//export const API_BASE_URL = 'https://dispatch.bluebundles.org/'
 // somame live domain
 // export const API_BASE_URL = 'https://dispatch.somame-247.com/';
 

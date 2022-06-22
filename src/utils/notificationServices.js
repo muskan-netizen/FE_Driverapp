@@ -11,6 +11,7 @@ export async function requestUserPermission(callback = () => {}) {
   
   if (Platform.OS === 'ios') {
     await messaging().registerDeviceForRemoteMessages();
+    // await messaging().registerForRemoteNotifications()
   }
   const authStatus = await messaging().requestPermission();
   const enabled =
