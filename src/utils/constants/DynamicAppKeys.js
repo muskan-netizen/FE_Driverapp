@@ -1228,7 +1228,7 @@ const appIds = {
     android: 'com.SourcesServices.royodispatcher',
   }),
   beachHop: Platform.select({
-    ios: 'com.BeachHop.Dispatcher',
+    ios: 'com.BeachHop.Dispatch',
     android: 'com.BeachHop.Dispatch',
   }),
   wer: Platform.select({

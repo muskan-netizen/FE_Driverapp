@@ -608,6 +608,7 @@
 		108E51C80AA7CDFE077E1C64 /* libPods-available_pods-Drivva.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB71FD39EC7A786CFF017D7 /* libPods-available_pods-Drivva.a */; };
 		10979DF2246C441E85DA1272 /* libPods-available_pods-MeatEasy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B53A983AAFBE5FDC9EC74F03 /* libPods-available_pods-MeatEasy.a */; };
 		10AF2A85283F9B74001AECFF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 10AF2A84283F9B73001AECFF /* GoogleService-Info.plist */; };
+		10F256C22861C63200F167B7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 10F256C12861C63100F167B7 /* GoogleService-Info.plist */; };
 		1305D0F698DE57A47513C115 /* libPods-available_pods-UberCann.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B8D6DCE47851E5DA472335B /* libPods-available_pods-UberCann.a */; };
 		133B54E102DA059EE84344B5 /* libPods-available_pods-Tranznet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56CA715B56603B0CC1651F4A /* libPods-available_pods-Tranznet.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
@@ -2274,7 +2275,6 @@
 		845CEDC027E094E1005D953D /* BeachHop(Development).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 845CEDBF27E094E1005D953D /* BeachHop(Development).xcconfig */; };
 		845CEEA527E09507005D953D /* BeachHop(Production).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 845CEEA427E09507005D953D /* BeachHop(Production).xcconfig */; };
 		845CEEA727E09525005D953D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 845CEEA627E09525005D953D /* Images.xcassets */; };
-		845CEF8C27E0961A005D953D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 845CEF8B27E09619005D953D /* GoogleService-Info.plist */; };
 		845DDF7D2747B2D3005BF3CC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		845DDF7F2747B2D3005BF3CC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		845DDFBA2747B2D3005BF3CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
@@ -5136,6 +5136,7 @@
 		10296950CFFA2E4F5342916D /* Pods-available_pods-Oxo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-Oxo.release.xcconfig"; path = "Target Support Files/Pods-available_pods-Oxo/Pods-available_pods-Oxo.release.xcconfig"; sourceTree = "<group>"; };
 		10AF2A84283F9B73001AECFF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		10B66A82F04A5FF8FFC2DC87 /* Pods-available_pods-MylaGlobal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-MylaGlobal.release.xcconfig"; path = "Target Support Files/Pods-available_pods-MylaGlobal/Pods-available_pods-MylaGlobal.release.xcconfig"; sourceTree = "<group>"; };
+		10F256C12861C63100F167B7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		111AB12F528D141258737705 /* libPods-available_pods-Gumastas.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-available_pods-Gumastas.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		115FE35F6CADCB46AAF2016F /* libPods-available_pods-Fleety.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-available_pods-Fleety.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		117D5FBDFFA30DC7FB56C918 /* Pods-available_pods-TransportSystem.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-TransportSystem.debug.xcconfig"; path = "Target Support Files/Pods-available_pods-TransportSystem/Pods-available_pods-TransportSystem.debug.xcconfig"; sourceTree = "<group>"; };
@@ -6145,7 +6146,6 @@
 		845CEDBF27E094E1005D953D /* BeachHop(Development).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "BeachHop(Development).xcconfig"; sourceTree = "<group>"; };
 		845CEEA427E09507005D953D /* BeachHop(Production).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "BeachHop(Production).xcconfig"; sourceTree = "<group>"; };
 		845CEEA627E09525005D953D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		845CEF8B27E09619005D953D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		845DDFCD2747B2D3005BF3CC /* Stonses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stonses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		845DE07A2747B664005BF3CC /* Stonses(Development).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Stonses(Development).xcconfig"; sourceTree = "<group>"; };
 		845DE0D12747B68E005BF3CC /* Stonses(Production).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Stonses(Production).xcconfig"; sourceTree = "<group>"; };
@@ -12208,7 +12208,7 @@
 		845CECDB27E094AC005D953D /* BeachHop */ = {
 			isa = PBXGroup;
 			children = (
-				845CEF8B27E09619005D953D /* GoogleService-Info.plist */,
+				10F256C12861C63100F167B7 /* GoogleService-Info.plist */,
 				845CEDBF27E094E1005D953D /* BeachHop(Development).xcconfig */,
 				845CEEA427E09507005D953D /* BeachHop(Production).xcconfig */,
 				845CEEA627E09525005D953D /* Images.xcassets */,
@@ -23887,9 +23887,9 @@
 				845CEB0327E09430005D953D /* Images.xcassets in Resources */,
 				845CEEA727E09525005D953D /* Images.xcassets in Resources */,
 				84AFE3B3280590F0000D8C3A /* BeachHopInfo.plist in Resources */,
-				845CEF8C27E0961A005D953D /* GoogleService-Info.plist in Resources */,
 				845CEB0427E09430005D953D /* campton-light.ttf in Resources */,
 				844C06B92806A370002B1370 /* DropitoffusaInfo.plist in Resources */,
+				10F256C22861C63200F167B7 /* GoogleService-Info.plist in Resources */,
 				845CEB0527E09430005D953D /* campton-medium.ttf in Resources */,
 				844C07B32806A3A6002B1370 /* HandyPickupInfo.plist in Resources */,
 				845CEDC027E094E1005D953D /* BeachHop(Development).xcconfig in Resources */,
@@ -65852,7 +65852,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = 6FXUMT5X23;
+				DEVELOPMENT_TEAM = WJ4RC56X5Z;
 				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
@@ -65896,7 +65896,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = 6FXUMT5X23;
+				DEVELOPMENT_TEAM = WJ4RC56X5Z;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -65921,7 +65921,7 @@
 				PROJECT_BUNDLE_ID = "$(PROJECT_BUNDLE_ID)";
 				PROJECT_NAME = "${PROJECT_NAME}";
 				PROJECT_PLIST = "$(PROJECT_PLIST)";
-				PROVISIONING_PROFILE_SPECIFIER = "BeachHop Dispatcher";
+				PROVISIONING_PROFILE_SPECIFIER = "BeachHop Diriver";
 				SWIFT_OBJC_BRIDGING_HEADER = "RoyoDriverApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
