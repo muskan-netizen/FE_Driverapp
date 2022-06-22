@@ -49,6 +49,7 @@ import {isEmpty, update} from 'lodash';
 import {getDistance, getPreciseDistance} from 'geolib';
 import ModalView from '../../Components/Modal';
 import {getAllTravelDetails} from '../../utils/googlePlaceApi';
+import { appIds } from '../../utils/constants/DynamicAppKeys';
 navigator.geolocation = require('react-native-geolocation-service');
 
 var image1 = new FaceImage();
@@ -662,7 +663,7 @@ export default function TaskCompleteDocument({route, navigation}) {
                   totalTravelData?.distance?.text.length - 2,
                 ) * 1.609344,
               ).toFixed(2)}{' '}
-              KM
+             {appIds.weTogether ? 'Miles':' KM'}
             </Text>
           </View>
           <View>
