@@ -202,18 +202,17 @@ android {
     flavorDimensions "appType"
 
 // productFlavors {
-//  uberCann{
+//                    bookaryde{
 //             dimension "appType"
-//             versionCode 2
+//             versionCode 1
 //             versionName "1.0"
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.UCANN.dispatcher'
-//             resValue "string", "app_name", "UCANN DRIVER"
+//             applicationId 'com.Bookaryde.royodispatcher'
+//             resValue "string", "app_name", "Book-A-Ryde Dispatcher"
 //         }
 // }
-
     productFlavors {
         royodispatcher {
             dimension "appType"
@@ -2075,8 +2074,8 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.UCANN.driver'
-            resValue "string", "app_name", "UCANN DRIVER"
+            applicationId 'com.UberCann.royodispatcher'
+            resValue "string", "app_name", "UberCann Dispatcher"
         }
           launch{
             dimension "appType"
@@ -3458,6 +3457,16 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.abbeRides.dispatch'
             resValue "string", "app_name", "Abbe Rides Dispatcher"
+        }
+          nrsa{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.nrsa.dispatch'
+            resValue "string", "app_name", "NRSA Dispatcher"
         }
 }
  

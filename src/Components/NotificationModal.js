@@ -42,9 +42,7 @@ const NotificationModal = () => {
     totalDistance: null,
     taskId: null,
   });
-  const notificationData = useSelector(
-    state => state?.initBoot?.notificationData,
-  );
+  const {notificationData} = useSelector(state => state?.initBoot);
 
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
   const shortCode = useSelector(state => state?.initBoot?.shortCode);
