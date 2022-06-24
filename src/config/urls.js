@@ -2,7 +2,7 @@
 //  export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
 //export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
 // export const API_BASE_URL = "https://fairexglobal.com/"
@@ -11,6 +11,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // export const API_BASE_URL = 'https://dispatch.pas41.com/'
 
+export const API_BASE_URL ='https://dispatch.36kel.com.ph/'
 // export const API_BASE_URL = 'https://dispatch.swiffy.us/'
 
 // export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
@@ -20,6 +21,8 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //export const API_BASE_URL = 'https://dispatch.runrun.ae/';
 //
 // export const API_BASE_URL ='http://192.168.96.84:9090/'
+
+// export const API_BASE_URL = 'https://dispatch.dingdongdelivers.com/'
 
 //fairex
 // export const API_BASE_URL = 'https://dispatch.fairexglobal.com/'
@@ -233,6 +236,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // click-eat
 // export const API_BASE_URL = 'https://dispatcher.click-eat.com/'
+
 
 // halalhmc
 // export const API_BASE_URL = 'https://dispatcher.halalhmc.org/';

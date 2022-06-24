@@ -623,6 +623,8 @@
     "spadispatcherRelease": "cd android && ./gradlew assembleSpaRelease",
     "abbeRidesdispatcher": "react-native run-android --variant=abbeRidesDebug",
     "abbeRidesdispatcherRelease": "cd android && ./gradlew assembleabbeRidesRelease",
+    "nrsadispatcher": "react-native run-android --variant=nrsaDebug",
+    "nrsadispatcherRelease": "cd android && ./gradlew assemblenrsaRelease",
 
     "android": "react-native run-android",
     "ios": "react-native run-ios",
