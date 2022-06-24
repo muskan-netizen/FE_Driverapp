@@ -11,7 +11,9 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // export const API_BASE_URL = 'https://dispatch.drusdeliveries.com/';
 
-// export const API_BASE_URL = 'https://dispatch.mobimarket.com.mx/'
+// export const API_BASE_URL = 'https://dispatch.pas41.com/'
+
+// export const API_BASE_URL ='https://dispatch.36kel.com.ph/'
 // export const API_BASE_URL = 'https://dispatch.swiffy.us/'
 
 // export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
@@ -237,6 +239,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // click-eat
 // export const API_BASE_URL = 'https://dispatcher.click-eat.com/'
+
 
 // halalhmc
 // export const API_BASE_URL = 'https://dispatcher.halalhmc.org/';
