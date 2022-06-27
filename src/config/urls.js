@@ -5,7 +5,7 @@
 //  export const API_BASE_URL = 'https://dispatch.swantaxi.net/';
 
 //Staging
-export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
 //export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
 // export const API_BASE_URL = "https://fairexglobal.com/"

@@ -1115,7 +1115,7 @@ export default function TaskDetail({route, navigation}) {
                 </TouchableOpacity>
               )}
              { !!taskDetail?.order?.customer?.phone_number && (<TouchableOpacity
-                  style={{justifyContent:"center",paddingLeft:moderateScaleVertical(20),alignItems:"center",    marginTop: moderateScale(10),}}
+                  style={{justifyContent:"center",alignItems:"center",    marginTop: moderateScale(10),}}
                   onPress={onWhatsapp}
                 >
                   <Image
