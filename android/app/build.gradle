@@ -565,11 +565,9 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.BotSeat.royodispatcher'
             resValue "string", "app_name", "BotSeat Dispatch"
-
         }
 
         mokabFix {
-
             dimension "appType"
             versionCode 1
             versionName "1.0"
@@ -578,11 +576,9 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.MokabFix.royodispatcher'
             resValue "string", "app_name", "MokabFix Dispatch"
-
         }
 
         spidbi {
-
             dimension "appType"
             versionCode 1
             versionName "1.0"
@@ -591,7 +587,6 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.spidbi.royodispatcher'
             resValue "string", "app_name", "Spidibi Dispatch"
-        
         }
     
         fleety {
