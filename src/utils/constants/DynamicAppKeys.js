@@ -1551,7 +1551,7 @@ const appIds = {
     ios: 'com.spa.Dispatch',
     android: 'com.spa.royodispatcher',
   }),
-  spa: Platform.select({
+  abbeRides: Platform.select({
     ios: 'com.abbeRides.dispatch',
     android: 'com.abbeRides.dispatch',
   }),
