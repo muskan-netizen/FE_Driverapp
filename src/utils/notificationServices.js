@@ -8,9 +8,10 @@ import actions from '../redux/actions';
 
 
 export async function requestUserPermission(callback = () => {}) {
-  // alert('enterd')
+  
   if (Platform.OS === 'ios') {
     await messaging().registerDeviceForRemoteMessages();
+    // await messaging().registerForRemoteNotifications()
   }
   const authStatus = await messaging().requestPermission();
   const enabled =

@@ -35,7 +35,7 @@ export default ({defaultLanguagae}) => {
       justifyContent: 'space-between',
       padding: 10,
       backgroundColor: colors.white,
-      //paddingRight: defaultLanguagae?.value === 'en' ? 0 : moderateScale(45),
+      paddingRight: defaultLanguagae?.value === 'en' ? 0 : moderateScale(45),
     },
     cashTextView: {
       flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',

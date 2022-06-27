@@ -673,7 +673,27 @@ export default function TaskDetail({route, navigation}) {
   };
 
   console.log(totalTravelData, 'totalTravelDatatotalTravelDatatotalTravelData');
-
+  const onWhatsapp = async () => {
+    // Share.shareSingle(shareOptions)
+    // .then((res) => { console.log(res,"dfajsdsa") })
+    // .catch((err) => { err && console.log(err); });
+   const link = `https://api.whatsapp.com/send?phone=${userData?.dial_code}${taskDetail?.order?.customer?.phone_number}`;
+    if (link) {
+    Linking.canOpenURL(link)
+    .then(supported => {
+    if (!supported) {
+    Alert.alert(
+    'Please install whats app to send direct message to Vendor via whats app'
+    );
+    } else {
+    return Linking.openURL(link);
+    }
+    })
+    .catch(err => console.error('An error occurred', err));
+    } else {
+    console.log('sendWhatsAppMessage -----> ', 'message link is undefined');
+    }
+    }
   const taskDetailView = () => {
     return (
       <ScrollView
@@ -821,7 +841,7 @@ export default function TaskDetail({route, navigation}) {
                       </Text>
                     </TouchableOpacity>
                   )}
-                 
+                 {}
                   {!!taskDetail?.order?.recipient_phone && (
                     <TouchableOpacity
                       onPress={
@@ -1094,6 +1114,16 @@ export default function TaskDetail({route, navigation}) {
                   </Text>
                 </TouchableOpacity>
               )}
+             { !!taskDetail?.order?.customer?.phone_number && (<TouchableOpacity
+                  style={{justifyContent:"center",alignItems:"center",    marginTop: moderateScale(10),}}
+                  onPress={onWhatsapp}
+                >
+                  <Image
+                    source={imagePath.whatsapp}
+                 
+                  />
+                 
+                </TouchableOpacity>)}
               {!!taskDetail?.order?.customer?.phone_number && (
                 <TouchableOpacity
                   onPress={() =>
