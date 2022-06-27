@@ -313,6 +313,7 @@ const shortCodes = {
   spa:'69dd33',
   abbeRides: 'b65020',
   nrsa: 'b6f11b',
+  sadia: '31d13d',
 };
 
 const appIds = {
@@ -1551,13 +1552,17 @@ const appIds = {
     ios: 'com.spa.Dispatch',
     android: 'com.spa.royodispatcher',
   }),
-  spa: Platform.select({
+  abbeRides: Platform.select({
     ios: 'com.abbeRides.dispatch',
     android: 'com.abbeRides.dispatch',
   }),
   nrsa: Platform.select({
     ios: 'com.nrsa.dispatch',
     android: 'com.nrsa.dispatch',
+  }),
+  sadia: Platform.select({
+    ios: 'com.sadia.royodispatcher',
+    android: 'com.sadia.royodispatcher',
   }),
 };
 

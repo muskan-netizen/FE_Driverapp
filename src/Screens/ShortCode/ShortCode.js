@@ -1946,6 +1946,13 @@ export default function ShortCode({route, navigation}) {
                   isShortcodePrefilled: true,
                 });
                 break;
+
+                case appIds.sadia:
+                  updateState({
+                    shortCode: shortCodes.sadia,
+                    isShortcodePrefilled: true,
+                  });
+                  break;
       }
     })();
   }, [internetConnection]);

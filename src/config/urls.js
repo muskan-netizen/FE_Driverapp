@@ -2,7 +2,7 @@
 //  export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
 //export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
 // export const API_BASE_URL = "https://fairexglobal.com/"
@@ -20,7 +20,15 @@
 //
 // export const API_BASE_URL ='http://192.168.96.84:9090/'
 
-export const API_BASE_URL = 'https://dispatch.dingdongdelivers.com/'
+// export const API_BASE_URL = 'https://dispatch.dingdongdelivers.com/'
+
+// export const API_BASE_URL = 'https://dispatch.pas41.com/'
+
+// export const API_BASE_URL = 'https://dispatch.classicab.org/'
+
+// export const API_BASE_URL = 'https://dispatch.quicklube.us/'
+
+// export const API_BASE_URL = 'https://dispatch.swantaxi.net/'
 
 //fairex
 // export const API_BASE_URL = 'https://dispatch.fairexglobal.com/'
@@ -32,6 +40,8 @@ export const API_BASE_URL = 'https://dispatch.dingdongdelivers.com/'
 //gdotdelivery
 // export const API_BASE_URL ='https://dispatch.gdotdelivery.com/'
 
+
+// export const API_BASE_URL = 'https://dispatch.butlerdeliveryusa.com/'
 //heybuddy
 // export const API_BASE_URL ='https://dispatch.heybuddy.com.mx/'
 
