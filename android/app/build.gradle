@@ -202,16 +202,17 @@ android {
     flavorDimensions "appType"
 
 productFlavors {
-          kel360{
+        blueBundles{
             dimension "appType"
-            versionCode 1
+            versionCode 4
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId  "com.Kel360.royodispatcher"
-            resValue "string", "app_name", "36 Kel Dispatcher"
+            applicationId 'com.blueBundle.dispatcher'
+            resValue "string", "app_name", "Blue Bundles Dispatcher"
         }
+
 }
 
 //     productFlavors {
@@ -3316,7 +3317,7 @@ productFlavors {
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.blueBundle.royodispatcher'
+//             applicationId 'com.blueBundle.dispatcher'
 //             resValue "string", "app_name", "Blue Bundles Dispatcher"
 //         }
 //         kartandkarry{

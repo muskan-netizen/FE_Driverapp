@@ -11,7 +11,9 @@
 
 // export const API_BASE_URL = 'https://dispatch.pas41.com/'
 
-export const API_BASE_URL ='https://dispatch.36kel.com.ph/'
+// export const API_BASE_URL ='https://dispatch.36kel.com.ph/'
+
+
 // export const API_BASE_URL = 'https://dispatch.swiffy.us/'
 
 // export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
@@ -227,7 +229,7 @@ export const API_BASE_URL ='https://dispatch.36kel.com.ph/'
 // destinationops app domain
 // export const API_BASE_URL = 'https://dispatch.destinationops.com/';
 // bluebundles
-// export const API_BASE_URL = 'https://dispatch.bluebundles.org/'
+export const API_BASE_URL = 'https://dispatch.bluebundles.org/'
 // somame live domain
 // export const API_BASE_URL = 'https://dispatch.somame-247.com/';
 

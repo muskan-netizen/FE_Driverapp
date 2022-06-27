@@ -1427,7 +1427,7 @@ const appIds = {
   }),
   butlerDelivery: Platform.select({
     ios: 'com.ButlerDelivery.Dispatch',
-    android: 'com.ButlerDelivery.royodispatcher',
+    android: 'com.order.butlerDelivery',
   }),
   swatiRx: Platform.select({
     ios: 'com.SwatiRx.Dispatch',
@@ -1497,7 +1497,7 @@ const appIds = {
   }),
   blueBundles: Platform.select({
     ios: 'com.blueBundles.driver',
-    android: 'com.blueBundle.royodispatcher',
+    android: 'com.blueBundle.dispatcher',
   }),
   kartandkarry: Platform.select({
     ios: 'com.kartandkarry.Dispatch',
