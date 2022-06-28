@@ -5,7 +5,7 @@
 //  export const API_BASE_URL = 'https://dispatch.swantaxi.net/';
 
 //Staging
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
 //export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
 // export const API_BASE_URL = "https://fairexglobal.com/"
@@ -219,8 +219,8 @@
 //export const API_BASE_URL = 'https://dispatch.getfix.com.my/';
 
 //export const API_BASE_URL = 'https://dispatch.meltivers.com/';
-
-
+//bimol
+//  export const API_BASE_URL = 'https://dispatch.bimol.in/';
  //export const API_BASE_URL = 'https://dispatch.mobimarket.com.mx/';
 // grub and gusto
 // export const API_BASE_URL = 'https://grub.royodispatch.com/'

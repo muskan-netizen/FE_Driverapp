@@ -677,7 +677,7 @@ export default function TaskDetail({route, navigation}) {
     // Share.shareSingle(shareOptions)
     // .then((res) => { console.log(res,"dfajsdsa") })
     // .catch((err) => { err && console.log(err); });
-   const link = `https://api.whatsapp.com/send?phone=${userData?.dial_code}${taskDetail?.order?.customer?.phone_number}`;
+   const link = `https://api.whatsapp.com/send?phone=${taskDetail?.order?.customer?.phone_number}`;
     if (link) {
     Linking.canOpenURL(link)
     .then(supported => {
@@ -1100,7 +1100,7 @@ export default function TaskDetail({route, navigation}) {
                     )
                   }
                   style={{
-                    flex: 0.6,
+                    flex: 0.55,
                     flexDirection: 'row',
                     marginTop: moderateScale(10),
                     alignItems: 'center',
@@ -1114,8 +1114,8 @@ export default function TaskDetail({route, navigation}) {
                   </Text>
                 </TouchableOpacity>
               )}
-             { !!taskDetail?.order?.customer?.phone_number && (<TouchableOpacity
-                  style={{justifyContent:"center",alignItems:"center",    marginTop: moderateScale(10),}}
+             {/* { !!taskDetail?.order?.customer?.phone_number && (<TouchableOpacity
+                  style={{justifyContent:"center",paddingLeft:moderateScaleVertical(20),alignItems:"center",    marginTop: moderateScale(10),}}
                   onPress={onWhatsapp}
                 >
                   <Image
@@ -1123,22 +1123,31 @@ export default function TaskDetail({route, navigation}) {
                  
                   />
                  
-                </TouchableOpacity>)}
+                </TouchableOpacity>)} */}
               {!!taskDetail?.order?.customer?.phone_number && (
+                <View style={{
+                  flex: 0.4,
+                  flexDirection: 'row',
+                  marginTop: moderateScale(10),
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+             
+                }}>
+                 <TouchableOpacity    onPress={onWhatsapp}>
+                 <Image
+                    source={imagePath.whatsapp}
+                 
+                  />
+                  </TouchableOpacity>
                 <TouchableOpacity
+                style={{flexDirection:"row",alignItems:'center'}}
                   onPress={() =>
                     Communications.phonecall(
                       taskDetail?.order?.customer?.phone_number,
                       true,
                     )
                   }
-                  style={{
-                    flex: 0.4,
-                    flexDirection: 'row',
-                    marginTop: moderateScale(10),
-                    alignItems: 'center',
-                    justifyContent: 'flex-end',
-                  }}>
+                  >
                   <Image
                     source={imagePath.phone2}
                     style={{marginRight: moderateScale(5)}}
@@ -1147,6 +1156,7 @@ export default function TaskDetail({route, navigation}) {
                     {taskDetail?.order?.customer?.phone_number}
                   </Text>
                 </TouchableOpacity>
+                </View>
               )}
             </View>
           )}
