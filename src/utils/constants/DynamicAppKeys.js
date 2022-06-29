@@ -875,7 +875,7 @@ const appIds = {
   }),
   bimol: Platform.select({
     ios: 'com.Bimol.Dispatch',
-    android: 'com.Bimol.royodispatcher',
+    android: 'com.bimol.driver',
   }),
   tripTCI: Platform.select({
     ios: 'com.TripTCI.Dispatch',
@@ -1427,7 +1427,7 @@ const appIds = {
   }),
   butlerDelivery: Platform.select({
     ios: 'com.ButlerDelivery.Dispatch',
-    android: 'com.order.butlerDelivery',
+    android: 'com.butler.dispatcher',
   }),
   swatiRx: Platform.select({
     ios: 'com.SwatiRx.Dispatch',

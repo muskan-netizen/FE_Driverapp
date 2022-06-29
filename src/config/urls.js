@@ -217,8 +217,10 @@
 //export const API_BASE_URL = 'https://dispatch.getfix.com.my/';
 
 //export const API_BASE_URL = 'https://dispatch.meltivers.com/';
-
-
+//  butler delivery
+ export const API_BASE_URL = 'https://dispatch.butlerdeliveryusa.com/'
+// bimol
+// export const API_BASE_URL = 'https://dispatch.bimol.in/'
  //export const API_BASE_URL = 'https://dispatch.mobimarket.com.mx/';
 // grub and gusto
 // export const API_BASE_URL = 'https://grub.royodispatch.com/'
@@ -229,7 +231,7 @@
 // destinationops app domain
 // export const API_BASE_URL = 'https://dispatch.destinationops.com/';
 // bluebundles
-export const API_BASE_URL = 'https://dispatch.bluebundles.org/'
+// export const API_BASE_URL = 'https://dispatch.bluebundles.org/'
 // somame live domain
 // export const API_BASE_URL = 'https://dispatch.somame-247.com/';
 
@@ -280,8 +282,13 @@ export const API_BASE_URL = 'https://dispatch.bluebundles.org/'
 //taquick live domain
 //export const API_BASE_URL = 'https://dispatch-dev.taquick.com/';
 
+// export const API_BASE_URL = 'https://dispatch.classicab.org/'
+
 //stonses live domain
 //export const API_BASE_URL = 'https://dispatcher.verofax.com/';
+
+// export const API_BASE_URL = 'https://dispatch.quicklube.us/'
+
 
 // export const personaltoken = 'TMJdbQlNWkYl1JzMONzRgF4zQFuP8s';
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;
