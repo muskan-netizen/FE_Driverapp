@@ -1946,6 +1946,20 @@ export default function ShortCode({route, navigation}) {
                   isShortcodePrefilled: true,
                 });
                 break;
+
+                case appIds.sadia:
+                  updateState({
+                    shortCode: shortCodes.sadia,
+                    isShortcodePrefilled: true,
+                  });
+                  break;
+
+                  case appIds.elentaMart:
+                  updateState({
+                    shortCode: shortCodes.elentaMart,
+                    isShortcodePrefilled: true,
+                  });
+                  break;
       }
     })();
   }, [internetConnection]);

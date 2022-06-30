@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import {useSelector} from 'react-redux';
 import Header from '../../Components/Header';
+import LeftRightText from '../../Components/LeftRightText';
 import WrapperContainer from '../../Components/WrapperContainer';
 import imagePath from '../../constants/imagePath';
 import strings from '../../constants/lang';
@@ -347,12 +348,13 @@ export default function OrderDetail({route, navigation}) {
           <View style={styles.bottomTabLableValue}>
             <Text style={styles.priceItemLabel}>{strings.WALLET}</Text>
             <Text style={styles.priceItemLabel}>
-              -{cartData?.wallet_amount_used > 0 &&
+              -
+              {cartData?.wallet_amount_used > 0 &&
                 Number(cartData?.wallet_amount_used).toFixed(2)}
             </Text>
           </View>
         )}
-         {Number(cartData?.fixed_fee_amount) > 0 && (
+        {Number(cartData?.fixed_fee_amount) > 0 && (
           <View style={styles.bottomTabLableValue}>
             <Text style={styles.priceItemLabel}>{strings.FIXED_FEE}</Text>
             <Text style={styles.priceItemLabel}>
@@ -361,7 +363,7 @@ export default function OrderDetail({route, navigation}) {
             </Text>
           </View>
         )}
-          {cartData?.total_delivery_fee > 0 && (
+        {cartData?.total_delivery_fee > 0 && (
           <View style={styles.bottomTabLableValue}>
             <Text style={styles.priceItemLabel}>{strings.DELIVERYFEE}</Text>
             <Text style={styles.priceItemLabel}>
@@ -375,7 +377,8 @@ export default function OrderDetail({route, navigation}) {
           <View style={styles.bottomTabLableValue}>
             <Text style={styles.priceItemLabel}>{strings.LOYALTY}</Text>
             <Text style={styles.priceItemLabel}>
-              -{cartData?.loyalty_amount_saved
+              -
+              {cartData?.loyalty_amount_saved
                 ? Number(cartData?.loyalty_amount_saved).toFixed(2)
                 : 0}
             </Text>
@@ -531,6 +534,133 @@ export default function OrderDetail({route, navigation}) {
         {/* Add instruction */}
 
         <View style={{height: moderateScaleVertical(20)}} />
+        {!!allVendorsData[0]?.order?.customer?.resources?.resources && (
+          <View
+            style={{
+              marginHorizontal: moderateScale(15),
+            }}>
+            <Text style={styles.price}>Verify with client's ID</Text>
+            {!!allVendorsData[0]?.order?.customer?.resources?.resources
+              ?.first_names && (
+              <LeftRightText
+                leftText="First Name"
+                rightText={
+                  allVendorsData[0]?.order?.customer?.resources?.resources
+                    ?.first_names
+                }
+              />
+            )}
+            {!!allVendorsData[0]?.order?.customer?.resources?.resources
+              ?.last_name && (
+              <LeftRightText
+                leftText="Last Name"
+                rightText={
+                  allVendorsData[0]?.order?.customer?.resources?.resources
+                    ?.last_name
+                }
+              />
+            )}
+            {!!allVendorsData[0]?.order?.customer?.resources?.resources
+              ?.date_of_birth && (
+              <LeftRightText
+                leftText="Date of Birth"
+                rightText={
+                  allVendorsData[0]?.order?.customer?.resources?.resources
+                    ?.date_of_birth
+                }
+              />
+            )}
+            {!!allVendorsData[0]?.order?.customer?.resources?.resources
+              ?.sex && (
+              <LeftRightText
+                leftText="Sex"
+                rightText={
+                  allVendorsData[0]?.order?.customer?.resources?.resources?.sex
+                }
+              />
+            )}
+            {!!allVendorsData[0]?.order?.customer?.resources?.resources
+              ?.address && (
+              <LeftRightText
+                leftText="Address"
+                rightText={
+                  allVendorsData[0]?.order?.customer?.resources?.resources
+                    ?.address
+                }
+              />
+            )}
+            {!!allVendorsData[0]?.order?.customer?.resources?.resources
+              ?.country && (
+              <LeftRightText
+                leftText="Country"
+                rightText={
+                  allVendorsData[0]?.order?.customer?.resources?.resources
+                    ?.country
+                }
+              />
+            )}
+            {!!allVendorsData[0]?.order?.customer?.resources?.resources
+              ?.document_number && (
+              <LeftRightText
+                leftText="Document Number"
+                rightText={
+                  allVendorsData[0]?.order?.customer?.resources?.resources
+                    ?.document_number
+                }
+              />
+            )}
+            {!!allVendorsData[0]?.order?.customer?.resources?.resources
+              ?.date_of_issue && (
+              <LeftRightText
+                leftText="Date of Issue"
+                rightText={
+                  allVendorsData[0]?.order?.customer?.resources?.resources
+                    ?.date_of_issue
+                }
+              />
+            )}
+            {!!allVendorsData[0]?.order?.customer?.resources?.resources
+              ?.date_of_expiry && (
+              <LeftRightText
+                leftText="Date of Expiry"
+                rightText={
+                  allVendorsData[0]?.order?.customer?.resources?.resources
+                    ?.date_of_expiry
+                }
+              />
+            )}
+            {!!allVendorsData[0]?.order?.customer?.resources?.resources
+              ?.face_match_factor && (
+              <LeftRightText
+                leftText="Face Match Factor"
+                rightText={
+                  allVendorsData[0]?.order?.customer?.resources?.resources
+                    ?.face_match_factor
+                }
+              />
+            )}
+            {!!allVendorsData[0]?.order?.customer?.resources?.resources
+              ?.drivers_license_categories && (
+              <LeftRightText
+                leftText="Drivers License Categories"
+                rightText={
+                  allVendorsData[0]?.order?.customer?.resources?.resources
+                    ?.drivers_license_categories
+                }
+              />
+            )}
+            {!!allVendorsData[0]?.order?.customer?.resources?.resources
+              ?.document_origin_country && (
+              <LeftRightText
+                leftText="Document Origin Country"
+                rightText={
+                  allVendorsData[0]?.order?.customer?.resources?.resources
+                    ?.document_origin_country
+                }
+              />
+            )}
+          </View>
+        )}
       </View>
     );
   };
@@ -602,7 +732,7 @@ export default function OrderDetail({route, navigation}) {
           <FlatList
             data={allVendorsData}
             showsVerticalScrollIndicator={false}
-            style={{backgroundColor: colors.backgroundGrey,flex: 1}}
+            style={{backgroundColor: colors.backgroundGrey, flex: 1}}
             keyExtractor={(item, index) => String(index)}
             renderItem={_renderItem}
             ListFooterComponent={getFooter}

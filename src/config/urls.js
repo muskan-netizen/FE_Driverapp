@@ -14,6 +14,7 @@
 // export const API_BASE_URL ='https://dispatch.36kel.com.ph/'
 
 
+// export const API_BASE_URL = 'https://dispatch.mobimarket.com.mx/'
 // export const API_BASE_URL = 'https://dispatch.swiffy.us/'
 
 // export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
@@ -36,6 +37,8 @@
 //gdotdelivery
 // export const API_BASE_URL ='https://dispatch.gdotdelivery.com/'
 
+
+// export const API_BASE_URL = 'https://dispatch.butlerdeliveryusa.com/'
 //heybuddy
 // export const API_BASE_URL ='https://dispatch.heybuddy.com.mx/'
 
@@ -114,6 +117,7 @@
 
 // export const API_BASE_URL = 'https://dispatch.pinkjettaxi.com/';
 
+export const API_BASE_URL = 'https://dispatch.ineed.do/'
 // export const API_BASE_URL = 'https://dispatch.uvennow.com/';
 
 //hemptify
@@ -130,13 +134,14 @@
 //RXNOW
 // export const API_BASE_URL = 'https://dispatch.rxnowweb.com/';
 //GROUPY
- //export const API_BASE_URL = 'https://dispatch.groupystore.com/';
+//export const API_BASE_URL = 'https://dispatch.groupystore.com/';
 
 //
 // export const API_BASE_URL = 'https://dispatch.samakeemart.com/';
 
 // mml
 // export const API_BASE_URL = 'https://dispatch.mml.mobi/';
+
 
 //manda
 // export const API_BASE_URL = 'https://dispatch.mandaexpress.com/';
@@ -218,7 +223,7 @@
 
 //export const API_BASE_URL = 'https://dispatch.meltivers.com/';
 //  butler delivery
- export const API_BASE_URL = 'https://dispatch.butlerdeliveryusa.com/'
+//  export const API_BASE_URL = 'https://dispatch.butlerdeliveryusa.com/'
 // bimol
 // export const API_BASE_URL = 'https://dispatch.bimol.in/'
  //export const API_BASE_URL = 'https://dispatch.mobimarket.com.mx/';
@@ -250,7 +255,7 @@
 //export const API_BASE_URL = 'https://dispatcher.runrun.ae/';
 
 // drivree live domain
-//export const API_BASE_URL = 'https://dispatcher.drivereeshops.com/';
+// export const API_BASE_URL = 'https://dispatcher.drivereeshops.com/';
 
 // helpNowRightNow live domain
 // export const API_BASE_URL = 'https://dispatch.helpnowrightnow.com/';

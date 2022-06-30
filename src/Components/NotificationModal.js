@@ -42,9 +42,7 @@ const NotificationModal = () => {
     totalDistance: null,
     taskId: null,
   });
-  const notificationData = useSelector(
-    state => state?.initBoot?.notificationData,
-  );
+  const {notificationData} = useSelector(state => state?.initBoot);
 
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
   const shortCode = useSelector(state => state?.initBoot?.shortCode);
@@ -409,9 +407,12 @@ const NotificationModal = () => {
     let notifData = notificationData?.notificationData?.data;
 
     let data = {};
-    data['order_id'] = notifData?.order_id;
+    data['order_id'] = !!notifData?.batch_no
+      ? notifData?.batch_no
+      : notifData?.order_id;
     data['driver_id'] = notifData?.driver_id;
     data['status'] = status;
+    data['type'] = !!notifData?.batch_no ? 'B' : 'O';
 
     console.log(data, 'data accept reject');
     actions

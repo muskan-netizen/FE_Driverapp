@@ -625,7 +625,10 @@
     "abbeRidesdispatcherRelease": "cd android && ./gradlew assembleabbeRidesRelease",
     "nrsadispatcher": "react-native run-android --variant=nrsaDebug",
     "nrsadispatcherRelease": "cd android && ./gradlew assemblenrsaRelease",
-
+    "sadiadispatcher": "react-native run-android --variant=sadiaDebug",
+    "sadiadispatcherRelease": "cd android && ./gradlew assemblesadiaRelease",
+    "elentaMartdispatcher": "react-native run-android --variant=elentaMartDebug",
+    "elentaMartdispatcherRelease": "cd android && ./gradlew assembleelentaMartRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",

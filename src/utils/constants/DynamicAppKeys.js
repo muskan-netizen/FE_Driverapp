@@ -313,6 +313,8 @@ const shortCodes = {
   spa:'69dd33',
   abbeRides: 'b65020',
   nrsa: 'b6f11b',
+  sadia: '31d13d',
+  elentaMart: 'b16063'
 };
 
 const appIds = {
@@ -1426,7 +1428,7 @@ const appIds = {
     android: 'com.PatrolNow.royodispatcher',
   }),
   butlerDelivery: Platform.select({
-    ios: 'com.ButlerDelivery.Dispatch',
+    ios: 'com.butler.dispatcher',
     android: 'com.butler.dispatcher',
   }),
   swatiRx: Platform.select({
@@ -1551,13 +1553,21 @@ const appIds = {
     ios: 'com.spa.Dispatch',
     android: 'com.spa.royodispatcher',
   }),
-  spa: Platform.select({
+  abbeRides: Platform.select({
     ios: 'com.abbeRides.dispatch',
     android: 'com.abbeRides.dispatch',
   }),
   nrsa: Platform.select({
     ios: 'com.nrsa.dispatch',
     android: 'com.nrsa.dispatch',
+  }),
+  sadia: Platform.select({
+    ios: 'com.sadia.royodispatcher',
+    android: 'com.sadia.royodispatcher',
+  }),
+  elentaMart: Platform.select({
+    ios: 'com.elentamart.dispatcher',
+    android: 'com.elentamart.dispatcher',
   }),
 };
 
