@@ -120,6 +120,13 @@ export default function TaskDetail({route, navigation}) {
         imagePathActive: imagePath.faceActive,
         type: 'face',
       },
+      {
+        id: 6,
+        title: 'QR Code',
+        imagePath: imagePath.codeInactive,
+        imagePathActive: imagePath.codeActive,
+        type: 'qrCode',
+      },
     ],
     updatedProofArray: [],
     findDataToCheck: null,
@@ -184,7 +191,8 @@ export default function TaskDetail({route, navigation}) {
                 (i?.type == 'photo' && findDataToCheck?.image) ||
                 (i?.type == 'notes' && findDataToCheck?.note) ||
                 (i?.type == 'QR' && findDataToCheck?.barcode) ||
-                (i?.type == 'face' && findDataToCheck?.face)
+                (i?.type == 'face' && findDataToCheck?.face) ||
+                (i?.type == 'qrCode' && findDataToCheck?.qrcode)
               ) {
                 return i;
               }
@@ -677,23 +685,23 @@ export default function TaskDetail({route, navigation}) {
     // Share.shareSingle(shareOptions)
     // .then((res) => { console.log(res,"dfajsdsa") })
     // .catch((err) => { err && console.log(err); });
-   const link = `https://api.whatsapp.com/send?phone=${userData?.dial_code}${taskDetail?.order?.customer?.phone_number}`;
+    const link = `https://api.whatsapp.com/send?phone=${taskDetail?.order?.customer?.phone_number}`;
     if (link) {
-    Linking.canOpenURL(link)
-    .then(supported => {
-    if (!supported) {
-    Alert.alert(
-    'Please install whats app to send direct message to Vendor via whats app'
-    );
+      Linking.canOpenURL(link)
+        .then(supported => {
+          if (!supported) {
+            Alert.alert(
+              'Please install whats app to send direct message to Vendor via whats app',
+            );
+          } else {
+            return Linking.openURL(link);
+          }
+        })
+        .catch(err => console.error('An error occurred', err));
     } else {
-    return Linking.openURL(link);
+      console.log('sendWhatsAppMessage -----> ', 'message link is undefined');
     }
-    })
-    .catch(err => console.error('An error occurred', err));
-    } else {
-    console.log('sendWhatsAppMessage -----> ', 'message link is undefined');
-    }
-    }
+  };
   const taskDetailView = () => {
     return (
       <ScrollView
@@ -798,10 +806,10 @@ export default function TaskDetail({route, navigation}) {
               )}
             </View>
           </View>
-      
+
           {/* Phone and email view */}
           {(taskDetail?.tasktype?.name).toLowerCase() == 'drop' ? (
-            <View >
+            <View>
               {!!(
                 taskDetail?.order?.Recipient_email ||
                 taskDetail?.order?.recipient_phone
@@ -830,7 +838,7 @@ export default function TaskDetail({route, navigation}) {
                         flexDirection: 'row',
                         marginTop: moderateScale(10),
                         alignItems: 'center',
-                        flex:0.65
+                        flex: 0.65,
                       }}>
                       <Image
                         source={imagePath.mail2}
@@ -841,7 +849,7 @@ export default function TaskDetail({route, navigation}) {
                       </Text>
                     </TouchableOpacity>
                   )}
-                 {}
+                  {}
                   {!!taskDetail?.order?.recipient_phone && (
                     <TouchableOpacity
                       onPress={
@@ -858,7 +866,7 @@ export default function TaskDetail({route, navigation}) {
                         flexDirection: 'row',
                         marginTop: moderateScale(10),
                         alignItems: 'center',
-                        flex:0.3
+                        flex: 0.3,
                       }}>
                       <Image
                         source={imagePath.phone2}
@@ -908,7 +916,7 @@ export default function TaskDetail({route, navigation}) {
                         flexDirection: 'row',
                         marginTop: moderateScale(10),
                         alignItems: 'center',
-                        flex:0.7
+                        flex: 0.7,
                       }}>
                       <Image
                         source={imagePath.mail2}
@@ -930,8 +938,7 @@ export default function TaskDetail({route, navigation}) {
                         flexDirection: 'row',
                         marginTop: moderateScale(10),
                         alignItems: 'center',
-                        flex:0.3
-                    
+                        flex: 0.3,
                       }}>
                       <Image
                         source={imagePath.phone2}
@@ -1100,7 +1107,7 @@ export default function TaskDetail({route, navigation}) {
                     )
                   }
                   style={{
-                    flex: 0.6,
+                    flex: 0.55,
                     flexDirection: 'row',
                     marginTop: moderateScale(10),
                     alignItems: 'center',
@@ -1114,8 +1121,8 @@ export default function TaskDetail({route, navigation}) {
                   </Text>
                 </TouchableOpacity>
               )}
-             { !!taskDetail?.order?.customer?.phone_number && (<TouchableOpacity
-                  style={{justifyContent:"center",alignItems:"center",    marginTop: moderateScale(10),}}
+              {/* { !!taskDetail?.order?.customer?.phone_number && (<TouchableOpacity
+                  style={{justifyContent:"center",paddingLeft:moderateScaleVertical(20),alignItems:"center",    marginTop: moderateScale(10),}}
                   onPress={onWhatsapp}
                 >
                   <Image
@@ -1123,30 +1130,36 @@ export default function TaskDetail({route, navigation}) {
                  
                   />
                  
-                </TouchableOpacity>)}
+                </TouchableOpacity>)} */}
               {!!taskDetail?.order?.customer?.phone_number && (
-                <TouchableOpacity
-                  onPress={() =>
-                    Communications.phonecall(
-                      taskDetail?.order?.customer?.phone_number,
-                      true,
-                    )
-                  }
+                <View
                   style={{
                     flex: 0.4,
                     flexDirection: 'row',
                     marginTop: moderateScale(10),
                     alignItems: 'center',
-                    justifyContent: 'flex-end',
+                    justifyContent: 'space-between',
                   }}>
-                  <Image
-                    source={imagePath.phone2}
-                    style={{marginRight: moderateScale(5)}}
-                  />
-                  <Text style={styles.emailAndPhone}>
-                    {taskDetail?.order?.customer?.phone_number}
-                  </Text>
-                </TouchableOpacity>
+                  <TouchableOpacity onPress={onWhatsapp}>
+                    <Image source={imagePath.whatsapp} />
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    style={{flexDirection: 'row', alignItems: 'center'}}
+                    onPress={() =>
+                      Communications.phonecall(
+                        taskDetail?.order?.customer?.phone_number,
+                        true,
+                      )
+                    }>
+                    <Image
+                      source={imagePath.phone2}
+                      style={{marginRight: moderateScale(5)}}
+                    />
+                    <Text style={styles.emailAndPhone}>
+                      {taskDetail?.order?.customer?.phone_number}
+                    </Text>
+                  </TouchableOpacity>
+                </View>
               )}
             </View>
           )}

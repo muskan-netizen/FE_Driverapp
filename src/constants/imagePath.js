@@ -92,4 +92,6 @@ export default {
   searchIcon: require('../assets/images/ic_search.png'),
   delete: require('../assets/images/ic_delete.png'),
   ripple: require('../assets/images/ripple.gif'),
+  icQr: require('../assets/images/ic_qr.png'),
+  icQr2: require('../assets/images/ic_qr2.png'),
 };

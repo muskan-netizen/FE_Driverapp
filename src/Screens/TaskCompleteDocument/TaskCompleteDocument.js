@@ -22,7 +22,7 @@ import navigationStrings from '../../navigation/navigationStrings';
 import actions from '../../redux/actions';
 // import store from '../../redux/store';
 import colors from '../../styles/colors';
-import commonStylesFunc from '../../styles/commonStyles';
+import commonStylesFunc, {hitSlopProp} from '../../styles/commonStyles';
 import fontFamily from '../../styles/fontFamily';
 import {moderateScale, width} from '../../styles/responsiveSize';
 import {cameraHandler} from '../../utils/commonFunction';
@@ -49,7 +49,7 @@ import {isEmpty, update} from 'lodash';
 import {getDistance, getPreciseDistance} from 'geolib';
 import ModalView from '../../Components/Modal';
 import {getAllTravelDetails} from '../../utils/googlePlaceApi';
-import { appIds } from '../../utils/constants/DynamicAppKeys';
+import {appIds} from '../../utils/constants/DynamicAppKeys';
 navigator.geolocation = require('react-native-geolocation-service');
 
 var image1 = new FaceImage();
@@ -57,7 +57,7 @@ var image2 = new FaceImage();
 var request = new MatchFacesRequest();
 
 const window = Dimensions.get('window');
-
+let pressedItem = {};
 export default function TaskCompleteDocument({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
   const taskDetail = route?.params?.data?.taskDetail;
@@ -77,7 +77,7 @@ export default function TaskCompleteDocument({route, navigation}) {
     imageName: null,
     faceImage: null,
     faceImageName: null,
-    qrcode: null,
+    barcode: null,
     otpField: '',
     img1: null,
     img2: null,
@@ -88,6 +88,7 @@ export default function TaskCompleteDocument({route, navigation}) {
     speed: null,
     isModalVisible: false,
     totalTravelData: null,
+    qrCode: null,
   });
 
   const {
@@ -102,7 +103,7 @@ export default function TaskCompleteDocument({route, navigation}) {
     taskProofArray,
     showInputBox,
     note,
-    qrcode,
+    barcode,
     signatureImage,
     otpField,
     similarity,
@@ -112,6 +113,7 @@ export default function TaskCompleteDocument({route, navigation}) {
     speed,
     isModalVisible,
     totalTravelData,
+    qrCode,
   } = state;
   const commonStyles = commonStylesFunc({fontFamily});
   const updateState = data => setState(state => ({...state, ...data}));
@@ -198,7 +200,6 @@ export default function TaskCompleteDocument({route, navigation}) {
       })
       .then(base64Data => {
         // here's base64 encoded image
-        console.log(base64Data);
         // image1.bitmap = base64Data;
         // image1.imageType = Enum.ImageType.IMAGE_TYPE_PRINTED;
         setImage(true, base64Data, Enum.ImageType.IMAGE_TYPE_PRINTED);
@@ -262,22 +263,27 @@ export default function TaskCompleteDocument({route, navigation}) {
       });
   };
   /***** */
-
   const updateBarcodeScan = data => {
-    console.log(data, 'saved barcode result');
     if (data?.data == taskDetail?.barcode) {
       updateState({
-        qrcode: taskDetail?.barcode,
+        barcode: taskDetail?.barcode,
       });
     } else {
-      updateState({qrcode: null});
+      updateState({barcode: null});
       showError(strings.QRCODENOTMATCHED);
     }
   };
 
+  const updateQRcodeScan = data => {
+    console.log(data, 'data>>>>>data');
+    updateState({
+      qrCode: data?.data,
+    });
+  };
+
   /******On Press doc options**** */
   const onPressCategory = i => {
-    console.log(i, 'documnet type');
+    pressedItem == i;
 
     //Signature upload
     if (i?.id == 1) {
@@ -356,6 +362,7 @@ export default function TaskCompleteDocument({route, navigation}) {
               updateBarcodeScan: data => {
                 updateBarcodeScan(data);
               },
+              selected_id: i?.id,
             })();
           }
         })
@@ -365,6 +372,23 @@ export default function TaskCompleteDocument({route, navigation}) {
     if (i?.id == 5) {
       updateState({showInputBox: false});
       pickImage(false);
+    }
+
+    if (i?.id == 6) {
+      updateState({showInputBox: false});
+      checkCameraPermission()
+        .then(result => {
+          console.log(result, 'result');
+          if (result == 'granted') {
+            moveToNewScreen(navigationStrings.SCANNER, {
+              updateQRcodeScan: data => {
+                updateQRcodeScan(data);
+              },
+              selected_id: i?.id,
+            })();
+          }
+        })
+        .catch(error => console.log('error while accessing location ', error));
     }
   };
   /****** */
@@ -381,10 +405,13 @@ export default function TaskCompleteDocument({route, navigation}) {
         return note != '' ? imagePath?.notesBlue : imagePath?.notes;
         break;
       case 4:
-        return qrcode ? imagePath?.codeActive : imagePath?.codeInactive;
+        return barcode ? imagePath?.codeActive : imagePath?.codeInactive;
         break;
       case 5:
         return faceImage ? imagePath?.faceActive : imagePath?.faceInactive;
+        break;
+      case 6:
+        return qrCode ? imagePath?.icQr2 : imagePath?.icQr;
         break;
       default:
         break;
@@ -392,7 +419,6 @@ export default function TaskCompleteDocument({route, navigation}) {
   };
 
   const _onPressDone = () => {
-    console.log(findDataToCheck, 'findDataToCheck');
     if (
       findDataToCheck?.signature &&
       findDataToCheck?.signature_requried &&
@@ -414,7 +440,7 @@ export default function TaskCompleteDocument({route, navigation}) {
     } else if (
       findDataToCheck?.barcode &&
       findDataToCheck?.barcode_requried &&
-      isEmpty(qrcode)
+      isEmpty(barcode)
     ) {
       showError(strings.QRSCAN);
     } else if (
@@ -423,6 +449,12 @@ export default function TaskCompleteDocument({route, navigation}) {
       isEmpty(faceImage)
     ) {
       showError(strings.FACEIMAGEREQUIRED);
+    } else if (
+      !!findDataToCheck?.qrcode &&
+      !!findDataToCheck?.qrcode_requried &&
+      !!isEmpty(qrCode)
+    ) {
+      showError('QR code scan is required!');
     } else if (
       params?.data?.otpEnabled &&
       params?.data?.otpRequired &&
@@ -438,7 +470,7 @@ export default function TaskCompleteDocument({route, navigation}) {
     ) {
       showError(strings.OTPNOTVALID);
     } else {
-      updateState({isLoading: true,  isModalVisible: false,});
+      updateState({isLoading: true, isModalVisible: false});
       updateTaskStatus();
     }
   };
@@ -477,20 +509,23 @@ export default function TaskCompleteDocument({route, navigation}) {
       });
     }
 
+    if (qrCode) {
+      formdata.append('qr_code', qrCode);
+    }
+
     if (params?.data?.otpEnabled) {
       formdata.append('otp', otpField);
     }
-    console.log(formdata, 'updateTaskStatus>>>DATA');
 
-    updateState({isLoading: true,isModalVisible:false});
+    updateState({isLoading: true, isModalVisible: false});
     actions
       .updateTask(formdata, {
         client: clientInfo?.database_name,
         ContentType: 'multipart/form-data',
       })
       .then(res => {
-        console.log(res, 'updateTaskStatus>res>res');
-        updateState({isLoading: false,isModalVisible:false});
+        console.log(res, 'updateTaskStatus>>>DATA');
+        updateState({isLoading: false, isModalVisible: false});
         if (res?.data) {
           updateState({
             isLoading: false,
@@ -657,13 +692,15 @@ export default function TaskCompleteDocument({route, navigation}) {
               {strings.TOTALDISTANCE}
             </Text>
             <Text style={styles.distanceTimeTextStyle}>
-              {taskDetail?.order?.actual_distance?taskDetail?.order?.actual_distance: Number(
-                totalTravelData?.distance?.text.substring(
-                  0,
-                  totalTravelData?.distance?.text.length - 2,
-                ) * 1.609344,
-              ).toFixed(2)}{' '}
-             {appIds.weTogether ? 'Miles':' KM'}
+              {taskDetail?.order?.actual_distance
+                ? taskDetail?.order?.actual_distance
+                : Number(
+                    totalTravelData?.distance?.text.substring(
+                      0,
+                      totalTravelData?.distance?.text.length - 2,
+                    ) * 1.609344,
+                  ).toFixed(2)}{' '}
+              {appIds.weTogether ? 'Miles' : ' KM'}
             </Text>
           </View>
           <View>
@@ -671,7 +708,9 @@ export default function TaskCompleteDocument({route, navigation}) {
               {strings.TOTALTIME}
             </Text>
             <Text style={styles.distanceTimeTextStyle}>
-              {taskDetail?.order?.actual_time?taskDetail?.order?.actual_time:totalTravelData?.duration?.text}
+              {taskDetail?.order?.actual_time
+                ? taskDetail?.order?.actual_time
+                : totalTravelData?.duration?.text}
             </Text>
           </View>
         </View>
@@ -680,7 +719,14 @@ export default function TaskCompleteDocument({route, navigation}) {
           <TouchableOpacity onPress={closeModal}>
             <Text style={styles.modalText}>{strings.CANCEL}</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => _onPressDone()}>
+          <TouchableOpacity
+            hitSlop={hitSlopProp}
+            onPress={() => {
+              updateState({
+                isModalVisible: false,
+              });
+              _onPressDone();
+            }}>
             <Text style={styles.modalText}>{strings.OK}</Text>
           </TouchableOpacity>
         </View>
@@ -738,6 +784,7 @@ export default function TaskCompleteDocument({route, navigation}) {
           params?.data?.updatedProofArray.length
         ) && (
           <View>
+            {console.log(taskProofArray, 'taskProofArray>>>>taskProofArray')}
             <View style={styles.documentContainer}>
               <Text style={styles.attachment}>{strings.ATTACHMENTS}</Text>
               <View style={styles.documentListContainer}>

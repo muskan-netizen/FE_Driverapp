@@ -625,7 +625,6 @@
     "abbeRidesdispatcherRelease": "cd android && ./gradlew assembleabbeRidesRelease",
     "nrsadispatcher": "react-native run-android --variant=nrsaDebug",
     "nrsadispatcherRelease": "cd android && ./gradlew assemblenrsaRelease",
-
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
@@ -712,6 +711,7 @@
     "react-native-permissions": "^3.0.5",
     "react-native-progress": "^5.0.0",
     "react-native-push-notification": "^8.1.1",
+    "react-native-qrcode-scanner": "^1.5.5",
     "react-native-qrcode-scanner-view": "^2.0.0",
     "react-native-razorpay": "^2.2.8",
     "react-native-reanimated": "^1.13.2",

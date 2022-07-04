@@ -2003,8 +2003,8 @@ export default function ShortCode({route, navigation}) {
         };
       }
 
-      let updatedShortCode = shortCode;
-      // updatedShortCode = '745e3f';
+      // let updatedShortCode = shortCode;
+      updatedShortCode = '745e3f';
 
       actions
         .initApp({shortCode: updatedShortCode}, header)
