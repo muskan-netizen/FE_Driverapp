@@ -59,7 +59,7 @@ var _value = 0;
 export default function TaskDetail({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
   let taskDetail = route?.params?.data?.item;
-  console.log(taskDetail, 'taskDetail>>>>>>>>>>>>');
+  console.log(userData, 'taskDetail>>>>>>>>>>>>');
   let fromHistory = route?.params?.data?.fromHistory;
 
   const [state, setState] = useState({
@@ -672,28 +672,34 @@ export default function TaskDetail({route, navigation}) {
     // }
   };
 
-  console.log(totalTravelData, 'totalTravelDatatotalTravelDatatotalTravelData');
+  
+
   const onWhatsapp = async () => {
-    // Share.shareSingle(shareOptions)
-    // .then((res) => { console.log(res,"dfajsdsa") })
-    // .catch((err) => { err && console.log(err); });
-   const link = `https://api.whatsapp.com/send?phone=${taskDetail?.order?.customer?.phone_number}`;
+    let url = `whatsapp://send?phone= ${taskDetail?.order?.customer?.dial_code}${
+      taskDetail?.order?.customer?.phone_number
+    }`;
+    console.log(url,"caddaibsdu");
+    Linking.openURL(url)
+    .then((data) => {
+    console.log('WhatsApp Opened successfully ' + data); //<---Success
+    })
+    .catch(() => {
+    alert('Make sure WhatsApp installed on your device'); //<---Error
+    });
     if (link) {
     Linking.canOpenURL(link)
-    .then(supported => {
+    .then((supported) => {
     if (!supported) {
-    Alert.alert(
-    'Please install whats app to send direct message to Vendor via whats app'
-    );
+    Alert.alert('Please install Whatsapp to send direct message.');
     } else {
     return Linking.openURL(link);
     }
     })
-    .catch(err => console.error('An error occurred', err));
+    .catch((err) => console.error('An error occurred', err));
     } else {
     console.log('sendWhatsAppMessage -----> ', 'message link is undefined');
     }
-    }
+    };
   const taskDetailView = () => {
     return (
       <ScrollView

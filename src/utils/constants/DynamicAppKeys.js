@@ -2,6 +2,7 @@ import { Platform } from 'react-native';
 import { getBundleId } from 'react-native-device-info';
 
 const shortCodes = {
+  sales:'745e3f',
   runrun: 'cbec70',
   royoorder: '8e3eef',
   deliverstat: 'e6b31c',
@@ -1034,8 +1035,8 @@ const appIds = {
     android: 'com.TheHouse.royodispatcher',
   }),
   uberCann: Platform.select({
-    ios: 'com.UCANN.driver',
-    android: 'com.UCANN.dispatcher',
+    ios: 'com.UberCann.Dispatch',
+    android: 'com.UberCann.Dispatch',
   }),
   launch: Platform.select({
     ios: 'com.Launch.Dispatch',

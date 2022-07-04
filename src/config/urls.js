@@ -1,6 +1,8 @@
 //live
 //  export const API_BASE_URL = 'https://api.royodispatch.com/';
+//  export const API_BASE_URL = 'https://dispatch.toor.life/';
 
+//  export const API_BASE_URL = 'https://dispatch.fijieats.com/';
 //  export const API_BASE_URL = 'https://dispatch.ubercann.com/';
 //  export const API_BASE_URL = 'https://dispatch.swantaxi.net/';
 
@@ -8,8 +10,7 @@
 export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
 //export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
-// export const API_BASE_URL = "https://fairexglobal.com/"
-
+// export const API_BASE_URL = 'http://192.168.96.152:8006/';
 // export const API_BASE_URL = 'https://dispatch.drusdeliveries.com/';
 
 // export const API_BASE_URL = 'https://dispatch.pas41.com/'

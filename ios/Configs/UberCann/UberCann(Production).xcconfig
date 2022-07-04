@@ -1,10 +1,9 @@
 #include "Pods/Target Support Files/Pods-available_pods-UberCann/Pods-available_pods-UberCann.release.xcconfig"
 
 
-PROJECT_BUNDLE_ID = com.UCANN.driver
+PROJECT_BUNDLE_ID = com.UberCann.Dispatch
 PROJECT_APP_VERSION = 1.1
-PROJECT_BUILD_NUMBER = 1
-PROJECT_APP_NAME =UCANN DRIVER
+PROJECT_BUILD_NUMBER = 2
+PROJECT_APP_NAME =UberCann DRIVER
 PROJECT_PLIST =UberCannInfo
 PROJECT_ENTITLEMENT=RoyoDriverAppRelease
-

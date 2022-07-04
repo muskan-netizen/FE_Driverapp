@@ -1,40 +1,40 @@
 {
   "project_info": {
-    "project_number": "467229394601",
-    "project_id": "ucann-driver",
-    "storage_bucket": "ucann-driver.appspot.com"
+    "project_number": "358051943769",
+    "project_id": "ubercann-driver",
+    "storage_bucket": "ubercann-driver.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:467229394601:android:3405c73a3e52f5151a8bb8",
+        "mobilesdk_app_id": "1:358051943769:android:eb2c11171a797acc23a848",
         "android_client_info": {
-          "package_name": "com.UCANN.dispatcher"
+          "package_name": "com.UberCann.Dispatch"
         }
       },
       "oauth_client": [
         {
-          "client_id": "467229394601-1a24jg1u80c30vrnrhn9sv5e3f8v8104.apps.googleusercontent.com",
+          "client_id": "358051943769-cqek0fvcpjj7uip4pbcrp09kasf30p16.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCxENlhaxDeZ2K3neIEWetIaxR1MxmLrI8"
+          "current_key": "AIzaSyDJhIGcZQJzpvsxmPLOc04IbcSoKZkaLD4"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "467229394601-1a24jg1u80c30vrnrhn9sv5e3f8v8104.apps.googleusercontent.com",
+              "client_id": "358051943769-cqek0fvcpjj7uip4pbcrp09kasf30p16.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "467229394601-s0f68elq512cgl4enfjk6hcvn7nrujq0.apps.googleusercontent.com",
+              "client_id": "358051943769-b3piiimnde0iqr90757idg363lnb2hpd.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.UCANN.driver"
+                "bundle_id": "com.uberCannDriver"
               }
             }
           ]
