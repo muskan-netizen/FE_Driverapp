@@ -314,7 +314,8 @@ const shortCodes = {
   abbeRides: 'b65020',
   nrsa: 'b6f11b',
   sadia: '31d13d',
-  elentaMart: 'b16063'
+  elentaMart: 'b16063',
+  exprexpro: 'a6ccaf'
 };
 
 const appIds = {
@@ -1568,6 +1569,10 @@ const appIds = {
   elentaMart: Platform.select({
     ios: 'com.elentamart.dispatcher',
     android: 'com.elentamart.dispatcher',
+  }),
+  exprexpro: Platform.select({
+    ios: 'com.Exprexpro.dispatcher',
+    android: 'com.Exprexpro.dispatcher',
   }),
 };
 

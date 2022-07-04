@@ -1960,6 +1960,13 @@ export default function ShortCode({route, navigation}) {
                     isShortcodePrefilled: true,
                   });
                   break;
+
+                  case appIds.exprexpro:
+                  updateState({
+                    shortCode: shortCodes.exprexpro,
+                    isShortcodePrefilled: true,
+                  });
+                  break;
       }
     })();
   }, [internetConnection]);

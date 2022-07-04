@@ -3489,6 +3489,16 @@ android {
             applicationId 'com.elentamart.dispatcher'
             resValue "string", "app_name", "ElentaMart Dispatcher"
         }
+               exprexpro{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Exprexpro.dispatcher'
+            resValue "string", "app_name", "exprexpro Dispatcher"
+        }
 }
  
 
