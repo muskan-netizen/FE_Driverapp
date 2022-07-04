@@ -11,14 +11,12 @@
 
 // export const API_BASE_URL = 'https://dispatch.pas41.com/'
 
-// export const API_BASE_URL ='https://dispatch.36kel.com.ph/'
+// tmg Shops
+// export const API_BASE_URL = 'https://dispatch.tmgsalesllc.com/'
 
-
-// export const API_BASE_URL = 'https://dispatch.mobimarket.com.mx/'
-// export const API_BASE_URL = 'https://dispatch.swiffy.us/'
-
-// export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
 //export const API_BASE_URL = 'https://dispatch.runrun.ae/';
+
+// pulmettoplus
 //export const API_BASE_URL = 'https://dispatch.palmettoplusdelivered.com/';
 
 //export const API_BASE_URL = 'https://dispatch.runrun.ae/';
@@ -31,6 +29,8 @@
 // export const API_BASE_URL = 'https://dispatch.fairexglobal.com/'
 //dimavega
 // export const API_BASE_URL ='https://dispatch.dimahalal.com/'
+export const API_BASE_URL ='https://dispatch.fijieats.com/'
+
 
 //beachhop
 // export const API_BASE_URL = 'https://dispatch.beachhopdelivery.com/'
@@ -60,6 +60,7 @@
 //Mr.Health
 // export const API_BASE_URL = 'https://dispatch.mrhealth.in/';
 
+// releezer
 // export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
 
 //Developement
@@ -117,7 +118,7 @@
 
 // export const API_BASE_URL = 'https://dispatch.pinkjettaxi.com/';
 
-export const API_BASE_URL = 'https://dispatch.ineed.do/'
+// export const API_BASE_URL = 'https://dispatch.ineed.do/'
 // export const API_BASE_URL = 'https://dispatch.uvennow.com/';
 
 //hemptify
@@ -226,6 +227,8 @@ export const API_BASE_URL = 'https://dispatch.ineed.do/'
 //  export const API_BASE_URL = 'https://dispatch.butlerdeliveryusa.com/'
 // bimol
 // export const API_BASE_URL = 'https://dispatch.bimol.in/'
+
+// mobi
  //export const API_BASE_URL = 'https://dispatch.mobimarket.com.mx/';
 // grub and gusto
 // export const API_BASE_URL = 'https://grub.royodispatch.com/'
