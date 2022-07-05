@@ -944,8 +944,8 @@ const appIds = {
     android: 'com.Easyu.royodispatcher',
   }),
   myfiji: Platform.select({
-    ios: 'com.Myfiji.Dispatch',
-    android: 'com.Myfiji.royodispatcher',
+    ios: 'com.fijiEats.dispatcher',
+    android: 'com.fijiEats.dispatcher',
   }),
   ritenow: Platform.select({
     ios: 'com.Ritenow.Driver',

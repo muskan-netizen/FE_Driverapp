@@ -1989,8 +1989,8 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.Myfiji.royodispatcher'
-            resValue "string", "app_name", "Fiji Eats Dispatcher"
+            applicationId 'com.fijiEats.dispatcher'
+            resValue "string", "app_name", "FijiEats Driver"
         }
           ritenow{
             dimension "appType"
