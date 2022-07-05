@@ -1915,58 +1915,58 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
-          case appIds.kurs:
-            updateState({
-              shortCode: shortCodes.kurs,
-              isShortcodePrefilled: true,
-            });
-            break;
-            case appIds.torunz:
-            updateState({
-              shortCode: shortCodes.torunz,
-              isShortcodePrefilled: true,
-            });
-            break;
-            case appIds.spa:
-              updateState({
-                shortCode: shortCodes.spa,
-                isShortcodePrefilled: true,
-              });
-              break;
-              case appIds.abbeRides:
-              updateState({
-                shortCode: shortCodes.abbeRides,
-                isShortcodePrefilled: true,
-              });
-              break;
+        case appIds.kurs:
+          updateState({
+            shortCode: shortCodes.kurs,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.torunz:
+          updateState({
+            shortCode: shortCodes.torunz,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.spa:
+          updateState({
+            shortCode: shortCodes.spa,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.abbeRides:
+          updateState({
+            shortCode: shortCodes.abbeRides,
+            isShortcodePrefilled: true,
+          });
+          break;
 
-              case appIds.nrsa:
-                updateState({
-                  shortCode: shortCodes.nrsa,
-                  isShortcodePrefilled: true,
-                });
-                break;
+        case appIds.nrsa:
+          updateState({
+            shortCode: shortCodes.nrsa,
+            isShortcodePrefilled: true,
+          });
+          break;
 
-                case appIds.sadia:
-                  updateState({
-                    shortCode: shortCodes.sadia,
-                    isShortcodePrefilled: true,
-                  });
-                  break;
+        case appIds.sadia:
+          updateState({
+            shortCode: shortCodes.sadia,
+            isShortcodePrefilled: true,
+          });
+          break;
 
-                  case appIds.elentaMart:
-                  updateState({
-                    shortCode: shortCodes.elentaMart,
-                    isShortcodePrefilled: true,
-                  });
-                  break;
+        case appIds.elentaMart:
+          updateState({
+            shortCode: shortCodes.elentaMart,
+            isShortcodePrefilled: true,
+          });
+          break;
 
-                  case appIds.exprexpro:
-                  updateState({
-                    shortCode: shortCodes.exprexpro,
-                    isShortcodePrefilled: true,
-                  });
-                  break;
+        case appIds.exprexpro:
+          updateState({
+            shortCode: shortCodes.exprexpro,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);
