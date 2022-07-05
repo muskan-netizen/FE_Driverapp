@@ -314,6 +314,9 @@ const shortCodes = {
   spa:'69dd33',
   abbeRides: 'b65020',
   nrsa: 'b6f11b',
+  sadia: '31d13d',
+  elentaMart: 'b16063',
+  exprexpro: 'a6ccaf'
 };
 
 const appIds = {
@@ -995,8 +998,8 @@ const appIds = {
     android: 'com.Sijang.royodispatcher',
   }),
   fairexpay: Platform.select({
-    ios: 'com.Fairexpay.Dispatch',
-    android: 'com.Fairexpay.royodispatcher',
+    ios: 'com.fairex.driver',
+    android: 'com.fairex.driver',
   }),
   cannabis_Club_SF: Platform.select({
     ios: 'com.CannabisClubSF.Dispatch',
@@ -1559,6 +1562,18 @@ const appIds = {
   nrsa: Platform.select({
     ios: 'com.nrsa.dispatch',
     android: 'com.nrsa.dispatch',
+  }),
+  sadia: Platform.select({
+    ios: 'com.sadia.royodispatcher',
+    android: 'com.sadia.royodispatcher',
+  }),
+  elentaMart: Platform.select({
+    ios: 'com.elentamart.dispatcher',
+    android: 'com.elentamart.dispatcher',
+  }),
+  exprexpro: Platform.select({
+    ios: 'com.Exprexpro.dispatcher',
+    android: 'com.Exprexpro.dispatcher',
   }),
 };
 
