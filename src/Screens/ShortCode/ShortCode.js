@@ -1967,6 +1967,18 @@ export default function ShortCode({route, navigation}) {
                     isShortcodePrefilled: true,
                   });
                   break;
+                  case appIds.fresHest:
+                    updateState({
+                      shortCode: shortCodes.fresHest,
+                      isShortcodePrefilled: true,
+                    });
+                    break;
+                    case appIds.servern:
+                      updateState({
+                        shortCode: shortCodes.servern,
+                        isShortcodePrefilled: true,
+                      });
+                      break;
       }
     })();
   }, [internetConnection]);

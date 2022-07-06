@@ -202,17 +202,18 @@ android {
     flavorDimensions "appType"
 
 //  productFlavors {
-//             youChillax{
+           
+//           myFarma{
 //             dimension "appType"
 //             versionCode 1
 //             versionName "1.0"
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId "com.YouChillax.royodispatcher"
-//             resValue "string", "app_name", "YouChillax Dispatch"
-        
+//             applicationId 'com.myFarma.royodispatcher'
+//             resValue "string", "app_name", "MyFarma Dispatcher"
 //         }
+         
 //  }
     productFlavors {
         royodispatcher {
@@ -3327,7 +3328,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.kartandkarry.royodispatcher'
-            resValue "string", "app_name", "Blue Bundles Dispatcher"
+            resValue "string", "app_name", "KartandKarry Dispatcher"
         }
          atasktt{
             dimension "appType"
@@ -3498,6 +3499,26 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.Exprexpro.dispatcher'
             resValue "string", "app_name", "exprexpro Dispatcher"
+        }
+         fresHest{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.fresHest.dispatcher'
+            resValue "string", "app_name", "FresHest Dispatcher"
+        }
+         servern{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.servern.dispatcher'
+            resValue "string", "app_name", "Servern Dispatcher"
         }
 }
  

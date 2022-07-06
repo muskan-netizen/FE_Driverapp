@@ -315,7 +315,9 @@ const shortCodes = {
   nrsa: 'b6f11b',
   sadia: '31d13d',
   elentaMart: 'b16063',
-  exprexpro: 'a6ccaf'
+  exprexpro: 'a6ccaf',
+  fresHest:'d23863',
+  servern:'4adb00',
 };
 
 const appIds = {
@@ -1573,6 +1575,14 @@ const appIds = {
   exprexpro: Platform.select({
     ios: 'com.Exprexpro.dispatcher',
     android: 'com.Exprexpro.dispatcher',
+  }),
+  fresHest: Platform.select({
+    ios: 'com.fresHest.dispatcher',
+    android: 'com.fresHest.dispatcher',
+  }),
+  servern: Platform.select({
+    ios: 'com.servern.dispatcher',
+    android: 'com.servern.dispatcher',
   }),
 };
 
