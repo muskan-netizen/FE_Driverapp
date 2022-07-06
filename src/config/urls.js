@@ -5,11 +5,12 @@
 //  export const API_BASE_URL = 'https://dispatch.fijieats.com/';
 //  export const API_BASE_URL = 'https://dispatch.ubercann.com/';
 //  export const API_BASE_URL = 'https://dispatch.swantaxi.net/';
+// export const API_BASE_URL = 'https://dispatch.yogo.gd/';
 
 //Staging
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
-// export const API_BASE_URL = 'https://api.winhires.com/';
 export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.winhires.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
 //export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
 // export const API_BASE_URL = 'http://192.168.96.152:8006/';
 // export const API_BASE_URL = 'https://dispatch.drusdeliveries.com/';
