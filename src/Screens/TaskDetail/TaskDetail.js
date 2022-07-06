@@ -41,7 +41,6 @@ import {
   width,
 } from '../../styles/responsiveSize';
 import moment from 'moment';
-
 import {
   getColorCodeWithOpactiyNumber,
   getCurrentLocation,
@@ -1188,7 +1187,7 @@ export default function TaskDetail({route, navigation}) {
               </Text>
             </View>
 
-            {!!taskDetail?.order?.cash_to_be_collected && (
+            {!!Number(taskDetail?.order?.cash_to_be_collected  ) > 0 && (
               <View style={{flex: 0.5}}>
                 <Text style={styles.taskLable}>
                   {strings.CASHTOBECOLLECTED.toUpperCase()}

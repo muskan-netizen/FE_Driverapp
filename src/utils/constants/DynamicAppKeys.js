@@ -4,7 +4,7 @@ import { getBundleId } from 'react-native-device-info';
 const shortCodes = {
   sales:'745e3f',
   runrun: 'cbec70',
-  royoorder: '8e3eef',
+  royoDispatch: '8e3eef',
   deliverstat: 'e6b31c',
   africanVillageMarket: '6c786d',
   africanize: 'a98da0',

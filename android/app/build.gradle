@@ -202,17 +202,17 @@ android {
     flavorDimensions "appType"
 
 // productFlavors {
-            
-//         fairexpay{
+//                        swiffyLLC{
 //             dimension "appType"
 //             versionCode 1
 //             versionName "1.0"
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.fairex.driver'
-//             resValue "string", "app_name", "Fairex Driver"
+//             applicationId 'com.SwiffyLLC.royodispatcher'
+//             resValue "string", "app_name", "SwiffyLLC Driver"
 //         }
+
 // }
 
     productFlavors {
@@ -1975,8 +1975,8 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.Fairexpay.royodispatcher'
-            resValue "string", "app_name", "Fairexpay Dispatcher"
+            applicationId 'com.fairex.driver'
+            resValue "string", "app_name", "Fairex Driver"
         }
           cannabis_Club_SF{
             dimension "appType"
