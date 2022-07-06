@@ -1,0 +1,9 @@
+#include "Pods/Target Support Files/Pods-available_pods-SmokeRun/Pods-available_pods-SmokeRun.debug.xcconfig"
+
+
+PROJECT_BUNDLE_ID = com.smokeRun.dispatcher
+PROJECT_APP_VERSION = 1.0
+PROJECT_BUILD_NUMBER = 1
+PROJECT_APP_NAME =SmokeRun Dispatcher
+PROJECT_PLIST =SmokeRunInfo
+PROJECT_ENTITLEMENT=RoyoDriverAppRelease

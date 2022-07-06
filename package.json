@@ -630,10 +630,16 @@
     "exprexprodispatcher": "react-native run-android --variant=exprexproDebug",
     "exprexprodispatcherRelease": "cd android && ./gradlew assembleexprexproRelease",
     "fresHestdispatcher": "react-native run-android --variant=fresHestDebug",
+    "fresHestdispatcherRelease": "cd android && ./gradlew assemblefresHestRelease",
     "serverndispatcherRelease": "cd android && ./gradlew assembleservernRelease",
     "serverndispatcher": "react-native run-android --variant=servernDebug",
-    "fresHestdispatcherRelease": "cd android && ./gradlew assemblefresHestRelease",
-
+    "smokeRundispatcherRelease": "cd android && ./gradlew assemblesmokeRunRelease",
+    "smokeRundispatcher": "react-native run-android --variant=smokeRunDebug",
+    "myEvPlusdispatcherRelease": "cd android && ./gradlew assemblemyEvPlusRelease",
+    "myEvPlusdispatcher": "react-native run-android --variant=myEvPlusDebug",
+    "pawseedispatcherRelease": "cd android && ./gradlew assemblepawseeRelease",
+    "pawseedispatcher": "react-native run-android --variant=pawseeDebug",
+    
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",

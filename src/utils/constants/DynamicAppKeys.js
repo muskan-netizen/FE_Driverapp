@@ -318,6 +318,9 @@ const shortCodes = {
   exprexpro: 'a6ccaf',
   fresHest:'d23863',
   servern:'4adb00',
+  smokeRun:'54bc6e',
+  myEvPlus:'745fe6',
+  pawsee:'39cae6',
 };
 
 const appIds = {
@@ -1583,6 +1586,18 @@ const appIds = {
   servern: Platform.select({
     ios: 'com.servern.dispatcher',
     android: 'com.servern.dispatcher',
+  }),
+  smokeRun: Platform.select({
+    ios: 'com.smokeRun.dispatcher',
+    android: 'com.smokeRun.dispatcher',
+  }),
+  myEvPlus: Platform.select({
+    ios: 'com.myEvPlus.dispatcher',
+    android: 'com.myEvPlus.dispatcher',
+  }),
+  pawsee: Platform.select({
+    ios: 'com.pawsee.dispatcher',
+    android: 'com.pawsee.dispatcher',
   }),
 };
 

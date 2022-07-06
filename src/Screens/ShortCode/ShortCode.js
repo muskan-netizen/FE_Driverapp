@@ -1979,6 +1979,24 @@ export default function ShortCode({route, navigation}) {
                         isShortcodePrefilled: true,
                       });
                       break;
+                      case appIds.smokeRun:
+                        updateState({
+                          shortCode: shortCodes.smokeRun,
+                          isShortcodePrefilled: true,
+                        });
+                        break;
+                        case appIds.myEvPlus:
+                          updateState({
+                            shortCode: shortCodes.myEvPlus,
+                            isShortcodePrefilled: true,
+                          });
+                          break;
+                          case appIds.pawsee:
+                            updateState({
+                              shortCode: shortCodes.pawsee,
+                              isShortcodePrefilled: true,
+                            });
+                            break;
       }
     })();
   }, [internetConnection]);

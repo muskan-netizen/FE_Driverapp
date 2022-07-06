@@ -2,10 +2,10 @@
 //  export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
- //export const API_BASE_URL = 'https://api.rdstaging.com/';
+ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 
- export const API_BASE_URL = 'https://baytukom-dispatch.netsolutionindia.com/';
+ //export const API_BASE_URL = 'https://baytukom-dispatch.netsolutionindia.com/';
 
 
 //export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
