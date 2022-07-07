@@ -16,7 +16,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //dimavega
 // export const API_BASE_URL ='https://dispatch.dimahalal.com/'
-
+// export const API_BASE_URL ='https://dispatch.dimahalal.com/'
 //gdotdelivery
 // export const API_BASE_URL ='https://dispatch.gdotdelivery.com/'
 

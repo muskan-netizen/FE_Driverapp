@@ -3208,6 +3208,7 @@ android {
             applicationId 'com.weTogether.royodispatcher'
             resValue "string", "app_name", "WeTogether Dispatcher"
         }
+
            jiffex{
             dimension "appType"
             versionCode 1
