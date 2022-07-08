@@ -58,7 +58,7 @@ var _value = 0;
 export default function TaskDetail({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
   let taskDetail = route?.params?.data?.item;
-  console.log(userData, 'taskDetail>>>>>>>>>>>>');
+  console.log(taskDetail, 'taskDetail>>>>>>>>>>>>');
   let fromHistory = route?.params?.data?.fromHistory;
 
   const [state, setState] = useState({
@@ -671,34 +671,30 @@ export default function TaskDetail({route, navigation}) {
     // }
   };
 
-  
-
   const onWhatsapp = async () => {
-    let url = `whatsapp://send?phone= ${taskDetail?.order?.customer?.dial_code}${
-      taskDetail?.order?.customer?.phone_number
-    }`;
-    console.log(url,"caddaibsdu");
+    let url = `whatsapp://send?phone= ${taskDetail?.order?.customer?.dial_code}${taskDetail?.order?.customer?.phone_number}`;
+    console.log(url, 'caddaibsdu');
     Linking.openURL(url)
-    .then((data) => {
-    console.log('WhatsApp Opened successfully ' + data); //<---Success
-    })
-    .catch(() => {
-    alert('Make sure WhatsApp installed on your device'); //<---Error
-    });
+      .then(data => {
+        console.log('WhatsApp Opened successfully ' + data); //<---Success
+      })
+      .catch(() => {
+        alert('Make sure WhatsApp installed on your device'); //<---Error
+      });
     if (link) {
-    Linking.canOpenURL(link)
-    .then((supported) => {
-    if (!supported) {
-    Alert.alert('Please install Whatsapp to send direct message.');
+      Linking.canOpenURL(link)
+        .then(supported => {
+          if (!supported) {
+            Alert.alert('Please install Whatsapp to send direct message.');
+          } else {
+            return Linking.openURL(link);
+          }
+        })
+        .catch(err => console.error('An error occurred', err));
     } else {
-    return Linking.openURL(link);
+      console.log('sendWhatsAppMessage -----> ', 'message link is undefined');
     }
-    })
-    .catch((err) => console.error('An error occurred', err));
-    } else {
-    console.log('sendWhatsAppMessage -----> ', 'message link is undefined');
-    }
-    };
+  };
   const taskDetailView = () => {
     return (
       <ScrollView
@@ -803,10 +799,10 @@ export default function TaskDetail({route, navigation}) {
               )}
             </View>
           </View>
-      
+
           {/* Phone and email view */}
           {(taskDetail?.tasktype?.name).toLowerCase() == 'drop' ? (
-            <View >
+            <View>
               {!!(
                 taskDetail?.order?.Recipient_email ||
                 taskDetail?.order?.recipient_phone
@@ -835,7 +831,7 @@ export default function TaskDetail({route, navigation}) {
                         flexDirection: 'row',
                         marginTop: moderateScale(10),
                         alignItems: 'center',
-                        flex:0.65
+                        flex: 0.65,
                       }}>
                       <Image
                         source={imagePath.mail2}
@@ -846,7 +842,7 @@ export default function TaskDetail({route, navigation}) {
                       </Text>
                     </TouchableOpacity>
                   )}
-                 {}
+                  {}
                   {!!taskDetail?.order?.recipient_phone && (
                     <TouchableOpacity
                       onPress={
@@ -863,7 +859,7 @@ export default function TaskDetail({route, navigation}) {
                         flexDirection: 'row',
                         marginTop: moderateScale(10),
                         alignItems: 'center',
-                        flex:0.3
+                        flex: 0.3,
                       }}>
                       <Image
                         source={imagePath.phone2}
@@ -913,7 +909,7 @@ export default function TaskDetail({route, navigation}) {
                         flexDirection: 'row',
                         marginTop: moderateScale(10),
                         alignItems: 'center',
-                        flex:0.7
+                        flex: 0.7,
                       }}>
                       <Image
                         source={imagePath.mail2}
@@ -935,8 +931,7 @@ export default function TaskDetail({route, navigation}) {
                         flexDirection: 'row',
                         marginTop: moderateScale(10),
                         alignItems: 'center',
-                        flex:0.3
-                    
+                        flex: 0.3,
                       }}>
                       <Image
                         source={imagePath.phone2}
@@ -1105,7 +1100,7 @@ export default function TaskDetail({route, navigation}) {
                     )
                   }
                   style={{
-                    flex: 0.55,
+                    flex: 0.50,
                     flexDirection: 'row',
                     marginTop: moderateScale(10),
                     alignItems: 'center',
@@ -1119,48 +1114,57 @@ export default function TaskDetail({route, navigation}) {
                   </Text>
                 </TouchableOpacity>
               )}
-             {/* { !!taskDetail?.order?.customer?.phone_number && (<TouchableOpacity
-                  style={{justifyContent:"center",paddingLeft:moderateScaleVertical(20),alignItems:"center",    marginTop: moderateScale(10),}}
-                  onPress={onWhatsapp}
-                >
-                  <Image
-                    source={imagePath.whatsapp}
-                 
-                  />
-                 
-                </TouchableOpacity>)} */}
+
               {!!taskDetail?.order?.customer?.phone_number && (
-                <View style={{
-                  flex: 0.4,
-                  flexDirection: 'row',
-                  marginTop: moderateScale(10),
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-             
-                }}>
-                 <TouchableOpacity    onPress={onWhatsapp}>
-                 <Image
-                    source={imagePath.whatsapp}
-                 
-                  />
+                <View
+                  style={{
+                    flex: 0.47,
+                    flexDirection: 'row',
+                    marginTop: moderateScale(10),
+                  
+                    alignItems: 'center',
+                    justifyContent: 'flex-start',
+                  }}>
+                  <TouchableOpacity
+                    style={{
+                   
+                      paddingHorizontal: moderateScale(10),
+                    }}
+                    onPress={onWhatsapp}>
+                    <Image source={imagePath.whatsapp} />
                   </TouchableOpacity>
-                <TouchableOpacity
-                style={{flexDirection:"row",alignItems:'center'}}
-                  onPress={() =>
-                    Communications.phonecall(
-                      taskDetail?.order?.customer?.phone_number,
-                      true,
-                    )
-                  }
-                  >
-                  <Image
-                    source={imagePath.phone2}
-                    style={{marginRight: moderateScale(5)}}
-                  />
-                  <Text style={styles.emailAndPhone}>
-                    {taskDetail?.order?.customer?.phone_number}
-                  </Text>
-                </TouchableOpacity>
+                  <TouchableOpacity
+                    style={{
+                      flexDirection: 'row',
+                      alignItems: 'center',
+                  
+                      marginRight:moderateScale(10)
+                    }}
+                    onPress={() =>
+                      Communications.phonecall(
+                        taskDetail?.order?.customer?.phone_number,
+                        true,
+                      )
+                    }>
+                    <Image
+                      source={imagePath.phone2}
+                      style={{marginRight: moderateScale(5)}}
+                    />
+                    <Text
+                      style={{
+                      
+                        fontFamily: fontFamily.bold,
+                        fontSize: textScale(12),
+                        color: colors.textGreyOpcaity7,
+                        paddingLeft:moderateScale(5),
+                        marginRight:moderateScale(10),
+                        flexWrap:"wrap",
+                        
+                       
+                      }}>
+                      {taskDetail?.order?.customer?.phone_number}
+                    </Text>
+                  </TouchableOpacity>
                 </View>
               )}
             </View>
@@ -1176,7 +1180,7 @@ export default function TaskDetail({route, navigation}) {
 
           {/* Time and cash to be collected */}
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-            <View style={{flex: 0.5}}>
+            <View style={{flex: 0.6}}>
               <Text style={styles.taskLable}>
                 {strings.TIMINGS.toUpperCase()}
               </Text>
@@ -1187,8 +1191,8 @@ export default function TaskDetail({route, navigation}) {
               </Text>
             </View>
 
-            {!!Number(taskDetail?.order?.cash_to_be_collected  ) > 0 && (
-              <View style={{flex: 0.5}}>
+            {!!Number(taskDetail?.order?.cash_to_be_collected) > 0 && (
+              <View style={{flex: 0.4}}>
                 <Text style={styles.taskLable}>
                   {strings.CASHTOBECOLLECTED.toUpperCase()}
                 </Text>

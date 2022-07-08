@@ -1484,8 +1484,8 @@ const appIds = {
     android: 'com.keystoneDelivery.royodispatcher',
   }),
   amazingTaxi: Platform.select({
-    ios: 'com.amazingTaxi.Dispatcher',
-    android: 'com.amazingTaxi.royodispatcher',
+    ios: 'com.amazingTaxi.Driver',
+    android: 'com.amazingTaxi.Driver',
   }),
   busTaMove: Platform.select({
     ios: 'com.BusTaMove.Dispatch',

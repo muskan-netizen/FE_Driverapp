@@ -7,6 +7,10 @@
 //  export const API_BASE_URL = 'https://dispatch.swantaxi.net/';
 // export const API_BASE_URL = 'https://dispatch.yogo.gd/';
 
+// export const API_BASE_URL = 'https://gokab.royodispatch.com/'
+// export const API_BASE_URL = 'https://grub.royodispatch.com/9';
+
+
 //Staging
 export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://api.winhires.com/';
@@ -42,6 +46,11 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.fairexglobal.com/'
 //dimavega
 // export const API_BASE_URL ='https://dispatch.dimahalal.com/'
+
+
+//amazingTaxi
+// export const API_BASE_URL = 'https://dispatch.rhondaisamazingtaxi.com/';
+
 
 //beachhop
 // export const API_BASE_URL = 'https://dispatch.beachhopdelivery.com/'
@@ -115,7 +124,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //
 // export const API_BASE_URL = 'http://192.168.96.84:9090/'; // harbans local url
-//export const API_BASE_URL = 'https://delivery.shoorafresh.com.au/';
+// export const API_BASE_URL = 'https://delivery.shoorafresh.com.au/';
 
 //dimahalal
 

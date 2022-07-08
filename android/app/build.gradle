@@ -202,15 +202,15 @@ android {
     flavorDimensions "appType"
 
 // productFlavors {
-//                        swiffyLLC{
+//          fairexpay{
 //             dimension "appType"
 //             versionCode 1
 //             versionName "1.0"
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.SwiffyLLC.royodispatcher'
-//             resValue "string", "app_name", "SwiffyLLC Driver"
+//             applicationId 'com.fairex.driver'
+//             resValue "string", "app_name", "Fairex Driver"
 //         }
 
 // }
@@ -3267,7 +3267,7 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.amazingTaxi.royodispatcher'
+            applicationId 'com.amazingTaxi.Driver'
             resValue "string", "app_name", "AmazingTaxi Dispatcher"
         }
          keystoneDelivery{
