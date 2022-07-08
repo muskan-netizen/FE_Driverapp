@@ -24,7 +24,12 @@ import actions from '../../redux/actions';
 import colors from '../../styles/colors';
 import commonStylesFunc, {hitSlopProp} from '../../styles/commonStyles';
 import fontFamily from '../../styles/fontFamily';
-import {moderateScale, width} from '../../styles/responsiveSize';
+import {
+  moderateScale,
+  moderateScaleVertical,
+  textScale,
+  width,
+} from '../../styles/responsiveSize';
 import {cameraHandler} from '../../utils/commonFunction';
 import {showError, showSuccess} from '../../utils/helperFunctions';
 import {
@@ -89,6 +94,8 @@ export default function TaskCompleteDocument({route, navigation}) {
     isModalVisible: false,
     totalTravelData: null,
     qrCode: null,
+    isShowQrCodeVendor: false,
+    qrCodeVendorDetail: {},
   });
 
   const {
@@ -114,6 +121,8 @@ export default function TaskCompleteDocument({route, navigation}) {
     isModalVisible,
     totalTravelData,
     qrCode,
+    isShowQrCodeVendor,
+    qrCodeVendorDetail,
   } = state;
   const commonStyles = commonStylesFunc({fontFamily});
   const updateState = data => setState(state => ({...state, ...data}));
@@ -525,6 +534,7 @@ export default function TaskCompleteDocument({route, navigation}) {
       })
       .then(res => {
         console.log(res, 'updateTaskStatus>>>DATA');
+
         updateState({isLoading: false, isModalVisible: false});
         if (res?.data) {
           updateState({
@@ -533,7 +543,13 @@ export default function TaskCompleteDocument({route, navigation}) {
           if (signatureImage) {
             unlinkDirectory(signatureImage);
           }
-
+          if (taskDetail?.tasktype?.name == 'Drop') {
+            updateState({
+              isShowQrCodeVendor: true,
+              qrCodeVendorDetail: res?.data?.qrCodeVendor,
+            });
+            return;
+          }
           navigation.navigate(navigationStrings.DASHBOARD);
         }
       })
@@ -681,6 +697,91 @@ export default function TaskCompleteDocument({route, navigation}) {
     updateState({
       isModalVisible: false,
     });
+  };
+
+  const qrVendorModalView = () => {
+    return (
+      <View>
+        <Text
+          style={{
+            fontFamily: fontFamily.bold,
+            textAlign: 'center',
+            fontSize: textScale(16),
+            marginVertical: moderateScaleVertical(15),
+          }}>
+          Vendor Detail
+        </Text>
+        <View
+          style={{
+            height: 1,
+            backgroundColor: colors.borderColorB,
+          }}
+        />
+        <View
+          style={{
+            alignItems: 'center',
+            paddingVertical: moderateScaleVertical(15),
+          }}>
+          <Image
+            source={{uri: qrCodeVendorDetail?.logo?.image_s3_url}}
+            style={{
+              height: moderateScale(80),
+              width: moderateScale(80),
+              borderRadius: moderateScale(40),
+            }}
+          />
+          <Text
+            style={{
+              marginTop: moderateScaleVertical(15),
+              fontFamily: fontFamily.bold,
+              fontSize: textScale(15),
+            }}>
+            {qrCodeVendorDetail?.name}
+          </Text>
+          <Text
+            style={{
+              marginTop: moderateScaleVertical(5),
+              fontFamily: fontFamily.medium,
+              fontSize: textScale(13),
+            }}>
+            {qrCodeVendorDetail?.email}
+          </Text>
+          <Text
+            style={{
+              marginTop: moderateScaleVertical(5),
+              fontFamily: fontFamily.medium,
+              fontSize: textScale(13),
+            }}>
+            {qrCodeVendorDetail?.phone_no}
+          </Text>
+          <Text
+            style={{
+              marginTop: moderateScaleVertical(5),
+              fontFamily: fontFamily.medium,
+              fontSize: textScale(13),
+            }}>
+            {qrCodeVendorDetail?.address}
+          </Text>
+        </View>
+        <TouchableOpacity
+          onPress={() => navigation.navigate(navigationStrings.DASHBOARD)}
+          style={{
+            paddingVertical: moderateScaleVertical(12),
+            marginHorizontal: moderateScale(20),
+            backgroundColor: colors.themeColor,
+            alignItems: 'center',
+            borderRadius: moderateScale(5),
+          }}>
+          <Text
+            style={{
+              fontFamily: fontFamily.medium,
+              color: colors.white,
+            }}>
+            Done
+          </Text>
+        </TouchableOpacity>
+      </View>
+    );
   };
 
   const modalMainView = () => {
@@ -889,6 +990,14 @@ export default function TaskCompleteDocument({route, navigation}) {
         <ButtonComponent buttonTitle={strings.DONE} onPress={completeAllTask} />
       </View>
       <ModalView isVisible={isModalVisible} modalMainContent={modalMainView} />
+      <ModalView
+        isVisible={isShowQrCodeVendor}
+        modalMainContent={qrVendorModalView}
+        mainViewStyle={{
+          paddingTop: 0,
+          flex: 0.45,
+        }}
+      />
     </WrapperContainer>
   );
 }
