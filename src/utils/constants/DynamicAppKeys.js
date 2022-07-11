@@ -316,7 +316,13 @@ const shortCodes = {
   nrsa: 'b6f11b',
   sadia: '31d13d',
   elentaMart: 'b16063',
-  exprexpro: 'a6ccaf'
+  exprexpro: 'a6ccaf',
+  fresHest:'d23863',
+  servern:'4adb00',
+  smokeRun:'54bc6e',
+  myEvPlus:'745fe6',
+  pawsee:'39cae6',
+  hairRun:'5ee206',
 };
 
 const appIds = {
@@ -1574,6 +1580,30 @@ const appIds = {
   exprexpro: Platform.select({
     ios: 'com.Exprexpro.dispatcher',
     android: 'com.Exprexpro.dispatcher',
+  }),
+  fresHest: Platform.select({
+    ios: 'com.fresHest.dispatcher',
+    android: 'com.fresHest.dispatcher',
+  }),
+  servern: Platform.select({
+    ios: 'com.servern.dispatcher',
+    android: 'com.servern.dispatcher',
+  }),
+  smokeRun: Platform.select({
+    ios: 'com.smokeRun.dispatcher',
+    android: 'com.smokeRun.dispatcher',
+  }),
+  myEvPlus: Platform.select({
+    ios: 'com.myEvPlus.dispatcher',
+    android: 'com.myEvPlus.dispatcher',
+  }),
+  pawsee: Platform.select({
+    ios: 'com.pawsee.dispatcher',
+    android: 'com.pawsee.dispatcher',
+  }),
+  hairRun: Platform.select({
+    ios: 'com.hairRun.dispatcher',
+    android: 'com.hairRun.dispatcher',
   }),
 };
 

@@ -17,6 +17,22 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
 //export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
 // export const API_BASE_URL = 'http://192.168.96.152:8006/';
+ //export const API_BASE_URL = 'https://api.royodispatch.com/';
+
+//Staging
+//  export const API_BASE_URL = 'https://api.rdstaging.com/';
+
+
+ //export const API_BASE_URL = 'https://baytukom-dispatch.netsolutionindia.com/';
+
+
+//export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
+// export const API_BASE_URL = "https://fairexglobal.com/"
+//export const API_BASE_URL='https://api.winhires.com/';
+
+//taquick 
+//  export const API_BASE_URL = 'https://delivery.taquick.com/';
+
 // export const API_BASE_URL = 'https://dispatch.drusdeliveries.com/';
 
 // export const API_BASE_URL = 'https://dispatch.pas41.com/'
@@ -40,10 +56,10 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // export const API_BASE_URL = 'https://dispatch.quicklube.us/'
 
-// export const API_BASE_URL = 'https://dispatch.swantaxi.net/'
+ //export const API_BASE_URL = 'https://dispatch.swantaxi.net/'
 
 //fairex
-// export const API_BASE_URL = 'https://dispatch.fairexglobal.com/'
+//export const API_BASE_URL = 'https://dispatch.fairexglobal.com/'
 //dimavega
 // export const API_BASE_URL ='https://dispatch.dimahalal.com/'
 
@@ -70,7 +86,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //YogoFood
 //  export const API_BASE_URL = 'https://dispatcher.yogo.gd/';
-
+//export const API_BASE_URL='https://dispatch.rhondaisamazingtaxi.com/'
 //Dlvrd
 // export const API_BASE_URL = 'https://dlvrd-dispatch.netsolutionindia.com/';
 
@@ -142,7 +158,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.uvennow.com/';
 
 //hemptify
-//  export const API_BASE_URL = 'https://dispatch.hemptify.com/';
+ // export const API_BASE_URL = 'https://dispatch.hemptify.com/';
 
 //Express Delivery
 // export const API_BASE_URL = 'https://dispatch.expresdeliverys.com/';

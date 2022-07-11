@@ -1967,6 +1967,42 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.fresHest:
+          updateState({
+            shortCode: shortCodes.fresHest,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.servern:
+          updateState({
+            shortCode: shortCodes.servern,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.smokeRun:
+          updateState({
+            shortCode: shortCodes.smokeRun,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.myEvPlus:
+          updateState({
+            shortCode: shortCodes.myEvPlus,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.pawsee:
+          updateState({
+            shortCode: shortCodes.pawsee,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.hairRun:
+          updateState({
+            shortCode: shortCodes.hairRun,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);
