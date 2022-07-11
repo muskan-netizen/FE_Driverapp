@@ -1053,6 +1053,15 @@ export default function TaskDetail({route, navigation}) {
           </Text>
         </View>
 
+        <View>
+          
+          <TouchableOpacity onPress={ () => navigation.navigate(navigationStrings.CHAT_SCREEN)}>
+            <Text
+              style={{fontFamily: fontFamily?.bold, fontSize: textScale(16)}}>
+              Chat
+            </Text>
+          </TouchableOpacity>
+        </View>
         {/* Task Detail View */}
 
         <View
@@ -1100,7 +1109,7 @@ export default function TaskDetail({route, navigation}) {
                     )
                   }
                   style={{
-                    flex: 0.50,
+                    flex: 0.5,
                     flexDirection: 'row',
                     marginTop: moderateScale(10),
                     alignItems: 'center',
@@ -1121,13 +1130,12 @@ export default function TaskDetail({route, navigation}) {
                     flex: 0.47,
                     flexDirection: 'row',
                     marginTop: moderateScale(10),
-                  
+
                     alignItems: 'center',
                     justifyContent: 'flex-start',
                   }}>
                   <TouchableOpacity
                     style={{
-                   
                       paddingHorizontal: moderateScale(10),
                     }}
                     onPress={onWhatsapp}>
@@ -1137,8 +1145,8 @@ export default function TaskDetail({route, navigation}) {
                     style={{
                       flexDirection: 'row',
                       alignItems: 'center',
-                  
-                      marginRight:moderateScale(10)
+
+                      marginRight: moderateScale(10),
                     }}
                     onPress={() =>
                       Communications.phonecall(
@@ -1152,15 +1160,12 @@ export default function TaskDetail({route, navigation}) {
                     />
                     <Text
                       style={{
-                      
                         fontFamily: fontFamily.bold,
                         fontSize: textScale(12),
                         color: colors.textGreyOpcaity7,
-                        paddingLeft:moderateScale(5),
-                        marginRight:moderateScale(10),
-                        flexWrap:"wrap",
-                        
-                       
+                        paddingLeft: moderateScale(5),
+                        marginRight: moderateScale(10),
+                        flexWrap: 'wrap',
                       }}>
                       {taskDetail?.order?.customer?.phone_number}
                     </Text>
