@@ -1208,7 +1208,7 @@ const appIds = {
     android: 'com.dispatch.dlvrd',
   }),
   delivery: Platform.select({
-    ios: 'com.Delivery.Dispatch',
+    ios: 'com.gdotDelivery.driver',
     android: 'com.Delivery.royodispatcher',
   }),
   timHomeServices: Platform.select({
