@@ -1991,12 +1991,18 @@ export default function ShortCode({route, navigation}) {
                             isShortcodePrefilled: true,
                           });
                           break;
-                          case appIds.pawsee:
+                        case appIds.pawsee:
                             updateState({
                               shortCode: shortCodes.pawsee,
                               isShortcodePrefilled: true,
                             });
-                            break;
+                          break;
+                        case appIds.hairRun:
+                            updateState({
+                              shortCode: shortCodes.hairRun,
+                              isShortcodePrefilled: true,
+                            });
+                          break;
       }
     })();
   }, [internetConnection]);

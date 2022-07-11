@@ -639,6 +639,8 @@
     "myEvPlusdispatcher": "react-native run-android --variant=myEvPlusDebug",
     "pawseedispatcherRelease": "cd android && ./gradlew assemblepawseeRelease",
     "pawseedispatcher": "react-native run-android --variant=pawseeDebug",
+    "hairRundispatcherRelease": "cd android && ./gradlew assemblehairRunRelease",
+    "hairRundispatcher": "react-native run-android --variant=hairRunDebug",
     
     "android": "react-native run-android",
     "ios": "react-native run-ios",

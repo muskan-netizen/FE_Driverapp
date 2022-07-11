@@ -321,6 +321,7 @@ const shortCodes = {
   smokeRun:'54bc6e',
   myEvPlus:'745fe6',
   pawsee:'39cae6',
+  hairRun:'5ee206',
 };
 
 const appIds = {
@@ -1598,6 +1599,10 @@ const appIds = {
   pawsee: Platform.select({
     ios: 'com.pawsee.dispatcher',
     android: 'com.pawsee.dispatcher',
+  }),
+  hairRun: Platform.select({
+    ios: 'com.hairRun.dispatcher',
+    android: 'com.hairRun.dispatcher',
   }),
 };
 

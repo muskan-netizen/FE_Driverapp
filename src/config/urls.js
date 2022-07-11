@@ -1,5 +1,5 @@
 //live
-//  export const API_BASE_URL = 'https://api.royodispatch.com/';
+ //export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
  export const API_BASE_URL = 'https://api.rdstaging.com/';
@@ -36,7 +36,7 @@
 
 // export const API_BASE_URL = 'https://dispatch.quicklube.us/'
 
-// export const API_BASE_URL = 'https://dispatch.swantaxi.net/'
+ //export const API_BASE_URL = 'https://dispatch.swantaxi.net/'
 
 //fairex
 //export const API_BASE_URL = 'https://dispatch.fairexglobal.com/'
@@ -61,7 +61,7 @@
 
 //YogoFood
 //  export const API_BASE_URL = 'https://dispatcher.yogo.gd/';
-
+//export const API_BASE_URL='https://dispatch.rhondaisamazingtaxi.com/'
 //Dlvrd
 // export const API_BASE_URL = 'https://dlvrd-dispatch.netsolutionindia.com/';
 
