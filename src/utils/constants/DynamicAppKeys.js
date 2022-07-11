@@ -1471,7 +1471,7 @@ const appIds = {
 
   Jiffex: Platform.select({
     ios: 'com.jiffex.Dispatch',
-    android: 'com.jiffex.royodispatcher',
+    android: 'com.jiffex.driver',
   }),
   jazzyBug: Platform.select({
     ios: 'com.jazzyBug.Dispatch',
@@ -1538,8 +1538,8 @@ const appIds = {
     android: 'com.carlitoo.royodispatcher',
   }),
   dingDongDelivers: Platform.select({
-    ios: 'com.dingDongDelivers.Dispatch',
-    android: 'com.dingDongDelivers.royodispatcher',
+    ios: 'com.DingDonggDelivers.Driver',
+    android: 'com.DingDonggDelivers.Driver',
   }),
   kurs: Platform.select({
     ios: 'com.kurs.Dispatch',

@@ -3123,7 +3123,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.Smile.royodispatcher'
-            resValue "string", "app_name", "Smile Dispatcher"
+            resValue "string", "app_name", "Mist Dispatcher"
         }
 
         caronaTaxi{
@@ -3379,7 +3379,7 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.jiffex.royodispatcher'
+            applicationId 'com.jiffex.driver'
             resValue "string", "app_name", "Jiffex Dispatcher"
         }
 
@@ -3561,8 +3561,8 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.dingDongDelivers.royodispatcher'
-            resValue "string", "app_name", "Ding Dong Delivers Dispatcher"
+            applicationId 'com.DingDonggDelivers.Driver'
+            resValue "string", "app_name", "Ding Dong Delivers Driver"
         }
          kurs{
             dimension "appType"

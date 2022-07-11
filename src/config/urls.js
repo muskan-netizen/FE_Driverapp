@@ -3,7 +3,7 @@
 
 //Staging
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 //export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
 // export const API_BASE_URL = "https://fairexglobal.com/"
 
@@ -29,9 +29,10 @@
 // export const API_BASE_URL = 'https://dispatch.fairexglobal.com/'
 //dimavega
 // export const API_BASE_URL ='https://dispatch.dimahalal.com/'
-export const API_BASE_URL ='https://dispatch.fijieats.com/'
+// export const API_BASE_URL ='https://dispatch.fijieats.com/'
 
-
+//  jiffix
+// export const API_BASE_URL = 'https://dispatch.jiffex.in/'
 //beachhop
 // export const API_BASE_URL = 'https://dispatch.beachhopdelivery.com/'
 //gdotdelivery
@@ -171,6 +172,8 @@ export const API_BASE_URL ='https://dispatch.fijieats.com/'
 //MARTINONWHEELS
 // export const API_BASE_URL = 'https://dispatch.martinionwheelsllc.org/';
 
+// 
+// export const API_BASE_URL = 'https://dispatch.viversbox.com/'
 //YEBOY
 //export const API_BASE_URL = 'https://dispatch.yeboy.mx/';
 
@@ -230,9 +233,9 @@ export const API_BASE_URL ='https://dispatch.fijieats.com/'
 
 // mobi
  //export const API_BASE_URL = 'https://dispatch.mobimarket.com.mx/';
-// grub and gusto
-// export const API_BASE_URL = 'https://grub.royodispatch.com/'
-
+// grub and gusto, ace
+// export const API_BASE_URL = 'https://ace.royodispatch.com/'
+// export const API_BASE_URL = 'https://gusto.royodispatch.com/'
 // meateasy
 // export const API_BASE_URL = 'https://meateasy.royodispatch.com/';
 
