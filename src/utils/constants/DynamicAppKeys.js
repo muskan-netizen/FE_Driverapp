@@ -323,6 +323,7 @@ const shortCodes = {
   myEvPlus:'745fe6',
   pawsee:'39cae6',
   hairRun:'5ee206',
+  qdelo:'0f7aa4'
 };
 
 const appIds = {
@@ -1604,6 +1605,10 @@ const appIds = {
   hairRun: Platform.select({
     ios: 'com.hairRun.dispatcher',
     android: 'com.hairRun.dispatcher',
+  }),
+  qdelo: Platform.select({
+    ios: 'com.qdelo.dispatcher',
+    android: 'com.qdelo.dispatcher',
   }),
 };
 

@@ -641,6 +641,8 @@
     "pawseedispatcher": "react-native run-android --variant=pawseeDebug",
     "hairRundispatcherRelease": "cd android && ./gradlew assemblehairRunRelease",
     "hairRundispatcher": "react-native run-android --variant=hairRunDebug",
+    "qdelodispatcherRelease": "cd android && ./gradlew assembleqdeloRelease",
+    "qdelodispatcher": "react-native run-android --variant=qdeloDebug",
     
     "android": "react-native run-android",
     "ios": "react-native run-ios",
