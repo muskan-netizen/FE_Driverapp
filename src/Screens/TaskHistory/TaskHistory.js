@@ -182,7 +182,9 @@ export default function TaskHistory({route, navigation}) {
           <Text
             style={
               styles.cashCollected
-            }>{`${strings.CASHCOLLECTED} :- ${totalCashCollected}`}</Text>
+            }>
+              {`${strings.CASHCOLLECTED} :- ${totalCashCollected}`}
+              </Text>
         </View>
         <View style={styles.clearViewStyle}>
           <TouchableOpacity
