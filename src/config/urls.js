@@ -12,7 +12,7 @@
 
 
 //Staging
-export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://api.winhires.com/';
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
 //export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
@@ -38,7 +38,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.pas41.com/'
 
 // export const API_BASE_URL ='https://dispatch.36kel.com.ph/'
-// export const API_BASE_URL = 'https://dispatch.swiffy.us/'
+export const API_BASE_URL = 'https://dispatch.swiffy.us/'
 
 // export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
 //export const API_BASE_URL = 'https://dispatch.runrun.ae/';
@@ -380,3 +380,9 @@ export const GETORDERDETAILFORTASK = getApiUrl(
 export const GETCANCELORDERREASONLIST = getApiUrl('api/order/cancel/reasons');
 export const CANCELORDER = getApiUrl('api/order/cancel/request/create');
 export const GETWEBURL = getApiUrl('api/payment');
+
+//Chat Apis
+
+export const START_CHAT = getApiUrl('/chat/startChat');
+export const USER_CHAT = getApiUrl('/chat/userVendorChatRoom');
+export const VENDOR_CHAT = getApiUrl('/chat/vendorUserChatRoom');
