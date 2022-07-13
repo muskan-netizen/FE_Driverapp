@@ -282,9 +282,10 @@ export default function AddMoney({navigation}) {
     if (cardInfo) {
       // alert("123")
       // updateState({isLoadingB: true});
-      await createToken(cardInfo)
+      await createToken({...cardInfo, type: 'Card'})
         .then(res => {
           console.log(res, 'res>>STRIpe');
+          console.log(cardInfo, 'stripeTokencardInfo>>');
           if (res && res?.token && res.token?.id) {
             let selectedMethod = seletedPaymentGateway.code.toLowerCase();
             updateState({isLoading: true});
@@ -312,7 +313,7 @@ export default function AddMoney({navigation}) {
                   navigation.navigate(navigationStrings.WALLET);
                 }
               })
-              .catch(errorMethod);
+              .catch(err => console.log(err, "errrStripe"));
           } else {
             updateState({isLoading: false});
           }

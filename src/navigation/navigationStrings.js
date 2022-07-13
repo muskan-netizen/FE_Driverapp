@@ -36,7 +36,6 @@ export default {
   ORDERCANCEL:"Ordercancel",
   WEBCONNECTIONS:"Webconnections",
   ALL_IN_ONE_PAYMENTS: 'allInOnePayments',
-
-
-
+  SUBSCRIPTIONS:'subscriptions',
+  SUBSCRIPTION_STACK:'SubscriptionStack',
 };

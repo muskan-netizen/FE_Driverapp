@@ -91,10 +91,6 @@ const NotificationModal = () => {
   };
 
   const getCustomNotificationData = () => {
-    console.log(
-      notificationData?.notificationData?.data?.order_id,
-      'notificationData?.notificationData?.data?.order_id',
-    );
     actions
       .getCustomNotificationPayload(
         `/${notificationData?.notificationData?.data?.order_id}`,
@@ -193,6 +189,7 @@ const NotificationModal = () => {
 
   const modalMainContent = () => {
     let data = notificationData?.notificationData?.data;
+    
     return (
       <View style={{overflow: 'hidden', borderRadius: moderateScale(10)}}>
         <View>{!!region && mapView()}</View>
@@ -337,6 +334,7 @@ const NotificationModal = () => {
             )}
           </View>
         </View>
+        {/* data?.notificationType == 'AR' ? */}
         {data?.type == 'AR' ? (
           <View
             style={{
@@ -352,7 +350,6 @@ const NotificationModal = () => {
               style={{
                 flex: 0.5,
                 borderBottomLeftRadius: moderateScale(15),
-
                 alignItems: 'center',
                 justifyContent: 'center',
                 backgroundColor: 'red',

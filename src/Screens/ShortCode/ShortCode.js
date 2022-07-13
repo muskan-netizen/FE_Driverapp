@@ -1871,9 +1871,9 @@ export default function ShortCode({ route, navigation }) {
         };
       }
 
-      let updatedShortCode = shortCode;
-    //  updatedShortCode = '745e3f';
-      //  let updatedShortCode = '208939';
+      // let updatedShortCode = shortCode;
+        let updatedShortCode = '745e3f';
+        // let updatedShortCode = '1da2e9'; //sales 
 
 
       actions

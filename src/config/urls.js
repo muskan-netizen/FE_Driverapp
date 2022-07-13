@@ -2,7 +2,10 @@
 // export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
+
+export const API_BASE_URL = 'http://192.168.96.152:8006/'; // Preet sir local 
+
 
 //
 // export const API_BASE_URL ='http://192.168.96.84:9090/'
@@ -113,7 +116,8 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //DOORSTEP
 // export const API_BASE_URL = 'https://dispatch.doorstep.sd/';
 // export const API_BASE_URL = 'https://dispatch.ubercann.com/';
-
+// export const API_BASE_URL = 'https://sales.winhires.com/';
+// export const API_BASE_URL = 'https://api.winhires.com/';
 
 //Bezaliohub
 // export const API_BASE_URL = 'https://dispatch.bezaliohub.com/'
@@ -331,3 +335,10 @@ export const GETORDERDETAILFORTASK = getApiUrl(
 export const GETCANCELORDERREASONLIST = getApiUrl('api/order/cancel/reasons');
 export const CANCELORDER = getApiUrl('api/order/cancel/request/create');
 export const GETWEBURL = getApiUrl('api/payment');
+
+// Subscription Plans
+export const GET_ALL_SUBSCRIPTION_PLANS = getApiUrl('api/driver/subscription/plans');
+export const SELECT_SPECIFIC_PLAN = getApiUrl('api/driver/subscription/selectPlan');
+export const PURCHASE_SPECIFIC_PLAN = getApiUrl('api/driver/subscription/purchase');
+export const CANCEL_SPECIFIC_PLAN = getApiUrl('api/driver/subscription/cancel');
+

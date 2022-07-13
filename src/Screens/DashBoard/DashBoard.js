@@ -490,7 +490,7 @@ export default function DashBoard({route, navigation}) {
               flex: 1,
               backgroundColor: !!(selectedOption == 1 && !allTasks.length)
                 ? colors.backGround
-                : !!(selectedOption == 0 && !todaysTasks.length)
+                : !!(selectedOption == 0 && !todaysTasks?.length)
                 ? colors.backGround
                 : colors.white,
             }}

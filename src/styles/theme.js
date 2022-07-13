@@ -9,5 +9,6 @@ export const MyDarkTheme = {
     text: '#e5e5e7',
     lightDark: '#1F1F1F',
     white: '#ffff',
+    primary_color:'green'
   },
 };

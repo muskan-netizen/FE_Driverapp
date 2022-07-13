@@ -91,4 +91,6 @@ export default {
   searchIcon: require('../assets/images/ic_search.png'),
   delete: require('../assets/images/ic_delete.png'),
   ripple: require('../assets/images/ripple.gif'),
+  icBagA: require('../assets/images/ic_bag2.png'),
+  icSubscription: require('../assets/images/ic_sub.png'),
 };
