@@ -267,11 +267,6 @@ export default function Subscriptions({ route, navigation }) {
   };
 
 
-  // const payAmount = () => {
-  //   updateState({ isModalVisibleForPayment: false })
-  // }
-
-
 
   // Modal View functions  
 
@@ -349,12 +344,12 @@ export default function Subscriptions({ route, navigation }) {
           <View style={{}} >
             <Text style={styles.title}>{strings.DEBIT_FROM}</Text>
            <View style={{flexDirection:'row', alignItems:'center',}} >
-           <Text style={{ ...styles.title2, marginVertical:moderateScale(10)}} > {strings.WALLET} </Text>
-            <Image
-              style={{marginLeft:moderateScale(6), }}
+           <Image
+              style={{marginRight:moderateScale(4),height:moderateScaleVertical(18), width:moderateScale(18) }}
               source={imagePath.radioActive}
             />
-
+           <Text style={{ ...styles.title2, marginVertical:moderateScale(10)}} > {strings.WALLET} </Text>
+            
            </View>
           </View>
           <View>
@@ -503,11 +498,7 @@ export default function Subscriptions({ route, navigation }) {
     );
   };
   const renderProduct = ({ item, index }) => {
-    // const {isSelectItem} = state;
-    // if (item?.id == currentSubscription?.subscription_id) {
-    //   return null;
-    // }
-
+    
     return (
       <View>
         {!!(index == 0) && (

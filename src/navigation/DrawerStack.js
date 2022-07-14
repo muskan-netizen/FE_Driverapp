@@ -151,20 +151,6 @@ export default function DrawerRoutes(props) {
           ),
         }}
       />
-      {/* <Drawer.Screen
-        component={Subscriptions}
-        name={navigationStrings.SUBSCRIPTIONS}
-        options={{
-          drawerLabel: strings.SUBSCRIPTIONS,
-          drawerIcon: ({ focused }) => (
-            <Image
-              style={{ tintColor: focused ? colors.blackShade2 : colors.grey2 }}
-              source={imagePath.settingsIcon}
-            />
-          ),
-        }}
-      /> */}
-
         <Drawer.Screen
         component={SubscriptionStack}
         name={navigationStrings.SUBSCRIPTION_STACK}
