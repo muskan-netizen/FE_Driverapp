@@ -12,7 +12,7 @@
 
 
 //Staging
- //export const API_BASE_URL = 'https://api.rdstaging.com/';
+//export const API_BASE_URL = 'https://api.rdstaging.com/';
  //export const API_BASE_URL='https://dispatch.lift.gd/';
 // export const API_BASE_URL = 'https://api.winhires.com/';
  //export const API_BASE_URL = 'https://api.rdstaging.com/';
@@ -21,7 +21,7 @@
  //export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-//  export const API_BASE_URL = 'https://api.rdstaging.com/';
+  export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 
  //export const API_BASE_URL = 'https://baytukom-dispatch.netsolutionindia.com/';
@@ -128,7 +128,7 @@
 //empire
 // export const API_BASE_URL = 'https://dispatch.empirehub.com/';
 //Ullaz
- export const API_BASE_URL = 'https://dispatch.ullaz.co.ke/';
+//export const API_BASE_URL = 'https://dispatch.ullaz.co.ke/';
 
 //LocalDropOff
 // export const API_BASE_URL = 'https://dispatch.localdropoff.info/';
@@ -261,7 +261,7 @@
 
 //export const API_BASE_URL = 'https://dispatch.meltivers.com/';
 //bimol
-//  export const API_BASE_URL = 'https://dispatch.bimol.in/';
+  //export const API_BASE_URL = 'https://dispatch.bimol.in/';
  //export const API_BASE_URL = 'https://dispatch.mobimarket.com.mx/';
 // grub and gusto
 //export const API_BASE_URL = 'https://punnet.royodispatch.com/'

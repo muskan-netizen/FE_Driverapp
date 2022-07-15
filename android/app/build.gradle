@@ -202,17 +202,17 @@ android {
     flavorDimensions "appType"
 
 // productFlavors {
-//           ullaz{
+           
+//          americanLuxury{
 //             dimension "appType"
-//             versionCode 2
-//             versionName "1.1"
+//             versionCode 1
+//             versionName "1.0"
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.Ullaz.royodispatcher'
-//             resValue "string", "app_name", "ullaz Dispatcher"
+//             applicationId 'com.americanLuxury.dispatcher'
+//             resValue "string", "app_name", "American Luxury Services Dispatcher"
 //         }
-
 // }
 
     productFlavors {
@@ -1755,8 +1755,8 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.yogoLift.royodispatcher'
-            resValue "string", "app_name", "yogo lift Dispatcher"
+            applicationId 'com.yogoLift.dispatcher'
+            resValue "string", "app_name", "Yogolift Driver"
         }
         mozmarcas{
             dimension "appType"
@@ -2212,7 +2212,7 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.SwiffyLLC.royodispatcher'
+            applicationId 'com.SwiffyLLC'
             resValue "string", "app_name", "SwiffyLLC Driver"
         }
         sabroson{
@@ -3569,6 +3569,26 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.qdelo.dispatcher'
             resValue "string", "app_name", "Qdelo Dispatcher"
+        }
+         zuriRide{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.zuriRide.dispatcher'
+            resValue "string", "app_name", "Zuri Ride Dispatcher"
+        }
+        americanLuxury{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.americanLuxury.dispatcher'
+            resValue "string", "app_name", "American Luxury Services Dispatcher"
         }
 }
  

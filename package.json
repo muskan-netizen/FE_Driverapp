@@ -643,6 +643,10 @@
     "hairRundispatcher": "react-native run-android --variant=hairRunDebug",
     "qdelodispatcherRelease": "cd android && ./gradlew assembleqdeloRelease",
     "qdelodispatcher": "react-native run-android --variant=qdeloDebug",
+    "zuriRidedispatcherRelease": "cd android && ./gradlew assemblezuriRideRelease",
+    "zuriRidedispatcher": "react-native run-android --variant=zuriRideDebug",
+    "americanLuxurydispatcherRelease": "cd android && ./gradlew assembleamericanLuxuryRelease",
+    "americanLuxurydispatcher": "react-native run-android --variant=americanLuxuryDebug",
     
     "android": "react-native run-android",
     "ios": "react-native run-ios",
