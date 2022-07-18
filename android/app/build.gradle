@@ -202,16 +202,25 @@ android {
     flavorDimensions "appType"
 
 // productFlavors {
-           
-//          americanLuxury{
+//          smartMur{
 //             dimension "appType"
 //             versionCode 1
 //             versionName "1.0"
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.americanLuxury.dispatcher'
-//             resValue "string", "app_name", "American Luxury Services Dispatcher"
+//             applicationId 'com.smartMur.dispatcher'
+//             resValue "string", "app_name", "Smart Mur Dispatcher"
+//         }
+//          fawaz{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.Fawaz.royodispatcher'
+//             resValue "string", "app_name", "FAB Services Dispatcher"
 //         }
 // }
 
@@ -2415,7 +2424,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.Fawaz.royodispatcher'
-            resValue "string", "app_name", "Fawaz Dispatcher"
+            resValue "string", "app_name", "FAB Services Dispatcher"
         }
          myRide{
             dimension "appType"
@@ -3589,6 +3598,26 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.americanLuxury.dispatcher'
             resValue "string", "app_name", "American Luxury Services Dispatcher"
+        }
+         smartMur{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.smartMur.dispatcher'
+            resValue "string", "app_name", "Smart Mur Dispatcher"
+        }
+        ouiSpeed{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.ouiSpeed.dispatcher'
+            resValue "string", "app_name", "Oui Speed Dispatcher"
         }
 }
  

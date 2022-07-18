@@ -325,7 +325,9 @@ const shortCodes = {
   hairRun:'5ee206',
   qdelo:'0f7aa4',
   zuriRide:'3a9316',
-  americanLuxury:'0dad7b'
+  americanLuxury:'0dad7b',
+  smartMur:'b93a6b',
+  ouiSpeed:'acced4',
 };
 
 const appIds = {
@@ -1619,6 +1621,14 @@ const appIds = {
   americanLuxury: Platform.select({
     ios: 'com.americanLuxury.dispatcher',
     android: 'com.americanLuxury.dispatcher',
+  }),
+  smartMur: Platform.select({
+    ios: 'com.smartMur.dispatcher',
+    android: 'com.smartMur.dispatcher',
+  }),
+  ouiSpeed: Platform.select({
+    ios: 'com.ouiSpeed.dispatcher',
+    android: 'com.ouiSpeed.dispatcher',
   }),
 };
 

@@ -647,6 +647,10 @@
     "zuriRidedispatcher": "react-native run-android --variant=zuriRideDebug",
     "americanLuxurydispatcherRelease": "cd android && ./gradlew assembleamericanLuxuryRelease",
     "americanLuxurydispatcher": "react-native run-android --variant=americanLuxuryDebug",
+    "smartMurdispatcher": "react-native run-android --variant=smartMurDebug",
+    "smartMurdispatcherRelease": "cd android && ./gradlew assemblesmartMurRelease",
+    "ouiSpeeddispatcher": "react-native run-android --variant=ouiSpeedDebug",
+    "ouiSpeeddispatcherRelease": "cd android && ./gradlew assembleouiSpeedRelease",
     
     "android": "react-native run-android",
     "ios": "react-native run-ios",
