@@ -2,7 +2,7 @@
 //  export const API_BASE_URL = 'http://192.168.96.84:9091/';
 
 //Staging
-export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // export const API_BASE_URL = 'https://dispatch.drusdeliveries.com/';
 
@@ -197,7 +197,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.blipdelivery.com/';
 
 // grub and gusto
-// export const API_BASE_URL = 'https://grub.royodispatch.com/'
+export const API_BASE_URL = 'https://grub.royodispatch.com/'
 
 // meateasy
 // export const API_BASE_URL = 'https://meateasy.royodispatch.com/';
