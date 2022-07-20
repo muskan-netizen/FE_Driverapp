@@ -68,7 +68,7 @@ static void InitializeFlipper(UIApplication *application) {
       }
   }
   
-  
+ [UNUserNotificationCenter currentNotificationCenter].delegate = self;
   return YES;
 }
 

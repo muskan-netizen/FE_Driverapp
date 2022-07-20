@@ -302,4 +302,6 @@ export default {
   UNABLETOLOCATE: 'KHÔNG THỂ XÁC ĐỊNH VỊ TRÍ',
   OTHER: 'KHÁC',
   DEBIT_FROM: 'Ghi nợ Từ',
+  FIXED_FEE: 'Phí cố định',
+  CHAT_ROOM:"Chat Room",
 };

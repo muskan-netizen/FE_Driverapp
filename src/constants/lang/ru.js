@@ -255,4 +255,6 @@ export default {
   REFUSEDDAMAGED: 'Refused - Damage',
   UNABLETOLOCATE: 'Unable to Locate',
   OTHER: 'Other',
+  FIXED_FEE: 'Фиксированная плата',
+  CHAT_ROOM:"Chat Room",
 };

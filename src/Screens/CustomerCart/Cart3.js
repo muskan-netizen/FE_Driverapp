@@ -280,6 +280,8 @@ export default function Cart({navigation, route}) {
       let url = `https://${getHostName(
         taskDetail?.order?.call_back_url,
       )}/edit-order/vendor/products/getProductsInCart`;
+
+      // let url = `http://192.168.96.152:8005/edit-order/vendor/products/getProductsInCart`;
       actions
         .getCustomerOrderDetail(url, data, {client: clientInfo?.database_name})
         .then(res => {

@@ -6,10 +6,12 @@ import {navigate} from '../navigation/NavigationService';
 import navigationStrings from '../navigation/navigationStrings';
 import actions from '../redux/actions';
 
+
 export async function requestUserPermission(callback = () => {}) {
-  // alert('enterd')
+  
   if (Platform.OS === 'ios') {
     await messaging().registerDeviceForRemoteMessages();
+    // await messaging().registerForRemoteNotifications()
   }
   const authStatus = await messaging().requestPermission();
   const enabled =
@@ -23,11 +25,25 @@ export async function requestUserPermission(callback = () => {}) {
   } else callback(true);
 }
 
+// const romoveToken = () => {
+//  getMessaging()
+//     .unsubscribeFromTopic(fcmToken, 'highScores')
+//     .then(response => {
+//       // See the MessagingTopicManagementResponse reference documentation
+//       // for the contents of response.
+//       console.log('Successfully unsubscribed from topic:', response);
+//     })
+//     .catch(error => {
+//       console.log('Error unsubscribing from topic:', error);
+//     });
+// };
+
 const getFcmToken = async () => {
   let fcmToken = await AsyncStorage.getItem('fcmToken');
   if (fcmToken != null) {
     actions.saveFcmToken(fcmToken);
   }
+ 
 
   console.log(fcmToken, 'the old token');
   if (!fcmToken) {

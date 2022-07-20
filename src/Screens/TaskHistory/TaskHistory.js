@@ -81,6 +81,7 @@ export default function TaskHistory({route, navigation}) {
       url = `?from_date=&to_date=`;
     }
     console.log(url, 'url');
+    console.log(clientInfo?.database_name, "Client>>>>>>>>>")
     actions
       .getListOfTaskHistory(url, {}, {client: clientInfo?.database_name})
       .then(res => {
@@ -181,7 +182,9 @@ export default function TaskHistory({route, navigation}) {
           <Text
             style={
               styles.cashCollected
-            }>{`${strings.CASHCOLLECTED} :- ${totalCashCollected}`}</Text>
+            }>
+              {`${strings.CASHCOLLECTED} :- ${totalCashCollected}`}
+              </Text>
         </View>
         <View style={styles.clearViewStyle}>
           <TouchableOpacity

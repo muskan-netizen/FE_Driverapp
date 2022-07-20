@@ -123,7 +123,7 @@ export async function apiReq(
           sessionHandler(error.response.data.message);
           // return rej(error);
         } else {
-          console.log(error, 'all error>>>>>>');
+          console.log(error.response, 'all error>>>>>>');
           if (error && error.response && error.response.data) {
             if (!error.response.data.error) {
               return rej({

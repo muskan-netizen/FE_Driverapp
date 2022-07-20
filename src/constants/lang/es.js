@@ -301,4 +301,6 @@ export default {
   YOURDISPATCHERVERIFICATIONCODEIS: 'Su código de verificación de Despachador es',
   PLEASEENTEROTPTOVERIFYYOURACCOUNT: 'Ingrese OTP para verificar su cuenta.',
   HIWHATCANWEHELPYOUWITHTODAY: 'Hola. ¿En qué podemos ayudarte hoy?',
+  FIXED_FEE: 'Cuota fija',
+  CHAT_ROOM:"Chat Room",
 };

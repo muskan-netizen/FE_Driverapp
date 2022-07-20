@@ -369,9 +369,10 @@ export default function AddMoney({navigation}) {
 
   const _connectStipe = () => {
     console.log(stripeExistOrNot, 'stripeExistOrNot');
-
     moveToNewScreen(navigationStrings.WEBCONNECTIONS, stripeExistOrNot)();
   };
+
+
 
   return (
     <WrapperContainer
@@ -494,11 +495,11 @@ export default function AddMoney({navigation}) {
               onChangeText={text => updateState({payoutAmount: text})}
               editable
             />
-
+              {/* {alert(payoutDetails?.available_funds)} */}
             {!isLoading && !!payoutDetails?.available_funds ? (
               <TextInputWithlabel
                 label={strings.AVAILABLE_FUNDS}
-                placeholder={String(payoutDetails?.available_funds.toFixed(2))}
+                placeholder={Number(payoutDetails?.available_funds).toFixed(2)}
                 mainStyle={{
                   marginTop: moderateScale(5),
                 }}

@@ -34,7 +34,9 @@ export default {
   SEARCHPRODUCTOVENDOR: 'SearchProductVendorItem',
   PRODUCTDETAIL: 'productDetail',
   ORDERCANCEL:"Ordercancel",
-  WEBCONNECTIONS:"Webconnections"
-
+  WEBCONNECTIONS:"Webconnections",
+  ALL_IN_ONE_PAYMENTS: 'allInOnePayments',
+  CHAT_SCREEN:'ChatScreen',
+  CHAT_ROOM:"ChatRoom",
 
 };

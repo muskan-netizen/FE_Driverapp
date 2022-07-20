@@ -2,8 +2,9 @@ import { Platform } from 'react-native';
 import { getBundleId } from 'react-native-device-info';
 
 const shortCodes = {
+  sales:'745e3f',
   runrun: 'cbec70',
-  royoorder: '8e3eef',
+  royoDispatch: '1da2e9',
   deliverstat: 'e6b31c',
   africanVillageMarket: '6c786d',
   africanize: 'a98da0',
@@ -272,7 +273,56 @@ const shortCodes = {
   kazakazi: '01159e',
   arwin: 'f2df02',
   papiRuki: '477912',
-  markSoublet: '91b4eb'
+  markSoublet: '91b4eb',
+  amstaFood: 'f81ae6',
+  toor: '9d22d4',
+  peerDeliveries: '0e00e8',
+  swan: '85938b',
+  scootUp: '98340e',
+  patrolNow: '179def',
+  butlerDelivery: 'f93d8c',
+  swatiRx: '7fbd6e',
+  chowHub: '12f1ce',
+  ginDeliver: '860741',
+  maiz: '1a1705',
+  orderFirst: 'cc230e',
+  dingDongEat: '026f29',
+  medicab: '35c021',
+  fazeiTeam: 'e8346f',
+  weTogether: 'a4996b',
+  Jiffex: 'f4af1e',
+  jazzyBug: '7e9e5f',
+  savannaRags: '4e9ab7',
+  amazingTaxi: '693ba8',
+  keystoneDelivery: '182e7b',
+  busTaMove: '6499ab',
+  valley: '58ccd3',
+  myFarma: '56ba56',
+  blueBundles:'408285',
+  kartandkarry:'5144d0',
+  atasktt:'d89cb3',
+  quicklube:'d9a19b',
+  sorDelivery:'db178d',
+  grubHouse:'8f65f7',
+  hitchDelivery:'2246ee',
+  zoodMarket:'a2bcd2',
+  meow:'f45eea',
+  carlitoo:'1a455b',
+  dingDongDelivers:'95d213',
+  kurs:'e7c7e4',
+  torunz:'4786a9',
+  spa:'69dd33',
+  abbeRides: 'b65020',
+  nrsa: 'b6f11b',
+  sadia: '31d13d',
+  elentaMart: 'b16063',
+  exprexpro: 'a6ccaf',
+  fresHest:'d23863',
+  servern:'4adb00',
+  smokeRun:'54bc6e',
+  myEvPlus:'745fe6',
+  pawsee:'39cae6',
+  hairRun:'5ee206',
 };
 
 const appIds = {
@@ -309,7 +359,7 @@ const appIds = {
     android: 'com.Goody.royodispatcher',
   }),
   yogofood: Platform.select({
-    ios: 'com.YogoFood.Dispatch',
+    ios: 'com.YogoFood.Dispatcher',
     android: 'com.yogofood.royodispatcher',
   }),
   arenaGrub: Platform.select({
@@ -361,7 +411,7 @@ const appIds = {
     android: 'com.noki.royodispatcher',
   }),
   ored: Platform.select({
-    ios: 'com.Ored.Dispatch',
+    ios: 'com.Ored.Dispatcher',
     android: 'com.ored.royodispatcher',
   }),
   yourLaundryApp: Platform.select({
@@ -518,7 +568,7 @@ const appIds = {
     android: 'com.AgriOnline.royodispatcher',
   }),
   clickeat: Platform.select({
-    ios: 'com.ClickEat.Dispatch',
+    ios: 'com.clickEat.royoDispatcher',
     android: 'com.clickEat.royodispatcher',
   }),
   tranzet: Platform.select({
@@ -546,12 +596,12 @@ const appIds = {
     android: 'com.Gusto.royodispatcher',
   }),
   click2Deliver: Platform.select({
-    ios: 'com.Click2Deliver.Dispatch',
+    ios: 'com.click2deliver.royoDispatcher',
     android: 'com.Click2Deliver.royodispatcher',
   }),
   truckTireNow: Platform.select({
     ios: 'com.TruckTireNow.Dispatch',
-    android: 'com.TruckTireNow.royodispatcher',
+    android: 'com.TruckTireNow.dispatch',
   }),
   voltaic: Platform.select({
     ios: 'com.Voltaic.Dispatch',
@@ -694,8 +744,8 @@ const appIds = {
     android: 'com.Marasym.royodispatcher',
   }),
   mobi: Platform.select({
-    ios: 'com.MOBI.Dispatch',
-    android: 'com.Mobi.royodispatcher',
+    ios: 'com.MOBI.Dispatcher',
+    android: 'com.Mobi.dispatcher',
   }),
   samakeeMart: Platform.select({
     ios: 'com.SamakeeMart.Dispatcher',
@@ -910,7 +960,7 @@ const appIds = {
     android: 'com.Ritenow.Dispatcher',
   }),
   fastMikes: Platform.select({
-    ios: 'com.fastMikes.Dispatch',
+    ios: 'com.App.fastMikes.Dispatcher',
     android: 'com.fastMikes.royodispatcher',
   }),
   hometowndeliveryllc: Platform.select({
@@ -954,8 +1004,8 @@ const appIds = {
     android: 'com.Sijang.royodispatcher',
   }),
   fairexpay: Platform.select({
-    ios: 'com.Fairexpay.Dispatch',
-    android: 'com.Fairexpay.royodispatcher',
+    ios: 'com.fairex.driver',
+    android: 'com.fairex.driver',
   }),
   cannabis_Club_SF: Platform.select({
     ios: 'com.CannabisClubSF.Dispatch',
@@ -970,8 +1020,8 @@ const appIds = {
     android: 'com.KeyDiscovery.royodispatcher',
   }),
   palmettoplus: Platform.select({
-    ios: 'com.Palmettoplus.Dispatch',
-    android: 'com.Palmettoplus.royodispatcher',
+    ios: 'com.Palmettoplus.Dispatcher',
+    android: 'com.Palmettoplus.dispatcher',
   }),
   halaTalabat: Platform.select({
     ios: 'com.HalaTalabat.Dispatch',
@@ -995,7 +1045,7 @@ const appIds = {
   }),
   uberCann: Platform.select({
     ios: 'com.UberCann.Dispatch',
-    android: 'com.UberCann.royodispatcher',
+    android: 'com.UberCann.Dispatch',
   }),
   launch: Platform.select({
     ios: 'com.Launch.Dispatch',
@@ -1046,8 +1096,8 @@ const appIds = {
     android: 'com.AmbuTap.royodispatcher',
   }),
   swiffyLLC: Platform.select({
-    ios: 'com.SwiffyLLC.Dispatch',
-    android: 'com.SwiffyLLC.royodispatcher',
+    ios: 'com.SwiffyLLC.Dispatcher',
+    android: 'com.SwiffyLLC',
   }),
   sabroson: Platform.select({
     ios: 'com.Sabroson.Dispatch',
@@ -1115,7 +1165,7 @@ const appIds = {
   }),
   lOPHT: Platform.select({
     ios: 'com.LOPHT.Dispatch',
-    android: 'com.LOPHT.royodispatcher',
+    android: 'com.LOPHT.Dispatch',
   }),
   seratho: Platform.select({
     ios: 'com.Seratho.Dispatch',
@@ -1142,8 +1192,8 @@ const appIds = {
     android: 'com.Delivadrinks.royodispatcher',
   }),
   getfix: Platform.select({
-    ios: 'com.Getfix.Dispatch',
-    android: 'com.Getfix.royodispatcher',
+    ios: 'com.Getfix.Dispatcher',
+    android: 'com.Getfix.dispatcher',
   }),
   scoopaTechnologies: Platform.select({
     ios: 'com.ScoopaTechnologies.Dispatch',
@@ -1174,7 +1224,7 @@ const appIds = {
     android: 'com.TimHomeServices.royodispatcher',
   }),
   dbairro: Platform.select({
-    ios: 'com.Dbairro.Dispatch',
+    ios: 'com.Dbairro.Dispatcher',
     android: 'com.Dbairro.royodispatcher',
   }),
   knockknock: Platform.select({
@@ -1211,7 +1261,7 @@ const appIds = {
   }),
   beachHop: Platform.select({
     ios: 'com.BeachHop.Dispatcher',
-    android: 'com.BeachHop.royodispatcher',
+    android: 'com.BeachHop.Dispatch',
   }),
   wer: Platform.select({
     ios: 'com.Wer.Dispatcher',
@@ -1258,8 +1308,8 @@ const appIds = {
     android: 'com.MediPick.royodispatcher',
   }),
   meltivers: Platform.select({
-    ios: 'com.Meltivers.Dispatch',
-    android: 'com.Meltivers.royodispatcher',
+    ios: 'com.Meltivers.Dispatcher',
+    android: 'com.Meltivers.dispatcher',
   }),
   ensoDigitalAgency: Platform.select({
     ios: 'com.EnsoDigitalAgency.Dispatch',
@@ -1298,8 +1348,8 @@ const appIds = {
     android: 'com.Cartnar.royodispatcher',
   }),
   uven: Platform.select({
-    ios: 'com.Uven.Dispatch',
-    android: 'com.Uven.royodispatcher',
+    ios: 'com.Uven.Dispatcher',
+    android: 'com.Uven.dispatcher',
   }),
   pAS41: Platform.select({
     ios: 'com.PAS41.Dispatch',
@@ -1309,7 +1359,7 @@ const appIds = {
     ios: 'com.Snabbhem.Dispatch',
     android: 'com.Snabbhem.royodispatcher',
   }),
-   freshFarmz: Platform.select({
+  freshFarmz: Platform.select({
     ios: 'com.FreshFarmz.Dispatch',
     android: 'com.FreshFarmz.royodispatcher',
   }),
@@ -1360,6 +1410,200 @@ const appIds = {
   markSoublet: Platform.select({
     ios: 'com.MarkSoublet.Dispatch',
     android: 'com.MarkSoublet.royodispatcher',
+  }),
+  amstaFood: Platform.select({
+    ios: 'com.AmstaFood.Dispatch',
+    android: 'com.AmstaFood.royodispatcher',
+  }),
+  toor: Platform.select({
+    ios: 'com.Toor.Dispatch',
+    android: 'com.Toor.royodispatcher',
+  }),
+  peerDeliveries: Platform.select({
+    ios: 'com.PeerDeliveries.Dispatch',
+    android: 'com.PeerDeliveries.royodispatcher',
+  }),
+  swan: Platform.select({
+    ios: 'com.Swan.Dispatch',
+    android: 'com.Swan.royodispatcher',
+  }),
+  scootUp: Platform.select({
+    ios: 'com.ScootUp.Dispatch',
+    android: 'com.ScootUp.royodispatcher',
+  }),
+  patrolNow: Platform.select({
+    ios: 'com.PatrolNow.Dispatch',
+    android: 'com.PatrolNow.royodispatcher',
+  }),
+  butlerDelivery: Platform.select({
+    ios: 'com.ButlerDelivery.Dispatch',
+    android: 'com.ButlerDelivery.royodispatcher',
+  }),
+  swatiRx: Platform.select({
+    ios: 'com.SwatiRx.Dispatch',
+    android: 'com.SwatiRx.royodispatcher',
+  }),
+  chowHub: Platform.select({
+    ios: 'com.ChowHub.Dispatch',
+    android: 'com.ChowHub.royodispatcher',
+  }),
+  ginDeliver: Platform.select({
+    ios: 'com.GinDeliver.Dispatch',
+    android: 'com.GinDeliver.royodispatcher',
+  }),
+  maiz: Platform.select({
+    ios: 'com.Maiz.Dispatch',
+    android: 'com.Maiz.royodispatcher',
+  }),
+  orderFirst: Platform.select({
+    ios: 'com.OrderFirst.Dispatch',
+    android: 'com.OrderFirst.royodispatcher',
+  }),
+  dingDongEat: Platform.select({
+    ios: 'com.dingDongEat.Dispatch',
+    android: 'com.dingDongEat.royodispatcher',
+  }),
+  fazeiTeam: Platform.select({
+    ios: 'com.fazeiTeam.Dispatch',
+    android: 'com.fazeiTeam.royodispatcher',
+  }),
+  medicab: Platform.select({
+    ios: 'com.medicab.Dispatch',
+    android: 'com.medicab.royodispatcher',
+  }),
+
+  weTogether: Platform.select({
+    ios: 'com.weTogether.Dispatch',
+    android: 'com.weTogether.royodispatcher',
+  }),
+
+  Jiffex: Platform.select({
+    ios: 'com.jiffex.Dispatch',
+    android: 'com.jiffex.royodispatcher',
+  }),
+  jazzyBug: Platform.select({
+    ios: 'com.jazzyBug.Dispatch',
+    android: 'com.jazzyBug.royodispatcher',
+  }),
+  keystoneDelivery: Platform.select({
+    ios: 'com.keystoneDeliver.Dispatch',
+    android: 'com.keystoneDelivery.royodispatcher',
+  }),
+  amazingTaxi: Platform.select({
+    ios: 'com.amazingTaxi.Driver',
+    android: 'com.amazingTaxi.Driver',
+  }),
+  busTaMove: Platform.select({
+    ios: 'com.BusTaMove.Dispatch',
+    android: 'com.BusTaMove.royodispatcher',
+  }),
+  valley: Platform.select({
+    ios: 'com.valley.Dispatch',
+    android: 'com.valley.royodispatcher',
+  }),
+  myFarma: Platform.select({
+    ios: 'com.myFarma.driver',
+    android: 'com.myFarma.royodispatcher',
+  }),
+  blueBundles: Platform.select({
+    ios: 'com.blueBundles.driver',
+    android: 'com.blueBundle.royodispatcher',
+  }),
+  kartandkarry: Platform.select({
+    ios: 'com.kartandkarry.Dispatch',
+    android: 'com.kartandkarry.royodispatcher',
+  }),
+  atasktt: Platform.select({
+    ios: 'com.atasktt.Dispatch',
+    android: 'com.atasktt.dispatcher',
+  }),
+  quicklube: Platform.select({
+    ios: 'com.quicklube.Dispatch',
+    android: 'com.quicklube.royodispatcher',
+  }),
+  sorDelivery: Platform.select({
+    ios: 'com.sorDelivery.Dispatch',
+    android: 'com.sorDelivery.royodispatcher',
+  }),
+  grubHouse: Platform.select({
+    ios: 'com.grubHouse.Dispatch',
+    android: 'com.grubHouse.dispatcher',
+  }),
+  hitchDelivery: Platform.select({
+    ios: 'com.hitchDelivery.Dispatch',
+    android: 'com.hitchDelivery.dispatcher',
+  }),
+  zoodMarket: Platform.select({
+    ios: 'com.zoodMarket.Dispatch',
+    android: 'com.zoodMarket.royodispatcher',
+  }),
+  meow: Platform.select({
+    ios: 'com.meow.Dispatch',
+    android: 'com.meow.royodispatcher',
+  }),
+  carlitoo: Platform.select({
+    ios: 'com.Carlitoo.Dispatch',
+    android: 'com.carlitoo.royodispatcher',
+  }),
+  dingDongDelivers: Platform.select({
+    ios: 'com.dingDongDelivers.Dispatch',
+    android: 'com.dingDongDelivers.royodispatcher',
+  }),
+  kurs: Platform.select({
+    ios: 'com.kurs.Dispatch',
+    android: 'com.kurs.royodispatcher',
+  }),
+  torunz: Platform.select({
+    ios: 'com.torunz.Dispatch',
+    android: 'com.torunz.royodispatcher',
+  }),
+  spa: Platform.select({
+    ios: 'com.spa.Dispatch',
+    android: 'com.spa.royodispatcher',
+  }),
+  abbeRides: Platform.select({
+    ios: 'com.abbeRides.dispatch',
+    android: 'com.abbeRides.dispatch',
+  }),
+  nrsa: Platform.select({
+    ios: 'com.nrsa.dispatch',
+    android: 'com.nrsa.dispatch',
+  }),
+  sadia: Platform.select({
+    ios: 'com.sadia.royodispatcher',
+    android: 'com.sadia.royodispatcher',
+  }),
+  elentaMart: Platform.select({
+    ios: 'com.elentamart.dispatcher',
+    android: 'com.elentamart.dispatcher',
+  }),
+  exprexpro: Platform.select({
+    ios: 'com.Exprexpro.dispatcher',
+    android: 'com.Exprexpro.dispatcher',
+  }),
+  fresHest: Platform.select({
+    ios: 'com.fresHest.dispatcher',
+    android: 'com.fresHest.dispatcher',
+  }),
+  servern: Platform.select({
+    ios: 'com.servern.dispatcher',
+    android: 'com.servern.dispatcher',
+  }),
+  smokeRun: Platform.select({
+    ios: 'com.smokeRun.dispatcher',
+    android: 'com.smokeRun.dispatcher',
+  }),
+  myEvPlus: Platform.select({
+    ios: 'com.myEvPlus.dispatcher',
+    android: 'com.myEvPlus.dispatcher',
+  }),
+  pawsee: Platform.select({
+    ios: 'com.pawsee.dispatcher',
+    android: 'com.pawsee.dispatcher',
+  }),
+  hairRun: Platform.select({
+    ios: 'com.hairRun.dispatcher',
+    android: 'com.hairRun.dispatcher',
   }),
 };
 

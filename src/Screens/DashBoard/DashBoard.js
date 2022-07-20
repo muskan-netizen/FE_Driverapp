@@ -48,6 +48,8 @@ import Geolocation_ from '@react-native-community/geolocation';
 import geocoder from 'react-native-geocoder/js/geocoder';
 import { rippleLoader } from '../../Components/Loaders/AnimatedLoaderFiles/index';
 import LottieAnimation from 'lottie-react-native';
+import BackgroundService from 'react-native-background-actions';
+import socketServices from '../../utils/scoketService';
 
 // import BackgroundTimer from 'react-native-background-timer';
 
@@ -127,6 +129,7 @@ export default function DashBoard({ route, navigation }) {
   const zendeskKeys = useSelector(state => state?.initBoot?.zendeskKeys);
 
   const initWatchPosition = () => {
+    return;
     Geolocation_.watchPosition(
       position => {
         console.log('position => position => position =>', position);
@@ -162,6 +165,12 @@ export default function DashBoard({ route, navigation }) {
     return () => { };
   }, []);
 
+  useEffect(()=>{
+
+    socketServices.initializeSocket(null);
+    
+    
+    },[])
   useEffect(() => {
     if (refreshHomeData && enableMap) {
       updateState({
@@ -182,6 +191,7 @@ export default function DashBoard({ route, navigation }) {
   //   }, []);
   useEffect(() => {
     initWatchPosition();
+
     const backHandler = BackHandler.addEventListener(
       'hardwareBackPress',
       () => true,
@@ -189,9 +199,101 @@ export default function DashBoard({ route, navigation }) {
     return () => backHandler.remove();
   }, []);
 
+  const sleep = time =>
+    new Promise(resolve => setTimeout(() => resolve(), time));
+
+  const BackgroundServiceInit = async () => {
+    const veryIntensiveTask = async taskDataArguments => {
+      const { delay } = taskDataArguments;
+      await new Promise(async resolve => {
+        for (let i = 0; BackgroundService.isRunning(); i++) {
+          // await sleep(delay);
+          await sleep(1000000000000);
+        }
+        startLocatonTrack();
+        fetchgentLogs();
+      });
+    };
+
+    const options = {
+      taskName: 'Location Tracking',
+      taskTitle: 'Location Tracking',
+      taskDesc: `Tracking driver's location in background.`,
+      taskIcon: {
+        name: 'ic_launcher',
+        type: 'mipmap',
+      },
+      color: '#ff00ff',
+      parameters: {
+        delay: 1000 * 60 * 60 * 60,
+      },
+    };
+    await BackgroundService.start(veryIntensiveTask, options).then(res =>
+      console.log('check background task initiate', res),
+    );
+    await BackgroundService.updateNotification({
+      taskDesc: 'Background location track enabled',
+    });
+  };
+
+  useEffect(async () => {
+    if (BackgroundService.isRunning()) {
+      await BackgroundService.stop();
+    }
+    if (!BackgroundService.isRunning()) {
+      BackgroundServiceInit();
+      AsyncStorage.getItem('timerWatch').then(res => {
+        const t = JSON.parse(res);
+
+        clearTimeout(t);
+        startLocatonTrack();
+      });
+    }
+
+    return function cleanup() {
+      console.log(' Will unmount ');
+      watchID != null && Geolocation_.clearWatch(watchID);
+    };
+  }, []);
+
+  const startLocatonTrack = () => {
+    console.log('check callback in startLocatonTrack method call');
+    const timer = __DEV__
+      ? 10000
+      : userData?.team?.location_frequency
+        ? Number(userData?.team?.location_frequency) * 60000
+        : 1000 * 60 * 3;
+
+    console.log(timer, 'timer>>>>timer');
+
+    if (userData && userData?.access_token) {
+      getCurrentPosition();
+      var t = setTimeout(() => {
+        startLocatonTrack();
+      }, timer);
+
+      AsyncStorage.setItem('timerWatch', JSON.stringify(t));
+    }
+
+    // var waiting = false; // Initially, we're not waiting
+    // return function () {
+    //   // We return a throttled function
+    //   if (!waiting) {
+    //     // If we're not waiting
+    //     getCurrentPosition(); // Execute users function
+    //     waiting = true; // Prevent future invocations
+    //     setTimeout(function () {
+    //       // After a period of time
+    //       waiting = false; // And allow future invocations
+    //     }, 2000);
+    //   }
+    // };
+  };
+
   useFocusEffect(
     React.useCallback(() => {
       updateState({
+        isLoading: true,
         options: [
           { label: strings.TODAYSTASK, value: 0, testID: '1' },
           { label: strings.ALLTASKS, value: 1, testID: '2' },
@@ -493,46 +595,55 @@ export default function DashBoard({ route, navigation }) {
     return (
       <>
         <View style={{ flex: 1 }}>
-          <FlatList
-            data={selectedOption ? allTasks : todaysTasks}
-            renderItem={renderTaskList}
-            keyExtractor={(item, index) => String(index)}
-            keyboardShouldPersistTaps="always"
-            showsVerticalScrollIndicator={false}
-            style={{
-              flex: 1,
-              backgroundColor: !!(selectedOption == 1 && !allTasks.length)
-                ? colors.backGround
-                : !!(selectedOption == 0 && !todaysTasks.length)
+          {(selectedOption ? allTasks?.length : todaysTasks?.length) ? (
+            <FlatList
+              data={selectedOption ? allTasks : todaysTasks}
+              renderItem={renderTaskList}
+              keyExtractor={(item, index) => String(index)}
+              keyboardShouldPersistTaps="always"
+              showsVerticalScrollIndicator={false}
+              style={{
+                flex: 1,
+                backgroundColor: !!(selectedOption == 1 && !allTasks.length)
                   ? colors.backGround
-                  : colors.white,
-            }}
-            contentContainerStyle={{
-              flexGrow: 1,
-              // marginVertical: moderateScaleVertical(20),
-            }}
-            refreshing={isRefreshing}
-            refreshControl={
-              <RefreshControl
-                refreshing={isRefreshing}
-                onRefresh={handleRefresh}
-              // tintColor={colors.primary_color}
-              />
-            }
-            onEndReached={onEndReachedDelayed}
-            onEndReachedThreshold={0.5}
-            // ListFooterComponent={() => (
-            //   <View style={{height: moderateScaleVertical(65)}} />
-            // )}
-            ListEmptyComponent={
-              <ListEmptyComponent
-                isLoading={isLoading}
-                message={strings.NOTASK}
-                subMessage={strings.NOTASKASSIGNED}
-                containerStyle={{ backgroundColor: colors.backGround }}
-              />
-            }
-          />
+                  : !!(selectedOption == 0 && !todaysTasks.length)
+                    ? colors.backGround
+                    : colors.white,
+              }}
+              contentContainerStyle={{
+                flexGrow: 1,
+                // marginVertical: moderateScaleVertical(20),
+              }}
+              refreshing={isRefreshing}
+              refreshControl={
+                <RefreshControl
+                  refreshing={isRefreshing}
+                  onRefresh={handleRefresh}
+                // tintColor={colors.primary_color}
+                />
+              }
+              onEndReached={onEndReachedDelayed}
+              onEndReachedThreshold={0.5}
+              // ListFooterComponent={() => (
+              //   <View style={{height: moderateScaleVertical(65)}} />
+              // )}
+              ListEmptyComponent={
+                () => (
+                  <ListEmptyComponent
+                    isLoading={isLoading}
+                    message={strings.NOTASK}
+                    subMessage={strings.NOTASKASSIGNED}
+                    containerStyle={{ backgroundColor: colors.backGround }}
+                  />
+                )
+              }
+            />
+          ) : <ListEmptyComponent
+            isLoading={isLoading}
+            message={strings.NOTASK}
+            subMessage={strings.NOTASKASSIGNED}
+            containerStyle={{ backgroundColor: colors.backGround }}
+          />}
         </View>
       </>
     );
@@ -555,11 +666,14 @@ export default function DashBoard({ route, navigation }) {
 
   const fitToMap = () => {
     if (markers && markers.length && enableMap) {
-      let newArray = markers.map((i, inx) => {
-        return {
-          latitude: Number(i?.location?.latitude),
-          longitude: Number(i?.location?.longitude),
-        };
+      let newArray = markers.filter((i, inx) => {
+        if (i && i?.location && i?.location?.latitude != NaN && i?.location?.longitude != NaN) {
+          return {
+            latitude: Number(i?.location?.latitude),
+            longitude: Number(i?.location?.longitude),
+          }
+        }
+
       });
       console.log(newArray, 'newArray');
       // animate(region);
@@ -655,23 +769,20 @@ export default function DashBoard({ route, navigation }) {
         onLayout={() => fitToMap()}
         //   customMapStyle={mapStyle}
         onRegionChangeComplete={_onRegionChange}>
-        {markers?.map((coordinate, index) => {
-          if (coordinate?.location?.latitude && !!coordinate?.location?.longitude) {
-            return (
-              <Marker
-                tracksViewChanges={false}
-                zIndex={index}
-                key={`coordinate_${index}`}
-                image={imagePath.pinRed}
-                onPress={() => {
-                  _onPressTask(coordinate);
-                }}
-                coordinate={{
-                  latitude: Number(coordinate?.location?.latitude),
-                  longitude: Number(coordinate?.location?.longitude),
-                }} />)
-          }
-        })}
+        {markers?.map((coordinate, index) => (
+          coordinate && coordinate?.location && coordinate?.location?.latitude != NaN && coordinate?.location?.longitude != NaN && <Marker
+            tracksViewChanges={false}
+            zIndex={index}
+            key={`coordinate_${index}`}
+            image={imagePath.pinRed}
+            onPress={() => {
+              _onPressTask(coordinate);
+            }}
+            coordinate={{
+              latitude: Number(coordinate?.location?.latitude),
+              longitude: Number(coordinate?.location?.longitude),
+            }}></Marker>
+        ))}
         <Marker
           image={imagePath.pinBlue}
           coordinate={{
@@ -708,6 +819,10 @@ export default function DashBoard({ route, navigation }) {
     }
   };
 
+  const _onSwitchMapView = () => {
+    updateState({ enableMap: !enableMap });
+  };
+
   return (
     <WrapperContainer
       statusBarColor={colors.white}
@@ -722,10 +837,7 @@ export default function DashBoard({ route, navigation }) {
         // hideRight={true}
         customCenter={() => customCenter()}
         rightIcon={!enableMap ? imagePath.map : imagePath.listMenu}
-        onPressRight={() => {
-          updateState({ enableMap: !enableMap });
-          // navigation.navigate(navigationStrings.SEARCHPRODUCTOVENDOR)
-        }}
+        onPressRight={_onSwitchMapView}
       />
       <View style={{ ...commonStyles.headerTopLine }} />
       {isWarningAlert && (

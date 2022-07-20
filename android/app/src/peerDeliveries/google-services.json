@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "664522081147",
+    "project_id": "peerdeliveries-dispatch",
+    "storage_bucket": "peerdeliveries-dispatch.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:664522081147:android:b7c658a1122120cda1b3de",
+        "android_client_info": {
+          "package_name": "com.PeerDeliveries.royodispatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "664522081147-r6i6cah9ht6rtvfp9v8gj0oljvd63k05.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7rnCKrd0Ajm_TKiiaK7FoiGw_1prXQGU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "664522081147-r6i6cah9ht6rtvfp9v8gj0oljvd63k05.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "664522081147-qrp90rgoe0f0h8lo51h7m8o5v4vha0ke.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.PeerDeliveries.Dispatch"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

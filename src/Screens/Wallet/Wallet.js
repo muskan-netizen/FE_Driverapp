@@ -100,10 +100,10 @@ export default function Wallet({route, navigation}) {
         {client: clientInfo?.database_name},
       )
       .then(res => {
-        console.log(res,"getWalletDataOfDriver>res");
+        console.log(res?.payments?.data, 'getWalletDataOfDriver>res');
         updateState({
           lifetimeAmount: res?.lifetime_earnings,
-          currentAmount: Number(res?.final_balance),
+          currentAmount: Number(res?.wallet_balance),
           allTaskInHistory:
             pageNo == 1
               ? res?.payments.data
@@ -134,6 +134,7 @@ export default function Wallet({route, navigation}) {
     return colorData[allTaskInHistory.indexOf(data) % colorData.length];
   };
   const renderTaskList = ({item, index}) => {
+    console.log(item, 'itemitemitemitemitem');
     return (
       <View
         style={{
@@ -262,7 +263,9 @@ export default function Wallet({route, navigation}) {
               }}>
               <Text style={styles.currency}>
                 {userData?.client_preference?.currency?.symbol}
-                {item?.order?.cash_to_be_collected?item?.order?.cash_to_be_collected:'0.00'}
+                {item?.order?.cash_to_be_collected
+                  ? item?.order?.cash_to_be_collected
+                  : '0.00'}
               </Text>
               <Text style={styles.earningBottomTextLable}>
                 {strings.CASHCOLLECTEDCAPS}
@@ -276,7 +279,7 @@ export default function Wallet({route, navigation}) {
               }}>
               <Text style={styles.currency}>
                 {userData?.client_preference?.currency?.symbol}
-                {item?.order?.driver_cost?item?.order?.driver_cost:'0.00'}
+                {item?.order?.driver_cost ? item?.order?.driver_cost : '0.00'}
               </Text>
               <Text style={styles.earningBottomTextLable}>
                 {strings.ORDEREARNING}
@@ -339,6 +342,7 @@ export default function Wallet({route, navigation}) {
     }
   };
 
+  console.log(currentAmount, 'currentAmountcurrentAmount');
   /*****TOP HEADER REVENUE VIEW***** */
   const revenueView = () => {
     return (
@@ -356,8 +360,8 @@ export default function Wallet({route, navigation}) {
 
           <Text style={styles.amountText}>
             {userData?.client_preference?.currency?.symbol}
-            {kFormatter(lifetimeAmount)}
-            {/* {currencyNumberFormatter(Number(lifetimeAmount).toFixed(2))} */}
+            {/* {kFormatter(lifetimeAmount)} */}
+            {currencyNumberFormatter(Number(lifetimeAmount).toFixed(2))}
           </Text>
         </LinearGradient>
         <LinearGradient
@@ -372,8 +376,8 @@ export default function Wallet({route, navigation}) {
           <Text style={styles.totalRevenue}>{strings.TOTALREVNUE}</Text>
           <Text style={styles.amountText}>
             {userData?.client_preference?.currency?.symbol}
-            {kFormatter(currentAmount)}
-            {/* {currencyNumberFormatter(Number(currentAmount).toFixed(2))} */}
+            {/* {kFormatter(currentAmount)} */}
+            {currencyNumberFormatter(Number(currentAmount).toFixed(2))}
           </Text>
         </LinearGradient>
       </View>
