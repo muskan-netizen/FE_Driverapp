@@ -2003,6 +2003,36 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+          case appIds.qdelo:
+          updateState({
+            shortCode: shortCodes.qdelo,
+            isShortcodePrefilled: true,
+          });
+          break;
+          case appIds.zuriRide:
+          updateState({
+            shortCode: shortCodes.zuriRide,
+            isShortcodePrefilled: true,
+          });
+          break;
+          case appIds.americanLuxury:
+          updateState({
+            shortCode: shortCodes.americanLuxury,
+            isShortcodePrefilled: true,
+          });
+          break;
+          case appIds.smartMur:
+            updateState({
+              shortCode: shortCodes.smartMur,
+              isShortcodePrefilled: true,
+            });
+            break;
+            case appIds.ouiSpeed:
+            updateState({
+              shortCode: shortCodes.ouiSpeed,
+              isShortcodePrefilled: true,
+            });
+            break;
       }
     })();
   }, [internetConnection]);

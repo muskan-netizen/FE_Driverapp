@@ -231,9 +231,9 @@ export default function DashBoard({ route, navigation }) {
     await BackgroundService.start(veryIntensiveTask, options).then(res =>
       console.log('check background task initiate', res),
     );
-    await BackgroundService.updateNotification({
-      taskDesc: 'Background location track enabled',
-    });
+    // await BackgroundService.updateNotification({
+    //   taskDesc: 'Background location track enabled',
+    // });
   };
 
   useEffect(async () => {
