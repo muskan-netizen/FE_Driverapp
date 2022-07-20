@@ -1,5 +1,5 @@
 //live
-//  export const API_BASE_URL = 'https://api.royodispatch.com/';
+//  export const API_BASE_URL = 'http://192.168.96.84:9091/';
 
 //Staging
 export const API_BASE_URL = 'https://api.rdstaging.com/';
@@ -264,6 +264,7 @@ export const SEND_OTP = getApiUrl('api/auth/login');
 export const LOGIN_API = getApiUrl('api/auth/sendOtp');
 export const SIGNUP_API = getApiUrl('api/auth/signup');
 export const LOGOUT_API = getApiUrl('api/auth/logout');
+export const AGENT_DELETE = getApiUrl('api/agent/delete')
 
 // export const SIGN_UP_API = getApiUrl('/auth/register');
 export const APP_INITIAL_SETTINGS = getApiUrl('api/shortCode');
