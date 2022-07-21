@@ -1,10 +1,13 @@
 //live
 //  export const API_BASE_URL = 'https://api.royodispatch.com/';
-//  export const API_BASE_URL = 'https://dispatch.toor.life/';
+// export const API_BASE_URL = 'https://sales.royodispatch.com/';
+
+
 
 //  export const API_BASE_URL = 'https://dispatch.fijieats.com/';
 //  export const API_BASE_URL = 'https://dispatch.ubercann.com/';
 //  export const API_BASE_URL = 'https://dispatch.swantaxi.net/';
+// export const API_BASE_URL = 'https://dispatch.keystonedelivery.com/'
 // export const API_BASE_URL = 'https://dispatch.yogo.gd/';
 
 // export const API_BASE_URL = 'https://gokab.royodispatch.com/'
@@ -80,7 +83,10 @@
 // export const API_BASE_URL ='https://dispatch.gdotdelivery.com/'
 
 // yogolift
-export const API_BASE_URL = 'https://dispatch.lift.gd/'
+// export const API_BASE_URL = 'https://dispatch.lift.gd/'
+
+// export const API_BASE_URL = 'https://dispatch.usemeow.com/'
+// export const API_BASE_URL = 'https://dispatch.swantaxi.net'
 
 
 // export const API_BASE_URL = 'https://dispatch.butlerdeliveryusa.com/'
@@ -282,7 +288,7 @@ export const API_BASE_URL = 'https://dispatch.lift.gd/'
 // mobi
 //bimol
 //  export const API_BASE_URL = 'https://dispatch.bimol.in/';
- //export const API_BASE_URL = 'https://dispatch.mobimarket.com.mx/';
+ export const API_BASE_URL = 'https://dispatch.mobimarket.com.mx/';
 // grub and gusto, ace
 // export const API_BASE_URL = 'https://grub.royodispatch.com/'
 // export const API_BASE_URL = 'https://gusto.royodispatch.com/'

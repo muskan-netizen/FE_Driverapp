@@ -201,20 +201,18 @@ android {
 
     flavorDimensions "appType"
 
-// productFlavors {
-//          donepacked {
-//             dimension "appType"
-//             versionCode 1
-//             versionName "1.0"
-//             minSdkVersion rootProject.ext.minSdkVersion
-//             targetSdkVersion rootProject.ext.targetSdkVersion
-//             // applicationIdSuffix ".royoorder"
-//                 applicationId 'com.donepacked.royodispatcher'
-//             resValue "string", "app_name", "Donepacked Dispatch"
-            
-//         } 
-
-// }
+productFlavors{
+     viversBox{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.viversbox.driver'
+            resValue "string", "app_name", "Viversbox Dispatcher"
+        }
+}
 
     productFlavors {
         royodispatcher {
@@ -2688,7 +2686,7 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.Delivery.royodispatcher'
+            applicationId 'com.gdotDelivery.driver'
             resValue "string", "app_name", "G Dot Delivery"
         }
         timHomeServices{
@@ -2729,7 +2727,7 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.ViversBox.royodispatcher'
+            applicationId 'com.viversbox.driver'
             resValue "string", "app_name", "Viversbox Dispatcher"
         }
 
@@ -3236,7 +3234,7 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.Toor.royodispatcher'
+            applicationId 'com.toor.driver'
             resValue "string", "app_name", "Toor Dispatcher"
         }
 
@@ -3251,15 +3249,15 @@ android {
             resValue "string", "app_name", "PeerDeliveries Dispatcher"
         }
 
-        swan{
+         swan{
             dimension "appType"
-            versionCode 1
+            versionCode 2
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.Swan.royodispatcher'
-            resValue "string", "app_name", "Swan Dispatcher"
+            applicationId 'com.application.swanDriver'
+            resValue "string", "app_name", "Swan Driver"
         }
 
         scootUp{
@@ -3720,8 +3718,6 @@ android {
             resValue "string", "app_name", "Hair Run Dispatcher"
         }
 }
- 
-
 }
 
 

@@ -233,7 +233,6 @@
 		0C38D4F22817EF8400DF9864 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C38D4F12817EF8400DF9864 /* Images.xcassets */; };
 		0C38D4F42817EFB400DF9864 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C38D4F32817EFB400DF9864 /* GoogleService-Info.plist */; };
 		0C38D4F62817F10100DF9864 /* PapiRukiInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C38D4F52817F10100DF9864 /* PapiRukiInfo.plist */; };
-		0C3EC28F2824FB250087F0C2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C3EC28E2824FB240087F0C2 /* GoogleService-Info.plist */; };
 		0C42DAAE282131E4000D38FC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		0C42DAAF282131E4000D38FC /* RoyoDriverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84961AE127EB05D300B58C31 /* RoyoDriverApp.swift */; };
 		0C42DAB0282131E4000D38FC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -248,7 +247,6 @@
 		0C42DACA28213372000D38FC /* Toor(Development).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0C42DAC928213371000D38FC /* Toor(Development).xcconfig */; };
 		0C42DACC282133A8000D38FC /* Toor(Production).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0C42DACB282133A8000D38FC /* Toor(Production).xcconfig */; };
 		0C42DACE282133D3000D38FC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C42DACD282133D3000D38FC /* Images.xcassets */; };
-		0C42DAD02821346B000D38FC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C42DACF2821346A000D38FC /* GoogleService-Info.plist */; };
 		0C42DAD2282134E9000D38FC /* ToorInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C42DAD1282134E9000D38FC /* ToorInfo.plist */; };
 		0C4341FE280EE06200CAC41E /* PAS41Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C4341FD280EE06200CAC41E /* PAS41Info.plist */; };
 		0C4AAF8F2824F46100856A5D /* Swan(Development).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0C4AAF8E2824F46100856A5D /* Swan(Development).xcconfig */; };
@@ -5163,7 +5161,6 @@
 		E8E1A0E72845FB8E0092044A /* BlueBundles(Production).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = E8E1A0E62845FB8E0092044A /* BlueBundles(Production).xcconfig */; };
 		E8E1A0E92845FBAA0092044A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8E1A0E82845FBAA0092044A /* Images.xcassets */; };
 		E8E1A0EB2845FC3D0092044A /* BlueBundlesInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = E8E1A0EA2845FC3D0092044A /* BlueBundlesInfo.plist */; };
-		E8E1A0ED2846156E0092044A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E8E1A0EC2846156E0092044A /* GoogleService-Info.plist */; };
 		E8EF44AC286B2542000278CA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		E8EF44AD286B2542000278CA /* RoyoDriverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84961AE127EB05D300B58C31 /* RoyoDriverApp.swift */; };
 		E8EF44AE286B2542000278CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -5256,8 +5253,11 @@
 		F19022462CC60B868E1406FB /* libPods-available_pods-Hemptify.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C8EC46D2CE6A3F7C6E62D566 /* libPods-available_pods-Hemptify.a */; };
 		F22AF95CFC3386DE8B819E4A /* libPods-available_pods-HiperAbasto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 89016DD4A644B49E14AEF3D7 /* libPods-available_pods-HiperAbasto.a */; };
 		F2CE534D0F197BC2424E0201 /* libPods-available_pods-CannabusExpress.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD51D6FF4C9206EF2C57E8D8 /* libPods-available_pods-CannabusExpress.a */; };
+		F4639DD228801BD900C20EEA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4639DD128801BD800C20EEA /* GoogleService-Info.plist */; };
 		F471950630B5A84111F2CF8B /* libPods-available_pods-Hivefair.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FB64AC38A61A26EAE1BAAF2 /* libPods-available_pods-Hivefair.a */; };
 		F477FF6507A33DBCF4107E38 /* libPods-available_pods-Ordercheckout.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6C495F3A6918EE39255ED7 /* libPods-available_pods-Ordercheckout.a */; };
+		F4902BA1287E955C00B33775 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4902BA0287E955B00B33775 /* GoogleService-Info.plist */; };
+		F491E55A2886E2880034C0A1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F491E5592886E2850034C0A1 /* GoogleService-Info.plist */; };
 		F582040505F8FBB41E6F15CC /* libPods-available_pods-Servze.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9505497035C8B49397CAAD1 /* libPods-available_pods-Servze.a */; };
 		F5C5831BE0E76368B4425D65 /* libPods-available_pods-Seaeats.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DECB48BA1F607C8BC7D3BE3 /* libPods-available_pods-Seaeats.a */; };
 		F5FC10354D392C963F13CDE4 /* libPods-available_pods-DimaVega.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0702A4A4B8E32658F5EFD2 /* libPods-available_pods-DimaVega.a */; };
@@ -5529,12 +5529,10 @@
 		0C38D4F12817EF8400DF9864 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0C38D4F32817EFB400DF9864 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0C38D4F52817F10100DF9864 /* PapiRukiInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PapiRukiInfo.plist; sourceTree = "<group>"; };
-		0C3EC28E2824FB240087F0C2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0C42DAC7282131E4000D38FC /* Toor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Toor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C42DAC928213371000D38FC /* Toor(Development).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Toor(Development).xcconfig"; sourceTree = "<group>"; };
 		0C42DACB282133A8000D38FC /* Toor(Production).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Toor(Production).xcconfig"; sourceTree = "<group>"; };
 		0C42DACD282133D3000D38FC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		0C42DACF2821346A000D38FC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0C42DAD1282134E9000D38FC /* ToorInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ToorInfo.plist; sourceTree = "<group>"; };
 		0C4341FD280EE06200CAC41E /* PAS41Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PAS41Info.plist; sourceTree = "<group>"; };
 		0C4AAF8E2824F46100856A5D /* Swan(Development).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Swan(Development).xcconfig"; sourceTree = "<group>"; };
@@ -8092,7 +8090,6 @@
 		E8E1A0E62845FB8E0092044A /* BlueBundles(Production).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "BlueBundles(Production).xcconfig"; sourceTree = "<group>"; };
 		E8E1A0E82845FBAA0092044A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E8E1A0EA2845FC3D0092044A /* BlueBundlesInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = BlueBundlesInfo.plist; sourceTree = "<group>"; };
-		E8E1A0EC2846156E0092044A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E8EF44C5286B2542000278CA /* ElentaMart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElentaMart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8FD17492861A86500662670 /* NRSA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NRSA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8FD174C2861A92200662670 /* NRSA(Development).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "NRSA(Development).xcconfig"; sourceTree = "<group>"; };
@@ -8164,6 +8161,9 @@
 		F418E5D4D1986F547C3AB5D0 /* libPods-available_pods-Deliverstat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-available_pods-Deliverstat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F422936CEF07C05D306E6B5A /* libPods-available_pods-Launch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-available_pods-Launch.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F423A14581F33829D388A610 /* Pods-available_pods-YourLaundryApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-YourLaundryApp.release.xcconfig"; path = "Target Support Files/Pods-available_pods-YourLaundryApp/Pods-available_pods-YourLaundryApp.release.xcconfig"; sourceTree = "<group>"; };
+		F4639DD128801BD800C20EEA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F4902BA0287E955B00B33775 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F491E5592886E2850034C0A1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F4A231BD59A37099B2516963 /* Pods-available_pods-ADMCourier.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-ADMCourier.release.xcconfig"; path = "Target Support Files/Pods-available_pods-ADMCourier/Pods-available_pods-ADMCourier.release.xcconfig"; sourceTree = "<group>"; };
 		F51C257B90D1A97C1AA51C64 /* Pods-available_pods-Carroai.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-Carroai.debug.xcconfig"; path = "Target Support Files/Pods-available_pods-Carroai/Pods-available_pods-Carroai.debug.xcconfig"; sourceTree = "<group>"; };
 		F51E3620133E0F17FB009B94 /* libPods-available_pods-Gumastas.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-available_pods-Gumastas.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -10933,7 +10933,7 @@
 		0C42DAAA282131B2000D38FC /* Toor */ = {
 			isa = PBXGroup;
 			children = (
-				0C42DACF2821346A000D38FC /* GoogleService-Info.plist */,
+				F4639DD128801BD800C20EEA /* GoogleService-Info.plist */,
 				0C42DAC928213371000D38FC /* Toor(Development).xcconfig */,
 				0C42DACB282133A8000D38FC /* Toor(Production).xcconfig */,
 				0C42DACD282133D3000D38FC /* Images.xcassets */,
@@ -11043,7 +11043,7 @@
 		0C86D4122823B745005EFF85 /* Swan */ = {
 			isa = PBXGroup;
 			children = (
-				0C3EC28E2824FB240087F0C2 /* GoogleService-Info.plist */,
+				F491E5592886E2850034C0A1 /* GoogleService-Info.plist */,
 				0C86D4142823B91E005EFF85 /* Images.xcassets */,
 				0C4AAF8E2824F46100856A5D /* Swan(Development).xcconfig */,
 				0C4AAF902824F4B200856A5D /* Swan(Production).xcconfig */,
@@ -16116,7 +16116,7 @@
 		E8E1A0E32845FACD0092044A /* BlueBundles */ = {
 			isa = PBXGroup;
 			children = (
-				E8E1A0EC2846156E0092044A /* GoogleService-Info.plist */,
+				F4902BA0287E955B00B33775 /* GoogleService-Info.plist */,
 				E8E1A0E42845FB2C0092044A /* BlueBundles(Development).xcconfig */,
 				E8E1A0E62845FB8E0092044A /* BlueBundles(Production).xcconfig */,
 				E8E1A0E82845FBAA0092044A /* Images.xcassets */,
@@ -17368,6 +17368,7 @@
 				8405A942277B12C70046F83F /* Bundle React Native code and images */,
 				9BD11F3F6536B5FED8290F51 /* [CP] Embed Pods Frameworks */,
 				7F3F6B6656D5E6F15EB6CB73 /* [CP] Copy Pods Resources */,
+				F4ED1F782889240A00E9F07A /* Start Packager */,
 			);
 			buildRules = (
 			);
@@ -23675,12 +23676,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4639DD228801BD900C20EEA /* GoogleService-Info.plist in Resources */,
 				0C42DAB4282131E4000D38FC /* LaunchScreen.storyboard in Resources */,
 				0C42DAB5282131E4000D38FC /* RoyoDriverInfo.plist in Resources */,
 				0C42DACC282133A8000D38FC /* Toor(Production).xcconfig in Resources */,
 				0C42DACA28213372000D38FC /* Toor(Development).xcconfig in Resources */,
 				0C42DACE282133D3000D38FC /* Images.xcassets in Resources */,
-				0C42DAD02821346B000D38FC /* GoogleService-Info.plist in Resources */,
 				0C42DAB6282131E4000D38FC /* Images.xcassets in Resources */,
 				0C42DAD2282134E9000D38FC /* ToorInfo.plist in Resources */,
 				0C42DAB7282131E4000D38FC /* campton-light.ttf in Resources */,
@@ -23931,7 +23932,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C3EC28F2824FB250087F0C2 /* GoogleService-Info.plist in Resources */,
+				F491E55A2886E2880034C0A1 /* GoogleService-Info.plist in Resources */,
 				0C4AAF912824F4B200856A5D /* Swan(Production).xcconfig in Resources */,
 				0C86D3DB2823AEB8005EFF85 /* LaunchScreen.storyboard in Resources */,
 				0C86D41A2823B9B6005EFF85 /* Images.xcassets in Resources */,
@@ -29507,7 +29508,6 @@
 			files = (
 				E8E1A0CE2845FA8A0092044A /* LaunchScreen.storyboard in Resources */,
 				E8E1A0E92845FBAA0092044A /* Images.xcassets in Resources */,
-				E8E1A0ED2846156E0092044A /* GoogleService-Info.plist in Resources */,
 				E8E1A0E72845FB8E0092044A /* BlueBundles(Production).xcconfig in Resources */,
 				E8E1A0CF2845FA8A0092044A /* KeystoneDeliverInfo.plist in Resources */,
 				E8E1A0D02845FA8A0092044A /* RoyoDriverInfo.plist in Resources */,
@@ -29519,6 +29519,7 @@
 				E8E1A0EB2845FC3D0092044A /* BlueBundlesInfo.plist in Resources */,
 				E8E1A0D62845FA8A0092044A /* campton-book.ttf in Resources */,
 				E8E1A0DA2845FA8A0092044A /* campton-semibold.ttf in Resources */,
+				F4902BA1287E955C00B33775 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56174,6 +56175,24 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-Privatepremiumpickups/Pods-available_pods-Privatepremiumpickups-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F4ED1F782889240A00E9F07A /* Start Packager */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Start Packager";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open \"$SRCROOT/../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n  fi\nfi\n";
+		};
 		F5154C8BFE51EC677D9B1A22 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -61465,7 +61484,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = 6FXUMT5X23;
+				DEVELOPMENT_TEAM = 8B3Z9CVHRP;
 				ENABLE_BITCODE = NO;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				HEADER_SEARCH_PATHS = "$(inherited)";
@@ -61510,7 +61529,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = 6FXUMT5X23;
+				DEVELOPMENT_TEAM = 8B3Z9CVHRP;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
@@ -61536,7 +61555,7 @@
 				PROJECT_BUNDLE_ID = "$(PROJECT_BUNDLE_ID)";
 				PROJECT_NAME = "${PROJECT_NAME}";
 				PROJECT_PLIST = "$(PROJECT_PLIST)";
-				PROVISIONING_PROFILE_SPECIFIER = "Toor Dispatch";
+				PROVISIONING_PROFILE_SPECIFIER = "Toor Driver";
 				SWIFT_OBJC_BRIDGING_HEADER = "RoyoDriverApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -62654,7 +62673,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = 6FXUMT5X23;
+				DEVELOPMENT_TEAM = AW77SG439Q;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
@@ -62680,7 +62699,7 @@
 				PROJECT_BUNDLE_ID = "$(PROJECT_BUNDLE_ID)";
 				PROJECT_NAME = "${PROJECT_NAME}";
 				PROJECT_PLIST = "$(PROJECT_PLIST)";
-				PROVISIONING_PROFILE_SPECIFIER = SwanDispatch;
+				PROVISIONING_PROFILE_SPECIFIER = SwanDriver;
 				SWIFT_OBJC_BRIDGING_HEADER = "RoyoDriverApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -63558,7 +63577,7 @@
 				PROJECT_BUNDLE_ID = "$(PROJECT_BUNDLE_ID)";
 				PROJECT_NAME = "${PROJECT_NAME}";
 				PROJECT_PLIST = "$(PROJECT_PLIST)";
-				PROVISIONING_PROFILE_SPECIFIER = "Royo Dispatch [AppStore]";
+				PROVISIONING_PROFILE_SPECIFIER = "royo Dispatch";
 				SWIFT_OBJC_BRIDGING_HEADER = "RoyoDriverApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -65040,7 +65059,7 @@
 				PROJECT_BUNDLE_ID = "$(PROJECT_BUNDLE_ID)";
 				PROJECT_NAME = "${PROJECT_NAME}";
 				PROJECT_PLIST = "$(PROJECT_PLIST)";
-				PROVISIONING_PROFILE_SPECIFIER = "Bimol Dispatch[AppStore]";
+				PROVISIONING_PROFILE_SPECIFIER = "Bimol_Dispatch[AppStore]";
 				SWIFT_OBJC_BRIDGING_HEADER = "RoyoDriverApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -69361,7 +69380,7 @@
 				CODE_SIGN_ENTITLEMENTS = RoyoDriverApp/RoyoDriverAppRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = "$(inherited)";
@@ -69401,7 +69420,7 @@
 				CODE_SIGN_ENTITLEMENTS = RoyoDriverApp/RoyoDriverAppRelease.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
@@ -69423,7 +69442,7 @@
 				PROJECT_BUNDLE_ID = "$(PROJECT_BUNDLE_ID)";
 				PROJECT_NAME = "${PROJECT_NAME}";
 				PROJECT_PLIST = "$(PROJECT_PLIST)";
-				PROVISIONING_PROFILE_SPECIFIER = "ChipeTaxiDispatch[AppStore]";
+				PROVISIONING_PROFILE_SPECIFIER = ChipeTaxiDispatch;
 				SWIFT_OBJC_BRIDGING_HEADER = "RoyoDriverApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -83435,7 +83454,7 @@
 				PROJECT_BUNDLE_ID = "$(PROJECT_BUNDLE_ID)";
 				PROJECT_NAME = "${PROJECT_NAME}";
 				PROJECT_PLIST = "$(PROJECT_PLIST)";
-				PROVISIONING_PROFILE_SPECIFIER = "HalaTalabat Dispatcher";
+				PROVISIONING_PROFILE_SPECIFIER = HalaTalabat_Dispatcher;
 				SWIFT_OBJC_BRIDGING_HEADER = "RoyoDriverApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -86058,7 +86077,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = 6FXUMT5X23;
+				DEVELOPMENT_TEAM = Z8RBTT4262;
 				ENABLE_BITCODE = NO;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				HEADER_SEARCH_PATHS = "$(inherited)";
@@ -86103,7 +86122,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = 6FXUMT5X23;
+				DEVELOPMENT_TEAM = Z8RBTT4262;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
@@ -86129,7 +86148,7 @@
 				PROJECT_BUNDLE_ID = "$(PROJECT_BUNDLE_ID)";
 				PROJECT_NAME = "${PROJECT_NAME}";
 				PROJECT_PLIST = "$(PROJECT_PLIST)";
-				PROVISIONING_PROFILE_SPECIFIER = "BlueBundles Dispatch";
+				PROVISIONING_PROFILE_SPECIFIER = "BlueBundles Driver";
 				SWIFT_OBJC_BRIDGING_HEADER = "RoyoDriverApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";

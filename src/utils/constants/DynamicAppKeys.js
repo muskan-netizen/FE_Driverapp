@@ -1217,7 +1217,7 @@ const appIds = {
   }),
   delivery: Platform.select({
     ios: 'com.gdotDelivery.driver',
-    android: 'com.Delivery.royodispatcher',
+    android: 'com.gdotDelivery.driver',
   }),
   timHomeServices: Platform.select({
     ios: 'com.TimHomeServices.Dispatch',
@@ -1236,8 +1236,8 @@ const appIds = {
     android: 'com.HelloDeliver.royodispatcher',
   }),
   viversBox: Platform.select({
-    ios: 'com.App.ViversBox.Dispatch',
-    android: 'com.ViversBox.royodispatcher',
+    ios: 'com.viversbox.driver',
+    android: 'com.viversbox.driver',
   }),
   scootz: Platform.select({
     ios: 'com.App.Scootz.Dispatch',
@@ -1416,16 +1416,16 @@ const appIds = {
     android: 'com.AmstaFood.royodispatcher',
   }),
   toor: Platform.select({
-    ios: 'com.Toor.Dispatch',
-    android: 'com.Toor.royodispatcher',
+    ios: 'com.toor.driver',
+    android: 'com.toor.driver',
   }),
   peerDeliveries: Platform.select({
     ios: 'com.PeerDeliveries.Dispatch',
     android: 'com.PeerDeliveries.royodispatcher',
   }),
   swan: Platform.select({
-    ios: 'com.Swan.Dispatch',
-    android: 'com.Swan.royodispatcher',
+    ios: 'com.swan.driver',
+    android: 'com.application.swanDriver',
   }),
   scootUp: Platform.select({
     ios: 'com.ScootUp.Dispatch',
@@ -1506,7 +1506,7 @@ const appIds = {
     android: 'com.myFarma.royodispatcher',
   }),
   blueBundles: Platform.select({
-    ios: 'com.blueBundles.driver',
+    ios: 'com.blueBundle.dispatcher',
     android: 'com.blueBundle.dispatcher',
   }),
   kartandkarry: Platform.select({
