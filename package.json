@@ -651,6 +651,12 @@
     "smartMurdispatcherRelease": "cd android && ./gradlew assemblesmartMurRelease",
     "ouiSpeeddispatcher": "react-native run-android --variant=ouiSpeedDebug",
     "ouiSpeeddispatcherRelease": "cd android && ./gradlew assembleouiSpeedRelease",
+    "getItSentdispatcher": "react-native run-android --variant=getItSentDebug",
+    "getItSentdispatcherRelease": "cd android && ./gradlew assemblegetItSentRelease",
+    "iAmSellingdispatcher": "react-native run-android --variant=iAmSellingDebug",
+    "iAmSellingdispatcherRelease": "cd android && ./gradlew assembleiAmSellingRelease",
+    "fifteenPdispatcher": "react-native run-android --variant=fifteenPDebug",
+    "fifteenPdispatcherRelease": "cd android && ./gradlew assemblefifteenPRelease",
     
     "android": "react-native run-android",
     "ios": "react-native run-ios",

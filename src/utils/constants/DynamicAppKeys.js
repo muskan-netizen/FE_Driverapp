@@ -328,6 +328,9 @@ const shortCodes = {
   americanLuxury:'0dad7b',
   smartMur:'b93a6b',
   ouiSpeed:'acced4',
+  getItSent:'bde9b2',
+  iAmSelling:'a4b0fc',
+  fifteenP:'4ac093',
 };
 
 const appIds = {
@@ -1629,6 +1632,18 @@ const appIds = {
   ouiSpeed: Platform.select({
     ios: 'com.ouiSpeed.dispatcher',
     android: 'com.ouiSpeed.dispatcher',
+  }),
+  getItSent: Platform.select({
+    ios: 'com.getItSent.dispatcher',
+    android: 'com.getItSent.dispatcher',
+  }),
+  iAmSelling: Platform.select({
+    ios: 'com.iAmSelling.dispatcher',
+    android: 'com.iAmSelling.dispatcher',
+  }),
+fifteenP: Platform.select({
+    ios: 'com.fifteenP.dispatcher',
+    android: 'com.fifteenP.dispatcher',
   }),
 };
 

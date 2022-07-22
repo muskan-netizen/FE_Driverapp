@@ -10,9 +10,9 @@
 // export const API_BASE_URL = 'https://gokab.royodispatch.com/'
 // export const API_BASE_URL = 'https://zest.royodispatch.com/';
 
-
+// export const API_BASE_URL='https://dispatch.tmgsalesllc.com/';
 //Staging
-//export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
  //export const API_BASE_URL='https://dispatch.lift.gd/';
 // export const API_BASE_URL = 'https://api.winhires.com/';
  //export const API_BASE_URL = 'https://api.rdstaging.com/';
@@ -21,7 +21,7 @@
  //export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-  export const API_BASE_URL = 'https://api.rdstaging.com/';
+ // export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 
  //export const API_BASE_URL = 'https://baytukom-dispatch.netsolutionindia.com/';
@@ -143,7 +143,7 @@
 
 //
 // export const API_BASE_URL = 'http://192.168.96.84:9090/'; // harbans local url
-// export const API_BASE_URL = 'https://delivery.shoorafresh.com.au/';
+ //export const API_BASE_URL = 'https://delivery.shoorafresh.com.au/';
 
 //dimahalal
 
@@ -178,7 +178,7 @@
 // export const API_BASE_URL = 'https://dispatch.samakeemart.com/';
 
 // mml
-// export const API_BASE_URL = 'https://dispatch.mml.mobi/';
+ //export const API_BASE_URL = 'https://dispatch.mml.mobi/';
 
 
 //manda

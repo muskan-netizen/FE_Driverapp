@@ -2033,6 +2033,24 @@ export default function ShortCode({route, navigation}) {
               isShortcodePrefilled: true,
             });
             break;
+            case appIds.getItSent:
+            updateState({
+              shortCode: shortCodes.getItSent,
+              isShortcodePrefilled: true,
+            });
+            break;
+            case appIds.iAmSelling:
+              updateState({
+                shortCode: shortCodes.iAmSelling,
+                isShortcodePrefilled: true,
+              });
+              break;
+              case appIds.fifteenP:
+                updateState({
+                  shortCode: shortCodes.fifteenP,
+                  isShortcodePrefilled: true,
+                });
+                break;
       }
     })();
   }, [internetConnection]);
