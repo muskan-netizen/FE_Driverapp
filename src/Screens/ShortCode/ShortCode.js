@@ -1950,7 +1950,7 @@ export default function ShortCode({route, navigation}) {
 
       let updatedShortCode = shortCode;
       // updatedShortCode = '745e3f';
-      // let updatedShortCode = '745e3f';
+      //  let updatedShortCode = '2d98b5';
 
       actions
         .initApp({shortCode: updatedShortCode}, header)
