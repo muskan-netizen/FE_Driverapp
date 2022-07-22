@@ -13,6 +13,7 @@ import {
   SearchProductVendorItem2,
   ProductDetail,
   WebConnection,
+  ChatScreen,
 } from '../Screens';
 import Cart from '../Screens/CustomerCart/Cart3';
 import OrderCancel from '../Screens/OrderCancel/OrderCancel';
@@ -99,6 +100,11 @@ export default function () {
       <Stack.Screen
         name={navigationStrings.WEBCONNECTIONS}
         component={WebConnection}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name={navigationStrings.CHAT_SCREEN}
+        component={ChatScreen}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

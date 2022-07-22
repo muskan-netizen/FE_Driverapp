@@ -323,6 +323,11 @@ const shortCodes = {
   myEvPlus:'745fe6',
   pawsee:'39cae6',
   hairRun:'5ee206',
+  qdelo:'0f7aa4',
+  zuriRide:'3a9316',
+  americanLuxury:'0dad7b',
+  smartMur:'b93a6b',
+  ouiSpeed:'acced4',
 };
 
 const appIds = {
@@ -916,8 +921,8 @@ const appIds = {
     android: 'com.FarmerSouq.royodispatcher',
   }),
   yogo_lift: Platform.select({
-    ios: 'com.YogoLift.Dispatch',
-    android: 'com.yogoLift.royodispatcher',
+    ios: 'com.YogoLift.Dispatcher',
+    android: 'com.yogoLift.dispatcher',
   }),
   mozmarcas: Platform.select({
     ios: 'com.Mozmarcas.Dispatch',
@@ -1604,6 +1609,26 @@ const appIds = {
   hairRun: Platform.select({
     ios: 'com.hairRun.dispatcher',
     android: 'com.hairRun.dispatcher',
+  }),
+  qdelo: Platform.select({
+    ios: 'com.qdelo.dispatcher',
+    android: 'com.qdelo.dispatcher',
+  }),
+  zuriRide: Platform.select({
+    ios: 'com.zuriRide.dispatcher',
+    android: 'com.zuriRide.dispatcher',
+  }),
+  americanLuxury: Platform.select({
+    ios: 'com.americanLuxury.dispatcher',
+    android: 'com.americanLuxury.dispatcher',
+  }),
+  smartMur: Platform.select({
+    ios: 'com.smartMur.dispatcher',
+    android: 'com.smartMur.dispatcher',
+  }),
+  ouiSpeed: Platform.select({
+    ios: 'com.ouiSpeed.dispatcher',
+    android: 'com.ouiSpeed.dispatcher',
   }),
 };
 

@@ -49,6 +49,7 @@ import geocoder from 'react-native-geocoder/js/geocoder';
 import { rippleLoader } from '../../Components/Loaders/AnimatedLoaderFiles/index';
 import LottieAnimation from 'lottie-react-native';
 import BackgroundService from 'react-native-background-actions';
+import socketServices from '../../utils/scoketService';
 
 // import BackgroundTimer from 'react-native-background-timer';
 
@@ -164,6 +165,12 @@ export default function DashBoard({ route, navigation }) {
     return () => { };
   }, []);
 
+  useEffect(()=>{
+
+    socketServices.initializeSocket(null);
+    
+    
+    },[])
   useEffect(() => {
     if (refreshHomeData && enableMap) {
       updateState({

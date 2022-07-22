@@ -201,16 +201,17 @@ android {
 
     flavorDimensions "appType"
 
-productFlavors{
-     viversBox{
+productFlavors {   
+              dimaVega{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.viversbox.driver'
-            resValue "string", "app_name", "Viversbox Dispatcher"
+            applicationId 'com.DimaVega.royodispatcher'
+            resValue "string", "app_name", "Dima Vega Dispatch"
+           
         }
 }
 
@@ -1912,8 +1913,8 @@ productFlavors{
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.yogoLift.royodispatcher'
-            resValue "string", "app_name", "yogo lift Dispatcher"
+            applicationId 'com.yogoLift.dispatcher'
+            resValue "string", "app_name", "Yogolift Driver"
         }
         mozmarcas{
             dimension "appType"
@@ -2369,7 +2370,7 @@ productFlavors{
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.SwiffyLLC.royodispatcher'
+            applicationId 'com.SwiffyLLC'
             resValue "string", "app_name", "SwiffyLLC Driver"
         }
         sabroson{
@@ -2572,7 +2573,7 @@ productFlavors{
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.Fawaz.royodispatcher'
-            resValue "string", "app_name", "Fawaz Dispatcher"
+            resValue "string", "app_name", "FAB Services Dispatcher"
         }
          myRide{
             dimension "appType"
@@ -3716,6 +3717,56 @@ productFlavors{
             // applicationIdSuffix ".royoorder"
             applicationId 'com.hairRun.dispatcher'
             resValue "string", "app_name", "Hair Run Dispatcher"
+        }
+        qdelo{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.qdelo.dispatcher'
+            resValue "string", "app_name", "Qdelo Dispatcher"
+        }
+         zuriRide{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.zuriRide.dispatcher'
+            resValue "string", "app_name", "Zuri Ride Dispatcher"
+        }
+        americanLuxury{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.americanLuxury.dispatcher'
+            resValue "string", "app_name", "American Luxury Services Dispatcher"
+        }
+         smartMur{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.smartMur.dispatcher'
+            resValue "string", "app_name", "Smart Mur Dispatcher"
+        }
+        ouiSpeed{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.ouiSpeed.dispatcher'
+            resValue "string", "app_name", "Oui Speed Dispatcher"
         }
 }
 }

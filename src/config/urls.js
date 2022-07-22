@@ -11,19 +11,20 @@
 // export const API_BASE_URL = 'https://dispatch.yogo.gd/';
 
 // export const API_BASE_URL = 'https://gokab.royodispatch.com/'
-// export const API_BASE_URL = 'https://grub.royodispatch.com/9';
+// export const API_BASE_URL = 'https://zest.royodispatch.com/';
 
 
 //Staging
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
+//export const API_BASE_URL = 'https://api.rdstaging.com/';
+ //export const API_BASE_URL='https://dispatch.lift.gd/';
 // export const API_BASE_URL = 'https://api.winhires.com/';
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
+ //export const API_BASE_URL = 'https://api.rdstaging.com/';
 //export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
 // export const API_BASE_URL = 'http://192.168.96.152:8006/';
  //export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-//  export const API_BASE_URL = 'https://api.rdstaging.com/';
+  // export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 
  //export const API_BASE_URL = 'https://baytukom-dispatch.netsolutionindia.com/';
@@ -143,7 +144,7 @@
 //empire
 // export const API_BASE_URL = 'https://dispatch.empirehub.com/';
 //Ullaz
-// export const API_BASE_URL = 'https://dispatch.ullaz.co.ke/';
+//export const API_BASE_URL = 'https://dispatch.ullaz.co.ke/';
 
 //LocalDropOff
 // export const API_BASE_URL = 'https://dispatch.localdropoff.info/';
@@ -162,7 +163,7 @@
 
 //dimahalal
 
-// export const API_BASE_URL = 'https://dispatch.dimahalal.com/api/v1';
+// export const API_BASE_URL = 'https://dispatch.dimahalal.com/';
 
 //hellodeliver
 // export const API_BASE_URL = 'https://dispatch.hellodeliver.in/';
@@ -288,7 +289,7 @@
 // mobi
 //bimol
 //  export const API_BASE_URL = 'https://dispatch.bimol.in/';
- export const API_BASE_URL = 'https://dispatch.mobimarket.com.mx/';
+//  export const API_BASE_URL = 'https://dispatch.mobimarket.com.mx/';
 // grub and gusto, ace
 // export const API_BASE_URL = 'https://grub.royodispatch.com/'
 // export const API_BASE_URL = 'https://gusto.royodispatch.com/'
@@ -412,3 +413,9 @@ export const GETORDERDETAILFORTASK = getApiUrl(
 export const GETCANCELORDERREASONLIST = getApiUrl('api/order/cancel/reasons');
 export const CANCELORDER = getApiUrl('api/order/cancel/request/create');
 export const GETWEBURL = getApiUrl('api/payment');
+
+//Chat Apis
+
+export const START_CHAT = getApiUrl('/chat/startChat');
+export const USER_CHAT = getApiUrl('/chat/userVendorChatRoom');
+export const VENDOR_CHAT = getApiUrl('/chat/vendorUserChatRoom');
