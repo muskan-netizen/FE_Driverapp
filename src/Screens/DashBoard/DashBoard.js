@@ -160,10 +160,6 @@ export default function DashBoard({ route, navigation }) {
     });
 
 
-    // BackgroundGeolocation.on('stop', () => {
-    //   console.log('[INFO] BackgroundGeolocation service has been stopped');
-    // });
-
     BackgroundGeolocation.on('authorization', (status) => {
       console.log('[INFO] BackgroundGeolocation authorization status: ' + status);
       if (status !== BackgroundGeolocation.AUTHORIZED) {
@@ -252,47 +248,12 @@ export default function DashBoard({ route, navigation }) {
     }, []),
   );
 
-  const currentLocation = () => {
-    chekLocationPermission()
-      .then(result => {
-        if (result !== 'goback') {
-          getCurrentPosition();
-        }
-      })
-      .catch(error => console.log('error while accessing location ', error));
-  };
 
-  const getCurrentPosition = () => {
-    return navigator.geolocation.default.getCurrentPosition(
-      position => {
-        console.log(position, 'position');
-        updateState({
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude,
-          heading: position.coords.heading,
-        });
 
-        getCurrentLocation(
-          position.coords.latitude,
-          position.coords.longitude,
-          'address',
-        )
-          .then(res => alert(res))
-          .catch(error => alert(error));
-      },
-      error => console.log(error.message),
-      {
-        enableHighAccuracy: true,
-        timeout: 20000,
-      },
-    );
-  };
+
 
   const fetchgentLogs = async (lat, lng, heading_) => {
-    getCurrentPosition();
-
-    // setTimeout(() => {
-    //  (async () => {
+   
     if (userData?.access_token) {
       let data = {};
       data['device_type'] = Platform.OS;
@@ -345,29 +306,10 @@ export default function DashBoard({ route, navigation }) {
         })
         .catch(errorMethod);
     }
-    //   })();
-    // }, 6000);
+
   };
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     fetchgentLogs(latitude, longitude, heading, '');
-  //   }, 5000);
-  // }, []);
 
-
-
-
-
-
-  // useInterval(
-  //   () => fetchgentLogs(latitude, longitude, heading, ''),
-  //   userData && userData?.access_token
-  //     ? userData?.team?.location_frequency
-  //       ? Number(2) * 6000
-  //       : 6000
-  //     : null,
-  // );
 
   useFocusEffect(
     React.useCallback(() => {
@@ -422,14 +364,6 @@ export default function DashBoard({ route, navigation }) {
   //Error handling in api
   const errorMethod = error => {
     console.log(error, 'error>>>>>>>>>>>>>>>>>>>>>');
-    // actions.updateHomepage(false);
-    // updateState({
-    //   isLoading: false,
-    //   isRefreshing: false,
-    //   isLoading: false,
-    //   isLoadingSwitch: false,
-    //   statusChanged: false,
-    // });
     showError(error?.message || error?.error);
   };
 
