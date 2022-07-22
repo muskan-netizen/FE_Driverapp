@@ -49,7 +49,7 @@
 // export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
 
 //Developement
-// export const API_BASE_URL = 'https://bafb-103-72-170-243.ngrok.io/';
+// export const API_BASE_URL = 'https://sales.winhires.com/';
 
 //UFOOD
 // export const API_BASE_URL = 'https://dispatch.ufood.ca/';
@@ -62,6 +62,8 @@
 
 //Fastmikes
 // export const API_BASE_URL = 'https://dispatch.fastmikes.com/';
+// export const API_BASE_URL = 'https://dispatch.beachhopdelivery.com/';
+// export const API_BASE_URL = 'https://dispatch.beachhopdelivery.com/';
 
 //Seratho
 // export const API_BASE_URL = 'https://dispatch.seratho.com/';
@@ -86,7 +88,7 @@
 // export const API_BASE_URL = 'http://192.168.101.187:8001/'; // preet local url
 // export const API_BASE_URL = 'http://192.168.102.23:8005/'; // Gourav.s local url
 // export const API_BASE_URL = 'http://192.168.97.104:8010/'; // Sujata.s local url
-//export const API_BASE_URL = 'http://192.168.100.143:8000/';
+// export const API_BASE_URL = 'http://192.168.101.187:8001/';
 
 //
 // export const API_BASE_URL = 'http://192.168.96.84:9090/'; // harbans local url
@@ -152,7 +154,7 @@
 // export const API_BASE_URL = 'https://dispatch.martinionwheelsllc.org/';
 
 //YEBOY
-//export const API_BASE_URL = 'https://dispatch.yeboy.mx/';
+// export const API_BASE_URL = 'https://dispatch.yeboy.mx/';
 
 // VICI
 // export const API_BASE_URL = 'https://envios.vici.la/';
@@ -219,6 +221,11 @@
 // click-eat
 // export const API_BASE_URL = 'https://dispatcher.click-eat.com/'
 
+// export const API_BASE_URL = 'https://dispatch.click2deliver.co.uk/'
+
+
+
+
 // halalhmc
 // export const API_BASE_URL = 'https://dispatcher.halalhmc.org/';
 // tranznet online
@@ -246,13 +253,14 @@
 // export const API_BASE_URL = 'https://dispatch.donepacked.com/';
 
 // elcheregio live domain
-//export const API_BASE_URL = 'https://dispatch.elcheregio.mx/';
+// export const API_BASE_URL = 'https://dispatch.elcheregio.mx/';
 
 // sunshinerideshare live domain
 // export const API_BASE_URL = 'https://dispatch.sunshinerideshare.com/';
 
 //Swiffy live domain
 // export const API_BASE_URL = 'https://dispatch.swiffy.us/';
+
 //We eat live
 // export const API_BASE_URL = 'https://weeat.royodispatch.com/';
 

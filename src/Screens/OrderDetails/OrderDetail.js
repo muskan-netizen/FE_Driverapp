@@ -194,13 +194,15 @@ export default function OrderDetail({route, navigation}) {
                             style={{
                               flex: 0.5,
                               justifyContent: 'center',
+                          
                               alignItems:
                                 defaultLanguagae?.value == 'ar'
                                   ? 'flex-start'
                                   : 'flex-end',
                             }}>
+                       
                             <Text style={styles.cartItemPrice}>
-                              {Number(i?.price).toFixed(2)}
+                              {Number((i?.price)*(i?.quantity)).toFixed(2)}
                             </Text>
                           </View>
                         </View>
@@ -230,7 +232,7 @@ export default function OrderDetail({route, navigation}) {
                                   {strings.QTY}
                                 </Text>
                                 <Text style={styles.cartItemWeight}>
-                                  {` ${i?.quantity}`}
+                                  {` ${i?.quantity} X ${Number(i?.price)}`}
                                 </Text>
                               </View>
                             )}
@@ -310,20 +312,20 @@ export default function OrderDetail({route, navigation}) {
             </Text>
           </View>
         )}
-        {Number(item?.delivery_fee) > 0 && (
+        {/* {Number(item?.delivery_fee) > 0 && (
           <View style={styles.itemPriceDiscountTaxView}>
             <Text style={styles.priceItemLabel}>{strings.DELIVERYFEE}</Text>
             <Text style={styles.priceItemLabel}>
               {item?.delivery_fee > 0 && Number(item?.delivery_fee).toFixed(2)}
             </Text>
           </View>
-        )}
-        <View style={styles.itemPriceDiscountTaxView}>
+        )} */}
+        {/* <View style={styles.itemPriceDiscountTaxView}>
           <Text style={styles.priceItemLabel2}>{strings.AMOUNT}</Text>
           <Text style={styles.priceItemLabel2}>
             {item?.payable_amount ? Number(item?.payable_amount).toFixed(2) : 0}
           </Text>
-        </View>
+        </View> */}
       </View>
     );
   };

@@ -549,7 +549,7 @@ const appIds = {
     android: 'com.AgriOnline.royodispatcher',
   }),
   clickeat: Platform.select({
-    ios: 'com.ClickEat.Dispatch',
+    ios: 'com.clickEat.royoDispatcher',
     android: 'com.clickEat.royodispatcher',
   }),
   tranzet: Platform.select({
@@ -577,7 +577,7 @@ const appIds = {
     android: 'com.Gusto.royodispatcher',
   }),
   click2Deliver: Platform.select({
-    ios: 'com.click2deliver.driver',
+    ios: 'com.click2deliver.royoDispatcher',
     android: 'com.Click2Deliver.royodispatcher',
   }),
   truckTireNow: Platform.select({
@@ -1078,7 +1078,7 @@ const appIds = {
   }),
   swiffyLLC: Platform.select({
     ios: 'com.SwiffyLLC.Dispatcher',
-    android: 'com.SwiffyLLC.royodispatcher',
+    android: 'com.SwiffyLLC',
   }),
   sabroson: Platform.select({
     ios: 'com.Sabroson.Dispatch',
@@ -1205,7 +1205,7 @@ const appIds = {
     android: 'com.TimHomeServices.royodispatcher',
   }),
   dbairro: Platform.select({
-    ios: 'com.Dbairro.Dispatch',
+    ios: 'com.Dbairro.Dispatcher',
     android: 'com.Dbairro.royodispatcher',
   }),
   knockknock: Platform.select({
@@ -1242,7 +1242,7 @@ const appIds = {
   }),
   beachHop: Platform.select({
     ios: 'com.BeachHop.Dispatcher',
-    android: 'com.BeachHop.royodispatcher',
+    android: 'com.BeachHop.Dispatch',
   }),
   wer: Platform.select({
     ios: 'com.Wer.Dispatcher',
