@@ -15,7 +15,7 @@
 // export const API_BASE_URL ='http://192.168.96.84:9090/'
 
 //dimavega
-// export const API_BASE_URL ='https://dispatch.dimahalal.com/'
+export const API_BASE_URL ='https://dispatch.dimahalal.com/'
 
 //gdotdelivery
 // export const API_BASE_URL ='https://dispatch.gdotdelivery.com/'
@@ -245,7 +245,7 @@
 // export const API_BASE_URL = 'https://dispatch.loopwhole.ca/';
 
 // donepacked live domain
-export const API_BASE_URL = 'https://dispatch.donepacked.com/';
+// export const API_BASE_URL = 'https://dispatch.donepacked.com/';
 
 // elcheregio live domain
 // export const API_BASE_URL = 'https://dispatch.elcheregio.mx/';
