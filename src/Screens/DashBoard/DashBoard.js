@@ -540,11 +540,14 @@ export default function DashBoard({ route, navigation }) {
 
   const fitToMap = () => {
     if (markers && markers.length && enableMap) {
-      let newArray = markers.map((i, inx) => {
-        return {
-          latitude: Number(i?.location?.latitude),
-          longitude: Number(i?.location?.longitude),
-        };
+      let newArray = markers.filter((i, inx) => {
+        if (i && i?.location && i?.location?.latitude != NaN && i?.location?.longitude != NaN) {
+          return {
+            latitude: Number(i?.location?.latitude),
+            longitude: Number(i?.location?.longitude),
+          }
+        }
+
       });
       console.log(newArray, 'newArray');
       // animate(region);
@@ -642,7 +645,7 @@ export default function DashBoard({ route, navigation }) {
         //   customMapStyle={mapStyle}
         onRegionChangeComplete={_onRegionChange}>
         {markers?.map((coordinate, index) => (
-          <Marker
+          coordinate && coordinate?.location && coordinate?.location?.latitude != NaN && coordinate?.location?.longitude != NaN && <Marker
             tracksViewChanges={false}
             zIndex={index}
             key={`coordinate_${index}`}

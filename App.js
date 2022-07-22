@@ -144,8 +144,8 @@ const App = () => {
   };
 
   useEffect(() => {
-    notificationConfig();
     checkExistChannel();
+    notificationConfig();
     setTimeout(() => {
       SplashScreen.hide();
     }, 1500);

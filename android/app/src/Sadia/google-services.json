@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "59045941360",
+    "project_id": "sadia-dispatcher",
+    "storage_bucket": "sadia-dispatcher.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:59045941360:android:f077d500d8fd68903ea4b5",
+        "android_client_info": {
+          "package_name": "com.sadia.royodispatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "59045941360-lcs4doic57skh4aca32hmel8ismqc0j6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6JRnlr0C4_8E3KqNYP79QpQ417tIPnag"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "59045941360-lcs4doic57skh4aca32hmel8ismqc0j6.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "59045941360-i123qj4snb9dmdm4nv1klglb4rdhv4jc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sadia.royodispatcher"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "187062036827",
+    "project_id": "elentamart-dispatcher",
+    "storage_bucket": "elentamart-dispatcher.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:187062036827:android:bd32c6e13489dfc382127e",
+        "android_client_info": {
+          "package_name": "com.elentamart.dispatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "187062036827-t88jd7hu12q8cntof6mrljj6kq5oobql.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtrBt1VpJo8A9yZjCR6MD4U_3VmwT2O04"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "187062036827-t88jd7hu12q8cntof6mrljj6kq5oobql.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "187062036827-0a2p0qf535beo2pvft2uf1l672dj6e61.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.elentamart.dispatcher"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
