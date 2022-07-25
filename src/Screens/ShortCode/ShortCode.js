@@ -2063,6 +2063,12 @@ export default function ShortCode({route, navigation}) {
                   isShortcodePrefilled: true,
                 });
                 break;
+                case appIds.farmMeat:
+                  updateState({
+                    shortCode: shortCodes.farmMeat,
+                    isShortcodePrefilled: true,
+                  });
+                  break;
       }
     })();
   }, [internetConnection]);

@@ -661,6 +661,8 @@
     "euodooTechnologiesdispatcherRelease": "cd android && ./gradlew assembleeuodooTechnologiesRelease",
     "rotadispatcher": "react-native run-android --variant=rotaDebug",
     "rotadispatcherRelease": "cd android && ./gradlew assemblerotaRelease",
+    "farmMeatdispatcher": "react-native run-android --variant=farmMeatDebug",
+    "farmMeatdispatcherRelease": "cd android && ./gradlew assemblefarmMeatRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
@@ -671,6 +673,7 @@
     "postinstall": "patch-package"
   },
   "dependencies": {
+    "@darron1217/react-native-background-geolocation": "^0.6.6",
     "@gorhom/bottom-sheet": "^4.1.5",
     "@react-native-async-storage/async-storage": "^1.15.7",
     "@react-native-community/cli": "^7.0.2",

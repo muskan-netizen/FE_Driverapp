@@ -1,7 +1,6 @@
+import { debounce } from 'lodash';
 import React, { useEffect, useRef, useState } from 'react';
-import { FlatList, Linking, NativeModules, Text } from 'react-native';
-import { cloneDeep, debounce, invert } from 'lodash';
-import { Image, Switch, View, RefreshControl, BackHandler } from 'react-native';
+import { BackHandler, FlatList, Image, Linking, RefreshControl, Switch, Text, View } from 'react-native';
 import { useSelector } from 'react-redux';
 import Header from '../../Components/Header';
 import { loaderOne } from '../../Components/Loaders/AnimatedLoaderFiles';
@@ -10,47 +9,36 @@ import WrapperContainer from '../../Components/WrapperContainer';
 import imagePath from '../../constants/imagePath';
 import actions from '../../redux/actions';
 // import store from '../../redux/store';
+import { useFocusEffect } from '@react-navigation/native';
+import { Platform, TouchableOpacity } from 'react-native';
+import DeviceInfo from 'react-native-device-info';
+import MapView, {
+  Marker
+} from 'react-native-maps'; // remove PROVIDER_GOOGLE import if not using Google Maps
+import ListEmptyComponent from '../../Components/ListEmptyComponent';
+import TaskListCard from '../../Components/TaskListCard';
+import strings from '../../constants/lang';
+import navigationStrings from '../../navigation/navigationStrings';
 import colors from '../../styles/colors';
 import commonStylesFunc from '../../styles/commonStyles';
 import fontFamily from '../../styles/fontFamily';
 import {
   moderateScale,
   moderateScaleVertical,
-  width,
+  width
 } from '../../styles/responsiveSize';
-import TaskListCard from '../../Components/TaskListCard';
 import {
-  getColorCodeWithOpactiyNumber,
   getCurrentLocation,
-  showError,
+  showError
 } from '../../utils/helperFunctions';
-import ListEmptyComponent from '../../Components/ListEmptyComponent';
-import strings from '../../constants/lang';
-import MapView, {
-  AnimatedRegion,
-  Marker,
-  PROVIDER_GOOGLE,
-} from 'react-native-maps'; // remove PROVIDER_GOOGLE import if not using Google Maps
-import styles from './styles';
-import DeviceInfo from 'react-native-device-info';
-import navigationStrings from '../../navigation/navigationStrings';
-import { TouchableOpacity } from 'react-native';
-import { useFocusEffect } from '@react-navigation/native';
-import useInterval from '../../utils/useInterval';
-import { Platform } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import moment from 'moment';
-import { chekLocationPermission } from '../../utils/permissions';
-navigator.geolocation = require('react-native-geolocation-service');
-import Geocoder from 'react-native-geocoding';
 import { requestUserPermission } from '../../utils/notificationServices';
-import Geolocation_ from '@react-native-community/geolocation';
-import geocoder from 'react-native-geocoder/js/geocoder';
-import { rippleLoader } from '../../Components/Loaders/AnimatedLoaderFiles/index';
-import LottieAnimation from 'lottie-react-native';
-import BackgroundService from 'react-native-background-actions';
+import { chekLocationPermission } from '../../utils/permissions';
+import styles from './styles';
+navigator.geolocation = require('react-native-geolocation-service');
+// import BackgroundService from 'react-native-background-actions';
 
 // import BackgroundTimer from 'react-native-background-timer';
+import BackgroundGeolocation from '@darron1217/react-native-background-geolocation';
 
 export default function DashBoard({ route, navigation }) {
   const userData = useSelector(state => state?.auth?.userData);
@@ -127,32 +115,6 @@ export default function DashBoard({ route, navigation }) {
   const fcmToken = useSelector(state => state?.initBoot?.fcmToken);
   const zendeskKeys = useSelector(state => state?.initBoot?.zendeskKeys);
 
-  const initWatchPosition = () => {
-    return;
-    Geolocation_.watchPosition(
-      position => {
-        console.log('position => position => position =>', position);
-        updateState({
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude,
-          heading: position.coords.heading,
-        });
-        fetchgentLogs(
-          position.coords.latitude,
-          position.coords.longitude,
-          position.coords.heading,
-          'callFromWatchPosition',
-        );
-      },
-      error => console.log(error.message),
-      {
-        enableHighAccuracy: true,
-        timeout: 20000,
-        maximumAge: 1000,
-        distanceFilter: 100,
-      },
-    );
-  };
 
   useEffect(() => {
     (async () => {
@@ -172,19 +134,8 @@ export default function DashBoard({ route, navigation }) {
     }
   }, [refreshHomeData]);
 
-  // useEffect(() => {
-  //     BackgroundTimer.runBackgroundTimer(() => {
-  //       console.log('this is background');
-  //       Vibration.vibrate(2000);
-  //       //code that will be called every 3 seconds
-  //     }, 3000);
-  //     //rest of code will be performing for iOS on background too
 
-  // BackgroundTimer.stopBackgroundTimer();
-  //   }, []);
   useEffect(() => {
-    initWatchPosition();
-
     const backHandler = BackHandler.addEventListener(
       'hardwareBackPress',
       () => true,
@@ -192,96 +143,98 @@ export default function DashBoard({ route, navigation }) {
     return () => backHandler.remove();
   }, []);
 
-  const sleep = time =>
-    new Promise(resolve => setTimeout(() => resolve(), time));
 
-  const BackgroundServiceInit = async () => {
-    const veryIntensiveTask = async taskDataArguments => {
-      const { delay } = taskDataArguments;
-      await new Promise(async resolve => {
-        for (let i = 0; BackgroundService.isRunning(); i++) {
-          // await sleep(delay);
-          await sleep(1000000000000);
-        }
-        startLocatonTrack();
-        fetchgentLogs();
-      });
-    };
 
-    const options = {
-      taskName: 'Location Tracking',
-      taskTitle: 'Location Tracking',
-      taskDesc: `Tracking driver's location in background.`,
-      taskIcon: {
-        name: 'ic_launcher',
-        type: 'mipmap',
+  useEffect(() => {
+    BackgroundGeolocation.on('location', (location) => {
+      console.log(location, "location >>>>>>>");
+      let headingAngle = location?.bearing || 0.00
+      let lat = location?.latitude || 0
+      let long = location.longitude || 0
+      fetchgentLogs(lat, long, headingAngle)
+    });
+
+
+    BackgroundGeolocation.on('error', (error) => {
+      console.log('[ERROR] BackgroundGeolocation error:', error);
+    });
+
+
+    BackgroundGeolocation.on('authorization', (status) => {
+      console.log('[INFO] BackgroundGeolocation authorization status: ' + status);
+      if (status !== BackgroundGeolocation.AUTHORIZED) {
+        // we need to set delay or otherwise alert may not be shown
+        setTimeout(() =>
+          Alert.alert('App requires location tracking permission', 'Would you like to open app settings?', [
+            { text: 'Yes', onPress: () => BackgroundGeolocation.showAppSettings() },
+            { text: 'No', onPress: () => console.log('No Pressed'), style: 'cancel' }
+          ]), 1000);
+      }
+    });
+
+    BackgroundGeolocation.on('background', () => {
+
+      console.log('[INFO] App is in background');
+
+
+    });
+
+    BackgroundGeolocation.on('foreground', () => {
+      console.log('[INFO] App is in foreground');
+
+    });
+
+    BackgroundGeolocation.on('abort_requested', () => {
+      console.log('[INFO] Server responded with 285 Updates Not Required');
+    });
+
+    BackgroundGeolocation.on('http_authorization', () => {
+      console.log('[INFO] App needs to authorize the http requests');
+    });
+
+    BackgroundGeolocation.checkStatus(status => {
+      console.log(status, "status.isRunning");
+      if (!status.isRunning) {
+        BackgroundGeolocation.start(); //triggers start on start event
+      }
+    });
+
+
+
+    BackgroundGeolocation.configure({
+      activityType: 'Fitness',
+      desiredAccuracy: BackgroundGeolocation.HIGH_ACCURACY,
+      stationaryRadius: 10,
+      distanceFilter: 10,
+      debug: false,
+      startOnBoot: false,
+      stopOnTerminate: true,
+      notificationTitle: 'Location Tracking',
+      notificationText: `Tracking driver's location in background.`,
+      locationProvider: BackgroundGeolocation.ACTIVITY_PROVIDER,
+      interval: 10000,
+      fastestInterval: 10000,
+      activitiesInterval: 10000,
+      stopOnStillActivity: false,
+      pauseLocationUpdates: false,
+      url: '',
+      httpHeaders: {
+        'X-FOO': 'bar'
       },
-      color: '#ff00ff',
-      parameters: {
-        delay: 1000 * 60 * 60 * 60,
-      },
-    };
-    await BackgroundService.start(veryIntensiveTask, options).then(res =>
-      console.log('check background task initiate', res),
-    );
-    // await BackgroundService.updateNotification({
-    //   taskDesc: 'Background location track enabled',
-    // });
-  };
+      // customize post properties
+      postTemplate: {
+        lat: '@latitude',
+        lon: '@longitude',
+        foo: 'bar' // you can also add your own properties
+      }
+    })
 
-  useEffect(async () => {
-    if (BackgroundService.isRunning()) {
-      await BackgroundService.stop();
-    }
-    if (!BackgroundService.isRunning()) {
-      BackgroundServiceInit();
-      AsyncStorage.getItem('timerWatch').then(res => {
-        const t = JSON.parse(res);
-
-        clearTimeout(t);
-        startLocatonTrack();
-      });
+    return () => {
+      BackgroundGeolocation.removeAllListeners();
     }
 
-    return function cleanup() {
-      console.log(' Will unmount ');
-      watchID != null && Geolocation_.clearWatch(watchID);
-    };
-  }, []);
+  }, [])
 
-  const startLocatonTrack = () => {
-    console.log('check callback in startLocatonTrack method call');
-    const timer = __DEV__
-      ? 10000
-      : userData?.team?.location_frequency
-        ? Number(userData?.team?.location_frequency) * 60000
-        : 1000 * 60 * 3;
-
-    console.log(timer, 'timer>>>>timer');
-
-    if (userData && userData?.access_token) {
-      getCurrentPosition();
-      var t = setTimeout(() => {
-        startLocatonTrack();
-      }, timer);
-
-      AsyncStorage.setItem('timerWatch', JSON.stringify(t));
-    }
-
-    // var waiting = false; // Initially, we're not waiting
-    // return function () {
-    //   // We return a throttled function
-    //   if (!waiting) {
-    //     // If we're not waiting
-    //     getCurrentPosition(); // Execute users function
-    //     waiting = true; // Prevent future invocations
-    //     setTimeout(function () {
-    //       // After a period of time
-    //       waiting = false; // And allow future invocations
-    //     }, 2000);
-    //   }
-    // };
-  };
 
   useFocusEffect(
     React.useCallback(() => {
@@ -295,118 +248,68 @@ export default function DashBoard({ route, navigation }) {
     }, []),
   );
 
-  const currentLocation = () => {
-    chekLocationPermission()
-      .then(result => {
-        if (result !== 'goback') {
-          getCurrentPosition();
-        }
-      })
-      .catch(error => console.log('error while accessing location ', error));
+
+
+
+
+  const fetchgentLogs = async (lat, lng, heading_) => {
+   
+    if (userData?.access_token) {
+      let data = {};
+      data['device_type'] = Platform.OS;
+      data['os_version'] = DeviceInfo.getSystemVersion();
+      data['app_version'] = DeviceInfo.getVersion();
+      data['on_route'] = 'y';
+      data['battery_level'] = (await DeviceInfo.getBatteryLevel()) * 100;
+      data['all'] = selectedOption;
+      // data['current_speed'] = 'y';
+      data['long'] = lng
+      data['lat'] = lat
+      data['device_token'] = !!fcmToken ? fcmToken : '';
+      data['heading_angle'] = heading_
+      // console.log(data, 'data>data');
+      console.log(data, 'sending data data??????');
+      actions
+        .logsApi(data, { client: clientInfo?.database_name })
+        .then(res => {
+          console.log(res, 'logs data');
+          if (
+            res?.data?.user?.client_preference
+              ?.customer_support_application_id != null &&
+            res?.data?.user?.client_preference?.customer_support_key != null
+          ) {
+            if (
+              zendeskKeys?.keys?.account_key !=
+              res?.data?.user?.client_preference?.customer_support_key &&
+              zendeskKeys?.keys?.application_id !=
+              res?.data?.user?.client_preference
+                ?.customer_support_application_id
+            )
+              actions?.setZendeskKeys({
+                keys: {
+                  application_id:
+                    res?.data?.user?.client_preference
+                      ?.customer_support_application_id,
+                  account_key:
+                    res?.data?.user?.client_preference
+                      ?.customer_support_key,
+                },
+              });
+          }
+          console.log(res, 'res>>>>>>>agenLog');
+
+          if (selectedOption == 1) {
+            updateState({ allTasks: res?.data?.tasks });
+          } else {
+            updateState({ todaysTasks: res?.data?.tasks });
+          }
+        })
+        .catch(errorMethod);
+    }
+
   };
 
-  const getCurrentPosition = () => {
-    return navigator.geolocation.default.getCurrentPosition(
-      position => {
-        console.log(position, 'position');
-        updateState({
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude,
-          heading: position.coords.heading,
-        });
 
-        getCurrentLocation(
-          position.coords.latitude,
-          position.coords.longitude,
-          'address',
-        )
-          .then(res => alert(res))
-          .catch(error => alert(error));
-      },
-      error => console.log(error.message),
-      {
-        enableHighAccuracy: true,
-        timeout: 20000,
-      },
-    );
-  };
-
-  const fetchgentLogs = (lat, lng, heading_, callFrom) => {
-    getCurrentPosition();
-
-    setTimeout(() => {
-      (async () => {
-        if (userData?.access_token) {
-          let data = {};
-          data['device_type'] = Platform.OS;
-          data['os_version'] = DeviceInfo.getSystemVersion();
-          data['app_version'] = DeviceInfo.getVersion();
-          data['on_route'] = 'y';
-          data['battery_level'] = (await DeviceInfo.getBatteryLevel()) * 100;
-          data['all'] = selectedOption;
-          // data['current_speed'] = 'y';
-          data['long'] = callFrom === 'callFromWatchPosition' ? lng : longitude;
-          data['lat'] = callFrom === 'callFromWatchPosition' ? lat : latitude;
-          data['device_token'] = !!fcmToken ? fcmToken : '';
-          data['heading_angle'] =
-            callFrom === 'callFromWatchPosition' ? heading_ : heading;
-          // console.log(data, 'data>data');
-          console.log(data, 'sending data data??????');
-          actions
-            .logsApi(data, { client: clientInfo?.database_name })
-            .then(res => {
-              console.log(res, 'logs data');
-              if (
-                res?.data?.user?.client_preference
-                  ?.customer_support_application_id != null &&
-                res?.data?.user?.client_preference?.customer_support_key != null
-              ) {
-                if (
-                  zendeskKeys?.keys?.account_key !=
-                  res?.data?.user?.client_preference?.customer_support_key &&
-                  zendeskKeys?.keys?.application_id !=
-                  res?.data?.user?.client_preference
-                    ?.customer_support_application_id
-                )
-                  actions?.setZendeskKeys({
-                    keys: {
-                      application_id:
-                        res?.data?.user?.client_preference
-                          ?.customer_support_application_id,
-                      account_key:
-                        res?.data?.user?.client_preference
-                          ?.customer_support_key,
-                    },
-                  });
-              }
-              console.log(res, 'res>>>>>>>agenLog');
-
-              if (selectedOption == 1) {
-                updateState({ allTasks: res?.data?.tasks });
-              } else {
-                updateState({ todaysTasks: res?.data?.tasks });
-              }
-            })
-            .catch(errorMethod);
-        }
-      })();
-    }, 2000);
-  };
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     fetchgentLogs(latitude, longitude, heading, '');
-  //   }, 5000);
-  // }, []);
-
-  useInterval(
-    () => fetchgentLogs(latitude, longitude, heading, ''),
-    userData && userData?.access_token
-      ? userData?.team?.location_frequency
-        ? Number(userData?.team?.location_frequency) * 6000
-        : 6000
-      : null,
-  );
 
   useFocusEffect(
     React.useCallback(() => {
@@ -461,14 +364,6 @@ export default function DashBoard({ route, navigation }) {
   //Error handling in api
   const errorMethod = error => {
     console.log(error, 'error>>>>>>>>>>>>>>>>>>>>>');
-    // actions.updateHomepage(false);
-    // updateState({
-    //   isLoading: false,
-    //   isRefreshing: false,
-    //   isLoading: false,
-    //   isLoadingSwitch: false,
-    //   statusChanged: false,
-    // });
     showError(error?.message || error?.error);
   };
 
@@ -733,6 +628,7 @@ export default function DashBoard({ route, navigation }) {
   };
 
   const animation = React.createRef();
+  console.log(latitude, longitude, "longitude");
 
   const mapView = () => {
     return (
@@ -744,7 +640,7 @@ export default function DashBoard({ route, navigation }) {
         zoomEnabled={true}
         initialRegion={region}
         // showsUserLocation={true}
-        //showsMyLocationButton={true}
+        // showsMyLocationButton={true}
         onLayout={() => fitToMap()}
         //   customMapStyle={mapStyle}
         onRegionChangeComplete={_onRegionChange}>
