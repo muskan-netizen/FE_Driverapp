@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CodePushDeploymentKey</key>
+	<string>$(CODE_PUSH_KEY)</string>
   <key>CFBundleDevelopmentRegion</key>
   <string>en</string>
   <key>CFBundleDisplayName</key>
@@ -35,6 +37,8 @@
       </dict>
     </dict>
   </dict>
+  <key>NSMotionUsageDescription</key>
+  <string>$(PRODUCT_NAME)would like to access your live location updates in forground mode </string>
   <key>NSAppleMusicUsageDescription</key>
   <string>Play using while you are hiking</string>
   <key>NSCameraUsageDescription</key>

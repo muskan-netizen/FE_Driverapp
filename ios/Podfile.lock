@@ -1,4 +1,6 @@
 PODS:
+  - "@darron1217_react-native-background-geolocation (0.6.6)":
+    - React
   - Base64 (1.1.2)
   - boost-for-react-native (1.63.0)
   - BVLinearGradient (2.5.6):
@@ -518,6 +520,7 @@ PODS:
   - ZendeskSDKConfigurationsSDK (1.1.11)
 
 DEPENDENCIES:
+  - "@darron1217_react-native-background-geolocation (from `../node_modules/@darron1217/react-native-background-geolocation`)"
   - BVLinearGradient (from `../node_modules/react-native-linear-gradient`)
   - CodePush (from `../node_modules/react-native-code-push`)
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
@@ -635,6 +638,8 @@ SPEC REPOS:
     - ZendeskSDKConfigurationsSDK
 
 EXTERNAL SOURCES:
+  "@darron1217_react-native-background-geolocation":
+    :path: "../node_modules/@darron1217/react-native-background-geolocation"
   BVLinearGradient:
     :path: "../node_modules/react-native-linear-gradient"
   CodePush:
@@ -787,6 +792,7 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
+  "@darron1217_react-native-background-geolocation": c95c3a183a938b39c4d7c8bea3b9cbe4b03e8766
   Base64: cecfb41a004124895a7bcee567a89bae5a89d49b
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   BVLinearGradient: e3aad03778a456d77928f594a649e96995f1c872
@@ -896,6 +902,6 @@ SPEC CHECKSUMS:
   ZendeskMessagingSDK: 95d396c981dacfab83cc7b9736e8561d51a3052b
   ZendeskSDKConfigurationsSDK: ebced171fd1f4eb57760e8537d8cfa6a450122be
 
-PODFILE CHECKSUM: ec07a34a08480f4cb06ef500fd62178012cbb11e
+PODFILE CHECKSUM: 048f575a1cb6797bd8ed64540e3c1920a85b42aa
 
 COCOAPODS: 1.11.3
