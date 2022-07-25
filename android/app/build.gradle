@@ -202,25 +202,15 @@ android {
     flavorDimensions "appType"
 
 // productFlavors {
-//          smartMur{
+//                  swiffyLLC{
 //             dimension "appType"
 //             versionCode 1
 //             versionName "1.0"
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.smartMur.dispatcher'
-//             resValue "string", "app_name", "Smart Mur Dispatcher"
-//         }
-//          fawaz{
-//             dimension "appType"
-//             versionCode 1
-//             versionName "1.0"
-//             minSdkVersion rootProject.ext.minSdkVersion
-//             targetSdkVersion rootProject.ext.targetSdkVersion
-//             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.Fawaz.royodispatcher'
-//             resValue "string", "app_name", "FAB Services Dispatcher"
+//             applicationId 'com.SwiffyLLC'
+//             resValue "string", "app_name", "SwiffyLLC Driver"
 //         }
 // }
 

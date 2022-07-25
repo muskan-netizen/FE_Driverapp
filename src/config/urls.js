@@ -12,7 +12,7 @@
 
 
 //Staging
-//export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
  //export const API_BASE_URL='https://dispatch.lift.gd/';
 // export const API_BASE_URL = 'https://api.winhires.com/';
  //export const API_BASE_URL = 'https://api.rdstaging.com/';
@@ -21,7 +21,7 @@
  //export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-  export const API_BASE_URL = 'https://api.rdstaging.com/';
+  // export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 
  //export const API_BASE_URL = 'https://baytukom-dispatch.netsolutionindia.com/';
@@ -75,7 +75,7 @@
 // export const API_BASE_URL ='https://dispatch.gdotdelivery.com/'
 
 
-// export const API_BASE_URL = 'https://dispatch.butlerdeliveryusa.com/'
+// export const API_BASE_URL = 'https://dispatch.sabroson.com.mx'
 //heybuddy
 // export const API_BASE_URL ='https://dispatch.heybuddy.com.mx/'
 
