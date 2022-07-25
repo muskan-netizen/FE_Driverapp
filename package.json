@@ -657,7 +657,10 @@
     "iAmSellingdispatcherRelease": "cd android && ./gradlew assembleiAmSellingRelease",
     "fifteenPdispatcher": "react-native run-android --variant=fifteenPDebug",
     "fifteenPdispatcherRelease": "cd android && ./gradlew assemblefifteenPRelease",
-    
+    "euodooTechnologiesdispatcher": "react-native run-android --variant=euodooTechnologiesDebug",
+    "euodooTechnologiesdispatcherRelease": "cd android && ./gradlew assembleeuodooTechnologiesRelease",
+    "rotadispatcher": "react-native run-android --variant=rotaDebug",
+    "rotadispatcherRelease": "cd android && ./gradlew assemblerotaRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",

@@ -12,18 +12,18 @@
 
 // export const API_BASE_URL='https://dispatch.tmgsalesllc.com/';
 //Staging
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
- //export const API_BASE_URL='https://dispatch.lift.gd/';
+ export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL='https://dispatch.lift.gd/';
 // export const API_BASE_URL = 'https://api.winhires.com/';
- //export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
 //export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
 // export const API_BASE_URL = 'http://192.168.96.152:8006/';
  //export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
- //export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
 
-// export const API_BASE_URL='https://d078-103-72-170-243.in.ngrok.io/'
+ //export const API_BASE_URL='https://d078-103-72-170-243.in.ngrok.io/'
  //export const API_BASE_URL = 'https://baytukom-dispatch.netsolutionindia.com/';
 
 
@@ -298,7 +298,7 @@
 // export const API_BASE_URL = 'https://dispatcher.drivereeshops.com/';
 
 // helpNowRightNow live domain
- export const API_BASE_URL = 'https://dispatch.helpnowrightnow.com/';
+ //export const API_BASE_URL = 'https://dispatch.helpnowrightnow.com/';
 
 // tranzit live domain
 // export const API_BASE_URL = 'https://dispatch.tranzit.app/';

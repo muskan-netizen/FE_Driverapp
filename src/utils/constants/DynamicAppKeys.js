@@ -331,6 +331,8 @@ const shortCodes = {
   getItSent:'bde9b2',
   iAmSelling:'a4b0fc',
   fifteenP:'4ac093',
+  euodooTechnologies:'bb0bda',
+  rota:'7bad1b',
 };
 
 const appIds = {
@@ -1644,6 +1646,14 @@ const appIds = {
 fifteenP: Platform.select({
     ios: 'com.fifteenP.dispatcher',
     android: 'com.fifteenP.dispatcher',
+  }),
+  euodooTechnologies: Platform.select({
+    ios: 'com.euodooTechnologies.dispatcher',
+    android: 'com.euodooTechnologies.dispatcher',
+  }),
+  rota: Platform.select({
+    ios: 'com.rota.dispatcher',
+    android: 'com.rota.dispatcher',
   }),
 };
 

@@ -2051,6 +2051,18 @@ export default function ShortCode({route, navigation}) {
                   isShortcodePrefilled: true,
                 });
                 break;
+                case appIds.euodooTechnologies:
+                updateState({
+                  shortCode: shortCodes.euodooTechnologies,
+                  isShortcodePrefilled: true,
+                });
+                break;
+                case appIds.rota:
+                updateState({
+                  shortCode: shortCodes.rota,
+                  isShortcodePrefilled: true,
+                });
+                break;
       }
     })();
   }, [internetConnection]);
@@ -2110,7 +2122,7 @@ export default function ShortCode({route, navigation}) {
 
       let updatedShortCode = shortCode;
       // updatedShortCode = 'a5c8d0';
-      //  let updatedShortCode = '6755bb';
+      //  let updatedShortCode = '6dd683';
 
       actions
         .initApp({shortCode: updatedShortCode}, header)
