@@ -12,6 +12,7 @@ const ShowNotificationForeground = props => {
     const unsubscribe = messaging().onMessage(async remoteMessage => {
       console.log('remote message foreground', JSON.stringify(remoteMessage));
       const {data, messageId, notification} = remoteMessage;
+      console.log(data?.notificationType, "typeee>>.")
 
       {
         Platform.OS == 'ios'
@@ -38,7 +39,7 @@ const ShowNotificationForeground = props => {
         Platform.OS == 'android' &&
         notification.android.sound == 'notification'
       ) {
-        if (data && data?.type && data?.type != 'N') {
+        if (data && data?.notificationType && data?.notificationType != 'N') {
           actions.isModalVisibleForAcceptReject({
             isModalVisibleForAcceptReject: true,
             notificationData: remoteMessage,
@@ -52,7 +53,7 @@ const ShowNotificationForeground = props => {
       }
       if (Platform.OS == 'ios' && notification.sound == 'notification.mp3') {
         console.log('here>>3');
-        if (data && data?.type && data?.type != 'N') {
+        if (data && data?.notificationType && data?.notificationType != 'N') {
           actions.isModalVisibleForAcceptReject({
             isModalVisibleForAcceptReject: true,
             notificationData: remoteMessage,

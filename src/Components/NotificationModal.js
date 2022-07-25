@@ -335,7 +335,7 @@ const NotificationModal = () => {
           </View>
         </View>
         {/* data?.notificationType == 'AR' ? */}
-        {data?.type == 'AR' ? (
+        {data?.notificationType == 'AR' ? (
           <View
             style={{
               borderRadius: 10,
@@ -410,7 +410,7 @@ const NotificationModal = () => {
     data['driver_id'] = notifData?.driver_id;
     data['status'] = status;
 
-    console.log(data, 'data accept reject');
+    console.log(data, clientInfo?.database_name, 'data accept reject');
     actions
       .acceptRejectTask(data, {client: clientInfo?.database_name})
       .then(res => {
