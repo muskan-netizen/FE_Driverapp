@@ -51,7 +51,7 @@ export default function ContactUs({route, navigation}) {
   const commonStyles = commonStylesFunc({fontFamily});
   const updateState = data => setState(state => ({...state, ...data}));
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
-
+ console.log(clientInfo,"clientInfoclientInfo")
   const defaultLanguagae = useSelector(
     state => state?.initBoot?.defaultLanguage,
   );

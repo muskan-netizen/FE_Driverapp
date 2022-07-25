@@ -438,7 +438,7 @@ export default function TaskCompleteDocument({route, navigation}) {
     ) {
       showError(strings.OTPNOTVALID);
     } else {
-      updateState({isLoading: true});
+      updateState({isLoading: true,  isModalVisible: false,});
       updateTaskStatus();
     }
   };
@@ -482,7 +482,7 @@ export default function TaskCompleteDocument({route, navigation}) {
     }
     console.log(formdata, 'updateTaskStatus>>>DATA');
 
-    updateState({isLoading: true});
+    updateState({isLoading: true,isModalVisible:false});
     actions
       .updateTask(formdata, {
         client: clientInfo?.database_name,
@@ -490,7 +490,7 @@ export default function TaskCompleteDocument({route, navigation}) {
       })
       .then(res => {
         console.log(res, 'updateTaskStatus>res>res');
-        updateState({isLoading: false});
+        updateState({isLoading: false,isModalVisible:false});
         if (res?.data) {
           updateState({
             isLoading: false,

@@ -36,6 +36,7 @@ import fontFamily from './src/styles/fontFamily';
 import {View, Text} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+
 let CodePushOptions = {checkFrequency: codePush.CheckFrequency.MANUAL};
 
 const App = () => {
@@ -104,6 +105,25 @@ const App = () => {
     }
   };
 
+
+
+
+    
+    
+    
+    
+      
+
+      
+    
+      
+      
+    
+  
+
+
+
+
   useEffect(() => {
     AsyncStorage.getItem('alreadyLaunched').then(value => {
       console.log(value, 'valuevaluevaluevalue');
@@ -124,8 +144,8 @@ const App = () => {
   };
 
   useEffect(() => {
-    notificationConfig();
     checkExistChannel();
+    notificationConfig();
     setTimeout(() => {
       SplashScreen.hide();
     }, 1500);
