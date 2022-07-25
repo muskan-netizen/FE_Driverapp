@@ -1,4 +1,6 @@
 PODS:
+  - "@darron1217_react-native-background-geolocation (0.6.6)":
+    - React
   - Base64 (1.1.2)
   - boost-for-react-native (1.63.0)
   - BVLinearGradient (2.6.2):
@@ -65,7 +67,7 @@ PODS:
     - GoogleMaps
   - Google-Maps-iOS-Utils/QuadTree (2.1.0):
     - GoogleMaps
-  - GoogleDataTransport (9.1.4):
+  - GoogleDataTransport (9.2.0):
     - GoogleUtilities/Environment (~> 7.7)
     - nanopb (< 2.30910.0, >= 2.30908.0)
     - PromisesObjC (< 3.0, >= 1.2)
@@ -111,14 +113,14 @@ PODS:
     - nanopb/encode (= 2.30908.0)
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
-  - Permission-Camera (3.3.1):
+  - Permission-Camera (3.6.0):
     - RNPermissions
-  - Permission-LocationAlways (3.3.1):
+  - Permission-LocationAlways (3.6.0):
     - RNPermissions
-  - Permission-LocationWhenInUse (3.3.1):
+  - Permission-LocationWhenInUse (3.6.0):
     - RNPermissions
   - PromisesObjC (2.1.1)
-  - razorpay-pod (1.2.7)
+  - razorpay-pod (1.2.8)
   - RCT-Folly (2021.04.26.00):
     - boost-for-react-native
     - DoubleConversion
@@ -328,7 +330,7 @@ PODS:
     - React-Core
   - react-native-camera/RN (4.2.1):
     - React-Core
-  - react-native-date-picker (4.2.2):
+  - react-native-date-picker (4.2.5):
     - React-Core
   - react-native-device-country (1.0.2):
     - React-Core
@@ -359,7 +361,7 @@ PODS:
     - React
   - react-native-splash-screen (3.3.0):
     - React-Core
-  - react-native-webview (11.22.4):
+  - react-native-webview (11.22.7):
     - React-Core
   - React-perflogger (0.65.2)
   - React-RCTActionSheet (0.65.2):
@@ -469,16 +471,16 @@ PODS:
     - TOCropViewController
   - RNLocalize (2.2.2):
     - React-Core
-  - RNPermissions (3.3.1):
+  - RNPermissions (3.6.0):
     - React-Core
   - RNReactNativeHapticFeedback (1.14.0):
     - React-Core
   - RNReanimated (1.13.4):
     - React-Core
-  - RNScreens (3.14.0):
+  - RNScreens (3.15.0):
     - React-Core
     - React-RCTImage
-  - RNSVG (12.3.0):
+  - RNSVG (12.4.0):
     - React-Core
   - RNZendeskChat (0.4.1):
     - React-Core
@@ -518,6 +520,7 @@ PODS:
   - ZendeskSDKConfigurationsSDK (1.1.11)
 
 DEPENDENCIES:
+  - "@darron1217_react-native-background-geolocation (from `../node_modules/@darron1217/react-native-background-geolocation`)"
   - BVLinearGradient (from `../node_modules/react-native-linear-gradient`)
   - CodePush (from `../node_modules/react-native-code-push`)
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
@@ -635,6 +638,8 @@ SPEC REPOS:
     - ZendeskSDKConfigurationsSDK
 
 EXTERNAL SOURCES:
+  "@darron1217_react-native-background-geolocation":
+    :path: "../node_modules/@darron1217/react-native-background-geolocation"
   BVLinearGradient:
     :path: "../node_modules/react-native-linear-gradient"
   CodePush:
@@ -787,6 +792,7 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
+  "@darron1217_react-native-background-geolocation": c95c3a183a938b39c4d7c8bea3b9cbe4b03e8766
   Base64: cecfb41a004124895a7bcee567a89bae5a89d49b
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   BVLinearGradient: 34a999fda29036898a09c6a6b728b0b4189e1a44
@@ -803,7 +809,7 @@ SPEC CHECKSUMS:
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   glog: 5337263514dd6f09803962437687240c5dc39aa4
   Google-Maps-iOS-Utils: c32891ff472eaaa1fca032beedafa1a013af7875
-  GoogleDataTransport: 5fffe35792f8b96ec8d6775f5eccd83c998d5a3b
+  GoogleDataTransport: 1c8145da7117bd68bbbed00cf304edb6a24de00f
   GoogleMaps: 32ca02de09de357a10ac773f2c70f1986751392d
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
   JWT: ef71dfb03e1f842081e64dc42eef0e164f35d251
@@ -811,11 +817,11 @@ SPEC CHECKSUMS:
   lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
   lottie-react-native: b561920bba7ec727ec94a473b683cffba00faece
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
-  Permission-Camera: bae27a8503530770c35aadfecbb97ec71823382a
-  Permission-LocationAlways: fbf36cbdcabc3101f1168ad1ec45cfc5a6448cc4
-  Permission-LocationWhenInUse: 006c85c8de0c05b5d8be8e8029e4f6b813270293
+  Permission-Camera: 0a0fb4341f50ab242f496fb2f73380e0ec454fe7
+  Permission-LocationAlways: 6b9874937f2092664dd71fbc53a10f7f0adfff51
+  Permission-LocationWhenInUse: 51aa065819cd582517e98e89b564e2465a4a83c6
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
-  razorpay-pod: 8c229afb24506977873ea02ae60dc653be16c191
+  razorpay-pod: 3ec6fe82e7d5927013cfbbef81a880188c86b077
   RCT-Folly: 0dd9e1eb86348ecab5ba76f910b56f4b5fef3c46
   RCTRequired: 1b65ab453de585b0f939824780bd26cdf6fb07f8
   RCTTypeSafety: 31f76e2d6734fe3c8084ac9d39201c4a1a3c5b42
@@ -831,7 +837,7 @@ SPEC CHECKSUMS:
   react-native-background-actions: 2c251c986f23347f9c1722f05fd296938f60edb1
   react-native-background-timer: 17ea5e06803401a379ebf1f20505b793ac44d0fe
   react-native-camera: 3eae183c1d111103963f3dd913b65d01aef8110f
-  react-native-date-picker: 9088350e06918f7d842a34c171acadc66583cb94
+  react-native-date-picker: 55193347d8d0f40948f441ffd4e5db6f0a8fbe13
   react-native-device-country: 86affc8758023ca82e2f461eb30d11da31415c95
   react-native-document-picker: ec07866a30707f23660c0f3ae591d669d3e89096
   react-native-geocoder: 757427682892bb256f3b3745858cc90eba148a8e
@@ -845,7 +851,7 @@ SPEC CHECKSUMS:
   react-native-safe-area-context: 9e40fb181dac02619414ba1294d6c2a807056ab9
   react-native-signature-capture: 416a3947684e049a5b012cdd6496f878dc797f16
   react-native-splash-screen: 4312f786b13a81b5169ef346d76d33bc0c6dc457
-  react-native-webview: a1ed211d50a5047a4fe54e07140991e277cd66e6
+  react-native-webview: 227ba9205abb8579116b69ea5774d9744267c65a
   React-perflogger: 939564c838f8b6ec099b4f858559f0f406c99745
   React-RCTActionSheet: b5135d36ee35ebd883c4fe043db7bd8cbba7516e
   React-RCTAnimation: 93aeefce33bb73f8d82132d7a362819676e1d1e4
@@ -874,11 +880,11 @@ SPEC CHECKSUMS:
   RNGestureHandler: a479ebd5ed4221a810967000735517df0d2db211
   RNImageCropPicker: 73891a709e6fd8a47d32104d942757971f220aee
   RNLocalize: 95a43f85e41a966be7bc9cff2437128911c52da0
-  RNPermissions: 34d678157c800b25b22a488e4d8babb57456e796
+  RNPermissions: de7b7c3fe1680d974ac7a85e3e97aa539c0e68ea
   RNReactNativeHapticFeedback: 1e3efeca9628ff9876ee7cdd9edec1b336913f8c
   RNReanimated: c1b56d030d1616239861534d9adb531f8cffab68
-  RNScreens: 4830eb40e0793b38849965cd27f4f3a7d7bc65c1
-  RNSVG: 302bfc9905bd8122f08966dc2ce2d07b7b52b9f8
+  RNScreens: 4a1af06327774490d97342c00aee0c2bafb497b7
+  RNSVG: 3dd44d99d1c18e1342aee4bfa53ab3f6a8c4865f
   RNZendeskChat: c3835f664be1746b121b69736d5c95e236cae382
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
   SDWebImageWebPCoder: 908b83b6adda48effe7667cd2b7f78c897e5111d
@@ -896,6 +902,6 @@ SPEC CHECKSUMS:
   ZendeskMessagingSDK: 95d396c981dacfab83cc7b9736e8561d51a3052b
   ZendeskSDKConfigurationsSDK: ebced171fd1f4eb57760e8537d8cfa6a450122be
 
-PODFILE CHECKSUM: ec07a34a08480f4cb06ef500fd62178012cbb11e
+PODFILE CHECKSUM: 048f575a1cb6797bd8ed64540e3c1920a85b42aa
 
 COCOAPODS: 1.11.3

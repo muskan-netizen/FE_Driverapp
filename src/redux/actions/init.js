@@ -100,6 +100,7 @@ export const saveUserData = data => {
 //Logs api hitting after  some  frequent interval
 
 export function logsApi(data = {}, headers = {}) {
+  console.log(data,"data???????????");
   return new Promise((resolve, reject) => {
     apiPost(LOGSAPI, data, headers)
       .then(res => {

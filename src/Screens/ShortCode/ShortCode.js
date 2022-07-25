@@ -2033,6 +2033,24 @@ export default function ShortCode({route, navigation}) {
               isShortcodePrefilled: true,
             });
             break;
+            case appIds.getItSent:
+            updateState({
+              shortCode: shortCodes.getItSent,
+              isShortcodePrefilled: true,
+            });
+            break;
+            case appIds.iAmSelling:
+              updateState({
+                shortCode: shortCodes.iAmSelling,
+                isShortcodePrefilled: true,
+              });
+              break;
+              case appIds.fifteenP:
+                updateState({
+                  shortCode: shortCodes.fifteenP,
+                  isShortcodePrefilled: true,
+                });
+                break;
       }
     })();
   }, [internetConnection]);
@@ -2091,8 +2109,8 @@ export default function ShortCode({route, navigation}) {
       }
 
       let updatedShortCode = shortCode;
-      // updatedShortCode = 'a5c8d0';
-      //  let updatedShortCode = 'b077a9';
+      // updatedShortCode = '745e3f';
+      //  let updatedShortCode = '2d98b5';
 
       actions
         .initApp({shortCode: updatedShortCode}, header)
