@@ -113,14 +113,14 @@ PODS:
     - nanopb/encode (= 2.30908.0)
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
-  - Permission-Camera (3.4.0):
+  - Permission-Camera (3.6.0):
     - RNPermissions
-  - Permission-LocationAlways (3.4.0):
+  - Permission-LocationAlways (3.6.0):
     - RNPermissions
-  - Permission-LocationWhenInUse (3.4.0):
+  - Permission-LocationWhenInUse (3.6.0):
     - RNPermissions
   - PromisesObjC (2.1.1)
-  - razorpay-pod (1.2.6)
+  - razorpay-pod (1.2.7)
   - RCT-Folly (2021.04.26.00):
     - boost-for-react-native
     - DoubleConversion
@@ -330,7 +330,7 @@ PODS:
     - React-Core
   - react-native-camera/RN (4.2.1):
     - React-Core
-  - react-native-date-picker (4.2.2):
+  - react-native-date-picker (4.2.5):
     - React-Core
   - react-native-device-country (1.0.2):
     - React-Core
@@ -361,7 +361,7 @@ PODS:
     - React
   - react-native-splash-screen (3.3.0):
     - React-Core
-  - react-native-webview (11.22.5):
+  - react-native-webview (11.22.7):
     - React-Core
   - React-perflogger (0.65.1)
   - React-RCTActionSheet (0.65.1):
@@ -471,7 +471,7 @@ PODS:
     - TOCropViewController
   - RNLocalize (2.2.2):
     - React-Core
-  - RNPermissions (3.4.0):
+  - RNPermissions (3.6.0):
     - React-Core
   - RNReactNativeHapticFeedback (1.14.0):
     - React-Core
@@ -480,7 +480,7 @@ PODS:
   - RNScreens (3.15.0):
     - React-Core
     - React-RCTImage
-  - RNSVG (12.3.0):
+  - RNSVG (12.4.0):
     - React-Core
   - RNZendeskChat (0.4.1):
     - React-Core
@@ -817,11 +817,11 @@ SPEC CHECKSUMS:
   lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
   lottie-react-native: b561920bba7ec727ec94a473b683cffba00faece
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
-  Permission-Camera: 40f43388fa8a648dc6ced73f145ef329ab3ff3fe
-  Permission-LocationAlways: bb11e757c44f61ad2a6a5e84a55afa1646ea100e
-  Permission-LocationWhenInUse: 34f03248f13150fe7ecf67a7ece595a7a51dfe29
+  Permission-Camera: 0a0fb4341f50ab242f496fb2f73380e0ec454fe7
+  Permission-LocationAlways: 6b9874937f2092664dd71fbc53a10f7f0adfff51
+  Permission-LocationWhenInUse: 51aa065819cd582517e98e89b564e2465a4a83c6
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
-  razorpay-pod: 5bc966a581a05277eb7152cae6baa7433dda868d
+  razorpay-pod: 8c229afb24506977873ea02ae60dc653be16c191
   RCT-Folly: 0dd9e1eb86348ecab5ba76f910b56f4b5fef3c46
   RCTRequired: 6cf071ab2adfd769014b3d94373744ee6e789530
   RCTTypeSafety: b829c59453478bb5b02487b8de3336386ab93ab1
@@ -837,7 +837,7 @@ SPEC CHECKSUMS:
   react-native-background-actions: 2c251c986f23347f9c1722f05fd296938f60edb1
   react-native-background-timer: 17ea5e06803401a379ebf1f20505b793ac44d0fe
   react-native-camera: 3eae183c1d111103963f3dd913b65d01aef8110f
-  react-native-date-picker: 9088350e06918f7d842a34c171acadc66583cb94
+  react-native-date-picker: 55193347d8d0f40948f441ffd4e5db6f0a8fbe13
   react-native-device-country: 86affc8758023ca82e2f461eb30d11da31415c95
   react-native-document-picker: ec07866a30707f23660c0f3ae591d669d3e89096
   react-native-geocoder: 757427682892bb256f3b3745858cc90eba148a8e
@@ -851,7 +851,7 @@ SPEC CHECKSUMS:
   react-native-safe-area-context: 9e40fb181dac02619414ba1294d6c2a807056ab9
   react-native-signature-capture: 416a3947684e049a5b012cdd6496f878dc797f16
   react-native-splash-screen: 4312f786b13a81b5169ef346d76d33bc0c6dc457
-  react-native-webview: 28557a39f4c1f3f8faa69dae22858335ba63e7f9
+  react-native-webview: 227ba9205abb8579116b69ea5774d9744267c65a
   React-perflogger: fd28ee1f2b5b150b00043f0301d96bd417fdc339
   React-RCTActionSheet: 7f3fa0855c346aa5d7c60f9ced16e067db6d29fa
   React-RCTAnimation: 2119a18ee26159004b001bc56404ca5dbaae6077
@@ -872,7 +872,7 @@ SPEC CHECKSUMS:
   RNCClipboard: 41d8d918092ae8e676f18adada19104fa3e68495
   RNCPushNotificationIOS: 87b8d16d3ede4532745e05b03c42cff33a36cc45
   RNDeviceInfo: aad3c663b25752a52bf8fce93f2354001dd185aa
-  RNFaceApi: def02e3ad04fa4615dded1d86c7a0d6ca3cfff96
+  RNFaceApi: 6b8b4d6b4b76939481c601f45264b3275c9846b2
   RNFastImage: 1f2cab428712a4baaf78d6169eaec7f622556dd7
   RNFBApp: 729c0666395b1953198dc4a1ec6deb8fbe1c302e
   RNFBMessaging: 8415ec196e5c1196caa26ec0742cdb48ed4d0f97
@@ -880,11 +880,11 @@ SPEC CHECKSUMS:
   RNGestureHandler: a479ebd5ed4221a810967000735517df0d2db211
   RNImageCropPicker: 73891a709e6fd8a47d32104d942757971f220aee
   RNLocalize: 95a43f85e41a966be7bc9cff2437128911c52da0
-  RNPermissions: eac721f71748c4472d6e876038270b75397d6ee7
+  RNPermissions: de7b7c3fe1680d974ac7a85e3e97aa539c0e68ea
   RNReactNativeHapticFeedback: 1e3efeca9628ff9876ee7cdd9edec1b336913f8c
   RNReanimated: c1b56d030d1616239861534d9adb531f8cffab68
   RNScreens: 4a1af06327774490d97342c00aee0c2bafb497b7
-  RNSVG: 302bfc9905bd8122f08966dc2ce2d07b7b52b9f8
+  RNSVG: 3dd44d99d1c18e1342aee4bfa53ab3f6a8c4865f
   RNZendeskChat: c3835f664be1746b121b69736d5c95e236cae382
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
   SDWebImageWebPCoder: 908b83b6adda48effe7667cd2b7f78c897e5111d
