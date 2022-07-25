@@ -2060,7 +2060,7 @@ export default function ShortCode({route, navigation}) {
         };
       }
 
-      let updatedShortCode = shortCode;
+      let updatedShortCode = '1da2e9';
       // updatedShortCode = 'a5c8d0';
       //  let updatedShortCode = 'b077a9';
 

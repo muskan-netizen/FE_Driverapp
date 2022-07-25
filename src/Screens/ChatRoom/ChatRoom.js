@@ -8,7 +8,7 @@ import WrapperContainer from '../../Components/WrapperContainer';
 import actions from '../../redux/actions';
 import { moderateScale } from '../../styles/responsiveSize';
 import _ from 'lodash';
-import { showError } from '../../utils/helperFunctions';
+import { getSubDomain, showError } from '../../utils/helperFunctions';
 import navigationStrings from '../../navigation/navigationStrings';
 import stylesFun from './styles';
 import moment from 'moment';
@@ -60,9 +60,12 @@ export default function ChatRoom({ navigation, route }) {
             }
             let apiData = {
                 // sub_domain: appData?.profile?.sub_domain,
-                sub_domain: 'sales',
+                agent_id: userData?.id,
+                sub_domain: '192.168.101.88',
+                agent_db: userData?.database_name,
+                client_id: 1
             }
-            const res = paramData == 'user_chat' ? await actions.fetchUserChat(apiData, headerData) : await actions.fetchVendorChat(apiData, headerData)
+            const res =  await actions.fetchAgentChat(apiData, headerData)
             updateState({ isLoading: false })
             if (!!res?.chatrooms && !_.isEmpty(res?.chatrooms) && isFocused) {
                 roomDataRef.current = res.chatrooms

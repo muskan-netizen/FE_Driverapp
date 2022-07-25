@@ -8,7 +8,7 @@ import Header from '../../Components/Header';
 import colors from '../../styles/colors';
 import WrapperContainer from '../../Components/WrapperContainer';
 import actions from '../../redux/actions';
-import { getImageUrl } from '../../utils/helperFunctions';
+import { getImageUrl, getSubDomain } from '../../utils/helperFunctions';
 import { height, moderateScale, moderateScaleVertical, textScale, width } from '../../styles/responsiveSize';
 import FastImage from 'react-native-fast-image';
 import moment from 'moment';
@@ -27,6 +27,8 @@ export default function ChatScreen({ route, }) {
 
   const userData = useSelector((state) => state?.auth?.userData);
 
+  console.log("userDatauserData",userData)
+
   const styles = stylesFun({});
 
 
@@ -44,6 +46,7 @@ export default function ChatScreen({ route, }) {
   useEffect(() => {
     socketServices.on("new-message", (data) => {
       console.log(data, "data to be emitted in chat screen");
+      // setMessages(previousMessages => GiftedChat.append(previousMessages, message))
       fetchAllMessages()
     });
     return () => {
@@ -55,7 +58,7 @@ export default function ChatScreen({ route, }) {
 
   useEffect(() => {
     updateState({ isLoading: true })
-    fetchAllRoomUser()
+    // fetchAllRoomUser()
     fetchAllMessages()
 
   }, [])
@@ -107,20 +110,16 @@ export default function ChatScreen({ route, }) {
         room_id: paramData?._id,
         message: messages[0].text,
         user_type: 'user',
-        to_message: 'to_vendor',
-        from_message: 'from_user',
+        to_message: 'to_user',
+        from_message: 'from_agent',
         user_id: userData?.id,
-        email: userData.email,
+        email: userData?.email,
         username: userData?.name,
-        phone_num: `+${userData?.dial_code} ${userData.phone_number}`,
-        display_image: getImageUrl(
-          userData?.source?.proxy_url,
-          userData?.source?.image_path,
-          '200/200',
-        ),
-        sub_domain: '192.168.101.88',
+        phone_num: `${userData.phone_number}`,
+        display_image: userData?.image_url,
+        sub_domain: getSubDomain(),
         //'room_name' =>$data->name,
-        chat_type: 'vendor_to_user',
+        chat_type: 'agent_to_user',
       }
       const res = await actions.sendMessage(apiData, {
         client: clientInfo?.database_name,
@@ -140,7 +139,7 @@ export default function ChatScreen({ route, }) {
           '200/200',
         )
       };
-      setMessages(previousMessages => GiftedChat.append(previousMessages, message))
+      // setMessages(previousMessages => GiftedChat.append(previousMessages, message))
     } catch (error) {
       console.log('error raised in fetchAllMessages api', error)
     }

@@ -154,6 +154,7 @@ export default function DrawerRoutes(props) {
         component={ContactUs}
         name={navigationStrings.CONTACTUS}
         options={{
+          
           drawerLabel: strings.SETTING,
           drawerIcon: ({ focused }) => (
             <Image

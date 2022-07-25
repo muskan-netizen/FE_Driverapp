@@ -1,5 +1,8 @@
 //live
+export const API_BASE_URL = 'http://192.168.101.88:8009/';
 export const SOCKET_URL = 'https://chat.royoorders.com';
+
+
 //  export const API_BASE_URL = 'https://api.royodispatch.com/';
 //  export const API_BASE_URL = 'https://dispatch.toor.life/';
 
@@ -14,7 +17,7 @@ export const SOCKET_URL = 'https://chat.royoorders.com';
 
 //Staging
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
-export const API_BASE_URL = 'https://api.winhires.com/';
+
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
 //export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
 // export const API_BASE_URL = 'http://192.168.96.152:8006/';
@@ -385,9 +388,9 @@ export const GETWEBURL = getApiUrl('api/payment');
 
 //Chat Apis
 
-export const START_CHAT = getApiUrl('/chat/startChat');
-export const USER_CHAT = getApiUrl('/chat/userVendorChatRoom');
-export const VENDOR_CHAT = getApiUrl('/chat/vendorUserChatRoom');
+export const START_CHAT = getApiUrl('api/chat/startChat');
+export const AGENT_CHAT = getApiUrl('api/chat/userAgentChatRoom');
+
 export const SEND_MESSAGE = getSocketUrl('/api/chat/sendMessageJoin');
 export const GET_ALL_MESSAGES = getSocketUrl('/api/chat')
 export const ALL_ROOM_USER = getSocketUrl('/api/chat/getRoomUser')
