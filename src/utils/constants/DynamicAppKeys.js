@@ -1108,8 +1108,8 @@ const appIds = {
     android: 'com.SwiffyLLC',
   }),
   sabroson: Platform.select({
-    ios: 'com.Sabroson.Dispatch',
-    android: 'com.Sabroson.royodispatcher',
+    ios: 'com.Sabroson.Driver',
+    android: 'com.Sabroson.Driver',
   }),
   localdropoff: Platform.select({
     ios: 'com.Localdropoff.Dispatcher',
