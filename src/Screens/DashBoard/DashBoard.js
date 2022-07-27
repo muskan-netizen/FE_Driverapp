@@ -260,7 +260,6 @@ export default function DashBoard({ route, navigation }) {
 
 
   const fetchgentLogs = async (lat, lng, heading_) => {
-   
     if (userData?.access_token) {
       let data = {};
       data['device_type'] = Platform.OS;
@@ -581,8 +580,6 @@ export default function DashBoard({ route, navigation }) {
   const _onRegionChange = region => {
     updateState({ region: region });
     // _getAddressBasedOnCoordinates(region);
-
-    console.log(markers, ' mapRef.current');
   };
 
   const animate = region => {
@@ -618,7 +615,6 @@ export default function DashBoard({ route, navigation }) {
 
   useEffect(() => {
     if (latitude && longitude) {
-      console.log('regionregion', region);
       // {"latitude": 20.5937, "latitudeDelta": 0.015, "longitude": 78.9629, "longitudeDelta": 0.0121}
       fitPadding([
         {
