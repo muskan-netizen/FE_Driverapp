@@ -127,12 +127,6 @@ export default function DashBoard({ route, navigation }) {
     return () => { };
   }, []);
 
-  useEffect(()=>{
-
-    
-    
-    
-    },[])
   useEffect(() => {
     if (refreshHomeData && enableMap) {
       updateState({
