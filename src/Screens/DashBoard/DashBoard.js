@@ -36,7 +36,7 @@ import { requestUserPermission } from '../../utils/notificationServices';
 import styles from './styles';
 navigator.geolocation = require('react-native-geolocation-service');
 // import BackgroundService from 'react-native-background-actions';
-
+import socketServices from '../../utils/scoketService';
 // import BackgroundTimer from 'react-native-background-timer';
 import BackgroundGeolocation from '@darron1217/react-native-background-geolocation';
 import { chekLocationPermission } from '../../utils/permissions';
@@ -307,7 +307,6 @@ export default function DashBoard({ route, navigation }) {
                 },
               });
           }
-          console.log(res, 'res>>>>>>>agenLog');
 
           if (selectedOption == 1) {
             updateState({ allTasks: res?.data?.tasks });
@@ -721,6 +720,41 @@ export default function DashBoard({ route, navigation }) {
           }}></Marker>
       </MapView>
     );
+    // return (
+    //   <MapView
+    //     ref={mapRef}
+    //     //provider={PROVIDER_GOOGLE} // remove if not using Google Maps
+    //     style={styles.map}
+    //     region={region}
+    //     zoomEnabled={true}
+    //     initialRegion={region}
+    //     // showsUserLocation={true}
+    //     // showsMyLocationButton={true}
+    //     onLayout={() => fitToMap()}
+    //     //   customMapStyle={mapStyle}
+    //     onRegionChangeComplete={_onRegionChange}>
+    //     {markers?.map((coordinate, index) => (
+    //       coordinate && coordinate?.location && coordinate?.location?.latitude != NaN && coordinate?.location?.longitude != NaN && <Marker
+    //         tracksViewChanges={false}
+    //         zIndex={index}
+    //         key={`coordinate_${index}`}
+    //         image={imagePath.pinRed}
+    //         onPress={() => {
+    //           _onPressTask(coordinate);
+    //         }}
+    //         coordinate={{
+    //           latitude: Number(coordinate?.location?.latitude),
+    //           longitude: Number(coordinate?.location?.longitude),
+    //         }}></Marker>
+    //     ))}
+    //     <Marker
+    //       image={imagePath.pinBlue}
+    //       coordinate={{
+    //         latitude: Number(latitude),
+    //         longitude: Number(longitude),
+    //       }}></Marker>
+    //   </MapView>
+    // );
 
     // return (
     //   <ListEmptyComponent

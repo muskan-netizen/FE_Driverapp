@@ -627,6 +627,8 @@
     "nrsadispatcherRelease": "cd android && ./gradlew assemblenrsaRelease",
     "sadiadispatcher": "react-native run-android --variant=sadiaDebug",
     "sadiadispatcherRelease": "cd android && ./gradlew assemblesadiaRelease",
+    "elentaMartdispatcher": "react-native run-android --variant=elentaMartDebug",
+    "elentaMartdispatcherRelease": "cd android && ./gradlew assembleelentaMartRelease",
     "exprexprodispatcher": "react-native run-android --variant=exprexproDebug",
     "exprexprodispatcherRelease": "cd android && ./gradlew assembleexprexproRelease",
     "fresHestdispatcher": "react-native run-android --variant=fresHestDebug",
