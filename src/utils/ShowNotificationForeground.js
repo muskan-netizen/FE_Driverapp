@@ -18,7 +18,7 @@ const ShowNotificationForeground = props => {
           ? PushNotificationIOS.addNotificationRequest({
               id: messageId,
               body: data?.message || '',
-              title: data?.type || '',
+              title: data?.notificationType || '',
               sound:
                 notification.sound == 'notification.mp3'
                   ? 'notification.mp3'
@@ -28,7 +28,7 @@ const ShowNotificationForeground = props => {
               channelId: notification.android.channelId,
               id: messageId,
               body: data?.message || '',
-              title: data?.type || '',
+              title: data?.notificationType || '',
               soundName: notification.android.sound,
               vibrate: true,
               playSound: true,
@@ -38,7 +38,7 @@ const ShowNotificationForeground = props => {
         Platform.OS == 'android' &&
         notification.android.sound == 'notification'
       ) {
-        if (data && data?.type && data?.type != 'N') {
+        if (data && data?.notificationType && data?.notificationType != 'N') {
           actions.isModalVisibleForAcceptReject({
             isModalVisibleForAcceptReject: true,
             notificationData: remoteMessage,
@@ -52,7 +52,7 @@ const ShowNotificationForeground = props => {
       }
       if (Platform.OS == 'ios' && notification.sound == 'notification.mp3') {
         console.log('here>>3');
-        if (data && data?.type && data?.type != 'N') {
+        if (data && data?.notificationType && data?.notificationType != 'N') {
           actions.isModalVisibleForAcceptReject({
             isModalVisibleForAcceptReject: true,
             notificationData: remoteMessage,
