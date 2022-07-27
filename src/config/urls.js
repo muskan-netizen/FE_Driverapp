@@ -1,5 +1,4 @@
 //live
-
 //  export const API_BASE_URL = 'https://api.royodispatch.com/';
 // export const API_BASE_URL = 'https://sales.royodispatch.com/';
 
@@ -48,7 +47,7 @@
 // tmg Shops
 // export const API_BASE_URL = 'https://dispatch.tmgsalesllc.com/'
 // export const API_BASE_URL ='https://dispatch.36kel.com.ph/'
-export const API_BASE_URL = 'https://dispatch.swiffy.us/'
+// export const API_BASE_URL = 'https://dispatch.swiffy.us/'
 
 //export const API_BASE_URL = 'https://dispatch.runrun.ae/';
 
@@ -92,9 +91,6 @@ export const API_BASE_URL = 'https://dispatch.swiffy.us/'
 
 // export const API_BASE_URL = 'https://dispatch.usemeow.com/'
 // export const API_BASE_URL = 'https://dispatch.swantaxi.net'
-
-
-// export const API_BASE_URL = 'https://dispatch.butlerdeliveryusa.com/'
 //heybuddy
 // export const API_BASE_URL ='https://dispatch.heybuddy.com.mx/'
 
@@ -284,7 +280,7 @@ export const API_BASE_URL = 'https://dispatch.swiffy.us/'
 
 //export const API_BASE_URL = 'https://dispatch.meltivers.com/';
 //  butler delivery
-//  export const API_BASE_URL = 'https://dispatch.butlerdeliveryusa.com/'
+ export const API_BASE_URL = 'https://dispatch.butlerdeliveryusa.com/'
 // bimolaa
 // export const API_BASE_URL = 'https://dispatch.bimol.in/'
 

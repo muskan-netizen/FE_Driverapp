@@ -63,7 +63,7 @@ export default {
   NOTE: 'Note *',
   SCANBARCODE: 'Scan Barcode',
   LOCATION_DISABLED_MSG:
-    'Camera permission permanatly disabled! Please allow from settings',
+    'permission permanatly disabled! Please allow from settings',
   QRCODENOTMATCHED: 'Qr/Barcode not matchd',
   SIGNATUREIMAGE: 'Signature is required',
   PHOTOIMAGE: 'Photo is required',
