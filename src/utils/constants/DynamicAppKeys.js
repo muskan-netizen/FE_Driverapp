@@ -936,8 +936,8 @@ const appIds = {
     android: 'com.StichesonSite.royodispatcher',
   }),
   tmgShops: Platform.select({
-    ios: 'com.TmgShops.Dispatch',
-    android: 'com.TmgShops.royodispatcher',
+    ios: 'com.TmgShops.Driver',
+    android: 'com.TmgShops.Driver',
   }),
   gasGiant: Platform.select({
     ios: 'com.GasGiant.Dispatch',

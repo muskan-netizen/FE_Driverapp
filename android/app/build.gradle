@@ -1776,15 +1776,15 @@ android {
             applicationId 'com.StichesonSite.royodispatcher'
             resValue "string", "app_name", "Stiches on Site Dispatcher"
         }
-        tmgShops{
+            tmgShops{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.TmgShops.royodispatcher'
-            resValue "string", "app_name", "Tmg Shops Dispatcher"
+            applicationId 'com.TmgShops.Driver'
+            resValue "string", "app_name", "Tmg Shops Driver"
         }
         gasGiant{
             dimension "appType"
