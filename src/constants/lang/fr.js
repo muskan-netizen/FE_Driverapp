@@ -256,4 +256,5 @@ export default {
   UNABLETOLOCATE: 'Unable to Locate',
   OTHER: 'Other',
   FIXED_FEE: 'Frais fixes',
+  ARE_YOU_SURE_YOU_WANT_TO_DELETE:'Are you sure, you want to delete your account? Deleting your account is permanent and will remove all content and profile settings.',
 };

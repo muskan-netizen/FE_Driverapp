@@ -1,10 +1,8 @@
 //live
+
 //  export const API_BASE_URL = 'https://api.royodispatch.com/';
 // export const API_BASE_URL = 'https://sales.royodispatch.com/';
 
-
-
-//  export const API_BASE_URL = 'https://dispatch.fijieats.com/';
 //  export const API_BASE_URL = 'https://dispatch.ubercann.com/';
 //  export const API_BASE_URL = 'https://dispatch.swantaxi.net/';
 // export const API_BASE_URL = 'https://dispatch.keystonedelivery.com/'
@@ -15,7 +13,7 @@
 
 // export const API_BASE_URL='https://dispatch.tmgsalesllc.com/';
 //Staging
-//  export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
  //export const API_BASE_URL='https://dispatch.lift.gd/';
 // export const API_BASE_URL = 'https://api.winhires.com/';
  //export const API_BASE_URL = 'https://api.rdstaging.com/';
@@ -24,8 +22,7 @@
  //export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-  // export const API_BASE_URL = 'https://api.rdstaging.com/';
-
+//  export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // export const API_BASE_URL='https://d078-103-72-170-243.in.ngrok.io/'
 //  export const API_BASE_URL = 'https://baytukom-dispatch.netsolutionindia.com/';
@@ -38,6 +35,12 @@
 //taquick 
 //  export const API_BASE_URL = 'https://delivery.taquick.com/';
 
+//  export const API_BASE_URL = 'http://192.168.96.84:9091/';
+
+//Staging
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
+
+
 // export const API_BASE_URL = 'https://dispatch.drusdeliveries.com/';
 
 // export const API_BASE_URL = 'https://dispatch.pas41.com/'
@@ -45,7 +48,7 @@
 // tmg Shops
 // export const API_BASE_URL = 'https://dispatch.tmgsalesllc.com/'
 // export const API_BASE_URL ='https://dispatch.36kel.com.ph/'
-// export const API_BASE_URL = 'https://dispatch.swiffy.us/'
+export const API_BASE_URL = 'https://dispatch.swiffy.us/'
 
 //export const API_BASE_URL = 'https://dispatch.runrun.ae/';
 
@@ -82,7 +85,7 @@
 //beachhop
 // export const API_BASE_URL = 'https://dispatch.beachhopdelivery.com/'
 //gdotdelivery
-export const API_BASE_URL ='https://dispatch.gdotdelivery.com/'
+// export const API_BASE_URL ='https://dispatch.gdotdelivery.com/'
 
 // yogolift
 // export const API_BASE_URL = 'https://dispatch.lift.gd/'
@@ -294,6 +297,15 @@ export const API_BASE_URL ='https://dispatch.gdotdelivery.com/'
 // grub and gusto, ace
 // export const API_BASE_URL = 'https://grub.royodispatch.com/'
 // export const API_BASE_URL = 'https://gusto.royodispatch.com/'
+
+  // export const API_BASE_URL = 'https://dispatch.bimol.in/';
+ //export const API_BASE_URL = 'https://dispatch.mobimarket.com.mx/';
+// grub and gusto
+
+//export const API_BASE_URL = 'https://punnet.royodispatch.com/'
+
+// export const API_BASE_URL = 'https://grub.royodispatch.com/'
+
 // meateasy
 // export const API_BASE_URL = 'https://meateasy.royodispatch.com/';
 
@@ -371,6 +383,7 @@ export const SEND_OTP = getApiUrl('api/auth/login');
 export const LOGIN_API = getApiUrl('api/auth/sendOtp');
 export const SIGNUP_API = getApiUrl('api/auth/signup');
 export const LOGOUT_API = getApiUrl('api/auth/logout');
+export const AGENT_DELETE = getApiUrl('api/agent/delete')
 
 // export const SIGN_UP_API = getApiUrl('/auth/register');
 export const APP_INITIAL_SETTINGS = getApiUrl('api/shortCode');
