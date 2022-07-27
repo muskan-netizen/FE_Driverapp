@@ -4,7 +4,9 @@
 //Staging
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
 
-// export const API_BASE_URL = 'http://192.168.96.152:8006/'; // Preet sir local 
+export const API_BASE_URL = 'http://192.168.96.152:8006/'; // Preet sir local 
+// export const API_BASE_URL = 'http://192.168.96.84:9091/'; // surinder sir local 
+
 
 
 
@@ -117,7 +119,7 @@
 //DOORSTEP
 // export const API_BASE_URL = 'https://dispatch.doorstep.sd/';
 // export const API_BASE_URL = 'https://dispatch.ubercann.com/';
-export const API_BASE_URL = 'https://sales.winhires.com/';
+// export const API_BASE_URL = 'https://sales.winhires.com/';
 // export const API_BASE_URL = 'https://api.winhires.com/';
 
 //Bezaliohub

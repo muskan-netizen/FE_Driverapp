@@ -11,6 +11,7 @@ import { moderateScaleVertical } from '../../styles/responsiveSize';
 
 export default function AllinonePyments({ navigation, route }) {
   let paramsData = route?.params?.data || {};
+  console.log(paramsData,"paramsData")
 
 
   const moveToNewScreen =
