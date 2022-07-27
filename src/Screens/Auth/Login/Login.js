@@ -220,7 +220,6 @@ export default function Login({navigation, route}) {
 
 
   const _onLogin = () => {
-   console.log(locationPermissionStatus,"locationPermissionStatus");
      if(!locationPermissionStatus && Platform.OS !='ios'){
       checkLocationPermission();
       return

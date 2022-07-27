@@ -146,93 +146,95 @@ export default function DashBoard({ route, navigation }) {
 
 
   useEffect(() => {
-
-    if(!DeviceInfo.isEmulator()){
-      BackgroundGeolocation.on('location', (location) => {
-        console.log(location, "location >>>>>>>");
-        let headingAngle = location?.bearing || 0.00
-        let lat = location?.latitude || 0
-        let long = location.longitude || 0
-        fetchgentLogs(lat, long, headingAngle)
-      });
-  
-  
-      BackgroundGeolocation.on('error', (error) => {
-        console.log('[ERROR] BackgroundGeolocation error:', error);
-      });
-  
-  
-      BackgroundGeolocation.on('authorization', (status) => {
-        console.log('[INFO] BackgroundGeolocation authorization status: ' + status);
-        if (status !== BackgroundGeolocation.AUTHORIZED) {
-          // we need to set delay or otherwise alert may not be shown
-          setTimeout(() =>
-            Alert.alert('App requires location tracking permission', 'Would you like to open app settings?', [
-              { text: 'Yes', onPress: () => BackgroundGeolocation.showAppSettings() },
-              { text: 'No', onPress: () => console.log('No Pressed'), style: 'cancel' }
-            ]), 1000);
+    DeviceInfo.isEmulator().then((isEmulator) => {
+      if(!isEmulator){
+        BackgroundGeolocation.on('location', (location) => {
+          console.log(location, "location >>>>>>>");
+          let headingAngle = location?.bearing || 0.00
+          let lat = location?.latitude || 0
+          let long = location.longitude || 0
+          fetchgentLogs(lat, long, headingAngle)
+        });
+    
+    
+        BackgroundGeolocation.on('error', (error) => {
+          console.log('[ERROR] BackgroundGeolocation error:', error);
+        });
+    
+    
+        BackgroundGeolocation.on('authorization', (status) => {
+          console.log('[INFO] BackgroundGeolocation authorization status: ' + status);
+          if (status !== BackgroundGeolocation.AUTHORIZED) {
+            // we need to set delay or otherwise alert may not be shown
+            setTimeout(() =>
+              Alert.alert('App requires location tracking permission', 'Would you like to open app settings?', [
+                { text: 'Yes', onPress: () => BackgroundGeolocation.showAppSettings() },
+                { text: 'No', onPress: () => console.log('No Pressed'), style: 'cancel' }
+              ]), 1000);
+          }
+        });
+    
+        BackgroundGeolocation.on('background', () => {
+    
+          console.log('[INFO] App is in background');
+    
+    
+        });
+    
+        BackgroundGeolocation.on('foreground', () => {
+          console.log('[INFO] App is in foreground');
+    
+        });
+    
+        BackgroundGeolocation.on('abort_requested', () => {
+          console.log('[INFO] Server responded with 285 Updates Not Required');
+        });
+    
+        BackgroundGeolocation.on('http_authorization', () => {
+          console.log('[INFO] App needs to authorize the http requests');
+        });
+    
+        BackgroundGeolocation.checkStatus(status => {
+          console.log(status, "status.isRunning");
+          if (!status.isRunning) {
+            BackgroundGeolocation.start(); //triggers start on start event
+          }
+        });
+    
+        BackgroundGeolocation.configure({
+          activityType: 'Fitness',
+          desiredAccuracy: BackgroundGeolocation.HIGH_ACCURACY,
+          stationaryRadius: 10,
+          distanceFilter: 10,
+          debug: false,
+          startOnBoot: false,
+          stopOnTerminate: true,
+          notificationTitle: 'Location Tracking',
+          notificationText: `Tracking driver's location in background.`,
+          locationProvider: BackgroundGeolocation.ACTIVITY_PROVIDER,
+          interval: 10000,
+          fastestInterval: 10000,
+          activitiesInterval: 10000,
+          stopOnStillActivity: false,
+          pauseLocationUpdates: false,
+          url: '',
+          httpHeaders: {
+            'X-FOO': 'bar'
+          },
+          // customize post properties
+          postTemplate: {
+            lat: '@latitude',
+            lon: '@longitude',
+            foo: 'bar' // you can also add your own properties
+          }
+        })
+    
+        return () => {
+          BackgroundGeolocation.removeAllListeners();
         }
-      });
-  
-      BackgroundGeolocation.on('background', () => {
-  
-        console.log('[INFO] App is in background');
-  
-  
-      });
-  
-      BackgroundGeolocation.on('foreground', () => {
-        console.log('[INFO] App is in foreground');
-  
-      });
-  
-      BackgroundGeolocation.on('abort_requested', () => {
-        console.log('[INFO] Server responded with 285 Updates Not Required');
-      });
-  
-      BackgroundGeolocation.on('http_authorization', () => {
-        console.log('[INFO] App needs to authorize the http requests');
-      });
-  
-      BackgroundGeolocation.checkStatus(status => {
-        console.log(status, "status.isRunning");
-        if (!status.isRunning) {
-          BackgroundGeolocation.start(); //triggers start on start event
-        }
-      });
-  
-      BackgroundGeolocation.configure({
-        activityType: 'Fitness',
-        desiredAccuracy: BackgroundGeolocation.HIGH_ACCURACY,
-        stationaryRadius: 10,
-        distanceFilter: 10,
-        debug: false,
-        startOnBoot: false,
-        stopOnTerminate: true,
-        notificationTitle: 'Location Tracking',
-        notificationText: `Tracking driver's location in background.`,
-        locationProvider: BackgroundGeolocation.ACTIVITY_PROVIDER,
-        interval: 10000,
-        fastestInterval: 10000,
-        activitiesInterval: 10000,
-        stopOnStillActivity: false,
-        pauseLocationUpdates: false,
-        url: '',
-        httpHeaders: {
-          'X-FOO': 'bar'
-        },
-        // customize post properties
-        postTemplate: {
-          lat: '@latitude',
-          lon: '@longitude',
-          foo: 'bar' // you can also add your own properties
-        }
-      })
-  
-      return () => {
-        BackgroundGeolocation.removeAllListeners();
       }
-    }
+    })
+  
 
 
   }, [])
