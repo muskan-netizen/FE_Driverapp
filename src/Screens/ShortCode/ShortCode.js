@@ -2069,6 +2069,18 @@ export default function ShortCode({route, navigation}) {
                     isShortcodePrefilled: true,
                   });
                   break;
+                  case appIds.yallaEat:
+                  updateState({
+                    shortCode: shortCodes.yallaEat,
+                    isShortcodePrefilled: true,
+                  });
+                  break;
+                  case appIds.choizez:
+                  updateState({
+                    shortCode: shortCodes.choizez,
+                    isShortcodePrefilled: true,
+                  });
+                  break;
       }
     })();
   }, [internetConnection]);

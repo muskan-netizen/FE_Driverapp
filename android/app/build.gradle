@@ -202,15 +202,25 @@ android {
     flavorDimensions "appType"
 
 // productFlavors {
-//             nineOneTwo{
+//             yallaEat{
 //             dimension "appType"
 //             versionCode 1
 //             versionName "1.0"
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.NineOneTwo.royodispatcher'
-//             resValue "string", "app_name", "912 Dispatcher"
+//             applicationId 'com.yallaEat.dispatcher'
+//             resValue "string", "app_name", "Yalla Eat Dispatcher"
+//         }
+//          choizez{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.choizez.dispatcher'
+//             resValue "string", "app_name", "Choizez Dispatcher"
 //         }
 //  }
 
@@ -3668,6 +3678,26 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.farmMeat.dispatcher'
             resValue "string", "app_name", "Farm Meat Dispatcher"
+        }
+        yallaEat{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.yallaEat.dispatcher'
+            resValue "string", "app_name", "Yalla Eat Dispatcher"
+        }
+         choizez{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.choizez.dispatcher'
+            resValue "string", "app_name", "Choizez Dispatcher"
         }
 }
  
