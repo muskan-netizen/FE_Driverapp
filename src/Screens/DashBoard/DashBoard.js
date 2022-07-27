@@ -1,6 +1,6 @@
 import { debounce } from 'lodash';
 import React, { useEffect, useRef, useState } from 'react';
-import { BackHandler, FlatList, Image, Linking, RefreshControl, Switch, Text, View } from 'react-native';
+import { Alert, BackHandler, FlatList, Image, Linking, RefreshControl, Switch, Text, View } from 'react-native';
 import { useSelector } from 'react-redux';
 import Header from '../../Components/Header';
 import { loaderOne } from '../../Components/Loaders/AnimatedLoaderFiles';
@@ -127,6 +127,12 @@ export default function DashBoard({ route, navigation }) {
     return () => { };
   }, []);
 
+  useEffect(()=>{
+
+    
+    
+    
+    },[])
   useEffect(() => {
     if (refreshHomeData && enableMap) {
       updateState({
@@ -236,8 +242,6 @@ export default function DashBoard({ route, navigation }) {
       }
     })
   
-
-
   }, [])
 
 
@@ -617,7 +621,6 @@ export default function DashBoard({ route, navigation }) {
 
   useEffect(() => {
     if (latitude && longitude) {
-      // {"latitude": 20.5937, "latitudeDelta": 0.015, "longitude": 78.9629, "longitudeDelta": 0.0121}
       fitPadding([
         {
           latitude: Number(latitude),

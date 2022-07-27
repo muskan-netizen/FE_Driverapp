@@ -228,6 +228,7 @@ export default function Login({navigation, route}) {
       console.log(data, 'Here is data');
       // actions.sessionLogoutUser(false);
       updateState({isLoading: true});
+
       actions
         .login(data, {client: clientInfo?.database_name})
         .then(res => {

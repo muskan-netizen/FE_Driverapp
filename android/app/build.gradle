@@ -200,7 +200,19 @@ android {
     }
 
      flavorDimensions "appType"
- 
+
+// productFlavors {
+//                truckTireNow{
+//             dimension "appType"
+//             versionCode 3
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId "com.TruckTireNow.dispatch"
+//             resValue "string", "app_name", "TruckTireNow"
+//         }
+// }
     productFlavors {
         royodispatcher {
             dimension "appType"
@@ -1764,15 +1776,15 @@ android {
             applicationId 'com.StichesonSite.royodispatcher'
             resValue "string", "app_name", "Stiches on Site Dispatcher"
         }
-        tmgShops{
+            tmgShops{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.TmgShops.royodispatcher'
-            resValue "string", "app_name", "Tmg Shops Dispatcher"
+            applicationId 'com.TmgShops.Driver'
+            resValue "string", "app_name", "Tmg Shops Driver"
         }
         gasGiant{
             dimension "appType"
@@ -2965,7 +2977,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.Smile.royodispatcher'
-            resValue "string", "app_name", "Smile Dispatcher"
+            resValue "string", "app_name", "Miist Dispatcher"
         }
 
         caronaTaxi{

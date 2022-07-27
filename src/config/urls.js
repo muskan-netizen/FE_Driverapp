@@ -12,7 +12,7 @@
 
 // export const API_BASE_URL='https://dispatch.tmgsalesllc.com/';
 //Staging
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
  //export const API_BASE_URL='https://dispatch.lift.gd/';
 // export const API_BASE_URL = 'https://api.winhires.com/';
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
@@ -21,7 +21,10 @@
  //export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
- export const API_BASE_URL = 'https://api.rdstaging.com/';
+  // export const API_BASE_URL = 'https://api.rdstaging.com/';
+
+  //Misst
+  // export const API_BASE_URL = 'https://miist-dispatch.netsolutionindia.com/';
 
 // export const API_BASE_URL='https://d078-103-72-170-243.in.ngrok.io/'
 //  export const API_BASE_URL = 'https://baytukom-dispatch.netsolutionindia.com/';
@@ -60,7 +63,7 @@
  //export const API_BASE_URL = 'https://dispatch.swantaxi.net/'
 
 //fairex
-//export const API_BASE_URL = 'https://dispatch.fairexglobal.com/'
+// export const API_BASE_URL = 'https://dispatch.fairexglobal.com/'
 //dimavega
 // export const API_BASE_URL ='https://dispatch.dimahalal.com/'
 
@@ -75,7 +78,7 @@
 // export const API_BASE_URL ='https://dispatch.gdotdelivery.com/'
 
 
-// export const API_BASE_URL = 'https://dispatch.butlerdeliveryusa.com/'
+// export const API_BASE_URL = 'https://dispatch.sabroson.com.mx/'
 //heybuddy
 // export const API_BASE_URL ='https://dispatch.heybuddy.com.mx/'
 
@@ -261,7 +264,7 @@
 
 //export const API_BASE_URL = 'https://dispatch.meltivers.com/';
 //bimol
-  // export const API_BASE_URL = 'https://dispatch.bimol.in/';
+  //export const API_BASE_URL = 'https://dispatch.bimol.in/';
  //export const API_BASE_URL = 'https://dispatch.mobimarket.com.mx/';
 // grub and gusto
 //export const API_BASE_URL = 'https://punnet.royodispatch.com/'
@@ -338,7 +341,6 @@ export const SEND_OTP = getApiUrl('api/auth/login');
 export const LOGIN_API = getApiUrl('api/auth/sendOtp');
 export const SIGNUP_API = getApiUrl('api/auth/signup');
 export const LOGOUT_API = getApiUrl('api/auth/logout');
-export const AGENT_DELETE = getApiUrl('api/agent/delete')
 
 // export const SIGN_UP_API = getApiUrl('/auth/register');
 export const APP_INITIAL_SETTINGS = getApiUrl('api/shortCode');
@@ -382,3 +384,9 @@ export const GETORDERDETAILFORTASK = getApiUrl(
 export const GETCANCELORDERREASONLIST = getApiUrl('api/order/cancel/reasons');
 export const CANCELORDER = getApiUrl('api/order/cancel/request/create');
 export const GETWEBURL = getApiUrl('api/payment');
+
+//Chat Apis
+
+export const START_CHAT = getApiUrl('/chat/startChat');
+export const USER_CHAT = getApiUrl('/chat/userVendorChatRoom');
+export const VENDOR_CHAT = getApiUrl('/chat/vendorUserChatRoom');

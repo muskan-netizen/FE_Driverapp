@@ -142,6 +142,7 @@ export default function PhoneNumberInput({
             onClose={_onCountryPickerModalClose}
             countryCode={callingCode}
             onSelect={_onCountryChange}
+           countryCode={callingCode}
             closeButtonImage={imagePath.closeButton}
           />
         )}

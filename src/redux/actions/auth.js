@@ -39,7 +39,7 @@ export function login(data = {}, headers = {}) {
 }
 
 export function signUp(data = {}, headers = {}) {
-  console.log(data, 'login>data>data>data');
+  console.log(data, 'login>data>data>data',headers);
   return new Promise((resolve, reject) => {
     apiPost(SIGNUP_API, data, headers)
       .then(async res => {
