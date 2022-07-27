@@ -141,11 +141,6 @@ export default function Login({navigation, route}) {
     }, []),
   );
 
-
-
-
-
-
   useEffect(() => {
     const backHandler = BackHandler.addEventListener(
       'hardwareBackPress',

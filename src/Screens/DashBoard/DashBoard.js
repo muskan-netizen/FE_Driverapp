@@ -335,6 +335,53 @@ export default function DashBoard({ route, navigation }) {
     }
   }, [refreshHomeData]);
 
+  useEffect(() => {
+    (async () => {
+      currentLocation();
+      updateState({
+        fcm_token: fcmToken,
+      });
+    })();
+    return () => {};
+  }, []);
+
+  const currentLocation = () => {
+    chekLocationPermission()
+      .then(result => {
+        if (result !== 'goback') {
+          getCurrentPosition();
+        }
+      })
+      .catch(error => console.log('error while accessing location ', error));
+  };
+
+  const getCurrentPosition = () => {
+    return navigator.geolocation.default.getCurrentPosition(
+      position => {
+        console.log(position, 'position');
+        updateState({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+          heading: position.coords.heading,
+        });
+
+        getCurrentLocation(
+          position.coords.latitude,
+          position.coords.longitude,
+          'address',
+        )
+          .then(res => alert(res))
+          .catch(error => alert(error));
+      },
+      error => console.log(error.message),
+      {
+        enableHighAccuracy: true,
+        timeout: 20000,
+      },
+    );
+  };
+
+
   //get all tasks
   const getTasks = () => {
     actions
