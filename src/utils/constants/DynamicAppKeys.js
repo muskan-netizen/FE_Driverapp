@@ -331,6 +331,11 @@ const shortCodes = {
   getItSent:'bde9b2',
   iAmSelling:'a4b0fc',
   fifteenP:'4ac093',
+  euodooTechnologies:'bb0bda',
+  rota:'7bad1b',
+  farmMeat:'61b041',
+  yallaEat:'2d9c6d',
+  choizez:'a1c203',
 };
 
 const appIds = {
@@ -1644,6 +1649,26 @@ const appIds = {
 fifteenP: Platform.select({
     ios: 'com.fifteenP.dispatcher',
     android: 'com.fifteenP.dispatcher',
+  }),
+  euodooTechnologies: Platform.select({
+    ios: 'com.euodooTechnologies.dispatcher',
+    android: 'com.euodooTechnologies.dispatcher',
+  }),
+  rota: Platform.select({
+    ios: 'com.rota.dispatcher',
+    android: 'com.rota.dispatcher',
+  }),
+  farmMeat: Platform.select({
+    ios: 'com.farmMeat.dispatcher',
+    android: 'com.farmMeat.dispatcher',
+  }),
+  yallaEat: Platform.select({
+    ios: 'com.yallaEat.dispatcher',
+    android: 'com.yallaEat.dispatcher',
+  }),
+  choizez: Platform.select({
+    ios: 'com.choizez.dispatcher',
+    android: 'com.choizez.dispatcher',
   }),
 };
 

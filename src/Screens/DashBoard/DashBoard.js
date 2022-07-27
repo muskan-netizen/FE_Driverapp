@@ -260,6 +260,7 @@ export default function DashBoard({ route, navigation }) {
 
 
   const fetchgentLogs = async (lat, lng, heading_) => {
+   
     if (userData?.access_token) {
       let data = {};
       data['device_type'] = Platform.OS;
@@ -580,6 +581,7 @@ export default function DashBoard({ route, navigation }) {
   const _onRegionChange = region => {
     updateState({ region: region });
     // _getAddressBasedOnCoordinates(region);
+
   };
 
   const animate = region => {

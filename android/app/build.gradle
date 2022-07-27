@@ -3626,6 +3626,56 @@ android {
             applicationId 'com.fifteenP.dispatcher'
             resValue "string", "app_name", "15P Dispatcher"
         }
+         euodooTechnologies{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.euodooTechnologies.dispatcher'
+            resValue "string", "app_name", "Euodoo Technologies Dispatcher"
+        }
+         rota{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.rota.dispatcher'
+            resValue "string", "app_name", "Rota Dispatcher"
+        }
+         farmMeat{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.farmMeat.dispatcher'
+            resValue "string", "app_name", "Farm Meat Dispatcher"
+        }
+        yallaEat{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.yallaEat.dispatcher'
+            resValue "string", "app_name", "Yalla Eat Dispatcher"
+        }
+         choizez{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.choizez.dispatcher'
+            resValue "string", "app_name", "Choizez Dispatcher"
+        }
 }
  
 
