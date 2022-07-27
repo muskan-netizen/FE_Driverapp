@@ -39,6 +39,7 @@ navigator.geolocation = require('react-native-geolocation-service');
 
 // import BackgroundTimer from 'react-native-background-timer';
 import BackgroundGeolocation from '@darron1217/react-native-background-geolocation';
+import { chekLocationPermission } from '../../utils/permissions';
 
 export default function DashBoard({ route, navigation }) {
   const userData = useSelector(state => state?.auth?.userData);
