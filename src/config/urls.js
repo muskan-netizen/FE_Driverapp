@@ -1,5 +1,4 @@
 //live
-<<<<<<< HEAD
 //  export const API_BASE_URL = 'https://api.royodispatch.com/';
 //  export const API_BASE_URL = 'https://dispatch.toor.life/';
 
@@ -34,12 +33,6 @@
 
 //taquick 
 //  export const API_BASE_URL = 'https://delivery.taquick.com/';
-=======
-//  export const API_BASE_URL = 'http://192.168.96.84:9091/';
-
-//Staging
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
->>>>>>> 9bca2c3f54aabd8ab590d8243b5cba5c5f8d0e38
 
 // export const API_BASE_URL = 'https://dispatch.drusdeliveries.com/';
 
@@ -271,11 +264,7 @@
   // export const API_BASE_URL = 'https://dispatch.bimol.in/';
  //export const API_BASE_URL = 'https://dispatch.mobimarket.com.mx/';
 // grub and gusto
-<<<<<<< HEAD
 //export const API_BASE_URL = 'https://punnet.royodispatch.com/'
-=======
-export const API_BASE_URL = 'https://grub.royodispatch.com/'
->>>>>>> 9bca2c3f54aabd8ab590d8243b5cba5c5f8d0e38
 
 // meateasy
 // export const API_BASE_URL = 'https://meateasy.royodispatch.com/';

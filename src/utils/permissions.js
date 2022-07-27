@@ -66,16 +66,17 @@ export const locationPermission = () =>
       }
     } else {
       return PermissionsAndroid.request(
-        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+        PermissionsAndroid.PERMISSIONS.ACCESS_BACKGROUND_LOCATION,
       )
         .then(granted => {
           if (granted === PermissionsAndroid.RESULTS.GRANTED) {
             //console.log('You can use the location');
+            console.log(granted,"grantedgranted");
             return resolve('granted');
           }
           //console.log('Location permission denied');
           else {
-            return reject('Location permission denied');
+            return reject('denied');
           }
         })
         .catch(error => {
@@ -91,7 +92,7 @@ export const chekLocationPermission = () =>
       check(
         Platform.OS === 'ios'
           ? PERMISSIONS.IOS.LOCATION_WHEN_IN_USE
-          : PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION,
+          : PERMISSIONS.ANDROID.ACCESS_BACKGROUND_LOCATION,
       )
         .then(result => {
           switch (result) {
@@ -102,7 +103,7 @@ export const chekLocationPermission = () =>
               request(
                 Platform.OS === 'ios'
                   ? PERMISSIONS.IOS.LOCATION_WHEN_IN_USE
-                  : PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION,
+                  : PERMISSIONS.ANDROID.ACCESS_BACKGROUND_LOCATION,
               )
                 .then(result => {
                   return resolve(result);
