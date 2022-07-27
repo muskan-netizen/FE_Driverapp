@@ -1,6 +1,6 @@
 import { debounce } from 'lodash';
 import React, { useEffect, useRef, useState } from 'react';
-import { BackHandler, FlatList, Image, Linking, RefreshControl, Switch, Text, View } from 'react-native';
+import { Alert, BackHandler, FlatList, Image, Linking, RefreshControl, Switch, Text, View } from 'react-native';
 import { useSelector } from 'react-redux';
 import Header from '../../Components/Header';
 import { loaderOne } from '../../Components/Loaders/AnimatedLoaderFiles';

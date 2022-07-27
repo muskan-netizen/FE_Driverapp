@@ -202,15 +202,15 @@ android {
      flavorDimensions "appType"
 
 // productFlavors {
-//                sabroson{
+//                truckTireNow{
 //             dimension "appType"
-//             versionCode 1
+//             versionCode 3
 //             versionName "1.0"
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.Sabroson.Driver'
-//             resValue "string", "app_name", "SABROSÓN Repartidor"
+//             applicationId "com.TruckTireNow.dispatch"
+//             resValue "string", "app_name", "TruckTireNow"
 //         }
 // }
     productFlavors {

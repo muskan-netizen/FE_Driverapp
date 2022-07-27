@@ -27,7 +27,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
   // export const API_BASE_URL = 'https://miist-dispatch.netsolutionindia.com/';
 
 // export const API_BASE_URL='https://d078-103-72-170-243.in.ngrok.io/'
- //export const API_BASE_URL = 'https://baytukom-dispatch.netsolutionindia.com/';
+//  export const API_BASE_URL = 'https://baytukom-dispatch.netsolutionindia.com/';
 
 
 //export const API_BASE_URL = 'https://dispatch.carlitoo.com/';

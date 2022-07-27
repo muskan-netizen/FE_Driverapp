@@ -370,7 +370,7 @@
     "kampickdispatcher": "react-native run-android --variant=kampickDebug",
     "kampickdispatcherRelease": "cd android && ./gradlew assembleKampickRelease",
     "iPicknDropdispatcher": "react-native run-android --variant=iPicknDropDebug",
-    "iPicknDropdispatcherRelease": "cd android && ./gradlew assembleIPicknDropRelease",
+    "iPicknDropdispatcherRelease": "cd android && ./gradlew assembleiPicknDropRelease",
     "blueboltdispatcher": "react-native run-android --variant=blueboltDebug",
     "blueboltdispatcherRelease": "cd android && ./gradlew assembleBlueboltRelease",
     "cabiodispatcher": "react-native run-android --variant=cabioDebug",
