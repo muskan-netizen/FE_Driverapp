@@ -202,17 +202,17 @@ android {
     flavorDimensions "appType"
 
 // productFlavors {
-//             farmMeat{
+//             nineOneTwo{
 //             dimension "appType"
 //             versionCode 1
 //             versionName "1.0"
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.farmMeat.dispatcher'
-//             resValue "string", "app_name", "Farm Meat Dispatcher"
+//             applicationId 'com.NineOneTwo.royodispatcher'
+//             resValue "string", "app_name", "912 Dispatcher"
 //         }
-// }
+//  }
 
     productFlavors {
         royodispatcher {
