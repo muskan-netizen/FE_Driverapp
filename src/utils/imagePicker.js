@@ -11,6 +11,7 @@ const openPicker = options => {
       return image;
     })
     .catch(err => {
+      
       return err;
     });
 };

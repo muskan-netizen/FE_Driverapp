@@ -134,13 +134,15 @@ export default function PhoneNumberInput({
         />
         {countryPickerModalVisible && (
           <CountryPicker
-            withCallingCode={callingCode}
+            withCallingCode={true}
             cca2={cca2}
             visible={countryPickerModalVisible}
             withFlagButton={false}
             withFilter
             onClose={_onCountryPickerModalClose}
+            countryCode={callingCode}
             onSelect={_onCountryChange}
+           countryCode={callingCode}
             closeButtonImage={imagePath.closeButton}
           />
         )}

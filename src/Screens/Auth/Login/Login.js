@@ -7,6 +7,7 @@ import {
   Text,
   Linking,
   Alert,
+  PermissionsAndroid,
 } from 'react-native';
 import DeviceInfo, {getBundleId} from 'react-native-device-info';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
@@ -42,6 +43,10 @@ import DeviceCountry, {
   TYPE_CONFIGURATION,
 } from 'react-native-device-country';
 import RNOtpVerify from 'react-native-otp-verify';
+import {request, PERMISSIONS} from 'react-native-permissions';
+import { chekLocationPermission, locationPermission } from '../../../utils/permissions';
+import { openAppSetting } from '../../../utils/openNativeApp';
+import { useFocusEffect } from '@react-navigation/native';
 
 var getPhonesCallingCodeAndCountryData = null
 DeviceCountry.getCountryCode()
@@ -75,14 +80,68 @@ export default function Login({navigation, route}) {
       : 'IN',
     phoneNumber: '',
     appHashKey: '',
+    locationPermissionStatus:false
   });
   //all states used in this screen
-  const {phoneNumber, cca2, callingCode, isLoading, appHashKey} = state;
+  const {phoneNumber, cca2, callingCode, isLoading, appHashKey,locationPermissionStatus} = state;
 
+
+  const checkLocationPermission=()=>{
+    locationPermission().then((res)=>{
+      updateState({
+       locationPermissionStatus:true
+      })
+     }).catch((error)=>{
+       updateState({
+         locationPermissionStatus:false
+        })
+       Alert.alert(
+         "Requesting For Location Access",
+         `${DeviceInfo.getApplicationName()} would like to track the order delivery location and estimate delivery time for the end customer`,
+         [
+           {
+             text: "Cancel",
+             onPress: () => console.log("Cancel Pressed"),
+             style: "cancel"
+           },
+           { text: "OK", onPress: () => {
+          
+            if(error !='blocked' || error=='denied'){
+              chekLocationPermission().then((res)=>{
+                if(res=='granted'){
+                updateState({
+                  locationPermissionStatus:true
+                 })
+                }else{
+                  openAppSetting('LOCATION_SERVICES')
+                }
+              }).catch((error)=>{
+                updateState({
+                  locationPermissionStatus:false
+                 })
+                console.log(error,"errororor for location");
+              })
+            }else{
+              openAppSetting('LOCATION_SERVICES')
+            }
+           } }
+         ]
+       );
+     })
+  }
+
+
+
+
+  useFocusEffect(
+    React.useCallback(() => {
+      if(Platform.OS !='ios'){
+        checkLocationPermission()
+      }
+    }, []),
+  );
 
   useEffect(() => {
-
-    console.log(callingCode, "callingCode")
     const backHandler = BackHandler.addEventListener(
       'hardwareBackPress',
       () => true,
@@ -95,7 +154,6 @@ export default function Login({navigation, route}) {
     switch (getBundleId()) {
       case appIds.lOPHT:
         return colors.white
-
       default:
         return colors.black
     }
@@ -154,20 +212,14 @@ export default function Login({navigation, route}) {
     return true;
   };
 
-  // const _alert = () => {
-  //   Alert.alert(strings.notificationAlertTitle, strings.notificationAlert, [
-  //     {
-  //       text: strings.CANCEL,
-  //       onPress: () => console.log('Cancel Pressed'),
-  //       style: 'cancel',
-  //     },
-  //     {text: strings.visitSetting, onPress: () => Linking.openSettings()},
-  //   ]);
-  // };
+
 
   const _onLogin = () => {
-    // requestUserPermission(login, _alert);
-
+     if(!locationPermissionStatus && Platform.OS !='ios'){
+      checkLocationPermission();
+      return
+     }
+   
     const checkValid = isValidData();
     if (checkValid) {
       let data = {};
@@ -176,6 +228,7 @@ export default function Login({navigation, route}) {
       console.log(data, 'Here is data');
       // actions.sessionLogoutUser(false);
       updateState({isLoading: true});
+
       actions
         .login(data, {client: clientInfo?.database_name})
         .then(res => {

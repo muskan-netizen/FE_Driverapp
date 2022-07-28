@@ -1,6 +1,6 @@
 import { debounce } from 'lodash';
 import React, { useEffect, useRef, useState } from 'react';
-import { BackHandler, FlatList, Image, Linking, RefreshControl, Switch, Text, View } from 'react-native';
+import { Alert, BackHandler, FlatList, Image, Linking, RefreshControl, Switch, Text, View } from 'react-native';
 import { useSelector } from 'react-redux';
 import Header from '../../Components/Header';
 import { loaderOne } from '../../Components/Loaders/AnimatedLoaderFiles';
@@ -32,13 +32,14 @@ import {
   showError
 } from '../../utils/helperFunctions';
 import { requestUserPermission } from '../../utils/notificationServices';
-import { chekLocationPermission } from '../../utils/permissions';
+
 import styles from './styles';
 navigator.geolocation = require('react-native-geolocation-service');
 // import BackgroundService from 'react-native-background-actions';
-
+import socketServices from '../../utils/scoketService';
 // import BackgroundTimer from 'react-native-background-timer';
 import BackgroundGeolocation from '@darron1217/react-native-background-geolocation';
+import { chekLocationPermission } from '../../utils/permissions';
 
 export default function DashBoard({ route, navigation }) {
   const userData = useSelector(state => state?.auth?.userData);
@@ -146,94 +147,98 @@ export default function DashBoard({ route, navigation }) {
 
 
   useEffect(() => {
-    BackgroundGeolocation.on('location', (location) => {
-      console.log(location, "location >>>>>>>");
-      let headingAngle = location?.bearing || 0.00
-      let lat = location?.latitude || 0
-      let long = location.longitude || 0
-      fetchgentLogs(lat, long, headingAngle)
-    });
-
-
-    BackgroundGeolocation.on('error', (error) => {
-      console.log('[ERROR] BackgroundGeolocation error:', error);
-    });
-
-
-    BackgroundGeolocation.on('authorization', (status) => {
-      console.log('[INFO] BackgroundGeolocation authorization status: ' + status);
-      if (status !== BackgroundGeolocation.AUTHORIZED) {
-        // we need to set delay or otherwise alert may not be shown
-        setTimeout(() =>
-          Alert.alert('App requires location tracking permission', 'Would you like to open app settings?', [
-            { text: 'Yes', onPress: () => BackgroundGeolocation.showAppSettings() },
-            { text: 'No', onPress: () => console.log('No Pressed'), style: 'cancel' }
-          ]), 1000);
-      }
-    });
-
-    BackgroundGeolocation.on('background', () => {
-
-      console.log('[INFO] App is in background');
-
-
-    });
-
-    BackgroundGeolocation.on('foreground', () => {
-      console.log('[INFO] App is in foreground');
-
-    });
-
-    BackgroundGeolocation.on('abort_requested', () => {
-      console.log('[INFO] Server responded with 285 Updates Not Required');
-    });
-
-    BackgroundGeolocation.on('http_authorization', () => {
-      console.log('[INFO] App needs to authorize the http requests');
-    });
-
-    BackgroundGeolocation.checkStatus(status => {
-      console.log(status, "status.isRunning");
-      if (!status.isRunning) {
-        BackgroundGeolocation.start(); //triggers start on start event
-      }
-    });
-
-
-
-    BackgroundGeolocation.configure({
-      activityType: 'Fitness',
-      desiredAccuracy: BackgroundGeolocation.HIGH_ACCURACY,
-      stationaryRadius: 10,
-      distanceFilter: 10,
-      debug: false,
-      startOnBoot: false,
-      stopOnTerminate: true,
-      notificationTitle: 'Location Tracking',
-      notificationText: `Tracking driver's location in background.`,
-      locationProvider: BackgroundGeolocation.ACTIVITY_PROVIDER,
-      interval: 10000,
-      fastestInterval: 10000,
-      activitiesInterval: 10000,
-      stopOnStillActivity: false,
-      pauseLocationUpdates: false,
-      url: '',
-      httpHeaders: {
-        'X-FOO': 'bar'
-      },
-      // customize post properties
-      postTemplate: {
-        lat: '@latitude',
-        lon: '@longitude',
-        foo: 'bar' // you can also add your own properties
+    DeviceInfo.isEmulator().then((isEmulator) => {
+      if(!isEmulator){
+        BackgroundGeolocation.on('location', (location) => {
+          console.log(location, "location >>>>>>>");
+          let headingAngle = location?.bearing || 0.00
+          let lat = location?.latitude || 0
+          let long = location.longitude || 0
+          fetchgentLogs(lat, long, headingAngle)
+        });
+    
+    
+        BackgroundGeolocation.on('error', (error) => {
+          console.log('[ERROR] BackgroundGeolocation error:', error);
+        });
+    
+    
+        BackgroundGeolocation.on('authorization', (status) => {
+          console.log('[INFO] BackgroundGeolocation authorization status: ' + status);
+          if (status !== BackgroundGeolocation.AUTHORIZED) {
+            // we need to set delay or otherwise alert may not be shown
+            setTimeout(() =>
+              Alert.alert('App requires location tracking permission', 'Would you like to open app settings?', [
+                { text: 'Yes', onPress: () => BackgroundGeolocation.showAppSettings() },
+                { text: 'No', onPress: () => console.log('No Pressed'), style: 'cancel' }
+              ]), 1000);
+          }
+        });
+    
+        BackgroundGeolocation.on('background', () => {
+    
+          console.log('[INFO] App is in background');
+    
+    
+        });
+    
+        BackgroundGeolocation.on('foreground', () => {
+          console.log('[INFO] App is in foreground');
+    
+        });
+    
+        BackgroundGeolocation.on('abort_requested', () => {
+          console.log('[INFO] Server responded with 285 Updates Not Required');
+        });
+    
+        BackgroundGeolocation.on('http_authorization', () => {
+          console.log('[INFO] App needs to authorize the http requests');
+        });
+    
+        BackgroundGeolocation.checkStatus(status => {
+          console.log(status, "status.isRunning");
+          if (!status.isRunning) {
+            BackgroundGeolocation.start(); //triggers start on start event
+          }
+        });
+    
+        BackgroundGeolocation.configure({
+          activityType: 'Fitness',
+          desiredAccuracy: BackgroundGeolocation.HIGH_ACCURACY,
+          stationaryRadius: 10,
+          distanceFilter: 10,
+          debug: false,
+          startOnBoot: false,
+          stopOnTerminate: true,
+          notificationTitle: 'Location Tracking',
+          notificationText: `Tracking driver's location in background.`,
+          locationProvider: BackgroundGeolocation.ACTIVITY_PROVIDER,
+          interval: 10000,
+          fastestInterval: 10000,
+          activitiesInterval: 10000,
+          stopOnStillActivity: false,
+          pauseLocationUpdates: false,
+          url: '',
+          httpHeaders: {
+            'X-FOO': 'bar'
+          },
+          // customize post properties
+          postTemplate: {
+            lat: '@latitude',
+            lon: '@longitude',
+            foo: 'bar' // you can also add your own properties
+          }
+        })
+    
+        return () => {
+          BackgroundGeolocation.removeAllListeners();
+        }
       }
     })
-
-    return () => {
-      BackgroundGeolocation.removeAllListeners();
-    }
-
+  
   }, [])
+
+
 
 
   useFocusEffect(
@@ -296,7 +301,6 @@ export default function DashBoard({ route, navigation }) {
                 },
               });
           }
-          console.log(res, 'res>>>>>>>agenLog');
 
           if (selectedOption == 1) {
             updateState({ allTasks: res?.data?.tasks });
@@ -328,6 +332,53 @@ export default function DashBoard({ route, navigation }) {
       getTasks();
     }
   }, [refreshHomeData]);
+
+  useEffect(() => {
+    (async () => {
+      currentLocation();
+      updateState({
+        fcm_token: fcmToken,
+      });
+    })();
+    return () => {};
+  }, []);
+
+  const currentLocation = () => {
+    chekLocationPermission()
+      .then(result => {
+        if (result !== 'goback') {
+          getCurrentPosition();
+        }
+      })
+      .catch(error => console.log('error while accessing location ', error));
+  };
+
+  const getCurrentPosition = () => {
+    return navigator.geolocation.default.getCurrentPosition(
+      position => {
+        console.log(position, 'position');
+        updateState({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+          heading: position.coords.heading,
+        });
+
+        getCurrentLocation(
+          position.coords.latitude,
+          position.coords.longitude,
+          'address',
+        )
+          .then(res => alert(res))
+          .catch(error => alert(error));
+      },
+      error => console.log(error.message),
+      {
+        enableHighAccuracy: true,
+        timeout: 20000,
+      },
+    );
+  };
+
 
   //get all tasks
   const getTasks = () => {
@@ -528,7 +579,6 @@ export default function DashBoard({ route, navigation }) {
     updateState({ region: region });
     // _getAddressBasedOnCoordinates(region);
 
-    console.log(markers, ' mapRef.current');
   };
 
   const animate = region => {
@@ -564,8 +614,6 @@ export default function DashBoard({ route, navigation }) {
 
   useEffect(() => {
     if (latitude && longitude) {
-      console.log('regionregion', region);
-      // {"latitude": 20.5937, "latitudeDelta": 0.015, "longitude": 78.9629, "longitudeDelta": 0.0121}
       fitPadding([
         {
           latitude: Number(latitude),
@@ -666,6 +714,41 @@ export default function DashBoard({ route, navigation }) {
           }}></Marker>
       </MapView>
     );
+    // return (
+    //   <MapView
+    //     ref={mapRef}
+    //     //provider={PROVIDER_GOOGLE} // remove if not using Google Maps
+    //     style={styles.map}
+    //     region={region}
+    //     zoomEnabled={true}
+    //     initialRegion={region}
+    //     // showsUserLocation={true}
+    //     // showsMyLocationButton={true}
+    //     onLayout={() => fitToMap()}
+    //     //   customMapStyle={mapStyle}
+    //     onRegionChangeComplete={_onRegionChange}>
+    //     {markers?.map((coordinate, index) => (
+    //       coordinate && coordinate?.location && coordinate?.location?.latitude != NaN && coordinate?.location?.longitude != NaN && <Marker
+    //         tracksViewChanges={false}
+    //         zIndex={index}
+    //         key={`coordinate_${index}`}
+    //         image={imagePath.pinRed}
+    //         onPress={() => {
+    //           _onPressTask(coordinate);
+    //         }}
+    //         coordinate={{
+    //           latitude: Number(coordinate?.location?.latitude),
+    //           longitude: Number(coordinate?.location?.longitude),
+    //         }}></Marker>
+    //     ))}
+    //     <Marker
+    //       image={imagePath.pinBlue}
+    //       coordinate={{
+    //         latitude: Number(latitude),
+    //         longitude: Number(longitude),
+    //       }}></Marker>
+    //   </MapView>
+    // );
 
     // return (
     //   <ListEmptyComponent

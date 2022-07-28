@@ -1,9 +1,9 @@
-import React, {useState, useEffect} from 'react';
-import {Image, View, Text, ScrollView} from 'react-native';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-import {useSelector} from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { Image, View, Text, ScrollView, Alert, TouchableOpacity } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { useSelector } from 'react-redux';
 import Header from '../../Components/Header';
-import {loaderOne} from '../../Components/Loaders/AnimatedLoaderFiles';
+import { loaderOne } from '../../Components/Loaders/AnimatedLoaderFiles';
 import TextInputWithlabel from '../../Components/TextInputWithlabel';
 import WrapperContainer from '../../Components/WrapperContainer';
 import PhoneNumberInput from '../../Components/PhoneNumberInput';
@@ -20,11 +20,17 @@ import {
   width,
 } from '../../styles/responsiveSize';
 import imagePath from '../../constants/imagePath';
-import {transportationArray} from '../../utils/constants/ConstantValues';
+import { transportationArray } from '../../utils/constants/ConstantValues';
 import stylesFunction from './styles';
+import actions from '../../redux/actions';
+import navigationStrings from '../../navigation/navigationStrings';
+import { showError } from '../../utils/helperFunctions';
+import { removeItem } from '../../utils/utils';
+import { removerUserData } from '../../redux/actions/auth';
 
-export default function MyProfile({route, navigation}) {
+export default function MyProfile({ route, navigation }) {
   const userData = useSelector(state => state?.auth?.userData);
+  const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
   console.log(userData, 'userData');
   const [state, setState] = useState({
     isLoading: false,
@@ -58,29 +64,77 @@ export default function MyProfile({route, navigation}) {
     vehicleColor,
     plateNumber,
   } = state;
-  const commonStyles = commonStylesFunc({fontFamily});
+  const commonStyles = commonStylesFunc({ fontFamily });
 
   useEffect(() => {
     console.log(transportationArray, 'transportationArray');
   }, [transportationArray]);
-  const updateState = data => setState(state => ({...state, ...data}));
+  const updateState = data => setState(state => ({ ...state, ...data }));
 
   const defaultLanguagae = useSelector(
     state => state?.initBoot?.defaultLanguage,
   );
 
-  const styles = stylesFunction({defaultLanguagae});
+  const styles = stylesFunction({ defaultLanguagae });
 
   //Naviagtion to specific screen
   const moveToNewScreen = (screenName, data) => () => {
-    navigation.navigate(screenName, {data});
+    navigation.navigate(screenName, { data });
   };
 
   //On country change
   const _onCountryChange = data => {
-    updateState({cca2: data.cca2, callingCode: data.callingCode[0]});
+    updateState({ cca2: data.cca2, callingCode: data.callingCode[0] });
     return;
   };
+
+  const onDeleteAccount = () => {
+
+    Alert.alert(strings.ARE_YOU_SURE_YOU_WANT_TO_DELETE, '', [
+      {
+        text: strings.CANCEL,
+        onPress: () => console.log('Cancel Pressed'),
+        // style: 'destructive',
+      },
+      {
+        text: strings.CONFIRM,
+        onPress: deleleUserAccount,
+      },
+    ]);
+  };
+  const deleleUserAccount = async () => {
+    try {
+      const res = await actions.deleteAccount(
+        {},
+        {
+          client: clientInfo?.database_name,
+          language: defaultLanguagae?.value ? defaultLanguagae?.value : 'en',
+        },
+      );
+      console.log('delete user account res++++', res);
+      await removeItem('userData');
+      removerUserData(null)
+      // logout()
+    } catch (error) {
+      console.log('erro raised', error);
+      showError(error?.message);
+    }
+  };
+
+
+  const logout = () => {
+    actions.logout({}, { client: clientInfo?.database_name })
+      .then(res => {
+        moveToNewScreen(navigationStrings.LOGIN)();
+      })
+      .catch(errorMethod);
+  };
+
+  const errorMethod = error => {
+    showError(error?.message || error?.error);
+  };
+
+
 
   return (
     <WrapperContainer
@@ -89,12 +143,14 @@ export default function MyProfile({route, navigation}) {
       isLoadingB={isLoading}
       source={loaderOne}>
       <Header
-        headerStyle={{backgroundColor: colors.white}}
+        headerStyle={{ backgroundColor: colors.white }}
         // hideRight={true}
         // onPressLeft={()=>navigation.goBack()}
         centerTitle={strings.PROFILE}
+        rightIcon={imagePath.delete}
+        onPressRight={onDeleteAccount}
       />
-      <View style={{...commonStyles.headerTopLine}} />
+      <View style={{ ...commonStyles.headerTopLine }} />
       <View style={styles.rootContainer}>
         <KeyboardAwareScrollView
           showsVerticalScrollIndicator={false}
@@ -103,7 +159,7 @@ export default function MyProfile({route, navigation}) {
           <View style={styles.imageViewStyle}>
             {userData && userData?.image_url && (
               <Image
-                source={{uri: userData?.image_url}}
+                source={{ uri: userData?.image_url }}
                 style={styles.imageStyle}
               />
             )}
@@ -125,8 +181,8 @@ export default function MyProfile({route, navigation}) {
                 textInputStyle={styles.textInputStyle}
               /> */}
               <View
-                style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-                <View style={{flex: 0.5, marginBottom: moderateScale(20)}}>
+                style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                <View style={{ flex: 0.5, marginBottom: moderateScale(20) }}>
                   <View>
                     <Text style={[styles.label2, styles.textInputStyle]}>
                       {strings.FULLNAME}
@@ -142,7 +198,7 @@ export default function MyProfile({route, navigation}) {
                   </Text>
                 </View>
 
-                <View style={{flex: 0.5, marginBottom: moderateScale(20)}}>
+                <View style={{ flex: 0.5, marginBottom: moderateScale(20) }}>
                   <View>
                     <Text style={[styles.label2, styles.textInputStyle]}>
                       {strings.PHONENUMBER}
@@ -160,7 +216,7 @@ export default function MyProfile({route, navigation}) {
               </View>
 
               {!!type && (
-                <View style={{marginBottom: moderateScale(20)}}>
+                <View style={{ marginBottom: moderateScale(20) }}>
                   <View>
                     <Text style={[styles.label2, styles.textInputStyle]}>
                       {strings.JOBTYPE}
@@ -178,7 +234,7 @@ export default function MyProfile({route, navigation}) {
               )}
 
               {!!team && (
-                <View style={{marginBottom: moderateScale(20)}}>
+                <View style={{ marginBottom: moderateScale(20) }}>
                   <View>
                     <Text style={[styles.label2, styles.textInputStyle]}>
                       {strings.ASSIGNEDTEAM}
@@ -232,7 +288,7 @@ export default function MyProfile({route, navigation}) {
             )}
             <View style={styles.carInfoStyle}>
               {!!modelMake && (
-                <View style={{marginBottom: moderateScale(20)}}>
+                <View style={{ marginBottom: moderateScale(20) }}>
                   <View>
                     <Text style={[styles.label2, styles.textInputStyle]}>
                       {strings.MODELMAKE}
@@ -250,7 +306,7 @@ export default function MyProfile({route, navigation}) {
               )}
 
               {!!vehicleColor && (
-                <View style={{marginBottom: moderateScale(20)}}>
+                <View style={{ marginBottom: moderateScale(20) }}>
                   <View>
                     <Text style={[styles.label2, styles.textInputStyle]}>
                       {strings.COLOR}
@@ -268,7 +324,7 @@ export default function MyProfile({route, navigation}) {
               )}
 
               {!!plateNumber && (
-                <View style={{marginBottom: moderateScale(20)}}>
+                <View style={{ marginBottom: moderateScale(20) }}>
                   <View>
                     <Text style={[styles.label2, styles.textInputStyle]}>
                       {strings.PLATEORDER}

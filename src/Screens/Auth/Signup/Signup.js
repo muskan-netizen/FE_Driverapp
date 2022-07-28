@@ -267,6 +267,7 @@ export default function Signup({ route, navigation }) {
         })
           .then(res => {
             console.log(res, 'res');
+            if(res.path){
             if (profilePic) {
               updateState({ userImage: res?.sourceURL || res?.path });
             } else {
@@ -282,9 +283,14 @@ export default function Signup({ route, navigation }) {
               console.log(data, 'data>>>>');
 
               updateState({ addtionalImages: data });
+            }}else{
+              showError(strings.PICKERCANCLLED)
             }
-          })
-          .catch(err => { });
+          }
+        )
+          .catch(err => { 
+            console.log(err,'error');
+          });
       }
     }
   };
@@ -365,6 +371,7 @@ export default function Signup({ route, navigation }) {
       uri: userImage,
     });
 
+    console.log(formdata,"formdata>>>>");
     if (addtionalTextInputs.length) {
       addtionalTextInputs.map((i, inx) => {
         if (i?.contents != '' && !!i?.contents) {
@@ -786,7 +793,8 @@ export default function Signup({ route, navigation }) {
         <KeyboardAwareScrollView
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator={false}
-          scrollEnabled={!isTeams}
+          scrollEnabled={true}
+          enableOnAndroid={true}
           contentContainerStyle={{
             flexGrow: 1,
           }}>
@@ -803,6 +811,7 @@ export default function Signup({ route, navigation }) {
                 />
               </TouchableOpacity>
             )}
+            {console.log(userImage,"image>>>>>>>>")}
           </View>
           <View style={{ marginTop: moderateScale(20) }}>
             <Text style={styles.label}>{strings.PERSONAL}</Text>

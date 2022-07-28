@@ -31,7 +31,7 @@ import RNOtpVerify from 'react-native-otp-verify';
 
 export default function PhoneVerification({navigation, route}) {
   const paramData = route?.params?.data;
-
+console.log(paramData,"otpotpotp");
   const [state, setState] = useState({
     isLoading: false,
     callingCode: paramData?.callingCode ? paramData?.callingCode : '91',
