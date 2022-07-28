@@ -336,6 +336,7 @@ const shortCodes = {
   farmMeat:'61b041',
   yallaEat:'2d9c6d',
   choizez:'a1c203',
+  otto:'ca3410'
 };
 
 const appIds = {
@@ -1669,6 +1670,10 @@ fifteenP: Platform.select({
   choizez: Platform.select({
     ios: 'com.choizez.dispatcher',
     android: 'com.choizez.dispatcher',
+  }),
+  otto: Platform.select({
+    ios: 'com.otto.dispatcher',
+    android: 'com.otto.dispatcher',
   }),
 };
 

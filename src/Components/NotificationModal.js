@@ -335,7 +335,7 @@ const NotificationModal = () => {
             )}
           </View>
         </View>
-        {data?.notificationType == 'AR' ? (
+        {data?.type == 'AR' ? (
           <View
             style={{
               borderRadius: 10,

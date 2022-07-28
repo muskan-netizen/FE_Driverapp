@@ -19,7 +19,7 @@ messaging().setBackgroundMessageHandler(async remoteMessage => {
     Platform.OS == 'android' &&
     notification?.android?.sound == 'notification'
   ) {
-    if (data?.notificationType != 'N') {
+    if (data?.type != 'N') {
       if (data?.callback_url) {
         navigate(navigationStrings.ORDERDETAIL, {
           data: {
