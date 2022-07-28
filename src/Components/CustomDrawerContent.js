@@ -24,6 +24,7 @@ import ScaledImage from 'react-native-scalable-image';
 import DeviceInfo from 'react-native-device-info';
 import ZendeskChat from '../library/react-native-zendesk-chat';
 import {appIds} from '../utils/constants/DynamicAppKeys';
+import BackgroundGeolocation from '@darron1217/react-native-background-geolocation';
 
 export default function CustomDrawerContent({
   state,
@@ -245,6 +246,7 @@ export default function CustomDrawerContent({
         onPress: () => {
           console.log('progress');
           logout();
+          BackgroundGeolocation.removeAllListeners();
           // navigation.toggleDrawer();
         },
       },

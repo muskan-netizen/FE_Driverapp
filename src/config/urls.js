@@ -92,7 +92,7 @@
 // yogolift
 // export const API_BASE_URL = 'https://dispatch.lift.gd/'
 
-// export const API_BASE_URL = 'https://dispatch.sabroson.com.mx/'
+//export const API_BASE_URL = 'https://dispatch.sabroson.com.mx/'
 //heybuddy
 // export const API_BASE_URL ='https://dispatch.heybuddy.com.mx/'
 
@@ -282,7 +282,7 @@
 
 //export const API_BASE_URL = 'https://dispatch.meltivers.com/';
 //  butler delivery
-// export const API_BASE_URL = 'https://dispatch.butlerdeliveryusa.com/'
+//  export const API_BASE_URL = 'https://dispatch.butlerdeliveryusa.com/'
 // bimolaa
 // export const API_BASE_URL = 'https://dispatch.bimol.in/'
 
