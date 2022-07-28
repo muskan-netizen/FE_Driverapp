@@ -67,7 +67,7 @@ PODS:
     - GoogleMaps
   - Google-Maps-iOS-Utils/QuadTree (2.1.0):
     - GoogleMaps
-  - GoogleDataTransport (9.2.0):
+  - GoogleDataTransport (9.1.4):
     - GoogleUtilities/Environment (~> 7.7)
     - nanopb (< 2.30910.0, >= 2.30908.0)
     - PromisesObjC (< 3.0, >= 1.2)
@@ -120,7 +120,7 @@ PODS:
   - Permission-LocationWhenInUse (3.6.0):
     - RNPermissions
   - PromisesObjC (2.1.1)
-  - razorpay-pod (1.2.8)
+  - razorpay-pod (1.2.7)
   - RCT-Folly (2021.04.26.00):
     - boost-for-react-native
     - DoubleConversion
@@ -361,7 +361,7 @@ PODS:
     - React
   - react-native-splash-screen (3.3.0):
     - React-Core
-  - react-native-webview (11.22.7):
+  - react-native-webview (11.23.0):
     - React-Core
   - React-perflogger (0.65.2)
   - React-RCTActionSheet (0.65.2):
@@ -480,7 +480,7 @@ PODS:
   - RNScreens (3.15.0):
     - React-Core
     - React-RCTImage
-  - RNSVG (12.4.0):
+  - RNSVG (12.4.3):
     - React-Core
   - RNZendeskChat (0.4.1):
     - React-Core
@@ -809,7 +809,7 @@ SPEC CHECKSUMS:
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   glog: 5337263514dd6f09803962437687240c5dc39aa4
   Google-Maps-iOS-Utils: c32891ff472eaaa1fca032beedafa1a013af7875
-  GoogleDataTransport: 1c8145da7117bd68bbbed00cf304edb6a24de00f
+  GoogleDataTransport: 5fffe35792f8b96ec8d6775f5eccd83c998d5a3b
   GoogleMaps: 32ca02de09de357a10ac773f2c70f1986751392d
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
   JWT: ef71dfb03e1f842081e64dc42eef0e164f35d251
@@ -821,7 +821,7 @@ SPEC CHECKSUMS:
   Permission-LocationAlways: 6b9874937f2092664dd71fbc53a10f7f0adfff51
   Permission-LocationWhenInUse: 51aa065819cd582517e98e89b564e2465a4a83c6
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
-  razorpay-pod: 3ec6fe82e7d5927013cfbbef81a880188c86b077
+  razorpay-pod: 8c229afb24506977873ea02ae60dc653be16c191
   RCT-Folly: 0dd9e1eb86348ecab5ba76f910b56f4b5fef3c46
   RCTRequired: 1b65ab453de585b0f939824780bd26cdf6fb07f8
   RCTTypeSafety: 31f76e2d6734fe3c8084ac9d39201c4a1a3c5b42
@@ -851,7 +851,7 @@ SPEC CHECKSUMS:
   react-native-safe-area-context: 9e40fb181dac02619414ba1294d6c2a807056ab9
   react-native-signature-capture: 416a3947684e049a5b012cdd6496f878dc797f16
   react-native-splash-screen: 4312f786b13a81b5169ef346d76d33bc0c6dc457
-  react-native-webview: 227ba9205abb8579116b69ea5774d9744267c65a
+  react-native-webview: e771bc375f789ebfa02a26939a57dbc6fa897336
   React-perflogger: 939564c838f8b6ec099b4f858559f0f406c99745
   React-RCTActionSheet: b5135d36ee35ebd883c4fe043db7bd8cbba7516e
   React-RCTAnimation: 93aeefce33bb73f8d82132d7a362819676e1d1e4
@@ -872,7 +872,7 @@ SPEC CHECKSUMS:
   RNCClipboard: 41d8d918092ae8e676f18adada19104fa3e68495
   RNCPushNotificationIOS: 87b8d16d3ede4532745e05b03c42cff33a36cc45
   RNDeviceInfo: aad3c663b25752a52bf8fce93f2354001dd185aa
-  RNFaceApi: e1b009f1172c18e65d5c8766f8ef040c78b1257b
+  RNFaceApi: 6b8b4d6b4b76939481c601f45264b3275c9846b2
   RNFastImage: 1f2cab428712a4baaf78d6169eaec7f622556dd7
   RNFBApp: 729c0666395b1953198dc4a1ec6deb8fbe1c302e
   RNFBMessaging: 8415ec196e5c1196caa26ec0742cdb48ed4d0f97
@@ -884,7 +884,7 @@ SPEC CHECKSUMS:
   RNReactNativeHapticFeedback: 1e3efeca9628ff9876ee7cdd9edec1b336913f8c
   RNReanimated: c1b56d030d1616239861534d9adb531f8cffab68
   RNScreens: 4a1af06327774490d97342c00aee0c2bafb497b7
-  RNSVG: 3dd44d99d1c18e1342aee4bfa53ab3f6a8c4865f
+  RNSVG: f3b60aeeaa81960e2e0536c3a9eef50b667ef3a9
   RNZendeskChat: c3835f664be1746b121b69736d5c95e236cae382
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
   SDWebImageWebPCoder: 908b83b6adda48effe7667cd2b7f78c897e5111d
@@ -902,6 +902,6 @@ SPEC CHECKSUMS:
   ZendeskMessagingSDK: 95d396c981dacfab83cc7b9736e8561d51a3052b
   ZendeskSDKConfigurationsSDK: ebced171fd1f4eb57760e8537d8cfa6a450122be
 
-PODFILE CHECKSUM: 048f575a1cb6797bd8ed64540e3c1920a85b42aa
+PODFILE CHECKSUM: 8a93f1167e1deeb4b4d2e5c3c8e362c68fcb6bce
 
 COCOAPODS: 1.11.3

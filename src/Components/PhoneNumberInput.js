@@ -140,6 +140,7 @@ export default function PhoneNumberInput({
             withFlagButton={false}
             withFilter
             onClose={_onCountryPickerModalClose}
+            countryCode={callingCode}
             onSelect={_onCountryChange}
            countryCode={callingCode}
             closeButtonImage={imagePath.closeButton}

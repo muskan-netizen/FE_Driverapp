@@ -331,6 +331,11 @@ const shortCodes = {
   getItSent:'bde9b2',
   iAmSelling:'a4b0fc',
   fifteenP:'4ac093',
+  euodooTechnologies:'bb0bda',
+  rota:'7bad1b',
+  farmMeat:'61b041',
+  yallaEat:'2d9c6d',
+  choizez:'a1c203',
 };
 
 const appIds = {
@@ -893,7 +898,7 @@ const appIds = {
   }),
   bimol: Platform.select({
     ios: 'com.Bimol.Dispatch',
-    android: 'com.Bimol.royodispatcher',
+    android: 'com.bimol.driver',
   }),
   tripTCI: Platform.select({
     ios: 'com.TripTCI.Dispatch',
@@ -960,8 +965,8 @@ const appIds = {
     android: 'com.Easyu.royodispatcher',
   }),
   myfiji: Platform.select({
-    ios: 'com.Myfiji.Dispatch',
-    android: 'com.Myfiji.royodispatcher',
+    ios: 'com.fijiEats.dispatcher',
+    android: 'com.fijiEats.dispatcher',
   }),
   ritenow: Platform.select({
     ios: 'com.Ritenow.Driver',
@@ -1224,8 +1229,8 @@ const appIds = {
     android: 'com.dispatch.dlvrd',
   }),
   delivery: Platform.select({
-    ios: 'com.Delivery.Dispatch',
-    android: 'com.Delivery.royodispatcher',
+    ios: 'com.gdotDelivery.driver',
+    android: 'com.gdotDelivery.driver',
   }),
   timHomeServices: Platform.select({
     ios: 'com.TimHomeServices.Dispatch',
@@ -1244,8 +1249,8 @@ const appIds = {
     android: 'com.HelloDeliver.royodispatcher',
   }),
   viversBox: Platform.select({
-    ios: 'com.App.ViversBox.Dispatch',
-    android: 'com.ViversBox.royodispatcher',
+    ios: 'com.viversbox.driver',
+    android: 'com.viversbox.driver',
   }),
   scootz: Platform.select({
     ios: 'com.App.Scootz.Dispatch',
@@ -1424,16 +1429,16 @@ const appIds = {
     android: 'com.AmstaFood.royodispatcher',
   }),
   toor: Platform.select({
-    ios: 'com.Toor.Dispatch',
-    android: 'com.Toor.royodispatcher',
+    ios: 'com.toor.driver',
+    android: 'com.toor.driver',
   }),
   peerDeliveries: Platform.select({
     ios: 'com.PeerDeliveries.Dispatch',
     android: 'com.PeerDeliveries.royodispatcher',
   }),
   swan: Platform.select({
-    ios: 'com.Swan.Dispatch',
-    android: 'com.Swan.royodispatcher',
+    ios: 'com.swan.driver',
+    android: 'com.application.swanDriver',
   }),
   scootUp: Platform.select({
     ios: 'com.ScootUp.Dispatch',
@@ -1444,8 +1449,8 @@ const appIds = {
     android: 'com.PatrolNow.royodispatcher',
   }),
   butlerDelivery: Platform.select({
-    ios: 'com.ButlerDelivery.Dispatch',
-    android: 'com.ButlerDelivery.royodispatcher',
+    ios: 'com.butler.dispatcher',
+    android: 'com.butler.dispatcher',
   }),
   swatiRx: Platform.select({
     ios: 'com.SwatiRx.Dispatch',
@@ -1487,7 +1492,7 @@ const appIds = {
 
   Jiffex: Platform.select({
     ios: 'com.jiffex.Dispatch',
-    android: 'com.jiffex.royodispatcher',
+    android: 'com.jiffex.driver',
   }),
   jazzyBug: Platform.select({
     ios: 'com.jazzyBug.Dispatch',
@@ -1514,8 +1519,8 @@ const appIds = {
     android: 'com.myFarma.royodispatcher',
   }),
   blueBundles: Platform.select({
-    ios: 'com.blueBundles.driver',
-    android: 'com.blueBundle.royodispatcher',
+    ios: 'com.blueBundle.dispatcher',
+    android: 'com.blueBundle.dispatcher',
   }),
   kartandkarry: Platform.select({
     ios: 'com.kartandkarry.Dispatch',
@@ -1554,8 +1559,8 @@ const appIds = {
     android: 'com.carlitoo.royodispatcher',
   }),
   dingDongDelivers: Platform.select({
-    ios: 'com.dingDongDelivers.Dispatch',
-    android: 'com.dingDongDelivers.royodispatcher',
+    ios: 'com.DingDonggDelivers.Driver',
+    android: 'com.DingDonggDelivers.Driver',
   }),
   kurs: Platform.select({
     ios: 'com.kurs.Dispatch',
@@ -1644,6 +1649,26 @@ const appIds = {
 fifteenP: Platform.select({
     ios: 'com.fifteenP.dispatcher',
     android: 'com.fifteenP.dispatcher',
+  }),
+  euodooTechnologies: Platform.select({
+    ios: 'com.euodooTechnologies.dispatcher',
+    android: 'com.euodooTechnologies.dispatcher',
+  }),
+  rota: Platform.select({
+    ios: 'com.rota.dispatcher',
+    android: 'com.rota.dispatcher',
+  }),
+  farmMeat: Platform.select({
+    ios: 'com.farmMeat.dispatcher',
+    android: 'com.farmMeat.dispatcher',
+  }),
+  yallaEat: Platform.select({
+    ios: 'com.yallaEat.dispatcher',
+    android: 'com.yallaEat.dispatcher',
+  }),
+  choizez: Platform.select({
+    ios: 'com.choizez.dispatcher',
+    android: 'com.choizez.dispatcher',
   }),
 };
 

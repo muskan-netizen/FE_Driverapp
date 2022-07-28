@@ -28,6 +28,7 @@ messaging().setBackgroundMessageHandler(async remoteMessage => {
           },
         });
       } else {
+        console.log(' hey i am here');
         actions.isModalVisibleForAcceptReject({
           isModalVisibleForAcceptReject: true,
           notificationData: remoteMessage,

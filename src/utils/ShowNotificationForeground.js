@@ -12,7 +12,7 @@ const ShowNotificationForeground = props => {
     const unsubscribe = messaging().onMessage(async remoteMessage => {
       console.log('remote message foreground', JSON.stringify(remoteMessage));
       const {data, messageId, notification} = remoteMessage;
-
+       console.log(remoteMessage.data,notification,"datadatadatadata");
       {
         Platform.OS == 'ios'
           ? PushNotificationIOS.addNotificationRequest({
@@ -43,7 +43,7 @@ const ShowNotificationForeground = props => {
             isModalVisibleForAcceptReject: true,
             notificationData: remoteMessage,
           });
-        }
+         }
         if (data?.callback_url != '' && data?.callback_url != null) {
           navigate(navigationStrings.ORDERDETAIL, {
             data: {item: data?.callback_url, fromNotification: true},
