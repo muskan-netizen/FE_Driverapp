@@ -657,7 +657,6 @@
     "iAmSellingdispatcherRelease": "cd android && ./gradlew assembleiAmSellingRelease",
     "fifteenPdispatcher": "react-native run-android --variant=fifteenPDebug",
     "fifteenPdispatcherRelease": "cd android && ./gradlew assemblefifteenPRelease",
-    
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
