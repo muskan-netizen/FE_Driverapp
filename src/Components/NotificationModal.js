@@ -191,6 +191,7 @@ const NotificationModal = () => {
 
   const modalMainContent = () => {
     let data = notificationData?.notificationData?.data;
+    let notificationType = data?.type?data?.type:data?.notificationType
     return (
       <View style={{overflow: 'hidden', borderRadius: moderateScale(10)}}>
         <View>{!!region && mapView()}</View>
@@ -298,7 +299,8 @@ const NotificationModal = () => {
               </Text>
               <Text style={styles.address}>{getDate(data?.created_at)}</Text>
 
-              {!!data?.cash_to_be_collected && (
+              {!!Number(data?.cash_to_be_collected) > 0 
+              && (
                 <View>
                   <Text
                     style={[
@@ -335,7 +337,7 @@ const NotificationModal = () => {
             )}
           </View>
         </View>
-        {data?.notificationType == 'AR' ? (
+        {notificationType == 'AR' ? (
           <View
             style={{
               borderRadius: 10,

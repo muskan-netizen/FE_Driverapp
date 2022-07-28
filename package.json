@@ -669,6 +669,8 @@
     "yallaEatdispatcherRelease": "cd android && ./gradlew assembleyallaEatRelease",
     "choizezdispatcher": "react-native run-android --variant=choizezDebug",
     "choizezdispatcherRelease": "cd android && ./gradlew assemblechoizezRelease",
+    "ottodispatcher": "react-native run-android --variant=ottoDebug",
+    "ottodispatcherRelease": "cd android && ./gradlew assembleottoRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",

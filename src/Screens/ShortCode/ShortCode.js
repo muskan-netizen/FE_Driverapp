@@ -2081,6 +2081,12 @@ export default function ShortCode({route, navigation}) {
                     isShortcodePrefilled: true,
                   });
                   break;
+                  case appIds.otto:
+                    updateState({
+                      shortCode: shortCodes.otto,
+                      isShortcodePrefilled: true,
+                    });
+                    break;
       }
     })();
   }, [internetConnection]);
@@ -2140,7 +2146,7 @@ export default function ShortCode({route, navigation}) {
 
       let updatedShortCode = shortCode;
       // updatedShortCode = 'a5c8d0';
-      //  let updatedShortCode = '656c4a';
+      //  let updatedShortCode = '745e3f';
 
       actions
         .initApp({shortCode: updatedShortCode}, header)

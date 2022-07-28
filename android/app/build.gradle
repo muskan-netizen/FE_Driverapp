@@ -200,16 +200,17 @@ android {
     }
 
      flavorDimensions "appType"
+
 productFlavors {
-     myfiji{
+              sourcesServices{
             dimension "appType"
-            versionCode 6
+            versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.fijiEats.dispatcher'
-            resValue "string", "app_name", "FijiEats Driver"
+            applicationId 'com.SourcesServices.royodispatcher'
+            resValue "string", "app_name", "SourcesServices Dispatcher"
         }
 }
 //     productFlavors {
@@ -2377,8 +2378,8 @@ productFlavors {
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.Sabroson.Driver'
-//             resValue "string", "app_name", "SABROSÓN Repartidor"
+//             applicationId 'com.Sabroson.royodispatcher'
+//             resValue "string", "app_name", "Sabroson Dispatcher"
 //         }
 //          localdropoff{
 //             dimension "appType"
@@ -3844,6 +3845,16 @@ productFlavors {
 //             // applicationIdSuffix ".royoorder"
 //             applicationId 'com.choizez.dispatcher'
 //             resValue "string", "app_name", "Choizez Dispatcher"
+//         }
+//         otto{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.otto.dispatcher'
+//             resValue "string", "app_name", "otto Dispatcher"
 //         }
 // }
 }
