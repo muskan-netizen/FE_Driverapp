@@ -2366,8 +2366,8 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.Sabroson.royodispatcher'
-            resValue "string", "app_name", "Sabroson Dispatcher"
+            applicationId 'com.Sabroson.Driver'
+            resValue "string", "app_name", "SABROSÓN Repartidor"
         }
          localdropoff{
             dimension "appType"

@@ -25,7 +25,7 @@ import {
   width,
 } from '../../styles/responsiveSize';
 import {currencyNumberFormatter} from '../../utils/commonFunction';
-import {getImageUrl} from '../../utils/helperFunctions';
+import {getImageUrl, showError} from '../../utils/helperFunctions';
 import {stylesFunc} from './styles';
 
 export default function OrderDetail({route, navigation}) {
@@ -89,6 +89,7 @@ export default function OrderDetail({route, navigation}) {
       })
       .catch(err => {
         console.log(err, 'errroror');
+        showError(err.message || err.error)
         updateState({
           isLoading: false,
         });
