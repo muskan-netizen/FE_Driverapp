@@ -75,7 +75,7 @@
 // export const API_BASE_URL = 'https://dispatch.fairexglobal.com/'
 //dimavega
 // export const API_BASE_URL ='https://dispatch.dimahalal.com/'
-// export const API_BASE_URL ='https://dispatch.fijieats.com/'
+export const API_BASE_URL ='https://dispatch.fijieats.com/'
 
 //  jiffix
 // export const API_BASE_URL = 'https://dispatch.jiffex.in/'
@@ -92,7 +92,7 @@
 // yogolift
 // export const API_BASE_URL = 'https://dispatch.lift.gd/'
 
-export const API_BASE_URL = 'https://dispatch.sabroson.com.mx/'
+// export const API_BASE_URL = 'https://dispatch.sabroson.com.mx/'
 //heybuddy
 // export const API_BASE_URL ='https://dispatch.heybuddy.com.mx/'
 

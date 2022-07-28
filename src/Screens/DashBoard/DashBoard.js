@@ -448,6 +448,21 @@ export default function DashBoard({ route, navigation }) {
   };
 
   const toggleSwitch = () => {
+    fitPadding([
+      {
+        latitude: Number(latitude),
+        longitude: Number(longitude),
+        latitudeDelta: 0.035,
+        longitudeDelta: 0.0321,
+      },
+      {
+        latitude: Number(latitude) - 0.001,
+        longitude: Number(longitude) - 0.01,
+        latitudeDelta: 0.035,
+        longitudeDelta: 0.0321,
+      },
+      
+    ]);
     updateState({
       statusChanged: true,
       isEnabled: !isEnabled,
@@ -590,27 +605,33 @@ export default function DashBoard({ route, navigation }) {
 
   const fitToMap = () => {
     if (markers && markers.length && enableMap) {
-      let newArray = markers.filter((i, inx) => {
+      let arr= []
+       markers.map((i, inx) => {
         if (i && i?.location && i?.location?.latitude != NaN && i?.location?.longitude != NaN) {
-          return {
+          arr=[...arr,{
             latitude: Number(i?.location?.latitude),
             longitude: Number(i?.location?.longitude),
-          }
+          }]
+          // return {
+          //   latitude: Number(i?.location?.latitude),
+          //   longitude: Number(i?.location?.longitude),
+          // }
         }
 
       });
-      console.log(newArray, 'newArray');
+      console.log(arr, 'newArray');
       // animate(region);
       setTimeout(() => {
         // animate(region);
-        fitPadding(newArray);
-      }, 500);
+        fitPadding(arr);
+      }, 5000);
     }
   };
 
   useEffect(() => {
     fitToMap();
-  }, [markers, enableMap]);
+    console.log("fittomappppp")
+  }, [markers]);
 
   useEffect(() => {
     if (latitude && longitude) {
@@ -627,6 +648,7 @@ export default function DashBoard({ route, navigation }) {
           latitudeDelta: 0.035,
           longitudeDelta: 0.0321,
         },
+        
       ]);
     }
   }, [latitude, longitude]);
@@ -684,9 +706,17 @@ export default function DashBoard({ route, navigation }) {
         ref={mapRef}
         //provider={PROVIDER_GOOGLE} // remove if not using Google Maps
         style={styles.map}
-        region={region}
+        // region={region}
         zoomEnabled={true}
-        initialRegion={region}
+        initialRegion={
+          {
+            latitude: Number(latitude),
+            longitude: Number(longitude),
+            latitudeDelta: 0.035,
+            longitudeDelta: 0.0321,
+          }
+          
+        }
         // showsUserLocation={true}
         // showsMyLocationButton={true}
         onLayout={() => fitToMap()}
