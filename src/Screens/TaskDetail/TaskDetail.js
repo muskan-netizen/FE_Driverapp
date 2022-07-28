@@ -1053,7 +1053,7 @@ export default function TaskDetail({route, navigation}) {
           </Text>
         </View>
 
-        <View>
+        {/* <View>
           
           <TouchableOpacity onPress={ () => navigation.navigate(navigationStrings.CHAT_SCREEN)}>
             <Text
@@ -1061,7 +1061,7 @@ export default function TaskDetail({route, navigation}) {
               Chat
             </Text>
           </TouchableOpacity>
-        </View>
+        </View> */}
         {/* Task Detail View */}
 
         <View
