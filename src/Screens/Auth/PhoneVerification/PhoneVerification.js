@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Platform, View, Image, Text} from 'react-native';
+import {Platform, View, Image, Text, Keyboard} from 'react-native';
 import DeviceInfo from 'react-native-device-info';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {useSelector} from 'react-redux';
@@ -27,10 +27,11 @@ import fontFamily from '../../../styles/fontFamily';
 import {getItem} from '../../../utils/utils';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {requestUserPermission} from '../../../utils/notificationServices';
+import RNOtpVerify from 'react-native-otp-verify';
 
 export default function PhoneVerification({navigation, route}) {
   const paramData = route?.params?.data;
-
+console.log(paramData,"otpotpotp");
   const [state, setState] = useState({
     isLoading: false,
     callingCode: paramData?.callingCode ? paramData?.callingCode : '91',
@@ -84,6 +85,38 @@ export default function PhoneVerification({navigation, route}) {
     return true;
   };
 
+  const otpHandler = message => {
+    console.log(message, 'complete msg>>>');
+    if (!!message) {
+      let msgOTP = message.replace(/[^0-9]/g, '');
+      let OTP = msgOTP.substring(0, 6);
+
+      updateState({
+        otpToShow: OTP,
+        otp: OTP,
+      });
+
+      if (otp.length === 6) {
+        verfifyAccount();
+      }
+    }
+    RNOtpVerify.removeListener();
+    Keyboard.dismiss();
+  };
+
+  useEffect(() => {
+    if (Platform.OS === 'android') {
+      RNOtpVerify.getOtp()
+        .then(res => {
+          RNOtpVerify.addListener(otpHandler);
+        })
+        .catch(error => console.log(error, 'error>>>>'));
+      return () => {
+        RNOtpVerify.removeListener();
+      };
+    }
+  }, []);
+
   useEffect(() => {
     if (otp && otpPrefilled) {
       updateState({isLoading: false});
@@ -123,12 +156,12 @@ export default function PhoneVerification({navigation, route}) {
     data['otp'] = otp;
     data['device_token'] = !!fcmToken ? fcmToken : '12345689';
     data['device_type'] = Platform.OS;
-
+    console.log(data, 'data>>>data>data>data');
     updateState({isLoading: true});
     actions
       .verifyAccount(data, {client: clientInfo?.database_name})
       .then(res => {
-        console.log(res,"verifyAccountverifyAccount");
+        console.log(res, 'verifyAccountverifyAccount');
         updateState({isLoading: false});
         // setTimeout(() => {
         //   if (res?.data) {
@@ -208,7 +241,7 @@ export default function PhoneVerification({navigation, route}) {
           onTextChange={otpToShow => updateState({otpToShow})}
           onFulfill={code => onOtpInput(code)}
         />
-
+        {console.log(otpToShow, 'otpToShow>>>otpToShow')}
         <Text style={styles.didntgetOtp}>
           {`${strings.DIDNTRECIEVEANYCODE}`}
           <Text

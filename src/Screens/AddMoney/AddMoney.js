@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Alert,
   FlatList,
@@ -11,10 +11,10 @@ import {
   Keyboard,
 } from 'react-native';
 import RazorpayCheckout from 'react-native-razorpay';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 import GradientButton from '../../Components/GradientButton';
 import Header from '../../Components/Header';
-import {loaderOne} from '../../Components/Loaders/AnimatedLoaderFiles';
+import { loaderOne } from '../../Components/Loaders/AnimatedLoaderFiles';
 import WrapperContainer from '../../Components/WrapperContainer';
 import imagePath from '../../constants/imagePath';
 import strings from '../../constants/lang';
@@ -26,8 +26,8 @@ import {
   moderateScale,
   moderateScaleVertical,
 } from '../../styles/responsiveSize';
-import {currencyNumberFormatter} from '../../utils/commonFunction';
-import {showError} from '../../utils/helperFunctions';
+import { currencyNumberFormatter } from '../../utils/commonFunction';
+import { showError } from '../../utils/helperFunctions';
 import stylesFun from './styles';
 import {
   CardField,
@@ -35,22 +35,22 @@ import {
   initStripe,
   StripeProvider,
 } from '@stripe/stripe-react-native';
-import {useDarkMode} from 'react-native-dark-mode';
+import { useDarkMode } from 'react-native-dark-mode';
 
-export default function AddMoney({navigation}) {
-  const {clientInfo, themeColor, themeToggle} = useSelector(
+export default function AddMoney({ navigation }) {
+  const { clientInfo, themeColor, themeToggle } = useSelector(
     state => state?.initBoot,
   );
-  const {userData} = useSelector(state => state?.auth);
+  const { userData } = useSelector(state => state?.auth);
   const darkthemeusingDevice = useDarkMode();
   const isDarkMode = themeToggle ? darkthemeusingDevice : themeColor;
   console.log(userData, 'userData');
-  const {client_preference} = userData;
+  const { client_preference } = userData;
   const [state, setState] = useState({
     customAmount: [
-      {id: 0, amount: 300},
-      {id: 1, amount: 5000},
-      {id: 2, amount: 4500},
+      { id: 0, amount: 300 },
+      { id: 1, amount: 5000 },
+      { id: 2, amount: 4500 },
     ],
     isLoading: true,
     amount: '',
@@ -105,18 +105,18 @@ export default function AddMoney({navigation}) {
       .catch(errorMethod);
   };
 
-  const updateState = data => setState(state => ({...state, ...data}));
+  const updateState = data => setState(state => ({ ...state, ...data }));
 
   const _onChangeText = key => val => {
-    updateState({[key]: val});
+    updateState({ [key]: val });
   };
 
   const chooseAmount = item => {
     let addedAmount = item.amount;
-    updateState({amount: addedAmount});
+    updateState({ amount: addedAmount });
   };
 
-  const _renderItem = ({item, index}) => {
+  const _renderItem = ({ item, index }) => {
     return (
       <TouchableOpacity onPress={() => chooseAmount(item)}>
         <View
@@ -141,7 +141,7 @@ export default function AddMoney({navigation}) {
       <>
         <View style={styles.addMoneyTopCon}>
           <View style={styles.inputAmountCon}>
-            <View style={{flexDirection: 'row'}}>
+            <View style={{ flexDirection: 'row' }}>
               <Text style={styles.inputAmountText}>{strings.INPUT_AMOUNT}</Text>
             </View>
 
@@ -172,7 +172,7 @@ export default function AddMoney({navigation}) {
                 placeholderTextColor={colors.textGreyJ}
               />
             </View>
-            <View style={{marginTop: 10}}>
+            <View style={{ marginTop: 10 }}>
               <FlatList
                 data={customAmount}
                 showsVerticalScrollIndicator={false}
@@ -191,7 +191,7 @@ export default function AddMoney({navigation}) {
         </View>
         <View />
         {/* <ScrollView keyboardShouldPersistTaps={'handled'}> */}
-        <View style={{flex: 1}}>
+        <View style={{ flex: 1 }}>
           <View
             style={{
               marginTop: moderateScaleVertical(20),
@@ -200,26 +200,26 @@ export default function AddMoney({navigation}) {
             {!!(
               allAvailAblePaymentMethods && allAvailAblePaymentMethods.length
             ) && (
-              <Text
-                style={
-                  isDarkMode
-                    ? [styles.debitFrom, {color: MyDarkTheme.colors.text}]
-                    : styles.debitFrom
-                }>
-                {strings.DEBIT_FROM}
-              </Text>
-            )}
+                <Text
+                  style={
+                    isDarkMode
+                      ? [styles.debitFrom, { color: MyDarkTheme.colors.text }]
+                      : styles.debitFrom
+                  }>
+                  {strings.DEBIT_FROM}
+                </Text>
+              )}
             <FlatList
               data={allAvailAblePaymentMethods}
               showsVerticalScrollIndicator={false}
               showsHorizontalScrollIndicator={false}
               keyboardShouldPersistTaps={'handled'}
               // horizontal
-              style={{marginTop: moderateScaleVertical(10)}}
+              style={{ marginTop: moderateScaleVertical(10) }}
               keyExtractor={(item, index) => String(index)}
               renderItem={_renderItemPayments}
               ListEmptyComponent={() => (
-                <Text style={{textAlign: 'center'}}>
+                <Text style={{ textAlign: 'center' }}>
                   {strings.NO_PAYMENT_METHOD}
                 </Text>
               )}
@@ -231,9 +231,9 @@ export default function AddMoney({navigation}) {
         {/* botttom add money button */}
         <View style={styles.bottomButtonStyle}>
           <GradientButton
-            containerStyle={{marginTop: moderateScaleVertical(40)}}
+            containerStyle={{ marginTop: moderateScaleVertical(40) }}
             onPress={_onTopUp}
-            textStyle={{color: colors.black}}
+            textStyle={{ color: colors.black }}
             btnText={strings.ADD}
             colorsArray={[colors.themeColor, colors.themeColor]}
           />
@@ -274,7 +274,7 @@ export default function AddMoney({navigation}) {
     let cancelUrl = `payment/${selectedMethod}/completeCheckout/${userData?.access_token}/wallet`;
     console.log(returnUrl,"returnurl>>>")
 
-    updateState({isLoadingB: true});
+    updateState({ isLoadingB: true });
     actions
       .openPaymentWebUrl(
         `/${selectedMethod}?amount=${amount}&returnUrl=${returnUrl}&cancelUrl=${cancelUrl}&payment_option_id=${seletedPaymentGateway?.id}&action=wallet`,
@@ -284,7 +284,7 @@ export default function AddMoney({navigation}) {
         },
       )
       .then(res => {
-        updateState({isLoadingB: false, isRefreshing: false});
+        updateState({ isLoadingB: false, isRefreshing: false });
         // const URL = queryString.parseUrl(res.data);
         console.log('res==>>>>', res);
         if (res && res?.status == 'Success' && res?.data) {
@@ -306,7 +306,9 @@ export default function AddMoney({navigation}) {
 
   //Offline payments
   const _offineLinePayment = async () => {
+   
     if (cardInfo) {
+      console.log(cardInfo,"details")
       // alert("123")
       // updateState({isLoadingB: true});
       await createToken({...cardInfo, type: 'Card'})
@@ -315,7 +317,7 @@ export default function AddMoney({navigation}) {
           console.log(cardInfo, 'stripeTokencardInfo>>');
           if (res && res?.token && res.token?.id) {
             let selectedMethod = seletedPaymentGateway.code.toLowerCase();
-            updateState({isLoading: true});
+            updateState({ isLoading: true });
             actions
               .openPaymentWebUrl(
                 `/${selectedMethod}?amount=${amount}&payment_option_id=${seletedPaymentGateway?.id}&action=wallet&stripe_token=${res.token?.id}`,
@@ -326,7 +328,7 @@ export default function AddMoney({navigation}) {
               )
               .then(res => {
                 console.log(res, 'openPaymentWebUrl>res');
-                updateState({isLoading: false, isRefreshing: false});
+                updateState({ isLoading: false, isRefreshing: false });
                 if (res && res?.status == 'Success') {
                   // updateState({allAvailAblePaymentMethods: res?.data});
                   // alert('Payment successfull');
@@ -342,7 +344,7 @@ export default function AddMoney({navigation}) {
               })
               .catch(err => console.log(err, "errrStripe"));
           } else {
-            updateState({isLoading: false});
+            updateState({ isLoading: false });
           }
         })
         .catch(errorMethod);
@@ -396,7 +398,7 @@ export default function AddMoney({navigation}) {
   // };
 
   const errorMethod = error => {
-    updateState({isLoading: false});
+    updateState({ isLoading: false });
     showError(error?.message || error?.error || error?.description);
   };
 
@@ -411,7 +413,7 @@ export default function AddMoney({navigation}) {
         contact: userData?.phone_number,
         name: userData?.name,
       },
-      theme: {color: '#F37254'},
+      theme: { color: '#F37254' },
     };
 
     RazorpayCheckout.open(options)
@@ -445,8 +447,8 @@ export default function AddMoney({navigation}) {
     console.log(item, 'seletedPaymentGateway');
     {
       seletedPaymentGateway && seletedPaymentGateway?.id == item?.id
-        ? updateState({seletedPaymentGateway: null})
-        : updateState({seletedPaymentGateway: item});
+        ? updateState({ seletedPaymentGateway: null })
+        : updateState({ seletedPaymentGateway: item });
     }
   };
 
@@ -456,13 +458,13 @@ export default function AddMoney({navigation}) {
         cardInfo: cardDetails,
       });
     } else {
-      updateState({cardInfo: null});
+      updateState({ cardInfo: null });
     }
   };
 
-  console.log(seletedPaymentGateway,"seletedPaymentGateway>>>")
+  console.log(seletedPaymentGateway, "seletedPaymentGateway>>>")
 
-  const _renderItemPayments = ({item, index}) => {
+  const _renderItemPayments = ({ item, index }) => {
     return (
       <>
         <TouchableOpacity onPress={() => _selectPaymentMethod(item)}>
@@ -485,7 +487,7 @@ export default function AddMoney({navigation}) {
                 {
                   color:
                     seletedPaymentGateway &&
-                    seletedPaymentGateway?.id == item.id
+                      seletedPaymentGateway?.id == item.id
                       ? isDarkMode
                         ? colors.white
                         : colors.blackC
@@ -542,7 +544,7 @@ export default function AddMoney({navigation}) {
               }}
               cardTokenizationFailed={e => {
                 setTimeout(() => {
-                  updateState({isLoadingB: false});
+                  updateState({ isLoadingB: false });
                   showError(strings.INVALID_CARD_DETAILS);
                 }, 1000);
               }}
@@ -618,8 +620,8 @@ export default function AddMoney({navigation}) {
       <Header
         leftIcon={imagePath.backArrow}
         centerTitle={strings.ADD_MONEY}
-        headerStyle={{backgroundColor: colors.white}}
-        leftIconStyle={{tintColor: colors.themeColor}}
+        headerStyle={{ backgroundColor: colors.white }}
+        leftIconStyle={{ tintColor: colors.themeColor }}
       />
       <View
         style={{
@@ -630,12 +632,12 @@ export default function AddMoney({navigation}) {
       />
 
       {client_preference?.stripe_publishable_key != '' &&
-      client_preference?.stripe_publishable_key != null ? (
+        client_preference?.stripe_publishable_key != null ? (
         <StripeProvider
           publishableKey={client_preference?.stripe_publishable_key}
           merchantIdentifier="merchant.identifier"
-        
-          >
+
+        >
           {mainView()}
         </StripeProvider>
       ) : (

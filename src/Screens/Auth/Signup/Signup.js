@@ -52,19 +52,39 @@ import DatePicker from 'react-native-date-picker';
 import DatePickerModal from '../../../Components/DatePickerModal';
 import moment from 'moment';
 import { getBundleId } from 'react-native-device-info';
+import * as RNLocalize from "react-native-localize";
+import codes from 'country-calling-code';
+
+import DeviceCountry, {
+  TYPE_ANY,
+  TYPE_TELEPHONY,
+  TYPE_CONFIGURATION,
+} from 'react-native-device-country';
+var getPhonesCallingCodeAndCountryData = null
+DeviceCountry.getCountryCode()
+  .then((result) => {
+    console.log(result, "getCountryCoderesult");
+    // {"code": "BY", "type": "telephony"}
+    getPhonesCallingCodeAndCountryData = codes.filter(x => x.isoCode2 == (result.code).toUpperCase())
+  })
+  .catch((e) => {
+    console.log(e);
+  });
 
 export default function Signup({ route, navigation }) {
   const userData = useSelector(state => state?.auth?.userData);
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
+  // var getPhonesCallingCodeAndCountryData = codes.filter(x => x.isoCode2 == RNLocalize.getCountry())
+
   console.log(clientInfo, 'clientInfo');
   const [state, setState] = useState({
     isLoading: false,
     fullName: '',
     phoneNumber: '',
-    callingCode: clientInfo?.get_country_set?.phonecode
+    callingCode: getPhonesCallingCodeAndCountryData && getPhonesCallingCodeAndCountryData.length ? getPhonesCallingCodeAndCountryData[0].countryCodes[0] : clientInfo?.get_country_set?.phonecode
       ? clientInfo?.get_country_set?.phonecode
       : '91',
-    cca2: clientInfo?.get_country_set?.code
+    cca2: getPhonesCallingCodeAndCountryData && getPhonesCallingCodeAndCountryData.length ? getPhonesCallingCodeAndCountryData[0].isoCode2 : clientInfo?.get_country_set?.code
       ? clientInfo?.get_country_set?.code
       : 'IN',
     allTransportation: transportationArray,
@@ -247,6 +267,7 @@ export default function Signup({ route, navigation }) {
         })
           .then(res => {
             console.log(res, 'res');
+            if(res.path){
             if (profilePic) {
               updateState({ userImage: res?.sourceURL || res?.path });
             } else {
@@ -262,9 +283,14 @@ export default function Signup({ route, navigation }) {
               console.log(data, 'data>>>>');
 
               updateState({ addtionalImages: data });
+            }}else{
+              showError(strings.PICKERCANCLLED)
             }
-          })
-          .catch(err => { });
+          }
+        )
+          .catch(err => { 
+            console.log(err,'error');
+          });
       }
     }
   };
@@ -345,6 +371,7 @@ export default function Signup({ route, navigation }) {
       uri: userImage,
     });
 
+    console.log(formdata,"formdata>>>>");
     if (addtionalTextInputs.length) {
       addtionalTextInputs.map((i, inx) => {
         if (i?.contents != '' && !!i?.contents) {
@@ -766,7 +793,8 @@ export default function Signup({ route, navigation }) {
         <KeyboardAwareScrollView
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator={false}
-          scrollEnabled={!isTeams}
+          scrollEnabled={true}
+          enableOnAndroid={true}
           contentContainerStyle={{
             flexGrow: 1,
           }}>
@@ -783,6 +811,7 @@ export default function Signup({ route, navigation }) {
                 />
               </TouchableOpacity>
             )}
+            {console.log(userImage,"image>>>>>>>>")}
           </View>
           <View style={{ marginTop: moderateScale(20) }}>
             <Text style={styles.label}>{strings.PERSONAL}</Text>

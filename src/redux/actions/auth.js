@@ -1,6 +1,7 @@
 import {
   CANCEL_SPECIFIC_PLAN,
   GET_ALL_SUBSCRIPTION_PLANS,
+  AGENT_DELETE,
   LOGIN_API,
   LOGOUT_API,
   PURCHASE_SPECIFIC_PLAN,
@@ -42,7 +43,7 @@ export function login(data = {}, headers = {}) {
 }
 
 export function signUp(data = {}, headers = {}) {
-  console.log(data, 'login>data>data>data');
+  console.log(data, 'login>data>data>data',headers);
   return new Promise((resolve, reject) => {
     apiPost(SIGNUP_API, data, headers)
       .then(async res => {
@@ -162,6 +163,17 @@ export function cancelSubscriptionPlan(query = '', data = {}, headers = {}) {
         resolve(res);
       })
       .catch((error) => {
+        reject(error);
+      });
+  });
+}
+export function deleteAccount(data={}, headers={}){
+  return new Promise((resolve, reject) => {
+    apiPost(AGENT_DELETE, data, headers)
+      .then(async res => {
+        resolve(res);
+      })
+      .catch(error => {
         reject(error);
       });
   });

@@ -42,9 +42,7 @@ const NotificationModal = () => {
     totalDistance: null,
     taskId: null,
   });
-  const notificationData = useSelector(
-    state => state?.initBoot?.notificationData,
-  );
+  const {notificationData} = useSelector(state => state?.initBoot);
 
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
   const shortCode = useSelector(state => state?.initBoot?.shortCode);
@@ -189,7 +187,7 @@ const NotificationModal = () => {
 
   const modalMainContent = () => {
     let data = notificationData?.notificationData?.data;
-    
+    let notificationType = data?.type?data?.type:data?.notificationType
     return (
       <View style={{overflow: 'hidden', borderRadius: moderateScale(10)}}>
         <View>{!!region && mapView()}</View>
@@ -297,7 +295,8 @@ const NotificationModal = () => {
               </Text>
               <Text style={styles.address}>{getDate(data?.created_at)}</Text>
 
-              {!!data?.cash_to_be_collected && (
+              {!!Number(data?.cash_to_be_collected) > 0 
+              && (
                 <View>
                   <Text
                     style={[
@@ -334,8 +333,7 @@ const NotificationModal = () => {
             )}
           </View>
         </View>
-        {/* data?.notificationType == 'AR' ? */}
-        {data?.notificationType == 'AR' ? (
+        {notificationType == 'AR' ? (
           <View
             style={{
               borderRadius: 10,
@@ -406,9 +404,12 @@ const NotificationModal = () => {
     let notifData = notificationData?.notificationData?.data;
 
     let data = {};
-    data['order_id'] = notifData?.order_id;
+    data['order_id'] = !!notifData?.batch_no
+      ? notifData?.batch_no
+      : notifData?.order_id;
     data['driver_id'] = notifData?.driver_id;
     data['status'] = status;
+    data['type'] = !!notifData?.batch_no ? 'B' : 'O';
 
     console.log(data, clientInfo?.database_name, 'data accept reject');
     actions

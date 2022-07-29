@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text} from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+import {View, Text, ScrollView} from 'react-native';
 // import {WebView} from 'react-native-webview';
 import {useSelector} from 'react-redux';
 import Header from '../../Components/Header';
@@ -77,14 +76,16 @@ export default function Webview({navigation, route}) {
       />
       <View style={{...commonStyles.headerTopLine}} />
       {/* <WebView source={{uri: content}} /> */}
-      <ScrollView
-      showsVerticalScrollIndicator={false}
+      <ScrollView bounces={false}>
+      <View
         style={{
           marginHorizontal: moderateScale(20),
           marginTop: moderateScale(20),
         }}>
         <Text style={styles.content}>{content}</Text>
+      </View>
       </ScrollView>
+      
     </WrapperContainer>
   );
 }

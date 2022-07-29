@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   Platform,
   View,
@@ -7,12 +7,13 @@ import {
   Text,
   Linking,
   Alert,
+  PermissionsAndroid,
 } from 'react-native';
-import DeviceInfo, { getBundleId } from 'react-native-device-info';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import { useSelector } from 'react-redux';
+import DeviceInfo, {getBundleId} from 'react-native-device-info';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import {useSelector} from 'react-redux';
 import GradientButton from '../../../Components/GradientButton';
-import { loaderOne } from '../../../Components/Loaders/AnimatedLoaderFiles';
+import {loaderOne} from '../../../Components/Loaders/AnimatedLoaderFiles';
 import WrapperContainer from '../../../Components/WrapperContainer';
 import imagePath from '../../../constants/imagePath';
 import strings from '../../../constants/lang';
@@ -25,32 +26,120 @@ import {
   moderateScaleVertical,
   width,
 } from '../../../styles/responsiveSize';
-import { showError, showSuccess } from '../../../utils/helperFunctions';
+import {showError, showSuccess} from '../../../utils/helperFunctions';
 import validator from '../../../utils/validations';
 import stylesFunc from './styles';
 import PhoneNumberInput from '../../../Components/PhoneNumberInput';
 import ScaledImage from 'react-native-scalable-image';
-import { appIds } from '../../../utils/constants/DynamicAppKeys';
+import {appIds} from '../../../utils/constants/DynamicAppKeys';
 import Header from '../../../Components/Header';
 import { TouchableOpacity } from 'react-native';
 import { requestUserPermission } from '../../../utils/notificationServices';
+import * as RNLocalize from "react-native-localize";
+import codes from 'country-calling-code';
+import DeviceCountry, {
+  TYPE_ANY,
+  TYPE_TELEPHONY,
+  TYPE_CONFIGURATION,
+} from 'react-native-device-country';
+import RNOtpVerify from 'react-native-otp-verify';
+import {request, PERMISSIONS} from 'react-native-permissions';
+import { chekLocationPermission, locationPermission } from '../../../utils/permissions';
+import { openAppSetting } from '../../../utils/openNativeApp';
+import { useFocusEffect } from '@react-navigation/native';
 
-export default function Login({ navigation, route }) {
+var getPhonesCallingCodeAndCountryData = null
+DeviceCountry.getCountryCode()
+  .then((result) => {
+    console.log(result, "getCountryCoderesult");
+    // {"code": "BY", "type": "telephony"}
+    getPhonesCallingCodeAndCountryData = codes.filter(x => x.isoCode2 == (result.code).toUpperCase())
+  })
+  .catch((e) => {
+    console.log(e);
+  });
+
+// var getPhonesCallingCodeAndCountryData = codes.filter(x => x.isoCode2 == RNLocalize.getCountry())
+
+export default function Login({navigation, route}) {
   const paramData = route?.params?.data;
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
 
   const fcmToken = useSelector(state => state?.initBoot?.fcmToken);
+
+  console.log(getPhonesCallingCodeAndCountryData, "getPhonesCallingCodeAndCountryData");
+
   console.log(clientInfo, 'paramData>paramData');
   const [state, setState] = useState({
     isLoading: false,
-    callingCode: clientInfo?.get_country_set?.phonecode
+    callingCode: getPhonesCallingCodeAndCountryData && getPhonesCallingCodeAndCountryData.length ? getPhonesCallingCodeAndCountryData[0].countryCodes[0] : clientInfo?.get_country_set?.phonecode
       ? clientInfo?.get_country_set?.phonecode
       : '91',
-    cca2: clientInfo?.get_country_set?.code
+    cca2: getPhonesCallingCodeAndCountryData && getPhonesCallingCodeAndCountryData.length ? getPhonesCallingCodeAndCountryData[0].isoCode2 : clientInfo?.get_country_set?.code
       ? clientInfo?.get_country_set?.code
       : 'IN',
     phoneNumber: '',
+    appHashKey: '',
+    locationPermissionStatus:false
   });
+  //all states used in this screen
+  const {phoneNumber, cca2, callingCode, isLoading, appHashKey,locationPermissionStatus} = state;
+
+
+  const checkLocationPermission=()=>{
+    locationPermission().then((res)=>{
+      updateState({
+       locationPermissionStatus:true
+      })
+     }).catch((error)=>{
+       updateState({
+         locationPermissionStatus:false
+        })
+       Alert.alert(
+         "Requesting For Location Access",
+         `${DeviceInfo.getApplicationName()} would like to track the order delivery location and estimate delivery time for the end customer`,
+         [
+           {
+             text: "Cancel",
+             onPress: () => console.log("Cancel Pressed"),
+             style: "cancel"
+           },
+           { text: "OK", onPress: () => {
+          
+            if(error !='blocked' || error=='denied'){
+              chekLocationPermission().then((res)=>{
+                if(res=='granted'){
+                updateState({
+                  locationPermissionStatus:true
+                 })
+                }else{
+                  openAppSetting('LOCATION_SERVICES')
+                }
+              }).catch((error)=>{
+                updateState({
+                  locationPermissionStatus:false
+                 })
+                console.log(error,"errororor for location");
+              })
+            }else{
+              openAppSetting('LOCATION_SERVICES')
+            }
+           } }
+         ]
+       );
+     })
+  }
+
+
+
+
+  useFocusEffect(
+    React.useCallback(() => {
+      if(Platform.OS !='ios'){
+        checkLocationPermission()
+      }
+    }, []),
+  );
 
   useEffect(() => {
     const backHandler = BackHandler.addEventListener(
@@ -61,48 +150,53 @@ export default function Login({ navigation, route }) {
   }, []);
 
 
-  const getColors=()=>{
-    switch(getBundleId()){
+  const getColors = () => {
+    switch (getBundleId()) {
       case appIds.lOPHT:
-        return colors.white 
-
-        default :
-       return  colors.black
-    } 
+        return colors.white
+      default:
+        return colors.black
+    }
   }
 
-  const { themeColors } = useSelector(state => state?.initBoot);
+  const {themeColors} = useSelector(state => state?.initBoot);
   //   const fontFamily = appStyle?.fontSizeData;
 
   //Update states
-  const updateState = data => setState(state => ({ ...state, ...data }));
+  const updateState = data => setState(state => ({...state, ...data}));
 
   const defaultLanguagae = useSelector(
     state => state?.initBoot?.defaultLanguage,
   );
 
   //Styles in app
-  const styles = stylesFunc({ defaultLanguagae });
-
-  //all states used in this screen
-  const { phoneNumber, cca2, callingCode, isLoading } = state;
+  const styles = stylesFunc({defaultLanguagae});
 
   //Naviagtion to specific screen
   const moveToNewScreen = (screenName, data) => () => {
-    navigation.navigate(screenName, { data });
+    navigation.navigate(screenName, {data});
   };
   //On change textinput
   const _onChangeText = key => val => {
-    updateState({ [key]: val });
+    updateState({[key]: val});
   };
 
   useEffect(() => {
+    if (Platform.OS == 'android') {
+      RNOtpVerify.getHash()
+        .then(res => {
+          updateState({
+            appHashKey: res[0],
+          });
+        })
+        .catch();
+    }
     // actions.sessionLogoutUser(false);
     updateState({
-      callingCode: clientInfo?.get_country_set?.phonecode
+      callingCode: getPhonesCallingCodeAndCountryData && getPhonesCallingCodeAndCountryData.length ? getPhonesCallingCodeAndCountryData[0].countryCodes[0] : clientInfo?.get_country_set?.phonecode
         ? clientInfo?.get_country_set?.phonecode
         : '91',
-      cca2: clientInfo?.get_country_set?.code
+      cca2: getPhonesCallingCodeAndCountryData && getPhonesCallingCodeAndCountryData.length ? getPhonesCallingCodeAndCountryData[0].isoCode2 : clientInfo?.get_country_set?.code
         ? clientInfo?.get_country_set?.code
         : 'IN',
     });
@@ -110,7 +204,7 @@ export default function Login({ navigation, route }) {
 
   //Validate form
   const isValidData = () => {
-    const error = validator({ phoneNumber });
+    const error = validator({phoneNumber});
     if (error) {
       showError(error);
       return;
@@ -118,32 +212,28 @@ export default function Login({ navigation, route }) {
     return true;
   };
 
-  // const _alert = () => {
-  //   Alert.alert(strings.notificationAlertTitle, strings.notificationAlert, [
-  //     {
-  //       text: strings.CANCEL,
-  //       onPress: () => console.log('Cancel Pressed'),
-  //       style: 'cancel',
-  //     },
-  //     {text: strings.visitSetting, onPress: () => Linking.openSettings()},
-  //   ]);
-  // };
+
 
   const _onLogin = () => {
-    // requestUserPermission(login, _alert);
-
+     if(!locationPermissionStatus && Platform.OS !='ios'){
+      checkLocationPermission();
+      return
+     }
+   
     const checkValid = isValidData();
     if (checkValid) {
       let data = {};
       data['phone_number'] = `+${callingCode}${phoneNumber}`;
-      console.log(data, 'Here is data')
+      data['app_hash_key'] = appHashKey;
+      console.log(data, 'Here is data');
       // actions.sessionLogoutUser(false);
-      updateState({ isLoading: true });
+      updateState({isLoading: true});
+
       actions
-        .login(data, { client: clientInfo?.database_name })
+        .login(data, {client: clientInfo?.database_name})
         .then(res => {
           console.log(res, 'login data');
-          updateState({ isLoading: false });
+          updateState({isLoading: false});
           if (res?.data) {
             showSuccess(strings.OTPSENDSUCCESS);
             moveToNewScreen(navigationStrings.SEND_OTP, res?.data)();
@@ -156,13 +246,13 @@ export default function Login({ navigation, route }) {
   //Error handling in api
   const errorMethod = error => {
     console.log(error, 'error');
-    updateState({ isLoading: false });
+    updateState({isLoading: false});
     showError(error?.message || error?.error, 10000);
   };
 
   //On country change
   const _onCountryChange = data => {
-    updateState({ cca2: data.cca2, callingCode: data.callingCode[0] });
+    updateState({cca2: data.cca2, callingCode: data.callingCode[0]});
     return;
   };
 
@@ -186,60 +276,59 @@ export default function Login({ navigation, route }) {
               })
             // navigation.goBack()
           }
-          headerStyle={{ backgroundColor: colors.white }}
+          headerStyle={{backgroundColor: colors.white}}
         />
       )}
-      <View style={{ flex: 1, marginHorizontal: 20, marginTop: getBundleId()==appIds.lOPHT ? 50 : 0}}>
+      <View style={{ flex: 1, marginHorizontal: 20, marginTop: getBundleId() == appIds.lOPHT ? 50 : 0 }}>
         <View style={styles.imageStyle}>
           <ScaledImage
-            width={getBundleId()==appIds.lOPHT ? width : width / 2 }
+            width={getBundleId() == appIds.lOPHT ? width : width / 2}
             source={
               clientInfo && clientInfo?.logo
-                ? { uri: clientInfo?.logo }
+                ? {uri: clientInfo?.logo}
                 : imagePath.logo
             }
-           
           />
         </View>
         <KeyboardAwareScrollView
           showsVerticalScrollIndicator={false}
           keyboardShouldPersistTaps="handled"
-          style={{ height: height / 2 }}>
+          style={{height: height / 2}}>
           <View style={styles.bottomSectionStyle}>
             <Text style={styles.loginUsing}>{strings.LOGINUSING}</Text>
             <Text style={styles.loginUsing}>{strings.PHONENUMBER}</Text>
             <Text style={styles.weneedCompany}>
               {strings.WENEDDPHONENUMBER}
             </Text>
-            <View style={{ marginTop: moderateScale(20) }} />
+            <View style={{marginTop: moderateScale(20)}} />
             <View>
               <PhoneNumberInput
                 onCountryChange={_onCountryChange}
                 onChangePhone={phoneNumber =>
-                  updateState({ phoneNumber: phoneNumber.replace(/[^0-9]/g, '') })
+                  updateState({phoneNumber: phoneNumber.replace(/[^0-9]/g, '')})
                 }
                 cca2={cca2}
                 phoneNumber={phoneNumber}
-                callingCode={state.callingCode}
+                callingCode={callingCode}
                 placeholder={strings.YOUR_PHONE_NUMBER}
                 keyboardType={'phone-pad'}
                 returnKeyType={'done'}
                 color={colors.black}
                 borderColor={colors.themeColor}
                 callingCodeTextStyle={styles.callingCodeTextStyle}
-              // color={isDarkMode ? MyDarkTheme.colors.text : null}
+                // color={isDarkMode ? MyDarkTheme.colors.text : null}
               />
             </View>
-             <GradientButton
+            <GradientButton
               containerStyle={{ marginTop: moderateScaleVertical(40) }}
               onPress={() => {
                 _onLogin();
               }}
-              textStyle={{   color: getColors()}}
+              textStyle={{ color: getColors() }}
               btnText={strings.LOGIN}
-              colorsArray={ getBundleId()==appIds.lOPHT ? [colors.lophtBlue, colors.lophtBlue] : [colors.themeColor, colors.themeColor]}
+              colorsArray={getBundleId() == appIds.lOPHT ? [colors.lophtBlue, colors.lophtBlue] : [colors.themeColor, colors.themeColor]}
             />
-            <View style={[styles.signUpView, { flexDirection: 'row' }]}>
+            <View style={[styles.signUpView, {flexDirection: 'row'}]}>
               <Text style={styles.byContinue}>
                 {strings.DONT_HAVE_ACCOUNT}{' '}
               </Text>
@@ -254,7 +343,7 @@ export default function Login({ navigation, route }) {
             <View style={styles.webLinkContainer}>
               <Text
                 onPress={() =>
-                  navigation.navigate(navigationStrings.WEBLINKS, { id: 1 })
+                  navigation.navigate(navigationStrings.WEBLINKS, {id: 1})
                 }
                 style={styles.bylogging}>
                 {`${strings.TERMSANDCONDITIONS} `}
@@ -262,7 +351,7 @@ export default function Login({ navigation, route }) {
               <Text style={styles.byContinue}>{`${strings.AND} `}</Text>
               <Text
                 onPress={() =>
-                  navigation.navigate(navigationStrings.WEBLINKS, { id: 2 })
+                  navigation.navigate(navigationStrings.WEBLINKS, {id: 2})
                 }
                 style={[styles.bylogging]}>
                 {strings.PRIVACYPOLICY}

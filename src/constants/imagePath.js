@@ -5,6 +5,7 @@ export default {
   analyctiNonselected: require('../assets/images/ic_analytics.png'),
   forwordArrow: require('../assets/images/ic_arrow.png'),
   backArrow: require('../assets/images/ic_back.png'),
+  whatsapp: require('../assets/images/ic_wa1.png'),
   bikeNonSelected: require('../assets/images/ic_bike.png'),
   bikeSelected: require('../assets/images/ic_bike_b.png'),
   call: require('../assets/images/ic_call.png'),

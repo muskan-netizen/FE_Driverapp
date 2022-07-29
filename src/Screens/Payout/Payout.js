@@ -369,9 +369,10 @@ export default function AddMoney({navigation}) {
 
   const _connectStipe = () => {
     console.log(stripeExistOrNot, 'stripeExistOrNot');
-
     moveToNewScreen(navigationStrings.WEBCONNECTIONS, stripeExistOrNot)();
   };
+
+
 
   return (
     <WrapperContainer
