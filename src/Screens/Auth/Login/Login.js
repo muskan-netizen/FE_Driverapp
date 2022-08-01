@@ -346,7 +346,7 @@ export default function Login({navigation, route}) {
                   navigation.navigate(navigationStrings.WEBLINKS, {id: 1})
                 }
                 style={styles.bylogging}>
-                {`${strings.TERMSANDCONDITIONS} `}
+                {`${strings.TERMSANDCONDITIONS}`}
               </Text>
               <Text style={styles.byContinue}>{`${strings.AND} `}</Text>
               <Text
