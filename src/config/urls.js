@@ -151,7 +151,7 @@
 //LocalDropOff
 // export const API_BASE_URL = 'https://dispatch.localdropoff.info/';
 //Onscart
-export const API_BASE_URL = 'https://dispatch.onscart.com/';
+// export const API_BASE_URL = 'https://dispatch.onscart.com/';
 //Pickmeup
 // export const API_BASE_URL = 'https://pickmeup.royodispatch.com/';
 // export const API_BASE_URL = 'http://192.168.101.187:8001/'; // preet local url
@@ -228,7 +228,7 @@ export const API_BASE_URL = 'https://dispatch.onscart.com/';
 // export const API_BASE_URL = 'https://dispatch.martinionwheelsllc.org/';
 
 // 
-// export const API_BASE_URL = 'https://dispatch.viversbox.com/'
+export const API_BASE_URL = 'https://dispatch.viversbox.com/'
 //YEBOY
 // export const API_BASE_URL = 'https://dispatch.yeboy.mx/';
 
