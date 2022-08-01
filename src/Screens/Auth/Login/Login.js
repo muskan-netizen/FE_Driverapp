@@ -97,8 +97,8 @@ export default function Login({navigation, route}) {
          locationPermissionStatus:false
         })
        Alert.alert(
-         "Requesting For Location Access",
-         `${DeviceInfo.getApplicationName()} would like to track the order delivery location and estimate delivery time for the end customer`,
+         "Permission Required",
+         `${DeviceInfo.getApplicationName()} collects location data in background and foreground mode to track the order delivery location and estimate delivery time for the end customer`,
          [
            {
              text: "Cancel",

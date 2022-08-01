@@ -204,7 +204,7 @@ android {
 // productFlavors {
 //           rescueRoadsideAssistance{
 //             dimension "appType"
-//             versionCode 1
+//             versionCode 5
 //             versionName "1.0"
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
@@ -2124,9 +2124,9 @@ android {
             applicationId 'com.Sijang.royodispatcher'
             resValue "string", "app_name", "Sijang Dispatcher"
         }
-         fairexpay{
+        fairexpay{
             dimension "appType"
-            versionCode 1
+            versionCode 5
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion

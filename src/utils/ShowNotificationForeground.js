@@ -13,7 +13,7 @@ const ShowNotificationForeground = props => {
       console.log('remote message foreground', JSON.stringify(remoteMessage));
       const {data, messageId, notification} = remoteMessage;
        console.log(remoteMessage.data,notification,"datadatadatadata");
-       let notificationType = data?.type ?data?.type: data?.notificationType
+       let notificationType =  data?.type || data?.notificationType
       {
         Platform.OS == 'ios'
           ? PushNotificationIOS.addNotificationRequest({
