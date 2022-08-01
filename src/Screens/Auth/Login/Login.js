@@ -337,7 +337,7 @@ export default function Login({navigation, route}) {
               </TouchableOpacity>
             </View>
             <View style={styles.byContinueTextContainer}>
-              <Text style={styles.byContinue}>{`${strings.BYCONTINUE} `}</Text>
+              <Text style={styles.byContinue}>{`${strings.BYCONTINUE}`}</Text>
             </View>
 
             <View style={styles.webLinkContainer}>
