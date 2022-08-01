@@ -202,15 +202,15 @@ android {
      flavorDimensions "appType"
 
 // productFlavors {
-//               sourcesServices{
+//                        fairexpay{
 //             dimension "appType"
-//             versionCode 1
+//             versionCode 5
 //             versionName "1.0"
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.SourcesServices.royodispatcher'
-//             resValue "string", "app_name", "SourcesServices Dispatcher"
+//             applicationId 'com.fairex.driver'
+//             resValue "string", "app_name", "Fairex Driver"
 //         }
 // }
     productFlavors {
@@ -2124,9 +2124,9 @@ android {
             applicationId 'com.Sijang.royodispatcher'
             resValue "string", "app_name", "Sijang Dispatcher"
         }
-         fairexpay{
+        fairexpay{
             dimension "appType"
-            versionCode 1
+            versionCode 5
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion

@@ -406,7 +406,7 @@ const appIds = {
   }),
   drivree: Platform.select({
     ios: 'com.drivree.Dispatch',
-    android: 'com.drivree.royodispatcher',
+    android: 'com.driveree.Dispatcher',
   }),
   seaChangeVending: Platform.select({
     ios: 'com.seaChangeVending.royodispatcher',
