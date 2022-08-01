@@ -336,7 +336,8 @@ const shortCodes = {
   farmMeat:'61b041',
   yallaEat:'2d9c6d',
   choizez:'a1c203',
-  otto:'ca3410'
+  otto:'ca3410',
+  rescueRoadsideAssistance:'425fbf',
 };
 
 const appIds = {
@@ -1674,6 +1675,10 @@ fifteenP: Platform.select({
   otto: Platform.select({
     ios: 'com.otto.dispatcher',
     android: 'com.otto.dispatcher',
+  }),
+  rescueRoadsideAssistance: Platform.select({
+    ios: 'com.rescueRoadsideAssistance.dispatcher',
+    android: 'com.rescueRoadsideAssistance.dispatcher',
   }),
 };
 

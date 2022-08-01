@@ -2087,6 +2087,12 @@ export default function ShortCode({route, navigation}) {
                       isShortcodePrefilled: true,
                     });
                     break;
+                    case appIds.rescueRoadsideAssistance:
+                      updateState({
+                        shortCode: shortCodes.rescueRoadsideAssistance,
+                        isShortcodePrefilled: true,
+                      });
+                      break;
       }
     })();
   }, [internetConnection]);
