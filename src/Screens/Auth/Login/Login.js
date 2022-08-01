@@ -92,6 +92,7 @@ export default function Login({navigation, route}) {
        locationPermissionStatus:true
       })
      }).catch((error)=>{
+    
        updateState({
          locationPermissionStatus:false
         })
@@ -107,7 +108,9 @@ export default function Login({navigation, route}) {
            { text: "OK", onPress: () => {
           
             if(error !='blocked' || error=='denied'){
+            
               chekLocationPermission().then((res)=>{
+            
                 if(res=='granted'){
                 updateState({
                   locationPermissionStatus:true
@@ -119,10 +122,12 @@ export default function Login({navigation, route}) {
                 updateState({
                   locationPermissionStatus:false
                  })
+                 console.log(error,'i ma here')
                 console.log(error,"errororor for location");
               })
             }else{
               openAppSetting('LOCATION_SERVICES')
+             
             }
            } }
          ]

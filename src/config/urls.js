@@ -12,7 +12,7 @@
 
 // export const API_BASE_URL='https://dispatch.tmgsalesllc.com/';
 //Staging
- //export const API_BASE_URL = 'https://api.rdstaging.com/';
+ export const API_BASE_URL = 'https://api.rdstaging.com/';
  
 // export const API_BASE_URL = 'https://api.winhires.com/';
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
@@ -21,7 +21,7 @@
  //export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-   export const API_BASE_URL = 'https://api.rdstaging.com/';
+  // export const API_BASE_URL = 'https://api.rdstaging.com/';
 
   //Misst
   // export const API_BASE_URL = 'https://miist-dispatch.netsolutionindia.com/';
@@ -37,7 +37,7 @@
 //taquick 
 //  export const API_BASE_URL = 'https://delivery.taquick.com/';
 
-//  export const API_BASE_URL = 'http://192.168.96.84:9091/';
+// export const API_BASE_URL = 'http://192.168.96.84:9091/';
 
 //Staging
 // export const API_BASE_URL = 'https://api.rdstaging.com/';

@@ -141,6 +141,7 @@ const NotificationModal = () => {
   };
 
   const onListAllAddress = ({item, index}) => {
+    console.log(item,'itemitem')
     if (item?.task_type_id == 2) {
       return (
         <View style={{flexDirection: 'row'}}>
@@ -162,7 +163,13 @@ const NotificationModal = () => {
         </View>
       );
     } else {
-      return null;
+     return(
+      <View style={{paddingHorizontal: moderateScale(30)}}>
+      <Text numberOfLines={1} style={[styles.address]}>
+        {item?.address}
+      </Text>
+    </View>
+     )
     }
   };
 
@@ -269,11 +276,6 @@ const NotificationModal = () => {
               />
             </View>
             <View>
-              <View style={{paddingHorizontal: moderateScale(30)}}>
-                <Text numberOfLines={1} style={[styles.address]}>
-                  {data?.address}
-                </Text>
-              </View>
               <FlatList
                 data={
                   notificationDropLocationsData

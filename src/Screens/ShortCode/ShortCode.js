@@ -2087,6 +2087,12 @@ export default function ShortCode({route, navigation}) {
                       isShortcodePrefilled: true,
                     });
                     break;
+                    case appIds.rescueRoadsideAssistance:
+                      updateState({
+                        shortCode: shortCodes.rescueRoadsideAssistance,
+                        isShortcodePrefilled: true,
+                      });
+                      break;
       }
     })();
   }, [internetConnection]);
@@ -2146,7 +2152,7 @@ export default function ShortCode({route, navigation}) {
 
       let updatedShortCode = shortCode;
       // updatedShortCode = 'a5c8d0';
-      //  let updatedShortCode = '745e3f';
+      //  let updatedShortCode = '656c4a';
 
       actions
         .initApp({shortCode: updatedShortCode}, header)

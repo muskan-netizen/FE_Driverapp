@@ -671,6 +671,8 @@
     "choizezdispatcherRelease": "cd android && ./gradlew assemblechoizezRelease",
     "ottodispatcher": "react-native run-android --variant=ottoDebug",
     "ottodispatcherRelease": "cd android && ./gradlew assembleottoRelease",
+    "rescueRoadsideAssistancedispatcher": "react-native run-android --variant=rescueRoadsideAssistanceDebug",
+    "rescueRoadsideAssistancedispatcherRelease": "cd android && ./gradlew assemblerescueRoadsideAssistanceRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
