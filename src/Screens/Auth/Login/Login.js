@@ -85,7 +85,7 @@ export default function Login({navigation, route}) {
   //all states used in this screen
   const {phoneNumber, cca2, callingCode, isLoading, appHashKey,locationPermissionStatus} = state;
 
-console.log('fdgbdf');
+
   const checkLocationPermission=()=>{
     locationPermission().then((res)=>{
       updateState({
