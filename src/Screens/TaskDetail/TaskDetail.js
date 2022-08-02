@@ -695,25 +695,25 @@ export default function TaskDetail({route, navigation}) {
 
 
   const createRoom = async (item) => {
-    // navigation.navigate(navigationStrings.CHAT_SCREEN, { data: item })
-    console.log("user  ",item)
-    return;
-   
+  
     try {
       const apiData = {
         sub_domain: '192.168.101.88',
-        client_id: 1,
+        // client_id: String(clientInfo?.client_db_id),
         db_name: taskDetail?.order?.dbname,
-        user_id: userData?.id,
+        user_id: String(userData?.id),
         type: 'agent_to_user',
-        vendor_order_id: item?.order?.order_vendor_id,
-        vendor_id: item?.order?.vendor_id,
-        order_id:item?.order?.sync_order_id,
-        order_number: item?.order?.order_number,
-        order_user_id: item?.order?.customer?.sync_customer_id,
-        agent_id: item?.order?.driver_id,
-        agent_db: userData?.database_name
+        vendor_order_id: String(item?.order?.order_vendor_id),
+        vendor_id: String(item?.order?.vendor_id),
+        order_id:String(item?.order?.sync_order_id),
+        order_number: String(item?.order?.order_number),
+        order_user_id: String(item?.order?.customer?.sync_customer_id),
+        agent_id: String(item?.order?.driver_id),
+        agent_db: clientInfo?.database_name
       }
+      console.log("sending api data",apiData)
+
+
       updateState({isLoading: true})
       const res = await actions.onStartChat(apiData, {
         client: clientInfo?.database_name,

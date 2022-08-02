@@ -420,8 +420,8 @@ const hapticEffects = {
 };
 
 
-export const getSubDomain = () =>{
-  return API_BASE_URL.split('/')[3]
+export const getSubDomain =  (url) =>{
+  return url.split('/')[3]
   }
 
 export {

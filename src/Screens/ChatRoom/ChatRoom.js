@@ -2,13 +2,13 @@ import React, { useState, useCallback, useEffect, useRef } from 'react'
 import { Text, View, FlatList, TouchableOpacity } from 'react-native'
 import { useSelector } from 'react-redux';
 import Header from '../../Components/Header';
-import { useIsFocused } from '@react-navigation/native';
+import { useFocusEffect, useIsFocused } from '@react-navigation/native';
 import colors from '../../styles/colors';
 import WrapperContainer from '../../Components/WrapperContainer';
 import actions from '../../redux/actions';
 import { moderateScale } from '../../styles/responsiveSize';
 import _ from 'lodash';
-import { getSubDomain, showError } from '../../utils/helperFunctions';
+import {showError } from '../../utils/helperFunctions';
 import navigationStrings from '../../navigation/navigationStrings';
 import stylesFun from './styles';
 import moment from 'moment';
@@ -16,6 +16,7 @@ import CircularImages from '../../Components/CircularImages';
 import strings from '../../constants/lang';
 import fontFamily from '../../styles/fontFamily';
 import imagePath from '../../constants/imagePath';
+import socketServices from '../../utils/scoketService';
 
 
 
@@ -26,13 +27,16 @@ export default function ChatRoom({ navigation, route }) {
 
     const paramData = route?.params?.data;
 
-    const styles = stylesFun({fontFamily});
+    console.log("userDatauserDatauserData",userData)
+
+    const styles = stylesFun({ fontFamily });
 
     const [state, setState] = useState({
         roomData: [],
         isLoading: true,
+        sendMessage: false,
     })
-    const { roomData, isLoading } = state
+    const { roomData, isLoading, sendMessage } = state
 
     const updateState = (data) => setState((state) => ({ ...state, ...data }))
 
@@ -42,11 +46,31 @@ export default function ChatRoom({ navigation, route }) {
     const roomDataRef = useRef([])
 
 
-
     useEffect(() => {
-        fetchData()
+        socketServices.on("room-created", (data) => {
+            console.log(data, "new room created");
+            fetchData()
+        });
+        return () => {
+            socketServices.removeListener("room-created");
+        };
     }, [])
 
+
+    useFocusEffect(
+        useCallback(() => {
+            fetchData()
+        }, []),
+    );
+
+    useEffect(() => {
+        socketServices.on("new-app-message", (data) => {
+            fetchData()
+        });
+        return () => {
+          socketServices.removeListener("new-app-message");
+        };
+      }, [])
 
 
     let fetchData = async () => {
@@ -59,17 +83,18 @@ export default function ChatRoom({ navigation, route }) {
                 language: defaultLanguagae?.value ? defaultLanguagae?.value : 'en',
             }
             let apiData = {
-                // sub_domain: appData?.profile?.sub_domain,
                 agent_id: userData?.id,
-                sub_domain: '192.168.101.88',
-                agent_db: userData?.database_name,
-                client_id: 1
+                type: 'agent_to_user',
+                sub_domain: clientInfo?.custom_domain,
+                agent_db: clientInfo?.database_name,
+                client_id: String(clientInfo?.client_db_id),
             }
-            const res =  await actions.fetchAgentChat(apiData, headerData)
+            console.log("apiDataapiDataapiData", apiData)
+            const res = await actions.fetchAgentChatRoom(apiData, headerData)
             updateState({ isLoading: false })
-            if (!!res?.chatrooms && !_.isEmpty(res?.chatrooms) && isFocused) {
-                roomDataRef.current = res.chatrooms
-                updateState({ roomData: res.chatrooms })
+            if (!!res?.roomData  && isFocused) {
+                roomDataRef.current = res.roomData
+                updateState({ roomData: res.roomData })
 
             }
             console.log("room res++++", res)

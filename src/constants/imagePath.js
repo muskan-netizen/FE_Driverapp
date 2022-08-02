@@ -1,4 +1,4 @@
-import {requireNativeComponent} from 'react-native';
+import { requireNativeComponent } from 'react-native';
 
 export default {
   analyctiSelected: require('../assets/images/ic_analyctis_selected.png'),
@@ -92,4 +92,7 @@ export default {
   searchIcon: require('../assets/images/ic_search.png'),
   delete: require('../assets/images/ic_delete.png'),
   ripple: require('../assets/images/ripple.gif'),
+  send: require('../assets/images/ic_send.png'),
+  icBgLight: require('../assets/images/ic_lightbg.png'),
+  icBgDark: require('../assets/images/ic_darkbg.png'),
 };

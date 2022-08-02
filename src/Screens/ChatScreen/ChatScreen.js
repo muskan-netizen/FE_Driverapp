@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useEffect, useRef } from 'react'
-import { StyleSheet, Text, TouchableOpacity, View, Image, Platform } from 'react-native'
-import { GiftedChat } from 'react-native-gifted-chat';
+import { StyleSheet, Text, TouchableOpacity, View, Image, Platform, ImageBackground } from 'react-native'
+import { GiftedChat, InputToolbar, Send } from 'react-native-gifted-chat';
 import socketServices from '../../utils/scoketService';
 import { useSelector } from 'react-redux';
 import imagePath from '../../constants/imagePath';
@@ -8,7 +8,7 @@ import Header from '../../Components/Header';
 import colors from '../../styles/colors';
 import WrapperContainer from '../../Components/WrapperContainer';
 import actions from '../../redux/actions';
-import { getImageUrl, getSubDomain } from '../../utils/helperFunctions';
+import { getImageUrl } from '../../utils/helperFunctions';
 import { height, moderateScale, moderateScaleVertical, textScale, width } from '../../styles/responsiveSize';
 import FastImage from 'react-native-fast-image';
 import moment from 'moment';
@@ -19,7 +19,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import fontFamily from '../../styles/fontFamily';
 
 export default function ChatScreen({ route, }) {
- 
+
 
   const paramData = route.params.data;
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
@@ -27,7 +27,7 @@ export default function ChatScreen({ route, }) {
 
   const userData = useSelector((state) => state?.auth?.userData);
 
-  console.log("userDatauserData",userData)
+  console.log("userDatauserData", userData)
 
   const styles = stylesFun({});
 
@@ -36,18 +36,22 @@ export default function ChatScreen({ route, }) {
   const [state, setState] = useState({
     showParticipant: false,
     isLoading: false,
-    roomUsers: []
+    roomUsers: [],
+
   })
   const { isLoading, roomUsers, showParticipant } = state
 
   const updateState = (data) => setState((state) => ({ ...state, ...data }))
 
 
+
   useEffect(() => {
     socketServices.on("new-message", (data) => {
       console.log(data, "data to be emitted in chat screen");
-      // setMessages(previousMessages => GiftedChat.append(previousMessages, message))
-      fetchAllMessages()
+      if (paramData?.room_id == data?.message?.roomData?.room_id) {
+        setMessages(previousMessages => GiftedChat.append(previousMessages, { ...data.message.chatData, user: { _id: 0 } }))
+      }
+      // fetchAllMessages()
     });
     return () => {
       socketServices.removeListener("new-message");
@@ -55,36 +59,34 @@ export default function ChatScreen({ route, }) {
     };
   }, [])
 
+  console.log("all messages", messages)
+
 
   useEffect(() => {
     updateState({ isLoading: true })
-    // fetchAllRoomUser()
+
+    fetchAllRoomUser()
     fetchAllMessages()
 
   }, [])
 
-
-  const fetchAllMessages = async () => {
+  const fetchAllMessages = useCallback(async () => {
     try {
       const apiData = `/${paramData?._id}`
       const res = await actions.getAllMessages(apiData, {})
       console.log('fetchAllMessages res', res)
       updateState({ isLoading: false })
       if (!!res) {
-        let filterArry = res.map((val, i) => {
-          return { ...val, user: {} }
-        })
-        setMessages(filterArry.reverse())
+        setMessages(res.reverse())
       }
     } catch (error) {
       console.log('error raised in fetchAllMessages api', error)
       updateState({ isLoading: false })
     }
-  }
+  }, [])
 
 
-
-  const fetchAllRoomUser = async () => {
+  const fetchAllRoomUser = useCallback(async () => {
     try {
       const apiData = `/${paramData?._id}`
       const res = await actions.getAllRoomUser(apiData, {}, {
@@ -98,7 +100,11 @@ export default function ChatScreen({ route, }) {
     } catch (error) {
       console.log('error raised in fetchAllRoomUser api', error)
     }
-  }
+  }, [])
+
+
+
+
 
 
   const onSend = useCallback(async (messages = []) => {
@@ -107,41 +113,43 @@ export default function ChatScreen({ route, }) {
     }
     try {
       const apiData = {
-        room_id: paramData?._id,
+        room_id:paramData?._id,
         message: messages[0].text,
-        user_type: 'user',
+        user_type: 'agent',
         to_message: 'to_user',
         from_message: 'from_agent',
-        user_id: userData?.id,
-        email: userData?.email,
-        username: userData?.name,
+        user_id:userData?.id || '',
+        email: userData?.email || '',
+        username: userData?.name || '',
         phone_num: `${userData.phone_number}`,
         display_image: userData?.image_url,
-        sub_domain: getSubDomain(),
+        // sub_domain: clientInfo?.custom_domain,
         //'room_name' =>$data->name,
         chat_type: 'agent_to_user',
       }
+      console.log("sending api data",apiData)
       const res = await actions.sendMessage(apiData, {
         client: clientInfo?.database_name,
         language: defaultLanguagae?.value ? defaultLanguagae?.value : 'en',
       })
       console.log('on send message res', res)
       socketServices.emit('save-message', res);
-      const message = {
-        _id: userData.id,
-        auth_user_id: userData.id,
-        message: messages[0].text,
-        createdAt: new Date(),
-        username: userData?.name,
-        display_image: getImageUrl(
-          userData?.source?.proxy_url,
-          userData?.source?.image_path,
-          '200/200',
-        )
-      };
+      // const message = {
+      //   _id: userData.id,
+      //   auth_user_id: userData.id,
+      //   message: messages[0].text,
+      //   createdAt: new Date(),
+      //   username: userData?.name,
+      //   user: {},
+      //   display_image: getImageUrl(
+      //     userData?.source?.proxy_url,
+      //     userData?.source?.image_path,
+      //     '200/200',
+      //   )
+      // };
       // setMessages(previousMessages => GiftedChat.append(previousMessages, message))
     } catch (error) {
-      console.log('error raised in fetchAllMessages api', error)
+      console.log('error raised in sendMessage api', error)
     }
   }, [])
 
@@ -154,7 +162,7 @@ export default function ChatScreen({ route, }) {
         activeOpacity={0.7}
         onPress={() => updateState({ showParticipant: true })}
       >
-        <CircularImages size={25}  data={roomUsers} />
+        <CircularImages size={25} data={roomUsers} />
       </TouchableOpacity>
     )
   }, [roomUsers])
@@ -206,7 +214,7 @@ export default function ChatScreen({ route, }) {
         <View key={String(currentMessage._id)} style={{
           ...styles.chatStyle,
           alignSelf: 'flex-start',
-          backgroundColor: '#f0f0f0',
+          backgroundColor: colors.white,
           borderBottomLeftRadius: moderateScale(0),
           maxWidth: width / 1.2
         }}>
@@ -229,7 +237,22 @@ export default function ChatScreen({ route, }) {
         </View>
       </View>
     )
-  })
+  }, [])
+
+  const SendButton = useCallback(() => {
+    return (
+      <View
+        style={{
+          marginHorizontal: 10,
+          alignSelf: 'center',
+          height: '100%',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
+        <Image source={imagePath.send} />
+      </View>
+    )
+  }, [])
 
   return (
     <WrapperContainer
@@ -245,18 +268,51 @@ export default function ChatScreen({ route, }) {
 
       />
 
-      <View style={{ flex: 1 }}>
+      <ImageBackground
+        source={imagePath.icBgLight}
+        style={{ flex: 1 }}
+      >
+
         <GiftedChat
           messages={messages}
           onSend={messages => onSend(messages)}
           user={{ _id: userData?.id }}
           renderMessage={renderMessage}
           isKeyboardInternallyHandled={true}
-          inverted={Platform.OS !== 'web'}
-          inputAccessoryViewID="done"
-        />
-      </View>
 
+          renderInputToolbar={props => {
+            return (
+              <InputToolbar
+                containerStyle={{ backgroundColor: '#f6f6f6', paddingTop: 0 }}
+                {...props}
+              />
+            )
+          }}
+
+          textInputStyle={{
+            backgroundColor: '#ffffff',
+            paddingTop: Platform.OS == 'ios' ? 10 : undefined,
+            borderRadius: 20,
+            paddingHorizontal: 20,
+            // marginVertical: 30,
+            textAlignVertical: 'center',
+            fontFamily: fontFamily.regular,
+            alignSelf: 'center',
+            color: colors.black
+
+          }}
+          renderSend={props => {
+            return (
+              <Send
+                alwaysShowSend
+                containerStyle={{ backgroundColor: 'red' }}
+                children={<SendButton />}
+                {...props}
+              />
+            );
+          }}
+        />
+      </ImageBackground>
 
       <Modal
         isVisible={showParticipant}
@@ -319,7 +375,7 @@ export default function ChatScreen({ route, }) {
 
 
 
-const stylesFun = ({  }) => {
+const stylesFun = ({ }) => {
   const styles = StyleSheet.create({
     imgStyle: {
       width: moderateScale(35),
@@ -341,7 +397,7 @@ const stylesFun = ({  }) => {
       width: moderateScale(20),
       height: moderateScale(20),
       borderRadius: moderateScale(10),
-      backgroundColor:  colors.blackOpacity43,
+      backgroundColor: colors.blackOpacity43,
       marginLeft: 8
     },
     descText: {

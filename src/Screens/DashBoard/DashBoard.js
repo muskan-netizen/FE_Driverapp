@@ -165,12 +165,12 @@ export default function DashBoard({ route, navigation }) {
     return () => { };
   }, []);
 
-  useEffect(()=>{
+  useEffect(() => {
+    if (!!clientInfo?.socket_url) {
+      socketServices.initializeSocket(clientInfo?.socket_url);
+    }
+  }, [clientInfo])
 
-    socketServices.initializeSocket(null);
-    
-    
-    },[])
   useEffect(() => {
     if (refreshHomeData && enableMap) {
       updateState({
@@ -328,7 +328,7 @@ export default function DashBoard({ route, navigation }) {
           'address',
         )
           .then(res => alert(res))
-          .catch(error => console.log("error rasied",error));
+          .catch(error => console.log("error rasied", error));
       },
       error => console.log(error.message),
       {
@@ -446,12 +446,12 @@ export default function DashBoard({ route, navigation }) {
         // updateState({isRefreshing: false});
         console.log(res, 'allTasksallTasks');
         if (selectedOption) {
-          let filterMarker = res.data.filter((val,i)=>{
-            if(!!val?.location?.latitude && !!val?.location?.longitude){
+          let filterMarker = res.data.filter((val, i) => {
+            if (!!val?.location?.latitude && !!val?.location?.longitude) {
               return val
             }
           })
-          console.log("filter marker",filterMarker)
+          console.log("filter marker", filterMarker)
           updateState({
             allTasks: res?.data,
             markers: filterMarker,
@@ -459,12 +459,12 @@ export default function DashBoard({ route, navigation }) {
             isLoading: false,
           });
         } else {
-          let filterMarker = res.data.filter((val,i)=>{
-            if(!!val?.location?.latitude && !!val?.location?.longitude){
+          let filterMarker = res.data.filter((val, i) => {
+            if (!!val?.location?.latitude && !!val?.location?.longitude) {
               return val
             }
           })
-          console.log("filter marker",filterMarker)
+          console.log("filter marker", filterMarker)
           updateState({
             todaysTasks: res?.data,
             markers: filterMarker,

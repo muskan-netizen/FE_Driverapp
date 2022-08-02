@@ -141,39 +141,6 @@ const App = () => {
     });
   };
 
-  useEffect(() => {
-    (async () => {
-      const {dispatch} = store;
-
-      const userData = await getUserData();
-      const defaultLanguage = await getItem('defaultLanguage');
-      console.log(userData, 'userdata in app.js');
-      console.log(defaultLanguage, 'defaultLanguage in app.js');
-      // if (userData && !!userData?.access_token) {
-      //   notificationConfig();
-      // }
-      if (userData && !!userData?.access_token) {
-        dispatch({
-          type: types.LOGIN,
-          payload: userData,
-        });
-      }
-      if (defaultLanguage?.value) {
-        strings.setLanguage(defaultLanguage?.value);
-        dispatch({
-          type: types.DEFAULTLANGUAGE,
-          payload: defaultLanguage,
-        });
-      }
-
-      const getClientInfo = await getItem('clientInfo');
-      dispatch({
-        type: types.APP_INIT,
-        payload: getClientInfo,
-      });
-    })();
-    return () => {};
-  }, []);
 
   //Check internet connection
   useEffect(() => {
