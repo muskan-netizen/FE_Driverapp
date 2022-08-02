@@ -141,6 +141,7 @@ const NotificationModal = () => {
   };
 
   const onListAllAddress = ({item, index}) => {
+    console.log(item,'itemitem')
     if (item?.task_type_id == 2) {
       return (
         <View style={{flexDirection: 'row'}}>
@@ -162,7 +163,13 @@ const NotificationModal = () => {
         </View>
       );
     } else {
-      return null;
+     return(
+      <View style={{paddingHorizontal: moderateScale(30)}}>
+      <Text numberOfLines={1} style={[styles.address]}>
+        {item?.address}
+      </Text>
+    </View>
+     )
     }
   };
 
@@ -191,7 +198,7 @@ const NotificationModal = () => {
 
   const modalMainContent = () => {
     let data = notificationData?.notificationData?.data;
-    let notificationType = data?.type?data?.type:data?.notificationType
+    let notificationType = data?.type ? data?.type : data?.notificationType;
     return (
       <View style={{overflow: 'hidden', borderRadius: moderateScale(10)}}>
         <View>{!!region && mapView()}</View>
@@ -230,7 +237,7 @@ const NotificationModal = () => {
                 {` ${taskId}`}
               </Text>
             </View>
-            {orderCost && (
+            {!!Number(data?.cash_to_be_collected) > 0 && (
               <View style={{flexDirection: 'row', alignItems: 'center'}}>
                 <Text
                   numberOfLines={1}
@@ -252,8 +259,9 @@ const NotificationModal = () => {
                     color: colors.green,
                     fontFamily: fontFamily.bold,
                   }}>
-                  {` ${orderCost}`}
+                  {` ${Number(data?.cash_to_be_collected).toFixed(2)}`}
                 </Text>
+                <Text style={styles.address}></Text>
               </View>
             )}
           </View>
@@ -269,11 +277,6 @@ const NotificationModal = () => {
               />
             </View>
             <View>
-              <View style={{paddingHorizontal: moderateScale(30)}}>
-                <Text numberOfLines={1} style={[styles.address]}>
-                  {data?.address}
-                </Text>
-              </View>
               <FlatList
                 data={
                   notificationDropLocationsData
@@ -298,22 +301,6 @@ const NotificationModal = () => {
                 {strings.TASKDATE}
               </Text>
               <Text style={styles.address}>{getDate(data?.created_at)}</Text>
-
-              {!!Number(data?.cash_to_be_collected) > 0 
-              && (
-                <View>
-                  <Text
-                    style={[
-                      styles.dateTimeStyle,
-                      {marginTop: moderateScale(10)},
-                    ]}>
-                    {strings.CASHTOBECOLLECTED}
-                  </Text>
-                  <Text style={styles.address}>
-                    {Number(data?.cash_to_be_collected).toFixed(2)}
-                  </Text>
-                </View>
-              )}
             </View>
             {totalDistance && (
               <View style={{alignItems: 'center'}}>

@@ -20,7 +20,7 @@ import { appIds } from '../../utils/constants/DynamicAppKeys';
 
 export function initApp(data = {}, headers = {}, reload = false) {
   
-  console.log(APP_INITIAL_SETTINGS,data,
+  console.log(APP_INITIAL_SETTINGS,data,headers,
     "sdjhkfdshfjsdjf");
   return new Promise((resolve, reject) => {
     apiPost(APP_INITIAL_SETTINGS, data, headers)

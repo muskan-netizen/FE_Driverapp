@@ -12,7 +12,7 @@
 
 // export const API_BASE_URL='https://dispatch.tmgsalesllc.com/';
 //Staging
- //export const API_BASE_URL = 'https://api.rdstaging.com/';
+//  export const API_BASE_URL = 'https://api.rdstaging.com/';
  
 // export const API_BASE_URL = 'https://api.winhires.com/';
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
@@ -37,7 +37,7 @@
 //taquick 
 //  export const API_BASE_URL = 'https://delivery.taquick.com/';
 
-//  export const API_BASE_URL = 'http://192.168.96.84:9091/';
+// export const API_BASE_URL = 'http://192.168.96.84:9091/';
 
 //Staging
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
@@ -228,7 +228,7 @@
 // export const API_BASE_URL = 'https://dispatch.martinionwheelsllc.org/';
 
 // 
-export const API_BASE_URL = 'https://dispatch.viversbox.com/'
+// export const API_BASE_URL = 'https://dispatch.viversbox.com/'
 //YEBOY
 // export const API_BASE_URL = 'https://dispatch.yeboy.mx/';
 
