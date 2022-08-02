@@ -201,6 +201,18 @@ android {
 
      flavorDimensions "appType"
 
+// productFlavors {
+//           rescueRoadsideAssistance{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.rescueRoadsideAssistance.dispatcher'
+//             resValue "string", "app_name", "Rescue Roadside Assistance Dispatcher"
+//         }
+// }
     productFlavors {
         royodispatcher {
             dimension "appType"
@@ -2366,8 +2378,8 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.Sabroson.Driver'
-            resValue "string", "app_name", "SABROSÓN Repartidor"
+            applicationId 'com.Sabroson.royodispatcher'
+            resValue "string", "app_name", "Sabroson Dispatcher"
         }
          localdropoff{
             dimension "appType"
@@ -3833,6 +3845,26 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.choizez.dispatcher'
             resValue "string", "app_name", "Choizez Dispatcher"
+        }
+        otto{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.otto.dispatcher'
+            resValue "string", "app_name", "otto Dispatcher"
+        }
+           rescueRoadsideAssistance{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.rescueRoadsideAssistance.dispatcher'
+            resValue "string", "app_name", "Rescue Roadside Assistance Dispatcher"
         }
 }
 }

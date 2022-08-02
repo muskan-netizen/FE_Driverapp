@@ -15,11 +15,12 @@ import navigationStrings from './src/navigation/navigationStrings';
 messaging().setBackgroundMessageHandler(async remoteMessage => {
   console.log('Message handled in the background!', remoteMessage);
   const {data, messageId, notification} = remoteMessage;
+  let notificationType = data?.type?data?.type:data?.notificationType
   if (
     Platform.OS == 'android' &&
     notification?.android?.sound == 'notification'
   ) {
-    if (data?.notificationType != 'N') {
+    if (notificationType != 'N') {
       if (data?.callback_url) {
         navigate(navigationStrings.ORDERDETAIL, {
           data: {

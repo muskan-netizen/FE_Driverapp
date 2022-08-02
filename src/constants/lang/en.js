@@ -126,7 +126,7 @@ export default {
   FACEIMAGEREQUIRED: 'Face recognition required',
   NAVIGATE: 'Navigate',
   TIMINGS: 'Timings',
-  TASKDESCRIPTION: 'Task Description',
+  TASKDESCRIPTION: 'Description',
   IMAGES: 'Images',
   FACESNOTMATCHED: 'Faces not matched',
   VERSION: 'Version',

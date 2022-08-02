@@ -701,11 +701,7 @@ export default function TaskDetail({route, navigation}) {
         style={{marginTop: moderateScale(10)}}
         showsVerticalScrollIndicator={false}>
         {/* User Detail  */}
-        <View
-          style={{
-            padding: moderateScale(10),
-            backgroundColor: colors.transactionHistoryBg,
-          }}>
+        <View style={{}}>
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
             <View
               style={[
@@ -713,7 +709,7 @@ export default function TaskDetail({route, navigation}) {
                 {
                   backgroundColor: colors.greyLight3,
                   // backgroundColor: getBackGroudColor(taskDetail?.tasktype?.name),
-                  marginVertical: moderateScaleVertical(5),
+                  marginVertical: moderateScaleVertical(12),
                 },
               ]}>
               <Text
@@ -728,7 +724,9 @@ export default function TaskDetail({route, navigation}) {
                     : strings.PICKUP
                 }`}
               </Text>
+              {/* Description */}
             </View>
+
             <View>
               <View style={{flexDirection: 'row', alignItems: 'center'}}>
                 {!!(
@@ -799,10 +797,17 @@ export default function TaskDetail({route, navigation}) {
               )}
             </View>
           </View>
+          <Text style={styles.taskLable}>
+            {strings.TASKDESCRIPTION.toUpperCase()}
+          </Text>
 
           {/* Phone and email view */}
           {(taskDetail?.tasktype?.name).toLowerCase() == 'drop' ? (
-            <View>
+            <View
+              style={{
+                backgroundColor: colors.transactionHistoryBg,
+                padding: moderateScale(8),
+              }}>
               {!!(
                 taskDetail?.order?.Recipient_email ||
                 taskDetail?.order?.recipient_phone
@@ -859,7 +864,7 @@ export default function TaskDetail({route, navigation}) {
                         flexDirection: 'row',
                         marginTop: moderateScale(10),
                         alignItems: 'center',
-                        flex: 0.3,
+                        flex: 0.35,
                       }}>
                       <Image
                         source={imagePath.phone2}
@@ -892,11 +897,47 @@ export default function TaskDetail({route, navigation}) {
               )}
             </View>
           ) : (
-            <View>
+            <View
+              style={{
+                backgroundColor: colors.transactionHistoryBg,
+                padding: moderateScale(8),
+              }}>
+              {!!taskDetail?.order?.task_description && (
+                <View
+                  style={{flexDirection: 'row', marginTop: moderateScale(2)}}>
+                  <View>
+                    <Text
+                      numberOfLines={1}
+                      style={[
+                        styles.emailAndPhone,
+                        {marginTop: moderateScale(5)},
+                      ]}>
+                      {!!taskDetail?.order?.task_description && (
+                        <View
+                          style={{
+                            flexDirection: 'row',
+                            marginTop: moderateScale(2),
+                          }}>
+                          <View>
+                            <Text
+                              numberOfLines={1}
+                              style={[
+                                styles.emailAndPhone,
+                                {marginTop: moderateScale(5)},
+                              ]}>
+                              {taskDetail?.order?.task_description}
+                            </Text>
+                          </View>
+                        </View>
+                      )}
+                    </Text>
+                  </View>
+                </View>
+              )}
               {!!(vendors?.email || vendors?.phone_no) && (
                 <View
                   style={{
-                    opacity: 0.5,
+                    // opacity: 0.5,
                     flexDirection: 'row',
                     justifyContent: 'space-between',
                   }}>
@@ -949,7 +990,7 @@ export default function TaskDetail({route, navigation}) {
               {!!vendors?.address && (
                 <View
                   style={{
-                    opacity: 0.5,
+                    // opacity: 0.5,
                     flexDirection: 'row',
                     marginTop: moderateScale(10),
                     alignItems: 'center',
@@ -1209,22 +1250,6 @@ export default function TaskDetail({route, navigation}) {
               </View>
             )}
           </View>
-
-          {/* Description */}
-          {!!taskDetail?.order?.task_description && (
-            <View style={{flexDirection: 'row', marginTop: moderateScale(15)}}>
-              <View>
-                <Text style={styles.taskLable}>
-                  {strings.TASKDESCRIPTION.toUpperCase()}
-                </Text>
-                <Text
-                  numberOfLines={1}
-                  style={[styles.emailAndPhone, {marginTop: moderateScale(5)}]}>
-                  {taskDetail?.order?.task_description}
-                </Text>
-              </View>
-            </View>
-          )}
 
           {/* Images */}
           {!!taskDetail?.order?.task_images &&
