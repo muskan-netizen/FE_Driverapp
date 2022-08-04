@@ -1419,8 +1419,8 @@ const appIds = {
     android: 'com.Arwin.royodispatcher',
   }),
   papiRuki: Platform.select({
-    ios: 'com.PapiRuki.Dispatcher',
-    android: 'com.PapiRuki.royodispatcher',
+    ios: 'com.papiruki.driverApp',
+    android: 'com.papiruki.driverApp',
   }),
   markSoublet: Platform.select({
     ios: 'com.MarkSoublet.Dispatch',
