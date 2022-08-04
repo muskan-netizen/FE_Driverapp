@@ -279,10 +279,12 @@ export default function AddMoney({ navigation }) {
 
   //Offline payments
   const _offineLinePayment = async () => {
+   
     if (cardInfo) {
+      console.log(cardInfo,"details")
       // alert("123")
       // updateState({isLoadingB: true});
-      await createToken(cardInfo)
+      await createToken({...cardInfo, type: 'Card'})
         .then(res => {
           console.log(res, 'res>>STRIpe');
           if (res && res?.token && res.token?.id) {

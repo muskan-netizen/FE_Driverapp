@@ -60,7 +60,7 @@ export default {
   NOTE: 'Note *',
   SCANBARCODE: 'Scan Barcode',
   LOCATION_DISABLED_MSG:
-    'Camera permission permanatly disabled! Please allow from settings',
+    'permission permanatly disabled! Please allow from settings',
   QRCODENOTMATCHED: 'Qr/Barcode not matchd',
   SIGNATUREIMAGE: 'Signature is required',
   PHOTOIMAGE: 'Photo is required',
@@ -303,4 +303,6 @@ export default {
   UNABLETOLOCATE: 'Unable to Locate',
   OTHER: 'Other',
   FIXED_FEE: 'Fixed fee',
+  ARE_YOU_SURE_YOU_WANT_TO_DELETE:'Are you sure, you want to delete your account? Deleting your account is permanent and will remove all content and profile settings.',
+  PICKERCANCLLED:'Picker Canclled'
 };

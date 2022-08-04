@@ -1,4 +1,5 @@
 import {
+  AGENT_DELETE,
   LOGIN_API,
   LOGOUT_API,
   SEND_OTP,
@@ -38,7 +39,7 @@ export function login(data = {}, headers = {}) {
 }
 
 export function signUp(data = {}, headers = {}) {
-  console.log(data, 'login>data>data>data');
+  console.log(data, 'login>data>data>data',headers);
   return new Promise((resolve, reject) => {
     apiPost(SIGNUP_API, data, headers)
       .then(async res => {
@@ -96,6 +97,18 @@ export function logout(data = {}, headers = {}) {
 export function signupDoc(data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
     apiPost(SIGNUPDOC, data, headers)
+      .then(async res => {
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+}
+
+export function deleteAccount(data={}, headers={}){
+  return new Promise((resolve, reject) => {
+    apiPost(AGENT_DELETE, data, headers)
       .then(async res => {
         resolve(res);
       })

@@ -302,4 +302,5 @@ export default {
   PLEASEENTEROTPTOVERIFYYOURACCOUNT: 'Ingrese OTP para verificar su cuenta.',
   HIWHATCANWEHELPYOUWITHTODAY: 'Hola. ¿En qué podemos ayudarte hoy?',
   FIXED_FEE: 'Cuota fija',
+  ARE_YOU_SURE_YOU_WANT_TO_DELETE:'Are you sure, you want to delete your account? Deleting your account is permanent and will remove all content and profile settings.',
 };

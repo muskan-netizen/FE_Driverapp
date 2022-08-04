@@ -19,7 +19,7 @@ messaging().setBackgroundMessageHandler(async remoteMessage => {
     Platform.OS == 'android' &&
     notification?.android?.sound == 'notification'
   ) {
-    if (data?.type != 'N') {
+    if (data?.notificationType != 'N') {
       if (data?.callback_url) {
         navigate(navigationStrings.ORDERDETAIL, {
           data: {
@@ -28,6 +28,7 @@ messaging().setBackgroundMessageHandler(async remoteMessage => {
           },
         });
       } else {
+        console.log(' hey i am here');
         actions.isModalVisibleForAcceptReject({
           isModalVisibleForAcceptReject: true,
           notificationData: remoteMessage,

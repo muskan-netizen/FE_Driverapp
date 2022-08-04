@@ -303,4 +303,5 @@ export default {
   OTHER: 'KHÁC',
   DEBIT_FROM: 'Ghi nợ Từ',
   FIXED_FEE: 'Phí cố định',
+  ARE_YOU_SURE_YOU_WANT_TO_DELETE:'Are you sure, you want to delete your account? Deleting your account is permanent and will remove all content and profile settings.',
 };

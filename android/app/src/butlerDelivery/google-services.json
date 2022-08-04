@@ -1,34 +1,41 @@
 {
   "project_info": {
-    "project_number": "1030491899947",
-    "project_id": "butlerdelivery-dispatch",
-    "storage_bucket": "butlerdelivery-dispatch.appspot.com"
+    "project_number": "1046666227225",
+    "project_id": "butlerdelivery-driver",
+    "storage_bucket": "butlerdelivery-driver.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1030491899947:android:6e638083a1130af7b7c26e",
+        "mobilesdk_app_id": "1:1046666227225:android:4472e5228a0549533f8488",
         "android_client_info": {
-          "package_name": "com.ButlerDelivery.royodispatcher"
+          "package_name": "com.butler.dispatcher"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1030491899947-clef5m1a03ltfkr78fsmrgaivmk88hsh.apps.googleusercontent.com",
+          "client_id": "1046666227225-ucklupu3418p1to28g9mmle09jtbe38p.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAXJsMFfhGpXgX2CVcXQOu4OE9LoKGvGvk"
+          "current_key": "AIzaSyDXxt5M0MIQ2Xp5OYvMV-bW_X_c0pygqf0"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1030491899947-clef5m1a03ltfkr78fsmrgaivmk88hsh.apps.googleusercontent.com",
+              "client_id": "1046666227225-ucklupu3418p1to28g9mmle09jtbe38p.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "1046666227225-1a1mlnh110k45im5u9bnbrhg1j20knt8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.butler.dispatcher"
+              }
             }
           ]
         }
