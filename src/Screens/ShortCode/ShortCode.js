@@ -2161,7 +2161,6 @@ export default function ShortCode({route, navigation}) {
             actions.saveShortCode(updatedShortCode);
           }
           actions.saveShortCode(updatedShortCode);
-
           console.log(res, 'res>res>res');
           updateState({
             changeInShortCode: false,

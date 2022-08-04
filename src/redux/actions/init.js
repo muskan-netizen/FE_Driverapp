@@ -19,18 +19,11 @@ import DeviceInfo from 'react-native-device-info';
 import { appIds } from '../../utils/constants/DynamicAppKeys';
 
 export function initApp(data = {}, headers = {}, reload = false) {
-  
-  console.log(APP_INITIAL_SETTINGS,data,headers,
-    "sdjhkfdshfjsdjf");
   return new Promise((resolve, reject) => {
     apiPost(APP_INITIAL_SETTINGS, data, headers)
       .then(async res => {
-        console.log(res, 'somamae is urnning1');
         let data = res?.data;
-        
-      
-
-        setClientInfo(data).then(suc => {
+         setClientInfo(data).then(suc => {
           dispatch({
             type: types.APP_INIT,
             payload: data,
@@ -57,13 +50,11 @@ export function getListOfAllCmsLinks(url = '', data = {}, headers = {}) {
   });
 }
 
-//Get List of payment method
 export function getCustomNotificationPayload(
   url = '',
   data = {},
   headers = {},
 ) {
-  console.log(CUSTOMNOTIFICATIONPAYLOAD + url, 'all added url');
   return new Promise((resolve, reject) => {
     apiGet(CUSTOMNOTIFICATIONPAYLOAD + url, data, headers)
       .then(res => {
@@ -102,7 +93,6 @@ export const saveUserData = data => {
 //Logs api hitting after  some  frequent interval
 
 export function logsApi(data = {}, headers = {}) {
-  console.log(data,"data???????????");
   return new Promise((resolve, reject) => {
     apiPost(LOGSAPI, data, headers)
       .then(res => {
@@ -159,7 +149,6 @@ export const saveFcmToken = data => {
 };
 
 export const setZendeskKeys = data => {
-  console.log(data, 'datadata>>>>>>zendeskKeys');
   dispatch({
     type: types.ZENDEKSKKEYS,
     payload: data,
