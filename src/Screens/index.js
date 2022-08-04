@@ -23,6 +23,7 @@ export {default as WebConnection} from './WebConnection/WebConnection';
 export {default as AllinonePyments} from './AllinonePyments/AllinonePyments';
 export {default as Subscriptions } from './Subscriptions/Subscriptions';
 export {default as ChatScreen} from './ChatScreen/ChatScreen';
+export {default as ChatRoom} from './ChatRoom/ChatRoom';
 
 
 

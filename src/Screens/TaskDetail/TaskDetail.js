@@ -58,7 +58,7 @@ var _value = 0;
 export default function TaskDetail({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
   let taskDetail = route?.params?.data?.item;
-  console.log(taskDetail, 'taskDetail>>>>>>>>>>>>');
+  console.log(taskDetail, 'taskDetailtaskDetail>>>>>>>>>>>>');
   let fromHistory = route?.params?.data?.fromHistory;
 
   const [state, setState] = useState({
@@ -158,15 +158,12 @@ export default function TaskDetail({route, navigation}) {
   const commonStyles = commonStylesFunc({fontFamily});
   const updateState = data => setState(state => ({...state, ...data}));
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
-
-  const defaultLanguagae = useSelector(
-    state => state?.initBoot?.defaultLanguage,
-  );
+  const defaultLanguagae = useSelector(state => state?.initBoot?.defaultLanguage);
 
   const styles = stylesFunc({defaultLanguagae});
   // const userData = useSelector(state => state?.auth?.userData);
 
-  console.log(defaultLanguagae, 'defaultLanguagae');
+  console.log(clientInfo, 'clientInfoclientInfoclientInfo');
   const mapRef = useRef();
 
   useEffect(() => {
@@ -703,6 +700,50 @@ export default function TaskDetail({route, navigation}) {
       console.log('sendWhatsAppMessage -----> ', 'message link is undefined');
     }
   };
+
+
+  const createRoom = async (item) => {
+  
+    try {
+      const apiData = {
+        sub_domain: '192.168.101.88',
+        // client_id: String(clientInfo?.client_db_id),
+        db_name: taskDetail?.order?.dbname,
+        user_id: String(userData?.id),
+        type: 'agent_to_user',
+        vendor_order_id: String(item?.order?.order_vendor_id),
+        vendor_id: String(item?.order?.vendor_id),
+        order_id:String(item?.order?.sync_order_id),
+        order_number: String(item?.order?.order_number),
+        order_user_id: String(item?.order?.customer?.sync_customer_id),
+        agent_id: String(item?.order?.driver_id),
+        agent_db: clientInfo?.database_name
+      }
+      console.log("sending api data",apiData)
+
+
+      updateState({isLoading: true})
+      const res = await actions.onStartChat(apiData, {
+        client: clientInfo?.database_name,
+        language: defaultLanguagae?.value ? defaultLanguagae?.value : 'en',
+      })
+      console.log('start chat res', res)
+      updateState({isLoading: false})
+      if (!!res?.roomData) {
+        onChat(res.roomData)
+      }
+    } catch (error) {
+      console.log('error raised in start chat api', error)
+      showError(error?.message)
+      updateState({isLoading: false})
+    }
+  }
+  const onChat = (item) => {
+    console.log("item+++", item)
+    navigation.navigate(navigationStrings.CHAT_SCREEN, { data: item })
+  }
+
+
   const taskDetailView = () => {
     return (
       <ScrollView
@@ -1096,21 +1137,20 @@ export default function TaskDetail({route, navigation}) {
         </View>
 
         {/* Task Detail Text */}
-        <View style={styles.taskDetailView}>
+        <View style={{...styles.taskDetailView,flexDirection:'row',justifyContent:'space-between'}}>
           <Text style={styles.taskText}>
             {strings.TASKDETAIL.toUpperCase()}
           </Text>
-        </View>
 
-        {/* <View>
-          
-          <TouchableOpacity onPress={ () => navigation.navigate(navigationStrings.CHAT_SCREEN)}>
-            <Text
+          <TouchableOpacity onPress={ () =>createRoom(taskDetail)}>
+          <Text
               style={{fontFamily: fontFamily?.bold, fontSize: textScale(16)}}>
-              Chat
+              Start Chat
             </Text>
           </TouchableOpacity>
-        </View> */}
+        </View>
+
+
         {/* Task Detail View */}
 
         <View

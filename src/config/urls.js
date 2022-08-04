@@ -1,4 +1,7 @@
-//live
+// export const API_BASE_URL = 'http://192.168.101.88:8009/';
+
+
+
 //  export const API_BASE_URL = 'https://api.royodispatch.com/';
 // export const API_BASE_URL = 'https://sales.royodispatch.com/';
 
@@ -411,18 +414,11 @@ export const DAMAGE_REPORTS = getApiUrl('api/agent/reportdamange');
 //Reimbursement
 export const GET_REIMBURSEMENT_TYPES = getApiUrl('api/reimbursementtypes');
 export const REIMBURSEMENT = getApiUrl('api/agent/create/reimbursement');
-export const GETORDERDETAILFORTASK = getApiUrl(
-  'edit-order/vendor/products/getProductsInCart',
-);
+export const GETORDERDETAILFORTASK = getApiUrl('edit-order/vendor/products/getProductsInCart');
 export const GETCANCELORDERREASONLIST = getApiUrl('api/order/cancel/reasons');
 export const CANCELORDER = getApiUrl('api/order/cancel/request/create');
 export const GETWEBURL = getApiUrl('api/payment');
 
-//Chat Apis
-
-export const START_CHAT = getApiUrl('/chat/startChat');
-export const USER_CHAT = getApiUrl('/chat/userVendorChatRoom');
-export const VENDOR_CHAT = getApiUrl('/chat/vendorUserChatRoom');
 
 //subscripations api collection
 
@@ -430,3 +426,14 @@ export const GET_ALL_SUBSCRIPTION_PLANS = getApiUrl('api/driver/subscription/pla
 export const SELECT_SPECIFIC_PLAN = getApiUrl('api/driver/subscription/selectPlan');
 export const PURCHASE_SPECIFIC_PLAN = getApiUrl('api/driver/subscription/purchase');
 export const CANCEL_SPECIFIC_PLAN = getApiUrl('api/driver/subscription/cancel');
+
+//Chat Apis
+export const USER_CHAT = getApiUrl('/chat/userVendorChatRoom');
+export const VENDOR_CHAT = getApiUrl('/chat/vendorUserChatRoom');
+export const START_CHAT = getApiUrl('api/chat/startChat');
+
+//Socket urls end point
+export const AGENT_CHAT_ROOM = '/api/room/fetchRoomByUserAgent'
+export const SEND_MESSAGE = '/api/chat/sendMessageJoin';
+export const GET_ALL_MESSAGES = '/api/chat'
+export const ALL_ROOM_USER = '/api/chat/getRoomUser'

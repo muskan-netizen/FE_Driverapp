@@ -215,8 +215,12 @@ export default function Signup({ route, navigation }) {
     (async () => {
       const saveShortCode = await getItem('saveShortCode');
       console.log(saveShortCode, 'saveShortCode');
+      let headers = {'Content-Type': 'multipart/form-data'};
       actions
-        .signupDoc({}, { client: clientInfo?.database_name })
+        .signupDoc({}, { 
+          client: clientInfo?.database_name,
+
+         })
         .then(res => {
           console.log(res, 'getRequiredDatas data');
           updateState({
@@ -294,6 +298,8 @@ export default function Signup({ route, navigation }) {
       }
     }
   };
+
+  console.log(defaultLanguagae, 'defaultLanguagae');
 
   const isValidData = () => {
     const error = validator({ phoneNumber });
@@ -455,7 +461,8 @@ export default function Signup({ route, navigation }) {
     actions
       .signUp(formdata, {
         client: clientInfo?.database_name,
-        language: defaultLanguagae?.value,
+        language: 1,
+        'Content-Type': 'multipart/form-data'
       })
       .then(res => {
         updateState({ isLoading: false, isWaitingModal: true });

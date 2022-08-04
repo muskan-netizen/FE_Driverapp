@@ -132,6 +132,13 @@ export default function DashBoard({route, navigation}) {
   }, []);
 
   useEffect(() => {
+    console.log("clientInfoclientInfo",clientInfo)
+    if (!!clientInfo?.socket_url) {
+      socketServices.initializeSocket(clientInfo?.socket_url);
+    }
+  }, [clientInfo])
+
+  useEffect(() => {
     if (refreshHomeData && enableMap) {
       updateState({
         enableMap: false,
@@ -367,7 +374,7 @@ export default function DashBoard({route, navigation}) {
           'address',
         )
           .then(res => alert(res))
-          .catch(error => console.log(error));
+          .catch(error => console.log("error rasied", error));
       },
       error => console.log(error.message),
       {
@@ -390,16 +397,28 @@ export default function DashBoard({route, navigation}) {
         // updateState({isRefreshing: false});
         console.log(res, 'allTasksallTasks');
         if (selectedOption) {
+          let filterMarker = res.data.filter((val, i) => {
+            if (!!val?.location?.latitude && !!val?.location?.longitude) {
+              return val
+            }
+          })
+          console.log("filter marker", filterMarker)
           updateState({
             allTasks: res?.data,
-            markers: res?.data,
+            markers: filterMarker,
             isRefreshing: false,
             isLoading: false,
           });
         } else {
+          let filterMarker = res.data.filter((val, i) => {
+            if (!!val?.location?.latitude && !!val?.location?.longitude) {
+              return val
+            }
+          })
+          console.log("filter marker", filterMarker)
           updateState({
             todaysTasks: res?.data,
-            markers: res?.data,
+            markers: filterMarker,
             isRefreshing: false,
             isLoading: false,
           });
@@ -528,6 +547,8 @@ export default function DashBoard({route, navigation}) {
     updateState({pageNo: 1, isRefreshing: true});
   };
 
+
+  console.log("allTasksallTasks", allTasks)
   const homeMainView = () => {
     return (
       <>

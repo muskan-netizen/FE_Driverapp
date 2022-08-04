@@ -1,8 +1,24 @@
 diff --git a/node_modules/react-native-gifted-chat/lib/MessageContainer.js b/node_modules/react-native-gifted-chat/lib/MessageContainer.js
-index 193772a..3d2f23e 100644
+index 193772a..d40f74e 100644
 --- a/node_modules/react-native-gifted-chat/lib/MessageContainer.js
 +++ b/node_modules/react-native-gifted-chat/lib/MessageContainer.js
-@@ -63,10 +63,10 @@ export default class MessageContainer extends React.PureComponent {
+@@ -55,18 +55,26 @@ export default class MessageContainer extends React.PureComponent {
+         this.attachKeyboardListeners = () => {
+             const { invertibleScrollViewProps: invertibleProps } = this.props;
+             if (invertibleProps) {
+-                Keyboard.addListener('keyboardWillShow', invertibleProps.onKeyboardWillShow);
+-                Keyboard.addListener('keyboardDidShow', invertibleProps.onKeyboardDidShow);
+-                Keyboard.addListener('keyboardWillHide', invertibleProps.onKeyboardWillHide);
+-                Keyboard.addListener('keyboardDidHide', invertibleProps.onKeyboardDidHide);
++            this.willShowSub = Keyboard.addListener('keyboardWillShow', invertibleProps.onKeyboardWillShow);
++            this.didShowSub = Keyboard.addListener('keyboardDidShow', invertibleProps.onKeyboardDidShow);
++            this.willHideSub = Keyboard.addListener('keyboardWillHide', invertibleProps.onKeyboardWillHide);
++            this.didHideSub = Keyboard.addListener('keyboardDidHide', invertibleProps.onKeyboardDidHide);
++                // Keyboard.addListener('keyboardWillShow', invertibleProps.onKeyboardWillShow);
++                // Keyboard.addListener('keyboardDidShow', invertibleProps.onKeyboardDidShow);
++                // Keyboard.addListener('keyboardWillHide', invertibleProps.onKeyboardWillHide);
++                // Keyboard.addListener('keyboardDidHide', invertibleProps.onKeyboardDidHide);
+             }
          };
          this.detachKeyboardListeners = () => {
              const { invertibleScrollViewProps: invertibleProps } = this.props;
@@ -10,10 +26,14 @@ index 193772a..3d2f23e 100644
 -            Keyboard.removeListener('keyboardDidShow', invertibleProps.onKeyboardDidShow);
 -            Keyboard.removeListener('keyboardWillHide', invertibleProps.onKeyboardWillHide);
 -            Keyboard.removeListener('keyboardDidHide', invertibleProps.onKeyboardDidHide);
-+               Keyboard.addListener('keyboardWillShow', invertibleProps.onKeyboardWillShow).remove();
-+                    Keyboard.addListener('keyboardDidShow', invertibleProps.onKeyboardDidShow).remove();
-+                    Keyboard.addListener('keyboardWillHide', invertibleProps.onKeyboardWillHide).remove();
-+                   Keyboard.addListener('keyboardDidHide', invertibleProps.onKeyboardDidHide).remove();
++                this.willShowSub?.remove();
++                this.didShowSub?.remove();
++                this.willHideSub?.remove();
++                this.didHideSub?.remove();
++        //     Keyboard.removeListener('keyboardWillShow', invertibleProps.onKeyboardWillShow);
++        //     Keyboard.removeListener('keyboardDidShow', invertibleProps.onKeyboardDidShow);
++        //     Keyboard.removeListener('keyboardWillHide', invertibleProps.onKeyboardWillHide);
++        //     Keyboard.removeListener('keyboardDidHide', invertibleProps.onKeyboardDidHide);
          };
          this.renderTypingIndicator = () => {
              if (Platform.OS === 'web') {

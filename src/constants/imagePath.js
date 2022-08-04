@@ -1,4 +1,4 @@
-import {requireNativeComponent} from 'react-native';
+import { requireNativeComponent } from 'react-native';
 
 export default {
   analyctiSelected: require('../assets/images/ic_analyctis_selected.png'),
@@ -96,4 +96,7 @@ export default {
   icSubscription: require('../assets/images/ic_sub.png'),
   icQr: require('../assets/images/ic_qr.png'),
   icQr2: require('../assets/images/ic_qr2.png'),
+  send: require('../assets/images/ic_send.png'),
+  icBgLight: require('../assets/images/ic_lightbg.png'),
+  icBgDark: require('../assets/images/ic_darkbg.png'),
 };

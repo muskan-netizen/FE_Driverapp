@@ -103,8 +103,15 @@ export default function CustomDrawerContent({
             // subRoute:navigationStrings.MYPROFILE
           }
         : {},
+        {
+          id: 9,
+          label: strings.CHAT_ROOM,
+          image: imagePath.settingsIcon,
+          key: navigationStrings.CHAT_ROOM,
+          // subRoute:navigationStrings.MYPROFILE
+        },
       {
-        id: 8,
+        id: 10,
         label: strings.LOGOUT,
         image: imagePath.logout,
         // key: navigationStrings.PROFILESTACK,
@@ -234,10 +241,15 @@ export default function CustomDrawerContent({
             }
           : {},
 
-        appIds.goody === DeviceInfo.getBundleId()
-          ? {}
-          : {
-              id: 8,
+          !!clientInfo?.socket_url ? {
+            id: 9,
+            label: strings.CHAT_ROOM,
+            image: imagePath.settingsIcon,
+            key: navigationStrings.CHAT_ROOM,
+            // subRoute:navigationStrings.MYPROFILE
+          }: {},
+          {
+              id: 10,
               label: strings.LOGOUT,
               image: imagePath.logout,
               // key: navigationStrings.PROFILESTACK,

@@ -675,7 +675,7 @@
     "rescueRoadsideAssistancedispatcherRelease": "cd android && ./gradlew assemblerescueRoadsideAssistanceRelease",
     "tax_Edispatcher": "react-native run-android --variant=tax_EDebug",
     "tax_EdispatcherRelease": "cd android && ./gradlew assembletax_ERelease",
-     "baggageTaxidispatcher": "react-native run-android --variant=baggageTaxiDebug",
+    "baggageTaxidispatcher": "react-native run-android --variant=baggageTaxiDebug",
     "baggageTaxidispatcherRelease": "cd android && ./gradlew assemblebaggageTaxiRelease",
     "mersidispatcher": "react-native run-android --variant=mersiDebug",
     "mersidispatcherRelease": "cd android && ./gradlew assemblemersiRelease",

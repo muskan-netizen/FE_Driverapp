@@ -36,7 +36,9 @@ export function drawer(Stack) {
 }
 
 export default function Routes() {
-  // const userData = useSelector(state => state?.auth?.userData);
+  const userData = useSelector(state => state?.auth?.userData);
+
+  console.log("routes userData", userData)
   // const {shortCodeStatus, appStyle} = useSelector(state => state?.initBoot);
 
   return (
@@ -44,26 +46,18 @@ export default function Routes() {
       <NavigationContainer
         // theme={scheme == 'dark' ? DarkTheme : DefaultTheme}
         ref={navigationRef}>
+          
         <Stack.Navigator>
-
-          {shortCode(Stack)}
-          {AuthStack(Stack)}
-          <Stack.Screen
-            name={navigationStrings.DRAWER_ROUTES}
-            component={DrawerRoutes}
-            options={{ headerShown: false, gestureEnabled: false }}
-          />
-          {/* {userData && userData?.access_token ? (
+          {userData && userData?.access_token ? (
             <Stack.Screen
               name={navigationStrings.DRAWER_ROUTES}
               component={DrawerRoutes}
-              options={{headerShown: false, gestureEnabled: false}}
+              options={{ headerShown: false, gestureEnabled: false }}
             />
           ) : (
             AuthStack(Stack)
-          )} */}
-          {/* {AuthStack(Stack)}
-          {drawer(Stack)} */}
+          )}
+
         </Stack.Navigator>
       </NavigationContainer>
     </AppearanceProvider>

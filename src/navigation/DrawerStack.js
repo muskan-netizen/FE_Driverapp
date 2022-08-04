@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import CustomDrawerContent from '../Components/CustomDrawerContent';
 import imagePath from '../constants/imagePath';
 import strings from '../constants/lang';
-import { ContactUs, Settings, Subscriptions } from '../Screens';
+import { ChatRoom, ContactUs, Settings } from '../Screens';
 import DamageReport from '../Screens/DamageReport/DamageReport';
 import Reimbursement from '../Screens/Reimbursement/Reimbursement';
 import colors from '../styles/colors';
@@ -113,6 +113,19 @@ export default function DrawerRoutes(props) {
         }}
       />
       <Drawer.Screen
+        component={ChatRoom}
+        name={navigationStrings.CHAT_ROOM}
+        options={{
+          drawerLabel: 'Chat Room',
+          drawerIcon: ({ focused }) => (
+            <Image
+              style={{ tintColor: focused ? colors.blackShade2 : colors.grey2 }}
+              source={imagePath.settingsIcon}
+            />
+          ),
+        }}
+      />
+      <Drawer.Screen
         component={DamageReport}
         name={navigationStrings.DAMAGEREPORT}
         options={{
@@ -142,6 +155,7 @@ export default function DrawerRoutes(props) {
         component={ContactUs}
         name={navigationStrings.CONTACTUS}
         options={{
+          
           drawerLabel: strings.SETTING,
           drawerIcon: ({ focused }) => (
             <Image

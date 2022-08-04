@@ -16,6 +16,7 @@ import actions from '../redux/actions';
 import strings from './../constants/lang/index';
 import {setUserData} from './utils';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
+import { API_BASE_URL } from '../config/urls';
 
 const getCurrentLocation = type =>
   new Promise((resolve, reject) => {
@@ -417,6 +418,11 @@ const hapticEffects = {
   virtualKey: 'virtualKey',
   virtualKeyRelease: 'virtualKeyRelease',
 };
+
+
+export const getSubDomain =  (url) =>{
+  return url.split('/')[3]
+  }
 
 export {
   hapticEffects,
