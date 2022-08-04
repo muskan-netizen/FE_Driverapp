@@ -1,18 +1,19 @@
-import {createDrawerNavigator} from '@react-navigation/drawer';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import React from 'react';
-import {Image} from 'react-native';
-import {useSelector} from 'react-redux';
+import { Image } from 'react-native';
+import { useSelector } from 'react-redux';
 import CustomDrawerContent from '../Components/CustomDrawerContent';
 import imagePath from '../constants/imagePath';
 import strings from '../constants/lang';
-import {ContactUs, Settings} from '../Screens';
+import { ContactUs, Settings, Subscriptions } from '../Screens';
 import DamageReport from '../Screens/DamageReport/DamageReport';
 import Reimbursement from '../Screens/Reimbursement/Reimbursement';
 import colors from '../styles/colors';
-import {moderateScaleVertical, width} from '../styles/responsiveSize';
+import { moderateScaleVertical, width } from '../styles/responsiveSize';
 import navigationStrings from './navigationStrings';
 import PayoutStack from './PayoutStack';
 import ProfileStack from './ProfileStack';
+import SubscriptionStack from './SubscriptionStack';
 import TaskStack from './TaskStack';
 import WalletStack from './WalletStack';
 
@@ -40,16 +41,16 @@ export default function DrawerRoutes(props) {
       }}
       // hideStatusBar={true}
 
-      drawerStyle={{width: '75%', backgroundColor: colors.blueHeaderColor}}
+      drawerStyle={{ width: '75%', backgroundColor: colors.blueHeaderColor }}
       drawerContent={props => <CustomDrawerContent {...props} />}>
       <Drawer.Screen
         component={TaskStack}
         name={navigationStrings.TASKSTACK}
         options={{
           drawerLabel: strings.TASKHISTORY,
-          drawerIcon: ({focused}) => (
+          drawerIcon: ({ focused }) => (
             <Image
-              style={{tintColor: focused ? colors.blackShade2 : colors.grey2}}
+              style={{ tintColor: focused ? colors.blackShade2 : colors.grey2 }}
               source={imagePath.taskHistory}
             />
           ),
@@ -61,9 +62,9 @@ export default function DrawerRoutes(props) {
         name={navigationStrings.PROFILESTACK}
         options={{
           drawerLabel: strings.PROFILE,
-          drawerIcon: ({focused}) => (
+          drawerIcon: ({ focused }) => (
             <Image
-              style={{tintColor: focused ? colors.blackShade2 : colors.grey2}}
+              style={{ tintColor: focused ? colors.blackShade2 : colors.grey2 }}
               source={imagePath.profileImage}
             />
           ),
@@ -75,9 +76,9 @@ export default function DrawerRoutes(props) {
         name={navigationStrings.WALLETSTACK}
         options={{
           drawerLabel: strings.WALLET,
-          drawerIcon: ({focused}) => (
+          drawerIcon: ({ focused }) => (
             <Image
-              style={{tintColor: focused ? colors.blackShade2 : colors.grey2}}
+              style={{ tintColor: focused ? colors.blackShade2 : colors.grey2 }}
               source={imagePath.profileImage}
             />
           ),
@@ -89,9 +90,9 @@ export default function DrawerRoutes(props) {
         name={navigationStrings.PAYOUT_STACK}
         options={{
           drawerLabel: strings.PAYOUT,
-          drawerIcon: ({focused}) => (
+          drawerIcon: ({ focused }) => (
             <Image
-              style={{tintColor: focused ? colors.blackShade2 : colors.grey2}}
+              style={{ tintColor: focused ? colors.blackShade2 : colors.grey2 }}
               source={imagePath.profileImage}
             />
           ),
@@ -103,35 +104,35 @@ export default function DrawerRoutes(props) {
         name={navigationStrings.SETTINGS}
         options={{
           drawerLabel: strings.SETTING,
-          drawerIcon: ({focused}) => (
+          drawerIcon: ({ focused }) => (
             <Image
-              style={{tintColor: focused ? colors.blackShade2 : colors.grey2}}
+              style={{ tintColor: focused ? colors.blackShade2 : colors.grey2 }}
               source={imagePath.settingsIcon}
             />
           ),
         }}
       />
-       <Drawer.Screen
+      <Drawer.Screen
         component={DamageReport}
         name={navigationStrings.DAMAGEREPORT}
         options={{
           drawerLabel: strings.DAMAGEREPORT,
-          drawerIcon: ({focused}) => (
+          drawerIcon: ({ focused }) => (
             <Image
-              style={{tintColor: focused ? colors.blackShade2 : colors.grey2}}
+              style={{ tintColor: focused ? colors.blackShade2 : colors.grey2 }}
               source={imagePath.settingsIcon}
             />
           ),
         }}
       />
-        <Drawer.Screen
+      <Drawer.Screen
         component={Reimbursement}
         name={navigationStrings.REIMBURSEMENT}
         options={{
           drawerLabel: strings.REIMBURSEMENT,
-          drawerIcon: ({focused}) => (
+          drawerIcon: ({ focused }) => (
             <Image
-              style={{tintColor: focused ? colors.blackShade2 : colors.grey2}}
+              style={{ tintColor: focused ? colors.blackShade2 : colors.grey2 }}
               source={imagePath.settingsIcon}
             />
           ),
@@ -142,14 +143,30 @@ export default function DrawerRoutes(props) {
         name={navigationStrings.CONTACTUS}
         options={{
           drawerLabel: strings.SETTING,
-          drawerIcon: ({focused}) => (
+          drawerIcon: ({ focused }) => (
             <Image
-              style={{tintColor: focused ? colors.blackShade2 : colors.grey2}}
+              style={{ tintColor: focused ? colors.blackShade2 : colors.grey2 }}
               source={imagePath.settingsIcon}
             />
           ),
         }}
       />
+        <Drawer.Screen
+        component={SubscriptionStack}
+        name={navigationStrings.SUBSCRIPTION_STACK}
+        options={{
+          drawerLabel: strings.SUBSCRIPTIONS,
+          drawerIcon: ({ focused }) => (
+            <Image
+              style={{ tintColor: focused ? colors.blackShade2 : colors.grey2 }}
+              source={imagePath.icSubscription}
+            />
+          ),
+        }}
+      />
+
+      
+
     </Drawer.Navigator>
   );
 }

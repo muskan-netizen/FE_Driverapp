@@ -13,7 +13,9 @@ import ptBr from './ptBr';
 import sv from './sv';
 import pr from './pr';
 import vi from './vi';
+import ne from './ne';
 import { appIds } from '../../utils/constants/DynamicAppKeys';
+
 
 let strings = new LocalizedStrings({
   en: en,
@@ -28,6 +30,7 @@ let strings = new LocalizedStrings({
   sv: sv,
   pr: pr,
   vi: vi,
+  ne:ne,
 });
 export const changeLaguage = languageKey => {
    strings.setLanguage(languageKey);

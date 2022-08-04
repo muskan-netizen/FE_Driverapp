@@ -465,7 +465,7 @@ export default function AddMoney({navigation}) {
       <Modal
         isVisible={isPayoutModal}
         status
-        style={{margin: 0, justifyContent: 'flex-end'}}
+        style={{margin: 0, justifyContent: Platform.OS === 'ios' ? 'center': 'flex-end'}}
         onBackdropPress={() => updateState({isPayoutModal: false})}>
         <View
           style={{
@@ -474,10 +474,15 @@ export default function AddMoney({navigation}) {
             paddingVertical: moderateScale(10),
             borderRadius: moderateScale(10),
             maxHeight: height - moderateScale(100),
+            paddingBottom: Platform.OS === 'ios' ? moderateScaleVertical(40): moderateScaleVertical(10),
           }}>
           <KeyboardAwareScrollView
             keyboardShouldPersistTaps="handled"
-            showsVerticalScrollIndicator={false}>
+            showsVerticalScrollIndicator={false} 
+            extraScrollHeight='0'
+            // extraScrollHeight={ Platform.OS == 'ios' ? '0' : '48'}
+            >
+            
             <Text
               style={{
                 fontFamily: fontFamily.bold,

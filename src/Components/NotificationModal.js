@@ -89,10 +89,6 @@ const NotificationModal = () => {
   };
 
   const getCustomNotificationData = () => {
-    console.log(
-      notificationData?.notificationData?.data?.order_id,
-      'notificationData?.notificationData?.data?.order_id',
-    );
     actions
       .getCustomNotificationPayload(
         `/${notificationData?.notificationData?.data?.order_id}`,
@@ -339,7 +335,6 @@ const NotificationModal = () => {
               style={{
                 flex: 0.5,
                 borderBottomLeftRadius: moderateScale(15),
-
                 alignItems: 'center',
                 justifyContent: 'center',
                 backgroundColor: 'red',
@@ -403,7 +398,7 @@ const NotificationModal = () => {
     data['status'] = status;
     data['type'] = !!notifData?.batch_no ? 'B' : 'O';
 
-    console.log(data, 'data accept reject');
+    console.log(data, clientInfo?.database_name, 'data accept reject');
     actions
       .acceptRejectTask(data, {client: clientInfo?.database_name})
       .then(res => {

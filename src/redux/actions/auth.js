@@ -1,7 +1,11 @@
 import {
+  CANCEL_SPECIFIC_PLAN,
+  GET_ALL_SUBSCRIPTION_PLANS,
   AGENT_DELETE,
   LOGIN_API,
   LOGOUT_API,
+  PURCHASE_SPECIFIC_PLAN,
+  SELECT_SPECIFIC_PLAN,
   SEND_OTP,
   SIGNUPDOC,
   SIGNUP_API,
@@ -106,6 +110,65 @@ export function signupDoc(data = {}, headers = {}) {
   });
 }
 
+//get all subscriptions
+export function getAllSubscriptions(data = {}, headers = {}) {
+  return new Promise((resolve, reject) => {
+    apiGet(GET_ALL_SUBSCRIPTION_PLANS, data, headers)
+      .then((res) => {
+       
+        resolve(res);
+      })
+      .catch((error) => {
+        
+        reject(error);
+      });
+  });
+}
+
+//Select specific subscription
+export function selectSpecificSubscriptionPlan(
+  query = '',
+  data = {},
+  headers = {},
+) {
+  console.log(SELECT_SPECIFIC_PLAN + query ,"apiIsThis ")
+  return new Promise((resolve, reject) => {
+    apiGet(SELECT_SPECIFIC_PLAN + query, data, headers)
+      .then((res) => {
+        resolve(res);
+      })
+      .catch((error) => {
+        console.log(error, 'errrrrrSELECT_SPECIFIC_PLAN')
+        reject(error);
+      });
+  });
+}
+
+//Purchase subscription plan
+export function purchaseSubscriptionPlan(query = '', data = {}, headers = {}) {
+  return new Promise((resolve, reject) => {
+    apiPost(PURCHASE_SPECIFIC_PLAN + query, data, headers)
+      .then((res) => {
+        resolve(res);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+}
+
+//Cancel subscription plan
+export function cancelSubscriptionPlan(query = '', data = {}, headers = {}) {
+  return new Promise((resolve, reject) => {
+    apiPost(CANCEL_SPECIFIC_PLAN + query, data, headers)
+      .then((res) => {
+        resolve(res);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+}
 export function deleteAccount(data={}, headers={}){
   return new Promise((resolve, reject) => {
     apiPost(AGENT_DELETE, data, headers)

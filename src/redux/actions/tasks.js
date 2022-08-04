@@ -399,12 +399,15 @@ export function submitCancelOrderRequest(url = '', data = {}, headers = {}) {
 export function openPaymentWebUrl(query = '', data = {}, headers = {}) {
   console.log("payment++ query", query)
   console.log("payment++ data", data)
+  console.log(GETWEBURL + query, data, headers ,"webPaymentUrl")
   return new Promise((resolve, reject) => {
     apiGet(GETWEBURL + query, data, headers)
       .then((res) => {
         resolve(res);
+        console.log(res,"ressssofweburl")
       })
       .catch((error) => {
+        console.log(error,"error in web Url")
         reject(error);
       });
   });

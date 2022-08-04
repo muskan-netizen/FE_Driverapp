@@ -25,12 +25,13 @@ export default function Webview({navigation, route}) {
   //update your state
   const updateState = data => setState(state => ({...state, ...data}));
 
+
   //Redux Store Data
-  const {appStyle} = useSelector(state => state?.initBoot);
+  const {appData, themeColors, themeLayouts, currencies, languages, appStyle,clientInfo} =
+  useSelector(state => state?.initBoot);
   const fontFamily = appStyle?.fontSizeData;
   const commonStyles = commonStylesFun({fontFamily});
   const styles = stylesFun({fontFamily});
-  const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
 
   //Navigation to specific screen
   const moveToNewScreen = (screenName, data) => () => {
@@ -40,6 +41,7 @@ export default function Webview({navigation, route}) {
   useEffect(() => {
     getListOfAllCmsLinks();
   }, []);
+
 
   const getListOfAllCmsLinks = () => {
     actions

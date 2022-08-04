@@ -24,6 +24,7 @@ import ScaledImage from 'react-native-scalable-image';
 import DeviceInfo from 'react-native-device-info';
 import ZendeskChat from '../library/react-native-zendesk-chat';
 import {appIds} from '../utils/constants/DynamicAppKeys';
+import { Subscriptions } from '../Screens';
 import BackgroundGeolocation from '@darron1217/react-native-background-geolocation';
 
 export default function CustomDrawerContent({
@@ -108,6 +109,14 @@ export default function CustomDrawerContent({
         // key: navigationStrings.PROFILESTACK,
         // subRoute:navigationStrings.MYPROFILE
       },
+      // {
+      //   id: 9,
+      //   label: strings.SUBSCRIPTIONS,
+      //   image: imagePath.icSubscription,
+      //   key: navigationStrings.SUBSCRIPTION_STACK,
+      //   subRoute:navigationStrings.SUBSCRIPTION_STACK
+      // },
+      
     ],
     logoutAlert: false,
     selectedDrawerItem: null,
@@ -188,6 +197,15 @@ export default function CustomDrawerContent({
           image: imagePath.support2,
           // key: navigationStrings.PROFILESTACK,
           // subRoute:navigationStrings.MYPROFILE
+        },
+
+        {
+          id: 9,
+          label: strings.SUBSCRIPTIONS ,
+          support: true,
+          image: imagePath.icSubscription,
+          key: navigationStrings.SUBSCRIPTION_STACK,
+          subRoute:navigationStrings.SUBSCRIPTION_STACK
         },
         appIds.transportSystem === DeviceInfo.getBundleId()
           ? {
