@@ -171,6 +171,8 @@ export default function ChatScreen({ route, }) {
     const { currentMessage } = props
     let isRight = currentMessage?.auth_user_id == userData?.id
 
+    console.log("currentMessagecurrentMessagecurrentMessage",currentMessage)
+
     if (isRight) {
       return (
         <View key={String(currentMessage._id)} style={{
@@ -279,7 +281,6 @@ export default function ChatScreen({ route, }) {
           user={{ _id: userData?.id }}
           renderMessage={renderMessage}
           isKeyboardInternallyHandled={true}
-
           renderInputToolbar={props => {
             return (
               <InputToolbar

@@ -115,17 +115,7 @@ export default function ChatRoom({ navigation, route }) {
         return (
             <TouchableOpacity
                 onPress={() => goToChatRoom(item)}
-                style={{
-                    backgroundColor: colors.white,
-                    borderRadius: 4,
-                    shadowColor: '#000',
-                    shadowOffset: { width: 0, height: 1 },
-                    shadowOpacity: 0.1,
-                    shadowRadius: 2,
-                    elevation: 2,
-                    margin: 2,
-                    padding: moderateScale(8)
-                }}
+                style={styles.boxStyle}
             >
                 <View style={styles.flexView}>
                     <Text style={styles.textStyle}><Text>Order</Text> # {item?.room_id}</Text>

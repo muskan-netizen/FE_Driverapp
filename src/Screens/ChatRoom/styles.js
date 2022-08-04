@@ -42,6 +42,17 @@ export default ({ fontFamily }) => {
       fontFamily: fontFamily.regular,
       fontSize: textScale(12),
 
+    },
+    boxStyle: {
+      backgroundColor: colors.white,
+      borderRadius: 4,
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 1 },
+      shadowOpacity: 0.1,
+      shadowRadius: 2,
+      elevation: 2,
+      margin: 2,
+      padding: moderateScale(8)
     }
   });
   return styles;
