@@ -22,18 +22,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 
-//Misst
-// export const API_BASE_URL = 'https://miist-dispatch.netsolutionindia.com/';
-
-// export const API_BASE_URL='https://d078-103-72-170-243.in.ngrok.io/'
-//  export const API_BASE_URL = 'https://baytukom-dispatch.netsolutionindia.com/';
-
-
-//export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
-// export const API_BASE_URL = "https://fairexglobal.com/"
-//export const API_BASE_URL='https://api.winhires.com/';
-//export const API_BASE_URL='http://192.168.96.152:8006/'
-//taquick 
+//taquick
 //  export const API_BASE_URL = 'https://delivery.taquick.com/';
 
 // export const API_BASE_URL = 'http://192.168.96.84:9091/';
@@ -84,7 +73,6 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.rhondaisamazingtaxi.com/'
 
 // export const API_BASE_URL = 'https://jazzybug.winhires.com/'
-
 
 //beachhop
 // export const API_BASE_URL = 'https://dispatch.beachhopdelivery.com/'
@@ -208,7 +196,6 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // mml
 //export const API_BASE_URL = 'https://dispatch.mml.mobi/';
 
-
 //manda
 // export const API_BASE_URL = 'https://dispatch.mandaexpress.com/';
 
@@ -236,7 +223,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //MARTINONWHEELS
 // export const API_BASE_URL = 'https://dispatch.martinionwheelsllc.org/';
 
-// 
+//
 // export const API_BASE_URL = 'https://dispatch.viversbox.com/'
 //YEBOY
 // export const API_BASE_URL = 'https://dispatch.yeboy.mx/';
@@ -294,7 +281,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //export const API_BASE_URL = 'https://dispatch.meltivers.com/';
 //  butler delivery
-//  export const API_BASE_URL = 'https://dispatch.butlerdeliveryusa.com/'
+// export const API_BASE_URL = 'https://dispatch.butlerdeliveryusa.com/';
 // bimolaa
 // export const API_BASE_URL = 'https://dispatch.bimol.in/'
 
@@ -308,7 +295,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //export const API_BASE_URL = 'https://punnet.royodispatch.com/'
 
-// export const API_BASE_URL = 'https://grub.royodispatch.com/'
+// export const API_BASE_URL = 'https://grub.royodispatch.com/';
 
 // meateasy
 // export const API_BASE_URL = 'https://meateasy.royodispatch.com/';
@@ -328,9 +315,6 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // export const API_BASE_URL = 'https://dispatch.click2deliver.co.uk/'
 // export const API_BASE_URL = 'https://dispatch.hometowndelivery21.com/'
-
-
-
 
 
 // halalhmc

@@ -84,7 +84,7 @@ export default function ShortCode({route, navigation}) {
 
         case appIds.runrun:
           updateState({
-            shortCode: shortCodes.runrun,
+            shortCode: shortCodes.sales,
             isShortcodePrefilled: true,
           });
           break;
@@ -2003,19 +2003,19 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
-          case appIds.qdelo:
+        case appIds.qdelo:
           updateState({
             shortCode: shortCodes.qdelo,
             isShortcodePrefilled: true,
           });
           break;
-          case appIds.zuriRide:
+        case appIds.zuriRide:
           updateState({
             shortCode: shortCodes.zuriRide,
             isShortcodePrefilled: true,
           });
           break;
-          case appIds.americanLuxury:
+        case appIds.americanLuxury:
           updateState({
             shortCode: shortCodes.americanLuxury,
             isShortcodePrefilled: true,

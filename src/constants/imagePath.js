@@ -94,4 +94,6 @@ export default {
   ripple: require('../assets/images/ripple.gif'),
   icBagA: require('../assets/images/ic_bag2.png'),
   icSubscription: require('../assets/images/ic_sub.png'),
+  icQr: require('../assets/images/ic_qr.png'),
+  icQr2: require('../assets/images/ic_qr2.png'),
 };

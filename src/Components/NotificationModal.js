@@ -195,6 +195,7 @@ const NotificationModal = () => {
   const modalMainContent = () => {
     let data = notificationData?.notificationData?.data;
     let notificationType = data?.type ? data?.type : data?.notificationType;
+    console.log(data,"datadatadata")
     return (
       <View style={{overflow: 'hidden', borderRadius: moderateScale(10)}}>
         <View>{!!region && mapView()}</View>
@@ -379,7 +380,7 @@ const NotificationModal = () => {
                 justifyContent: 'center',
                 backgroundColor: 'green',
               }}>
-              <Text style={styles.text}>{strings.DONE}</Text>
+              <Text style={styles.text}>{strings.ACCEPT}</Text>
             </TouchableOpacity>
           </View>
         )}
