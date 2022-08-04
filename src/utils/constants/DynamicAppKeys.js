@@ -338,6 +338,9 @@ const shortCodes = {
   choizez:'a1c203',
   otto:'ca3410',
   rescueRoadsideAssistance:'425fbf',
+  taxE:'cf7217',
+  baggageTaxi:'39af81',
+  mersi:'75a2aa',
 };
 
 const appIds = {
@@ -1679,6 +1682,18 @@ fifteenP: Platform.select({
   rescueRoadsideAssistance: Platform.select({
     ios: 'com.rescueRoadsideAssistance.dispatcher',
     android: 'com.rescueRoadsideAssistance.dispatcher',
+  }),
+  taxE: Platform.select({
+    ios: 'com.taxE.dispatcher',
+    android: 'com.taxE.dispatcher',
+  }),
+  baggageTaxi: Platform.select({
+    ios: 'com.baggageTaxi.dispatcher',
+    android: 'com.baggageTaxi.dispatcher',
+  }),
+  mersi: Platform.select({
+    ios: 'com.mersi.dispatcher',
+    android: 'com.mersi.dispatcher',
   }),
 };
 

@@ -2081,18 +2081,36 @@ export default function ShortCode({route, navigation}) {
                     isShortcodePrefilled: true,
                   });
                   break;
-                  case appIds.otto:
+              case appIds.otto:
                     updateState({
                       shortCode: shortCodes.otto,
                       isShortcodePrefilled: true,
                     });
                     break;
-                    case appIds.rescueRoadsideAssistance:
+              case appIds.rescueRoadsideAssistance:
                       updateState({
                         shortCode: shortCodes.rescueRoadsideAssistance,
                         isShortcodePrefilled: true,
                       });
                       break;
+              case appIds.taxE:
+                      updateState({
+                        shortCode: shortCodes.taxE,
+                        isShortcodePrefilled: true,
+                      });
+                      break;
+              case appIds.baggageTaxi:
+                        updateState({
+                          shortCode: shortCodes.baggageTaxi,
+                          isShortcodePrefilled: true,
+                        });
+                        break;
+               case appIds.mersi:
+                      updateState({
+                       shortCode: shortCodes.mersi,
+                       isShortcodePrefilled: true,
+                     });
+              break;
       }
     })();
   }, [internetConnection]);

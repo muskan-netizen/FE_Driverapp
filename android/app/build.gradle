@@ -202,16 +202,17 @@ android {
      flavorDimensions "appType"
 
 // productFlavors {
-//           rescueRoadsideAssistance{
+//            mersi{
 //             dimension "appType"
-//             versionCode 5
+//             versionCode 1
 //             versionName "1.0"
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.rescueRoadsideAssistance.dispatcher'
-//             resValue "string", "app_name", "Rescue Roadside Assistance Dispatcher"
+//             applicationId 'com.mersi.dispatcher'
+//             resValue "string", "app_name", "Mersi Dispatcher"
 //         }
+        
 // }
     productFlavors {
         royodispatcher {
@@ -3865,6 +3866,36 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.rescueRoadsideAssistance.dispatcher'
             resValue "string", "app_name", "Rescue Roadside Assistance Dispatcher"
+        }
+         tax_E{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.taxE.dispatcher'
+            resValue "string", "app_name", "Tax-E Dispatcher"
+        }
+         baggageTaxi{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.baggageTaxi.dispatcher'
+            resValue "string", "app_name", "Baggage Taxi Dispatcher"
+        }
+        mersi{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.mersi.dispatcher'
+            resValue "string", "app_name", "Mersi Dispatcher"
         }
 }
 }

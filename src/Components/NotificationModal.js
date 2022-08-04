@@ -421,6 +421,11 @@ const NotificationModal = () => {
 
   //Error handling in api
   const errorMethod = error => {
+    //To close Notification modal in case of task already accepted 
+    actions.isModalVisibleForAcceptReject({
+      isModalVisibleForAcceptReject: false,
+      notificationData: null,
+    });
     console.log(error, 'error');
     updateState({
       isLoading: false,
