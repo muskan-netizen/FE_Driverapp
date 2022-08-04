@@ -115,9 +115,11 @@ export function getAllSubscriptions(data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
     apiGet(GET_ALL_SUBSCRIPTION_PLANS, data, headers)
       .then((res) => {
+       
         resolve(res);
       })
       .catch((error) => {
+        
         reject(error);
       });
   });

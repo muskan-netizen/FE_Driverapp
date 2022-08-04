@@ -202,16 +202,16 @@ android {
      flavorDimensions "appType"
 
 productFlavors {
-              sourcesServices{
+                jazzyBug{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.SourcesServices.royodispatcher'
-            resValue "string", "app_name", "SourcesServices Dispatcher"
-        }
+            applicationId 'com.jazzyBug.royodispatcher'
+            resValue "string", "app_name", "Jazzy Bug Dispatcher"
+       }
 }
 //     productFlavors {
 //         royodispatcher {
