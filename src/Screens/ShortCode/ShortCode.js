@@ -84,7 +84,7 @@ export default function ShortCode({route, navigation}) {
 
         case appIds.runrun:
           updateState({
-            shortCode: shortCodes.runrun,
+            shortCode: shortCodes.sales,
             isShortcodePrefilled: true,
           });
           break;

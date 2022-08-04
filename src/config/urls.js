@@ -21,7 +21,7 @@
 //export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //Misst
 // export const API_BASE_URL = 'https://miist-dispatch.netsolutionindia.com/';
@@ -157,7 +157,7 @@
 // export const API_BASE_URL = 'http://192.168.101.187:8001/';
 
 //
-// export const API_BASE_URL = 'http://192.168.96.84:9090/'; // harbans local url
+// export const API_BASE_URL = 'http://192.168.98.87:8001/'; // harbans local url
 //export const API_BASE_URL = 'https://delivery.shoorafresh.com.au/';
 
 //dimahalal
@@ -292,7 +292,7 @@
 
 //export const API_BASE_URL = 'https://punnet.royodispatch.com/'
 
-export const API_BASE_URL = 'https://grub.royodispatch.com/';
+// export const API_BASE_URL = 'https://grub.royodispatch.com/';
 
 // meateasy
 // export const API_BASE_URL = 'https://meateasy.royodispatch.com/';

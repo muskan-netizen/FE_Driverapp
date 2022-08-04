@@ -24,6 +24,7 @@ import ScaledImage from 'react-native-scalable-image';
 import DeviceInfo from 'react-native-device-info';
 import ZendeskChat from '../library/react-native-zendesk-chat';
 import {appIds} from '../utils/constants/DynamicAppKeys';
+import {useDarkMode} from 'react-native-dark-mode';
 
 export default function CustomDrawerContent({
   state,
@@ -112,15 +113,22 @@ export default function CustomDrawerContent({
     selectedDrawerItem: null,
     isLoading: false,
   });
-  const {routes, selectedDrawerItem, logoutAlert, isLoading} = states;
-  const {zendeskKeys, clientInfo} = useSelector(state => state?.initBoot);
-
-  const defaultLanguagae = useSelector(
-    state => state?.initBoot?.defaultLanguage,
+  const {
+    routes,
+    selectedDrawerItem,
+    logoutAlert,
+    isLoading,
+    themeToggle,
+    themeColor,
+  } = states;
+  const {zendeskKeys, clientInfo, defaultLanguage} = useSelector(
+    state => state?.initBoot,
   );
+  const darkthemeusingDevice = useDarkMode();
+  const isDarkMode = themeToggle ? darkthemeusingDevice : themeColor;
 
   console.log(zendeskKeys, 'keys >>>>>>>>>>>>');
-  
+
   // ZendeskChat.init(
   //   'kI9WjmYer9iy7gCYF2sne4gXUure2AK4',
   //   'bdea936e4bdb8130bb3f74cf9be7001aeaf503fe61c1543c',
@@ -218,7 +226,11 @@ export default function CustomDrawerContent({
             },
       ],
     });
-  }, [defaultLanguagae,zendeskKeys?.keys?.account_key,zendeskKeys?.keys?.application_id]);
+  }, [
+    defaultLanguage,
+    zendeskKeys?.keys?.account_key,
+    zendeskKeys?.keys?.application_id,
+  ]);
 
   //
 
@@ -303,8 +315,8 @@ export default function CustomDrawerContent({
           <ScaledImage
             width={width / 2}
             source={
-              clientInfo && clientInfo?.logo
-                ? {uri: clientInfo?.logo}
+              clientInfo && (clientInfo?.logo || clientInfo?.dark_logo)
+                ? {uri: isDarkMode ? clientInfo?.dark_logo : clientInfo?.logo}
                 : imagePath.logo
             }
           />
