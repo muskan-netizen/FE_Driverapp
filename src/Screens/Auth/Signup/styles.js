@@ -56,6 +56,7 @@ export default ({defaultLanguagae}) => {
       marginVertical: 5,
       // height: moderateScaleVertical(100),
       ...generateBoxShadowStyle(-2, 4, '#171717', 0.2, 3, 4, '#171717'),
+      marginTop:moderateScaleVertical(10)
     },
     employeetypeHeadingtext: {
       fontSize: textScale(12),
@@ -103,6 +104,7 @@ export default ({defaultLanguagae}) => {
       borderRightColor: colors.borderLight,
       alignItems: 'center',
       justifyContent: 'center',
+     
     },
     transporationOuterContainer: {
       height: moderateScaleVertical(70),

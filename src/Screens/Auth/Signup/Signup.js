@@ -444,10 +444,12 @@ export default function Signup({ route, navigation }) {
         }
       });
     }
+    console.log(formdata, 'formdata>formdata');
     if (!isRequired) {
       return;
     }
-    console.log(formdata, 'formdata>formdata');
+   
+   
 
     updateState({ isLoading: true });
     actions
@@ -1182,9 +1184,9 @@ export default function Signup({ route, navigation }) {
               )}
             </View>
 
-            {/* <View
+           <View
               onTouchStart={() => updateState({isTagsShow: false})}
-              style={{marginVertical: moderateScaleVertical(20)}}>
+              style={{marginVertical: moderateScaleVertical(5)}}>
               <Text style={styles.label}>{strings.TRASNPORTATION}</Text>
             </View>
             <View onTouchStart={() => updateState({isTagsShow: false})}>
@@ -1223,8 +1225,8 @@ export default function Signup({ route, navigation }) {
                 })}
               </ScrollView>
             </View>
-            {getEmployeeViewBasedOnClient(savedShortCode)}
-          */}
+           {/* { getEmployeeViewBasedOnClient(savedShortCode)} */}
+          
             {/* <View style={{marginTop: moderateScaleVertical(10)}}>
               <TextInputWithlabel
                 labelStyle={styles.textInputlabel}
