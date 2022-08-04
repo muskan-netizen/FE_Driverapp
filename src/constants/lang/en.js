@@ -102,7 +102,7 @@ export default {
   SIGNATURE: 'Signature',
   PHOTO: 'Photo',
   NOTES: 'Notes',
-  QRCODE: 'QR/Bar Code',
+  QRCODE: 'Bar Code',
   SUCCESSSIGNUP: 'SignUp successfuly.',
   WALLET: 'Wallet',
   WALLETAMOUNT: 'Amount',

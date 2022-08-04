@@ -22,7 +22,8 @@ const ButtonComponent = ({
   buttonTitle = '',
   buttonStyle = {},
   imagevalue = false,
-  imageStyle={}
+  imageStyle = {},
+  buttonTitleStyle = {},
 }) => {
   return (
     <View style={styles.container}>
@@ -33,7 +34,9 @@ const ButtonComponent = ({
               <Image style={imageStyle} source={imagevalue} />
             </View>
           )}
-          <Text style={styles.text}>{buttonTitle}</Text>
+          <Text style={{...styles.text, ...buttonTitleStyle}}>
+            {buttonTitle}
+          </Text>
         </View>
       </TouchableWithoutFeedback>
     </View>

@@ -119,6 +119,13 @@ export default function TaskDetail({route, navigation}) {
         imagePathActive: imagePath.faceActive,
         type: 'face',
       },
+      {
+        id: 6,
+        title: 'QR Code',
+        imagePath: imagePath.codeInactive,
+        imagePathActive: imagePath.codeActive,
+        type: 'qrCode',
+      },
     ],
     updatedProofArray: [],
     findDataToCheck: null,
@@ -183,7 +190,8 @@ export default function TaskDetail({route, navigation}) {
                 (i?.type == 'photo' && findDataToCheck?.image) ||
                 (i?.type == 'notes' && findDataToCheck?.note) ||
                 (i?.type == 'QR' && findDataToCheck?.barcode) ||
-                (i?.type == 'face' && findDataToCheck?.face)
+                (i?.type == 'face' && findDataToCheck?.face) ||
+                (i?.type == 'qrCode' && findDataToCheck?.qrcode)
               ) {
                 return i;
               }
