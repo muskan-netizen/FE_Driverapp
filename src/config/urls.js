@@ -15,13 +15,13 @@
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
  
 // export const API_BASE_URL = 'https://api.winhires.com/';
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
+ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
 // export const API_BASE_URL = 'http://192.168.96.152:8006/';
  //export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-   export const API_BASE_URL = 'https://api.rdstaging.com/';
+ //  export const API_BASE_URL = 'https://api.rdstaging.com/';
 
   //Misst
   // export const API_BASE_URL = 'https://miist-dispatch.netsolutionindia.com/';
