@@ -41,6 +41,8 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 
 
+//Papruki
+// export const API_BASE_URL='https://dispatch.papiruki.com/'
 // export const API_BASE_URL = 'https://dispatch.drusdeliveries.com/';
 
 // export const API_BASE_URL = 'https://dispatch.pas41.com/'
@@ -67,7 +69,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // export const API_BASE_URL = 'https://dispatch.quicklube.us/'
 
- //export const API_BASE_URL = 'https://dispatch.swantaxi.net/'
+//  export const API_BASE_URL = 'https://dispatch.swantaxi.net/'
 
 //fairex
 // export const API_BASE_URL = 'https://dispatch.fairexglobal.com/'
@@ -79,7 +81,9 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.jiffex.in/'
 
 //amazingTaxi
-// export const API_BASE_URL = 'https://dispatch.rhondaisamazingtaxi.com/';
+// export const API_BASE_URL = 'https://dispatch.rhondaisamazingtaxi.com/'
+
+// export const API_BASE_URL = 'https://jazzybug.winhires.com/'
 
 
 //beachhop
@@ -164,7 +168,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //dimahalal
 
 // export const API_BASE_URL = 'https://dispatch.dimahalal.com/';
-
+// export const API_BASE_URL = 'https://dispatch.toor.life/'
 //hellodeliver
 // export const API_BASE_URL = 'https://dispatch.hellodeliver.in/';
 
