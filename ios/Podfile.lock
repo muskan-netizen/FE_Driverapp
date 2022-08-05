@@ -67,7 +67,7 @@ PODS:
     - GoogleMaps
   - Google-Maps-iOS-Utils/QuadTree (2.1.0):
     - GoogleMaps
-  - GoogleDataTransport (9.2.0):
+  - GoogleDataTransport (9.1.4):
     - GoogleUtilities/Environment (~> 7.7)
     - nanopb (< 2.30910.0, >= 2.30908.0)
     - PromisesObjC (< 3.0, >= 1.2)
@@ -120,7 +120,7 @@ PODS:
   - Permission-LocationWhenInUse (3.6.0):
     - RNPermissions
   - PromisesObjC (2.1.1)
-  - razorpay-pod (1.2.8)
+  - razorpay-pod (1.2.7)
   - RCT-Folly (2021.04.26.00):
     - boost-for-react-native
     - DoubleConversion
@@ -809,7 +809,7 @@ SPEC CHECKSUMS:
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   glog: 5337263514dd6f09803962437687240c5dc39aa4
   Google-Maps-iOS-Utils: c32891ff472eaaa1fca032beedafa1a013af7875
-  GoogleDataTransport: 1c8145da7117bd68bbbed00cf304edb6a24de00f
+  GoogleDataTransport: 5fffe35792f8b96ec8d6775f5eccd83c998d5a3b
   GoogleMaps: 32ca02de09de357a10ac773f2c70f1986751392d
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
   JWT: ef71dfb03e1f842081e64dc42eef0e164f35d251
@@ -821,7 +821,7 @@ SPEC CHECKSUMS:
   Permission-LocationAlways: 6b9874937f2092664dd71fbc53a10f7f0adfff51
   Permission-LocationWhenInUse: 51aa065819cd582517e98e89b564e2465a4a83c6
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
-  razorpay-pod: 3ec6fe82e7d5927013cfbbef81a880188c86b077
+  razorpay-pod: 8c229afb24506977873ea02ae60dc653be16c191
   RCT-Folly: 0dd9e1eb86348ecab5ba76f910b56f4b5fef3c46
   RCTRequired: 1b65ab453de585b0f939824780bd26cdf6fb07f8
   RCTTypeSafety: 31f76e2d6734fe3c8084ac9d39201c4a1a3c5b42
@@ -872,7 +872,7 @@ SPEC CHECKSUMS:
   RNCClipboard: 41d8d918092ae8e676f18adada19104fa3e68495
   RNCPushNotificationIOS: 87b8d16d3ede4532745e05b03c42cff33a36cc45
   RNDeviceInfo: aad3c663b25752a52bf8fce93f2354001dd185aa
-  RNFaceApi: def02e3ad04fa4615dded1d86c7a0d6ca3cfff96
+  RNFaceApi: 55e032cf01b44645d13c92a940680647b3f8ef60
   RNFastImage: 1f2cab428712a4baaf78d6169eaec7f622556dd7
   RNFBApp: 729c0666395b1953198dc4a1ec6deb8fbe1c302e
   RNFBMessaging: 8415ec196e5c1196caa26ec0742cdb48ed4d0f97

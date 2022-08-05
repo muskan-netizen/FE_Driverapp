@@ -1,9 +1,7 @@
 // export const API_BASE_URL = 'http://192.168.101.88:8009/';
 
-
-
 //  export const API_BASE_URL = 'https://api.royodispatch.com/';
-// export const API_BASE_URL = 'https://sales.royodispatch.com/';
+export const API_BASE_URL = 'https://sales.royodispatch.com/';
 
 //  export const API_BASE_URL = 'https://dispatch.ubercann.com/';
 //  export const API_BASE_URL = 'https://dispatch.swantaxi.net/';
@@ -16,22 +14,18 @@
 // export const API_BASE_URL='https://dispatch.tmgsalesllc.com/';
 
 //Staging
-export const API_BASE_URL = 'https://api.rdstaging.com/';
- 
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
+
 // export const API_BASE_URL = 'https://api.winhires.com/';
 
 //export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
 // export const API_BASE_URL = 'http://192.168.96.152:8006/';
 //export const API_BASE_URL = 'https://api.royodispatch.com/';
 
-
 //taquick
 //  export const API_BASE_URL = 'https://delivery.taquick.com/';
 
 // export const API_BASE_URL = 'http://192.168.96.84:9091/';
-
-
-
 
 //Papruki
 // export const API_BASE_URL='https://dispatch.papiruki.com/'
@@ -109,7 +103,6 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.mrhealth.in/';
 // export const API_BASE_URL = 'https://dispatch.palmettoplusdelivered.com/';
 
-
 // releezer
 // export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
 
@@ -172,7 +165,6 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // export const API_BASE_URL = 'https://dispatch.ineed.do/'
 // export const API_BASE_URL = 'https://dispatch.uvennow.com/';
-
 
 //hemptify
 // export const API_BASE_URL = 'https://dispatch.hemptify.com/';
@@ -248,7 +240,6 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //  export const API_BASE_URL = 'https://dispatch.fairexglobal.com/';
 
-
 // pinkjet
 // export const API_BASE_URL = 'https://dispatch.pinkjettaxi.com/';
 
@@ -319,7 +310,6 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.click2deliver.co.uk/'
 // export const API_BASE_URL = 'https://dispatch.hometowndelivery21.com/'
 
-
 // halalhmc
 // export const API_BASE_URL = 'https://dispatcher.halalhmc.org/';
 // tranznet online
@@ -368,8 +358,6 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // export const API_BASE_URL = 'https://dispatch.quicklube.us/'
 
-
-
 // export const personaltoken = 'TMJdbQlNWkYl1JzMONzRgF4zQFuP8s';
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;
 
@@ -414,17 +402,24 @@ export const DAMAGE_REPORTS = getApiUrl('api/agent/reportdamange');
 //Reimbursement
 export const GET_REIMBURSEMENT_TYPES = getApiUrl('api/reimbursementtypes');
 export const REIMBURSEMENT = getApiUrl('api/agent/create/reimbursement');
-export const GETORDERDETAILFORTASK = getApiUrl('edit-order/vendor/products/getProductsInCart');
+export const GETORDERDETAILFORTASK = getApiUrl(
+  'edit-order/vendor/products/getProductsInCart',
+);
 export const GETCANCELORDERREASONLIST = getApiUrl('api/order/cancel/reasons');
 export const CANCELORDER = getApiUrl('api/order/cancel/request/create');
 export const GETWEBURL = getApiUrl('api/payment');
 
-
 //subscripations api collection
 
-export const GET_ALL_SUBSCRIPTION_PLANS = getApiUrl('api/driver/subscription/plans');
-export const SELECT_SPECIFIC_PLAN = getApiUrl('api/driver/subscription/selectPlan');
-export const PURCHASE_SPECIFIC_PLAN = getApiUrl('api/driver/subscription/purchase');
+export const GET_ALL_SUBSCRIPTION_PLANS = getApiUrl(
+  'api/driver/subscription/plans',
+);
+export const SELECT_SPECIFIC_PLAN = getApiUrl(
+  'api/driver/subscription/selectPlan',
+);
+export const PURCHASE_SPECIFIC_PLAN = getApiUrl(
+  'api/driver/subscription/purchase',
+);
 export const CANCEL_SPECIFIC_PLAN = getApiUrl('api/driver/subscription/cancel');
 
 //Chat Apis
@@ -433,7 +428,7 @@ export const VENDOR_CHAT = getApiUrl('/chat/vendorUserChatRoom');
 export const START_CHAT = getApiUrl('api/chat/startChat');
 
 //Socket urls end point
-export const AGENT_CHAT_ROOM = '/api/room/fetchRoomByUserAgent'
+export const AGENT_CHAT_ROOM = '/api/room/fetchRoomByUserAgent';
 export const SEND_MESSAGE = '/api/chat/sendMessageJoin';
-export const GET_ALL_MESSAGES = '/api/chat'
-export const ALL_ROOM_USER = '/api/chat/getRoomUser'
+export const GET_ALL_MESSAGES = '/api/chat';
+export const ALL_ROOM_USER = '/api/chat/getRoomUser';
