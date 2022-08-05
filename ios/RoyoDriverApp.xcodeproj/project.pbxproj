@@ -5228,6 +5228,7 @@
 		E85FEA1928532FEC00E0BDB4 /* notification.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84C27C3E270EFAF100C30CA4 /* notification.mp3 */; };
 		E85FEA1A28532FEC00E0BDB4 /* campton-book.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC526E9E6D20066EEEE /* campton-book.ttf */; };
 		E85FEA1E28532FEC00E0BDB4 /* campton-semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC326E9E6D20066EEEE /* campton-semibold.ttf */; };
+		E865D73E289CE0EE00915C6F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E865D73D289CE0EC00915C6F /* GoogleService-Info.plist */; };
 		E86F5F722881811D006CEAEF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		E86F5F732881811D006CEAEF /* RoyoDriverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84961AE127EB05D300B58C31 /* RoyoDriverApp.swift */; };
 		E86F5F742881811D006CEAEF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -5306,7 +5307,6 @@
 		E895FA392851FD5C00EE770C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E895FA382851FD5B00EE770C /* Images.xcassets */; };
 		E895FA3B2851FDFA00EE770C /* CarlitooInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = E895FA3A2851FDFA00EE770C /* CarlitooInfo.plist */; };
 		E895FA3D2852017200EE770C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E895FA3C2852017100EE770C /* GoogleService-Info.plist */; };
-		E8977828289BEBDB00EEF91B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E8977827289BEBD400EEF91B /* GoogleService-Info.plist */; };
 		E897FD9A285763B900C5F213 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		E897FD9B285763B900C5F213 /* RoyoDriverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84961AE127EB05D300B58C31 /* RoyoDriverApp.swift */; };
 		E897FD9C285763B900C5F213 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -8482,6 +8482,7 @@
 		E85E868528911EB900036E07 /* ChoizezInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ChoizezInfo.plist; sourceTree = "<group>"; };
 		E85E868828913EC400036E07 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E85FEA2528532FEC00E0BDB4 /* DingDongDelivers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DingDongDelivers.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E865D73D289CE0EC00915C6F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E86F5F8B2881811E006CEAEF /* SmartMur.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartMur.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E86F5F8E28818331006CEAEF /* SmartMur(Development).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "SmartMur(Development).xcconfig"; sourceTree = "<group>"; };
 		E86F5F9028818353006CEAEF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -8517,7 +8518,6 @@
 		E895FA382851FD5B00EE770C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E895FA3A2851FDFA00EE770C /* CarlitooInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CarlitooInfo.plist; sourceTree = "<group>"; };
 		E895FA3C2852017100EE770C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		E8977827289BEBD400EEF91B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E897FDB3285763B900C5F213 /* Kurs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kurs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E897FDB6285764CD00C5F213 /* Kurs(Development).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Kurs(Development).xcconfig"; sourceTree = "<group>"; };
 		E897FDB8285764F200C5F213 /* Kurs(Production).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Kurs(Production).xcconfig"; sourceTree = "<group>"; };
@@ -16905,7 +16905,7 @@
 		E88BC656289A92DD004D0FC3 /* Mersi */ = {
 			isa = PBXGroup;
 			children = (
-				E8977827289BEBD400EEF91B /* GoogleService-Info.plist */,
+				E865D73D289CE0EC00915C6F /* GoogleService-Info.plist */,
 				E88BC657289A936F004D0FC3 /* Mersi(Development).xcconfig */,
 				E88BC65B289A9431004D0FC3 /* Mersi(Production).xcconfig */,
 				E88BC65D289A9467004D0FC3 /* Images.xcassets */,
@@ -23743,7 +23743,6 @@
 				E81C564428911A9C00F99FCE /* Bundle React Native code and images */,
 				E85E868728911F8C00036E07 /* Start Packager */,
 				3B19445845C77C56C17598FF /* [CP] Copy Pods Resources */,
-				6124E982255E192D33454D80 /* [CP] Copy Pods Resources */,
 				F82D01D06F3F3E38AF471327 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
@@ -24268,7 +24267,6 @@
 			buildConfigurationList = E89445302899088100E9C08D /* Build configuration list for PBXNativeTarget "TaxE" */;
 			buildPhases = (
 				5F8879613FDC7D21B5B618FB /* [CP] Check Pods Manifest.lock */,
-				4D5486907E71BBC9C3268C4C /* [CP] Embed Pods Frameworks */,
 				E89445192899088100E9C08D /* Sources */,
 				E894451D2899088100E9C08D /* Frameworks */,
 				E894451F2899088100E9C08D /* Resources */,
@@ -31328,7 +31326,7 @@
 				E88BC65E289A9467004D0FC3 /* Images.xcassets in Resources */,
 				E88BC658289A936F004D0FC3 /* Mersi(Development).xcconfig in Resources */,
 				E88BC64D289A9227004D0FC3 /* campton-semibold.ttf in Resources */,
-				E8977828289BEBDB00EEF91B /* GoogleService-Info.plist in Resources */,
+				E865D73E289CE0EE00915C6F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40036,23 +40034,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-Valley/Pods-available_pods-Valley-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4D5486907E71BBC9C3268C4C /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-available_pods-TaxE/Pods-available_pods-TaxE-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-available_pods-TaxE/Pods-available_pods-TaxE-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-TaxE/Pods-available_pods-TaxE-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		4D7E474C1D214998B22CA9E1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -41931,23 +41912,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6124E982255E192D33454D80 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-available_pods-Choizez/Pods-available_pods-Choizez-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-available_pods-Choizez/Pods-available_pods-Choizez-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-Choizez/Pods-available_pods-Choizez-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		615690F912752DB211EDDB12 /* [CP] Embed Pods Frameworks */ = {

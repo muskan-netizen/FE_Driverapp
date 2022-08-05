@@ -2153,6 +2153,12 @@ export default function ShortCode({ route, navigation }) {
                        isShortcodePrefilled: true,
                      });
               break;
+              case appIds.foodSpot:
+                      updateState({
+                       shortCode: shortCodes.foodSpot,
+                       isShortcodePrefilled: true,
+                     });
+              break;
       }
     })();
   }, [internetConnection]);

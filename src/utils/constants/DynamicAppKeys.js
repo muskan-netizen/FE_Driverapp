@@ -341,6 +341,7 @@ const shortCodes = {
   taxE:'cf7217',
   baggageTaxi:'39af81',
   mersi:'75a2aa',
+  foodSpot:'3e8962',
 };
 
 const appIds = {
@@ -1694,6 +1695,10 @@ fifteenP: Platform.select({
   mersi: Platform.select({
     ios: 'com.mersi.dispatcher',
     android: 'com.mersi.dispatcher',
+  }),
+  foodSpot: Platform.select({
+    ios: 'com.foodSpot.dispatcher',
+    android: 'com.foodSpot.dispatcher',
   }),
 };
 

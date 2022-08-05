@@ -201,7 +201,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //manda
 // export const API_BASE_URL = 'https://dispatch.mandaexpress.com/';
-
+// export const API_BASE_URL= 'https://baytukom-dispatch.netsolutionindia.com/'
 //sirvu
 // export const API_BASE_URL = 'https://dispatch.sirvu.ca/';
 

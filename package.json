@@ -679,6 +679,8 @@
     "baggageTaxidispatcherRelease": "cd android && ./gradlew assemblebaggageTaxiRelease",
     "mersidispatcher": "react-native run-android --variant=mersiDebug",
     "mersidispatcherRelease": "cd android && ./gradlew assemblemersiRelease",
+    "foodSpotdispatcher": "react-native run-android --variant=foodSpotDebug",
+    "foodSpotdispatcherRelease": "cd android && ./gradlew assemblefoodSpotRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
