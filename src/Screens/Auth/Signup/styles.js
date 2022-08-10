@@ -56,7 +56,7 @@ export default ({defaultLanguagae}) => {
       marginVertical: 5,
       // height: moderateScaleVertical(100),
       ...generateBoxShadowStyle(-2, 4, '#171717', 0.2, 3, 4, '#171717'),
-      marginTop:moderateScaleVertical(10)
+      marginTop: moderateScaleVertical(10),
     },
     employeetypeHeadingtext: {
       fontSize: textScale(12),
@@ -104,7 +104,6 @@ export default ({defaultLanguagae}) => {
       borderRightColor: colors.borderLight,
       alignItems: 'center',
       justifyContent: 'center',
-     
     },
     transporationOuterContainer: {
       height: moderateScaleVertical(70),
@@ -171,6 +170,33 @@ export default ({defaultLanguagae}) => {
       height: moderateScale(30),
       justifyContent: 'center',
       alignItems: 'center',
+    },
+    modalMainViewOTP: {
+      backgroundColor: colors.white,
+      paddingHorizontal: moderateScale(20),
+      paddingVertical: moderateScale(15),
+      borderRadius: moderateScale(10),
+      minHeight: moderateScale(200),
+    },
+    maskStyle: {
+      width: 10,
+      height: 10,
+      borderRadius: 25,
+      backgroundColor: colors.textGrey,
+    },
+    cellStyle: {
+      borderBottomWidth: 1,
+      borderColor: colors.textGrey,
+    },
+    cellStyleFocused: {
+      borderColor: colors.textGrey,
+    },
+    textStyleCodeInput: {
+      fontSize: 24,
+      color: colors.textGrey,
+    },
+    textStyleFocused: {
+      color: colors.textGrey,
     },
   });
   return style;

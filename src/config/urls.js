@@ -1,7 +1,7 @@
 // export const API_BASE_URL = 'http://192.168.101.88:8009/';
 
 //  export const API_BASE_URL = 'https://api.royodispatch.com/';
-export const API_BASE_URL = 'https://sales.royodispatch.com/';
+// export const API_BASE_URL = 'https://sales.royodispatch.com/';
 
 //  export const API_BASE_URL = 'https://dispatch.ubercann.com/';
 //  export const API_BASE_URL = 'https://dispatch.swantaxi.net/';
@@ -15,6 +15,8 @@ export const API_BASE_URL = 'https://sales.royodispatch.com/';
 
 //Staging
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
+
+export const API_BASE_URL = 'https://washvalley-dispatch.netsolutionindia.com/';
 
 // export const API_BASE_URL = 'https://api.winhires.com/';
 
@@ -115,7 +117,7 @@ export const API_BASE_URL = 'https://sales.royodispatch.com/';
 //Menus
 // export const API_BASE_URL = 'https://dispatch.menusat.app/';
 
-//Snabbhem
+// Snabbhem;
 // export const API_BASE_URL = 'https://Snabbhem.rdstaging.com/';
 
 //Fastmikes
