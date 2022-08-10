@@ -202,17 +202,17 @@ android {
      flavorDimensions "appType"
 
 // productFlavors {
-//                      foodSpot{
+           
+//          ace{
 //             dimension "appType"
 //             versionCode 1
 //             versionName "1.0"
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.foodSpot.dispatcher'
-//             resValue "string", "app_name", "Food Spot Dispatcher"
+//                applicationId "com.Ace.royodispatcher"
+//             resValue "string", "app_name", "Ace Dispatch"
 //         }
-        
 // }
     
 
@@ -6177,6 +6177,36 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.foodSpot.dispatcher'
             resValue "string", "app_name", "Food Spot Dispatcher"
+        }
+         karibaMart{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.karibaMart.dispatcher'
+            resValue "string", "app_name", "Kariba Mart Dispatcher"
+        }
+         sourceWith{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.sourceWith.dispatcher'
+            resValue "string", "app_name", "SourceWith Dispatcher"
+        }
+         vdu{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.vdu.dispatcher'
+            resValue "string", "app_name", "vdu Dispatcher"
         }
 }
 }

@@ -342,6 +342,8 @@ const shortCodes = {
   baggageTaxi:'39af81',
   mersi:'75a2aa',
   foodSpot:'3e8962',
+  karibaMart:'aaf330',
+  sourceWith:'4b15eb',
 };
 
 const appIds = {
@@ -1700,6 +1702,15 @@ fifteenP: Platform.select({
     ios: 'com.foodSpot.dispatcher',
     android: 'com.foodSpot.dispatcher',
   }),
+  karibaMart: Platform.select({
+    ios: 'com.karibaMart.dispatcher',
+    android: 'com.karibaMart.dispatcher',
+  }),
+  sourceWith: Platform.select({
+    ios: 'com.sourceWith.dispatcher',
+    android: 'com.sourceWith.dispatcher',
+  }),
+  
 };
 
 export { appIds, shortCodes };

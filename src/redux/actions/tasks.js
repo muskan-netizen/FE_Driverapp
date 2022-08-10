@@ -131,9 +131,11 @@ export function getProductUpdateDetails(uri = '', data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
     apiGet(uri, data, headers)
       .then(res => {
+        console.log('resres',res)
         resolve(res);
       })
       .catch(error => {
+        console.log('error',error)
         reject(error);
       });
   });
