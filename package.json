@@ -320,7 +320,7 @@
     "ritenowdispatcher": "react-native run-android --variant=ritenowDebug",
     "ritenowdispatcherRelease": "cd android && ./gradlew assembleRiteNowRelease",
     "myfijidispatcher": "react-native run-android --variant=myfijiDebug",
-    "myfijidispatcherRelease": "cd android && ./gradlew assembleMyFijiRelease",
+    "myfijidispatcherRelease": "cd android && ./gradlew assemblemyfijiRelease",
     "fastMikesdispatcher": "react-native run-android --variant=fastMikesDebug",
     "fastMikesdispatcherRelease": "cd android && ./gradlew assemblefastMikesRelease",
     "hometowndeliveryllcdispatcher": "react-native run-android --variant=hometowndeliveryllcDebug",

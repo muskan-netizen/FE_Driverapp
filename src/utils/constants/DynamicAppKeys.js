@@ -1247,8 +1247,8 @@ const appIds = {
     android: 'com.Dbairro.royodispatcher',
   }),
   knockknock: Platform.select({
-    ios: 'com.Knockknock.Dispatch',
-    android: 'com.Knockknock.royodispatcher',
+    ios: 'com.knockkock.driverApp',
+    android: 'com.knockkock.driverApp',
   }),
   helloDeliver: Platform.select({
     ios: 'com.HelloDeliver.Dispatch',
