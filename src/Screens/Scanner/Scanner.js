@@ -20,7 +20,6 @@ import {
   width,
 } from '../../styles/responsiveSize';
 import navigationStrings from '../../navigation/navigationStrings';
-// import {QRScannerView} from 'react-native-qrcode-scanner-view';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 import {RNCamera} from 'react-native-camera';
 import {event} from 'react-native-reanimated';

@@ -202,17 +202,16 @@ android {
      flavorDimensions "appType"
 
 // productFlavors {
-//                      foodSpot{
+//             aauJau{
 //             dimension "appType"
 //             versionCode 1
 //             versionName "1.0"
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.foodSpot.dispatcher'
-//             resValue "string", "app_name", "Food Spot Dispatcher"
+//             applicationId 'com.aauJau.royodispatcher'
+//             resValue "string", "app_name", "AauJau Dispatcher"
 //         }
-        
 // }
     
 
@@ -2017,15 +2016,15 @@ android {
             applicationId 'com.Drivva.royodispatcher'
             resValue "string", "app_name", "Drivva Dispatcher"
         }
-          myfiji{
+            myfiji{
             dimension "appType"
-            versionCode 1
+            versionCode 10
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.Myfiji.royodispatcher'
-            resValue "string", "app_name", "Fiji Eats Dispatcher"
+            applicationId 'com.fijiEats.dispatcher'
+            resValue "string", "app_name", "FijiEats Driver"
         }
           ritenow{
             dimension "appType"
@@ -3893,16 +3892,6 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.Drivva.royodispatcher'
             resValue "string", "app_name", "Drivva Dispatcher"
-        }
-          myfiji{
-            dimension "appType"
-            versionCode 8
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.fijiEats.dispatcher'
-            resValue "string", "app_name", "FijiEats Driver"
         }
           ritenow{
             dimension "appType"
@@ -6177,6 +6166,16 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.foodSpot.dispatcher'
             resValue "string", "app_name", "Food Spot Dispatcher"
+        }
+        markSoublet{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.MarkSoublet.royodispatcher'
+            resValue "string", "app_name", "CityRides Dispatch"
         }
 }
 }
