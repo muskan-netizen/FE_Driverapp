@@ -14,9 +14,9 @@
 // export const API_BASE_URL='https://dispatch.tmgsalesllc.com/';
 
 //Staging
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 
-export const API_BASE_URL = 'https://washvalley-dispatch.netsolutionindia.com/';
+// export const API_BASE_URL = 'https://washvalley-dispatch.netsolutionindia.com/';
 
 // export const API_BASE_URL = 'https://api.winhires.com/';
 

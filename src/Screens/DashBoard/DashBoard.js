@@ -132,11 +132,11 @@ export default function DashBoard({route, navigation}) {
   }, []);
 
   useEffect(() => {
-    console.log("clientInfoclientInfo",clientInfo)
+    console.log('clientInfoclientInfo', clientInfo);
     if (!!clientInfo?.socket_url) {
       socketServices.initializeSocket(clientInfo?.socket_url);
     }
-  }, [clientInfo])
+  }, [clientInfo]);
 
   useEffect(() => {
     if (refreshHomeData && enableMap) {
@@ -374,7 +374,7 @@ export default function DashBoard({route, navigation}) {
           'address',
         )
           .then(res => alert(res))
-          .catch(error => console.log("error rasied", error));
+          .catch(error => console.log('error rasied', error));
       },
       error => console.log(error.message),
       {
@@ -395,14 +395,14 @@ export default function DashBoard({route, navigation}) {
       .then(res => {
         actions.updateHomepage(false);
         // updateState({isRefreshing: false});
-        console.log(res, 'allTasksallTasks');
+        console.log(res, 'allTasksallTasks>>>>>>>>');
         if (selectedOption) {
           let filterMarker = res.data.filter((val, i) => {
             if (!!val?.location?.latitude && !!val?.location?.longitude) {
-              return val
+              return val;
             }
-          })
-          console.log("filter marker", filterMarker)
+          });
+          console.log('filter marker', filterMarker);
           updateState({
             allTasks: res?.data,
             markers: filterMarker,
@@ -412,10 +412,10 @@ export default function DashBoard({route, navigation}) {
         } else {
           let filterMarker = res.data.filter((val, i) => {
             if (!!val?.location?.latitude && !!val?.location?.longitude) {
-              return val
+              return val;
             }
-          })
-          console.log("filter marker", filterMarker)
+          });
+          console.log('filter marker', filterMarker);
           updateState({
             todaysTasks: res?.data,
             markers: filterMarker,
@@ -477,7 +477,6 @@ export default function DashBoard({route, navigation}) {
         latitudeDelta: 0.035,
         longitudeDelta: 0.0321,
       },
-      
     ]);
     updateState({
       statusChanged: true,
@@ -547,8 +546,7 @@ export default function DashBoard({route, navigation}) {
     updateState({pageNo: 1, isRefreshing: true});
   };
 
-
-  console.log("allTasksallTasks", allTasks)
+  console.log('allTasksallTasks', allTasks);
   const homeMainView = () => {
     return (
       <>
@@ -622,13 +620,21 @@ export default function DashBoard({route, navigation}) {
 
   const fitToMap = () => {
     if (markers && markers.length && enableMap) {
-      let arr= []
-       markers.map((i, inx) => {
-        if (i && i?.location && i?.location?.latitude != NaN && i?.location?.longitude != NaN) {
-          arr=[...arr,{
-            latitude: Number(i?.location?.latitude),
-            longitude: Number(i?.location?.longitude),
-          }]
+      let arr = [];
+      markers.map((i, inx) => {
+        if (
+          i &&
+          i?.location &&
+          i?.location?.latitude != NaN &&
+          i?.location?.longitude != NaN
+        ) {
+          arr = [
+            ...arr,
+            {
+              latitude: Number(i?.location?.latitude),
+              longitude: Number(i?.location?.longitude),
+            },
+          ];
           // return {
           //   latitude: Number(i?.location?.latitude),
           //   longitude: Number(i?.location?.longitude),
@@ -646,7 +652,7 @@ export default function DashBoard({route, navigation}) {
 
   useEffect(() => {
     fitToMap();
-    console.log("fittomappppp")
+    console.log('fittomappppp');
   }, [markers]);
 
   useEffect(() => {
@@ -664,7 +670,6 @@ export default function DashBoard({route, navigation}) {
           latitudeDelta: 0.035,
           longitudeDelta: 0.0321,
         },
-        
       ]);
     }
   }, [latitude, longitude]);
@@ -713,7 +718,6 @@ export default function DashBoard({route, navigation}) {
     }
   };
 
-
   console.log(latitude, longitude, 'longitude');
 
   const mapView = () => {
@@ -724,15 +728,12 @@ export default function DashBoard({route, navigation}) {
         style={styles.map}
         // region={region}
         zoomEnabled={true}
-        initialRegion={
-          {
-            latitude: Number(latitude),
-            longitude: Number(longitude),
-            latitudeDelta: 0.035,
-            longitudeDelta: 0.0321,
-          }
-          
-        }
+        initialRegion={{
+          latitude: Number(latitude),
+          longitude: Number(longitude),
+          latitudeDelta: 0.035,
+          longitudeDelta: 0.0321,
+        }}
         // showsUserLocation={true}
         // showsMyLocationButton={true}
         onLayout={() => fitToMap()}
