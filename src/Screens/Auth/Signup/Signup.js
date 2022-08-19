@@ -61,11 +61,11 @@ import DeviceCountry, {
   TYPE_CONFIGURATION,
 } from 'react-native-device-country';
 import SmoothPinCodeInput from 'react-native-smooth-pincode-input';
+import ButtonWithLoader from '../../../Components/ButtonWithLoader';
 var getPhonesCallingCodeAndCountryData = null;
 DeviceCountry.getCountryCode()
   .then(result => {
     console.log(result, 'getCountryCoderesult');
-    // {"code": "BY", "type": "telephony"}
     getPhonesCallingCodeAndCountryData = codes.filter(
       x => x.isoCode2 == result.code.toUpperCase(),
     );
@@ -75,11 +75,9 @@ DeviceCountry.getCountryCode()
   });
 
 export default function Signup({route, navigation}) {
-  const userData = useSelector(state => state?.auth?.userData);
-  const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
-  // var getPhonesCallingCodeAndCountryData = codes.filter(x => x.isoCode2 == RNLocalize.getCountry())
+  const {clientInfo, defaultLanguage} = useSelector(state => state?.initBoot);
 
-  console.log(clientInfo, 'clientInfo');
+  var dummyTags = '';
   const [state, setState] = useState({
     isLoading: false,
     fullName: '',
@@ -179,6 +177,8 @@ export default function Signup({route, navigation}) {
   } = state;
   const [isOtpModal, setOtpModal] = useState(false);
   const [otpToShow, setOtpToShow] = useState('');
+  const [isSendOtpLoading, setSendOtpLoading] = useState(false);
+  const [isSignupLoading, setSignupLoading] = useState(false);
 
   const commonStyles = commonStylesFunc({fontFamily});
 
@@ -190,11 +190,7 @@ export default function Signup({route, navigation}) {
     navigation.navigate(screenName, {data});
   };
 
-  const defaultLanguagae = useSelector(
-    state => state?.initBoot?.defaultLanguage,
-  );
-
-  const styles = stylesFunction({defaultLanguagae});
+  const styles = stylesFunction({defaultLanguage});
 
   //On country change
   const _onCountryChange = data => {
@@ -315,8 +311,6 @@ export default function Signup({route, navigation}) {
     }
   };
 
-  console.log(defaultLanguagae, 'defaultLanguagae');
-
   const isValidData = () => {
     const error = validator({phoneNumber});
     if (error) {
@@ -325,15 +319,98 @@ export default function Signup({route, navigation}) {
     }
     return true;
   };
-  var dummyTags = '';
 
   const _onSignup = () => {
-    var isRequired = true;
-
+    setSignupLoading(true);
     dummyTags = selectedTags.map(item => {
       return item.name;
     });
     dummyTags = dummyTags.join(',');
+    let formdata = new FormData();
+    formdata.append('name', fullName);
+    formdata.append('phone_number', `+${callingCode}${phoneNumber}`);
+    formdata.append('type', selectedEpmloyeetype?.typeName);
+    formdata.append('make_model', modelMake);
+    formdata.append('plate_number', vehiclePlateNumber);
+    formdata.append('color', vehicleColor);
+    formdata.append('vehicle_type_id', selectedVehicleType?.id);
+    formdata.append('team_id', !!selectedTeam ? selectedTeam?.id : '');
+    formdata.append('tags', dummyTags ? dummyTags : '');
+    formdata.append('otp', otpToShow);
+
+    if (getBundleId() == appIds?.trucxi && selectedCustomerType) {
+      formdata.append('customer_type_id', selectedCustomerType?.id);
+    }
+    formdata.append('profile_picture', {
+      type: 'image/jpeg',
+      name: `${Math.random()
+        .toString(36)
+        .replace(/[^a-z]+/g, '')
+        .substr(0, 5)}.jpg`,
+      uri: userImage,
+    });
+
+    if (!isEmpty(additionalDateFields)) {
+      additionalDateFields.map((i, inx) => {
+        if (i?.contents != '' && !!i?.contents) {
+          formdata.append(`files_text[${inx}][file_type]`, i?.file_type);
+          formdata.append(`files_text[${inx}][id]`, i?.id);
+          formdata.append(
+            `files_text[${inx}][contents]`,
+            moment(i?.contents).format('YYYY-MM-DD'),
+          );
+          formdata.append(`files_text[${inx}][label_name]`, i?.name);
+        }
+      });
+    }
+
+    let concatinatedArray = addtionalImages.concat(addtionalPdfs);
+
+    if (!isEmpty(concatinatedArray)) {
+      concatinatedArray.map((i, inx) => {
+        if (i?.value) {
+          formdata.append(`other[${inx}][file_type]`, i?.file_type);
+          formdata.append(`other[${inx}][id]`, i?.id);
+          formdata.append(`other[${inx}][filename1]`, i?.filename1);
+        }
+      });
+    }
+
+    if (!isEmpty(concatinatedArray)) {
+      concatinatedArray.map((i, inx) => {
+        if (i?.value) {
+          formdata.append(`uploaded_file[${inx}]`, {
+            name: i?.filename1,
+            type: i?.mime,
+            uri: i?.value,
+          });
+        }
+      });
+    }
+    actions
+      .signUp(formdata, {
+        client: clientInfo?.database_name,
+        language: 1,
+        'Content-Type': 'multipart/form-data',
+      })
+      .then(res => {
+        setOtpModal(false);
+        setTimeout(() => {
+          updateState({isWaitingModal: true});
+        }, 500);
+        setSignupLoading(false);
+        setTimeout(() => {
+          updateState({
+            isWaitingModal: false,
+          });
+          navigation.goBack();
+        }, 10000);
+      })
+      .catch(errorMethod);
+  };
+
+  const onSendOtp = () => {
+    var isRequired = true;
 
     if (!userImage) {
       return showError(strings.SETIMAGE);
@@ -349,14 +426,6 @@ export default function Signup({route, navigation}) {
       return;
     }
 
-    console.log(dummyTags, 'dummyTagsdummyTagsdummyTags');
-    // if (!selectedVehicleType) {
-    //   return showError(strings.SELECTTRANSPORTATION);
-    // }
-    // if (!selectedEpmloyeetype) {
-    //   return showError(strings.SELECTEMPLOYEETYPE);
-    // }
-
     if (selectedTeam == '' && !selectedTeam) {
       showError(`${strings.PLEASE_SELECT} ${strings.A_TEAM}`);
       return;
@@ -366,42 +435,10 @@ export default function Signup({route, navigation}) {
       showError(strings.PLEASESELECTCUSTOMERTYPE);
       return;
     }
-    // if (isEmpty(selectedTags)) {
-    //   showError(`${strings.PLEASE_SELECT} ${strings.ONE_TAG}`);
-    //   return;
-    // }
 
-    let formdata = new FormData();
-    formdata.append('name', fullName);
-    formdata.append('phone_number', `+${callingCode}${phoneNumber}`);
-    formdata.append('type', selectedEpmloyeetype?.typeName);
-    formdata.append('make_model', modelMake);
-    formdata.append('plate_number', vehiclePlateNumber);
-    formdata.append('color', vehicleColor);
-    formdata.append('vehicle_type_id', selectedVehicleType?.id);
-    formdata.append('team_id', !!selectedTeam ? selectedTeam?.id : '');
-    formdata.append('tags', dummyTags ? dummyTags : '');
-    if (getBundleId() == appIds?.trucxi && selectedCustomerType) {
-      formdata.append('customer_type_id', selectedCustomerType?.id);
-    }
-    formdata.append('profile_picture', {
-      type: 'image/jpeg',
-      name: `${Math.random()
-        .toString(36)
-        .replace(/[^a-z]+/g, '')
-        .substr(0, 5)}.jpg`,
-      uri: userImage,
-    });
-
-    console.log(formdata, 'formdata>>>>');
     if (addtionalTextInputs.length) {
       addtionalTextInputs.map((i, inx) => {
-        if (i?.contents != '' && !!i?.contents) {
-          formdata.append(`files_text[${inx}][file_type]`, i?.file_type);
-          formdata.append(`files_text[${inx}][id]`, i?.id);
-          formdata.append(`files_text[${inx}][contents]`, i?.contents);
-          formdata.append(`files_text[${inx}][label_name]`, i?.label_name);
-        } else if (i?.is_required) {
+        if (!i?.contents && i?.is_required) {
           if (isRequired) {
             showError(`${strings.PLEASE_ENTER} ${i.name.toLowerCase()}`);
             isRequired = false;
@@ -413,15 +450,7 @@ export default function Signup({route, navigation}) {
 
     if (additionalDateFields.length) {
       additionalDateFields.map((i, inx) => {
-        if (i?.contents != '' && !!i?.contents) {
-          formdata.append(`files_text[${inx}][file_type]`, i?.file_type);
-          formdata.append(`files_text[${inx}][id]`, i?.id);
-          formdata.append(
-            `files_text[${inx}][contents]`,
-            moment(i?.contents).format('YYYY-MM-DD'),
-          );
-          formdata.append(`files_text[${inx}][label_name]`, i?.name);
-        } else if (i?.is_required) {
+        if (!i?.contents && i?.is_required) {
           if (isRequired) {
             showError(`${strings.PLEASE_SELECT} ${i.name.toLowerCase()}`);
             isRequired = false;
@@ -435,11 +464,7 @@ export default function Signup({route, navigation}) {
 
     if (concatinatedArray.length) {
       concatinatedArray.map((i, inx) => {
-        if (i?.value) {
-          formdata.append(`other[${inx}][file_type]`, i?.file_type);
-          formdata.append(`other[${inx}][id]`, i?.id);
-          formdata.append(`other[${inx}][filename1]`, i?.filename1);
-        } else if (i?.is_required) {
+        if (!i?.value && i?.is_required) {
           if (isRequired) {
             showError(`${strings.PLEASE_UPLOAD} ${i.name.toLowerCase()}`);
             isRequired = false;
@@ -451,13 +476,7 @@ export default function Signup({route, navigation}) {
 
     if (concatinatedArray.length) {
       concatinatedArray.map((i, inx) => {
-        if (i?.value) {
-          formdata.append(`uploaded_file[${inx}]`, {
-            name: i?.filename1,
-            type: i?.mime,
-            uri: i?.value,
-          });
-        } else if (i?.is_required) {
+        if (!i?.value && i?.is_required) {
           if (isRequired) {
             showError(`${strings.PLEASE_UPLOAD} ${i.name.toLowerCase()}`);
             isRequired = false;
@@ -466,41 +485,46 @@ export default function Signup({route, navigation}) {
         }
       });
     }
-    console.log(formdata, 'formdata>formdata');
     if (!isRequired) {
       return;
     }
-
-    sendOtp();
     updateState({isLoading: true});
+    onSendOtpApi();
+  };
+
+  const onSendOtpApi = () => {
     actions
-      .signUp(formdata, {
-        client: clientInfo?.database_name,
-        language: 1,
-        'Content-Type': 'multipart/form-data',
-      })
+      .sendOtpOnSignup(
+        {
+          dial_code: callingCode,
+          phone_number: phoneNumber,
+          app_hash_key: 'jkldhfkghlkjgh',
+        },
+        {client: clientInfo?.database_name},
+      )
       .then(res => {
-        updateState({isLoading: false, isWaitingModal: true});
-        // showSuccess(strings.SUCCESSSIGNUP, 10000);
-        setTimeout(() => {
-          updateState({
-            isWaitingModal: false,
-          });
-          navigation.goBack();
-        }, 10000);
+        console.log(res, 'login data');
+        if (res?.data) {
+          updateState({isLoading: false});
+          setOtpModal(true);
+
+          setSendOtpLoading(false);
+
+          showSuccess(strings.OTPSENDSUCCESS);
+        }
       })
       .catch(errorMethod);
   };
 
-  const sendOtp = () => {};
-
   const errorMethod = error => {
     updateState({isLoading: false});
+    setSendOtpLoading(false);
+    setSignupLoading(false);
+
     showError(error?.message || error?.error);
   };
 
   const _selectedTransportation = i => {
-    console.log(i, '_selectedTransportation');
     updateState({
       selectedVehicleType: i,
     });
@@ -839,7 +863,6 @@ export default function Signup({route, navigation}) {
                 />
               </TouchableOpacity>
             )}
-            {console.log(userImage, 'image>>>>>>>>')}
           </View>
           <View style={{marginTop: moderateScale(20)}}>
             <Text style={styles.label}>{strings.PERSONAL}</Text>
@@ -1306,13 +1329,13 @@ export default function Signup({route, navigation}) {
             )}
           </View>
           <GradientButton
-            onPress={_onSignup}
+            onPress={onSendOtp}
             containerStyle={{marginVertical: moderateScaleVertical(40)}}
             // onPress={_onLogin}
             marginTop={moderateScaleVertical(20)}
             marginBottom={moderateScaleVertical(40)}
             textStyle={{color: colors.black}}
-            btnText={strings.SIGNUP}
+            btnText={'Send OTP'}
             colorsArray={[colors.themeColor, colors.themeColor]}
           />
         </KeyboardAwareScrollView>
@@ -1337,7 +1360,6 @@ export default function Signup({route, navigation}) {
       />
       <Modal
         isVisible={isWaitingModal}
-        status
         style={{margin: 0, justifyContent: 'flex-end'}}
         onBackdropPress={() => updateState({isWaitingModal: false})}>
         <View style={styles.modalMainView}>
@@ -1349,9 +1371,8 @@ export default function Signup({route, navigation}) {
       </Modal>
       <Modal
         isVisible={isOtpModal}
-        status
-        style={{margin: 0, justifyContent: 'flex-end'}}
-        onBackdropPress={() => setOtpModal(false)}>
+        onBackdropPress={() => setOtpModal(false)}
+        style={{margin: 0, justifyContent: 'flex-end'}}>
         <View style={styles.modalMainViewOTP}>
           <Text
             style={{
@@ -1391,15 +1412,32 @@ export default function Signup({route, navigation}) {
             keyboardType={'numeric'}
             onTextChange={otpToShow => setOtpToShow(otpToShow)}
           />
-          <GradientButton
+          <ButtonWithLoader
+            onPress={() => {
+              setSendOtpLoading(true);
+              onSendOtpApi();
+            }}
+            btnText="RESEND OTP"
+            isLoading={isSendOtpLoading}
+            btnStyle={{
+              backgroundColor: colors.transparent,
+              borderWidth: 0,
+              width: moderateScale(100),
+              alignSelf: 'center',
+            }}
+            btnTextStyle={{
+              color: colors.themeColor,
+            }}
+            color={colors.themeColor}
+          />
+          <ButtonWithLoader
+            isLoading={isSignupLoading}
+            btnStyle={{
+              borderRadius: moderateScale(25),
+              marginBottom: moderateScaleVertical(20),
+            }}
             onPress={_onSignup}
-            containerStyle={{marginVertical: moderateScaleVertical(40)}}
-            // onPress={_onLogin}
-            marginTop={moderateScaleVertical(40)}
-            marginBottom={moderateScaleVertical(20)}
-            textStyle={{color: colors.black}}
             btnText={strings.SIGNUP}
-            colorsArray={[colors.themeColor, colors.themeColor]}
           />
         </View>
       </Modal>

@@ -14,14 +14,14 @@
 // export const API_BASE_URL='https://dispatch.tmgsalesllc.com/';
 
 //Staging
-export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // export const API_BASE_URL = 'https://washvalley-dispatch.netsolutionindia.com/';
 
 // export const API_BASE_URL = 'https://api.winhires.com/';
 
 //export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
-// export const API_BASE_URL = 'http://192.168.96.152:8006/';
+export const API_BASE_URL = 'http://192.168.96.152:8006/';
 //export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //taquick
@@ -367,6 +367,7 @@ export const SEND_OTP = getApiUrl('api/auth/login');
 export const LOGIN_API = getApiUrl('api/auth/sendOtp');
 export const SIGNUP_API = getApiUrl('api/auth/signup');
 export const LOGOUT_API = getApiUrl('api/auth/logout');
+export const SIGNUP_SEND_OTP = getApiUrl('api/auth/signup/sendOtp');
 
 // export const SIGN_UP_API = getApiUrl('/auth/register');
 export const APP_INITIAL_SETTINGS = getApiUrl('api/shortCode');
