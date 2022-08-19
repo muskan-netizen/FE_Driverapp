@@ -16,7 +16,7 @@ import actions from '../redux/actions';
 import strings from './../constants/lang/index';
 import {setUserData} from './utils';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
-import { API_BASE_URL } from '../config/urls';
+import {API_BASE_URL} from '../config/urls';
 
 const getCurrentLocation = type =>
   new Promise((resolve, reject) => {
@@ -353,35 +353,38 @@ const getUrlRoutes = (url, indexOfRoute) => {
   return routeName;
 };
 
-
-const  getHostName =(url)=> {
+const getHostName = url => {
   var match = url.match(/:\/\/(www[0-9]?\.)?(.[^/:]+)/i);
-  if (match != null && match.length > 2 && typeof match[2] === 'string' && match[2].length > 0) {
-  return match[2];
+  if (
+    match != null &&
+    match.length > 2 &&
+    typeof match[2] === 'string' &&
+    match[2].length > 0
+  ) {
+    return match[2];
+  } else {
+    return null;
   }
-  else {
-      return null;
-  }
-}
+};
 
-const getDomain =(url) =>{
-var hostName = getHostName(url);
-var domain = hostName;
+const getDomain = url => {
+  var hostName = getHostName(url);
+  var domain = hostName;
 
-if (hostName != null) {
+  if (hostName != null) {
     var parts = hostName.split('.').reverse();
-    
-    if (parts != null && parts.length > 1) {
-        domain = parts[1] + '.' + parts[0];
-            
-        if (hostName.toLowerCase().indexOf('.co.uk') != -1 && parts.length > 2) {
-          domain = parts[2] + '.' + domain;
-        }
-    }
-}
 
-return domain;
-}
+    if (parts != null && parts.length > 1) {
+      domain = parts[1] + '.' + parts[0];
+
+      if (hostName.toLowerCase().indexOf('.co.uk') != -1 && parts.length > 2) {
+        domain = parts[2] + '.' + domain;
+      }
+    }
+  }
+
+  return domain;
+};
 
 const playHapticEffect = (effect = 'clockTick') => {
   const options = {
@@ -419,10 +422,9 @@ const hapticEffects = {
   virtualKeyRelease: 'virtualKeyRelease',
 };
 
-
-export const getSubDomain =  (url) =>{
-  return url.split('/')[3]
-  }
+export const getSubDomain = url => {
+  return url.split('/')[3];
+};
 
 export {
   hapticEffects,
@@ -436,5 +438,5 @@ export {
   getUrlRoutes,
   getHostName,
   getDomain,
-  playHapticEffect
+  playHapticEffect,
 };

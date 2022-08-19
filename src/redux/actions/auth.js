@@ -43,7 +43,7 @@ export function login(data = {}, headers = {}) {
 }
 
 export function signUp(data = {}, headers = {}) {
-  console.log(data, 'login>data>data>data',headers);
+  console.log(data, 'login>data>data>data', headers);
   return new Promise((resolve, reject) => {
     apiPost(SIGNUP_API, data, headers)
       .then(async res => {
@@ -114,12 +114,10 @@ export function signupDoc(data = {}, headers = {}) {
 export function getAllSubscriptions(data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
     apiGet(GET_ALL_SUBSCRIPTION_PLANS, data, headers)
-      .then((res) => {
-       
+      .then(res => {
         resolve(res);
       })
-      .catch((error) => {
-        
+      .catch(error => {
         reject(error);
       });
   });
@@ -131,14 +129,14 @@ export function selectSpecificSubscriptionPlan(
   data = {},
   headers = {},
 ) {
-  console.log(SELECT_SPECIFIC_PLAN + query ,"apiIsThis ")
+  console.log(SELECT_SPECIFIC_PLAN + query, 'apiIsThis ');
   return new Promise((resolve, reject) => {
     apiGet(SELECT_SPECIFIC_PLAN + query, data, headers)
-      .then((res) => {
+      .then(res => {
         resolve(res);
       })
-      .catch((error) => {
-        console.log(error, 'errrrrrSELECT_SPECIFIC_PLAN')
+      .catch(error => {
+        console.log(error, 'errrrrrSELECT_SPECIFIC_PLAN');
         reject(error);
       });
   });
@@ -148,10 +146,10 @@ export function selectSpecificSubscriptionPlan(
 export function purchaseSubscriptionPlan(query = '', data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
     apiPost(PURCHASE_SPECIFIC_PLAN + query, data, headers)
-      .then((res) => {
+      .then(res => {
         resolve(res);
       })
-      .catch((error) => {
+      .catch(error => {
         reject(error);
       });
   });
@@ -161,15 +159,16 @@ export function purchaseSubscriptionPlan(query = '', data = {}, headers = {}) {
 export function cancelSubscriptionPlan(query = '', data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
     apiPost(CANCEL_SPECIFIC_PLAN + query, data, headers)
-      .then((res) => {
+      .then(res => {
         resolve(res);
       })
-      .catch((error) => {
+      .catch(error => {
         reject(error);
       });
   });
 }
-export function deleteAccount(data={}, headers={}){
+export function deleteAccount(data = {}, headers = {}) {
+  console.log(data, headers, 'data>>>>>>');
   return new Promise((resolve, reject) => {
     apiPost(AGENT_DELETE, data, headers)
       .then(async res => {

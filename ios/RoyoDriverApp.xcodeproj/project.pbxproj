@@ -1626,7 +1626,7 @@
 		8434817D27313D1D00D96624 /* MaxisDeliveryInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8434817C27313D1D00D96624 /* MaxisDeliveryInfo.plist */; };
 		8434819F2731417C00D96624 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8434819E2731417C00D96624 /* GoogleService-Info.plist */; };
 		84357A7627E858A000E1BE5E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
-		84357A7727E858A000E1BE5E /* (null) in Sources */ = {isa = PBXBuildFile; };
+		84357A7727E858A000E1BE5E /* BuildFile in Sources */ = {isa = PBXBuildFile; };
 		84357A7827E858A000E1BE5E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		84357A8027E858A000E1BE5E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		84357A8127E858A000E1BE5E /* RoyoDriverInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8404E588271EE077000D6E95 /* RoyoDriverInfo.plist */; };
@@ -1685,7 +1685,7 @@
 		843800DA27E34076001B13A3 /* QseekInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 843800D927E34076001B13A3 /* QseekInfo.plist */; };
 		8438F67427E32FFA001B13A3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8438F67327E32FFA001B13A3 /* Images.xcassets */; };
 		8438F84127E33CF7001B13A3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
-		8438F84227E33CF7001B13A3 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		8438F84227E33CF7001B13A3 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
 		8438F84327E33CF7001B13A3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		8438F84A27E33CF7001B13A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		8438F84B27E33CF7001B13A3 /* RoyoDriverInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8404E588271EE077000D6E95 /* RoyoDriverInfo.plist */; };
@@ -2635,7 +2635,7 @@
 		84814C5727AD62CF008EABE3 /* IPicknDropInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84814C5627AD62CF008EABE3 /* IPicknDropInfo.plist */; };
 		84814D1027AD6376008EABE3 /* CabioInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84814D0F27AD6376008EABE3 /* CabioInfo.plist */; };
 		8482090E27E8A064005AFDEE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
-		8482090F27E8A064005AFDEE /* (null) in Sources */ = {isa = PBXBuildFile; };
+		8482090F27E8A064005AFDEE /* BuildFile in Sources */ = {isa = PBXBuildFile; };
 		8482091027E8A064005AFDEE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		8482091927E8A064005AFDEE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		8482091A27E8A064005AFDEE /* RoyoDriverInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8404E588271EE077000D6E95 /* RoyoDriverInfo.plist */; };
@@ -21369,6 +21369,7 @@
 				843165E127ABBF8D00E59A31 /* Start Packager */,
 				F2124A7995304A1879C2C421 /* [CP] Embed Pods Frameworks */,
 				4CA85BA6980684AC98237AA5 /* [CP] Copy Pods Resources */,
+				98E7FCA128AF690700B212F7 /* Bundle React Native code and images */,
 			);
 			buildRules = (
 			);
@@ -23391,8 +23392,8 @@
 				84F5370127A3AE0A0079C4EE /* Frameworks */,
 				84F5370D27A3AE0A0079C4EE /* Resources */,
 				E6A3736B7F0BA7A1D2ACD808 /* [CP] Embed Pods Frameworks */,
-				EAAF1B79B598EF8EABB90683 /* [CP] Check Pods Manifest.lock */,
 				78616DB67115F8E2F8374F4E /* [CP] Copy Pods Resources */,
+				9877985628ACB5B200B9E1BD /* Bundle React Native code and images */,
 			);
 			buildRules = (
 			);
@@ -24680,15 +24681,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F885CF0F2844E8AF003D9B65 /* Build configuration list for PBXNativeTarget "MyFarma" */;
 			buildPhases = (
-				968CC19DCFE01BF9FA5EE06C /* [CP] Check Pods Manifest.lock */,
-				6EE1C9CC1DB72C56E68DA577 /* [CP] Copy Pods Resources */,
+				142E7A8DDB607CEE05D94753 /* [CP] Check Pods Manifest.lock */,
 				F885CEF82844E8AF003D9B65 /* Sources */,
 				F885CEFC2844E8AF003D9B65 /* Frameworks */,
 				F885CEFE2844E8AF003D9B65 /* Resources */,
 				F885CF0C2844E8AF003D9B65 /* Bundle React Native code and images */,
 				F885CF1F2844ED90003D9B65 /* Start Packager */,
-				2ABB318533D8A6B85452A8E7 /* [CP] Check Pods Manifest.lock */,
-				3494C912C0F59463E4E21804 /* [CP] Embed Pods Frameworks */,
+				22C8EA4BFDC560CA70F91513 /* [CP] Embed Pods Frameworks */,
+				0B116543B2270C5C3F42AB08 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -32624,6 +32624,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-Elcheregio/Pods-available_pods-Elcheregio-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		0B116543B2270C5C3F42AB08 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-available_pods-MyFarma/Pods-available_pods-MyFarma-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-available_pods-MyFarma/Pods-available_pods-MyFarma-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-MyFarma/Pods-available_pods-MyFarma-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		0B29DA110EFF8136ACDD4694 /* Bundle React Native code and images */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -34217,6 +34234,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-HitchDelivery/Pods-available_pods-HitchDelivery-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		142E7A8DDB607CEE05D94753 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-available_pods-MyFarma-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		14306C0DC06FB9987EE81E8F /* [CP] Check Pods Manifest.lock */ = {
@@ -35814,6 +35853,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-BotSeat/Pods-available_pods-BotSeat-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		22C8EA4BFDC560CA70F91513 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-available_pods-MyFarma/Pods-available_pods-MyFarma-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-available_pods-MyFarma/Pods-available_pods-MyFarma-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-MyFarma/Pods-available_pods-MyFarma-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		231232A11D2CEBDDD73B391C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -36747,27 +36803,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-ZoodMarket/Pods-available_pods-ZoodMarket-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2ABB318533D8A6B85452A8E7 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-available_pods-MyFarma/Pods-available_pods-MyFarma-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-available_pods-MyFarma/Pods-available_pods-MyFarma-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-MyFarma/Pods-available_pods-MyFarma-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		2AE384580B94B2A5D05195F9 /* [CP] Copy Pods Resources */ = {
@@ -37715,23 +37750,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3494C912C0F59463E4E21804 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-available_pods-MyFarma/Pods-available_pods-MyFarma-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-available_pods-MyFarma/Pods-available_pods-MyFarma-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-MyFarma/Pods-available_pods-MyFarma-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		349A731747470BEDA1AD7BD6 /* [CP] Embed Pods Frameworks */ = {
@@ -43310,23 +43328,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-HitchDelivery/Pods-available_pods-HitchDelivery-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6EE1C9CC1DB72C56E68DA577 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-available_pods-MyFarma/Pods-available_pods-MyFarma-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-available_pods-MyFarma/Pods-available_pods-MyFarma-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-MyFarma/Pods-available_pods-MyFarma-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6EED0AB70B4D6983D63D858F /* [CP] Copy Pods Resources */ = {
@@ -54395,30 +54396,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		968CC19DCFE01BF9FA5EE06C /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-available_pods-MyFarma/Pods-available_pods-MyFarma-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-available_pods-MyFarma/Pods-available_pods-MyFarma-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-available_pods-MyFarma-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		96FAF0E67157444ADE72DDE1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -54563,6 +54540,24 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-Easyu/Pods-available_pods-Easyu-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		9877985628ACB5B200B9E1BD /* Bundle React Native code and images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Bundle React Native code and images";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
+		};
 		988381CC2D3C14733AA0FA0A /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -54676,6 +54671,24 @@
 			shellScript = "export RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open \"$SRCROOT/../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n  fi\nfi\n\n";
 		};
 		98E3B09728ABB47200EF0F8F /* Bundle React Native code and images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Bundle React Native code and images";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
+		};
+		98E7FCA128AF690700B212F7 /* Bundle React Native code and images */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -64482,27 +64495,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EAAF1B79B598EF8EABB90683 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-available_pods-HalaTalabat/Pods-available_pods-HalaTalabat-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-available_pods-HalaTalabat/Pods-available_pods-HalaTalabat-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-HalaTalabat/Pods-available_pods-HalaTalabat-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		EACEDC6C14D806500DFADB1F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -67860,7 +67852,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84357A7627E858A000E1BE5E /* AppDelegate.m in Sources */,
-				84357A7727E858A000E1BE5E /* (null) in Sources */,
+				84357A7727E858A000E1BE5E /* BuildFile in Sources */,
 				84357A7827E858A000E1BE5E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -67900,7 +67892,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8438F84127E33CF7001B13A3 /* AppDelegate.m in Sources */,
-				8438F84227E33CF7001B13A3 /* (null) in Sources */,
+				8438F84227E33CF7001B13A3 /* BuildFile in Sources */,
 				8438F84327E33CF7001B13A3 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -68520,7 +68512,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8482090E27E8A064005AFDEE /* AppDelegate.m in Sources */,
-				8482090F27E8A064005AFDEE /* (null) in Sources */,
+				8482090F27E8A064005AFDEE /* BuildFile in Sources */,
 				8482091027E8A064005AFDEE /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -85939,7 +85931,7 @@
 				PROJECT_BUNDLE_ID = "$(PROJECT_BUNDLE_ID)";
 				PROJECT_NAME = "${PROJECT_NAME}";
 				PROJECT_PLIST = "$(PROJECT_PLIST)";
-				PROVISIONING_PROFILE_SPECIFIER = "SXM2GO Dispatch[AppStore]";
+				PROVISIONING_PROFILE_SPECIFIER = "SXM2GO Dispatch[AppStore";
 				SWIFT_OBJC_BRIDGING_HEADER = "RoyoDriverApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";

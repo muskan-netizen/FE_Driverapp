@@ -202,15 +202,15 @@ android {
      flavorDimensions "appType"
 
 // productFlavors {
-//             aauJau{
+//                     myFarma{
 //             dimension "appType"
 //             versionCode 1
 //             versionName "1.0"
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.aauJau.royodispatcher'
-//             resValue "string", "app_name", "AauJau Dispatcher"
+//             applicationId 'com.myFarma.royodispatcher'
+//             resValue "string", "app_name", "Livian Dispatcher"
 //         }
 // }
     
@@ -5725,7 +5725,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.myFarma.royodispatcher'
-            resValue "string", "app_name", "MyFarma Dispatcher"
+            resValue "string", "app_name", "Livian Dispatcher"
         }
         blueBundles{
             dimension "appType"
