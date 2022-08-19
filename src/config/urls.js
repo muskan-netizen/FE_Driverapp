@@ -21,7 +21,7 @@
 // export const API_BASE_URL = 'https://api.winhires.com/';
 
 //export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
-export const API_BASE_URL = 'http://192.168.96.152:8006/';
+export const API_BASE_URL = 'http://192.168.97.160:9090/';
 //export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //taquick

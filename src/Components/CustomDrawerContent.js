@@ -24,7 +24,7 @@ import ScaledImage from 'react-native-scalable-image';
 import DeviceInfo from 'react-native-device-info';
 import ZendeskChat from '../library/react-native-zendesk-chat';
 import {appIds} from '../utils/constants/DynamicAppKeys';
-import { Subscriptions } from '../Screens';
+import {Subscriptions} from '../Screens';
 import BackgroundGeolocation from '@darron1217/react-native-background-geolocation';
 import {useDarkMode} from 'react-native-dark-mode';
 
@@ -103,13 +103,13 @@ export default function CustomDrawerContent({
             // subRoute:navigationStrings.MYPROFILE
           }
         : {},
-        {
-          id: 9,
-          label: strings.CHAT_ROOM,
-          image: imagePath.settingsIcon,
-          key: navigationStrings.CHAT_ROOM,
-          // subRoute:navigationStrings.MYPROFILE
-        },
+      {
+        id: 9,
+        label: strings.CHAT_ROOM,
+        image: imagePath.settingsIcon,
+        key: navigationStrings.CHAT_ROOM,
+        // subRoute:navigationStrings.MYPROFILE
+      },
       {
         id: 10,
         label: strings.LOGOUT,
@@ -124,7 +124,6 @@ export default function CustomDrawerContent({
       //   key: navigationStrings.SUBSCRIPTION_STACK,
       //   subRoute:navigationStrings.SUBSCRIPTION_STACK
       // },
-      
     ],
     logoutAlert: false,
     selectedDrawerItem: null,
@@ -143,8 +142,6 @@ export default function CustomDrawerContent({
   );
   const darkthemeusingDevice = useDarkMode();
   const isDarkMode = themeToggle ? darkthemeusingDevice : themeColor;
-
-  console.log(zendeskKeys, 'keys >>>>>>>>>>>>');
 
   // ZendeskChat.init(
   //   'kI9WjmYer9iy7gCYF2sne4gXUure2AK4',
@@ -241,20 +238,22 @@ export default function CustomDrawerContent({
             }
           : {},
 
-          !!clientInfo?.socket_url ? {
-            id: 9,
-            label: strings.CHAT_ROOM,
-            image: imagePath.settingsIcon,
-            key: navigationStrings.CHAT_ROOM,
-            // subRoute:navigationStrings.MYPROFILE
-          }: {},
-          {
-              id: 10,
-              label: strings.LOGOUT,
-              image: imagePath.logout,
-              // key: navigationStrings.PROFILESTACK,
+        !!clientInfo?.socket_url
+          ? {
+              id: 9,
+              label: strings.CHAT_ROOM,
+              image: imagePath.settingsIcon,
+              key: navigationStrings.CHAT_ROOM,
               // subRoute:navigationStrings.MYPROFILE
-            },
+            }
+          : {},
+        {
+          id: 10,
+          label: strings.LOGOUT,
+          image: imagePath.logout,
+          // key: navigationStrings.PROFILESTACK,
+          // subRoute:navigationStrings.MYPROFILE
+        },
       ],
     });
   }, [
@@ -359,9 +358,6 @@ export default function CustomDrawerContent({
           const isFocused = selectedDrawerItem?.index === index;
           const label = route?.label;
           const onPress = () => {
-            console.log(route?.key, 'route?.key>>>');
-            console.log(route?.subRoute, 'route?.subRoute');
-
             if (route?.key) {
               if (route?.subRoute) {
                 navigation.navigate(route.key, {

@@ -158,7 +158,6 @@ export default function DashBoard({route, navigation}) {
     DeviceInfo.isEmulator().then(isEmulator => {
       if (!isEmulator) {
         BackgroundGeolocation.on('location', location => {
-          console.log(location, 'location >>>>>>>');
           let headingAngle = location?.bearing || 0.0;
           let lat = location?.latitude || 0;
           let long = location.longitude || 0;
