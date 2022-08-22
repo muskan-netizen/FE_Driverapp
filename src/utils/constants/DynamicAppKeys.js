@@ -342,6 +342,17 @@ const shortCodes = {
   baggageTaxi:'39af81',
   mersi:'75a2aa',
   foodSpot:'3e8962',
+  karibaMart:'aaf330',
+  sourceWith:'4b15eb',
+  vdu: '98946e',
+  taxiology:'a754a3',
+  laundroZone: '459c97',
+  swipe:'ad4124',
+  sheRyders: '19a9bc',
+  kurrix: 'aa2686',
+  easyDrink:'b69dbd',
+  mrVeloz:'b74f5c'
+  
 };
 
 const appIds = {
@@ -1699,6 +1710,46 @@ fifteenP: Platform.select({
   foodSpot: Platform.select({
     ios: 'com.foodSpot.dispatcher',
     android: 'com.foodSpot.dispatcher',
+  }),
+  karibaMart: Platform.select({
+    ios: 'com.karibaMart.dispatcher',
+    android: 'com.karibaMart.dispatcher',
+  }),
+  sourceWith: Platform.select({
+    ios: 'com.sourceWith.dispatcher',
+    android: 'com.sourceWith.dispatcher',
+  }),
+  vdu: Platform.select({
+    ios: 'com.vdu.dispatcher',
+    android: 'com.vdu.dispatcher',
+  }),
+  taxiology: Platform.select({
+    ios: 'com.taxiology.driverApp',
+    android: 'com.taxiology.driverApp',
+  }),
+  laundroZone: Platform.select({
+    ios: 'com.LaundroZone.driverApp',
+    android: 'com.LaundroZone.driverApp',
+  }),
+  swipe: Platform.select({
+    ios: 'com.app.swipeDriver',
+    android: 'com.app.swipeDriver',
+  }),
+  sheRyders: Platform.select({
+    ios: 'com.sheRyders.royodispatcher',
+    android: 'com.sheRyders.royodispatcher',
+  }),
+  kurrix: Platform.select({
+    ios: 'com.kurrix.royoDispatcher',
+    android: 'com.kurrix.royoDispatcher',
+  }),
+  easyDrink: Platform.select({
+    ios: 'com.kurrix.royoDispatcher',
+    android: 'com.kurrix.royoDispatcher',
+  }),
+  mrVeloz: Platform.select({
+    ios: 'com.mrVeloz.royodispatcher',
+    android: 'com.mrVeloz.royodispatcher',
   }),
 };
 
