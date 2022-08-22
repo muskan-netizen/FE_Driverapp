@@ -202,16 +202,15 @@ android {
      flavorDimensions "appType"
 
 // productFlavors {
-           
-//          ace{
+//        euodooTechnologies{
 //             dimension "appType"
 //             versionCode 1
 //             versionName "1.0"
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//                applicationId "com.Ace.royodispatcher"
-//             resValue "string", "app_name", "Ace Dispatch"
+//             applicationId 'com.euodooTechnologies.dispatcher'
+//             resValue "string", "app_name", "Euodoo Technologies Dispatcher"
 //         }
 // }
     
@@ -6198,17 +6197,7 @@ android {
             applicationId 'com.sourceWith.dispatcher'
             resValue "string", "app_name", "SourceWith Dispatcher"
         }
-         vdu{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.vdu.dispatcher'
-            resValue "string", "app_name", "vdu Dispatcher"
-        }
-}
+
 }
 
 

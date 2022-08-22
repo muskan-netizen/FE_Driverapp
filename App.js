@@ -106,24 +106,6 @@ const App = () => {
   };
 
 
-
-
-    
-    
-    
-    
-      
-
-      
-    
-      
-      
-    
-  
-
-
-
-
   useEffect(() => {
     AsyncStorage.getItem('alreadyLaunched').then(value => {
       console.log(value, 'valuevaluevaluevalue');
