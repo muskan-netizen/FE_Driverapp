@@ -351,7 +351,10 @@ const shortCodes = {
   sheRyders: '19a9bc',
   kurrix: 'aa2686',
   easyDrink:'b69dbd',
-  mrVeloz:'b74f5c'
+  mrVeloz:'b74f5c',
+  pets: 'fe860d',
+  greenCab: '91f5e4',
+  axxi: '634a32'
   
 };
 
@@ -1750,6 +1753,18 @@ fifteenP: Platform.select({
   mrVeloz: Platform.select({
     ios: 'com.mrVeloz.royodispatcher',
     android: 'com.mrVeloz.royodispatcher',
+  }),
+  pets: Platform.select({
+    ios: 'com.pets.royodispatcher',
+    android: 'com.pets.royodispatcher',
+  }),
+  greenCab: Platform.select({
+    ios: 'com.greenCab.royodispatcher',
+    android: 'com.greenCab.royodispatcher',
+  }),
+  axxi: Platform.select({
+    ios: 'com.axxi.royodispatcher',
+    android: 'com.axxi.royodispatcher',
   }),
 };
 

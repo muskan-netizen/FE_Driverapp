@@ -205,15 +205,15 @@ android {
      flavorDimensions "appType"
 
 productFlavors {
-            mrVeloz{
+              weTogether{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.mrVeloz.royodispatcher'
-            resValue "string", "app_name", "MrVeloz Dispatcher"
+            applicationId 'com.weTogether.royodispatcher'
+            resValue "string", "app_name", "WeTogether Dispatcher"
         }
 }
     
@@ -6295,6 +6295,39 @@ productFlavors {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.mrVeloz.royodispatcher'
             resValue "string", "app_name", "MrVeloz Dispatcher"
+        }
+
+         pets{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.pets.royodispatcher'
+            resValue "string", "app_name", "Pets Dispatcher"
+        }
+
+         greenCab{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.greenCab.royodispatcher'
+            resValue "string", "app_name", "greenCab Dispatcher"
+        }
+
+         axxi{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.axxi.royodispatcher'
+            resValue "string", "app_name", "Axxi Dispatcher"
         }
 }
 }

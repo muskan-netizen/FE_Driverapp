@@ -2219,6 +2219,26 @@ export default function ShortCode({route, navigation}) {
                     isShortcodePrefilled: true,
                   });
                   break;
+
+                case appIds.pets:
+                  updateState({
+                    shortCode: shortCodes.pets,
+                    isShortcodePrefilled: true,
+                  });
+                  break;
+                  case appIds.greenCab:
+                  updateState({
+                    shortCode: shortCodes.greenCab,
+                    isShortcodePrefilled: true,
+                  });
+                  break;
+
+                  case appIds.axxi:
+                  updateState({
+                    shortCode: shortCodes.axxi,
+                    isShortcodePrefilled: true,
+                  });
+                  break;
       }
     })();
   }, [internetConnection]);
