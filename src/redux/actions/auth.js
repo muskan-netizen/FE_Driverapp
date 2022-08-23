@@ -9,6 +9,7 @@ import {
   SEND_OTP,
   SIGNUPDOC,
   SIGNUP_API,
+  SIGNUP_SEND_OTP,
 } from '../../config/urls';
 import {apiGet, apiPost, removeItem, setUserData} from '../../utils/utils';
 import store from '../store';
@@ -171,6 +172,18 @@ export function deleteAccount(data = {}, headers = {}) {
   console.log(data, headers, 'data>>>>>>');
   return new Promise((resolve, reject) => {
     apiPost(AGENT_DELETE, data, headers)
+      .then(async res => {
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+}
+
+export function sendOtpOnSignup(data = {}, headers = {}) {
+  return new Promise((resolve, reject) => {
+    apiPost(SIGNUP_SEND_OTP, data, headers)
       .then(async res => {
         resolve(res);
       })

@@ -360,9 +360,6 @@ export default function CustomDrawerContent({
           const isFocused = selectedDrawerItem?.index === index;
           const label = route?.label;
           const onPress = () => {
-            console.log(route?.key, 'route?.key>>>');
-            console.log(route?.subRoute, 'route?.subRoute');
-
             if (route?.key) {
               if (route?.subRoute) {
                 navigation.navigate(route.key, {

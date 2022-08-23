@@ -14,8 +14,10 @@
 // export const API_BASE_URL='https://dispatch.tmgsalesllc.com/';
 
 //Staging
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
-export const API_BASE_URL = 'https://livian.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://livian.rdstaging.com/';
+
+// export const API_BASE_URL = ' https://mobi.rdstaging.com/';
 
 // export const API_BASE_URL = 'http://192.168.96.84:9091/';
 // export const API_BASE_URL = 'https://marksoublet.rdstaging.com/';
@@ -23,7 +25,7 @@ export const API_BASE_URL = 'https://livian.rdstaging.com/';
 // export const API_BASE_URL = 'https://api.winhires.com/';
 
 //export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
-// export const API_BASE_URL = 'http://192.168.96.152:8006/';
+// export const API_BASE_URL = 'http://192.168.97.160:9090/';
 //export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //taquick
@@ -90,7 +92,10 @@ export const API_BASE_URL = 'https://livian.rdstaging.com/';
 
 // export const API_BASE_URL = 'https://dispatch.sabroson.com.mx/'
 //heybuddy
-// export const API_BASE_URL ='https://dispatch.heybuddy.com.mx/'
+// export const API_BASE_URL = 'https://dispatch.heybuddy.com.mx/';
+
+// bustamovepartybus
+// export const API_BASE_URL = 'https://dispatch.bustamovepartybus.com/';
 
 //ipickndrop
 // export const API_BASE_URL ="https://dispatch.ipickndrop.com/"
@@ -124,7 +129,7 @@ export const API_BASE_URL = 'https://livian.rdstaging.com/';
 //Menus
 // export const API_BASE_URL = 'https://dispatch.menusat.app/';
 
-//Snabbhem
+// Snabbhem;
 // export const API_BASE_URL = 'https://Snabbhem.rdstaging.com/';
 
 //Fastmikes
@@ -192,7 +197,7 @@ export const API_BASE_URL = 'https://livian.rdstaging.com/';
 //RXNOW
 // export const API_BASE_URL = 'https://dispatch.rxnowweb.com/';
 //GROUPY
-//export const API_BASE_URL = 'https://dispatch.groupystore.com/';
+// export const API_BASE_URL = 'https://dispatch.groupystore.com/';
 
 //
 // export const API_BASE_URL = 'https://dispatch.samakeemart.com/';
@@ -379,6 +384,7 @@ export const SEND_OTP = getApiUrl('api/auth/login');
 export const LOGIN_API = getApiUrl('api/auth/sendOtp');
 export const SIGNUP_API = getApiUrl('api/auth/signup');
 export const LOGOUT_API = getApiUrl('api/auth/logout');
+export const SIGNUP_SEND_OTP = getApiUrl('api/auth/signup/sendOtp');
 
 // export const SIGN_UP_API = getApiUrl('/auth/register');
 export const APP_INITIAL_SETTINGS = getApiUrl('api/shortCode');

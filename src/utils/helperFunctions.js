@@ -295,7 +295,7 @@ export const sessionHandler = error => {
     saveUserData({});
   });
   showError(error);
-  NavigationService.navigate(navigationStrings.LOGIN);
+  // NavigationService.navigate(navigationStrings.LOGIN);
 };
 
 export const getScaleTransformationStyle = (
