@@ -202,15 +202,15 @@ android {
      flavorDimensions "appType"
 
 // productFlavors {
-//                    heyBuddy{
+//              swiffyLLC{
 //             dimension "appType"
-//             versionCode 2
-//             versionName "1.1"
+//             versionCode 3
+//             versionName "1.0"
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.HeyBuddy.royodispatcher'
-//             resValue "string", "app_name", "Soy Buddy"
+//             applicationId 'com.SwiffyLLC.royodispatcher'
+//             resValue "string", "app_name", "SwiffyLLC Driver"
 //         }
 // }
     
@@ -4406,22 +4406,11 @@ android {
             applicationId 'com.AmbuTap.royodispatcher'
             resValue "string", "app_name", "AmbuTap Dispatcher"
         }
-
-           swiffyLLC{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.SwiffyLLC'
-            resValue "string", "app_name", "SwiffyLLC Driver"
-        }
-        sabroson{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
+          sabroson{
+     dimension "appType"
+    versionCode 2
+    versionName "1.0"
+    minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.Sabroson.Driver'
@@ -4886,16 +4875,6 @@ android {
             resValue "string", "app_name", "Viversbox Dispatcher"
         }
 
-           swiffyLLC{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.SwiffyLLC'
-            resValue "string", "app_name", "SwiffyLLC Driver"
-        }
         sabroson{
             dimension "appType"
             versionCode 1
