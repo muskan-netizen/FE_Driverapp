@@ -12,8 +12,8 @@ const ShowNotificationForeground = props => {
     const unsubscribe = messaging().onMessage(async remoteMessage => {
       console.log('remote message foreground', JSON.stringify(remoteMessage));
       const {data, messageId, notification} = remoteMessage;
-       console.log(remoteMessage.data,notification,"datadatadatadata");
-       let notificationType =  data?.type || data?.notificationType
+      console.log(remoteMessage.data, notification, 'datadatadatadata');
+      let notificationType = data?.type || data?.notificationType;
       {
         Platform.OS == 'ios'
           ? PushNotificationIOS.addNotificationRequest({
@@ -29,7 +29,7 @@ const ShowNotificationForeground = props => {
               channelId: notification.android.channelId,
               id: messageId,
               body: data?.message || '',
-              title:notificationType || '',
+              title: notificationType || '',
               soundName: notification.android.sound,
               vibrate: true,
               playSound: true,
@@ -39,12 +39,13 @@ const ShowNotificationForeground = props => {
         Platform.OS == 'android' &&
         notification.android.sound == 'notification'
       ) {
+        console.log('here>>2');
         if (data && notificationType && notificationType != 'N') {
           actions.isModalVisibleForAcceptReject({
             isModalVisibleForAcceptReject: true,
             notificationData: remoteMessage,
           });
-         }
+        }
         if (data?.callback_url != '' && data?.callback_url != null) {
           navigate(navigationStrings.ORDERDETAIL, {
             data: {item: data?.callback_url, fromNotification: true},

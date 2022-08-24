@@ -1,8 +1,8 @@
-import { Platform } from 'react-native';
-import { getBundleId } from 'react-native-device-info';
+import {Platform} from 'react-native';
+import {getBundleId} from 'react-native-device-info';
 
 const shortCodes = {
-  sales:'745e3f',
+  sales: '745e3f',
   runrun: 'cbec70',
   royoDispatch: '1da2e9',
   deliverstat: 'e6b31c',
@@ -82,7 +82,8 @@ const shortCodes = {
   Kel360: 'c54206',
   travo: 'c92b12',
   lastMinuteDress: '46e73a',
-  washvalley: '45f62f',
+  // washvalley: '45f62f',
+  washvalley: '745e3f',
   tajammul: 'b74129',
   cabWay: 'edbdc8',
   carroai: 'bfcc32',
@@ -298,20 +299,20 @@ const shortCodes = {
   busTaMove: '6499ab',
   valley: '58ccd3',
   myFarma: '56ba56',
-  blueBundles:'408285',
-  kartandkarry:'5144d0',
-  atasktt:'d89cb3',
-  quicklube:'d9a19b',
-  sorDelivery:'db178d',
-  grubHouse:'8f65f7',
-  hitchDelivery:'2246ee',
-  zoodMarket:'a2bcd2',
-  meow:'f45eea',
-  carlitoo:'1a455b',
-  dingDongDelivers:'95d213',
-  kurs:'e7c7e4',
-  torunz:'4786a9',
-  spa:'69dd33',
+  blueBundles: '408285',
+  kartandkarry: '5144d0',
+  atasktt: 'd89cb3',
+  quicklube: 'd9a19b',
+  sorDelivery: 'db178d',
+  grubHouse: '8f65f7',
+  hitchDelivery: '2246ee',
+  zoodMarket: 'a2bcd2',
+  meow: 'f45eea',
+  carlitoo: '1a455b',
+  dingDongDelivers: '95d213',
+  kurs: 'e7c7e4',
+  torunz: '4786a9',
+  spa: '69dd33',
   abbeRides: 'b65020',
   nrsa: 'b6f11b',
   sadia: '31d13d',
@@ -1666,7 +1667,7 @@ const appIds = {
     ios: 'com.iAmSelling.dispatcher',
     android: 'com.iAmSelling.dispatcher',
   }),
-fifteenP: Platform.select({
+  fifteenP: Platform.select({
     ios: 'com.fifteenP.dispatcher',
     android: 'com.fifteenP.dispatcher',
   }),
@@ -1768,4 +1769,4 @@ fifteenP: Platform.select({
   }),
 };
 
-export { appIds, shortCodes };
+export {appIds, shortCodes};

@@ -484,11 +484,12 @@ export default function TaskCompleteDocument({route, navigation}) {
     }
   };
 
-  const updateTaskStatus = () => {
+  const updateTaskStatus = (isClear = false) => {
     let data = {};
     let formdata = new FormData();
 
     formdata.append('task_status', 4);
+    formdata.append('clear_bag', isClear ? 1 : 0);
     formdata.append('task_id', taskDetail?.id);
     if (note != '') {
       formdata.append('note', note);
@@ -534,7 +535,10 @@ export default function TaskCompleteDocument({route, navigation}) {
       })
       .then(res => {
         console.log(res, 'updateTaskStatus>>>DATA');
-
+        if (isClear) {
+          showSuccess(res?.message);
+          navigation.navigate(navigationStrings.DASHBOARD);
+        }
         updateState({isLoading: false, isModalVisible: false});
         if (res?.data) {
           updateState({
@@ -764,7 +768,7 @@ export default function TaskCompleteDocument({route, navigation}) {
           </Text>
         </View>
         <TouchableOpacity
-          onPress={() => navigation.navigate(navigationStrings.DASHBOARD)}
+          onPress={() => updateTaskStatus(true)}
           style={{
             paddingVertical: moderateScaleVertical(12),
             marginHorizontal: moderateScale(20),
@@ -777,7 +781,7 @@ export default function TaskCompleteDocument({route, navigation}) {
               fontFamily: fontFamily.medium,
               color: colors.white,
             }}>
-            Done
+            Clear Bag
           </Text>
         </TouchableOpacity>
       </View>

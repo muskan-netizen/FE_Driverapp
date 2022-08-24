@@ -355,9 +355,7 @@ export default function Login({navigation, route}) {
             </View>
             <GradientButton
               containerStyle={{marginTop: moderateScaleVertical(40)}}
-              onPress={() => {
-                _onLogin();
-              }}
+              onPress={_onLogin}
               textStyle={{color: getColors()}}
               btnText={strings.LOGIN}
               colorsArray={
