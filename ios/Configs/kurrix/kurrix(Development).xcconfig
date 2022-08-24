@@ -1,0 +1,10 @@
+
+#include "Pods/Target Support Files/Pods-available_pods-kurrix/Pods-available_pods-kurrix.debug.xcconfig"
+
+
+PROJECT_BUNDLE_ID = com.kurrix.royoDispatcher
+PROJECT_APP_VERSION = 1.0
+PROJECT_BUILD_NUMBER = 1
+PROJECT_APP_NAME =kurrix Dispatcher
+PROJECT_PLIST =kurrixInfo
+PROJECT_ENTITLEMENT=RoyoDriverAppRelease

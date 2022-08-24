@@ -94,8 +94,8 @@ export default function ShortCode({route, navigation}) {
       payload: getClientInfo,
     });
 
-    if (!userData && !userData?.access_token) {
-      navigation.navigate(navigationStrings.LOGIN);
+    if  (!userData && !userData?.access_token)  {
+      navigation.navigate(navigationStrings.LOGIN);;
     }
     return;
   };
@@ -2152,20 +2152,6 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
-        case appIds.karibaMart:
-          updateState({
-            shortCode: shortCodes.karibaMart,
-            isShortcodePrefilled: true,
-          });
-          break;
-        case appIds.sourceWith:
-          updateState({
-            shortCode: shortCodes.sourceWith,
-            isShortcodePrefilled: true,
-          });
-          break;
-          
-          
       }
     })();
   }, [internetConnection]);
@@ -2223,7 +2209,7 @@ export default function ShortCode({route, navigation}) {
       }
 
       let updatedShortCode = shortCode;
-      // updatedShortCode = '1da2e9';
+      // updatedShortCode = '656c4a';
       //  let updatedShortCode = '1fdd1d';
 
       actions
@@ -2413,7 +2399,7 @@ export default function ShortCode({route, navigation}) {
               marginHorizontal: moderateScale(20),
             }}
             modalMainContent={modalMainContent}
-            // modalBottomContent={modalBottomContent}
+              // modalBottomContent={modalBottomContent}
           />
         </>
       )}

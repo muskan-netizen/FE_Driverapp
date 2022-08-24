@@ -60,8 +60,6 @@ const NotificationModal = () => {
     taskId,
   } = state;
 
-  console.log(notificationData, 'notificationDatanotificationData');
-
   useEffect(() => {
     let data = notificationData?.notificationData?.data;
     if (data && data?.order_id) {
@@ -137,7 +135,7 @@ const NotificationModal = () => {
   };
 
   const onListAllAddress = ({item, index}) => {
-    console.log(item,'itemitem')
+    console.log(item, 'itemitem');
     if (item?.task_type_id == 2) {
       return (
         <View style={{flexDirection: 'row'}}>
@@ -159,13 +157,13 @@ const NotificationModal = () => {
         </View>
       );
     } else {
-     return(
-      <View style={{paddingHorizontal: moderateScale(30)}}>
-      <Text numberOfLines={1} style={[styles.address]}>
-        {item?.address}
-      </Text>
-    </View>
-     )
+      return (
+        <View style={{paddingHorizontal: moderateScale(30)}}>
+          <Text numberOfLines={1} style={[styles.address]}>
+            {item?.address}
+          </Text>
+        </View>
+      );
     }
   };
 
@@ -195,7 +193,6 @@ const NotificationModal = () => {
   const modalMainContent = () => {
     let data = notificationData?.notificationData?.data;
     let notificationType = data?.type ? data?.type : data?.notificationType;
-    console.log(data,"datadatadata")
     return (
       <View style={{overflow: 'hidden', borderRadius: moderateScale(10)}}>
         <View>{!!region && mapView()}</View>
@@ -417,7 +414,7 @@ const NotificationModal = () => {
 
   //Error handling in api
   const errorMethod = error => {
-    //To close Notification modal in case of task already accepted 
+    //To close Notification modal in case of task already accepted
     actions.isModalVisibleForAcceptReject({
       isModalVisibleForAcceptReject: false,
       notificationData: null,
