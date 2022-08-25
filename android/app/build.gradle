@@ -205,15 +205,15 @@ android {
      flavorDimensions "appType"
 
 productFlavors {
-              butlerDelivery{
+                  atasktt{
             dimension "appType"
-            versionCode 7
+            versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.butler.dispatcher'
-            resValue "string", "app_name", "ButlerDelivery Dispatcher"
+            applicationId 'com.atasktt.dispatcher'
+            resValue "string", "app_name", "Atasktt Dispatcher"
         }
 }
     
@@ -2006,7 +2006,7 @@ productFlavors {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.Bimol.royodispatcher'
+            applicationId 'com.bimol.driver'
             resValue "string", "app_name", "Bimol Dispatch"
            
         }
@@ -5754,16 +5754,7 @@ productFlavors {
             resValue "string", "app_name", "AmstaFood Dispatcher"
         }
 
-        toor{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.Toor.royodispatcher'
-            resValue "string", "app_name", "Toor Dispatcher"
-        }
+
 
           dingDongEat{
             dimension "appType"

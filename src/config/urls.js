@@ -14,7 +14,7 @@
 // export const API_BASE_URL='https://dispatch.tmgsalesllc.com/';
 
 //Staging
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // export const API_BASE_URL = 'https://dispatch.elog.group/'
 
@@ -83,7 +83,7 @@
 //beachhop
 // export const API_BASE_URL = 'https://dispatch.beachhopdelivery.com/'
 //gdotdelivery
-export const API_BASE_URL ='https://dispatch.gdotdelivery.com/'
+// export const API_BASE_URL ='https://dispatch.gdotdelivery.com/'
 
 // yogolift
 // export const API_BASE_URL = 'https://dispatch.lift.gd/'
@@ -295,7 +295,7 @@ export const API_BASE_URL ='https://dispatch.gdotdelivery.com/'
 // export const API_BASE_URL = 'https://gdotdelivery.com/'
 // mobi
 //bimol
-//export const API_BASE_URL = 'https://dispatch.bimol.in/';
+// export const API_BASE_URL = 'https://dispatch.bimol.in/';
 //export const API_BASE_URL = 'https://dispatch.mobimarket.com.mx/';
 // grub and gusto
 
