@@ -182,6 +182,7 @@ export function deleteAccount(data = {}, headers = {}) {
 }
 
 export function sendOtpOnSignup(data = {}, headers = {}) {
+  console.log(headers,data,"data>>>>>dta")
   return new Promise((resolve, reject) => {
     apiPost(SIGNUP_SEND_OTP, data, headers)
       .then(async res => {

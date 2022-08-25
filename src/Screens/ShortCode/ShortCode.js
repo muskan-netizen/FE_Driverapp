@@ -94,8 +94,8 @@ export default function ShortCode({route, navigation}) {
       payload: getClientInfo,
     });
 
-    if (!userData && !userData?.access_token) {
-      navigation.navigate(navigationStrings.LOGIN);
+    if  (!userData && !userData?.access_token)  {
+      navigation.navigate(navigationStrings.LOGIN);;
     }
     return;
   };
@@ -2399,7 +2399,7 @@ export default function ShortCode({route, navigation}) {
               marginHorizontal: moderateScale(20),
             }}
             modalMainContent={modalMainContent}
-            // modalBottomContent={modalBottomContent}
+              // modalBottomContent={modalBottomContent}
           />
         </>
       )}
