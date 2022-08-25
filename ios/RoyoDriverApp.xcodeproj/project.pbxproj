@@ -17909,6 +17909,7 @@
 				0C032DDE28363DB7002460F7 /* Start Packager */,
 				9ED864505C71A42E2F61D806 /* [CP] Embed Pods Frameworks */,
 				CE823E72A6BBE8260D585256 /* [CP] Copy Pods Resources */,
+				E825CED828B648C700EBDFEB /* Bundle React Native code and images */,
 			);
 			buildRules = (
 			);
@@ -17973,7 +17974,6 @@
 				0C1335F12816A01300ED22EA /* Resources */,
 				0C1335FE2816A01300ED22EA /* Bundle React Native code and images */,
 				0C1336122816A20A00ED22EA /* Start Packager */,
-				E88E99D5283E5DAD001875F0 /* Run Script */,
 				4E5787BB71F887B47BB97C9D /* [CP] Embed Pods Frameworks */,
 				CB0E6CAF1E5FA345F994603F /* [CP] Copy Pods Resources */,
 			);
@@ -59079,6 +59079,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-Mobi/Pods-available_pods-Mobi-frameworks.sh\"\n";
 		};
+		E825CED828B648C700EBDFEB /* Bundle React Native code and images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Bundle React Native code and images";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
+		};
 		E82600DF28756AF100839AED /* Bundle React Native code and images */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -60013,24 +60031,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-Meltivers/Pods-available_pods-Meltivers-frameworks.sh\"\n";
-		};
-		E88E99D5283E5DAD001875F0 /* Run Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Run Script";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-MarjMarketplace/Pods-available_pods-MarjMarketplace-frameworks.sh\"\n";
 		};
 		E894452D2899088100E9C08D /* Bundle React Native code and images */ = {
 			isa = PBXShellScriptBuildPhase;
