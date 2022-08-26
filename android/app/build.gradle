@@ -205,15 +205,15 @@ android {
      flavorDimensions "appType"
 
 // productFlavors {
-//              axxi{
+//                 shelf{
 //             dimension "appType"
 //             versionCode 1
 //             versionName "1.0"
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.axxi.royodispatcher'
-//             resValue "string", "app_name", "Axxi Dispatcher"
+//             applicationId 'com.shelf.royodispatcher'
+//             resValue "string", "app_name", "shelf Dispatcher"
 //         }
 // }
     
@@ -2006,7 +2006,7 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.Bimol.royodispatcher'
+            applicationId 'com.bimol.driver'
             resValue "string", "app_name", "Bimol Dispatch"
            
         }
@@ -5754,16 +5754,7 @@ android {
             resValue "string", "app_name", "AmstaFood Dispatcher"
         }
 
-        toor{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.Toor.royodispatcher'
-            resValue "string", "app_name", "Toor Dispatcher"
-        }
+
 
           dingDongEat{
             dimension "appType"
@@ -6475,6 +6466,16 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.axxi.royodispatcher'
             resValue "string", "app_name", "Axxi Dispatcher"
+        }
+          shelf{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.shelf.royodispatcher'
+            resValue "string", "app_name", "shelf Dispatcher"
         }
 }
 }

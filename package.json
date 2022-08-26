@@ -707,6 +707,8 @@
     "greenCabdispatcherRelease": "cd android && ./gradlew assemblegreenCabRelease",
     "axxidispatcher": "react-native run-android --variant=axxiDebug",
     "axxidispatcherRelease": "cd android && ./gradlew assembleaxxiRelease",
+    "shelfdispatcher": "react-native run-android --variant=shelfDebug",
+    "shelfdispatcherRelease": "cd android && ./gradlew assembleshelfRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
