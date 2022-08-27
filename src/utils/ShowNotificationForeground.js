@@ -9,7 +9,9 @@ import navigationStrings from '../navigation/navigationStrings';
 
 const ShowNotificationForeground = props => {
   useEffect(() => {
+   
     const unsubscribe = messaging().onMessage(async remoteMessage => {
+   
       console.log('remote message foreground', JSON.stringify(remoteMessage));
       const {data, messageId, notification} = remoteMessage;
       console.log(remoteMessage.data, notification, 'datadatadatadata');
