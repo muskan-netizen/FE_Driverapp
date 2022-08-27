@@ -2248,6 +2248,12 @@ export default function ShortCode({route, navigation}) {
                   isShortcodePrefilled: true,
                 });
                 break;
+                case appIds.fairDeal:
+                updateState({
+                  shortCode: shortCodes.fairDeal,
+                  isShortcodePrefilled: true,
+                });
+                break;
               
       }
     })();

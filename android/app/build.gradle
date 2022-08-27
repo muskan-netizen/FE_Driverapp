@@ -6477,6 +6477,16 @@ productFlavors {
             applicationId 'com.nuvoni.royodispatcher'
             resValue "string", "app_name", "Nuvoni Dispatcher"
         }
+        fairDeal{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.fairdeal.royodispatcher'
+            resValue "string", "app_name", "Fair Deal Dispatcher"
+        }
 
 }
 }

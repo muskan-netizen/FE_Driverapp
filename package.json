@@ -713,6 +713,8 @@
     "getDressdispatcherRelease": "cd android && ./gradlew assemblegetDressRelease",
     "nuvonidispatcher": "react-native run-android --variant=nuvoniDebug",
     "nuvonidispatcherRelease": "cd android && ./gradlew assemblenuvoniRelease",
+    "fairDealdispatcher": "react-native run-android --variant=fairDealDebug",
+    "fairDealdispatcherRelease": "cd android && ./gradlew assemblefairDealRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
