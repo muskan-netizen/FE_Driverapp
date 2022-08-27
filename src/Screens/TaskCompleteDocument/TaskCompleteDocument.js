@@ -55,6 +55,7 @@ import {getDistance, getPreciseDistance} from 'geolib';
 import ModalView from '../../Components/Modal';
 import {getAllTravelDetails} from '../../utils/googlePlaceApi';
 import {appIds} from '../../utils/constants/DynamicAppKeys';
+import { getBundleId } from 'react-native-device-info';
 navigator.geolocation = require('react-native-geolocation-service');
 
 var image1 = new FaceImage();
@@ -547,7 +548,7 @@ export default function TaskCompleteDocument({route, navigation}) {
           if (signatureImage) {
             unlinkDirectory(signatureImage);
           }
-          if (taskDetail?.tasktype?.name == 'Drop') {
+          if (taskDetail?.tasktype?.name == 'Drop' && getBundleId()==appIds.washvalley) {
             updateState({
               isShowQrCodeVendor: true,
               qrCodeVendorDetail: res?.data?.qrCodeVendor,

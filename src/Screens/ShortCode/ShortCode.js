@@ -2248,6 +2248,12 @@ export default function ShortCode({route, navigation}) {
                   isShortcodePrefilled: true,
                 });
                 break;
+                case appIds.fairDeal:
+                updateState({
+                  shortCode: shortCodes.fairDeal,
+                  isShortcodePrefilled: true,
+                });
+                break;
               
       }
     })();
@@ -2307,7 +2313,7 @@ export default function ShortCode({route, navigation}) {
       }
 
       let updatedShortCode = shortCode;
-      // updatedShortCode = '656c4a';
+      // updatedShortCode = '7ebe0a';
       //  let updatedShortCode = '1fdd1d';
 
       actions

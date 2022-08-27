@@ -358,7 +358,8 @@ const shortCodes = {
   axxi: '634a32',
   shelf:'7ebe0a',
   getDress: 'b884f5',
-  nuvoni: 'ea4e64'
+  nuvoni: 'ea4e64',
+  fairDeal:'d14c84'
   
 };
 
@@ -1781,6 +1782,10 @@ const appIds = {
   nuvoni: Platform.select({
     ios: 'com.nuvoni.royodispatcher',
     android: 'com.nuvoni.royodispatcher',
+  }),
+  nuvoni: Platform.select({
+    ios: 'com.fairdeal.royodispatcher',
+    android: 'com.fairdeal.royodispatcher',
   }),
 };
 
