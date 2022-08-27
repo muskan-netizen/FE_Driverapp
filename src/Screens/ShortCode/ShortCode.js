@@ -2230,6 +2230,24 @@ export default function ShortCode({route, navigation}) {
                   isShortcodePrefilled: true,
                 });
                 break;
+                case appIds.shelf:
+                updateState({
+                  shortCode: shortCodes.shelf,
+                  isShortcodePrefilled: true,
+                });
+                break;
+                case appIds.getDress:
+                updateState({
+                  shortCode: shortCodes.getDress,
+                  isShortcodePrefilled: true,
+                });
+                break;
+                case appIds.nuvoni:
+                updateState({
+                  shortCode: shortCodes.nuvoni,
+                  isShortcodePrefilled: true,
+                });
+                break;
               
       }
     })();
@@ -2273,6 +2291,7 @@ export default function ShortCode({route, navigation}) {
 
   //short code And init api hit
   const initApiHit = () => {
+    // alert("hjbvgnvhgvhbnbhj")
     (async () => {
       const saveShortCode = await getItem('saveShortCode');
       console.log(defaultLanguage?.value, 'Language in init screen');

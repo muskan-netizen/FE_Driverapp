@@ -14,7 +14,7 @@
 // export const API_BASE_URL='https://dispatch.tmgsalesllc.com/';
 
 //Staging
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // export const API_BASE_URL = 'https://dispatch.elog.group/'
 
@@ -287,7 +287,7 @@
 
 //export const API_BASE_URL = 'https://dispatch.meltivers.com/';
 //  butler delivery
-export const API_BASE_URL = 'https://dispatch.butlerdeliveryusa.com/';
+// export const API_BASE_URL = 'https://dispatch.butlerdeliveryusa.com/';
 // bimolaa
 // export const API_BASE_URL = 'https://dispatch.bimol.in/'
 
