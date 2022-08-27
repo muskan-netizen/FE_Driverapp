@@ -242,10 +242,37 @@ export default function AddMoney({ navigation }) {
     );
   };
 
+  // added web View payment func. from orders 
+
+  const apiHit = async () => {
+    let queryData = `/${seletedPaymentGateway?.code?.toLowerCase()}?amount=${amount
+        }&payment_option_id=${paramsData?.payment_option_id
+        }&action=${paramsData?.redirectFrom}&order_number=${paramsData?.orderDetail?.order_number}`;
+         console.log(queryData,"queryData");
+    try {
+        const res = await actions.openPaymentWebUrl(
+            queryData,
+            {},
+        {
+          client: clientInfo?.database_name,
+        },
+        );
+        console.log(res?.data, 'responseData===>');
+
+        updateState({ webData: res?.data });
+    } catch (error) {
+        updateState({ isLoading: false });
+        showError(error.message || error);
+    }
+  };
+
+  // ///////// /// till here 
+
   const _webPayment = () => {
     let selectedMethod = seletedPaymentGateway.code;
     let returnUrl = `payment/${selectedMethod}/completeCheckout/${userData?.access_token}/wallet`;
     let cancelUrl = `payment/${selectedMethod}/completeCheckout/${userData?.access_token}/wallet`;
+    console.log(returnUrl,"returnurl>>>")
 
     updateState({ isLoadingB: true });
     actions
@@ -287,6 +314,7 @@ export default function AddMoney({ navigation }) {
       await createToken({...cardInfo, type: 'Card'})
         .then(res => {
           console.log(res, 'res>>STRIpe');
+          console.log(cardInfo, 'stripeTokencardInfo>>');
           if (res && res?.token && res.token?.id) {
             let selectedMethod = seletedPaymentGateway.code.toLowerCase();
             updateState({ isLoading: true });
@@ -314,7 +342,7 @@ export default function AddMoney({ navigation }) {
                   navigation.navigate(navigationStrings.WALLET);
                 }
               })
-              .catch(errorMethod);
+              .catch(err => console.log(err, "errrStripe"));
           } else {
             updateState({ isLoading: false });
           }

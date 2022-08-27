@@ -80,11 +80,12 @@ export default ({defaultLanguagae}) => {
       // paddingBottom: moderateScale(5),
     },
     taskLable: {
-      fontSize: textScale(10),
+      fontSize: textScale(12),
       fontFamily: fontFamily.bold,
       // color: colors.iconGrey,
       textAlign: defaultLanguagae?.value === 'ar' ? 'right' : 'left',
       color: colors.textGreyOpcaity7,
+      marginBottom:moderateScale(6)
       // paddingBottom: moderateScale(5),
     },
     taskValue: {
@@ -169,7 +170,7 @@ export default ({defaultLanguagae}) => {
       // textAlign: 'center',
       fontFamily: fontFamily.bold,
       fontSize: textScale(12),
-      color: colors.textGreyOpcaity7,
+      color: colors.black,
       // paddingBottom: moderateScale(5),
       marginRight: moderateScale(10),
     },

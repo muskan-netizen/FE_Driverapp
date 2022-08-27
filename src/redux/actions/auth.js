@@ -1,10 +1,15 @@
 import {
+  CANCEL_SPECIFIC_PLAN,
+  GET_ALL_SUBSCRIPTION_PLANS,
   AGENT_DELETE,
   LOGIN_API,
   LOGOUT_API,
+  PURCHASE_SPECIFIC_PLAN,
+  SELECT_SPECIFIC_PLAN,
   SEND_OTP,
   SIGNUPDOC,
   SIGNUP_API,
+  SIGNUP_SEND_OTP,
 } from '../../config/urls';
 import {apiGet, apiPost, removeItem, setUserData} from '../../utils/utils';
 import store from '../store';
@@ -39,7 +44,7 @@ export function login(data = {}, headers = {}) {
 }
 
 export function signUp(data = {}, headers = {}) {
-  console.log(data, 'login>data>data>data',headers);
+  console.log(data, 'login>data>data>data', headers);
   return new Promise((resolve, reject) => {
     apiPost(SIGNUP_API, data, headers)
       .then(async res => {
@@ -106,9 +111,80 @@ export function signupDoc(data = {}, headers = {}) {
   });
 }
 
-export function deleteAccount(data={}, headers={}){
+//get all subscriptions
+export function getAllSubscriptions(data = {}, headers = {}) {
+  return new Promise((resolve, reject) => {
+    apiGet(GET_ALL_SUBSCRIPTION_PLANS, data, headers)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+}
+
+//Select specific subscription
+export function selectSpecificSubscriptionPlan(
+  query = '',
+  data = {},
+  headers = {},
+) {
+  console.log(SELECT_SPECIFIC_PLAN + query, 'apiIsThis ');
+  return new Promise((resolve, reject) => {
+    apiGet(SELECT_SPECIFIC_PLAN + query, data, headers)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(error => {
+        console.log(error, 'errrrrrSELECT_SPECIFIC_PLAN');
+        reject(error);
+      });
+  });
+}
+
+//Purchase subscription plan
+export function purchaseSubscriptionPlan(query = '', data = {}, headers = {}) {
+  return new Promise((resolve, reject) => {
+    apiPost(PURCHASE_SPECIFIC_PLAN + query, data, headers)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+}
+
+//Cancel subscription plan
+export function cancelSubscriptionPlan(query = '', data = {}, headers = {}) {
+  return new Promise((resolve, reject) => {
+    apiPost(CANCEL_SPECIFIC_PLAN + query, data, headers)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+}
+export function deleteAccount(data = {}, headers = {}) {
+  console.log(data, headers, 'data>>>>>>');
   return new Promise((resolve, reject) => {
     apiPost(AGENT_DELETE, data, headers)
+      .then(async res => {
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+}
+
+export function sendOtpOnSignup(data = {}, headers = {}) {
+  console.log(headers,data,"data>>>>>dta")
+  return new Promise((resolve, reject) => {
+    apiPost(SIGNUP_SEND_OTP, data, headers)
       .then(async res => {
         resolve(res);
       })

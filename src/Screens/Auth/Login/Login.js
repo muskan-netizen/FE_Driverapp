@@ -33,9 +33,9 @@ import PhoneNumberInput from '../../../Components/PhoneNumberInput';
 import ScaledImage from 'react-native-scalable-image';
 import {appIds} from '../../../utils/constants/DynamicAppKeys';
 import Header from '../../../Components/Header';
-import { TouchableOpacity } from 'react-native';
-import { requestUserPermission } from '../../../utils/notificationServices';
-import * as RNLocalize from "react-native-localize";
+import {TouchableOpacity} from 'react-native';
+import {requestUserPermission} from '../../../utils/notificationServices';
+import * as RNLocalize from 'react-native-localize';
 import codes from 'country-calling-code';
 import DeviceCountry, {
   TYPE_ANY,
@@ -44,18 +44,24 @@ import DeviceCountry, {
 } from 'react-native-device-country';
 import RNOtpVerify from 'react-native-otp-verify';
 import {request, PERMISSIONS} from 'react-native-permissions';
-import { chekLocationPermission, locationPermission } from '../../../utils/permissions';
-import { openAppSetting } from '../../../utils/openNativeApp';
-import { useFocusEffect } from '@react-navigation/native';
+import {
+  chekLocationPermission,
+  locationPermission,
+} from '../../../utils/permissions';
+import {openAppSetting} from '../../../utils/openNativeApp';
+import {useFocusEffect} from '@react-navigation/native';
+import {useDarkMode} from 'react-native-dark-mode';
 
-var getPhonesCallingCodeAndCountryData = null
+var getPhonesCallingCodeAndCountryData = null;
 DeviceCountry.getCountryCode()
-  .then((result) => {
-    console.log(result, "getCountryCoderesult");
+  .then(result => {
+    console.log(result, 'getCountryCoderesult');
     // {"code": "BY", "type": "telephony"}
-    getPhonesCallingCodeAndCountryData = codes.filter(x => x.isoCode2 == (result.code).toUpperCase())
+    getPhonesCallingCodeAndCountryData = codes.filter(
+      x => x.isoCode2 == result.code.toUpperCase(),
+    );
   })
-  .catch((e) => {
+  .catch(e => {
     console.log(e);
   });
 
@@ -63,85 +69,98 @@ DeviceCountry.getCountryCode()
 
 export default function Login({navigation, route}) {
   const paramData = route?.params?.data;
-  const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
 
+  const {themeColor, themeToggle, clientInfo} = useSelector(
+    state => state?.initBoot,
+  );
   const fcmToken = useSelector(state => state?.initBoot?.fcmToken);
+  const darkthemeusingDevice = useDarkMode();
+  const isDarkMode = themeToggle ? darkthemeusingDevice : themeColor;
 
-  console.log(getPhonesCallingCodeAndCountryData, "getPhonesCallingCodeAndCountryData");
-
-  console.log(clientInfo, 'paramData>paramData');
   const [state, setState] = useState({
     isLoading: false,
-    callingCode: getPhonesCallingCodeAndCountryData && getPhonesCallingCodeAndCountryData.length ? getPhonesCallingCodeAndCountryData[0].countryCodes[0] : clientInfo?.get_country_set?.phonecode
-      ? clientInfo?.get_country_set?.phonecode
-      : '91',
-    cca2: getPhonesCallingCodeAndCountryData && getPhonesCallingCodeAndCountryData.length ? getPhonesCallingCodeAndCountryData[0].isoCode2 : clientInfo?.get_country_set?.code
-      ? clientInfo?.get_country_set?.code
-      : 'IN',
+    callingCode:
+      getPhonesCallingCodeAndCountryData &&
+      getPhonesCallingCodeAndCountryData.length
+        ? getPhonesCallingCodeAndCountryData[0].countryCodes[0]
+        : clientInfo?.get_country_set?.phonecode
+        ? clientInfo?.get_country_set?.phonecode
+        : '91',
+    cca2:
+      getPhonesCallingCodeAndCountryData &&
+      getPhonesCallingCodeAndCountryData.length
+        ? getPhonesCallingCodeAndCountryData[0].isoCode2
+        : clientInfo?.get_country_set?.code
+        ? clientInfo?.get_country_set?.code
+        : 'IN',
     phoneNumber: '',
     appHashKey: '',
-    locationPermissionStatus:false
+    locationPermissionStatus: false,
   });
   //all states used in this screen
-  const {phoneNumber, cca2, callingCode, isLoading, appHashKey,locationPermissionStatus} = state;
+  const {
+    phoneNumber,
+    cca2,
+    callingCode,
+    isLoading,
+    appHashKey,
+    locationPermissionStatus,
+  } = state;
 
-
-  const checkLocationPermission=()=>{
-    locationPermission().then((res)=>{
-      updateState({
-       locationPermissionStatus:true
+  const checkLocationPermission = () => {
+    locationPermission()
+      .then(res => {
+        updateState({
+          locationPermissionStatus: true,
+        });
       })
-     }).catch((error)=>{
-    
-       updateState({
-         locationPermissionStatus:false
-        })
-       Alert.alert(
-         "Permission Required",
-         `${DeviceInfo.getApplicationName()} collects location data in background and foreground mode to track the order delivery location and estimate delivery time for the end customer`,
-         [
-           {
-             text: "Cancel",
-             onPress: () => console.log("Cancel Pressed"),
-             style: "cancel"
-           },
-           { text: "OK", onPress: () => {
-          
-            if(error !='blocked' || error=='denied'){
-            
-              chekLocationPermission().then((res)=>{
-            
-                if(res=='granted'){
-                updateState({
-                  locationPermissionStatus:true
-                 })
-                }else{
-                  openAppSetting('LOCATION_SERVICES')
+      .catch(error => {
+        updateState({
+          locationPermissionStatus: false,
+        });
+        Alert.alert(
+          'Permission Required',
+          `${DeviceInfo.getApplicationName()} collects location data in background and foreground mode to track the order delivery location and estimate delivery time for the end customer`,
+          [
+            {
+              text: 'Cancel',
+              onPress: () => console.log('Cancel Pressed'),
+              style: 'cancel',
+            },
+            {
+              text: 'OK',
+              onPress: () => {
+                if (error != 'blocked' || error == 'denied') {
+                  chekLocationPermission()
+                    .then(res => {
+                      if (res == 'granted') {
+                        updateState({
+                          locationPermissionStatus: true,
+                        });
+                      } else {
+                        openAppSetting('LOCATION_SERVICES');
+                      }
+                    })
+                    .catch(error => {
+                      updateState({
+                        locationPermissionStatus: false,
+                      });
+                      console.log(error, 'errororor for location');
+                    });
+                } else {
+                  openAppSetting('LOCATION_SERVICES');
                 }
-              }).catch((error)=>{
-                updateState({
-                  locationPermissionStatus:false
-                 })
-                 console.log(error,'i ma here')
-                console.log(error,"errororor for location");
-              })
-            }else{
-              openAppSetting('LOCATION_SERVICES')
-             
-            }
-           } }
-         ]
-       );
-     })
-  }
-
-
-
+              },
+            },
+          ],
+        );
+      });
+  };
 
   useFocusEffect(
     React.useCallback(() => {
-      if(Platform.OS !='ios'){
-        checkLocationPermission()
+      if (Platform.OS != 'ios') {
+        checkLocationPermission();
       }
     }, []),
   );
@@ -154,17 +173,15 @@ export default function Login({navigation, route}) {
     return () => backHandler.remove();
   }, []);
 
-
   const getColors = () => {
     switch (getBundleId()) {
       case appIds.lOPHT:
-        return colors.white
+        return colors.white;
       default:
-        return colors.black
+        return colors.black;
     }
-  }
+  };
 
-  const {themeColors} = useSelector(state => state?.initBoot);
   //   const fontFamily = appStyle?.fontSizeData;
 
   //Update states
@@ -198,12 +215,20 @@ export default function Login({navigation, route}) {
     }
     // actions.sessionLogoutUser(false);
     updateState({
-      callingCode: getPhonesCallingCodeAndCountryData && getPhonesCallingCodeAndCountryData.length ? getPhonesCallingCodeAndCountryData[0].countryCodes[0] : clientInfo?.get_country_set?.phonecode
-        ? clientInfo?.get_country_set?.phonecode
-        : '91',
-      cca2: getPhonesCallingCodeAndCountryData && getPhonesCallingCodeAndCountryData.length ? getPhonesCallingCodeAndCountryData[0].isoCode2 : clientInfo?.get_country_set?.code
-        ? clientInfo?.get_country_set?.code
-        : 'IN',
+      callingCode:
+        getPhonesCallingCodeAndCountryData &&
+        getPhonesCallingCodeAndCountryData.length
+          ? getPhonesCallingCodeAndCountryData[0].countryCodes[0]
+          : clientInfo?.get_country_set?.phonecode
+          ? clientInfo?.get_country_set?.phonecode
+          : '91',
+      cca2:
+        getPhonesCallingCodeAndCountryData &&
+        getPhonesCallingCodeAndCountryData.length
+          ? getPhonesCallingCodeAndCountryData[0].isoCode2
+          : clientInfo?.get_country_set?.code
+          ? clientInfo?.get_country_set?.code
+          : 'IN',
     });
   }, [clientInfo]);
 
@@ -217,14 +242,12 @@ export default function Login({navigation, route}) {
     return true;
   };
 
-
-
   const _onLogin = () => {
-     if(!locationPermissionStatus && Platform.OS !='ios'){
+    if (!locationPermissionStatus && Platform.OS != 'ios') {
       checkLocationPermission();
-      return
-     }
-   
+      return;
+    }
+
     const checkValid = isValidData();
     if (checkValid) {
       let data = {};
@@ -284,13 +307,19 @@ export default function Login({navigation, route}) {
           headerStyle={{backgroundColor: colors.white}}
         />
       )}
-      <View style={{ flex: 1, marginHorizontal: 20, marginTop: getBundleId() == appIds.lOPHT ? 50 : 0 }}>
+      {console.log(clientInfo, 'clientInfo>>>clientInfo')}
+      <View
+        style={{
+          flex: 1,
+          marginHorizontal: 20,
+          marginTop: getBundleId() == appIds.lOPHT ? 50 : 0,
+        }}>
         <View style={styles.imageStyle}>
           <ScaledImage
             width={getBundleId() == appIds.lOPHT ? width : width / 2}
             source={
-              clientInfo && clientInfo?.logo
-                ? {uri: clientInfo?.logo}
+              clientInfo && (clientInfo?.logo || clientInfo?.dark_logo)
+                ? {uri: isDarkMode ? clientInfo?.dark_logo : clientInfo?.logo}
                 : imagePath.logo
             }
           />
@@ -325,13 +354,15 @@ export default function Login({navigation, route}) {
               />
             </View>
             <GradientButton
-              containerStyle={{ marginTop: moderateScaleVertical(40) }}
-              onPress={() => {
-                _onLogin();
-              }}
-              textStyle={{ color: getColors() }}
+              containerStyle={{marginTop: moderateScaleVertical(40)}}
+              onPress={_onLogin}
+              textStyle={{color: getColors()}}
               btnText={strings.LOGIN}
-              colorsArray={getBundleId() == appIds.lOPHT ? [colors.lophtBlue, colors.lophtBlue] : [colors.themeColor, colors.themeColor]}
+              colorsArray={
+                getBundleId() == appIds.lOPHT
+                  ? [colors.lophtBlue, colors.lophtBlue]
+                  : [colors.themeColor, colors.themeColor]
+              }
             />
             <View style={[styles.signUpView, {flexDirection: 'row'}]}>
               <Text style={styles.byContinue}>
@@ -342,7 +373,7 @@ export default function Login({navigation, route}) {
               </TouchableOpacity>
             </View>
             <View style={styles.byContinueTextContainer}>
-              <Text style={styles.byContinue}>{`${strings.BYCONTINUE} `}</Text>
+              <Text style={styles.byContinue}>{`${strings.BYCONTINUE}`}</Text>
             </View>
 
             <View style={styles.webLinkContainer}>
@@ -351,7 +382,7 @@ export default function Login({navigation, route}) {
                   navigation.navigate(navigationStrings.WEBLINKS, {id: 1})
                 }
                 style={styles.bylogging}>
-                {`${strings.TERMSANDCONDITIONS} `}
+                {`${strings.TERMSANDCONDITIONS}`}
               </Text>
               <Text style={styles.byContinue}>{`${strings.AND} `}</Text>
               <Text

@@ -1,41 +1,36 @@
-import React, {useState, useEffect} from 'react';
-import FlashMessage from 'react-native-flash-message';
 import NetInfo from '@react-native-community/netinfo';
+import React, {useEffect, useState} from 'react';
+import FlashMessage from 'react-native-flash-message';
 import SplashScreen from 'react-native-splash-screen';
 
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 // import SplashScreen from 'react-native-splash-screen';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {Text, View} from 'react-native';
+import codePush from 'react-native-code-push';
+import DeviceInfo from 'react-native-device-info';
+import Modal from 'react-native-modal';
+import * as Progress from 'react-native-progress';
+import PushNotification from 'react-native-push-notification';
 import {Provider} from 'react-redux';
 import NoInternetModal from './src/Components/NoInternetModal';
+import NotificationModal from './src/Components/NotificationModal';
 import Container from './src/library/toastify-react-native';
 import Routes from './src/navigation/Routes';
-import store from './src/redux/store';
 import {
   setDefaultLanguage,
   updateInternetConnection,
 } from './src/redux/actions/init';
+import store from './src/redux/store';
+import colors from './src/styles/colors';
+import fontFamily from './src/styles/fontFamily';
 import {moderateScaleVertical, width} from './src/styles/responsiveSize';
-import types from './src/redux/types';
-import {getItem, getUserData} from './src/utils/utils';
-import useInterval from './src/utils/useInterval';
+import {appIds} from './src/utils/constants/DynamicAppKeys';
 import {
   notificationListener,
   requestUserPermission,
 } from './src/utils/notificationServices';
 import ShowNotificationForeground from './src/utils/ShowNotificationForeground';
-import NotificationModal from './src/Components/NotificationModal';
-import strings from './src/constants/lang';
-import PushNotification from 'react-native-push-notification';
-import DeviceInfo from 'react-native-device-info';
-import {appIds} from './src/utils/constants/DynamicAppKeys';
-import Modal from 'react-native-modal';
-import codePush from 'react-native-code-push';
-import * as Progress from 'react-native-progress';
-import colors from './src/styles/colors';
-import fontFamily from './src/styles/fontFamily';
-import {View, Text} from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-
 
 let CodePushOptions = {checkFrequency: codePush.CheckFrequency.MANUAL};
 
@@ -105,25 +100,6 @@ const App = () => {
     }
   };
 
-
-
-
-    
-    
-    
-    
-      
-
-      
-    
-      
-      
-    
-  
-
-
-
-
   useEffect(() => {
     AsyncStorage.getItem('alreadyLaunched').then(value => {
       console.log(value, 'valuevaluevaluevalue');
@@ -160,40 +136,6 @@ const App = () => {
       console.log('exist channels', channel_ids); // ['channel_id_1']
     });
   };
-
-  useEffect(() => {
-    (async () => {
-      const {dispatch} = store;
-
-      const userData = await getUserData();
-      const defaultLanguage = await getItem('defaultLanguage');
-      console.log(userData, 'userdata in app.js');
-      console.log(defaultLanguage, 'defaultLanguage in app.js');
-      // if (userData && !!userData?.access_token) {
-      //   notificationConfig();
-      // }
-      if (userData && !!userData?.access_token) {
-        dispatch({
-          type: types.LOGIN,
-          payload: userData,
-        });
-      }
-      if (defaultLanguage?.value) {
-        strings.setLanguage(defaultLanguage?.value);
-        dispatch({
-          type: types.DEFAULTLANGUAGE,
-          payload: defaultLanguage,
-        });
-      }
-
-      const getClientInfo = await getItem('clientInfo');
-      dispatch({
-        type: types.APP_INIT,
-        payload: getClientInfo,
-      });
-    })();
-    return () => {};
-  }, []);
 
   //Check internet connection
   useEffect(() => {

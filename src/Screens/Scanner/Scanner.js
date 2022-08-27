@@ -13,9 +13,17 @@ import commonStylesFunc from '../../styles/commonStyles';
 import fontFamily from '../../styles/fontFamily';
 import styles from './styles';
 import SignatureCapture from 'react-native-signature-capture';
-import {moderateScale, textScale} from '../../styles/responsiveSize';
+import {
+  moderateScale,
+  moderateScaleVertical,
+  textScale,
+  width,
+} from '../../styles/responsiveSize';
 import navigationStrings from '../../navigation/navigationStrings';
-import {QRScannerView} from 'react-native-qrcode-scanner-view';
+
+import QRCodeScanner from 'react-native-qrcode-scanner';
+import {RNCamera} from 'react-native-camera';
+import {event} from 'react-native-reanimated';
 
 var ACTION_TIMER = 1500;
 var COLORS = ['#8FEE90', '#27A468'];
@@ -23,6 +31,11 @@ var _value = 0;
 export default function Scanner({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
   let params = route?.params?.data;
+  // let params = {
+  //   selected_id: 6,
+  //   updateBarcodeScan: () => {},
+  // };
+
   console.log(params, 'params>>>');
   const [state, setState] = useState({
     isLoading: false,
@@ -40,10 +53,14 @@ export default function Scanner({route, navigation}) {
 
   const capture = () => {};
   const barcodeReceived = event => {
-    console.log(event,"event>event>event");
+    console.log(event, 'event>event>event');
     console.log('Type: ' + event.type + '\nData: ' + event.data);
     if (event && event?.data) {
-      if (params && params?.updateBarcodeScan) {
+      if (params?.selected_id == 6 && params?.updateQRcodeScan) {
+        params?.updateQRcodeScan(event);
+        updateState({isLoading: false});
+        navigation.goBack();
+      } else if (params && params?.updateBarcodeScan) {
         params?.updateBarcodeScan(event);
         updateState({isLoading: false});
         navigation.goBack();
@@ -54,20 +71,29 @@ export default function Scanner({route, navigation}) {
   };
   const camRef = useRef();
 
-  const renderTitleBar = () => {
+  const topContent = () => {
     return (
-      <Header
-        headerStyle={{backgroundColor: colors.white}}
-        leftIconStyle={{tintColor: colors.themeColor}}
-        leftIcon={imagePath.backArrow}
-        centerTitle={strings.SCANBARCODE}
-        customRight={() => (
-          <TouchableOpacity>
-            <Text style={styles.clear}>{strings.CLEAR}</Text>
-            {/* <Image source={}/> */}
-          </TouchableOpacity>
-        )}
-      />
+      <View
+        style={{
+          width: width,
+          position: 'absolute',
+          top: 0,
+        }}>
+        <Header
+          headerStyle={{backgroundColor: colors.white}}
+          leftIconStyle={{tintColor: colors.themeColor}}
+          leftIcon={imagePath.backArrow}
+          centerTitle={
+            params?.selected_id == 6 ? strings.SCANBARCODE : 'QR Code'
+          }
+          customRight={() => (
+            <TouchableOpacity>
+              <Text style={styles.clear}>{strings.CLEAR}</Text>
+              {/* <Image source={}/> */}
+            </TouchableOpacity>
+          )}
+        />
+      </View>
     );
   };
 
@@ -80,28 +106,31 @@ export default function Scanner({route, navigation}) {
       <View style={{...commonStyles.headerTopLine}} />
 
       <View style={{flex: 1}}>
-        <QRScannerView
-          // ref={camRef}
-          torchOn={true}
-          renderHeaderView={renderTitleBar}
-          onScanResult={barcodeReceived}
-          //   renderHeaderView={this.renderTitleBar}
-          renderFooterView={() => (
-            <View style={{paddingVertical: moderateScale(20)}}>
+        <QRCodeScanner
+          reactivate={true}
+          showMarker={true}
+          markerStyle={{
+            borderColor: colors.themeColor,
+          }}
+          onRead={barcodeReceived}
+          flashMode={RNCamera.Constants.FlashMode.off}
+          topContent={topContent()}
+          containerStyle={{
+            flex: 1,
+            backgroundColor: colors.black,
+          }}
+          bottomContent={
+            <View
+              style={{
+                width: width,
+                height: moderateScaleVertical(80),
+                paddingVertical: moderateScale(20),
+              }}>
               <ButtonComponent buttonTitle={strings.DONE} onPress={capture} />
             </View>
-          )}
-          scanBarAnimateReverse={true}
-          hintText={'Scan barcode to continue'}
+          }
         />
       </View>
-
-      {/* <View style={{flex: 1}}>
-        
-        <View style={{flex: 0.2,paddingVertical:moderateScale(20)}}>
-          <ButtonComponent buttonTitle={strings.DONE} onPress={capture} />
-        </View>
-      </View> */}
     </WrapperContainer>
   );
 }

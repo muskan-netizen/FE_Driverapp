@@ -60,8 +60,6 @@ const NotificationModal = () => {
     taskId,
   } = state;
 
-  console.log(notificationData, 'notificationDatanotificationData');
-
   useEffect(() => {
     let data = notificationData?.notificationData?.data;
     if (data && data?.order_id) {
@@ -89,10 +87,6 @@ const NotificationModal = () => {
   };
 
   const getCustomNotificationData = () => {
-    console.log(
-      notificationData?.notificationData?.data?.order_id,
-      'notificationData?.notificationData?.data?.order_id',
-    );
     actions
       .getCustomNotificationPayload(
         `/${notificationData?.notificationData?.data?.order_id}`,
@@ -141,7 +135,7 @@ const NotificationModal = () => {
   };
 
   const onListAllAddress = ({item, index}) => {
-    console.log(item,'itemitem')
+    console.log(item, 'itemitem');
     if (item?.task_type_id == 2) {
       return (
         <View style={{flexDirection: 'row'}}>
@@ -163,13 +157,13 @@ const NotificationModal = () => {
         </View>
       );
     } else {
-     return(
-      <View style={{paddingHorizontal: moderateScale(30)}}>
-      <Text numberOfLines={1} style={[styles.address]}>
-        {item?.address}
-      </Text>
-    </View>
-     )
+      return (
+        <View style={{paddingHorizontal: moderateScale(30)}}>
+          <Text numberOfLines={1} style={[styles.address]}>
+            {item?.address}
+          </Text>
+        </View>
+      );
     }
   };
 
@@ -339,7 +333,6 @@ const NotificationModal = () => {
               style={{
                 flex: 0.5,
                 borderBottomLeftRadius: moderateScale(15),
-
                 alignItems: 'center',
                 justifyContent: 'center',
                 backgroundColor: 'red',
@@ -384,7 +377,7 @@ const NotificationModal = () => {
                 justifyContent: 'center',
                 backgroundColor: 'green',
               }}>
-              <Text style={styles.text}>{strings.DONE}</Text>
+              <Text style={styles.text}>{strings.ACCEPT}</Text>
             </TouchableOpacity>
           </View>
         )}
@@ -403,7 +396,7 @@ const NotificationModal = () => {
     data['status'] = status;
     data['type'] = !!notifData?.batch_no ? 'B' : 'O';
 
-    console.log(data, 'data accept reject');
+    console.log(data, clientInfo?.database_name, 'data accept reject');
     actions
       .acceptRejectTask(data, {client: clientInfo?.database_name})
       .then(res => {
@@ -421,6 +414,11 @@ const NotificationModal = () => {
 
   //Error handling in api
   const errorMethod = error => {
+    //To close Notification modal in case of task already accepted
+    actions.isModalVisibleForAcceptReject({
+      isModalVisibleForAcceptReject: false,
+      notificationData: null,
+    });
     console.log(error, 'error');
     updateState({
       isLoading: false,

@@ -58,7 +58,7 @@ var _value = 0;
 export default function TaskDetail({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
   let taskDetail = route?.params?.data?.item;
-  console.log(taskDetail, 'taskDetail>>>>>>>>>>>>');
+  console.log(taskDetail, 'taskDetailtaskDetail>>>>>>>>>>>>');
   let fromHistory = route?.params?.data?.fromHistory;
 
   const [state, setState] = useState({
@@ -119,6 +119,13 @@ export default function TaskDetail({route, navigation}) {
         imagePathActive: imagePath.faceActive,
         type: 'face',
       },
+      {
+        id: 6,
+        title: 'QR Code',
+        imagePath: imagePath.codeInactive,
+        imagePathActive: imagePath.codeActive,
+        type: 'qrCode',
+      },
     ],
     updatedProofArray: [],
     findDataToCheck: null,
@@ -151,7 +158,7 @@ export default function TaskDetail({route, navigation}) {
   const commonStyles = commonStylesFunc({fontFamily});
   const updateState = data => setState(state => ({...state, ...data}));
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
-
+  console.log(clientInfo, 'fsdfsdgdsg');
   const defaultLanguagae = useSelector(
     state => state?.initBoot?.defaultLanguage,
   );
@@ -159,7 +166,7 @@ export default function TaskDetail({route, navigation}) {
   const styles = stylesFunc({defaultLanguagae});
   // const userData = useSelector(state => state?.auth?.userData);
 
-  console.log(defaultLanguagae, 'defaultLanguagae');
+  console.log(clientInfo, 'clientInfoclientInfoclientInfo');
   const mapRef = useRef();
 
   useEffect(() => {
@@ -183,7 +190,8 @@ export default function TaskDetail({route, navigation}) {
                 (i?.type == 'photo' && findDataToCheck?.image) ||
                 (i?.type == 'notes' && findDataToCheck?.note) ||
                 (i?.type == 'QR' && findDataToCheck?.barcode) ||
-                (i?.type == 'face' && findDataToCheck?.face)
+                (i?.type == 'face' && findDataToCheck?.face) ||
+                (i?.type == 'qrCode' && findDataToCheck?.qrcode)
               ) {
                 return i;
               }
@@ -695,17 +703,53 @@ export default function TaskDetail({route, navigation}) {
       console.log('sendWhatsAppMessage -----> ', 'message link is undefined');
     }
   };
+
+  const createRoom = async item => {
+    try {
+      const apiData = {
+        sub_domain: '192.168.101.88',
+        // client_id: String(clientInfo?.client_db_id),
+        db_name: taskDetail?.order?.dbname,
+        user_id: String(userData?.id),
+        type: 'agent_to_user',
+        vendor_order_id: String(item?.order?.order_vendor_id),
+        vendor_id: String(item?.order?.vendor_id),
+        order_id: String(item?.order?.sync_order_id),
+        order_number: String(item?.order?.order_number),
+        order_user_id: String(item?.order?.customer?.sync_customer_id),
+        agent_id: String(item?.order?.driver_id),
+        agent_db: clientInfo?.database_name,
+      };
+      console.log('sending api data', apiData);
+
+      updateState({isLoading: true});
+      const res = await actions.onStartChat(apiData, {
+        client: clientInfo?.database_name,
+        language: defaultLanguagae?.value ? defaultLanguagae?.value : 'en',
+      });
+      console.log('start chat res', res);
+      updateState({isLoading: false});
+      if (!!res?.roomData) {
+        onChat(res.roomData);
+      }
+    } catch (error) {
+      console.log('error raised in start chat api', error);
+      showError(error?.message);
+      updateState({isLoading: false});
+    }
+  };
+  const onChat = item => {
+    console.log('item+++', item);
+    navigation.navigate(navigationStrings.CHAT_SCREEN, {data: item});
+  };
+
   const taskDetailView = () => {
     return (
       <ScrollView
         style={{marginTop: moderateScale(10)}}
         showsVerticalScrollIndicator={false}>
         {/* User Detail  */}
-        <View
-          style={{
-            padding: moderateScale(10),
-            backgroundColor: colors.transactionHistoryBg,
-          }}>
+        <View style={{}}>
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
             <View
               style={[
@@ -713,7 +757,7 @@ export default function TaskDetail({route, navigation}) {
                 {
                   backgroundColor: colors.greyLight3,
                   // backgroundColor: getBackGroudColor(taskDetail?.tasktype?.name),
-                  marginVertical: moderateScaleVertical(5),
+                  marginVertical: moderateScaleVertical(12),
                 },
               ]}>
               <Text
@@ -728,7 +772,9 @@ export default function TaskDetail({route, navigation}) {
                     : strings.PICKUP
                 }`}
               </Text>
+              {/* Description */}
             </View>
+
             <View>
               <View style={{flexDirection: 'row', alignItems: 'center'}}>
                 {!!(
@@ -799,10 +845,17 @@ export default function TaskDetail({route, navigation}) {
               )}
             </View>
           </View>
+          <Text style={styles.taskLable}>
+            {strings.TASKDESCRIPTION.toUpperCase()}
+          </Text>
 
           {/* Phone and email view */}
           {(taskDetail?.tasktype?.name).toLowerCase() == 'drop' ? (
-            <View>
+            <View
+              style={{
+                backgroundColor: colors.transactionHistoryBg,
+                padding: moderateScale(8),
+              }}>
               {!!(
                 taskDetail?.order?.Recipient_email ||
                 taskDetail?.order?.recipient_phone
@@ -859,7 +912,7 @@ export default function TaskDetail({route, navigation}) {
                         flexDirection: 'row',
                         marginTop: moderateScale(10),
                         alignItems: 'center',
-                        flex: 0.3,
+                        flex: 0.35,
                       }}>
                       <Image
                         source={imagePath.phone2}
@@ -892,11 +945,47 @@ export default function TaskDetail({route, navigation}) {
               )}
             </View>
           ) : (
-            <View>
+            <View
+              style={{
+                backgroundColor: colors.transactionHistoryBg,
+                padding: moderateScale(8),
+              }}>
+              {!!taskDetail?.order?.task_description && (
+                <View
+                  style={{flexDirection: 'row', marginTop: moderateScale(2)}}>
+                  <View>
+                    <Text
+                      numberOfLines={1}
+                      style={[
+                        styles.emailAndPhone,
+                        {marginTop: moderateScale(5)},
+                      ]}>
+                      {!!taskDetail?.order?.task_description && (
+                        <View
+                          style={{
+                            flexDirection: 'row',
+                            marginTop: moderateScale(2),
+                          }}>
+                          <View>
+                            <Text
+                              numberOfLines={1}
+                              style={[
+                                styles.emailAndPhone,
+                                {marginTop: moderateScale(5)},
+                              ]}>
+                              {taskDetail?.order?.task_description}
+                            </Text>
+                          </View>
+                        </View>
+                      )}
+                    </Text>
+                  </View>
+                </View>
+              )}
               {!!(vendors?.email || vendors?.phone_no) && (
                 <View
                   style={{
-                    opacity: 0.5,
+                    // opacity: 0.5,
                     flexDirection: 'row',
                     justifyContent: 'space-between',
                   }}>
@@ -949,7 +1038,7 @@ export default function TaskDetail({route, navigation}) {
               {!!vendors?.address && (
                 <View
                   style={{
-                    opacity: 0.5,
+                    // opacity: 0.5,
                     flexDirection: 'row',
                     marginTop: moderateScale(10),
                     alignItems: 'center',
@@ -1047,21 +1136,26 @@ export default function TaskDetail({route, navigation}) {
         </View>
 
         {/* Task Detail Text */}
-        <View style={styles.taskDetailView}>
-          <Text style={styles.taskText}>
-            {strings.TASKDETAIL.toUpperCase()}
-          </Text>
-        </View>
-
-        {/* <View>
-          
-          <TouchableOpacity onPress={ () => navigation.navigate(navigationStrings.CHAT_SCREEN)}>
-            <Text
-              style={{fontFamily: fontFamily?.bold, fontSize: textScale(16)}}>
-              Chat
+        {!!clientInfo?.socket_url ? (
+          <View
+            style={{
+              ...styles.taskDetailView,
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+            }}>
+            <Text style={styles.taskText}>
+              {strings.TASKDETAIL.toUpperCase()}
             </Text>
-          </TouchableOpacity>
-        </View> */}
+
+            <TouchableOpacity onPress={() => createRoom(taskDetail)}>
+              <Text
+                style={{fontFamily: fontFamily?.bold, fontSize: textScale(16)}}>
+                Start Chat
+              </Text>
+            </TouchableOpacity>
+          </View>
+        ) : null}
+
         {/* Task Detail View */}
 
         <View
@@ -1209,22 +1303,6 @@ export default function TaskDetail({route, navigation}) {
               </View>
             )}
           </View>
-
-          {/* Description */}
-          {!!taskDetail?.order?.task_description && (
-            <View style={{flexDirection: 'row', marginTop: moderateScale(15)}}>
-              <View>
-                <Text style={styles.taskLable}>
-                  {strings.TASKDESCRIPTION.toUpperCase()}
-                </Text>
-                <Text
-                  numberOfLines={1}
-                  style={[styles.emailAndPhone, {marginTop: moderateScale(5)}]}>
-                  {taskDetail?.order?.task_description}
-                </Text>
-              </View>
-            </View>
-          )}
 
           {/* Images */}
           {!!taskDetail?.order?.task_images &&

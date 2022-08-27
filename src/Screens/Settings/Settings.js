@@ -100,6 +100,11 @@ export default function Settings({route, navigation}) {
               label: 'Vietnamese',
               value: 'vi',
             },
+            {
+              id: 10,
+              label: 'Nepali',
+              value: 'ne',
+            },
           ],
     selectedLangauge: defaultLanguage?.label
       ? defaultLanguage

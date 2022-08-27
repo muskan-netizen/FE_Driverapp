@@ -24,7 +24,9 @@ import ScaledImage from 'react-native-scalable-image';
 import DeviceInfo from 'react-native-device-info';
 import ZendeskChat from '../library/react-native-zendesk-chat';
 import {appIds} from '../utils/constants/DynamicAppKeys';
+import {Subscriptions} from '../Screens';
 import BackgroundGeolocation from '@darron1217/react-native-background-geolocation';
+import {useDarkMode} from 'react-native-dark-mode';
 
 export default function CustomDrawerContent({
   state,
@@ -102,26 +104,47 @@ export default function CustomDrawerContent({
           }
         : {},
       {
-        id: 8,
+        id: 9,
+        label: strings.CHAT_ROOM,
+        image: imagePath.settingsIcon,
+        key: navigationStrings.CHAT_ROOM,
+        // subRoute:navigationStrings.MYPROFILE
+      },
+      {
+        id: 10,
         label: strings.LOGOUT,
         image: imagePath.logout,
         // key: navigationStrings.PROFILESTACK,
         // subRoute:navigationStrings.MYPROFILE
       },
+      // {
+      //   id: 9,
+      //   label: strings.SUBSCRIPTIONS,
+      //   image: imagePath.icSubscription,
+      //   key: navigationStrings.SUBSCRIPTION_STACK,
+      //   subRoute:navigationStrings.SUBSCRIPTION_STACK
+      // },
     ],
     logoutAlert: false,
     selectedDrawerItem: null,
     isLoading: false,
   });
-  const {routes, selectedDrawerItem, logoutAlert, isLoading} = states;
-  const {zendeskKeys, clientInfo} = useSelector(state => state?.initBoot);
-
-  const defaultLanguagae = useSelector(
-    state => state?.initBoot?.defaultLanguage,
+  const {
+    routes,
+    selectedDrawerItem,
+    logoutAlert,
+    isLoading,
+    themeToggle,
+    themeColor,
+  } = states;
+  const {zendeskKeys, clientInfo, defaultLanguage} = useSelector(
+    state => state?.initBoot,
   );
+  const darkthemeusingDevice = useDarkMode();
+  const isDarkMode = themeToggle ? darkthemeusingDevice : themeColor;
 
-  console.log(zendeskKeys, 'keys >>>>>>>>>>>>');
-  
+  console.log(clientInfo, 'keys >>>>>>>>>>>>');
+
   // ZendeskChat.init(
   //   'kI9WjmYer9iy7gCYF2sne4gXUure2AK4',
   //   'bdea936e4bdb8130bb3f74cf9be7001aeaf503fe61c1543c',
@@ -189,6 +212,15 @@ export default function CustomDrawerContent({
           // key: navigationStrings.PROFILESTACK,
           // subRoute:navigationStrings.MYPROFILE
         },
+
+        // {
+        //   id: 9,
+        //   label: strings.SUBSCRIPTIONS ,
+        //   support: true,
+        //   image: imagePath.icSubscription,
+        //   key: navigationStrings.SUBSCRIPTION_STACK,
+        //   subRoute:navigationStrings.SUBSCRIPTION_STACK
+        // },
         appIds.transportSystem === DeviceInfo.getBundleId()
           ? {
               id: 7,
@@ -208,18 +240,29 @@ export default function CustomDrawerContent({
             }
           : {},
 
-        appIds.goody === DeviceInfo.getBundleId()
-          ? {}
-          : {
-              id: 8,
-              label: strings.LOGOUT,
-              image: imagePath.logout,
-              // key: navigationStrings.PROFILESTACK,
+        !!clientInfo?.socket_url
+          ? {
+              id: 9,
+              label: strings.CHAT_ROOM,
+              image: imagePath.settingsIcon,
+              key: navigationStrings.CHAT_ROOM,
               // subRoute:navigationStrings.MYPROFILE
-            },
+            }
+          : {},
+        {
+          id: 10,
+          label: strings.LOGOUT,
+          image: imagePath.logout,
+          // key: navigationStrings.PROFILESTACK,
+          // subRoute:navigationStrings.MYPROFILE
+        },
       ],
     });
-  }, [defaultLanguagae,zendeskKeys?.keys?.account_key,zendeskKeys?.keys?.application_id]);
+  }, [
+    defaultLanguage,
+    zendeskKeys?.keys?.account_key,
+    zendeskKeys?.keys?.application_id,
+  ]);
 
   //
 
@@ -305,8 +348,8 @@ export default function CustomDrawerContent({
           <ScaledImage
             width={width / 2}
             source={
-              clientInfo && clientInfo?.logo
-                ? {uri: clientInfo?.logo}
+              clientInfo && (clientInfo?.logo || clientInfo?.dark_logo)
+                ? {uri: isDarkMode ? clientInfo?.dark_logo : clientInfo?.logo}
                 : imagePath.logo
             }
           />
@@ -317,9 +360,6 @@ export default function CustomDrawerContent({
           const isFocused = selectedDrawerItem?.index === index;
           const label = route?.label;
           const onPress = () => {
-            console.log(route?.key, 'route?.key>>>');
-            console.log(route?.subRoute, 'route?.subRoute');
-
             if (route?.key) {
               if (route?.subRoute) {
                 navigation.navigate(route.key, {
