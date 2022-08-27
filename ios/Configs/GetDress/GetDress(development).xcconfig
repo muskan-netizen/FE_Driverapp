@@ -1,0 +1,9 @@
+#include "Pods/Target Support Files/Pods-available_pods-GetDress/Pods-available_pods-GetDress.debug.xcconfig"
+
+
+PROJECT_BUNDLE_ID = com.getdress.royodispatcher
+PROJECT_APP_VERSION = 1.0
+PROJECT_BUILD_NUMBER = 1
+PROJECT_APP_NAME =GetDress Dispatcher
+PROJECT_PLIST =GetDressInfo
+PROJECT_ENTITLEMENT=RoyoDriverAppRelease

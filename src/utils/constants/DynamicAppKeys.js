@@ -355,7 +355,10 @@ const shortCodes = {
   mrVeloz:'b74f5c',
   pets: 'fe860d',
   greenCab: '91f5e4',
-  axxi: '634a32'
+  axxi: '634a32',
+  shelf:'7ebe0a',
+  getDress: 'b884f5',
+  nuvoni: 'ea4e64'
   
 };
 
@@ -1766,6 +1769,18 @@ const appIds = {
   axxi: Platform.select({
     ios: 'com.axxi.royodispatcher',
     android: 'com.axxi.royodispatcher',
+  }),
+  shelf: Platform.select({
+    ios: 'com.shelf.royodispatcher',
+    android: 'com.shelf.royodispatcher',
+  }),
+  getDress: Platform.select({
+    ios: 'com.getdress.royodispatcher',
+    android: 'com.getdress.royodispatcher',
+  }),
+  nuvoni: Platform.select({
+    ios: 'com.nuvoni.royodispatcher',
+    android: 'com.nuvoni.royodispatcher',
   }),
 };
 

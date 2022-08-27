@@ -205,15 +205,15 @@ android {
      flavorDimensions "appType"
 
 productFlavors {
-                  atasktt{
+             everywhere{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.atasktt.dispatcher'
-            resValue "string", "app_name", "Atasktt Dispatcher"
+            applicationId 'com.Everywhere.royodispatcher'
+            resValue "string", "app_name", "Everywhere Dispatcher"
         }
 }
     
@@ -6467,15 +6467,15 @@ productFlavors {
             applicationId 'com.axxi.royodispatcher'
             resValue "string", "app_name", "Axxi Dispatcher"
         }
-        getDress{
+        nuvoni{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.axxi.royodispatcher'
-            resValue "string", "app_name", "Get Dress Dispatcher"
+            applicationId 'com.nuvoni.royodispatcher'
+            resValue "string", "app_name", "Nuvoni Dispatcher"
         }
 
 }
