@@ -201,7 +201,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.samakeemart.com/';
 
 // mml
-//export const API_BASE_URL = 'https://dispatch.mml.mobi/';
+// export const API_BASE_URL = 'https://dispatch.mml.mobi/';
 
 //manda
 // export const API_BASE_URL = 'https://dispatch.mandaexpress.com/';
@@ -296,7 +296,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // mobi
 //bimol
 // export const API_BASE_URL = 'https://dispatch.bimol.in/';
-//export const API_BASE_URL = 'https://dispatch.mobimarket.com.mx/';
+// export const API_BASE_URL = 'https://dispatch.mobimarket.com.mx/';
 // grub and gusto
 
 //export const API_BASE_URL = 'https://punnet.royodispatch.com/'
