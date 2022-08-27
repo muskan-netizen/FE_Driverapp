@@ -1335,7 +1335,7 @@ const appIds = {
   }),
   aauJau: Platform.select({
     ios: 'com.AauJau.Dispatch',
-    android: 'com.aauJau.royodispatcher',
+    android: 'com.app.aaujaudriver',
   }),
   mediPick: Platform.select({
     ios: 'com.MediPick.Dispatch',

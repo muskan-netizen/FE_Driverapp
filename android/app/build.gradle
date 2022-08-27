@@ -124,9 +124,7 @@ def enableHermes = project.ext.react.get("enableHermes", false);
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
-    // dexOptions {
-    //     javaMaxHeapSize "4g"
-    // }
+   
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -205,15 +203,15 @@ android {
      flavorDimensions "appType"
 
 productFlavors {
-                  atasktt{
+                 knockknock{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.atasktt.dispatcher'
-            resValue "string", "app_name", "Atasktt Dispatcher"
+            applicationId 'com.knockkock.driverApp'
+            resValue "string", "app_name", "Doorbell Dispatcher"
         }
 }
     
@@ -2001,7 +1999,7 @@ productFlavors {
         }
         bimol{
             dimension "appType"
-            versionCode 1
+            versionCode 3
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
@@ -3095,7 +3093,7 @@ productFlavors {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.aauJau.royodispatcher'
+            applicationId 'com.app.aaujaudriver'
             resValue "string", "app_name", "AauJau Dispatcher"
         }
 
@@ -6467,7 +6465,7 @@ productFlavors {
             applicationId 'com.axxi.royodispatcher'
             resValue "string", "app_name", "Axxi Dispatcher"
         }
-}
+// }
 }
 
 
