@@ -1848,6 +1848,7 @@ export default function ShortCode({route, navigation}) {
             shortCode: shortCodes.jazzyBug,
             isShortcodePrefilled: true,
           });
+          break;
         case appIds.savannaRags:
           updateState({
             shortCode: shortCodes.savannaRags,

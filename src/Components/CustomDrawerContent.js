@@ -117,13 +117,14 @@ export default function CustomDrawerContent({
         // key: navigationStrings.PROFILESTACK,
         // subRoute:navigationStrings.MYPROFILE
       },
-      // {
-      //   id: 9,
-      //   label: strings.SUBSCRIPTIONS,
-      //   image: imagePath.icSubscription,
-      //   key: navigationStrings.SUBSCRIPTION_STACK,
-      //   subRoute:navigationStrings.SUBSCRIPTION_STACK
-      // },
+      {
+        id: 9,
+        label: strings.SUBSCRIPTIONS,
+        image: imagePath.icSubscription,
+        key: navigationStrings.SUBSCRIPTION_STACK,
+        subRoute:navigationStrings.SUBSCRIPTION_STACK
+      },
+      
     ],
     logoutAlert: false,
     selectedDrawerItem: null,
@@ -213,14 +214,14 @@ export default function CustomDrawerContent({
           // subRoute:navigationStrings.MYPROFILE
         },
 
-        // {
-        //   id: 9,
-        //   label: strings.SUBSCRIPTIONS ,
-        //   support: true,
-        //   image: imagePath.icSubscription,
-        //   key: navigationStrings.SUBSCRIPTION_STACK,
-        //   subRoute:navigationStrings.SUBSCRIPTION_STACK
-        // },
+        {
+          id: 9,
+          label: strings.SUBSCRIPTIONS ,
+          support: true,
+          image: imagePath.icSubscription,
+          key: navigationStrings.SUBSCRIPTION_STACK,
+          subRoute:navigationStrings.SUBSCRIPTION_STACK
+        },
         appIds.transportSystem === DeviceInfo.getBundleId()
           ? {
               id: 7,
