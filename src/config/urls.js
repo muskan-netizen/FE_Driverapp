@@ -14,7 +14,9 @@
 // export const API_BASE_URL = 'https://dispatch.tmgsalesllc.com/';
 
 //Staging
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
+
+// export const API_BASE_URL = 'https://grub.rdstaging.com/';
 
 // export const API_BASE_URL = 'https://dispatch.elog.group/'
 
@@ -83,14 +85,17 @@
 //beachhop
 // export const API_BASE_URL = 'https://dispatch.beachhopdelivery.com/'
 //gdotdelivery
-// export const API_BASE_URL = 'https://dispatch.gdotdelivery.com/';
+// export const API_BASE_URL ='https://dispatch.gdotdelivery.com/'
 
 // yogolift
 // export const API_BASE_URL = 'https://dispatch.lift.gd/'
 
-export const API_BASE_URL = 'https://dispatch.sabroson.com.mx/';
+// export const API_BASE_URL = 'https://dispatch.sabroson.com.mx/';
 //heybuddy
 // export const API_BASE_URL = 'https://dispatch.heybuddy.com.mx/';
+
+// dbairro
+// export const API_BASE_URL = 'https://dispatch.dbairro.com/';
 
 // bustamovepartybus
 // export const API_BASE_URL = 'https://dispatch.bustamovepartybus.com/';
@@ -98,6 +103,15 @@ export const API_BASE_URL = 'https://dispatch.sabroson.com.mx/';
 //ipickndrop
 // export const API_BASE_URL ="https://dispatch.ipickndrop.com/"
 // export const API_BASE_URL ="https://dispatch.grn.green/"
+
+// dropitoffusa
+// export const API_BASE_URL = 'https://dispatch.dropitoffusa.com/';
+
+// smokerunstore
+// export const API_BASE_URL = 'https://dispatch.smokerunstore.com/';
+
+// littlebird
+// export const API_BASE_URL = 'https://dispatch.littlebird.store/';
 
 //PeerDeliveries
 // export const API_BASE_URL ='https://dispatch.peerdeliveries.com/'
@@ -298,7 +312,7 @@ export const API_BASE_URL = 'https://dispatch.sabroson.com.mx/';
 // export const API_BASE_URL = 'https://gdotdelivery.com/'
 // mobi
 //bimol
-//export const API_BASE_URL = 'https://dispatch.bimol.in/';
+// export const API_BASE_URL = 'https://dispatch.bimol.in/';
 //export const API_BASE_URL = 'https://dispatch.mobimarket.com.mx/';
 // grub and gusto
 

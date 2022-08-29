@@ -204,7 +204,18 @@ android {
 
      flavorDimensions "appType"
 
-
+// productFlavors {
+//                  hemptify {
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.App.HemptiFy.royodispatcher'
+//             resValue "string", "app_name", "HemptiFy Dispatch"
+//         } 
+// }
     
 
     productFlavors {
@@ -635,7 +646,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.Dishefs.royodispatcher'
-            resValue "string", "app_name", "Gofers"
+            resValue "string", "app_name", "Dishefs"
         
         }
         gumastas {
@@ -1995,7 +2006,7 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.Bimol.royodispatcher'
+            applicationId 'com.bimol.driver'
             resValue "string", "app_name", "Bimol Dispatch"
            
         }
@@ -2104,16 +2115,6 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.StichesonSite.royodispatcher'
             resValue "string", "app_name", "Stiches on Site Dispatcher"
-        }
-        tmgShops{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.TmgShops.royodispatcher'
-            resValue "string", "app_name", "Tmg Shops Dispatcher"
         }
         gasGiant{
             dimension "appType"
@@ -2534,7 +2535,7 @@ android {
 
            swiffyLLC{
             dimension "appType"
-            versionCode 4
+            versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
@@ -2542,16 +2543,7 @@ android {
             applicationId 'com.SwiffyLLC.royodispatcher'
             resValue "string", "app_name", "SwiffyLLC Driver"
         }
-        sabroson{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.Sabroson.royodispatcher'
-            resValue "string", "app_name", "Sabroson Dispatcher"
-        }
+
          localdropoff{
             dimension "appType"
             versionCode 2
@@ -3984,7 +3976,7 @@ android {
         }
             tmgShops{
             dimension "appType"
-            versionCode 1
+            versionCode 3
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
@@ -4398,11 +4390,22 @@ android {
             applicationId 'com.AmbuTap.royodispatcher'
             resValue "string", "app_name", "AmbuTap Dispatcher"
         }
-          sabroson{
-     dimension "appType"
-    versionCode 2
-    versionName "1.0"
-    minSdkVersion rootProject.ext.minSdkVersion
+
+           swiffyLLC{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.SwiffyLLC'
+            resValue "string", "app_name", "SwiffyLLC Driver"
+        }
+        sabroson{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.Sabroson.Driver'
@@ -4867,15 +4870,15 @@ android {
             resValue "string", "app_name", "Viversbox Dispatcher"
         }
 
-        sabroson{
+           swiffyLLC{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.Sabroson.royodispatcher'
-            resValue "string", "app_name", "Sabroson Dispatcher"
+            applicationId 'com.SwiffyLLC'
+            resValue "string", "app_name", "SwiffyLLC Driver"
         }
          localdropoff{
             dimension "appType"
@@ -5722,16 +5725,7 @@ android {
             resValue "string", "app_name", "AmstaFood Dispatcher"
         }
 
-        toor{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.Toor.royodispatcher'
-            resValue "string", "app_name", "Toor Dispatcher"
-        }
+
 
           dingDongEat{
             dimension "appType"
