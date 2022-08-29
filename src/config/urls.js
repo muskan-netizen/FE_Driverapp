@@ -5,6 +5,8 @@
 //  export const API_BASE_URL = 'https://api.royodispatch.com/';
 // export const API_BASE_URL = 'https://sales.royodispatch.com/';
 
+// export const API_BASE_URL = 'https://dispatch.halatalabat.com/'
+
 //  export const API_BASE_URL = 'https://dispatch.ubercann.com/';
 //  export const API_BASE_URL = 'https://dispatch.swantaxi.net/';
 // export const API_BASE_URL = 'https://dispatch.keystonedelivery.com/'
@@ -16,7 +18,7 @@
 // export const API_BASE_URL='https://dispatch.tmgsalesllc.com/';
 
 //Staging
-export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
  
 // export const API_BASE_URL = 'https://api.winhires.com/';
 
@@ -130,6 +132,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.beachhopdelivery.com/';
 // export const API_BASE_URL = 'https://dispatch.beachhopdelivery.com/';
 
+
 //Seratho
 // export const API_BASE_URL = 'https://dispatch.seratho.com/';
 
@@ -164,7 +167,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.dimahalal.com/';
 // export const API_BASE_URL = 'https://dispatch.toor.life/'
 //hellodeliver
-// export const API_BASE_URL = 'https://dispatch.hellodeliver.in/';
+export const API_BASE_URL = 'https://dispatch.hellodeliver.in/';
 
 // export const API_BASE_URL = 'https://pinkydeli.rdstaging.com/';
 
@@ -264,6 +267,8 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // africanize
 // export const API_BASE_URL = 'https://dispatch.africanize.co/';
 
+// export const API_BASE_URL = 'https://dispatch.africanvillage.market/';
+
 // orderchekout
 // export const API_BASE_URL = 'https://dispatch.orderchekout.com/';
 
@@ -315,6 +320,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // click-eat
 // export const API_BASE_URL = 'https://dispatcher.click-eat.com/'
+
 
 // export const API_BASE_URL = 'https://dispatch.click2deliver.co.uk/'
 // export const API_BASE_URL = 'https://dispatch.hometowndelivery21.com/'
