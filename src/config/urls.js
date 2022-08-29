@@ -15,11 +15,11 @@
 
 // export const API_BASE_URL='https://dispatch.tmgsalesllc.com/';
 //Staging
-<<<<<<< HEAD
+
  export const API_BASE_URL = 'https://api.rdstaging.com/';
-=======
+
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
->>>>>>> d268edc432a2699cebd355ae716bd7f4a0c2a601
+
  
 // export const API_BASE_URL = 'https://api.winhires.com/';
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
@@ -185,7 +185,7 @@
 // export const API_BASE_URL = 'https://dispatch.dimahalal.com/';
 // export const API_BASE_URL = 'https://dispatch.toor.life/'
 //hellodeliver
-export const API_BASE_URL = 'https://dispatch.hellodeliver.in/';
+// export const API_BASE_URL = 'https://dispatch.hellodeliver.in/';
 
 // export const API_BASE_URL = 'https://pinkydeli.rdstaging.com/';
 
