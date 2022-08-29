@@ -790,7 +790,15 @@
 		7338BED274269FE9DEE0365F /* libPods-available_pods-ViversBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 82943862C7EBE81A02821038 /* libPods-available_pods-ViversBox.a */; };
 		738627342422D01C2907D26A /* libPods-available_pods-Tajammul.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CF9AB25569D67FB9F2ED3B9 /* libPods-available_pods-Tajammul.a */; };
 		73A9C1B16A93802E8B70BB5B /* libPods-available_pods-SpliffNation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2B4B43169385A6F4C654CA8 /* libPods-available_pods-SpliffNation.a */; };
+<<<<<<< HEAD
 		73D4E8118ED96B145D194B6B /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+=======
+<<<<<<< HEAD
+		73D4E8118ED96B145D194B6B /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+=======
+		73D4E8118ED96B145D194B6B /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+>>>>>>> 3e5cf9a7bfbc26e51c22c088f167c45b95c2c307
+>>>>>>> ab87dfa8baa3413b772603aba2dbeaa7a48dd183
 		745D8536EF652A36E0FF0F2F /* libPods-available_pods-Fides.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DE6BE5825B6CB465D3E685A7 /* libPods-available_pods-Fides.a */; };
 		75CDC5251CEFCE6323286904 /* libPods-available_pods-BharatMove.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F71F308AA387DE1BCE1384 /* libPods-available_pods-BharatMove.a */; };
 		76DAB868C4305E1095D53ECB /* libPods-available_pods-PapiRuki.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 882A0ABF33AC131ED8483434 /* libPods-available_pods-PapiRuki.a */; };
@@ -9510,12 +9518,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				B697B895ADCE55BAFB4053CD /* (null) in Frameworks */,
 				0F718CBA1C031FE4099CB553 /* (null) in Frameworks */,
 				73D4E8118ED96B145D194B6B /* (null) in Frameworks */,
 				F8800ACB2FE6CB52F2C865F8 /* (null) in Frameworks */,
 				5096EAF65C8170AC36964413 /* (null) in Frameworks */,
 				2C9A0D27DB07D46D44FD8DEB /* (null) in Frameworks */,
+=======
+<<<<<<< HEAD
+				B697B895ADCE55BAFB4053CD /* BuildFile in Frameworks */,
+				0F718CBA1C031FE4099CB553 /* BuildFile in Frameworks */,
+				73D4E8118ED96B145D194B6B /* BuildFile in Frameworks */,
+				F8800ACB2FE6CB52F2C865F8 /* BuildFile in Frameworks */,
+				5096EAF65C8170AC36964413 /* BuildFile in Frameworks */,
+				2C9A0D27DB07D46D44FD8DEB /* libPods-available_pods-RoyoDriverApp.a in Frameworks */,
+>>>>>>> ab87dfa8baa3413b772603aba2dbeaa7a48dd183
 				0D9F8E77F77B96C5B5EA22AC /* libPods-available_pods-RoyoDriverApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -9541,6 +9559,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				6CBB6A723639128773749C2F /* libPods-available_pods-Nuvoni.a in Frameworks */,
+<<<<<<< HEAD
+=======
+=======
+				B697B895ADCE55BAFB4053CD /* (null) in Frameworks */,
+				0F718CBA1C031FE4099CB553 /* (null) in Frameworks */,
+				73D4E8118ED96B145D194B6B /* (null) in Frameworks */,
+>>>>>>> 3e5cf9a7bfbc26e51c22c088f167c45b95c2c307
+>>>>>>> ab87dfa8baa3413b772603aba2dbeaa7a48dd183
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82251,7 +82277,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = 6FXUMT5X23;
+				DEVELOPMENT_TEAM = QU7U5UXRD5;
 				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
@@ -82295,7 +82321,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = 6FXUMT5X23;
+				DEVELOPMENT_TEAM = TLGVUFM4ZM;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -82312,7 +82338,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.App.ViversBox.Dispatch;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(PROJECT_BUNDLE_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROJECT_APP_NAME = "${PROJECT_APP_NAME}";
 				PROJECT_APP_VERSION = "$(PROJECT_APP_VERSION)";
@@ -82320,7 +82346,7 @@
 				PROJECT_BUNDLE_ID = "$(PROJECT_BUNDLE_ID)";
 				PROJECT_NAME = "${PROJECT_NAME}";
 				PROJECT_PLIST = "$(PROJECT_PLIST)";
-				PROVISIONING_PROFILE_SPECIFIER = "Viversbox Dispatch";
+				PROVISIONING_PROFILE_SPECIFIER = ViversboxDriver;
 				SWIFT_OBJC_BRIDGING_HEADER = "RoyoDriverApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
