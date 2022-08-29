@@ -222,7 +222,7 @@ export default {
   SPECIAL_INSTRUCTIONS: 'Special Instructions',
   DONT_HAVE_ACCOUNT: "Don't have an Account ?",
   TASKID: 'Task ID: ',
-  PRICE: 'Cash to be Collected:',
+  PRICE: 'Cash to be Collected',
   TASKDISTANCE: 'Task Distance',
   DAMAGEREPORT: 'Damage Report',
   MAXIMUM_PHOTO_SELECTION_LIMIT_REACHED:

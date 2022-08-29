@@ -232,7 +232,7 @@ const NotificationModal = () => {
               </Text>
             </View>
             {!!Number(data?.cash_to_be_collected) > 0 && (
-              <View style={{flexDirection: 'row', alignItems: 'center'}}>
+              <View style={{alignItems: 'center'}}>
                 <Text
                   numberOfLines={1}
                   style={{
@@ -247,7 +247,7 @@ const NotificationModal = () => {
                 <Text
                   numberOfLines={1}
                   style={{
-                    marginVertical: moderateScaleVertical(10),
+                    marginVertical: moderateScaleVertical(-5),
                     textAlign: 'right',
                     fontSize: textScale(12),
                     color: colors.green,
