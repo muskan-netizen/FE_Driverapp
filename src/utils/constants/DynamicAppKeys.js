@@ -360,6 +360,8 @@ const shortCodes = {
   getDress: 'b884f5',
   nuvoni: 'ea4e64',
   fairDeal: 'd14c84',
+  balyDlvry: '699728',
+  hezniTaxi: '3107f7'
 };
 
 const appIds = {
@@ -1785,6 +1787,14 @@ const appIds = {
   fairDeal: Platform.select({
     ios: 'com.fairdeal.royodispatcher',
     android: 'com.fairdeal.royodispatcher',
+  }),
+  balyDlvry: Platform.select({
+    ios: 'com.balyDlvry.royodispatcher',
+    android: 'com.balyDlvry.royodispatcher',
+  }),
+  hezniTaxi: Platform.select({
+    ios: 'com.hezniTaxi.royodispatcher',
+    android: 'com.hezniTaxi.royodispatcher',
   }),
 };
 

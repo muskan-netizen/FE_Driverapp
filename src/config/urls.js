@@ -195,7 +195,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //RXNOW
 // export const API_BASE_URL = 'https://dispatch.rxnowweb.com/';
 //GROUPY
-//  export const API_BASE_URL = 'https://dispatch.groupystore.com/';
+// export const API_BASE_URL = 'https://dispatch.groupystore.com/';
 
 //
 // export const API_BASE_URL = 'https://dispatch.samakeemart.com/';
