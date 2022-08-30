@@ -158,7 +158,6 @@ export default function TaskDetail({route, navigation}) {
   const commonStyles = commonStylesFunc({fontFamily});
   const updateState = data => setState(state => ({...state, ...data}));
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
-  console.log(clientInfo, 'fsdfsdgdsg');
   const defaultLanguagae = useSelector(
     state => state?.initBoot?.defaultLanguage,
   );
@@ -708,7 +707,7 @@ export default function TaskDetail({route, navigation}) {
     try {
       const apiData = {
         sub_domain: '192.168.101.88',
-        // client_id: String(clientInfo?.client_db_id),
+        client_id: String(clientInfo?.client_db_id),
         db_name: taskDetail?.order?.dbname,
         user_id: String(userData?.id),
         type: 'agent_to_user',
@@ -1136,25 +1135,25 @@ export default function TaskDetail({route, navigation}) {
         </View>
 
         {/* Task Detail Text */}
-        {!!clientInfo?.socket_url ? (
-          <View
-            style={{
-              ...styles.taskDetailView,
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-            }}>
-            <Text style={styles.taskText}>
-              {strings.TASKDETAIL.toUpperCase()}
-            </Text>
+        <View
+          style={{
+            ...styles.taskDetailView,
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+          }}>
+          <Text style={styles.taskText}>
+            {strings.TASKDETAIL.toUpperCase()}
+          </Text>
 
+          {clientInfo?.socket_url ? (
             <TouchableOpacity onPress={() => createRoom(taskDetail)}>
               <Text
                 style={{fontFamily: fontFamily?.bold, fontSize: textScale(16)}}>
                 Start Chat
               </Text>
             </TouchableOpacity>
-          </View>
-        ) : null}
+          ) : null}
+        </View>
 
         {/* Task Detail View */}
 
