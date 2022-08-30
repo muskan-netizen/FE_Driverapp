@@ -202,18 +202,18 @@ android {
 
      flavorDimensions "appType"
 
-productFlavors {
-            nuvoni{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.nuvoni.royodispatcher'
-            resValue "string", "app_name", "Nuvoni Dispatcher"
-        }
-}
+// productFlavors {
+//             nuvoni{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.nuvoni.royodispatcher'
+//             resValue "string", "app_name", "Nuvoni Dispatcher"
+//         }
+// }
     
 
     productFlavors {
@@ -1908,7 +1908,7 @@ productFlavors {
         }
         empire{
             dimension "appType"
-            versionCode 1
+            versionCode 2
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion

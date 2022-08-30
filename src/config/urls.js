@@ -15,9 +15,9 @@
 
 // export const API_BASE_URL='https://dispatch.tmgsalesllc.com/';
 //Staging
-export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
 
-export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 
 // export const API_BASE_URL = 'https://dispatch.knockknock.online/'
@@ -163,7 +163,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://food-dispatch.konga.com/';
 
 //empire
-// export const API_BASE_URL = 'https://dispatch.empirehub.com/';
+export const API_BASE_URL = 'https://dispatch.empirehub.com/';
 //Ullaz
 //export const API_BASE_URL = 'https://dispatch.ullaz.co.ke/';
 
