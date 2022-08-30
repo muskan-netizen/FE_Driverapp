@@ -478,6 +478,15 @@ productFlavors {
                 applicationId 'com.CareWorks.royodispatcher'
             resValue "string", "app_name", "CareWorks"
         } 
+           pAS41 {
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+                applicationId 'com.PAS41.royodispatcher'
+            resValue "string", "app_name", "pAS41"
+        } 
         thubaeRides {
             dimension "appType"
             versionCode 1
