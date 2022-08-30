@@ -216,6 +216,7 @@ productFlavors {
 }
     
 
+<<<<<<< HEAD
 //     productFlavors {
 //         royodispatcher {
 //             dimension "appType"
@@ -529,6 +530,22 @@ productFlavors {
 //             applicationId 'com.wh.dispatcher'
 //             resValue "string", "app_name", "WH Delivery Dispatch"
 //         }
+=======
+        }
+
+        govachow {
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.app.govachow.Dispatcher'
+            resValue "string", "app_name", "Govachow Dispatch"
+        
+        }
+        dishefs {
+>>>>>>> 5ac677f24135195595ffb55d827430fe03d12c1c
 
 //         elcheregio {
 //             dimension "appType"
@@ -6453,6 +6470,7 @@ productFlavors {
 //             resValue "string", "app_name", "greenCab Dispatcher"
 //         }
 
+<<<<<<< HEAD
 //          axxi{
 //             dimension "appType"
 //             versionCode 1
@@ -6483,6 +6501,58 @@ productFlavors {
 //             applicationId 'com.fairdeal.royodispatcher'
 //             resValue "string", "app_name", "Fair Deal Dispatcher"
 //         }
+=======
+         axxi{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.axxi.royodispatcher'
+            resValue "string", "app_name", "Axxi Dispatcher"
+        }
+        nuvoni{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.nuvoni.royodispatcher'
+            resValue "string", "app_name", "Nuvoni Dispatcher"
+        }
+        fairDeal{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.fairdeal.royodispatcher'
+            resValue "string", "app_name", "Fair Deal Dispatcher"
+        }
+         balyDlvry{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.balyDlvry.royodispatcher'
+            resValue "string", "app_name", "Baly Dlvry Dispatcher"
+        }
+        hezniTaxi{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.balyDlvry.royodispatcher'
+            resValue "string", "app_name", "Hezni Taxi Dispatcher"
+        }
+>>>>>>> 5ac677f24135195595ffb55d827430fe03d12c1c
 
 // }
 }
