@@ -205,16 +205,16 @@ android {
      flavorDimensions "appType"
 
 // productFlavors {
-//                  hemptify {
+//                 lastMinuteDress{
 //             dimension "appType"
 //             versionCode 1
 //             versionName "1.0"
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.App.HemptiFy.royodispatcher'
-//             resValue "string", "app_name", "HemptiFy Dispatch"
-//         } 
+//             applicationId  "com.LastMinuteDress.Driver"
+//             resValue "string", "app_name", "Last Minute Dress Dispatcher"
+//         }
 // }
     
 
@@ -1223,7 +1223,7 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId  "com.LastMinuteDress.royodispatcher"
+            applicationId  "com.LastMinuteDress.Driver"
             resValue "string", "app_name", "Last Minute Dress Dispatcher"
         }
         travo{
@@ -1547,16 +1547,7 @@ android {
             applicationId 'com.LaundryOrders.royodispatcher'
             resValue "string", "app_name", "Laundry Orders Dispatcher"
         }
-        groupy{
-            dimension "appType"
-            versionCode 2
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId "com.Groupy.royodispatcher"
-            resValue "string", "app_name", "Groupy Dispatcher"
-        }
+ 
         docta_transportation{
             dimension "appType"
             versionCode 1
@@ -2295,16 +2286,6 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.Sijang.royodispatcher'
             resValue "string", "app_name", "Sijang Dispatcher"
-        }
-         fairexpay{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.Fairexpay.royodispatcher'
-            resValue "string", "app_name", "Fairexpay Dispatcher"
         }
           cannabis_Club_SF{
             dimension "appType"
@@ -3231,16 +3212,6 @@ android {
             applicationId  "com.Yeboy.royodispatcher"
             resValue "string", "app_name", "Yeboy Driver"
         }
-        lastMinuteDress{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId  "com.LastMinuteDress.royodispatcher"
-            resValue "string", "app_name", "Last Minute Dress Dispatcher"
-        }
         travo{
             dimension "appType"
             versionCode 1
@@ -3393,16 +3364,7 @@ android {
             applicationId 'com.LaundryOrders.royodispatcher'
             resValue "string", "app_name", "Laundry Orders Dispatcher"
         }
-        groupy{
-            dimension "appType"
-            versionCode 2
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId "com.Groupy.royodispatcher"
-            resValue "string", "app_name", "Groupy Dispatcher"
-        }
+  
         docta_transportation{
             dimension "appType"
             versionCode 1

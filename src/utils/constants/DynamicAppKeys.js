@@ -677,8 +677,8 @@ const appIds = {
     android: 'com.travo.royodispatcher',
   }),
   lastMinuteDress: Platform.select({
-    ios: 'com.LastMinuteDress.Dispatch',
-    android: 'com.LastMinuteDress.royodispatcher',
+    ios: 'com.LastMinuteDress.Driver',
+    android: 'com.LastMinuteDress.Driver',
   }),
   washvalley: Platform.select({
     ios: 'com.WashValley.Dispatch',
