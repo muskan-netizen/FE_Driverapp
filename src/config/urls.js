@@ -14,7 +14,7 @@
 // export const API_BASE_URL='https://dispatch.tmgsalesllc.com/';
 
 //Staging
-export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // export const API_BASE_URL = 'https://dispatch.elog.group/'
 
@@ -147,7 +147,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //empire
 // export const API_BASE_URL = 'https://dispatch.empirehub.com/';
 //Ullaz
-//export const API_BASE_URL = 'https://dispatch.ullaz.co.ke/';
+// export const API_BASE_URL = 'https://dispatch.ullaz.co.ke/';
 
 //LocalDropOff
 // export const API_BASE_URL = 'https://dispatch.localdropoff.info/';
@@ -307,7 +307,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://meateasy.royodispatch.com/';
 
 // aaujaau
-// export const API_BASE_URL = 'https://dispatch.aaujaaunepal.com/';
+export const API_BASE_URL = 'https://dispatch.aaujaaunepal.com/';
 
 // lastminutedress
 // export const API_BASE_URL = 'https://dispatch.lastminutedress.com/'

@@ -719,6 +719,8 @@
     "balyDlvrydispatcherRelease": "cd android && ./gradlew assemblebalyDlvryRelease",
     "hezniTaxidispatcher": "react-native run-android --variant=hezniTaxiDebug",
     "hezniTaxidispatcherRelease": "cd android && ./gradlew assemblehezniTaxiRelease",
+    "onTheWheeldispatcher": "react-native run-android --variant=onTheWheelDebug",
+    "onTheWheeldispatcherRelease": "cd android && ./gradlew assembleonTheWheelRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
