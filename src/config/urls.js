@@ -53,7 +53,7 @@
 //
 // export const API_BASE_URL ='http://192.168.96.84:9091/'
 
-// export const API_BASE_URL = 'https://dispatch.dingdongdelivers.com/'
+export const API_BASE_URL = 'https://dispatch.dingdongdelivers.com/'
 
 // export const API_BASE_URL = 'https://dispatch.pas41.com/'
 
