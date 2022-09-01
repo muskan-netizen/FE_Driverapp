@@ -18,7 +18,6 @@
 
 // export const API_BASE_URL = 'https://dispatch.elog.group/'
 
-// export const API_BASE_URL = 'https://dispatch.knockknock.online/'
 
 // export const API_BASE_URL = 'https://api.winhires.com/';
 
@@ -53,7 +52,7 @@
 //
 // export const API_BASE_URL ='http://192.168.96.84:9091/'
 
-export const API_BASE_URL = 'https://dispatch.dingdongdelivers.com/'
+// export const API_BASE_URL = 'https://dispatch.dingdongdelivers.com/'
 
 // export const API_BASE_URL = 'https://dispatch.pas41.com/'
 
@@ -147,7 +146,7 @@ export const API_BASE_URL = 'https://dispatch.dingdongdelivers.com/'
 //empire
 // export const API_BASE_URL = 'https://dispatch.empirehub.com/';
 //Ullaz
-//export const API_BASE_URL = 'https://dispatch.ullaz.co.ke/';
+export const API_BASE_URL = 'https://dispatch.ullaz.co.ke/';
 
 //LocalDropOff
 // export const API_BASE_URL = 'https://dispatch.localdropoff.info/';
