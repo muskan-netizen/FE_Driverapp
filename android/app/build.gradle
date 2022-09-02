@@ -205,16 +205,16 @@ android {
      flavorDimensions "appType"
 
 // productFlavors {
-//                 lastMinuteDress{
+//                 elog {
 //             dimension "appType"
 //             versionCode 1
 //             versionName "1.0"
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId  "com.LastMinuteDress.Driver"
-//             resValue "string", "app_name", "Last Minute Dress Dispatcher"
-//         }
+//             applicationId 'com.Elog.royodispatcher'
+//             resValue "string", "app_name", "Elog Dispatch"
+//         } 
 // }
     
 

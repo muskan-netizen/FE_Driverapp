@@ -1313,7 +1313,7 @@ const appIds = {
     android: 'com.RideShare.royodispatcher',
   }),
   newYorkMiniMart: Platform.select({
-    ios: 'com.NewYorkMiniMart.Dispatch',
+    ios: 'com.NewYorkMiniMart.Driver',
     android: 'com.NewYorkMiniMart.royodispatcher',
   }),
   airlinesRecruiter: Platform.select({

@@ -18,7 +18,7 @@
 
 // export const API_BASE_URL = 'https://grub.rdstaging.com/';
 
-// export const API_BASE_URL = 'https://dispatch.elog.group/'
+export const API_BASE_URL = 'https://dispatch.elog.group/';
 
 // export const API_BASE_URL = 'https://dispatch.knockknock.online/'
 // export const API_BASE_URL = 'https://api.winhires.com/';
@@ -326,7 +326,7 @@
 // export const API_BASE_URL = 'https://dispatch.aaujaaunepal.com/';
 
 // lastminutedress
-export const API_BASE_URL = 'https://dispatch.lastminutedress.com/';
+// export const API_BASE_URL = 'https://dispatch.lastminutedress.com/';
 // destinationops app domain
 // export const API_BASE_URL = 'https://dispatch.destinationops.com/';
 // bluebundles
