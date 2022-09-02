@@ -1263,8 +1263,8 @@ const appIds = {
     android: 'com.TimHomeServices.royodispatcher',
   }),
   dbairro: Platform.select({
-    ios: 'com.Dbairro.Dispatcher',
-    android: 'com.Dbairro.royodispatcher',
+    ios: 'com.Dbairro.DriverApp',
+    android: 'com.Dbairro.dispatcher',
   }),
   knockknock: Platform.select({
     ios: 'com.knockkock.driverApp',
