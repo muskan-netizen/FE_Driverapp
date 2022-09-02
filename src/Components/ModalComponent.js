@@ -1,18 +1,19 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {useRef} from 'react';
+import {StyleSheet, View, Button} from 'react-native';
+import FlashMessage from 'react-native-flash-message';
 import Modal from 'react-native-modal';
 import imagePath from '../constants/imagePath';
 import colors from '../styles/colors';
 import {moderateScaleVertical} from '../styles/responsiveSize';
 import Header from './Header';
 
-export default function ModalView({
+export default function ModalComponent({
   isVisible = false,
   onClose,
   modalStyle,
-  transistionIn = 200,
   transistionOut = 200,
-  leftIcon = imagePath.back,
+  leftIcon = imagePath.backArrow,
   centerTitle,
   textStyle,
   horizontLine = true,
@@ -23,24 +24,21 @@ export default function ModalView({
   modalBottomContent = () => {},
   mainViewStyle = {},
   topCustomComponent = () => {},
-  onClose1 = () => {},
+  backdropColor = colors.whiteOpacity77,
+  modalRef,
 }) {
   return (
     <Modal
       isVisible={isVisible}
       onBackButtonPress={onClose}
-      onBackdropPress={onClose1}
+      onBackdropPress={onClose}
       backdropTransitionInTiming={transistionOut}
-      style={[styles.modalStyle, modalStyle]}>
+      style={{...styles.modalStyle, ...modalStyle}}>
       <View
         style={{
-          // flex: 1,
           backgroundColor: colors.white,
-          borderRadius: 15,
-          paddingTop: moderateScaleVertical(30),
           ...mainViewStyle,
         }}>
-        {/* //Header */}
         {topCustomComponent ? (
           topCustomComponent()
         ) : (
@@ -52,12 +50,11 @@ export default function ModalView({
           />
         )}
 
-        {/* center content */}
         <>{modalMainContent()}</>
 
-        {/* bottom content */}
         <>{modalBottomContent()}</>
       </View>
+      <FlashMessage ref={modalRef} position={'top'} />
     </Modal>
   );
 }
@@ -65,8 +62,6 @@ export default function ModalView({
 const styles = StyleSheet.create({
   modalStyle: {
     marginHorizontal: moderateScaleVertical(20),
-    marginVertical: moderateScaleVertical(50),
-    // backgroundColor: colors.white,
     borderRadius: 15,
   },
 });

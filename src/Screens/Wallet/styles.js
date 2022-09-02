@@ -108,6 +108,7 @@ export default ({defaultLanguagae}) => {
       borderRadius: moderateScale(5),
       padding: moderateScale(10),
       flexDirection: 'row',
+      justifyContent: 'space-around',
     },
     earningBottomTextLable: {
       color: colors.lightGreyBg2,
@@ -120,7 +121,7 @@ export default ({defaultLanguagae}) => {
       fontSize: moderateScale(12),
       fontFamily: fontFamily.medium,
     },
-    amountToReturn:{
+    amountToReturn: {
       color: colors.redB,
       fontSize: moderateScale(12),
       fontFamily: fontFamily.bold,

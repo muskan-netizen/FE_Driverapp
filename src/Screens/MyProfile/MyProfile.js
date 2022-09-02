@@ -96,7 +96,7 @@ export default function MyProfile({route, navigation}) {
   };
 
   const onDeleteAccount = () => {
-    Alert.alert(strings.ARE_YOU_SURE_YOU_WANT_TO_DELETE, '', [
+    Alert.alert('', strings.ARE_YOU_SURE_YOU_WANT_TO_DELETE, [
       {
         text: strings.CANCEL,
         onPress: () => console.log('Cancel Pressed'),

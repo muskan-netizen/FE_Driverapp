@@ -24,11 +24,12 @@ const ButtonComponent = ({
   imagevalue = false,
   imageStyle = {},
   buttonTitleStyle = {},
+  containerStyle = {},
 }) => {
   return (
-    <View style={styles.container}>
+    <View style={{...styles.container, ...containerStyle}}>
       <TouchableWithoutFeedback onPress={onPress}>
-        <View style={[styles.button, buttonStyle]}>
+        <View style={{...styles.button, ...buttonStyle}}>
           {imagevalue && (
             <View>
               <Image style={imageStyle} source={imagevalue} />

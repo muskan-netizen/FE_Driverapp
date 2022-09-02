@@ -134,7 +134,6 @@ export default function Wallet({route, navigation}) {
     return colorData[allTaskInHistory.indexOf(data) % colorData.length];
   };
   const renderTaskList = ({item, index}) => {
-    console.log(item, 'itemitemitemitemitem');
     return (
       <View
         style={{
@@ -152,23 +151,21 @@ export default function Wallet({route, navigation}) {
           }}>
           <View style={{flex: 0.2}}>
             <View
-              style={[
-                styles.circleView,
-                {
-                  backgroundColor:
-                    item?.transaction_type == 'wallet'
-                      ? item?.type == 'deposit'
-                        ? colors.green
-                        : colors.redB
-                      : item?.transaction_type == 'payment'
-                      ? item?.cr > 0
-                        ? colors.green
-                        : colors.redB
-                      : item?.transaction_type == 'payout'
-                      ? colors.blueSolid
-                      : colors.blueB,
-                },
-              ]}>
+              style={{
+                ...styles.circleView,
+                backgroundColor:
+                  item?.transaction_type == 'wallet'
+                    ? item?.type == 'deposit'
+                      ? colors.green
+                      : colors.redB
+                    : item?.transaction_type == 'payment'
+                    ? item?.cr > 0
+                      ? colors.green
+                      : colors.redB
+                    : item?.transaction_type == 'payout'
+                    ? colors.blueSolid
+                    : colors.blueB,
+              }}>
               <Text style={styles.messageInitial}>
                 {item?.transaction_type == 'wallet'
                   ? item?.type == 'deposit'
@@ -234,7 +231,7 @@ export default function Wallet({route, navigation}) {
                   : `- ${
                       userData?.client_preference?.currency?.symbol
                     }${currencyNumberFormatter(
-                      Number(item?.amount).toFixed(2),
+                      Number(item?.amount.replace('-', '')).toFixed(2),
                     )}`
                 : item?.transaction_type == 'payment'
                 ? item?.cr

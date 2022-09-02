@@ -1,7 +1,12 @@
 import {StyleSheet} from 'react-native';
 import colors from '../../styles/colors';
 import fontFamily from '../../styles/fontFamily';
-import {moderateScale, moderateScaleVertical, textScale, width} from '../../styles/responsiveSize';
+import {
+  moderateScale,
+  moderateScaleVertical,
+  textScale,
+  width,
+} from '../../styles/responsiveSize';
 
 export default ({defaultLanguagae}) => {
   const styles = StyleSheet.create({
@@ -33,18 +38,16 @@ export default ({defaultLanguagae}) => {
     cashCollectionContainer: {
       flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
       justifyContent: 'space-between',
-      padding:moderateScale(10),
-      paddingRight:moderateScale(45),
+      paddingVertical: moderateScale(10),
       backgroundColor: colors.white,
-      paddingRight: defaultLanguagae?.value === 'en' ? 0 : moderateScale(45),
+      paddingHorizontal: moderateScale(20),
     },
     cashTextView: {
       flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
-      flex: 0.5,
+
       alignItems: 'center',
     },
     clearViewStyle: {
-      flex: 0.5,
       flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
     },
     dateSelectView: {
