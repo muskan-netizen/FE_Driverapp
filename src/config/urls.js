@@ -17,9 +17,6 @@
 //Staging
 export const API_BASE_URL = 'https://api.rdstaging.com/';
 
-export const API_BASE_URL = 'https://api.rdstaging.com/';
-
-
 // export const API_BASE_URL = 'https://dispatch.knockknock.online/'
 
 
