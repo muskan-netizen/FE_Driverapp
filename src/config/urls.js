@@ -14,7 +14,7 @@
 // export const API_BASE_URL='https://dispatch.tmgsalesllc.com/';
 
 //Staging
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // export const API_BASE_URL = 'https://dispatch.elog.group/'
 
@@ -53,7 +53,7 @@
 //
 // export const API_BASE_URL ='http://192.168.96.84:9091/'
 
-export const API_BASE_URL = 'https://dispatch.dingdongdelivers.com/'
+// export const API_BASE_URL = 'https://dispatch.dingdongdelivers.com/'
 
 // export const API_BASE_URL = 'https://dispatch.pas41.com/'
 
@@ -307,7 +307,7 @@ export const API_BASE_URL = 'https://dispatch.dingdongdelivers.com/'
 // export const API_BASE_URL = 'https://meateasy.royodispatch.com/';
 
 // aaujaau
-export const API_BASE_URL = 'https://dispatch.aaujaaunepal.com/';
+// export const API_BASE_URL = 'https://dispatch.aaujaaunepal.com/';
 
 // lastminutedress
 // export const API_BASE_URL = 'https://dispatch.lastminutedress.com/'

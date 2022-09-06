@@ -2278,6 +2278,12 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+          case appIds.perucabs:
+            updateState({
+              shortCode: shortCodes.perucabs,
+              isShortcodePrefilled: true,
+            });
+            break;
       }
     })();
   }, [internetConnection]);

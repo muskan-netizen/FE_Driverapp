@@ -202,18 +202,18 @@ android {
 
      flavorDimensions "appType"
 
-productFlavors {
-             heyBuddy{
-            dimension "appType"
-            versionCode 3
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.HeyBuddy.royodispatcher'
-            resValue "string", "app_name", "Soy Buddy"
-        }
-}
+// productFlavors {
+//             perucabs{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.perucabs.dispatcher'
+//             resValue "string", "app_name", "Perucabs Dispatcher"
+//         }
+// }
     
 
     productFlavors {
@@ -5840,7 +5840,7 @@ productFlavors {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.keystoneDelivery.royodispatcher'
+            applicationId 'com.keystonedelivery.driver'
             resValue "string", "app_name", "KeystoneDelivery Dispatcher"
         }
         busTaMove{
@@ -6523,8 +6523,18 @@ productFlavors {
             applicationId 'com.valleymeats.dispatcher'
             resValue "string", "app_name", "ValleyMeats Dispatcher"
         }
+          perucabs{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.perucabs.dispatcher'
+            resValue "string", "app_name", "Perucabs Dispatcher"
+        }
 
-// }
+}
 }
 
 

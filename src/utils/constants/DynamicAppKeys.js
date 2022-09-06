@@ -363,7 +363,8 @@ const shortCodes = {
   balyDlvry: '699728',
   hezniTaxi: '3107f7',
   onTheWheel: 'b053fb',
-  valleyMeats: '7cf41c'
+  valleyMeats: '7cf41c',
+  perucabs:'b0eeff',
 };
 
 const appIds = {
@@ -1527,8 +1528,8 @@ const appIds = {
     android: 'com.jazzyBug.royodispatcher',
   }),
   keystoneDelivery: Platform.select({
-    ios: 'com.keystoneDeliver.Dispatch',
-    android: 'com.keystoneDelivery.royodispatcher',
+    ios: 'com.keystonedelivery.driver',
+    android: 'com.keystonedelivery.driver',
   }),
   amazingTaxi: Platform.select({
     ios: 'com.amazingTaxi.Driver',
@@ -1805,6 +1806,10 @@ const appIds = {
   valleyMeats: Platform.select({
     ios: 'com.valleymeats.dispatcher',
     android: 'com.valleymeats.dispatcher',
+  }),
+  perucabs: Platform.select({
+    ios: 'com.perucabs.dispatcher',
+    android: 'com.perucabs.dispatcher',
   }),
 };
 
