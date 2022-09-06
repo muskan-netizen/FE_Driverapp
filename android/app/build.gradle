@@ -205,16 +205,16 @@ android {
      flavorDimensions "appType"
 
 // productFlavors {
-//                 elog {
+//                        weTogether{
 //             dimension "appType"
 //             versionCode 1
 //             versionName "1.0"
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.Elog.royodispatcher'
-//             resValue "string", "app_name", "Elog Dispatch"
-//         } 
+//             applicationId 'com.weTogether.royodispatcher'
+//             resValue "string", "app_name", "WeTogether Dispatcher"
+//         }
 // }
     
 
@@ -2842,16 +2842,7 @@ android {
             applicationId 'com.TimHomeServices.royodispatcher'
             resValue "string", "app_name", "TimHomeServices Dispatcher"
         }
-        dbairro{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.Dbairro.royodispatcher'
-            resValue "string", "app_name", "Dbairro Dispatcher"
-        }
+       
         knockknock{
             dimension "appType"
             versionCode 1
@@ -4807,8 +4798,8 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.Dbairro.royodispatcher'
-            resValue "string", "app_name", "Dbairro Dispatcher"
+            applicationId 'com.Dbairro.dispatcher'
+            resValue "string", "app_name", "Dbairro Driver"
         }
         knockknock{
             dimension "appType"
@@ -5159,16 +5150,7 @@ android {
             applicationId 'com.TimHomeServices.royodispatcher'
             resValue "string", "app_name", "TimHomeServices Dispatcher"
         }
-        dbairro{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.Dbairro.royodispatcher'
-            resValue "string", "app_name", "Dbairro Dispatcher"
-        }
+       
         knockknock{
             dimension "appType"
             versionCode 1

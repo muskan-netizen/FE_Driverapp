@@ -8312,6 +8312,7 @@
 		97998FF8CB0E95BAA75FB38C /* Pods-available_pods-Klickmat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-Klickmat.release.xcconfig"; path = "Target Support Files/Pods-available_pods-Klickmat/Pods-available_pods-Klickmat.release.xcconfig"; sourceTree = "<group>"; };
 		97DEE7EFFE832260F0A8BEFA /* Pods-available_pods-NRSA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-NRSA.debug.xcconfig"; path = "Target Support Files/Pods-available_pods-NRSA/Pods-available_pods-NRSA.debug.xcconfig"; sourceTree = "<group>"; };
 		982CE1E91F5B2053FCAA0FA1 /* Pods-available_pods-BlueBundles.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-BlueBundles.debug.xcconfig"; path = "Target Support Files/Pods-available_pods-BlueBundles/Pods-available_pods-BlueBundles.debug.xcconfig"; sourceTree = "<group>"; };
+		986F602828C7247A002D25A3 /* Dbairro.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Dbairro.entitlements; sourceTree = "<group>"; };
 		989BB6C11B3EE6F2BCCFE74C /* libPods-available_pods-SmokeRun.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-available_pods-SmokeRun.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		997F5DA8154C5CDF4C6C9C2B /* Pods-available_pods-LaundroZone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-LaundroZone.release.xcconfig"; path = "Target Support Files/Pods-available_pods-LaundroZone/Pods-available_pods-LaundroZone.release.xcconfig"; sourceTree = "<group>"; };
 		99A9634AA8A6A2C38FF3829D /* Pods-available_pods-Rota.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-Rota.debug.xcconfig"; path = "Target Support Files/Pods-available_pods-Rota/Pods-available_pods-Rota.debug.xcconfig"; sourceTree = "<group>"; };
@@ -12669,6 +12670,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				986F602828C7247A002D25A3 /* Dbairro.entitlements */,
 				F49EB8FB28AE7085002888DE /* Resources-iPad */,
 				84961CAA27EB061C00B58C31 /* RoyoDriverApp-Bridging-Header.h */,
 				84961AE127EB05D300B58C31 /* RoyoDriverApp.swift */,
@@ -22107,7 +22109,6 @@
 				84B10AEC27D75EAF00D8E80B /* Resources */,
 				84B10AF927D75EAF00D8E80B /* Bundle React Native code and images */,
 				843EF94427DF23AF000D7211 /* ShellScript */,
-				0D72440420B1B758CD7158DC /* Start Packager */,
 				44C45F359B09D0050A4707A7 /* [CP] Embed Pods Frameworks */,
 				B6DCEB221A718C6CF3C442F2 /* [CP] Copy Pods Resources */,
 			);
@@ -34537,25 +34538,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		0D72440420B1B758CD7158DC /* Start Packager */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-available_pods-Dbairro/Pods-available_pods-Dbairro-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			inputPaths = (
-			);
-			name = "Start Packager";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-available_pods-Dbairro/Pods-available_pods-Dbairro-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-Dbairro/Pods-available_pods-Dbairro-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		0D80961D8CF35BD4C8775274 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -45552,7 +45534,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-Dbairro/Pods-available_pods-Dbairro-frameworks.sh\"\n";
 		};
 		843F94A227A8078900153CD0 /* Start Packager */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -83094,7 +83076,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_ENTITLEMENTS = Dbairro.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
@@ -83138,11 +83120,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_ENTITLEMENTS = Dbairro.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = 6FXUMT5X23;
+				DEVELOPMENT_TEAM = CGFY2R4JNY;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -83167,7 +83149,7 @@
 				PROJECT_BUNDLE_ID = "$(PROJECT_BUNDLE_ID)";
 				PROJECT_NAME = "${PROJECT_NAME}";
 				PROJECT_PLIST = "$(PROJECT_PLIST)";
-				PROVISIONING_PROFILE_SPECIFIER = "Dbairro Dispatch";
+				PROVISIONING_PROFILE_SPECIFIER = "Dbairro Driver";
 				SWIFT_OBJC_BRIDGING_HEADER = "RoyoDriverApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";

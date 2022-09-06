@@ -18,7 +18,7 @@
 
 // export const API_BASE_URL = 'https://grub.rdstaging.com/';
 
-export const API_BASE_URL = 'https://dispatch.elog.group/';
+// export const API_BASE_URL = 'https://dispatch.elog.group/';
 
 // export const API_BASE_URL = 'https://dispatch.knockknock.online/'
 // export const API_BASE_URL = 'https://api.winhires.com/';
@@ -88,6 +88,9 @@ export const API_BASE_URL = 'https://dispatch.elog.group/';
 
 // yogolift
 // export const API_BASE_URL = 'https://dispatch.lift.gd/'
+
+// taxe
+// export const API_BASE_URL = 'https://taxe.rdstaging.com/';
 
 // export const API_BASE_URL = 'https://dispatch.sabroson.com.mx/';
 //heybuddy
@@ -181,6 +184,8 @@ export const API_BASE_URL = 'https://dispatch.elog.group/';
 // export const API_BASE_URL = 'https://delivery.shoorafresh.com.au/';
 
 //dimahalal
+
+export const API_BASE_URL = 'https://dispatch.perucabs.com/';
 
 // export const API_BASE_URL = 'https://dispatch.dimahalal.com/';
 // export const API_BASE_URL = 'https://dispatch.toor.life/'

@@ -1258,7 +1258,7 @@ const appIds = {
   }),
   dbairro: Platform.select({
     ios: 'com.Dbairro.Dispatcher',
-    android: 'com.Dbairro.royodispatcher',
+    android: 'com.Dbairro.dispatcher',
   }),
   knockknock: Platform.select({
     ios: 'com.knockkock.driverApp',
