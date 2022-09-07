@@ -322,4 +322,5 @@ export default {
   ARE_YOU_SURE_YOU_WANT_TO_DELETE:'Are you sure, you want to delete your account? Deleting your account is permanent and will remove all content and profile settings.',
   PICKERCANCLLED:'Picker Canclled',
   CHAT_ROOM:"Chat Room",
+  ORDER_CANCELLED_BY_CUSTOMER:'Order Cancelled By Customer'
 };
