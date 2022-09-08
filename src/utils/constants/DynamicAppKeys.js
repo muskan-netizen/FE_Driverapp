@@ -364,7 +364,10 @@ const shortCodes = {
   hezniTaxi: '3107f7',
   onTheWheel: 'b053fb',
   valleyMeats: '7cf41c',
-  perucabs:'b0eeff',
+  perucabs: 'b0eeff',
+  hafizjwlry: '9432be',
+  jana: '489220',
+  myWayBill: 'a77856',
 };
 
 const appIds = {
@@ -1810,6 +1813,18 @@ const appIds = {
   perucabs: Platform.select({
     ios: 'com.perucabs.dispatcher',
     android: 'com.perucabs.dispatcher',
+  }),
+  hafizjwlry: Platform.select({
+    ios: 'com.hafizjwlry.royodispatcher',
+    android: 'com.hafizjwlry.royodispatcher',
+  }),
+  jana: Platform.select({
+    ios: 'com.jana.royodispatcher',
+    android: 'com.jana.royodispatcher',
+  }),
+  myWayBill: Platform.select({
+    ios: 'com.mywaybill.royodispatcher',
+    android: 'com.mywaybill.royodispatcher',
   }),
 };
 

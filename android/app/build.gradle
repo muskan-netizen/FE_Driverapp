@@ -202,19 +202,7 @@ android {
 
      flavorDimensions "appType"
 
-// productFlavors {
-//             perucabs{
-//             dimension "appType"
-//             versionCode 1
-//             versionName "1.0"
-//             minSdkVersion rootProject.ext.minSdkVersion
-//             targetSdkVersion rootProject.ext.targetSdkVersion
-//             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.perucabs.dispatcher'
-//             resValue "string", "app_name", "Perucabs Dispatcher"
-//         }
-// }
-    
+
 
     productFlavors {
         royodispatcher {
@@ -6532,6 +6520,36 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.perucabs.dispatcher'
             resValue "string", "app_name", "Perucabs Dispatcher"
+        }
+         hafizjwlry{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.hafizjwlry.royodispatcher'
+            resValue "string", "app_name", "Hafiz jwlry Dispatcher"
+        }
+         jana{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.jana.royodispatcher'
+            resValue "string", "app_name", "Jana Dispatcher"
+        }
+        myWayBill{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.mywaybill.royodispatcher'
+            resValue "string", "app_name", "MYWAYBILL Dispatcher"
         }
 
 }
