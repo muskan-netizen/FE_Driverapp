@@ -202,19 +202,19 @@ android {
 
      flavorDimensions "appType"
 
-// productFlavors {
-          
-//                   ullaz{
-//             dimension "appType"
-//             versionCode 2
-//             versionName "1.1"
-//             minSdkVersion rootProject.ext.minSdkVersion
-//             targetSdkVersion rootProject.ext.targetSdkVersion
-//             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.Ullaz.royodispatcher'
-//             resValue "string", "app_name", "ullaz Dispatcher"
-//         }
-// }
+productFlavors {
+            fleety {
+            dimension "appType"
+            versionCode 2
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.fleetydriver.app'
+            resValue "string", "app_name", "fleety Driver"
+
+        }
+}
     
 
     productFlavors {
@@ -618,8 +618,8 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.fleety.royodispatcher'
-            resValue "string", "app_name", "fleety Dispatch"
+            applicationId 'com.fleety.driverapp'
+            resValue "string", "app_name", "fleety Driver"
 
         }
 
@@ -2898,6 +2898,17 @@ android {
             resValue "string", "app_name", "Doorbell Dispatcher"
         }
 
+        viversBox{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.ViversBox.royodispatcher'
+            resValue "string", "app_name", "Viversbox Dispatcher"
+        }
+
         scootz{
             dimension "appType"
             versionCode 1
@@ -4089,7 +4100,16 @@ android {
             applicationId 'com.Fides.royodispatcher'
             resValue "string", "app_name", "Fides Dispatcher"
         }
-
+         ullaz{
+            dimension "appType"
+            versionCode 2
+            versionName "1.1"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Ullaz.royodispatcher'
+            resValue "string", "app_name", "ullaz Dispatcher"
+        }
         privatepremiumpickups{
             dimension "appType"
             versionCode 1
@@ -4844,7 +4864,16 @@ android {
             applicationId 'com.Dbairro.royodispatcher'
             resValue "string", "app_name", "Dbairro Dispatcher"
         }
-
+        knockknock{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Knockknock.royodispatcher'
+            resValue "string", "app_name", "Doorbell Dispatcher"
+        }
 
         viversBox{
             dimension "appType"
@@ -4852,7 +4881,7 @@ android {
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
-            //applicationIdSuffix ".royoorder"
+            // applicationIdSuffix ".royoorder"
             applicationId 'com.viversbox.driver'
             resValue "string", "app_name", "Viversbox Dispatcher"
         }
@@ -5204,6 +5233,28 @@ android {
             applicationId 'com.Dbairro.royodispatcher'
             resValue "string", "app_name", "Dbairro Dispatcher"
         }
+        knockknock{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Knockknock.royodispatcher'
+            resValue "string", "app_name", "Doorbell Dispatcher"
+        }
+
+        viversBox{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.ViversBox.royodispatcher'
+            resValue "string", "app_name", "Viversbox Dispatcher"
+        }
+
         scootz{
             dimension "appType"
             versionCode 1
@@ -6356,7 +6407,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.kurrix.royoDispatcher'
-            resValue "string", "app_name", "Goadeliv Dispatcher"
+            resValue "string", "app_name", "kurrix Dispatcher"
         }
 
            easyDrink{
@@ -6450,13 +6501,32 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.hezniTaxi.royodispatcher'
+            applicationId 'com.balyDlvry.royodispatcher'
             resValue "string", "app_name", "Hezni Taxi Dispatcher"
+        }
+        onTheWheel{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.onthewheel.royodispatcher'
+            resValue "string", "app_name", "On The Wheels Dispatcher"
+        }
+        valleyMeats{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.valleymeats.dispatcher'
+            resValue "string", "app_name", "ValleyMeats Dispatcher"
         }
 
 }
 }
-
 
 
 dependencies {

@@ -146,7 +146,11 @@
 //empire
 // export const API_BASE_URL = 'https://dispatch.empirehub.com/';
 //Ullaz
-export const API_BASE_URL = 'https://dispatch.ullaz.co.ke/';
+
+// export const API_BASE_URL = 'https://dispatch.ullaz.co.ke/';
+
+// export const API_BASE_URL = 'https://dispatch.ullaz.co.ke/';
+
 
 //LocalDropOff
 // export const API_BASE_URL = 'https://dispatch.localdropoff.info/';
@@ -227,7 +231,7 @@ export const API_BASE_URL = 'https://dispatch.ullaz.co.ke/';
 // export const API_BASE_URL = 'https://dispatch.loopwhole.ca/';
 
 //MARTINONWHEELS
-// export const API_BASE_URL = 'https://dispatch.martinionwheelsllc.org/';
+// export const API_BASE_URL = 'https://dispatch.martinionwheelsllc.rorg/';
 
 //
 // export const API_BASE_URL = 'https://dispatch.viversbox.com/'
@@ -286,7 +290,7 @@ export const API_BASE_URL = 'https://dispatch.ullaz.co.ke/';
 
 //export const API_BASE_URL = 'https://dispatch.meltivers.com/';
 //  butler delivery
-// export const API_BASE_URL = 'https://dispatch.butlerdeliveryusa.com/';
+export const API_BASE_URL = 'https://dispatch.butlerdeliveryusa.com/';
 // bimolaa
 // export const API_BASE_URL = 'https://dispatch.bimol.in/'
 

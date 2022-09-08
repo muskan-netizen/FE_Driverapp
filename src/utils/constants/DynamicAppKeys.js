@@ -361,7 +361,9 @@ const shortCodes = {
   nuvoni: 'ea4e64',
   fairDeal: 'd14c84',
   balyDlvry: '699728',
-  hezniTaxi: '3107f7'
+  hezniTaxi: '3107f7',
+  onTheWheel: 'b053fb',
+  valleyMeats: '7cf41c'
 };
 
 const appIds = {
@@ -524,7 +526,7 @@ const appIds = {
   }),
   fleety: Platform.select({
     ios: 'com.Fleety.Dispatch',
-    android: 'com.fleety.royodispatcher',
+    android: 'com.fleetydriver.app',
   }),
   gumastas: Platform.select({
     ios: 'com.Gumastas.Dispatch',
@@ -1795,6 +1797,14 @@ const appIds = {
   hezniTaxi: Platform.select({
     ios: 'com.hezniTaxi.royodispatcher',
     android: 'com.hezniTaxi.royodispatcher',
+  }),
+  onTheWheel: Platform.select({
+    ios: 'com.onthewheel.royodispatcher',
+    android: 'com.onthewheel.royodispatcher',
+  }),
+  valleyMeats: Platform.select({
+    ios: 'com.valleymeats.dispatcher',
+    android: 'com.valleymeats.dispatcher',
   }),
 };
 
