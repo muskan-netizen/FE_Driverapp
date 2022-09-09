@@ -15,7 +15,7 @@
 
 // export const API_BASE_URL='https://dispatch.tmgsalesllc.com/';
 //Staging
-export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // export const API_BASE_URL = 'https://dispatch.knockknock.online/'
 
@@ -23,7 +23,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://api.winhires.com/';
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
 //export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
-// export const API_BASE_URL = 'http://192.168.96.84:9091/';
+// export const API_BASE_URL = 'http://192.168.96.166:9090/';
  //export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
@@ -133,7 +133,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatcher.releezer.shop/';
 
 //Developement
-// export const API_BASE_URL = 'https://sales.winhires.com/';
+export const API_BASE_URL = 'https://sales.winhires.com/';
 
 //UFOOD
 // export const API_BASE_URL = 'https://dispatch.ufood.ca/';

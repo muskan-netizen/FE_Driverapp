@@ -102,33 +102,34 @@ const TaskListCard = ({
   };
 
   return (
-    <TouchableOpacity
+    <View
       activeOpacity={1}
       disabled={getDynamicUpdateOnValues().click}
-      onPress={_onPressTask}>
+      // onPress={_onPressTask}
+      
+      >
       <View
         opacity={getDynamicUpdateOnValues().blur}
         style={{
           ...styles.shadowStyle,
-
-          borderTopRadius: 8,
-          borderLeftRadius: 8,
-          borderRightRadius: 8,
-          borderBottomRadius:
-            allTasks[index]?.order.id == allTasks[index + 1]?.order.id ? 0 : 8,
-          marginBottom:
-            allTasks[index]?.order.id == allTasks[index + 1]?.order.id
-              ? -2
-              : 20,
-          ...generateBoxShadowStyle(
-            -2,
-            allTasks[index]?.order.id == allTasks[index + 1]?.order.id ? -2 : 4,
-            '#171717',
-            0.2,
-            3,
-            4,
-            '#171717',
-          ),
+          // borderTopRadius: 8,
+          // borderLeftRadius: 8,
+          // borderRightRadius: 8,
+          // borderBottomRadius:
+          //   allTasks[index]?.order.id == allTasks[index + 1]?.order.id ? 0 : 8,
+          // marginBottom:
+          //   allTasks[index]?.order.id == allTasks[index + 1]?.order.id
+          //     ? -2
+          //     : 20,
+          // ...generateBoxShadowStyle(
+          //   -2,
+          //   allTasks[index]?.order.id == allTasks[index + 1]?.order.id ? -2 : 4,
+          //   '#171717',
+          //   0.2,
+          //   3,
+          //   4,
+          //   '#171717',
+          // ),
         }}>
         <View
           style={[
@@ -224,7 +225,7 @@ const TaskListCard = ({
           </View>
         </View>
       </View>
-    </TouchableOpacity>
+    </View>
   );
 };
 

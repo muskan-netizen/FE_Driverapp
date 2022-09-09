@@ -7,6 +7,7 @@ import {
   Image,
   Linking,
   RefreshControl,
+  SectionList,
   Switch,
   Text,
   View,
@@ -45,7 +46,10 @@ import socketServices from '../../utils/scoketService';
 // import BackgroundTimer from 'react-native-background-timer';
 import BackgroundGeolocation from '@darron1217/react-native-background-geolocation';
 import {chekLocationPermission} from '../../utils/permissions';
-
+import {colorArray} from '../../utils/constants/ConstantValues';
+import generateBoxShadowStyle from '../../Components/generateBoxShadowStyle';
+var finalAllTasks = [];
+var finaltodayTasks = [];
 export default function DashBoard({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
   console.log(userData, 'userData');
@@ -406,7 +410,7 @@ export default function DashBoard({route, navigation}) {
             allTasks: res?.data,
             markers: filterMarker,
             isRefreshing: false,
-            isLoading: false,
+            // isLoading: false,
           });
         } else {
           let filterMarker = res.data.filter((val, i) => {
@@ -419,7 +423,7 @@ export default function DashBoard({route, navigation}) {
             todaysTasks: res?.data,
             markers: filterMarker,
             isRefreshing: false,
-            isLoading: false,
+            // isLoading: false,
           });
         }
 
@@ -432,6 +436,52 @@ export default function DashBoard({route, navigation}) {
     console.log(error, 'error>>>>>>>>>>>>>>>>>>>>>');
     showError(error?.message || error?.error);
   };
+  useEffect(() => {
+    data(allTasks);
+    updateState({
+      isLoading:false
+    })
+  }, [allTasks]);
+
+  useEffect(() => {
+    todayTaskData(todaysTasks);
+    updateState({
+      isLoading:false
+    })
+  }, [todaysTasks]);
+
+  const todayTaskData = (data, type) => {
+    finaltodayTasks = [];
+    let len;
+    for (let i = 0; i < data?.length; i = i + len) {
+      let arr = [];
+      for (let j = i; j < data?.length; j++) {
+        if (data[i].order_id === data[j].order_id) {
+          arr = [...arr, data[j]];
+          len = arr.length;
+        }
+      }
+
+      finaltodayTasks = [...finaltodayTasks, {title: i, data: arr}];
+    }
+  };
+  const data = (data, type) => {
+    finalAllTasks = [];
+    let len;
+    let datalength=data?.length
+    for (let i = 0; i < datalength; i = i + len) {
+      let arr = [];
+      for (let j = i; j < datalength; j++) {
+        if (data[i].order_id === data[j].order_id) {
+          arr = [...arr, data[j]];
+          len = arr.length;
+        }
+      }
+
+      finalAllTasks = [...finalAllTasks, {title: i, data: arr}];
+    }
+  };
+  console.log(finalAllTasks, 'finalArray');
 
   const updateState = data => setState(state => ({...state, ...data}));
 
@@ -524,19 +574,42 @@ export default function DashBoard({route, navigation}) {
     console.log('Here it is', item);
     moveToNewScreen(navigationStrings.TASKDETAIL, {item: item})();
   };
-
-  const renderTaskList = ({item, index}) => {
-    let allData = selectedOption ? allTasks : todaysTasks;
+  const getDynamicUpdateOnValues = data => {
+    var colorData = colorArray;
 
     return (
-      <TaskListCard
-        data={item}
-        index={index}
-        previousData={index > 0 ? allData[index - 1] : null}
-        allTasks={allData}
-        _onPressTask={() => _onPressTask(item)}
-        _onPressTaskDetails={() => _onPressTaskDetails(item)}
-      />
+      '#' +
+      Math.floor(Math.random() * 16777215)
+        .toString(16)
+        .padStart(6, '0')
+        .toUpperCase()
+    );
+  };
+  const renderTaskList = ({item, index}) => {
+    return (
+      <TouchableOpacity
+        onPress={() => _onPressTask(item?.data[0])}
+        activeOpacity={0.8}
+        style={{
+          marginTop: moderateScale(30),
+          borderLeftColor: getDynamicUpdateOnValues(),
+          borderLeftWidth: 3,
+          marginHorizontal: moderateScale(10),
+          ...generateBoxShadowStyle(-2, 0, '#171717', 0.2, 3, 4, '#171717'),
+        }}>
+        {item?.data?.map(obj => {
+          return (
+            <TaskListCard
+              data={obj}
+              index={index}
+              // previousData={index > 0 ? allData[index - 1] : null}
+              // allTasks={allData}
+              // _onPressTask={() => _onPressTask(item)}
+              _onPressTaskDetails={() => _onPressTaskDetails(item)}
+            />
+          );
+        })}
+      </TouchableOpacity>
     );
   };
 
@@ -545,14 +618,13 @@ export default function DashBoard({route, navigation}) {
     updateState({pageNo: 1, isRefreshing: true});
   };
 
-  console.log('allTasksallTasks', allTasks);
   const homeMainView = () => {
     return (
       <>
         <View style={{flex: 1}}>
           {(selectedOption ? allTasks?.length : todaysTasks?.length) ? (
             <FlatList
-              data={selectedOption ? allTasks : todaysTasks}
+              data={selectedOption ? finalAllTasks : finaltodayTasks}
               renderItem={renderTaskList}
               keyExtractor={(item, index) => String(index)}
               keyboardShouldPersistTaps="always"
