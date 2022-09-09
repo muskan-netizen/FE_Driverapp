@@ -43,6 +43,7 @@ const NotificationModal = () => {
     orderCost: null,
     totalDistance: null,
     taskId: null,
+    orderData:{}
   });
   const {notificationData} = useSelector(state => state?.initBoot);
 
@@ -60,6 +61,7 @@ const NotificationModal = () => {
     orderCost,
     totalDistance,
     taskId,
+    orderData
   } = state;
 
   useEffect(() => {
@@ -102,6 +104,8 @@ const NotificationModal = () => {
           orderCost: res?.order?.order_cost,
           totalDistance: res?.order?.actual_distance,
           taskId: res?.order?.unique_id,
+          orderData:res?.order
+
         });
       })
       .catch(error => console.log('error in notification Data', error));
@@ -188,6 +192,8 @@ const NotificationModal = () => {
     );
   };
 
+  console.log(orderData?.cash_to_be_collected,"orderData?.cash_to_be_collected");
+
   const modalMainContent = () => {
     let data = notificationData?.notificationData?.data;
     let notificationType = data?.type ? data?.type : data?.notificationType;
@@ -235,7 +241,7 @@ const NotificationModal = () => {
              {` ${taskId}`}
            </Text>
          </View>}
-            {!!Number(data?.cash_to_be_collected) > 0 && (
+            {orderData?.cash_to_be_collected> 0 && (
               <View style={{alignItems: 'center'}}>
                 <Text
                   numberOfLines={1}
@@ -245,7 +251,7 @@ const NotificationModal = () => {
                 <Text
                   numberOfLines={1}
                   style={styles.priceTextStyle}>
-                  {` ${Number(data?.cash_to_be_collected).toFixed(2)}`}
+                  {orderData?.cash_to_be_collected}
                 </Text>
                 <Text style={styles.address}></Text>
               </View>
