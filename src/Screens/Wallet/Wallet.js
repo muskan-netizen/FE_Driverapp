@@ -30,9 +30,6 @@ import {colorArray} from '../../utils/constants/ConstantValues';
 import {showError} from '../../utils/helperFunctions';
 import stylesFunction from './styles';
 
-let isNoMore = false;
-let onEndReachedCalledDuringMomentum = false;
-
 export default function Wallet({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
   console.log(userData, 'userData');
@@ -100,7 +97,6 @@ export default function Wallet({route, navigation}) {
         {client: clientInfo?.database_name},
       )
       .then(res => {
-        console.log(res?.payments?.data, 'getWalletDataOfDriver>res');
         updateState({
           lifetimeAmount: res?.lifetime_earnings,
           currentAmount: Number(res?.wallet_balance),
