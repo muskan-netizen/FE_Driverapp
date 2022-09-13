@@ -86,6 +86,8 @@ export default function OrderDetail({route, navigation}) {
       });
   };
 
+  console.log(userData, 'userData........');
+
   const _renderItem = ({item, index}) => {
     return (
       <View
@@ -193,6 +195,7 @@ export default function OrderDetail({route, navigation}) {
                                   : 'flex-end',
                             }}>
                             <Text style={styles.cartItemPrice}>
+                              {userData?.client_preference?.currency?.symbol}
                               {Number(i?.price * i?.quantity).toFixed(2)}
                             </Text>
                           </View>
@@ -332,6 +335,7 @@ export default function OrderDetail({route, navigation}) {
           ]}>
           <Text style={styles.priceItemLabel}>{strings.SUBTOTAL}</Text>
           <Text style={styles.priceItemLabel}>
+            {userData?.client_preference?.currency?.symbol}
             {cartData?.total_amount > 0 &&
               Number(cartData?.total_amount).toFixed(2)}
           </Text>
@@ -340,7 +344,7 @@ export default function OrderDetail({route, navigation}) {
           <View style={styles.bottomTabLableValue}>
             <Text style={styles.priceItemLabel}>{strings.WALLET}</Text>
             <Text style={styles.priceItemLabel}>
-              -
+              -{userData?.client_preference?.currency?.symbol}
               {cartData?.wallet_amount_used > 0 &&
                 Number(cartData?.wallet_amount_used).toFixed(2)}
             </Text>
@@ -350,6 +354,7 @@ export default function OrderDetail({route, navigation}) {
           <View style={styles.bottomTabLableValue}>
             <Text style={styles.priceItemLabel}>{strings.FIXED_FEE}</Text>
             <Text style={styles.priceItemLabel}>
+              {userData?.client_preference?.currency?.symbol}
               {cartData?.fixed_fee_amount > 0 &&
                 Number(cartData?.fixed_fee_amount).toFixed(2)}
             </Text>
@@ -359,6 +364,7 @@ export default function OrderDetail({route, navigation}) {
           <View style={styles.bottomTabLableValue}>
             <Text style={styles.priceItemLabel}>{strings.DELIVERYFEE}</Text>
             <Text style={styles.priceItemLabel}>
+              {userData?.client_preference?.currency?.symbol}
               {cartData?.total_delivery_fee
                 ? Number(cartData?.total_delivery_fee).toFixed(2)
                 : 0}
@@ -369,7 +375,7 @@ export default function OrderDetail({route, navigation}) {
           <View style={styles.bottomTabLableValue}>
             <Text style={styles.priceItemLabel}>{strings.LOYALTY}</Text>
             <Text style={styles.priceItemLabel}>
-              -
+              -{userData?.client_preference?.currency?.symbol}
               {cartData?.loyalty_amount_saved
                 ? Number(cartData?.loyalty_amount_saved).toFixed(2)
                 : 0}
@@ -381,7 +387,8 @@ export default function OrderDetail({route, navigation}) {
           <View style={styles.bottomTabLableValue}>
             <Text style={styles.priceItemLabel}>{strings.TOTALDISCOUNT}</Text>
             <Text style={styles.priceItemLabel}>
-              -{Number(cartData?.total_discount).toFixed(2)}
+              -{userData?.client_preference?.currency?.symbol}
+              {Number(cartData?.total_discount).toFixed(2)}
             </Text>
           </View>
         )}
@@ -389,6 +396,7 @@ export default function OrderDetail({route, navigation}) {
           <View style={styles.bottomTabLableValue}>
             <Text style={styles.priceItemLabel}>{strings.TAXAMOUNT}</Text>
             <Text style={styles.priceItemLabel}>
+              {userData?.client_preference?.currency?.symbol}
               {Number(cartData?.taxable_amount).toFixed(2)}
             </Text>
           </View>
@@ -407,6 +415,7 @@ export default function OrderDetail({route, navigation}) {
               styles.priceItemLabel2,
               {marginTop: moderateScaleVertical(5)},
             ]}>
+            {userData?.client_preference?.currency?.symbol}
             {Number(cartData?.payable_amount).toFixed(2)}
           </Text>
         </View>

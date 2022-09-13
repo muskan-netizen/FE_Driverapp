@@ -400,7 +400,6 @@ export default function DashBoard({route, navigation}) {
               return val;
             }
           });
-          console.log('filter marker', filterMarker);
           updateState({
             allTasks: res?.data,
             markers: filterMarker,
@@ -413,7 +412,6 @@ export default function DashBoard({route, navigation}) {
               return val;
             }
           });
-          console.log('filter marker', filterMarker);
           updateState({
             todaysTasks: res?.data,
             markers: filterMarker,
@@ -421,14 +419,11 @@ export default function DashBoard({route, navigation}) {
             isLoading: false,
           });
         }
-
-        console.log(res, 'res>res');
       })
       .catch(errorMethod);
   };
   //Error handling in api
   const errorMethod = error => {
-    console.log(error, 'error>>>>>>>>>>>>>>>>>>>>>');
     showError(error?.message || error?.error);
   };
 

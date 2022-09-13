@@ -66,6 +66,8 @@ export default function TaskDetail({route, navigation}) {
   const styles = stylesFunc({defaultLanguage});
   const commonStyles = commonStylesFunc({fontFamily});
 
+  console.log(taskDetail, 'taskDetail...taskDetail');
+
   const [state, setState] = useState({
     vendors: {},
     isLoading: false,
@@ -848,7 +850,7 @@ export default function TaskDetail({route, navigation}) {
                     </TouchableOpacity>
                   )}
 
-                  {!!taskDetail?.order?.recipient_phone && (
+                  {!!taskDetail?.location?.phone_number && (
                     <TouchableOpacity
                       onPress={() =>
                         Linking.openURL(
@@ -1132,15 +1134,6 @@ export default function TaskDetail({route, navigation}) {
           <Text style={styles.taskText}>
             {strings.TASKDETAIL.toUpperCase()}
           </Text>
-
-          {clientInfo?.socket_url ? (
-            <TouchableOpacity onPress={() => createRoom(taskDetail)}>
-              <Text
-                style={{fontFamily: fontFamily?.bold, fontSize: textScale(16)}}>
-                Start Chat
-              </Text>
-            </TouchableOpacity>
-          ) : null}
         </View>
 
         {/* Task Detail View */}
@@ -1211,9 +1204,8 @@ export default function TaskDetail({route, navigation}) {
                     flex: 0.47,
                     flexDirection: 'row',
                     marginTop: moderateScale(10),
-
                     alignItems: 'center',
-                    justifyContent: 'flex-start',
+                    justifyContent: 'space-around',
                   }}>
                   <TouchableOpacity
                     style={{
@@ -1239,18 +1231,23 @@ export default function TaskDetail({route, navigation}) {
                       source={imagePath.phone2}
                       style={{marginRight: moderateScale(5)}}
                     />
-                    <Text
-                      style={{
-                        fontFamily: fontFamily.bold,
-                        fontSize: textScale(12),
-                        color: colors.textGreyOpcaity7,
-                        paddingLeft: moderateScale(5),
-                        marginRight: moderateScale(10),
-                        flexWrap: 'wrap',
-                      }}>
-                      {taskDetail?.order?.customer?.phone_number}
-                    </Text>
                   </TouchableOpacity>
+
+                  {!!clientInfo?.socket_url ? (
+                    <TouchableOpacity
+                      style={{
+                        flexDirection: 'row',
+                        alignItems: 'center',
+
+                        marginRight: moderateScale(10),
+                      }}
+                      onPress={() => createRoom(taskDetail)}>
+                      <Image
+                        source={imagePath.icStartChat}
+                        style={{marginRight: moderateScale(5)}}
+                      />
+                    </TouchableOpacity>
+                  ) : null}
                 </View>
               )}
             </View>

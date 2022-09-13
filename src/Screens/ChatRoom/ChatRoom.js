@@ -1,5 +1,5 @@
 import React, {useState, useCallback, useEffect, useRef} from 'react';
-import {Text, View, FlatList, TouchableOpacity} from 'react-native';
+import {Text, View, FlatList, TouchableOpacity, Image} from 'react-native';
 import {useSelector} from 'react-redux';
 import Header from '../../Components/Header';
 import {useFocusEffect, useIsFocused} from '@react-navigation/native';
@@ -140,7 +140,7 @@ export default function ChatRoom({navigation, route}) {
   const listEmptyComponent = useCallback(() => {
     return (
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-        <Text>Chat Room Empty</Text>
+        <Image source={imagePath.icChatroom} />
       </View>
     );
   }, []);

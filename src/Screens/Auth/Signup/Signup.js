@@ -1453,6 +1453,7 @@ export default function Signup({route, navigation}) {
         </View>
       </Modal>
       <ModalComponent
+        onClose={() => setOtpModal(false)}
         isVisible={isOtpModal}
         modalRef={modalRef}
         modalStyle={{
