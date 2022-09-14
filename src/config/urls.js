@@ -100,7 +100,7 @@
 //beachhop
 // export const API_BASE_URL = 'https://dispatch.beachhopdelivery.com/'
 //gdotdelivery
-// export const API_BASE_URL ='https://dispatch.gdotdelivery.com/'
+// export const API_BASE_URL = 'https://dispatch.gdotdelivery.com/';
 
 // yogolift
 // export const API_BASE_URL = 'https://dispatch.lift.gd/'

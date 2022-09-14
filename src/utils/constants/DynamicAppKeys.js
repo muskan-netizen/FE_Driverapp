@@ -365,6 +365,14 @@ const shortCodes = {
   onTheWheel: 'b053fb',
   valleyMeats: '7cf41c',
   perucabs: 'b0eeff',
+  hafizjwlry: '9432be',
+  jana: '489220',
+  myWayBill: 'a77856',
+  cattch: '27087d',
+  tezras: '2a2d25',
+  eureka: '54bd72',
+  kaypee: '6fb0d4',
+  hitaxi: '5e5ec2',
 };
 
 const appIds = {
@@ -926,7 +934,7 @@ const appIds = {
     android: 'com.app.MML.royodispatcher',
   }),
   bimol: Platform.select({
-    ios: 'com.Bimol.Dispatch',
+    ios: 'com.bimol.driver',
     android: 'com.bimol.driver',
   }),
   tripTCI: Platform.select({
@@ -1810,6 +1818,38 @@ const appIds = {
   perucabs: Platform.select({
     ios: 'com.perucabs.dispatcher',
     android: 'com.perucabs.dispatcher',
+  }),
+  hafizjwlry: Platform.select({
+    ios: 'com.hafizjwlry.royodispatcher',
+    android: 'com.hafizjwlry.royodispatcher',
+  }),
+  jana: Platform.select({
+    ios: 'com.jana.royodispatcher',
+    android: 'com.jana.royodispatcher',
+  }),
+  myWayBill: Platform.select({
+    ios: 'com.mywaybill.royodispatcher',
+    android: 'com.mywaybill.royodispatcher',
+  }),
+  cattch: Platform.select({
+    ios: 'com.cattch.royodispatcher',
+    android: 'com.cattch.royodispatcher',
+  }),
+  tezras: Platform.select({
+    ios: 'com.tezras.royodispatcher',
+    android: 'com.tezras.royodispatcher',
+  }),
+  eureka: Platform.select({
+    ios: 'com.eureka.royodispatcher',
+    android: 'com.eureka.royodispatcher',
+  }),
+  kaypee: Platform.select({
+    ios: 'com.kaypee.royodispatcher',
+    android: 'com.kaypee.royodispatcher',
+  }),
+  hitaxi: Platform.select({
+    ios: 'com.hitaxi.royodispatcherapp',
+    android: 'com.hitaxi.royodispatcherapp',
   }),
 };
 

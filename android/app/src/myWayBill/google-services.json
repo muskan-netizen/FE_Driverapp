@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "199173935821",
+    "project_id": "mywaybill-dispatcher",
+    "storage_bucket": "mywaybill-dispatcher.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:199173935821:android:b2a52d0eab81e164c00f84",
+        "android_client_info": {
+          "package_name": "com.mywaybill.royodispatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "199173935821-ce9j5b5jj8acmh5e2as1e9qt23431tpj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEa2Zu6GChcJCyn6kF2o9JWT9HdVPVwSs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "199173935821-ce9j5b5jj8acmh5e2as1e9qt23431tpj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "199173935821-6msnh2r5g1cmckb8g2veh08pdoe6u7fb.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mywaybill.royodispatcher"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

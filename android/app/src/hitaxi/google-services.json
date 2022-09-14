@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "413593709538",
+    "project_id": "hitaxi-dispatcher",
+    "storage_bucket": "hitaxi-dispatcher.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:413593709538:android:0638411a894b7dba5967bb",
+        "android_client_info": {
+          "package_name": "com.hitaxi.royodispatcherapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "413593709538-ij6d0vfjeuont31sgbvled9s1nn2ktbo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKAiEkR6h9vYyr8r4M_NLLBH7LgA0nhnA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "413593709538-ij6d0vfjeuont31sgbvled9s1nn2ktbo.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "413593709538-130l4bj6b7om18kpaai0g8hbooc63fil.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.hitaxi.royodispatcherapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
