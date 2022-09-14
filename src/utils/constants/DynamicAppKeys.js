@@ -370,8 +370,8 @@ const shortCodes = {
   myWayBill: 'a77856',
   cattch: '27087d',
   tezras: '2a2d25',
-  eureka: '7feaa0',
-  kaypee: 'ed9a42',
+  eureka: '54bd72',
+  kaypee: '6fb0d4',
   hitaxi: '5e5ec2',
 };
 
@@ -1848,8 +1848,8 @@ const appIds = {
     android: 'com.kaypee.royodispatcher',
   }),
   hitaxi: Platform.select({
-    ios: 'com.kaypee.royodispatcher',
-    android: 'com.kaypee.royodispatcher',
+    ios: 'com.hitaxi.royodispatcherapp',
+    android: 'com.hitaxi.royodispatcherapp',
   }),
 };
 
