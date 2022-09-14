@@ -4,7 +4,7 @@
 // export const API_BASE_URL = 'https://sales.royodispatch.com/';
 
 //  export const API_BASE_URL = 'https://dispatch.ubercann.com/';
-//  export const API_BASE_URL = 'https://dispatch.swantaxi.net/';
+ export const API_BASE_URL = 'https://dispatch.swantaxi.net/';
 // export const API_BASE_URL = 'https://dispatch.keystonedelivery.com/'
 // export const API_BASE_URL = 'https://dispatch.yogo.gd/';
 
@@ -61,7 +61,7 @@
 // export const API_BASE_URL = 'https://dispatch.quicklube.us/'
 
 //  export const API_BASE_URL = 'https://dispatch.swantaxi.net/'
-
+// export const API_BASE_URL = 'https://dispatch.dropitoffusa.com/'
 //fairex
 // export const API_BASE_URL = 'https://dispatch.fairexglobal.com/'
 //dimavega
@@ -290,7 +290,7 @@
 
 //export const API_BASE_URL = 'https://dispatch.meltivers.com/';
 //  butler delivery
-export const API_BASE_URL = 'https://dispatch.butlerdeliveryusa.com/';
+// export const API_BASE_URL = 'https://dispatch.butlerdeliveryusa.com/';
 // bimolaa
 // export const API_BASE_URL = 'https://dispatch.bimol.in/'
 
