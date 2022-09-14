@@ -4,7 +4,7 @@
 // export const API_BASE_URL = 'https://sales.royodispatch.com/';
 
 //  export const API_BASE_URL = 'https://dispatch.ubercann.com/';
- export const API_BASE_URL = 'https://dispatch.swantaxi.net/';
+//  export const API_BASE_URL = 'https://dispatch.swantaxi.net/';
 // export const API_BASE_URL = 'https://dispatch.keystonedelivery.com/'
 // export const API_BASE_URL = 'https://dispatch.yogo.gd/';
 
@@ -15,7 +15,7 @@
 
 //Staging
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
-
+// export const API_BASE_URL = 'https://jazzybug.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.elog.group/'
 
 
@@ -82,7 +82,7 @@
 //beachhop
 // export const API_BASE_URL = 'https://dispatch.beachhopdelivery.com/'
 //gdotdelivery
-// export const API_BASE_URL ='https://dispatch.gdotdelivery.com/'
+// export const API_BASE_URL = 'https://dispatch.gdotdelivery.com/';
 
 // yogolift
 // export const API_BASE_URL = 'https://dispatch.lift.gd/'
@@ -290,7 +290,7 @@
 
 //export const API_BASE_URL = 'https://dispatch.meltivers.com/';
 //  butler delivery
-// export const API_BASE_URL = 'https://dispatch.butlerdeliveryusa.com/';
+export const API_BASE_URL = 'https://dispatch.butlerdeliveryusa.com/';
 // bimolaa
 // export const API_BASE_URL = 'https://dispatch.bimol.in/'
 
