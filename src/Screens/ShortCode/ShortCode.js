@@ -2230,6 +2230,60 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.shelf:
+          updateState({
+            shortCode: shortCodes.shelf,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.getDress:
+          updateState({
+            shortCode: shortCodes.getDress,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.nuvoni:
+          updateState({
+            shortCode: shortCodes.nuvoni,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.fairDeal:
+          updateState({
+            shortCode: shortCodes.fairDeal,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.balyDlvry:
+          updateState({
+            shortCode: shortCodes.balyDlvry,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.hezniTaxi:
+          updateState({
+            shortCode: shortCodes.hezniTaxi,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.onTheWheel:
+          updateState({
+            shortCode: shortCodes.onTheWheel,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.valleyMeats:
+          updateState({
+            shortCode: shortCodes.valleyMeats,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.perucabs:
+          updateState({
+            shortCode: shortCodes.perucabs,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);
@@ -2272,6 +2326,7 @@ export default function ShortCode({route, navigation}) {
 
   //short code And init api hit
   const initApiHit = () => {
+    // alert("hjbvgnvhgvhbnbhj")
     (async () => {
       const saveShortCode = await getItem('saveShortCode');
       console.log(defaultLanguage?.value, 'Language in init screen');
@@ -2287,7 +2342,7 @@ export default function ShortCode({route, navigation}) {
       }
 
       let updatedShortCode = shortCode;
-      // updatedShortCode = '656c4a';
+      // updatedShortCode = '7ebe0a';
       //  let updatedShortCode = '1fdd1d';
 
       actions

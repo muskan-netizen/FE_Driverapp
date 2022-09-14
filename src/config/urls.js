@@ -97,7 +97,7 @@
 // export const API_BASE_URL = 'https://dispatch.heybuddy.com.mx/';
 
 // dbairro
-// export const API_BASE_URL = 'https://dispatch.dbairro.com/';
+export const API_BASE_URL = 'https://dispatch.dbairro.com/';
 
 // bustamovepartybus
 // export const API_BASE_URL = 'https://dispatch.bustamovepartybus.com/';
@@ -166,7 +166,7 @@
 //empire
 // export const API_BASE_URL = 'https://dispatch.empirehub.com/';
 //Ullaz
-//export const API_BASE_URL = 'https://dispatch.ullaz.co.ke/';
+// export const API_BASE_URL = 'https://dispatch.ullaz.co.ke/';
 
 //LocalDropOff
 // export const API_BASE_URL = 'https://dispatch.localdropoff.info/';
@@ -185,7 +185,7 @@
 
 //dimahalal
 
-export const API_BASE_URL = 'https://dispatch.perucabs.com/';
+// export const API_BASE_URL = 'https://dispatch.perucabs.com/';
 
 // export const API_BASE_URL = 'https://dispatch.dimahalal.com/';
 // export const API_BASE_URL = 'https://dispatch.toor.life/'
@@ -221,8 +221,12 @@ export const API_BASE_URL = 'https://dispatch.perucabs.com/';
 //
 // export const API_BASE_URL = 'https://dispatch.samakeemart.com/';
 
+// blacnetwork
+
+// export const API_BASE_URL = 'https://driver.blacnetwork.com/';
+
 // mml
-// export const API_BASE_URL = 'https://dispatch.mml.mobi/';
+//  export const API_BASE_URL = 'https://dispatch.mml.mobi/';
 
 //manda
 // export const API_BASE_URL = 'https://dispatch.mandaexpress.com/';
@@ -243,7 +247,7 @@ export const API_BASE_URL = 'https://dispatch.perucabs.com/';
 //export const API_BASE_URL = 'https://dispatch.ritenowdelivery.com/';
 
 //nadeliver
-//export const API_BASE_URL = 'https://dispatch.nadeliver.com/';
+// export const API_BASE_URL = 'https://dispatch.nadeliver.com/';
 
 //loopwhole
 // export const API_BASE_URL = 'https://dispatch.loopwhole.ca/';
@@ -317,7 +321,7 @@ export const API_BASE_URL = 'https://dispatch.perucabs.com/';
 // mobi
 //bimol
 // export const API_BASE_URL = 'https://dispatch.bimol.in/';
-//export const API_BASE_URL = 'https://dispatch.mobimarket.com.mx/';
+// export const API_BASE_URL = 'https://dispatch.mobimarket.com.mx/';
 // grub and gusto
 
 //export const API_BASE_URL = 'https://punnet.royodispatch.com/'
@@ -395,6 +399,9 @@ export const API_BASE_URL = 'https://dispatch.perucabs.com/';
 //export const API_BASE_URL = 'https://dispatcher.verofax.com/';
 
 // export const API_BASE_URL = 'https://dispatch.quicklube.us/'
+
+// sxm2Go
+// export const API_BASE_URL = 'https://dispatch.sxm2go.com/';
 
 // export const personaltoken = 'TMJdbQlNWkYl1JzMONzRgF4zQFuP8s';
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;
