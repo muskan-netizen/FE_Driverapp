@@ -17,7 +17,11 @@ import {
   moderateScaleVertical,
   width,
 } from '../../../styles/responsiveSize';
-import {showError, showSuccess} from '../../../utils/helperFunctions';
+import {
+  otpTimerCounter,
+  showError,
+  showSuccess,
+} from '../../../utils/helperFunctions';
 import validator from '../../../utils/validations';
 import stylesFunction from './styles';
 import PhoneNumberInput from '../../../Components/PhoneNumberInput';
@@ -28,10 +32,10 @@ import {getItem} from '../../../utils/utils';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {requestUserPermission} from '../../../utils/notificationServices';
 import RNOtpVerify from 'react-native-otp-verify';
+import useInterval from '../../../utils/useInterval';
 
 export default function PhoneVerification({navigation, route}) {
   const paramData = route?.params?.data;
-  console.log(paramData, 'otpotpotp');
   const [state, setState] = useState({
     isLoading: false,
     callingCode: paramData?.callingCode ? paramData?.callingCode : '91',
@@ -40,6 +44,7 @@ export default function PhoneVerification({navigation, route}) {
     otp: '87124',
     otpToShow: '',
     otpPrefilled: false,
+    otpTimer: 15,
   });
 
   const {
@@ -50,6 +55,7 @@ export default function PhoneVerification({navigation, route}) {
     otp,
     otpToShow,
     otpPrefilled,
+    otpTimer,
   } = state;
   //   const fontFamily = appStyle?.fontSizeData;
   const {themeColors} = useSelector(state => state?.initBoot);
@@ -84,6 +90,18 @@ export default function PhoneVerification({navigation, route}) {
     }
     return true;
   };
+
+  useEffect(() => {
+    let timerId;
+    if (otpTimer > 0) {
+      timerId = setTimeout(() => {
+        updateState({otpTimer: otpTimer - 1});
+      }, 1000);
+    }
+    return () => {
+      if (timerId) clearTimeout(timerId);
+    };
+  }, [otpTimer]);
 
   const otpHandler = message => {
     console.log(message, 'complete msg>>>');
@@ -183,7 +201,9 @@ export default function PhoneVerification({navigation, route}) {
         updateState({isLoading: false});
         if (res?.data) {
           showSuccess('Otp send successfuly');
-          // moveToNewScreen(navigationStrings.SEND_OTP, res?.data)();
+          updateState({
+            otpTimer: 15,
+          });
         }
       })
       .catch(errorMethod);
@@ -244,11 +264,15 @@ export default function PhoneVerification({navigation, route}) {
         <Text style={styles.didntgetOtp}>
           {`${strings.DIDNTRECIEVEANYCODE}`}
           <Text
-            onPress={_resendCode}
+            onPress={otpTimer > 0 ? () => {} : _resendCode}
             style={{
               color: colors.themeColor,
               fontFamily: fontFamily.bold,
-            }}>{`${strings?.RESENTCODE}`}</Text>
+            }}>
+            {otpTimer > 0
+              ? otpTimerCounter(otpTimer)
+              : `${strings?.RESENTCODE}`}
+          </Text>
         </Text>
       </View>
     </WrapperContainer>

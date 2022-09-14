@@ -10,7 +10,6 @@ import {
   width,
 } from '../../styles/responsiveSize';
 export function stylesFunc({defaultLanguagae}) {
-  
   const styles = StyleSheet.create({
     container: {
       // flex: 1,
@@ -317,7 +316,7 @@ export function stylesFunc({defaultLanguagae}) {
       borderStyle: 'dashed',
     },
     address: {
-      marginLeft: defaultLanguagae?.value === 'ar' ? moderateScale(5) : 0,
+      marginLeft: moderateScale(5),
       fontFamily: fontFamily.medium,
       color: colors.lightGreyBgColor,
       fontSize: textScale(14),
