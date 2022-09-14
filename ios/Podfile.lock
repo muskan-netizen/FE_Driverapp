@@ -119,8 +119,8 @@ PODS:
     - RNPermissions
   - Permission-LocationWhenInUse (3.6.1):
     - RNPermissions
-  - PromisesObjC (2.1.0)
-  - razorpay-pod (1.2.5)
+  - PromisesObjC (2.1.1)
+  - razorpay-pod (1.2.7)
   - RCT-Folly (2021.04.26.00):
     - boost-for-react-native
     - DoubleConversion
@@ -361,7 +361,7 @@ PODS:
     - React
   - react-native-splash-screen (3.3.0):
     - React-Core
-  - react-native-webview (11.23.0):
+  - react-native-webview (11.23.1):
     - React-Core
   - React-perflogger (0.65.2)
   - React-RCTActionSheet (0.65.2):
@@ -445,7 +445,7 @@ PODS:
   - RNFaceApi (0.0.38):
     - FaceSDK (= 3.1.952)
     - React
-  - RNFastImage (8.6.0):
+  - RNFastImage (8.6.1):
     - React-Core
     - SDWebImage (~> 5.11.1)
     - SDWebImageWebPCoder (~> 0.8.4)
@@ -488,7 +488,7 @@ PODS:
   - SDWebImage (5.11.1):
     - SDWebImage/Core (= 5.11.1)
   - SDWebImage/Core (5.11.1)
-  - SDWebImageWebPCoder (0.8.4):
+  - SDWebImageWebPCoder (0.8.5):
     - libwebp (~> 1.0)
     - SDWebImage/Core (~> 5.10)
   - SSZipArchive (2.2.3)
@@ -820,8 +820,8 @@ SPEC CHECKSUMS:
   Permission-Camera: bf6791b17c7f614b6826019fcfdcc286d3a107f6
   Permission-LocationAlways: 8d99b025c9f73c696e0cdb367e42525f2e9a26f2
   Permission-LocationWhenInUse: 3ba99e45c852763f730eabecec2870c2382b7bd4
-  PromisesObjC: 99b6f43f9e1044bd87a95a60beff28c2c44ddb72
-  razorpay-pod: aa2df076ea44baab6cc8296c1ccc715fe2ca818c
+  PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
+  razorpay-pod: 8c229afb24506977873ea02ae60dc653be16c191
   RCT-Folly: 0dd9e1eb86348ecab5ba76f910b56f4b5fef3c46
   RCTRequired: 1b65ab453de585b0f939824780bd26cdf6fb07f8
   RCTTypeSafety: 31f76e2d6734fe3c8084ac9d39201c4a1a3c5b42
@@ -851,7 +851,7 @@ SPEC CHECKSUMS:
   react-native-safe-area-context: 9e40fb181dac02619414ba1294d6c2a807056ab9
   react-native-signature-capture: 416a3947684e049a5b012cdd6496f878dc797f16
   react-native-splash-screen: 4312f786b13a81b5169ef346d76d33bc0c6dc457
-  react-native-webview: e771bc375f789ebfa02a26939a57dbc6fa897336
+  react-native-webview: d33e2db8925d090871ffeb232dfa50cb3a727581
   React-perflogger: 939564c838f8b6ec099b4f858559f0f406c99745
   React-RCTActionSheet: b5135d36ee35ebd883c4fe043db7bd8cbba7516e
   React-RCTAnimation: 93aeefce33bb73f8d82132d7a362819676e1d1e4
@@ -873,7 +873,7 @@ SPEC CHECKSUMS:
   RNCPushNotificationIOS: 87b8d16d3ede4532745e05b03c42cff33a36cc45
   RNDeviceInfo: aad3c663b25752a52bf8fce93f2354001dd185aa
   RNFaceApi: 6b8b4d6b4b76939481c601f45264b3275c9846b2
-  RNFastImage: 72a2d5802adef70f8e42fce486f78878f8b47dae
+  RNFastImage: 3207b9eb17c2425d574ca40db35185db6e324f4e
   RNFBApp: 729c0666395b1953198dc4a1ec6deb8fbe1c302e
   RNFBMessaging: 8415ec196e5c1196caa26ec0742cdb48ed4d0f97
   RNFS: 4ac0f0ea233904cb798630b3c077808c06931688
@@ -887,7 +887,7 @@ SPEC CHECKSUMS:
   RNSVG: ecd661f380a07ba690c9c5929c475a44f432d674
   RNZendeskChat: c3835f664be1746b121b69736d5c95e236cae382
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
-  SDWebImageWebPCoder: f93010f3f6c031e2f8fb3081ca4ee6966c539815
+  SDWebImageWebPCoder: 908b83b6adda48effe7667cd2b7f78c897e5111d
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
   Stripe: f2bed8369154c35c8ec794704e042e05240d6f21
   stripe-react-native: 2ba5ddd91db057546757ad88bea950d9bfd4cacc
@@ -902,6 +902,6 @@ SPEC CHECKSUMS:
   ZendeskMessagingSDK: 95d396c981dacfab83cc7b9736e8561d51a3052b
   ZendeskSDKConfigurationsSDK: ebced171fd1f4eb57760e8537d8cfa6a450122be
 
-PODFILE CHECKSUM: 38f2e726295bbb1a8bc946013e044332a53256cb
+PODFILE CHECKSUM: fa0995c873d55d36ce2bd58d4e79cc40cd13c4ee
 
 COCOAPODS: 1.11.3

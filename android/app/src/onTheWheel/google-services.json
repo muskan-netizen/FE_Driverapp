@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "407483907631",
+    "project_id": "on-the-wheels-dispatcher",
+    "storage_bucket": "on-the-wheels-dispatcher.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:407483907631:android:cbdcb527ff9e4cf60cd0da",
+        "android_client_info": {
+          "package_name": "com.onthewheel.royodispatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "407483907631-ukqcp0u66appn9l22jcguthf3nehpnq2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByBPF6shSVVcL2mz57eyZWiPueNFRRRvA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "407483907631-ukqcp0u66appn9l22jcguthf3nehpnq2.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "407483907631-a9fkd6siq3douu3lnvjfvoqv4lmuk8ga.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.onthewheel.royodispatcher"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
