@@ -449,10 +449,10 @@ PODS:
     - React-Core
     - SDWebImage (~> 5.11.1)
     - SDWebImageWebPCoder (~> 0.8.4)
-  - RNFBApp (12.9.3):
+  - RNFBApp (12.9.0):
     - Firebase/CoreOnly (= 8.8.0)
     - React-Core
-  - RNFBMessaging (12.9.3):
+  - RNFBMessaging (12.9.0):
     - Firebase/Messaging (= 8.8.0)
     - React-Core
     - RNFBApp
@@ -874,8 +874,8 @@ SPEC CHECKSUMS:
   RNDeviceInfo: aad3c663b25752a52bf8fce93f2354001dd185aa
   RNFaceApi: 5c7484fcef952c2cd98c95eb7dd1ac2cd3a7a222
   RNFastImage: 1f2cab428712a4baaf78d6169eaec7f622556dd7
-  RNFBApp: 729c0666395b1953198dc4a1ec6deb8fbe1c302e
-  RNFBMessaging: 8415ec196e5c1196caa26ec0742cdb48ed4d0f97
+  RNFBApp: d11e8ae04b9b6230f3a28b70761f2edd185deaa8
+  RNFBMessaging: dd0bd7d837b7b6b8e881248a2639af5dc36b28ef
   RNFS: 4ac0f0ea233904cb798630b3c077808c06931688
   RNGestureHandler: a479ebd5ed4221a810967000735517df0d2db211
   RNImageCropPicker: 73891a709e6fd8a47d32104d942757971f220aee
@@ -902,6 +902,6 @@ SPEC CHECKSUMS:
   ZendeskMessagingSDK: 95d396c981dacfab83cc7b9736e8561d51a3052b
   ZendeskSDKConfigurationsSDK: ebced171fd1f4eb57760e8537d8cfa6a450122be
 
-PODFILE CHECKSUM: aab9a3eb916f713471faf1e3342d65f75417888f
+PODFILE CHECKSUM: 185335c227788a0694f506651883e9c326e9e858
 
 COCOAPODS: 1.11.3

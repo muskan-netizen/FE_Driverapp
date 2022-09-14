@@ -202,8 +202,6 @@ android {
 
      flavorDimensions "appType"
 
-
-
     productFlavors {
         royodispatcher {
             dimension "appType"
@@ -6551,7 +6549,56 @@ android {
             applicationId 'com.mywaybill.royodispatcher'
             resValue "string", "app_name", "MYWAYBILL Dispatcher"
         }
-
+        cattch{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.cattch.royodispatcher'
+            resValue "string", "app_name", "Cattch Dispatcher"
+        }
+        tezras{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.tezras.royodispatcher'
+            resValue "string", "app_name", "Tezras Dispatcher"
+        }
+        eureka{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.eureka.royodispatcher'
+            resValue "string", "app_name", "Eureka Dispatcher"
+        }
+        kaypee{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.kaypee.royodispatcher'
+            resValue "string", "app_name", "Kaypee Dispatcher"
+        }
+        hitaxi{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.hitaxi.royodispatcherapp'
+            resValue "string", "app_name", "Hitaxi Dispatcher"
+        }
 }
 }
 

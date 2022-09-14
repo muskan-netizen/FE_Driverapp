@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "780678836565",
+    "project_id": "tezras-dispatcher",
+    "storage_bucket": "tezras-dispatcher.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:780678836565:android:0d94ffb73d3d251d277fdc",
+        "android_client_info": {
+          "package_name": "com.tezras.royodispatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "780678836565-t352jvuk77ih2dp3dp86d3ub6c3quj8r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVwVu8NmGbS18LqsGDnYOC4rrQyWWAYdk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "780678836565-t352jvuk77ih2dp3dp86d3ub6c3quj8r.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "780678836565-7b0v1pl7nnidj6igmtdsdir6gvvih8ad.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.tezras.royodispatcher"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -15,7 +15,7 @@
 
 //Staging
 export const API_BASE_URL = 'https://api.rdstaging.com/';
-
+// export const API_BASE_URL = 'https://jazzybug.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.elog.group/'
 
 // export const API_BASE_URL = 'https://dispatch.knockknock.online/'
@@ -83,7 +83,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //beachhop
 // export const API_BASE_URL = 'https://dispatch.beachhopdelivery.com/'
 //gdotdelivery
-// export const API_BASE_URL ='https://dispatch.gdotdelivery.com/'
+// export const API_BASE_URL = 'https://dispatch.gdotdelivery.com/';
 
 // yogolift
 // export const API_BASE_URL = 'https://dispatch.lift.gd/'
