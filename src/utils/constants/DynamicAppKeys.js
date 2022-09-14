@@ -776,7 +776,7 @@ const appIds = {
   }),
   yoho: Platform.select({
     ios: 'com.Yohoapp.Dispatcher',
-    android: 'com.Yoho.royodispatcher',
+    android: 'com.yoho.partner',
   }),
   marasym: Platform.select({
     ios: 'com.Marasym.Dispatch',

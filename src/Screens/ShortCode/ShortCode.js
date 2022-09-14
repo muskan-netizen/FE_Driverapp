@@ -2324,7 +2324,7 @@ export default function ShortCode({route, navigation}) {
         };
       }
 
-      let updatedShortCode = shortCode;
+      let updatedShortCode = '0a0885';
       //updatedShortCode = '7ebe0a';
       //  let updatedShortCode = '1fdd1d';
 
