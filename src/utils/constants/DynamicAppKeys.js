@@ -373,6 +373,10 @@ const shortCodes = {
   eureka: '54bd72',
   kaypee: '6fb0d4',
   hitaxi: '5e5ec2',
+  kwivar: '53992e',
+  parcel: '10d107',
+  lex: '26cd40',
+  flank: '201a5b',
 };
 
 const appIds = {
@@ -1850,6 +1854,22 @@ const appIds = {
   hitaxi: Platform.select({
     ios: 'com.hitaxi.royodispatcherapp',
     android: 'com.hitaxi.royodispatcherapp',
+  }),
+  kwivar: Platform.select({
+    ios: 'com.kwivar.royodispatcher',
+    android: 'com.kwivar.royodispatcher',
+  }),
+  parcel: Platform.select({
+    ios: 'com.parcel.royodispatcher',
+    android: 'com.parcel.royodispatcher',
+  }),
+  lex: Platform.select({
+    ios: 'com.lex.royodispatcher',
+    android: 'com.lex.royodispatcher',
+  }),
+  flank: Platform.select({
+    ios: 'com.flank.royodispatcher',
+    android: 'com.flank.royodispatcher',
   }),
 };
 

@@ -2332,6 +2332,30 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.kwivar:
+          updateState({
+            shortCode: shortCodes.kwivar,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.parcel:
+          updateState({
+            shortCode: shortCodes.parcel,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.lex:
+          updateState({
+            shortCode: shortCodes.lex,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.flank:
+          updateState({
+            shortCode: shortCodes.flank,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);

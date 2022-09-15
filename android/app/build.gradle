@@ -6593,6 +6593,49 @@ android {
             applicationId 'com.hitaxi.royodispatcherapp'
             resValue "string", "app_name", "Hitaxi Dispatcher"
         }
+
+         kwivar{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.kwivar.royodispatcher'
+            resValue "string", "app_name", "Kwivar Dispatcher"
+        }
+         parcel{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.parcel.royodispatcher'
+            resValue "string", "app_name", "Parcel Dispatcher"
+        }
+
+         lex{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.lex.royodispatcher'
+            resValue "string", "app_name", "Lex Dispatcher"
+        }
+
+         flank{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.flank.royodispatcher'
+            resValue "string", "app_name", "Flank Dispatcher"
+        }
 }
 }
 
