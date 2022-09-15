@@ -203,15 +203,15 @@ android {
      flavorDimensions "appType"
 
 // productFlavors {
-//                   destination_ops{
+//                 hemptify {
 //             dimension "appType"
-//             versionCode 4
+//             versionCode 1
 //             versionName "1.0"
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId "com.destinationOpsApp.royodispatcher"
-//             resValue "string", "app_name", "Destination Ops Driver"
+//             applicationId 'com.HemptiFy.royoDriver'
+//             resValue "string", "app_name", "HemptiFy Dispatch"
 //         }
 // }
     
@@ -274,7 +274,7 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.App.HemptiFy.royodispatcher'
+            applicationId 'com.HemptiFy.royoDriver'
             resValue "string", "app_name", "HemptiFy Dispatch"
         } 
 
@@ -1482,16 +1482,6 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId "com.Marasym.royodispatcher"
             resValue "string", "app_name", "Marasym Dispatcher"
-        }
-        blacNetwork{    
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.BlacNetwork.royodispatcher'
-            resValue "string", "app_name", "Blac Network Dispatcher"
         }
         threadAgain{
             dimension "appType"
@@ -3287,19 +3277,6 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.EzMobileFuel.royodispatcher'
             resValue "string", "app_name", "EzMobile Fuel Dispatcher"
-        }
-    
-          
-        
-        blacNetwork{    
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.BlacNetwork.royodispatcher'
-            resValue "string", "app_name", "Blac Network Dispatcher"
         }
         threadAgain{
             dimension "appType"

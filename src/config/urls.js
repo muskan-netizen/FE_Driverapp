@@ -97,7 +97,7 @@
 // export const API_BASE_URL = 'https://dispatch.heybuddy.com.mx/';
 
 // dbairro
-export const API_BASE_URL = 'https://dispatch.dbairro.com/';
+// export const API_BASE_URL = 'https://dispatch.dbairro.com/';
 
 // bustamovepartybus
 // export const API_BASE_URL = 'https://dispatch.bustamovepartybus.com/';

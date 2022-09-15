@@ -393,8 +393,8 @@ const appIds = {
     android: 'com.tranzit.royodispatcher',
   }),
   hemptify: Platform.select({
-    ios: 'com.HemptyFy.Dispatch',
-    android: 'com.App.HemptiFy.royodispatcher',
+    ios: 'com.HemptiFy.royoDriver',
+    android: 'com.HemptiFy.royoDriver',
   }),
   goody: Platform.select({
     ios: 'com.Goody.Dispatch',
