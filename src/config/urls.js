@@ -30,7 +30,7 @@
 
 // export const API_BASE_URL = 'http://192.168.96.84:9091/';
 
-// export const API_BASE_URL = 'https://dispatch.knockknock.online/';
+export const API_BASE_URL = 'https://dispatch.knockknock.online/';
 
 //Papruki
 // export const API_BASE_URL='https://dispatch.papiruki.com/'
@@ -290,7 +290,7 @@
 
 //export const API_BASE_URL = 'https://dispatch.meltivers.com/';
 //  butler delivery
-export const API_BASE_URL = 'https://dispatch.butlerdeliveryusa.com/';
+// export const API_BASE_URL = 'https://dispatch.butlerdeliveryusa.com/';
 // bimolaa
 // export const API_BASE_URL = 'https://dispatch.bimol.in/'
 
