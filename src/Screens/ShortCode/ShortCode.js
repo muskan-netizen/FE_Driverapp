@@ -2390,7 +2390,7 @@ export default function ShortCode({route, navigation}) {
         };
       }
 
-      let updatedShortCode = '0a0885';
+      let updatedShortCode = shortCode;
       //updatedShortCode = '7ebe0a';
       //  let updatedShortCode = '1fdd1d';
 

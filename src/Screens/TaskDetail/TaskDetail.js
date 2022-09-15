@@ -779,11 +779,11 @@ export default function TaskDetail({route, navigation}) {
                   </TouchableOpacity>
                 )}
 
-                {taskDetail?.barcode && (
+                {/* {taskDetail?.barcode && (
                   <View style={{justifyContent: 'center'}}>
                     <Image source={imagePath?.barcode2} />
                   </View>
-                )}
+                )} */}
               </View>
 
               {!!(
@@ -839,6 +839,7 @@ export default function TaskDetail({route, navigation}) {
                         marginTop: moderateScale(10),
                         alignItems: 'center',
                         flex: 0.65,
+                       
                       }}>
                       <Image
                         source={imagePath.mail2}
@@ -862,6 +863,7 @@ export default function TaskDetail({route, navigation}) {
                         marginTop: moderateScale(10),
                         alignItems: 'center',
                         flex: 0.35,
+                        
                       }}>
                       <Image
                         source={imagePath.phone2}
@@ -882,6 +884,7 @@ export default function TaskDetail({route, navigation}) {
                     flexDirection: 'row',
                     marginTop: moderateScale(10),
                     alignItems: 'center',
+                    
                   }}>
                   <Image
                     source={imagePath?.location2}
@@ -898,6 +901,7 @@ export default function TaskDetail({route, navigation}) {
                   flexDirection: 'row',
                   marginTop: moderateScale(10),
                   justifyContent: 'space-between',
+                  
                 }}>
                 {!!taskDetail?.quantity && (
                   <View
@@ -978,6 +982,7 @@ export default function TaskDetail({route, navigation}) {
                     // opacity: 0.5,
                     flexDirection: 'row',
                     justifyContent: 'space-between',
+                    
                   }}>
                   {!!vendors?.email && (
                     <TouchableOpacity
@@ -1201,7 +1206,7 @@ export default function TaskDetail({route, navigation}) {
               {!!taskDetail?.order?.customer?.phone_number && (
                 <View
                   style={{
-                    flex: 0.47,
+                    flex: 0.4,
                     flexDirection: 'row',
                     marginTop: moderateScale(10),
                     alignItems: 'center',
@@ -1218,8 +1223,6 @@ export default function TaskDetail({route, navigation}) {
                     style={{
                       flexDirection: 'row',
                       alignItems: 'center',
-
-                      marginRight: moderateScale(10),
                     }}
                     onPress={() =>
                       Communications.phonecall(
@@ -1229,7 +1232,6 @@ export default function TaskDetail({route, navigation}) {
                     }>
                     <Image
                       source={imagePath.phone2}
-                      style={{marginRight: moderateScale(5)}}
                     />
                   </TouchableOpacity>
 
@@ -1238,13 +1240,12 @@ export default function TaskDetail({route, navigation}) {
                       style={{
                         flexDirection: 'row',
                         alignItems: 'center',
-
-                        marginRight: moderateScale(10),
+                        marginLeft:moderateScale(5)
                       }}
                       onPress={() => createRoom(taskDetail)}>
                       <Image
                         source={imagePath.icStartChat}
-                        style={{marginRight: moderateScale(5)}}
+                      
                       />
                     </TouchableOpacity>
                   ) : null}
