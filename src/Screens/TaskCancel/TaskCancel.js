@@ -144,9 +144,6 @@ export default function TaskCancel({route, navigation}) {
             <Text style={styles.textStyle}>{strings.TASK}</Text>
           </TouchableOpacity>
         )}
-        // hideRight={true}
-        // onPressLeft={()=>navigation.goBack()}
-        // centerTitle={strings.TASK}
       />
       <View style={{...commonStyles.headerTopLine}} />
       <KeyboardAwareScrollView showsVerticalScrollIndicator={false}>
@@ -155,21 +152,36 @@ export default function TaskCancel({route, navigation}) {
             <TouchableOpacity
               activeOpacity={1}
               onPress={() => onselectReason(i)}
-              style={styles.rowViewTaskCancel}>
-              <Text style={styles.reason}>{i.reason}</Text>
-              {selectedReason && selectedReason?.id == i?.id && (
-                <Image source={imagePath?.task_green_tik} />
-              )}
+              style={{
+                ...styles.rowViewTaskCancel,
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'flex-start',
+              }}>
+              <Image
+                source={
+                  selectedReason?.id == i?.id
+                    ? imagePath?.radioActive
+                    : imagePath?.radioInactive
+                }
+              />
+              <Text style={{...styles.reason, marginLeft: moderateScale(10)}}>
+                {i.reason}
+              </Text>
             </TouchableOpacity>
           );
         })}
-        <TextInput
-          multiline={true}
-          value={inputReason}
-          textAlignVertical={'top'}
-          style={styles.textInputStyle}
-          onChangeText={text => updateState({inputReason: text})}
-        />
+        {selectedReason?.id == 7 && (
+          <TextInput
+            multiline={true}
+            value={inputReason}
+            placeholder="Enter your reason here"
+            pla
+            textAlignVertical={'top'}
+            style={styles.textInputStyle}
+            onChangeText={text => updateState({inputReason: text})}
+          />
+        )}
       </KeyboardAwareScrollView>
 
       <ButtonComponent buttonTitle={strings.DONE} onPress={submitReason} />

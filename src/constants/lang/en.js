@@ -46,7 +46,7 @@ export default {
   TASKTIMINGS: 'Task Timings',
   RECIPIENT: 'Recipient Notes',
   CASHTOBECOLLECTED: 'Cash to be collected',
-  CANCELMESSAGE: "If you are not able to complete the job,Press 'OK'",
+  CANCELMESSAGE: 'Are you sure you want to cancel the order?',
   DONE: 'Done',
   PLEASEINPUTSOMEREADY: 'Please enter the input reason',
   SELECTREASON: 'Please select any reason',
@@ -222,7 +222,7 @@ export default {
   SPECIAL_INSTRUCTIONS: 'Special Instructions',
   DONT_HAVE_ACCOUNT: "Don't have an Account ?",
   TASKID: 'Task ID: ',
-  PRICE: 'Cash to be Collected:',
+  PRICE: 'Cash to be Collected',
   TASKDISTANCE: 'Task Distance',
   DAMAGEREPORT: 'Damage Report',
   MAXIMUM_PHOTO_SELECTION_LIMIT_REACHED:
@@ -285,7 +285,7 @@ export default {
   TOTALDISTANCE: 'Total Distance',
   TOTALTIME: 'Total Time',
   CANCELORDER: 'Cancel Order',
-  CANCELORDERMESSAGE: "If you want to cancel the order,Press 'OK'",
+  CANCELORDERMESSAGE: 'Are you sure you want to cancel the order?',
   RESEONCANCEL: 'Reason',
   JOBTYPE: 'Job Type',
   ASSIGNEDTEAM: 'Assigned Team',
@@ -322,4 +322,5 @@ export default {
   ARE_YOU_SURE_YOU_WANT_TO_DELETE:'Are you sure, you want to delete your account? Deleting your account is permanent and will remove all content and profile settings.',
   PICKERCANCLLED:'Picker Canclled',
   CHAT_ROOM:"Chat Room",
+  ORDER_CANCELLED_BY_CUSTOMER:'Order Cancelled By Customer'
 };

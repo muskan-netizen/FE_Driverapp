@@ -175,10 +175,9 @@ export default ({defaultLanguagae}) => {
       backgroundColor: colors.white,
       paddingHorizontal: moderateScale(20),
       paddingVertical: moderateScale(15),
-
-      minHeight: moderateScale(200),
       borderTopLeftRadius: moderateScale(10),
       borderTopRightRadius: moderateScale(10),
+      minHeight: moderateScale(200),
     },
     maskStyle: {
       width: 10,

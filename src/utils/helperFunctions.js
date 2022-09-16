@@ -88,6 +88,26 @@ const getLocation = async (lat, lng, type) => {
   }
 };
 
+const showErrorOnModal = (modalRef = null, message = '', duration = 2000) => {
+  modalRef.current.showMessage({
+    message: message,
+    type: 'default',
+    backgroundColor: colors.themeColor, // background color
+
+    textStyle: {
+      color: colors.white, // text color
+      fontFamily: fontFamily.medium,
+      fontSize: textScale(12),
+    },
+    style: {
+      alignItems: 'center',
+      justifyContent: 'center',
+      height: 40,
+    },
+    duration: duration,
+  });
+};
+
 const showError = (message, duration = 1850) => {
   console.log(message, 'THIS IS MESSAGE');
 
@@ -439,4 +459,5 @@ export {
   getHostName,
   getDomain,
   playHapticEffect,
+  showErrorOnModal,
 };

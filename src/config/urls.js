@@ -2,6 +2,10 @@
 
 //  export const API_BASE_URL = 'https://api.royodispatch.com/';
 // export const API_BASE_URL = 'https://sales.royodispatch.com/';
+//Staging
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
+
+// export const API_BASE_URL = 'https://dispatch.halatalabat.com/'
 
 //  export const API_BASE_URL = 'https://dispatch.ubercann.com/';
 // export const API_BASE_URL = 'https://dispatch.swantaxi.net/';
@@ -22,6 +26,18 @@
 
 // export const API_BASE_URL = 'https://dispatch.knockknock.online/'
 // export const API_BASE_URL = 'https://api.winhires.com/';
+//export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
+//export const API_BASE_URL = 'http://192.168.96.84:9091/';
+//export const API_BASE_URL = 'https://api.royodispatch.com/';
+
+//Staging
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
+
+//Misst
+// export const API_BASE_URL = 'https://miist-dispatch.netsolutionindia.com/';
+
+// export const API_BASE_URL='https://d078-103-72-170-243.in.ngrok.io/'
+//  export const API_BASE_URL = 'https://baytukom-dispatch.netsolutionindia.com/';
 
 //export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
 // export const API_BASE_URL = 'http://192.168.97.160:9090/';
@@ -84,7 +100,7 @@
 //beachhop
 // export const API_BASE_URL = 'https://dispatch.beachhopdelivery.com/'
 //gdotdelivery
-// export const API_BASE_URL ='https://dispatch.gdotdelivery.com/'
+// export const API_BASE_URL = 'https://dispatch.gdotdelivery.com/';
 
 // yogolift
 // export const API_BASE_URL = 'https://dispatch.lift.gd/'
@@ -97,7 +113,7 @@
 // export const API_BASE_URL = 'https://dispatch.heybuddy.com.mx/';
 
 // dbairro
-// export const API_BASE_URL = 'https://dispatch.dbairro.com/';
+export const API_BASE_URL = 'https://dispatch.dbairro.com/';
 
 // bustamovepartybus
 // export const API_BASE_URL = 'https://dispatch.bustamovepartybus.com/';
@@ -291,6 +307,8 @@
 
 // africanize
 // export const API_BASE_URL = 'https://dispatch.africanize.co/';
+
+// export const API_BASE_URL = 'https://dispatch.africanvillage.market/';
 
 // orderchekout
 // export const API_BASE_URL = 'https://dispatch.orderchekout.com/';
