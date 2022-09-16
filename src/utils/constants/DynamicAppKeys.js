@@ -540,7 +540,7 @@ const appIds = {
   }),
   fleety: Platform.select({
     ios: 'com.Fleety.Dispatch',
-    android: 'com.fleety.royodispatcher',
+    android: 'com.fleetydriver.app',
   }),
   gumastas: Platform.select({
     ios: 'com.Gumastas.Dispatch',
