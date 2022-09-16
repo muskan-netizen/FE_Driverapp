@@ -6642,6 +6642,17 @@ android {
             applicationId 'com.flank.royodispatcher'
             resValue "string", "app_name", "Flank Dispatcher"
         }
+
+        smokyKitchen{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.smokyKitchen.royodispatcher'
+            resValue "string", "app_name", "SmokyKitchen Dispatcher"
+        }
 }
 }
 

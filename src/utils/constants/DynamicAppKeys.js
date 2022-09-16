@@ -377,6 +377,7 @@ const shortCodes = {
   parcel: '10d107',
   lex: '26cd40',
   flank: '201a5b',
+  smokyKitchen: 'd3b29b',
 };
 
 const appIds = {
@@ -1870,6 +1871,10 @@ const appIds = {
   flank: Platform.select({
     ios: 'com.flank.royodispatcher',
     android: 'com.flank.royodispatcher',
+  }),
+  smokyKitchen: Platform.select({
+    ios: 'com.smokyKitchen.royodispatcher',
+    android: 'com.smokyKitchen.royodispatcher',
   }),
 };
 

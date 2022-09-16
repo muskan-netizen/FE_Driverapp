@@ -747,6 +747,8 @@
     "lexdispatcherRelease": "cd android && ./gradlew assemblelexRelease",
     "flankdispatcher": "react-native run-android --variant=flankDebug",
     "flankdispatcherRelease": "cd android && ./gradlew assembleflankRelease",
+    "smokyKitchendispatcher": "react-native run-android --variant=smokyKitchenDebug",
+    "smokyKitchendispatcherRelease": "cd android && ./gradlew assemblesmokyKitchenRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",

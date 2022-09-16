@@ -2356,6 +2356,12 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.smokyKitchen:
+          updateState({
+            shortCode: shortCodes.smokyKitchen,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);
