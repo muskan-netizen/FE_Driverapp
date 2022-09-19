@@ -37,6 +37,8 @@
 	</dict>
 	<key>NSAppleMusicUsageDescription</key>
 	<string>Play using while you are hiking</string>
+  <key>NSMotionUsageDescription</key>
+  <string>$(PRODUCT_NAME)would like to access your live location updates in forground mode </string>
 	<key>NSCameraUsageDescription</key>
 	<string>$(PRODUCT_NAME) would like access to your photo gallery to upload photos and set profile picture</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
@@ -59,6 +61,7 @@
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>
+		<string>location</string>
 		<string>remote-notification</string>
 	</array>
 	<key>UILaunchStoryboardName</key>

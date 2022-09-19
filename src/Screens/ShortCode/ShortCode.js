@@ -1848,6 +1848,7 @@ export default function ShortCode({route, navigation}) {
             shortCode: shortCodes.jazzyBug,
             isShortcodePrefilled: true,
           });
+          break;
         case appIds.savannaRags:
           updateState({
             shortCode: shortCodes.savannaRags,
@@ -2413,8 +2414,8 @@ export default function ShortCode({route, navigation}) {
         };
       }
 
-      let updatedShortCode = 'f93d8c';
-      // updatedShortCode = '7ebe0a';
+      let updatedShortCode = shortCode;
+      //updatedShortCode = '7ebe0a';
       //  let updatedShortCode = '1fdd1d';
 
       actions

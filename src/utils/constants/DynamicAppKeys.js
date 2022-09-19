@@ -48,7 +48,7 @@ const shortCodes = {
   jetrider: '387dd4',
   bilionza: 'd97efd',
   baytukom: '7df249',
-  gokab: '362d14',
+  gokab: '94d183',
   bezalio: '2c0bf4',
   doleyPharmacy: '72d02d',
   taquick: '7c335c',
@@ -75,15 +75,15 @@ const shortCodes = {
   elixir: 'cca668',
   ace: '3c58a1',
   zest: 'ddceeb',
-  homeric: '66951f',
+  homeric: 'f31a69',
   share: 'eb1244',
   yeboy: '604a5f',
   moboErrandsService: 'cb01c8',
   Kel360: 'c54206',
   travo: 'c92b12',
   lastMinuteDress: '46e73a',
-  // washvalley: '45f62f',
-  washvalley: '745e3f',
+  washvalley: '45f62f',
+  // washvalley: '745e3f',
   tajammul: 'b74129',
   cabWay: 'edbdc8',
   carroai: 'bfcc32',
@@ -698,8 +698,8 @@ const appIds = {
     android: 'com.travo.royodispatcher',
   }),
   lastMinuteDress: Platform.select({
-    ios: 'com.LastMinuteDress.Dispatch',
-    android: 'com.LastMinuteDress.royodispatcher',
+    ios: 'com.LastMinuteDress.Driver',
+    android: 'com.LastMinuteDress.Driver',
   }),
   washvalley: Platform.select({
     ios: 'com.WashValley.Dispatch',
@@ -731,7 +731,7 @@ const appIds = {
   }),
   blacNetwork: Platform.select({
     ios: 'com.BlacNetwork.Dispatch',
-    android: 'com.BlacNetwork.royodispatcher',
+    android: 'com.BlacNetwork.Driver',
   }),
   ezMobileFuel: Platform.select({
     ios: 'com.EzMobileFuel.Dispatch',
@@ -791,7 +791,7 @@ const appIds = {
   }),
   yoho: Platform.select({
     ios: 'com.Yohoapp.Dispatcher',
-    android: 'com.Yoho.royodispatcher',
+    android: 'com.yoho.partner',
   }),
   marasym: Platform.select({
     ios: 'com.Marasym.Dispatch',
@@ -1151,7 +1151,7 @@ const appIds = {
   }),
   swiffyLLC: Platform.select({
     ios: 'com.SwiffyLLC.Dispatcher',
-    android: 'com.SwiffyLLC',
+    android: 'com.SwiffyLLC.royodispatcher',
   }),
   sabroson: Platform.select({
     ios: 'com.Sabroson.Driver',
@@ -1278,8 +1278,8 @@ const appIds = {
     android: 'com.TimHomeServices.royodispatcher',
   }),
   dbairro: Platform.select({
-    ios: 'com.Dbairro.Dispatcher',
-    android: 'com.Dbairro.royodispatcher',
+    ios: 'com.Dbairro.royoDriver',
+    android: 'com.Dbairro.dispatcher',
   }),
   knockknock: Platform.select({
     ios: 'com.knockkock.driverApp',
@@ -1334,7 +1334,7 @@ const appIds = {
     android: 'com.RideShare.royodispatcher',
   }),
   newYorkMiniMart: Platform.select({
-    ios: 'com.NewYorkMiniMart.Dispatch',
+    ios: 'com.NewYorkMiniMart.Driver',
     android: 'com.NewYorkMiniMart.royodispatcher',
   }),
   airlinesRecruiter: Platform.select({

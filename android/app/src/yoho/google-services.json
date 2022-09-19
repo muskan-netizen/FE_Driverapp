@@ -50,6 +50,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "986092175873-pfmisma9ogr3db9siklot1rkvf3gb0rl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.codebrew.yoho",
+            "certificate_hash": "0613b3e79e25cca312e9b9baf19523eeff69ac8c"
+          }
+        },
+        {
           "client_id": "986092175873-dqfu0vareltp6mvue10m250nh59cjs8e.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -86,6 +94,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "986092175873-b3n0gl3pp3pjm9ok540e4eov5cgqnptp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.yoho.customer",
+            "certificate_hash": "0613b3e79e25cca312e9b9baf19523eeff69ac8c"
+          }
+        },
+        {
           "client_id": "986092175873-dqfu0vareltp6mvue10m250nh59cjs8e.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -118,6 +134,42 @@
         "mobilesdk_app_id": "1:986092175873:android:7036c51eb442d0677fb600",
         "android_client_info": {
           "package_name": "com.yoho.driver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "986092175873-dqfu0vareltp6mvue10m250nh59cjs8e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALH6uNHFDiuEwq3pVY-27NqNjuAV2kA8o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "986092175873-dqfu0vareltp6mvue10m250nh59cjs8e.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "986092175873-2778gmhkuhdvbdc3392iv343134175b0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.Yoho.Dispatcher"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:986092175873:android:22fec1fe6a7dfe7c7fb600",
+        "android_client_info": {
+          "package_name": "com.yoho.partner"
         }
       },
       "oauth_client": [
