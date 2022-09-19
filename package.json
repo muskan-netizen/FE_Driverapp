@@ -755,6 +755,8 @@
     "mealsareheredispatcherRelease": "cd android && ./gradlew assemblemealsarehereRelease",
     "loamscapedispatcher": "react-native run-android --variant=loamscapeDebug",
     "loamscapedispatcherRelease": "cd android && ./gradlew assembleloamscapeRelease",
+    "delcolinkdispatcher": "react-native run-android --variant=delcolinkDebug",
+    "delcolinkdispatcherRelease": "cd android && ./gradlew assembledelcolinkRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",

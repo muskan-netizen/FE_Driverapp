@@ -1893,8 +1893,8 @@ const appIds = {
     android: 'com.loamscape.royodispatcher',
   }),
   delcolink: Platform.select({
-    ios: 'com.delcolink.royodispatche',
-    android: 'com.delcolink.royodispatche',
+    ios: 'com.delcolink.royodispatcher',
+    android: 'com.delcolink.royodispatcher',
   }),
 };
 
