@@ -377,6 +377,11 @@ const shortCodes = {
   parcel: '10d107',
   lex: '26cd40',
   flank: '201a5b',
+  smokyKitchen: 'd3b29b',
+  zynoride: 'a38482',
+  mealsarehere: '881894',
+  loamscape: 'e1f00f',
+  delcolink: '522499',
 };
 
 const appIds = {
@@ -1870,6 +1875,26 @@ const appIds = {
   flank: Platform.select({
     ios: 'com.flank.royodispatcher',
     android: 'com.flank.royodispatcher',
+  }),
+  smokyKitchen: Platform.select({
+    ios: 'com.smokyKitchen.royodispatcher',
+    android: 'com.smokyKitchen.royodispatcher',
+  }),
+  zynoride: Platform.select({
+    ios: 'com.zynoride.royodispatcher',
+    android: 'com.zynoride.royodispatcher',
+  }),
+  mealsarehere: Platform.select({
+    ios: 'com.mealsarehere.royodispatcher',
+    android: 'com.mealsarehere.royodispatcher',
+  }),
+  loamscape: Platform.select({
+    ios: 'com.loamscape.royodispatcher',
+    android: 'com.loamscape.royodispatcher',
+  }),
+  delcolink: Platform.select({
+    ios: 'com.delcolink.royodispatche',
+    android: 'com.delcolink.royodispatche',
   }),
 };
 

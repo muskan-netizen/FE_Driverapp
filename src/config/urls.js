@@ -3,7 +3,7 @@
 //  export const API_BASE_URL = 'https://api.royodispatch.com/';
 // export const API_BASE_URL = 'https://sales.royodispatch.com/';
 //Staging
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // export const API_BASE_URL = 'https://dispatch.halatalabat.com/'
 
@@ -192,7 +192,6 @@
 
 // export const API_BASE_URL = 'https://dispatch.ullaz.co.ke/';
 
-
 //LocalDropOff
 // export const API_BASE_URL = 'https://dispatch.localdropoff.info/';
 //Onscart
@@ -260,7 +259,7 @@
 // export const API_BASE_URL = 'https://dispatch.sirvu.ca/';
 
 //drus
-export const API_BASE_URL = 'https://dispatch.drusdeliveries.com/';
+// export const API_BASE_URL = 'https://dispatch.drusdeliveries.com/';
 
 //cannabusxpress
 // export const API_BASE_URL = 'https://dispatch.cannabusxpress.com/';
