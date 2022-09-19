@@ -6647,6 +6647,46 @@ android {
             applicationId 'com.smokyKitchen.royodispatcher'
             resValue "string", "app_name", "SmokyKitchen Dispatcher"
         }
+        zynoride{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.zynoride.royodispatcher'
+            resValue "string", "app_name", "Zynoride Dispatcher"
+        }
+        mealsarehere{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.mealsarehere.royodispatcher'
+            resValue "string", "app_name", "Meals are here Dispatcher"
+        }
+        loamscape{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.loamscape.royodispatcher'
+            resValue "string", "app_name", "Loamscape Dispatcher"
+        }
+        delcolink{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.delcolink.royodispatcher'
+            resValue "string", "app_name", "Delcolink Dispatcher"
+        }
 }
 }
 

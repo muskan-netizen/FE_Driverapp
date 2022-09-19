@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "614392107863",
+    "project_id": "mealsarehere-dispatcher",
+    "storage_bucket": "mealsarehere-dispatcher.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:614392107863:android:cd9081eba5dc1c0d59a412",
+        "android_client_info": {
+          "package_name": "com.mealsarehere.royodispatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "614392107863-grq2dvnnhm8ha3i2g44kdgblj0l9jklh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6NObBzDdeonOVPmGSaBEJ_P7b1nLpM08"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "614392107863-grq2dvnnhm8ha3i2g44kdgblj0l9jklh.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "614392107863-ufmq7fhr23dn7s0m1fpcfonu56c1bq4o.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mealsarehere.royodispatcher"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
