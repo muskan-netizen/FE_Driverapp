@@ -75,7 +75,7 @@ const shortCodes = {
   elixir: 'cca668',
   ace: '3c58a1',
   zest: 'ddceeb',
-  homeric: 'f31a69',
+  homeric: '66951f',
   share: 'eb1244',
   yeboy: '604a5f',
   moboErrandsService: 'cb01c8',
