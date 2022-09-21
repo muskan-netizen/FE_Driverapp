@@ -591,7 +591,7 @@ export default function DashBoard({route, navigation}) {
           borderLeftColor: getDynamicUpdateOnValues(item),
           borderLeftWidth: 3,
           marginHorizontal: moderateScale(10),
-          ...generateBoxShadowStyle(-2, 0, '#171717', 0.2, 3, 4, '#171717'),
+          ...generateBoxShadowStyle(-2, 0, '#171717', 0.2, 3, 3, '#171717'),
         }}>
         {item?.data?.map(obj => {
           return (
