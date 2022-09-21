@@ -204,16 +204,17 @@ android {
 
      productFlavors{
             
-          delcolink{
+            youSmokeShop{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.delcolink.royodispatcher'
-            resValue "string", "app_name", "Delcolink Dispatcher"
+            applicationId 'com.youSmokeShop.royodispatcher'
+            resValue "string", "app_name", "YouSmokeShop Dispatcher"
         }
+        
         }
 
 
@@ -6689,6 +6690,16 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.delcolink.royodispatcher'
             resValue "string", "app_name", "Delcolink Dispatcher"
+        }
+        youSmokeShop{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.youSmokeShop.royodispatcher'
+            resValue "string", "app_name", "YouSmokeShop Dispatcher"
         }
 }
 }
