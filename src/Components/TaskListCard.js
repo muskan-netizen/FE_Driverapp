@@ -131,19 +131,19 @@ const TaskListCard = ({
           //   '#171717',
           // ),
         }}>
-        <View
+        {/* <View
           style={[
             styles.borderLine,
 
             {
-              backgroundColor: getDynamicUpdateOnValues().backgroundColor,
+              backgroundColor: "red",
               borderBottomLeftRadius:
                 allTasks[index]?.order.id == allTasks[index + 1]?.order.id
                   ? 0
                   : 8,
             },
           ]}
-        />
+        /> */}
         <View style={styles.mainContainer}>
           <Text style={styles.address} numberOfLines={2}>
             {data?.location?.address}
@@ -305,3 +305,6 @@ export function stylesFunc({defaultLanguagae}) {
 }
 
 export default TaskListCard;
+
+
+

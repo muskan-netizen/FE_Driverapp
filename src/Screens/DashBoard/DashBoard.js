@@ -571,19 +571,15 @@ export default function DashBoard({route, navigation}) {
   });
 
   const _onPressTask = item => {
-    console.log('Here it is', item);
+   
     moveToNewScreen(navigationStrings.TASKDETAIL, {item: item})();
   };
   const getDynamicUpdateOnValues = data => {
     var colorData = colorArray;
-
-    return (
-      '#' +
-      Math.floor(Math.random() * 16777215)
-        .toString(16)
-        .padStart(6, '0')
-        .toUpperCase()
-    );
+     return (
+      colorData[finalAllTasks.indexOf(data) % colorData.length]
+     )
+    
   };
   const renderTaskList = ({item, index}) => {
     return (
@@ -592,7 +588,7 @@ export default function DashBoard({route, navigation}) {
         activeOpacity={0.8}
         style={{
           marginTop: moderateScale(30),
-          borderLeftColor: getDynamicUpdateOnValues(),
+          borderLeftColor: getDynamicUpdateOnValues(item),
           borderLeftWidth: 3,
           marginHorizontal: moderateScale(10),
           ...generateBoxShadowStyle(-2, 0, '#171717', 0.2, 3, 4, '#171717'),
@@ -602,9 +598,6 @@ export default function DashBoard({route, navigation}) {
             <TaskListCard
               data={obj}
               index={index}
-              // previousData={index > 0 ? allData[index - 1] : null}
-              // allTasks={allData}
-              // _onPressTask={() => _onPressTask(item)}
               _onPressTaskDetails={() => _onPressTaskDetails(item)}
             />
           );
