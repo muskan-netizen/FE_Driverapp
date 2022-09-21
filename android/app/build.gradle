@@ -201,24 +201,6 @@ android {
     }
 
      flavorDimensions "appType"
-
-     productFlavors{
-            
-            youSmokeShop{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.youSmokeShop.royodispatcher'
-            resValue "string", "app_name", "YouSmokeShop Dispatcher"
-        }
-        
-        }
-
-
-
     productFlavors {
         royodispatcher {
             dimension "appType"
@@ -2891,7 +2873,7 @@ android {
         }
         knockknock{
             dimension "appType"
-            versionCode 1
+            versionCode 4
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
@@ -3208,6 +3190,26 @@ android {
             resValue "string", "app_name", "OrbitGroup Dispatcher"
         }
         
+        }
+          dummyDispatcher{
+             dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"   
+            applicationId 'com.dummyDispatcher.royodispatcher'
+            resValue "string", "app_name", "Dummy Dispatcher"
+          }
+        skoop{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"   
+            applicationId 'com.Skoop.royodispatcher'
+            resValue "string", "app_name", "Skoop Dispatch"
 
         share{
             dimension "appType"
@@ -3349,7 +3351,27 @@ android {
             resValue "string", "app_name", "EzMobile Fuel Dispatcher"
         }
     
-          
+        }
+        kudhyo{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Kudhyo.royodispatcher'
+            resValue "string", "app_name", "Kudhyo Dispatch"
+           
+        }
+        bharatMove{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.BharatMove.royodispatcher'
+            resValue "string", "app_name", "BharatMove Dispatch"
         
         blacNetwork{    
             dimension "appType"
@@ -3523,6 +3545,16 @@ android {
             applicationId "com.Marasym.royodispatcher"
             resValue "string", "app_name", "Marasym Dispatcher"
             
+        }
+        tripTCI{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.TripTCI.royodispatcher'
+            resValue "string", "app_name", "TRIP TCI Dispatcher"
            
         }
         silvestre{
@@ -3535,6 +3567,16 @@ android {
             applicationId "com.Silvestre.royodispatcher"
             resValue "string", "app_name", "Silvestre Dispatcher"
             
+        }
+        pinkyDeli{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.PinkyDeli.royodispatcher'
+            resValue "string", "app_name", "Pinky Deli Dispatcher"
            
         }
         samakeeMart{
@@ -3547,6 +3589,16 @@ android {
             applicationId 'com.SamakeeMart.royodispatcher'
             resValue "string", "app_name", "Samakee Mart Dispatch"
 
+        }
+        SXM2GO{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.SXM2GO.royodispatcher'
+            resValue "string", "app_name", "SXM2GO Dispatcher"
             
         }
         doorstep{
@@ -6700,6 +6752,16 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.youSmokeShop.royodispatcher'
             resValue "string", "app_name", "YouSmokeShop Dispatcher"
+        }
+        sylomart{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.sylomart.royodispatcher'
+            resValue "string", "app_name", "Sylomart Dispatcher"
         }
 }
 }
