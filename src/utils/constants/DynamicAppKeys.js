@@ -48,7 +48,8 @@ const shortCodes = {
   jetrider: '387dd4',
   bilionza: 'd97efd',
   baytukom: '7df249',
-  gokab: '362d14',
+  // gokab: '94d183', // staging
+  gokab: '362d14', // live
   bezalio: '2c0bf4',
   doleyPharmacy: '72d02d',
   taquick: '7c335c',
@@ -82,8 +83,8 @@ const shortCodes = {
   Kel360: 'c54206',
   travo: 'c92b12',
   lastMinuteDress: '46e73a',
-  // washvalley: '45f62f',
-  washvalley: '745e3f',
+  washvalley: '45f62f',
+  // washvalley: '745e3f',
   tajammul: 'b74129',
   cabWay: 'edbdc8',
   carroai: 'bfcc32',
@@ -382,6 +383,10 @@ const shortCodes = {
   mealsarehere: '881894',
   loamscape: 'e1f00f',
   delcolink: '522499',
+  youSmokeShop: 'fc66a8',
+  sylomart: 'c63e45',
+  doober: '2bcbd6',
+  inmotion: 'a8d728',
 };
 
 const appIds = {
@@ -703,8 +708,8 @@ const appIds = {
     android: 'com.travo.royodispatcher',
   }),
   lastMinuteDress: Platform.select({
-    ios: 'com.LastMinuteDress.Dispatch',
-    android: 'com.LastMinuteDress.royodispatcher',
+    ios: 'com.LastMinuteDress.Driver',
+    android: 'com.LastMinuteDress.Driver',
   }),
   washvalley: Platform.select({
     ios: 'com.WashValley.Dispatch',
@@ -736,7 +741,7 @@ const appIds = {
   }),
   blacNetwork: Platform.select({
     ios: 'com.BlacNetwork.Dispatch',
-    android: 'com.BlacNetwork.royodispatcher',
+    android: 'com.BlacNetwork.Driver',
   }),
   ezMobileFuel: Platform.select({
     ios: 'com.EzMobileFuel.Dispatch',
@@ -796,7 +801,7 @@ const appIds = {
   }),
   yoho: Platform.select({
     ios: 'com.Yohoapp.Dispatcher',
-    android: 'com.Yoho.royodispatcher',
+    android: 'com.yoho.partner',
   }),
   marasym: Platform.select({
     ios: 'com.Marasym.Dispatch',
@@ -1156,7 +1161,7 @@ const appIds = {
   }),
   swiffyLLC: Platform.select({
     ios: 'com.SwiffyLLC.Dispatcher',
-    android: 'com.SwiffyLLC',
+    android: 'com.SwiffyLLC.royodispatcher',
   }),
   sabroson: Platform.select({
     ios: 'com.Sabroson.Driver',
@@ -1283,8 +1288,8 @@ const appIds = {
     android: 'com.TimHomeServices.royodispatcher',
   }),
   dbairro: Platform.select({
-    ios: 'com.Dbairro.Dispatcher',
-    android: 'com.Dbairro.royodispatcher',
+    ios: 'com.Dbairro.royoDriver',
+    android: 'com.Dbairro.dispatcher',
   }),
   knockknock: Platform.select({
     ios: 'com.knockkock.driverApp',
@@ -1339,7 +1344,7 @@ const appIds = {
     android: 'com.RideShare.royodispatcher',
   }),
   newYorkMiniMart: Platform.select({
-    ios: 'com.NewYorkMiniMart.Dispatch',
+    ios: 'com.NewYorkMiniMart.Driver',
     android: 'com.NewYorkMiniMart.royodispatcher',
   }),
   airlinesRecruiter: Platform.select({
@@ -1895,6 +1900,22 @@ const appIds = {
   delcolink: Platform.select({
     ios: 'com.delcolink.royodispatcher',
     android: 'com.delcolink.royodispatcher',
+  }),
+  youSmokeShop: Platform.select({
+    ios: 'com.youSmokeShop.royodispatcher',
+    android: 'com.youSmokeShop.royodispatcher',
+  }),
+  doober: Platform.select({
+    ios: 'com.doober.royodispatcher',
+    android: 'com.doober.royodispatcher',
+  }),
+  sylomart: Platform.select({
+    ios: 'com.sylomart.royodispatcher',
+    android: 'com.sylomart.royodispatcher',
+  }),
+  inmotion: Platform.select({
+    ios: 'com.inmotion.royodispatcher',
+    android: 'com.inmotion.royodispatcher',
   }),
 };
 

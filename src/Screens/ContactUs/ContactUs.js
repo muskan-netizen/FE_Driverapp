@@ -51,7 +51,7 @@ export default function ContactUs({route, navigation}) {
   const commonStyles = commonStylesFunc({fontFamily});
   const updateState = data => setState(state => ({...state, ...data}));
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
- console.log(clientInfo,"clientInfoclientInfo")
+  console.log(clientInfo, 'clientInfoclientInfo');
   const defaultLanguagae = useSelector(
     state => state?.initBoot?.defaultLanguage,
   );
@@ -102,10 +102,20 @@ export default function ContactUs({route, navigation}) {
         }}>
         <TouchableOpacity
           activeOpacity={1}
-          onPress={() => Communications.phonecall(`+${clientInfo?.get_country_set?.phonecode}${clientInfo?.phone_number}`, true)}
+          onPress={() =>
+            Communications.phonecall(
+              `+${clientInfo?.get_country_set?.phonecode}${clientInfo?.phone_number}`,
+              true,
+            )
+          }
           style={styles.emailCallView}>
           <Image source={imagePath?.call} />
-          <Text style={styles.phoneEmailStyle}>{`+${clientInfo?.get_country_set?.phonecode}-${clientInfo?.phone_number}`}</Text>
+
+          <Text style={styles.phoneEmailStyle}>{`${
+            !!clientInfo?.get_country_set?.phonecode
+              ? '+ ' + clientInfo?.get_country_set?.phonecode + ' - '
+              : ''
+          }${clientInfo?.phone_number}`}</Text>
         </TouchableOpacity>
 
         {/* email  View*/}
@@ -118,15 +128,10 @@ export default function ContactUs({route, navigation}) {
               null,
               null,
               '',
-              ''
+              '',
             )
           }
-          style={[
-            styles.emailCallView,
-            {
-              marginTop: moderateScale(20),
-            },
-          ]}>
+          style={{...styles.emailCallView, marginTop: moderateScale(20)}}>
           <Image source={imagePath?.chatBlue} />
           <Text style={styles.phoneEmailStyle}>{clientInfo?.email}</Text>
         </TouchableOpacity>

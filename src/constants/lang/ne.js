@@ -308,5 +308,5 @@ export default {
   PAY:'Pay',
   EXPIRY:'Expiry',
   UPCOMMING_BILLING_DATE:'upcomming billing date',
-    
+  ORDER_CANCELLED_BY_CUSTOMER:'Order Cancelled By Customer'
   };

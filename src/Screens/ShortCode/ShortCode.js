@@ -1848,6 +1848,7 @@ export default function ShortCode({route, navigation}) {
             shortCode: shortCodes.jazzyBug,
             isShortcodePrefilled: true,
           });
+          break;
         case appIds.savannaRags:
           updateState({
             shortCode: shortCodes.savannaRags,
@@ -2383,6 +2384,30 @@ export default function ShortCode({route, navigation}) {
         case appIds.delcolink:
           updateState({
             shortCode: shortCodes.delcolink,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.youSmokeShop:
+          updateState({
+            shortCode: shortCodes.youSmokeShop,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.doober:
+          updateState({
+            shortCode: shortCodes.doober,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.sylomart:
+          updateState({
+            shortCode: shortCodes.sylomart,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.inmotion:
+          updateState({
+            shortCode: shortCodes.inmotion,
             isShortcodePrefilled: true,
           });
           break;
