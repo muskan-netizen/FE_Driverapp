@@ -398,14 +398,12 @@ export default function DashBoard({route, navigation}) {
       .then(res => {
         actions.updateHomepage(false);
         // updateState({isRefreshing: false});
-        console.log(res, 'allTasksallTasks>>>>>>>>');
         if (selectedOption) {
           let filterMarker = res.data.filter((val, i) => {
             if (!!val?.location?.latitude && !!val?.location?.longitude) {
               return val;
             }
           });
-          console.log('filter marker', filterMarker);
           updateState({
             allTasks: res?.data,
             markers: filterMarker,
@@ -418,7 +416,6 @@ export default function DashBoard({route, navigation}) {
               return val;
             }
           });
-          console.log('filter marker', filterMarker);
           updateState({
             todaysTasks: res?.data,
             markers: filterMarker,
@@ -426,14 +423,11 @@ export default function DashBoard({route, navigation}) {
             // isLoading: false,
           });
         }
-
-        console.log(res, 'res>res');
       })
       .catch(errorMethod);
   };
   //Error handling in api
   const errorMethod = error => {
-    console.log(error, 'error>>>>>>>>>>>>>>>>>>>>>');
     showError(error?.message || error?.error);
   };
   useEffect(() => {
@@ -639,14 +633,10 @@ export default function DashBoard({route, navigation}) {
                 <RefreshControl
                   refreshing={isRefreshing}
                   onRefresh={handleRefresh}
-                  // tintColor={colors.primary_color}
                 />
               }
               onEndReached={onEndReachedDelayed}
               onEndReachedThreshold={0.5}
-              // ListFooterComponent={() => (
-              //   <View style={{height: moderateScaleVertical(65)}} />
-              // )}
               ListEmptyComponent={() => (
                 <ListEmptyComponent
                   isLoading={isLoading}
@@ -881,7 +871,6 @@ export default function DashBoard({route, navigation}) {
     switch (isEnabled) {
       case true:
         if (enableMap) {
-          console.log(enableMap, 'enableMap>enableMap');
           return mapView();
         } else {
           return homeMainView();

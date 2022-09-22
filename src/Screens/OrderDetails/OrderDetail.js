@@ -29,16 +29,14 @@ import {getImageUrl, showError} from '../../utils/helperFunctions';
 import {stylesFunc} from './styles';
 
 export default function OrderDetail({route, navigation}) {
+  const {userData} = useSelector(state => state?.auth);
+  const {defaultLanguage} = useSelector(state => state?.initBoot);
+  const styles = stylesFunc({defaultLanguage});
+
   let paramData = route?.params?.data?.item;
   let taskDetail = route?.params?.data?.taskDetail;
   let apiData = route?.params?.data?.apiData;
   let fromNotification = route?.params?.data?.fromNotification;
-  console.log(route, 'rute data');
-  console.log(route?.params?.data, 'allparams');
-  console.log(paramData, 'paramData');
-  console.log(taskDetail, 'taskDetail');
-  console.log(apiData, 'apiData');
-  console.log(fromNotification, 'fromNotification');
 
   const [state, setState] = useState({
     allVendorsData: [],
@@ -47,19 +45,11 @@ export default function OrderDetail({route, navigation}) {
   });
   const {allVendorsData, cartData, isLoading} = state;
   const updateState = data => setState(state => ({...state, ...data}));
-  const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
-  const userData = useSelector(state => state?.auth?.userData);
-  console.log(userData, 'userData');
-  const defaultLanguagae = useSelector(
-    state => state?.initBoot?.defaultLanguage,
-  );
+
   //Naviagtion to specific screen
   const moveToNewScreen = (screenName, data) => () => {
     navigation.navigate(screenName, {data});
   };
-
-  const styles = stylesFunc({defaultLanguagae});
-
   const new_dispatch_traking_url = paramData
     ? paramData.replace(
         '/dispatch-order-status-update/',
@@ -89,12 +79,14 @@ export default function OrderDetail({route, navigation}) {
       })
       .catch(err => {
         console.log(err, 'errroror');
-        showError(err.message || err.error)
+        showError(err.message || err.error);
         updateState({
           isLoading: false,
         });
       });
   };
+
+  console.log(userData, 'userData........');
 
   const _renderItem = ({item, index}) => {
     return (
@@ -112,9 +104,9 @@ export default function OrderDetail({route, navigation}) {
             style={{
               fontFamily: fontFamily.regular,
               fontSize: textScale(12),
-              textAlign: defaultLanguagae?.value == 'ar' ? 'right' : 'left',
+              textAlign: defaultLanguage?.value == 'ar' ? 'right' : 'left',
               marginHorizontal:
-                defaultLanguagae?.value == 'ar' ? moderateScale(20) : 0,
+                defaultLanguage?.value == 'ar' ? moderateScale(20) : 0,
             }}>
             {strings.VENDOR}
           </Text>
@@ -147,7 +139,7 @@ export default function OrderDetail({route, navigation}) {
                         <View
                           style={{
                             flexDirection:
-                              defaultLanguagae?.value == 'ar'
+                              defaultLanguage?.value == 'ar'
                                 ? 'row-reverse'
                                 : 'row',
                             justifyContent: 'space-between',
@@ -157,7 +149,7 @@ export default function OrderDetail({route, navigation}) {
                               flex: 0.7,
                               justifyContent: 'center',
                               alignItems:
-                                defaultLanguagae?.value == 'ar'
+                                defaultLanguage?.value == 'ar'
                                   ? 'flex-end'
                                   : 'flex-start',
                             }}>
@@ -172,7 +164,7 @@ export default function OrderDetail({route, navigation}) {
                                     <View
                                       style={{
                                         flexDirection:
-                                          defaultLanguagae?.value == 'ar'
+                                          defaultLanguage?.value == 'ar'
                                             ? 'row-reverse'
                                             : 'row',
                                       }}>
@@ -196,15 +188,15 @@ export default function OrderDetail({route, navigation}) {
                             style={{
                               flex: 0.5,
                               justifyContent: 'center',
-                          
+
                               alignItems:
-                                defaultLanguagae?.value == 'ar'
+                                defaultLanguage?.value == 'ar'
                                   ? 'flex-start'
                                   : 'flex-end',
                             }}>
-                       
                             <Text style={styles.cartItemPrice}>
-                              {Number((i?.price)*(i?.quantity)).toFixed(2)}
+                              {userData?.client_preference?.currency?.symbol}
+                              {Number(i?.price * i?.quantity).toFixed(2)}
                             </Text>
                           </View>
                         </View>
@@ -212,7 +204,7 @@ export default function OrderDetail({route, navigation}) {
                         <View
                           style={{
                             flexDirection:
-                              defaultLanguagae?.value == 'ar'
+                              defaultLanguage?.value == 'ar'
                                 ? 'row-reverse'
                                 : 'row',
                             justifyContent: 'space-between',
@@ -222,7 +214,7 @@ export default function OrderDetail({route, navigation}) {
                               <View
                                 style={{
                                   flexDirection:
-                                    defaultLanguagae?.value == 'ar'
+                                    defaultLanguage?.value == 'ar'
                                       ? 'row-reverse'
                                       : 'row',
                                 }}>
@@ -343,6 +335,7 @@ export default function OrderDetail({route, navigation}) {
           ]}>
           <Text style={styles.priceItemLabel}>{strings.SUBTOTAL}</Text>
           <Text style={styles.priceItemLabel}>
+            {userData?.client_preference?.currency?.symbol}
             {cartData?.total_amount > 0 &&
               Number(cartData?.total_amount).toFixed(2)}
           </Text>
@@ -351,7 +344,7 @@ export default function OrderDetail({route, navigation}) {
           <View style={styles.bottomTabLableValue}>
             <Text style={styles.priceItemLabel}>{strings.WALLET}</Text>
             <Text style={styles.priceItemLabel}>
-              -
+              -{userData?.client_preference?.currency?.symbol}
               {cartData?.wallet_amount_used > 0 &&
                 Number(cartData?.wallet_amount_used).toFixed(2)}
             </Text>
@@ -361,6 +354,7 @@ export default function OrderDetail({route, navigation}) {
           <View style={styles.bottomTabLableValue}>
             <Text style={styles.priceItemLabel}>{strings.FIXED_FEE}</Text>
             <Text style={styles.priceItemLabel}>
+              {userData?.client_preference?.currency?.symbol}
               {cartData?.fixed_fee_amount > 0 &&
                 Number(cartData?.fixed_fee_amount).toFixed(2)}
             </Text>
@@ -370,6 +364,7 @@ export default function OrderDetail({route, navigation}) {
           <View style={styles.bottomTabLableValue}>
             <Text style={styles.priceItemLabel}>{strings.DELIVERYFEE}</Text>
             <Text style={styles.priceItemLabel}>
+              {userData?.client_preference?.currency?.symbol}
               {cartData?.total_delivery_fee
                 ? Number(cartData?.total_delivery_fee).toFixed(2)
                 : 0}
@@ -380,7 +375,7 @@ export default function OrderDetail({route, navigation}) {
           <View style={styles.bottomTabLableValue}>
             <Text style={styles.priceItemLabel}>{strings.LOYALTY}</Text>
             <Text style={styles.priceItemLabel}>
-              -
+              -{userData?.client_preference?.currency?.symbol}
               {cartData?.loyalty_amount_saved
                 ? Number(cartData?.loyalty_amount_saved).toFixed(2)
                 : 0}
@@ -392,7 +387,8 @@ export default function OrderDetail({route, navigation}) {
           <View style={styles.bottomTabLableValue}>
             <Text style={styles.priceItemLabel}>{strings.TOTALDISCOUNT}</Text>
             <Text style={styles.priceItemLabel}>
-              -{Number(cartData?.total_discount).toFixed(2)}
+              -{userData?.client_preference?.currency?.symbol}
+              {Number(cartData?.total_discount).toFixed(2)}
             </Text>
           </View>
         )}
@@ -400,6 +396,7 @@ export default function OrderDetail({route, navigation}) {
           <View style={styles.bottomTabLableValue}>
             <Text style={styles.priceItemLabel}>{strings.TAXAMOUNT}</Text>
             <Text style={styles.priceItemLabel}>
+              {userData?.client_preference?.currency?.symbol}
               {Number(cartData?.taxable_amount).toFixed(2)}
             </Text>
           </View>
@@ -418,6 +415,7 @@ export default function OrderDetail({route, navigation}) {
               styles.priceItemLabel2,
               {marginTop: moderateScaleVertical(5)},
             ]}>
+            {userData?.client_preference?.currency?.symbol}
             {Number(cartData?.payable_amount).toFixed(2)}
           </Text>
         </View>
@@ -436,7 +434,7 @@ export default function OrderDetail({route, navigation}) {
             <View
               style={{
                 flexDirection:
-                  defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
+                  defaultLanguage?.value === 'ar' ? 'row-reverse' : 'row',
                 alignItems: 'center',
                 backgroundColor: colors.white,
               }}>
@@ -448,7 +446,7 @@ export default function OrderDetail({route, navigation}) {
           <View
             style={{
               flexWrap:
-                defaultLanguagae?.value === 'ar' ? 'wrap-reverse' : 'wrap',
+                defaultLanguage?.value === 'ar' ? 'wrap-reverse' : 'wrap',
               justifyContent: 'center',
               alignItems: 'center',
               paddingHorizontal: moderateScale(15),
@@ -457,10 +455,10 @@ export default function OrderDetail({route, navigation}) {
             <View
               style={{
                 flexDirection:
-                  defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
+                  defaultLanguage?.value === 'ar' ? 'row-reverse' : 'row',
               }}>
               <Image source={imagePath.map1} />
-              <Text numberOfLines={1} style={styles.address}>
+              <Text numberOfLines={2} style={{...styles.address, flex: 1}}>
                 {cartData?.address?.address}
               </Text>
             </View>
@@ -469,7 +467,7 @@ export default function OrderDetail({route, navigation}) {
           <View
             style={{
               flexDirection:
-                defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
+                defaultLanguage?.value === 'ar' ? 'row-reverse' : 'row',
               justifyContent: 'space-between',
               marginVertical: moderateScaleVertical(5),
             }}>
@@ -477,7 +475,7 @@ export default function OrderDetail({route, navigation}) {
               <View
                 style={{
                   flexDirection:
-                    defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
+                    defaultLanguage?.value === 'ar' ? 'row-reverse' : 'row',
                   marginTop: moderateScaleVertical(10),
                   justifyContent: 'space-between',
                   width: width - 20,
@@ -502,7 +500,7 @@ export default function OrderDetail({route, navigation}) {
             <View
               style={{
                 flexDirection:
-                  defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
+                  defaultLanguage?.value === 'ar' ? 'row-reverse' : 'row',
                 marginTop: moderateScaleVertical(4),
                 justifyContent: 'space-between',
                 width: width - 20,
@@ -520,7 +518,7 @@ export default function OrderDetail({route, navigation}) {
             <View
               style={{
                 flexDirection:
-                  defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
+                  defaultLanguage?.value === 'ar' ? 'row-reverse' : 'row',
                 marginTop: moderateScaleVertical(10),
                 justifyContent: 'space-between',
                 width: width - 20,

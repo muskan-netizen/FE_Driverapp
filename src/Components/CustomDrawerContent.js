@@ -35,6 +35,14 @@ export default function CustomDrawerContent({
   progress,
   ...props
 }) {
+  const {zendeskKeys, clientInfo, defaultLanguage} = useSelector(
+    state => state?.initBoot,
+  );
+  const {userData} = useSelector(state => state?.auth);
+
+  const darkthemeusingDevice = useDarkMode();
+  const isDarkMode = themeToggle ? darkthemeusingDevice : themeColor;
+
   const [states, setState] = useState({
     routes: [
       {
@@ -122,9 +130,8 @@ export default function CustomDrawerContent({
         label: strings.SUBSCRIPTIONS,
         image: imagePath.icSubscription,
         key: navigationStrings.SUBSCRIPTION_STACK,
-        subRoute:navigationStrings.SUBSCRIPTION_STACK
+        subRoute: navigationStrings.SUBSCRIPTION_STACK,
       },
-      
     ],
     logoutAlert: false,
     selectedDrawerItem: null,
@@ -138,13 +145,6 @@ export default function CustomDrawerContent({
     themeToggle,
     themeColor,
   } = states;
-  const {zendeskKeys, clientInfo, defaultLanguage} = useSelector(
-    state => state?.initBoot,
-  );
-  const darkthemeusingDevice = useDarkMode();
-  const isDarkMode = themeToggle ? darkthemeusingDevice : themeColor;
-
-  console.log(clientInfo, 'keys >>>>>>>>>>>>');
 
   // ZendeskChat.init(
   //   'kI9WjmYer9iy7gCYF2sne4gXUure2AK4',
@@ -216,11 +216,11 @@ export default function CustomDrawerContent({
 
         {
           id: 9,
-          label: strings.SUBSCRIPTIONS ,
+          label: strings.SUBSCRIPTIONS,
           support: true,
           image: imagePath.icSubscription,
           key: navigationStrings.SUBSCRIPTION_STACK,
-          subRoute:navigationStrings.SUBSCRIPTION_STACK
+          subRoute: navigationStrings.SUBSCRIPTION_STACK,
         },
         appIds.transportSystem === DeviceInfo.getBundleId()
           ? {
@@ -266,8 +266,6 @@ export default function CustomDrawerContent({
   ]);
 
   //
-
-  const userData = useSelector(state => state?.auth?.userData);
 
   //Naviagtion to specific screen
   const moveToNewScreen = (screenName, data) => () => {

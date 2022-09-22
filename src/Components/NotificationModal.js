@@ -28,6 +28,8 @@ import {showError} from '../utils/helperFunctions';
 import ModalView from './ShortCodeConfirmModal';
 import moment from 'moment';
 import {shortCodes} from '../utils/constants/DynamicAppKeys';
+import {navigate} from '../navigation/NavigationService';
+import navigationStrings from '../navigation/navigationStrings';
 
 const NotificationModal = () => {
   const [state, setState] = useState({
@@ -41,6 +43,7 @@ const NotificationModal = () => {
     orderCost: null,
     totalDistance: null,
     taskId: null,
+    orderData:{}
   });
   const {notificationData} = useSelector(state => state?.initBoot);
 
@@ -58,6 +61,7 @@ const NotificationModal = () => {
     orderCost,
     totalDistance,
     taskId,
+    orderData
   } = state;
 
   useEffect(() => {
@@ -100,6 +104,8 @@ const NotificationModal = () => {
           orderCost: res?.order?.order_cost,
           totalDistance: res?.order?.actual_distance,
           taskId: res?.order?.unique_id,
+          orderData:res?.order
+
         });
       })
       .catch(error => console.log('error in notification Data', error));
@@ -172,11 +178,7 @@ const NotificationModal = () => {
       <>
         <View style={{height: 40, overflow: 'hidden', alignItems: 'center'}}>
           <View
-            style={{
-              height: 40,
-              width: 0.5,
-              backgroundColor: colors.textGreyLight,
-            }}
+            style={styles.dotContainerStyle}
           />
         </View>
 
@@ -190,6 +192,8 @@ const NotificationModal = () => {
     );
   };
 
+  console.log(orderData?.cash_to_be_collected,"orderData?.cash_to_be_collected");
+
   const modalMainContent = () => {
     let data = notificationData?.notificationData?.data;
     let notificationType = data?.type ? data?.type : data?.notificationType;
@@ -198,62 +202,56 @@ const NotificationModal = () => {
         <View>{!!region && mapView()}</View>
         <View style={{padding: 8}}>
           <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-            }}>
-            <View
-              style={{
+            style={styles.notificationModalMainHeaderStyle}>
+           {notificationType =='CANCELLED'? <View
+              style={styles.taskCanceledContainer}>
+              <View style={{
                 flexDirection: 'row',
-                width: width / 2.4,
-                alignItems: 'center',
+                justifyContent: 'space-between',
               }}>
-              <Text
-                numberOfLines={1}
-                style={{
-                  marginVertical: moderateScaleVertical(10),
-                  textAlign: 'right',
-                  fontSize: textScale(10),
-                  color: colors.black,
-                  fontFamily: fontFamily.regular,
-                }}>
-                {strings.TASKID}
-              </Text>
-              <Text
-                numberOfLines={1}
-                style={{
-                  marginVertical: moderateScaleVertical(10),
-                  textAlign: 'right',
-                  fontSize: textScale(12),
-                  color: colors.black,
-                  fontFamily: fontFamily.regular,
-                }}>
-                {` ${taskId}`}
-              </Text>
+                <Text
+                  numberOfLines={1}
+                  style={styles.taskIdStyle}>
+                  {strings.TASKID}
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  style={styles.taskIdStyle}>
+                  {` ${taskId}`}
+                </Text>
+              </View>
+              <View>
+                <Text
+                  numberOfLines={1}
+                  style={styles.taskCanceledTextStyle}>
+                  {strings.ORDER_CANCELLED_BY_CUSTOMER}
+                </Text></View>
+
             </View>
-            {!!Number(data?.cash_to_be_collected) > 0 && (
+           : <View
+           style={styles.taskacceptrRejectContainer}>
+           <Text
+             numberOfLines={1}
+             style={styles.taskIdTitleText}>
+             {strings.TASKID}
+           </Text>
+           <Text
+             numberOfLines={1}
+             style={styles.taskIdTextStyle}>
+             {` ${taskId}`}
+           </Text>
+         </View>}
+            {orderData?.cash_to_be_collected> 0 && (
               <View style={{alignItems: 'center'}}>
                 <Text
                   numberOfLines={1}
-                  style={{
-                    marginVertical: moderateScaleVertical(10),
-                    textAlign: 'right',
-                    fontSize: textScale(10),
-                    color: colors.green,
-                    fontFamily: fontFamily.bold,
-                  }}>
+                  style={styles.priceTitleTextStyle}>
                   {strings.PRICE}
                 </Text>
                 <Text
                   numberOfLines={1}
-                  style={{
-                    marginVertical: moderateScaleVertical(-5),
-                    textAlign: 'right',
-                    fontSize: textScale(12),
-                    color: colors.green,
-                    fontFamily: fontFamily.bold,
-                  }}>
-                  {` ${Number(data?.cash_to_be_collected).toFixed(2)}`}
+                  style={styles.priceTextStyle}>
+                  {orderData?.cash_to_be_collected}
                 </Text>
                 <Text style={styles.address}></Text>
               </View>
@@ -262,11 +260,7 @@ const NotificationModal = () => {
           <View style={{flexDirection: 'row'}}>
             <View>
               <Image
-                style={{
-                  position: 'absolute',
-                  marginHorizontal: moderateScale(11),
-                  top: 8,
-                }}
+                style={styles.grayDotImageStyle}
                 source={imagePath.grayDot}
               />
             </View>
@@ -323,35 +317,46 @@ const NotificationModal = () => {
             style={{
               borderRadius: 10,
               height: 40,
-              // backgroundColor: 'red',
               flexDirection: 'row',
               alignSelf: 'flex-end',
-              // borderBottomRadius: moderateScale(10),
             }}>
             <TouchableOpacity
               onPress={() => aceptRejectTask(2)}
-              style={{
-                flex: 0.5,
-                borderBottomLeftRadius: moderateScale(15),
-                alignItems: 'center',
-                justifyContent: 'center',
-                backgroundColor: 'red',
-              }}>
+              style={styles.taskRejectButtonTextStyle}>
               <Text style={styles.text}>{strings.REJECT}</Text>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => aceptRejectTask(1)}
-              style={{
-                flex: 0.5,
-                borderBottomRightRadius: moderateScale(15),
-                alignItems: 'center',
-                justifyContent: 'center',
-                backgroundColor: 'green',
-              }}>
+              style={styles.taskAcceptButtonTextStyle}>
               <Text style={styles.text}>{strings.ACCEPT}</Text>
             </TouchableOpacity>
           </View>
-        ) : (
+        ) : (notificationType=='CANCELLED')?  (
+          <View
+            style={styles.taskCancelledByCustomerContainer}>
+            <TouchableOpacity
+              onPress={() => {
+                navigate(navigationStrings.TASKHISTORY);
+                actions.isModalVisibleForAcceptReject({
+                  isModalVisibleForAcceptReject: false,
+                  notificationData: null,
+                });
+                actions.updateHomepage(true);
+               
+              }}
+              style={{
+                flex: 1,
+                borderBottomLeftRadius: moderateScale(15),
+                borderBottomRightRadius: moderateScale(15),
+                alignItems: 'center',
+                justifyContent: 'center',
+                backgroundColor: colors.redB,
+              }}>
+              <Text style={styles.text}>{strings.OK}</Text>
+            </TouchableOpacity>
+          </View>
+        ):
+         (
           <View
             style={{
               borderRadius: 10,
@@ -479,7 +484,79 @@ const styles = StyleSheet.create({
     color: colors.white,
     fontFamily: fontFamily.semiBold,
     fontSize: textScale(14),
-  },
+  },  dotContainerStyle:{
+    height: 40,
+    width: 0.5,
+    backgroundColor: colors.textGreyLight,
+  }, notificationModalMainHeaderStyle:{
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  } ,taskCanceledContainer :{
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center'
+  }, taskIdStyle:{
+    textAlign: 'right',
+    fontSize: textScale(10),
+    color: colors.black,
+    fontFamily: fontFamily.regular,
+  }, taskCanceledTextStyle:{
+    marginVertical: moderateScaleVertical(5),
+    textAlign: 'right',
+    fontSize: textScale(12),
+    color: colors.redB,
+    fontFamily: fontFamily.bold,
+  },taskacceptrRejectContainer:{
+    flexDirection: 'row',
+    width: width / 2.4,
+    alignItems: 'center',
+  },taskIdTitleText:{
+    marginVertical: moderateScaleVertical(10),
+    textAlign: 'right',
+    fontSize: textScale(10),
+    color: colors.black,
+    fontFamily: fontFamily.regular,
+  },taskIdTextStyle  :{
+    marginVertical: moderateScaleVertical(10),
+    textAlign: 'right',
+    fontSize: textScale(12),
+    color: colors.black,
+    fontFamily: fontFamily.regular,
+  },priceTitleTextStyle  :{
+    marginVertical: moderateScaleVertical(10),
+    textAlign: 'right',
+    fontSize: textScale(10),
+    color: colors.green,
+    fontFamily: fontFamily.bold,
+  },priceTextStyle  :{
+    marginVertical: moderateScaleVertical(-5),
+    textAlign: 'right',
+    fontSize: textScale(12),
+    color: colors.green,
+    fontFamily: fontFamily.bold,
+  } ,grayDotImageStyle :{
+    position: 'absolute',
+    marginHorizontal: moderateScale(11),
+    top: 8,
+  },taskRejectButtonTextStyle  :{
+    flex: 0.5,
+    borderBottomLeftRadius: moderateScale(15),
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'red',
+  },taskAcceptButtonTextStyle  :{
+    flex: 0.5,
+    borderBottomRightRadius: moderateScale(15),
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'green',
+  },taskCancelledByCustomerContainer  :{
+    borderRadius: 10,
+    height: 40,
+    flexDirection: 'row',
+    alignSelf: 'flex-end',
+   
+  }
 });
 
 export default NotificationModal;

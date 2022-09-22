@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>BGTaskSchedulerPermittedIdentifiers</key>
+	<array>
+		<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -47,6 +51,8 @@
 	<string>$(PRODUCT_NAME) would like to access your current location to give you the latest order alert and updates around you.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>$(PRODUCT_NAME) would like to access your current location to give you the latest order alert and updates around you.</string>
+	<key>NSMotionUsageDescription</key>
+	<string>$(PRODUCT_NAME)would like to access your live location updates in forground mode </string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>$(PRODUCT_NAME) would like access to your photo gallery to upload photos and set profile picture</string>
 	<key>UIAppFonts</key>
@@ -56,13 +62,10 @@
 		<string>campton-medium.ttf</string>
 		<string>campton-semibold.ttf</string>
 	</array>
-	 <key>BGTaskSchedulerPermittedIdentifiers</key>
-  <array>
-      <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
-  </array>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>
+		<string>location</string>
 		<string>processing</string>
 		<string>remote-notification</string>
 	</array>

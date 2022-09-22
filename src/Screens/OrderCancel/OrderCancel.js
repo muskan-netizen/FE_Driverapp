@@ -31,7 +31,7 @@ import {
 import {
   getColorCodeWithOpactiyNumber,
   showError,
-  showSuccess
+  showSuccess,
 } from '../../utils/helperFunctions';
 import styles from './styles';
 import Communications from 'react-native-communications';
@@ -40,16 +40,12 @@ import ButtonComponent from '../../Components/ButtonComponent';
 import actions from '../../redux/actions';
 import navigationStrings from '../../navigation/navigationStrings';
 
-var ACTION_TIMER = 1500;
-var COLORS = ['#8FEE90', '#27A468'];
-var _value = 0;
 export default function OrderCancel({route, navigation}) {
-  const userData = useSelector(state => state?.auth?.userData);
   let taskDetail = route?.params?.data;
-  console.log(taskDetail, 'taskDetail>>>');
+  const {clientInfo} = useSelector(state => state?.initBoot);
+
   const [state, setState] = useState({
     isLoading: true,
-
     cancelReasons: [],
     selectedReason: null,
     inputReason: '',
@@ -58,12 +54,6 @@ export default function OrderCancel({route, navigation}) {
   const {isLoading, cancelReasons, selectedReason, inputReason} = state;
   const commonStyles = commonStylesFunc({fontFamily});
   const updateState = data => setState(state => ({...state, ...data}));
-  const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
-
-  //Naviagtion to specific screen
-  const moveToNewScreen = (screenName, data) => () => {
-    navigation.navigate(screenName, {data});
-  };
 
   useEffect(() => {
     getAllCancellationReason();
@@ -73,11 +63,6 @@ export default function OrderCancel({route, navigation}) {
     actions
       .getListOfAllCancelReason({}, {client: clientInfo?.database_name})
       .then(res => {
-        console.log(res, 'getAllTaskHistory>>>getAllTaskHistory data');
-        //   let totalAmount =
-        //     res?.data?.totalCashCollected
-        //       .toFixed(2)
-        //       .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') || 0.0;
         updateState({
           isLoading: false,
           cancelReasons: res?.data,
@@ -117,9 +102,6 @@ export default function OrderCancel({route, navigation}) {
           updateState({isLoading: false});
           navigation.navigate(navigationStrings.DASHBOARD);
           showSuccess(res?.message);
-          //   if (res?.data) {
-          //     navigation.navigate(navigationStrings.DASHBOARD);
-          //   }
         })
         .catch(errorMethod);
     }
@@ -137,19 +119,16 @@ export default function OrderCancel({route, navigation}) {
           <TouchableOpacity
             onPress={() => navigation.goBack()}
             style={{flexDirection: 'row', alignItems: 'center'}}>
-            {/* <Image source={imagePath.backArrow} /> */}
             <Text style={styles.textStyle}>{strings.RESEONCANCEL}</Text>
           </TouchableOpacity>
         )}
-        // hideRight={true}
-        // onPressLeft={()=>navigation.goBack()}
-        // centerTitle={strings.TASK}
       />
       <View style={{...commonStyles.headerTopLine}} />
       <KeyboardAwareScrollView showsVerticalScrollIndicator={false}>
         {cancelReasons.map((i, inx) => {
           return (
             <TouchableOpacity
+              key={String(inx)}
               activeOpacity={1}
               onPress={() => onselectReason(i)}
               style={styles.rowViewTaskCancel}>
