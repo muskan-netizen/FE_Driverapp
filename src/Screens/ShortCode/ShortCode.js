@@ -2333,6 +2333,66 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.kwivar:
+          updateState({
+            shortCode: shortCodes.kwivar,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.parcel:
+          updateState({
+            shortCode: shortCodes.parcel,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.lex:
+          updateState({
+            shortCode: shortCodes.lex,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.flank:
+          updateState({
+            shortCode: shortCodes.flank,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.smokyKitchen:
+          updateState({
+            shortCode: shortCodes.smokyKitchen,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.zynoride:
+          updateState({
+            shortCode: shortCodes.zynoride,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.mealsarehere:
+          updateState({
+            shortCode: shortCodes.mealsarehere,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.loamscape:
+          updateState({
+            shortCode: shortCodes.loamscape,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.delcolink:
+          updateState({
+            shortCode: shortCodes.delcolink,
+            isShortcodePrefilled: true,
+          });
+          break;
+          case appIds.youSmokeShop:
+          updateState({
+            shortCode: shortCodes.youSmokeShop,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);
@@ -2391,7 +2451,7 @@ export default function ShortCode({route, navigation}) {
       }
 
       let updatedShortCode = shortCode;
-      //updatedShortCode = '7ebe0a';
+      // updatedShortCode = '7ebe0a';
       //  let updatedShortCode = '1fdd1d';
 
       actions
