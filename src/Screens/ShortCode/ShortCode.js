@@ -2387,9 +2387,27 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
-          case appIds.youSmokeShop:
+        case appIds.youSmokeShop:
           updateState({
             shortCode: shortCodes.youSmokeShop,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.doober:
+          updateState({
+            shortCode: shortCodes.doober,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.sylomart:
+          updateState({
+            shortCode: shortCodes.sylomart,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.inmotion:
+          updateState({
+            shortCode: shortCodes.inmotion,
             isShortcodePrefilled: true,
           });
           break;

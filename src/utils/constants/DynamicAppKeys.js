@@ -383,7 +383,10 @@ const shortCodes = {
   mealsarehere: '881894',
   loamscape: 'e1f00f',
   delcolink: '522499',
-  youSmokeShop: 'fc66a8'
+  youSmokeShop: 'fc66a8',
+  sylomart: 'c63e45',
+  doober: '2bcbd6',
+  inmotion: 'a8d728',
 };
 
 const appIds = {
@@ -1901,6 +1904,18 @@ const appIds = {
   youSmokeShop: Platform.select({
     ios: 'com.youSmokeShop.royodispatcher',
     android: 'com.youSmokeShop.royodispatcher',
+  }),
+  doober: Platform.select({
+    ios: 'com.doober.royodispatcher',
+    android: 'com.doober.royodispatcher',
+  }),
+  sylomart: Platform.select({
+    ios: 'com.sylomart.royodispatcher',
+    android: 'com.sylomart.royodispatcher',
+  }),
+  inmotion: Platform.select({
+    ios: 'com.inmotion.royodispatcher',
+    android: 'com.inmotion.royodispatcher',
   }),
 };
 
