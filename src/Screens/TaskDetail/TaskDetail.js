@@ -639,6 +639,7 @@ export default function TaskDetail({route, navigation}) {
             <Text style={styles.text}>{buttonText}</Text>
           </View>
         </TouchableWithoutFeedback>
+        
       </View>
     );
   };
