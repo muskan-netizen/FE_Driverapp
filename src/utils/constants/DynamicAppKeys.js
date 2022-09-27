@@ -389,6 +389,7 @@ const shortCodes = {
   inmotion: 'a8d728',
   jeevann: 'bd51fb',
   novamed: '9ac189',
+  eatHalal: '0954a9',
 };
 
 const appIds = {
@@ -1918,6 +1919,10 @@ const appIds = {
   inmotion: Platform.select({
     ios: 'com.inmotion.royodispatcher',
     android: 'com.inmotion.royodispatcher',
+  }),
+  eatHalal: Platform.select({
+    ios: 'com.eatHalal.royodispatcher',
+    android: 'com.eatHalal.royodispatcher',
   }),
   jeevann: Platform.select({
     ios: 'com.jeevann.royodispatcher',
