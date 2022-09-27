@@ -387,6 +387,8 @@ const shortCodes = {
   sylomart: 'c63e45',
   doober: '2bcbd6',
   inmotion: 'a8d728',
+  jeevann: 'bd51fb',
+  novamed: '9ac189',
 };
 
 const appIds = {
@@ -1916,6 +1918,14 @@ const appIds = {
   inmotion: Platform.select({
     ios: 'com.inmotion.royodispatcher',
     android: 'com.inmotion.royodispatcher',
+  }),
+  jeevann: Platform.select({
+    ios: 'com.jeevann.royodispatcher',
+    android: 'com.jeevann.royodispatcher',
+  }),
+  novamed: Platform.select({
+    ios: 'com.novamed.royodispatcher',
+    android: 'com.novamed.royodispatcher',
   }),
 };
 
