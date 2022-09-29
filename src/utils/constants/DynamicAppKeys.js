@@ -390,6 +390,7 @@ const shortCodes = {
   jeevann: 'bd51fb',
   novamed: '9ac189',
   eatHalal: '0954a9',
+  awamer: '96874b',
 };
 
 const appIds = {
@@ -976,7 +977,7 @@ const appIds = {
   }),
   SXM2GO: Platform.select({
     ios: 'com.SXM2GO.Dispatch',
-    android: 'com.SXM2GO.royodispatcher',
+    android: 'com.SXM2GO.driverApp',
   }),
   farmerSouq: Platform.select({
     ios: 'com.FarmerSouq.Dispatch',
@@ -1931,6 +1932,10 @@ const appIds = {
   novamed: Platform.select({
     ios: 'com.novamed.royodispatcher',
     android: 'com.novamed.royodispatcher',
+  }),
+  awamer: Platform.select({
+    ios: 'com.awamer.royodispatcher',
+    android: 'com.awamer.royodispatcher',
   }),
 };
 

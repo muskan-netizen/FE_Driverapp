@@ -769,6 +769,8 @@
     "jeevanndispatcherRelease": "cd android && ./gradlew assemblejeevannRelease",
     "novameddispatcher": "react-native run-android --variant=novamedDebug",
     "novameddispatcherRelease": "cd android && ./gradlew assemblenovamedRelease",
+    "awamerddispatcher": "react-native run-android --variant=awamerdDebug",
+    "awamerddispatcherRelease": "cd android && ./gradlew assembleawamerdRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",

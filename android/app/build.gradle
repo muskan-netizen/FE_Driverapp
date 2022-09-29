@@ -201,6 +201,7 @@ android {
     }
 
      flavorDimensions "appType"
+     
     productFlavors {
         royodispatcher {
             dimension "appType"
@@ -2045,17 +2046,7 @@ android {
             resValue "string", "app_name", "Vendor Spot Dispatcher"
            
         }
-        SXM2GO{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.SXM2GO.royodispatcher'
-            resValue "string", "app_name", "SXM2GO Dispatcher"
-           
-        }
+
         farmerSouq{
             dimension "appType"
             versionCode 1
@@ -3597,8 +3588,8 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.SXM2GO.royodispatcher'
-            resValue "string", "app_name", "SXM2GO Dispatcher"
+            applicationId 'com.SXM2GO.driverApp'
+            resValue "string", "app_name", "SXM2GO Driver"
             
         }
         doorstep{
@@ -4003,17 +3994,7 @@ android {
             resValue "string", "app_name", "Vendor Spot Dispatcher"
            
         }
-        SXM2GO{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.SXM2GO.royodispatcher'
-            resValue "string", "app_name", "SXM2GO Dispatcher"
-           
-        }
+
         yogo_lift{
             dimension "appType"
             versionCode 1
@@ -6812,6 +6793,16 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.novamed.royodispatcher'
             resValue "string", "app_name", "Novamed Dispatcher"
+        }
+        awamer{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.awamer.royodispatcher'
+            resValue "string", "app_name", "Awamer Dispatcher"
         }
 }
 }
