@@ -317,6 +317,7 @@ export default function Login({navigation, route}) {
         <View style={styles.imageStyle}>
           <ScaledImage
             width={getBundleId() == appIds.lOPHT ? width : width / 2}
+            height={width / 2}
             source={
               clientInfo && (clientInfo?.logo || clientInfo?.dark_logo)
                 ? {uri: isDarkMode ? clientInfo?.dark_logo : clientInfo?.logo}

@@ -24,7 +24,7 @@
 
 // export const API_BASE_URL = 'https://dispatch.elog.group/';
 
-// export const API_BASE_URL = 'https://dispatch.knockknock.online/'
+// export const API_BASE_URL = 'https://dispatch.knockknock.online/';
 // export const API_BASE_URL = 'https://api.winhires.com/';
 //export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
 //export const API_BASE_URL = 'http://192.168.96.84:9091/';
@@ -33,8 +33,14 @@
 //Staging
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
 
+export const API_BASE_URL = 'https://servern.rdstaging.com/';
+
+// export const API_BASE_URL = 'https://myfarma-dispatch.netsolutionindia.com/';
+
 //Misst
 // export const API_BASE_URL = 'https://miist-dispatch.netsolutionindia.com/';
+
+// export const API_BASE_URL = 'https://baggage-dispatch.netsolutionindia.com/';
 
 // export const API_BASE_URL='https://d078-103-72-170-243.in.ngrok.io/'
 //  export const API_BASE_URL = 'https://baytukom-dispatch.netsolutionindia.com/';
@@ -47,8 +53,6 @@
 //  export const API_BASE_URL = 'https://delivery.taquick.com/';
 
 // export const API_BASE_URL = 'http://192.168.96.84:9091/';
-
-// export const API_BASE_URL = 'https://dispatch.knockknock.online/';
 
 //Papruki
 // export const API_BASE_URL='https://dispatch.papiruki.com/'
@@ -113,7 +117,7 @@
 // export const API_BASE_URL = 'https://dispatch.heybuddy.com.mx/';
 
 // dbairro
-export const API_BASE_URL = 'https://dispatch.dbairro.com/';
+// export const API_BASE_URL = 'https://dispatch.dbairro.com/';
 
 // bustamovepartybus
 // export const API_BASE_URL = 'https://dispatch.bustamovepartybus.com/';

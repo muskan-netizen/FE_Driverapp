@@ -202,18 +202,18 @@ android {
 
      flavorDimensions "appType"
 
-// productFlavors {
-//        dropitoffusa{
-//             dimension "appType"
-//             versionCode 1
-//             versionName "1.0"
-//             minSdkVersion rootProject.ext.minSdkVersion
-//             targetSdkVersion rootProject.ext.targetSdkVersion
-//             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.Dropitoffusa.royoDriver'
-//             resValue "string", "app_name", "Dropitoffusa Driver"
-//         }
-// }
+productFlavors {
+                   knockknock{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.knockkock.driverApp'
+            resValue "string", "app_name", "Doorbell Driver"
+        }
+}
     productFlavors {
         royodispatcher {
             dimension "appType"
@@ -2882,7 +2882,7 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.knockkock.driverApp'
-            resValue "string", "app_name", "Doorbell Dispatcher"
+            resValue "string", "app_name", "Doorbell Driver"
         }
 
         viversBox{
@@ -4838,16 +4838,7 @@ android {
             applicationId 'com.Dbairro.royodispatcher'
             resValue "string", "app_name", "Dbairro Dispatcher"
         }
-        knockknock{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.Knockknock.royodispatcher'
-            resValue "string", "app_name", "Doorbell Dispatcher"
-        }
+
 
         viversBox{
             dimension "appType"
@@ -5207,16 +5198,7 @@ android {
             applicationId 'com.Dbairro.royodispatcher'
             resValue "string", "app_name", "Dbairro Dispatcher"
         }
-        knockknock{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.Knockknock.royodispatcher'
-            resValue "string", "app_name", "Doorbell Dispatcher"
-        }
+
 
         viversBox{
             dimension "appType"

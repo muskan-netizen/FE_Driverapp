@@ -345,7 +345,8 @@ export default function CustomDrawerContent({
             // backgroundColor:'red'
           }}>
           <ScaledImage
-            width={width / 2}
+            width={width / 3}
+            height={width / 3}
             source={
               clientInfo && (clientInfo?.logo || clientInfo?.dark_logo)
                 ? {uri: isDarkMode ? clientInfo?.dark_logo : clientInfo?.logo}

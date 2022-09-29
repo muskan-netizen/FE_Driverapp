@@ -82,6 +82,7 @@ export default ({defaultLanguagae}) => {
 
     imageStyle: {
       height: height / 3,
+
       justifyContent: 'center',
       alignItems: 'center',
     },
