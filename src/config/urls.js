@@ -3,7 +3,7 @@
 //  export const API_BASE_URL = 'https://api.royodispatch.com/';
 // export const API_BASE_URL = 'https://sales.royodispatch.com/';
 //Staging
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // export const API_BASE_URL = 'https://dispatch.halatalabat.com/'
 
@@ -425,7 +425,7 @@
 // export const API_BASE_URL = 'https://dispatch.quicklube.us/'
 
 // sxm2Go
-export const API_BASE_URL = 'https://dispatch.sxm2go.com/';
+// export const API_BASE_URL = 'https://dispatch.sxm2go.com/';
 
 // export const personaltoken = 'TMJdbQlNWkYl1JzMONzRgF4zQFuP8s';
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;
