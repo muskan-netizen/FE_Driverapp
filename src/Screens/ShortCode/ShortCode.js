@@ -2435,6 +2435,18 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.goTech:
+          updateState({
+            shortCode: shortCodes.goTech,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.idrv:
+          updateState({
+            shortCode: shortCodes.idrv,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);

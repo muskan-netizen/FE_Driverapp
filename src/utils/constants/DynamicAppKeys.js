@@ -391,6 +391,8 @@ const shortCodes = {
   novamed: '9ac189',
   eatHalal: '0954a9',
   awamer: '96874b',
+  goTech: '9c43ec',
+  idrv: 'f8d46b',
 };
 
 const appIds = {
@@ -1936,6 +1938,14 @@ const appIds = {
   awamer: Platform.select({
     ios: 'com.awamer.royodispatcher',
     android: 'com.awamer.royodispatcher',
+  }),
+  goTech: Platform.select({
+    ios: 'com.goTech.royodispatcher',
+    android: 'com.goTech.royodispatcher',
+  }),
+  idrv: Platform.select({
+    ios: 'com.idvr.royodispatcher',
+    android: 'com.idvr.royodispatcher',
   }),
 };
 
