@@ -6517,7 +6517,7 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.balyDlvry.royodispatcher'
+            applicationId 'com.hezniTaxi.royodispatcher'
             resValue "string", "app_name", "Hezni Taxi Dispatcher"
         }
         onTheWheel{
@@ -6823,6 +6823,16 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.idvr.royodispatcher'
             resValue "string", "app_name", "IDRV Dispatcher"
+        }
+        qwiker{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.qwiker.royodispatcher'
+            resValue "string", "app_name", "Qwiker Dispatcher"
         }
 }
 }

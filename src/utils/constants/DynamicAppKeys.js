@@ -393,6 +393,7 @@ const shortCodes = {
   awamer: '96874b',
   goTech: '9c43ec',
   idrv: 'f8d46b',
+  qwiker: '2b8a5b',
 };
 
 const appIds = {
@@ -1946,6 +1947,10 @@ const appIds = {
   idrv: Platform.select({
     ios: 'com.idvr.royodispatcher',
     android: 'com.idvr.royodispatcher',
+  }),
+  qwiker: Platform.select({
+    ios: 'com.qwiker.royodispatcher',
+    android: 'com.qwiker.royodispatcher',
   }),
 };
 
