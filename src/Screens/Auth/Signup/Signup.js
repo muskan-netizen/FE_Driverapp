@@ -245,7 +245,7 @@ export default function Signup({route, navigation}) {
         RNOtpVerify.removeListener();
       };
     }
-  }, []);
+  }, [otpToShow]);
 
   const otpHandler = message => {
     console.log(message, 'complete msg>>>');
@@ -253,9 +253,6 @@ export default function Signup({route, navigation}) {
       let msgOTP = message.replace(/[^0-9]/g, '');
       let OTP = msgOTP.substring(0, 6);
       setOtpToShow(OTP);
-      if (otpToShow.length === 6) {
-        _onSignup();
-      }
     }
     RNOtpVerify.removeListener();
     Keyboard.dismiss();
