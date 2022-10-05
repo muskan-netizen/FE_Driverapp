@@ -2459,6 +2459,12 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.nittosadai:
+          updateState({
+            shortCode: shortCodes.nittosadai,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);

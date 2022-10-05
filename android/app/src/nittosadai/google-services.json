@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "538865155035",
+    "project_id": "nittosadai-dispatcher",
+    "storage_bucket": "nittosadai-dispatcher.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:538865155035:android:663b8baf8ce7d5acc605fe",
+        "android_client_info": {
+          "package_name": "com.nittosadai.royodispatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "538865155035-22p85pjpb1ca2b34b5pv9d9oos1rbr7e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXwXwKkh48KgMtxXDQjxYEAP-tcJCwziY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "538865155035-22p85pjpb1ca2b34b5pv9d9oos1rbr7e.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "538865155035-qt63c671rje47l941r7gde6q4onvl8hu.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.nittosadai.royodispatcher"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
