@@ -775,6 +775,8 @@
     "idrvdispatcherRelease": "cd android && ./gradlew assembleidrvRelease",
     "qwikerdispatcher": "react-native run-android --variant=qwikerDebug",
     "qwikerdispatcherRelease": "cd android && ./gradlew assembleqwikerRelease",
+    "nittosadaidispatcher": "react-native run-android --variant=nittosadaiDebug",
+    "nittosadaidispatcherRelease": "cd android && ./gradlew assemblenittosadaiRelease",
     "sprytondispatcher": "react-native run-android --variant=sprytonDebug",
     "sprytondispatcherRelease": "cd android && ./gradlew assemblesprytonRelease",
     "android": "react-native run-android",

@@ -395,6 +395,7 @@ const shortCodes = {
   idrv: 'f8d46b',
   qwiker: '2b8a5b',
   spryton: '179034',
+  nittosadai: '7ea9b3',
 };
 
 const appIds = {
@@ -1956,6 +1957,10 @@ const appIds = {
   spryton: Platform.select({
     ios: 'com.spryton.royodispatcher',
     android: 'com.spryton.royodispatcher',
+  }),
+  nittosadai: Platform.select({
+    ios: 'com.nittosadai.royodispatcher',
+    android: 'com.nittosadai.royodispatcher',
   }),
 };
 
