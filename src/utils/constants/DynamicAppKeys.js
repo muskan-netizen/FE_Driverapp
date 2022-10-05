@@ -48,8 +48,8 @@ const shortCodes = {
   jetrider: '387dd4',
   bilionza: 'd97efd',
   baytukom: '7df249',
-  // gokab: '94d183', // staging
-  gokab: '362d14', // live
+  gokab: '94d183', // staging
+  // gokab: '362d14', // live
   bezalio: '2c0bf4',
   doleyPharmacy: '72d02d',
   taquick: '7c335c',
