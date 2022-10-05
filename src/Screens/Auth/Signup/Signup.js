@@ -516,8 +516,7 @@ export default function Signup({route, navigation}) {
           setOtpModal(true);
 
           setSendOtpLoading(false);
-
-          showSuccess(strings.OTPSENDSUCCESS);
+          showErrorOnModal(modalRef, strings.OTPSENDSUCCESS);
         }
       })
       .catch(errorMethod);
@@ -876,6 +875,7 @@ export default function Signup({route, navigation}) {
             keyboardType="number-pad"
             onTextChange={otpToShow => setOtpToShow(otpToShow)}
           />
+
           <ButtonWithLoader
             onPress={() => {
               setSendOtpLoading(true);
@@ -906,7 +906,7 @@ export default function Signup({route, navigation}) {
         </View>
       </KeyboardAvoidingView>
     );
-  }, [otpToShow, phoneNumber, callingCode]);
+  }, [otpToShow, phoneNumber, callingCode, isSendOtpLoading, isSignupLoading]);
 
   return (
     <WrapperContainer
