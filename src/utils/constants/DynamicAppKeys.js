@@ -394,6 +394,7 @@ const shortCodes = {
   goTech: '9c43ec',
   idrv: 'f8d46b',
   qwiker: '2b8a5b',
+  spryton: '179034',
 };
 
 const appIds = {
@@ -1951,6 +1952,10 @@ const appIds = {
   qwiker: Platform.select({
     ios: 'com.qwiker.royodispatcher',
     android: 'com.qwiker.royodispatcher',
+  }),
+  spryton: Platform.select({
+    ios: 'com.spryton.royodispatcher',
+    android: 'com.spryton.royodispatcher',
   }),
 };
 
