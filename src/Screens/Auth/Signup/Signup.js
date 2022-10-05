@@ -3,6 +3,7 @@ import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {
   I18nManager,
   Image,
+  Keyboard,
   KeyboardAvoidingView,
   Platform,
   ScrollView,
@@ -69,6 +70,8 @@ import DeviceCountry, {
 import SmoothPinCodeInput from 'react-native-smooth-pincode-input';
 import ButtonWithLoader from '../../../Components/ButtonWithLoader';
 import ModalComponent from '../../../Components/ModalComponent';
+import RNOtpVerify from 'react-native-otp-verify';
+
 var getPhonesCallingCodeAndCountryData = null;
 DeviceCountry.getCountryCode()
   .then(result => {
@@ -186,6 +189,7 @@ export default function Signup({route, navigation}) {
   const [otpToShow, setOtpToShow] = useState('');
   const [isSendOtpLoading, setSendOtpLoading] = useState(false);
   const [isSignupLoading, setSignupLoading] = useState(false);
+  const [appHashKey, setAppHashKey] = useState('');
 
   const commonStyles = commonStylesFunc({fontFamily});
 
@@ -226,7 +230,36 @@ export default function Signup({route, navigation}) {
 
   useEffect(() => {
     getRequiredDatas();
+    if (Platform.OS === 'android') {
+      RNOtpVerify.getHash()
+        .then(res => {
+          setAppHashKey(res[0]);
+        })
+        .catch();
+      RNOtpVerify.getOtp()
+        .then(res => {
+          RNOtpVerify.addListener(otpHandler);
+        })
+        .catch(error => console.log(error, 'error>>>>'));
+      return () => {
+        RNOtpVerify.removeListener();
+      };
+    }
   }, []);
+
+  const otpHandler = message => {
+    console.log(message, 'complete msg>>>');
+    if (!!message) {
+      let msgOTP = message.replace(/[^0-9]/g, '');
+      let OTP = msgOTP.substring(0, 6);
+      setOtpToShow(OTP);
+      if (otpToShow.length === 6) {
+        _onSignup();
+      }
+    }
+    RNOtpVerify.removeListener();
+    Keyboard.dismiss();
+  };
 
   const getRequiredDatas = () => {
     (async () => {
@@ -328,6 +361,10 @@ export default function Signup({route, navigation}) {
   };
 
   const _onSignup = () => {
+    if (otpToShow.length !== 6) {
+      showErrorOnModal(modalRef, strings.OTPNOTVALID);
+      return;
+    }
     setSignupLoading(true);
     dummyTags = selectedTags.map(item => {
       return item.name;
@@ -505,7 +542,7 @@ export default function Signup({route, navigation}) {
         {
           dial_code: callingCode,
           phone_number: phoneNumber,
-          app_hash_key: 'jkldhfkghlkjgh',
+          app_hash_key: appHashKey,
         },
         {client: clientInfo?.database_name},
       )
@@ -514,7 +551,6 @@ export default function Signup({route, navigation}) {
         if (res?.data) {
           updateState({isLoading: false});
           setOtpModal(true);
-
           setSendOtpLoading(false);
           showErrorOnModal(modalRef, strings.OTPSENDSUCCESS);
         }
