@@ -131,11 +131,11 @@ export function getProductUpdateDetails(uri = '', data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
     apiGet(uri, data, headers)
       .then(res => {
-        console.log('resres',res)
+        console.log('resres', res);
         resolve(res);
       })
       .catch(error => {
-        console.log('error',error)
+        console.log('error', error);
         reject(error);
       });
   });
@@ -396,20 +396,19 @@ export function submitCancelOrderRequest(url = '', data = {}, headers = {}) {
   });
 }
 
-
 //Get List of payment method
 export function openPaymentWebUrl(query = '', data = {}, headers = {}) {
-  console.log("payment++ query", query)
-  console.log("payment++ data", data)
-  console.log(GETWEBURL + query, data, headers ,"webPaymentUrl")
+  console.log('payment++ query', query);
+  console.log('payment++ data', data);
+  console.log(GETWEBURL + query, data, headers, 'webPaymentUrl');
   return new Promise((resolve, reject) => {
     apiGet(GETWEBURL + query, data, headers)
-      .then((res) => {
+      .then(res => {
         resolve(res);
-        console.log(res,"ressssofweburl")
+        console.log(res, 'ressssofweburl');
       })
-      .catch((error) => {
-        console.log(error,"error in web Url")
+      .catch(error => {
+        console.log(error, 'error in web Url');
         reject(error);
       });
   });

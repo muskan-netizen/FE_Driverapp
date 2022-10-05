@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "322022659869",
+    "project_id": "zynoride-dispatcher",
+    "storage_bucket": "zynoride-dispatcher.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:322022659869:android:76e39a366b7c8a4aa2f3f4",
+        "android_client_info": {
+          "package_name": "com.zynoride.royodispatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "322022659869-cegrcp8ahrbomtidui0cdt1s1e653sf9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_IwrxA3CrSd4taE5tSRa5RXdQnVx42EA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "322022659869-cegrcp8ahrbomtidui0cdt1s1e653sf9.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "322022659869-5kcelj76a0kf7ehnccc21osl7qrpm0ja.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.zynoride.royodispatcher"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

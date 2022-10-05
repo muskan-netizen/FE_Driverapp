@@ -835,7 +835,8 @@ export default function Signup({route, navigation}) {
   const modalMainContent = useCallback(() => {
     return (
       <KeyboardAvoidingView
-        behavior={Platform.OS === 'ios' ? 'padding' : 'padding'}>
+        keyboardVerticalOffset={height / 2.5}
+        behavior={'padding'}>
         <View style={styles.modalMainViewOTP}>
           <Text
             style={{
@@ -905,7 +906,7 @@ export default function Signup({route, navigation}) {
         </View>
       </KeyboardAvoidingView>
     );
-  }, []);
+  }, [otpToShow, phoneNumber, callingCode]);
 
   return (
     <WrapperContainer
