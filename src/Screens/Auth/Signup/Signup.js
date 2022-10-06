@@ -1,9 +1,11 @@
 import {cloneDeep, isEmpty} from 'lodash';
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {
   I18nManager,
   Image,
+  Keyboard,
   KeyboardAvoidingView,
+  Platform,
   ScrollView,
   Text,
   TextInput,
@@ -40,7 +42,11 @@ import {
   transportationArray,
 } from '../../../utils/constants/ConstantValues';
 import {appIds, shortCodes} from '../../../utils/constants/DynamicAppKeys';
-import {showError, showSuccess} from '../../../utils/helperFunctions';
+import {
+  showError,
+  showErrorOnModal,
+  showSuccess,
+} from '../../../utils/helperFunctions';
 import {androidCameraPermission} from '../../../utils/permissions';
 import {getItem} from '../../../utils/utils';
 import {
@@ -63,6 +69,9 @@ import DeviceCountry, {
 } from 'react-native-device-country';
 import SmoothPinCodeInput from 'react-native-smooth-pincode-input';
 import ButtonWithLoader from '../../../Components/ButtonWithLoader';
+import ModalComponent from '../../../Components/ModalComponent';
+import RNOtpVerify from 'react-native-otp-verify';
+
 var getPhonesCallingCodeAndCountryData = null;
 DeviceCountry.getCountryCode()
   .then(result => {
@@ -76,8 +85,8 @@ DeviceCountry.getCountryCode()
   });
 
 export default function Signup({route, navigation}) {
+  const modalRef = useRef(null);
   const {clientInfo, defaultLanguage} = useSelector(state => state?.initBoot);
-
   var dummyTags = '';
   const [state, setState] = useState({
     isLoading: false,
@@ -180,6 +189,7 @@ export default function Signup({route, navigation}) {
   const [otpToShow, setOtpToShow] = useState('');
   const [isSendOtpLoading, setSendOtpLoading] = useState(false);
   const [isSignupLoading, setSignupLoading] = useState(false);
+  const [appHashKey, setAppHashKey] = useState('');
 
   const commonStyles = commonStylesFunc({fontFamily});
 
@@ -220,7 +230,33 @@ export default function Signup({route, navigation}) {
 
   useEffect(() => {
     getRequiredDatas();
-  }, []);
+    if (Platform.OS === 'android') {
+      RNOtpVerify.getHash()
+        .then(res => {
+          setAppHashKey(res[0]);
+        })
+        .catch();
+      RNOtpVerify.getOtp()
+        .then(res => {
+          RNOtpVerify.addListener(otpHandler);
+        })
+        .catch(error => console.log(error, 'error>>>>'));
+      return () => {
+        RNOtpVerify.removeListener();
+      };
+    }
+  }, [otpToShow]);
+
+  const otpHandler = message => {
+    console.log(message, 'complete msg>>>');
+    if (!!message) {
+      let msgOTP = message.replace(/[^0-9]/g, '');
+      let OTP = msgOTP.substring(0, 6);
+      setOtpToShow(OTP);
+    }
+    RNOtpVerify.removeListener();
+    Keyboard.dismiss();
+  };
 
   const getRequiredDatas = () => {
     (async () => {
@@ -322,6 +358,10 @@ export default function Signup({route, navigation}) {
   };
 
   const _onSignup = () => {
+    if (otpToShow.length !== 6) {
+      showErrorOnModal(modalRef, strings.OTPNOTVALID);
+      return;
+    }
     setSignupLoading(true);
     dummyTags = selectedTags.map(item => {
       return item.name;
@@ -499,7 +539,7 @@ export default function Signup({route, navigation}) {
         {
           dial_code: callingCode,
           phone_number: phoneNumber,
-          app_hash_key: 'jkldhfkghlkjgh',
+          app_hash_key: appHashKey,
         },
         {client: clientInfo?.database_name},
       )
@@ -508,10 +548,8 @@ export default function Signup({route, navigation}) {
         if (res?.data) {
           updateState({isLoading: false});
           setOtpModal(true);
-
           setSendOtpLoading(false);
-
-          showSuccess(strings.OTPSENDSUCCESS);
+          showErrorOnModal(modalRef, strings.OTPSENDSUCCESS);
         }
       })
       .catch(errorMethod);
@@ -521,8 +559,9 @@ export default function Signup({route, navigation}) {
     updateState({isLoading: false});
     setSendOtpLoading(false);
     setSignupLoading(false);
-
-    showError(error?.message || error?.error);
+    isOtpModal
+      ? showErrorOnModal(modalRef, error?.message || error?.error)
+      : showError(error?.message || error?.error);
   };
 
   const _selectedTransportation = i => {
@@ -824,6 +863,83 @@ export default function Signup({route, navigation}) {
   const _onCloseModal = () => {
     updateState({isDatePicker: false, selectedDate: new Date()});
   };
+
+  const modalMainContent = useCallback(() => {
+    return (
+      <KeyboardAvoidingView
+        keyboardVerticalOffset={height / 2.5}
+        behavior={'padding'}>
+        <View style={styles.modalMainViewOTP}>
+          <Text
+            style={{
+              fontFamily: fontFamily.bold,
+              fontSize: textScale(16),
+              color: colors.themeColor,
+            }}>
+            OTP Verification
+          </Text>
+          <Text
+            style={{
+              fontFamily: fontFamily.bold,
+              fontSize: textScale(13),
+              color: colors.blackOpacity43,
+              marginVertical: moderateScaleVertical(6),
+            }}>
+            Please enter 6-digit code sent to {`+${callingCode}${phoneNumber}`}
+          </Text>
+          <SmoothPinCodeInput
+            containerStyle={{alignSelf: 'center'}}
+            password
+            autoFocus={true}
+            mask={<View style={styles.maskStyle} />}
+            cellSize={width / 8}
+            codeLength={6}
+            cellSpacing={10}
+            editable={true}
+            cellStyle={styles.cellStyle}
+            cellStyleFocused={styles.cellStyleFocused}
+            textStyle={styles.textStyleCodeInput}
+            textStyleFocused={styles.textStyleFocused}
+            inputProps={{
+              autoCapitalize: 'none',
+              autoFocus: true,
+            }}
+            value={otpToShow}
+            keyboardType="number-pad"
+            onTextChange={otpToShow => setOtpToShow(otpToShow)}
+          />
+
+          <ButtonWithLoader
+            onPress={() => {
+              setSendOtpLoading(true);
+              onSendOtpApi();
+            }}
+            btnText="RESEND OTP"
+            isLoading={isSendOtpLoading}
+            btnStyle={{
+              backgroundColor: colors.transparent,
+              borderWidth: 0,
+              width: moderateScale(100),
+              alignSelf: 'center',
+            }}
+            btnTextStyle={{
+              color: colors.themeColor,
+            }}
+            color={colors.themeColor}
+          />
+          <ButtonWithLoader
+            isLoading={isSignupLoading}
+            btnStyle={{
+              borderRadius: moderateScale(25),
+              marginBottom: moderateScaleVertical(20),
+            }}
+            onPress={_onSignup}
+            btnText={strings.SIGNUP}
+          />
+        </View>
+      </KeyboardAvoidingView>
+    );
+  }, [otpToShow, phoneNumber, callingCode, isSendOtpLoading, isSignupLoading]);
 
   return (
     <WrapperContainer
@@ -1370,82 +1486,21 @@ export default function Signup({route, navigation}) {
           </Text>
         </View>
       </Modal>
-      <Modal
+      <ModalComponent
+        onClose={() => setOtpModal(false)}
         isVisible={isOtpModal}
-        onBackdropPress={() => setOtpModal(false)}
-        style={{margin: 0, justifyContent: 'flex-end'}}>
-        <KeyboardAvoidingView
-          behavior={Platform.OS === 'ios' ? 'padding' : 'padding'}>
-          <View style={styles.modalMainViewOTP}>
-            <Text
-              style={{
-                fontFamily: fontFamily.bold,
-                fontSize: textScale(16),
-                color: colors.themeColor,
-              }}>
-              OTP Verification
-            </Text>
-            <Text
-              style={{
-                fontFamily: fontFamily.bold,
-                fontSize: textScale(13),
-                color: colors.blackOpacity43,
-                marginVertical: moderateScaleVertical(6),
-              }}>
-              Please enter 6-digit code sent to{' '}
-              {`+${callingCode}${phoneNumber}`}
-            </Text>
-            <SmoothPinCodeInput
-              containerStyle={{alignSelf: 'center'}}
-              password
-              autoFocus={true}
-              mask={<View style={styles.maskStyle} />}
-              cellSize={width / 8}
-              codeLength={6}
-              cellSpacing={10}
-              editable={true}
-              cellStyle={styles.cellStyle}
-              cellStyleFocused={styles.cellStyleFocused}
-              textStyle={styles.textStyleCodeInput}
-              textStyleFocused={styles.textStyleFocused}
-              inputProps={{
-                autoCapitalize: 'none',
-                autoFocus: true,
-              }}
-              value={otpToShow}
-              keyboardType="number-pad"
-              onTextChange={otpToShow => setOtpToShow(otpToShow)}
-            />
-            <ButtonWithLoader
-              onPress={() => {
-                setSendOtpLoading(true);
-                onSendOtpApi();
-              }}
-              btnText="RESEND OTP"
-              isLoading={isSendOtpLoading}
-              btnStyle={{
-                backgroundColor: colors.transparent,
-                borderWidth: 0,
-                width: moderateScale(100),
-                alignSelf: 'center',
-              }}
-              btnTextStyle={{
-                color: colors.themeColor,
-              }}
-              color={colors.themeColor}
-            />
-            <ButtonWithLoader
-              isLoading={isSignupLoading}
-              btnStyle={{
-                borderRadius: moderateScale(25),
-                marginBottom: moderateScaleVertical(20),
-              }}
-              onPress={_onSignup}
-              btnText={strings.SIGNUP}
-            />
-          </View>
-        </KeyboardAvoidingView>
-      </Modal>
+        modalRef={modalRef}
+        modalStyle={{
+          margin: 0,
+          justifyContent: 'flex-end',
+          marginHorizontal: 0,
+        }}
+        modalMainContent={modalMainContent}
+        mainViewStyle={{
+          borderTopLeftRadius: moderateScale(10),
+          borderTopRightRadius: moderateScale(10),
+        }}
+      />
     </WrapperContainer>
   );
 }

@@ -1,0 +1,9 @@
+#include "Pods/Target Support Files/Pods-available_pods-Inmotion/Pods-available_pods-Inmotion.release.xcconfig"
+
+
+PROJECT_BUNDLE_ID = com.inmotion.royodispatcher
+PROJECT_APP_VERSION = 1.0
+PROJECT_BUILD_NUMBER = 1
+PROJECT_APP_NAME =Inmotion Dispatcher
+PROJECT_PLIST =InmotionInfo
+PROJECT_ENTITLEMENT=RoyoDriverAppRelease

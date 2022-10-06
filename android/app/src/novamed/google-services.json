@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1016043283312",
+    "project_id": "novamed-dispatcher",
+    "storage_bucket": "novamed-dispatcher.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1016043283312:android:4a558f1b14ca3476c725b5",
+        "android_client_info": {
+          "package_name": "com.novamed.royodispatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1016043283312-7b6s53j6r4vn2bg935g325pg1ks28oq2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmYwEgCzabhRs8uJq1_sbYI4x15oFJRCc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1016043283312-7b6s53j6r4vn2bg935g325pg1ks28oq2.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1016043283312-qbq3mc2l0vnf853q98ph5ro7f4d0gprm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.novamed.royodispatcher"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

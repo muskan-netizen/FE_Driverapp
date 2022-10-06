@@ -81,7 +81,7 @@ export default function TaskHistory({route, navigation}) {
       url = `?from_date=&to_date=`;
     }
     console.log(url, 'url');
-    console.log(clientInfo?.database_name, "Client>>>>>>>>>")
+    console.log(clientInfo?.database_name, 'Client>>>>>>>>>');
     actions
       .getListOfTaskHistory(url, {}, {client: clientInfo?.database_name})
       .then(res => {
@@ -179,25 +179,27 @@ export default function TaskHistory({route, navigation}) {
 
       <View style={styles.cashCollectionContainer}>
         <View style={styles.cashTextView}>
-          <Text
-            style={
-              styles.cashCollected
-            }>
-              {`${strings.CASHCOLLECTED} :- ${totalCashCollected}`}
-              </Text>
+          <Text style={styles.cashCollected}>
+            {`${strings.CASHCOLLECTED} :- ${totalCashCollected}`}
+          </Text>
         </View>
-        <View style={styles.clearViewStyle}>
-          <TouchableOpacity
-            onPress={() =>
-              updateState({
-                selectedDate: null,
-                savedDate: null,
-                isLoading: true,
-              })
-            }
-            style={styles.viewStyle}>
-            <Text style={styles.clear}>{strings.CLEAR}</Text>
-          </TouchableOpacity>
+        <View
+          style={{
+            ...styles.clearViewStyle,
+          }}>
+          {selectedDate ? (
+            <TouchableOpacity
+              onPress={() =>
+                updateState({
+                  selectedDate: null,
+                  savedDate: null,
+                  isLoading: true,
+                })
+              }
+              style={styles.viewStyle}>
+              <Text style={styles.clear}>{strings.CLEAR}</Text>
+            </TouchableOpacity>
+          ) : null}
 
           <TouchableOpacity
             onPress={() => updateState({isModalVisibleForDateTime: true})}
