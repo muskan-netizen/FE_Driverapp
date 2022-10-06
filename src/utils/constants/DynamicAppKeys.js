@@ -48,8 +48,8 @@ const shortCodes = {
   jetrider: '387dd4',
   bilionza: 'd97efd',
   baytukom: '7df249',
-  // gokab: '94d183', // staging
-  gokab: '362d14', // live
+  gokab: '94d183', // staging
+  // gokab: '362d14', // live
   bezalio: '2c0bf4',
   doleyPharmacy: '72d02d',
   taquick: '7c335c',
@@ -391,6 +391,11 @@ const shortCodes = {
   novamed: '9ac189',
   eatHalal: '0954a9',
   awamer: '96874b',
+  goTech: '9c43ec',
+  idrv: 'f8d46b',
+  qwiker: '2b8a5b',
+  spryton: '179034',
+  nittosadai: '7ea9b3',
 };
 
 const appIds = {
@@ -1936,6 +1941,26 @@ const appIds = {
   awamer: Platform.select({
     ios: 'com.awamer.royodispatcher',
     android: 'com.awamer.royodispatcher',
+  }),
+  goTech: Platform.select({
+    ios: 'com.goTech.royodispatcher',
+    android: 'com.goTech.royodispatcher',
+  }),
+  idrv: Platform.select({
+    ios: 'com.idvr.royodispatcher',
+    android: 'com.idvr.royodispatcher',
+  }),
+  qwiker: Platform.select({
+    ios: 'com.qwiker.royodispatcher',
+    android: 'com.qwiker.royodispatcher',
+  }),
+  spryton: Platform.select({
+    ios: 'com.spryton.royodispatcher',
+    android: 'com.spryton.royodispatcher',
+  }),
+  nittosadai: Platform.select({
+    ios: 'com.nittosadai.royodispatcher',
+    android: 'com.nittosadai.royodispatcher',
   }),
 };
 

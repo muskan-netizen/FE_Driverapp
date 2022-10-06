@@ -3,6 +3,7 @@ import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {
   I18nManager,
   Image,
+  Keyboard,
   KeyboardAvoidingView,
   Platform,
   ScrollView,
@@ -69,6 +70,8 @@ import DeviceCountry, {
 import SmoothPinCodeInput from 'react-native-smooth-pincode-input';
 import ButtonWithLoader from '../../../Components/ButtonWithLoader';
 import ModalComponent from '../../../Components/ModalComponent';
+import RNOtpVerify from 'react-native-otp-verify';
+
 var getPhonesCallingCodeAndCountryData = null;
 DeviceCountry.getCountryCode()
   .then(result => {
@@ -186,16 +189,11 @@ export default function Signup({route, navigation}) {
   const [otpToShow, setOtpToShow] = useState('');
   const [isSendOtpLoading, setSendOtpLoading] = useState(false);
   const [isSignupLoading, setSignupLoading] = useState(false);
+  const [appHashKey, setAppHashKey] = useState('');
 
   const commonStyles = commonStylesFunc({fontFamily});
 
   const updateState = data => setState(state => ({...state, ...data}));
-
-  console.log(clientInfo, 'clientInfo');
-  //Naviagtion to specific screen
-  const moveToNewScreen = (screenName, data) => () => {
-    navigation.navigate(screenName, {data});
-  };
 
   const styles = stylesFunction({defaultLanguage});
 
@@ -228,11 +226,37 @@ export default function Signup({route, navigation}) {
     getRequiredDatas();
   }, []);
 
+  useEffect(() => {
+    if (Platform.OS === 'android') {
+      RNOtpVerify.getHash()
+        .then(res => {
+          setAppHashKey(res[0]);
+        })
+        .catch();
+      RNOtpVerify.getOtp()
+        .then(res => {
+          RNOtpVerify.addListener(otpHandler);
+        })
+        .catch(error => console.log(error, 'error>>>>'));
+      return () => {
+        RNOtpVerify.removeListener();
+      };
+    }
+  }, []);
+
+  const otpHandler = message => {
+    console.log(message, 'complete msg>>>');
+    if (!!message) {
+      let msgOTP = message.replace(/[^0-9]/g, '');
+      let OTP = msgOTP.substring(0, 6);
+      setOtpToShow(OTP);
+    }
+    RNOtpVerify.removeListener();
+    Keyboard.dismiss();
+  };
+
   const getRequiredDatas = () => {
     (async () => {
-      const saveShortCode = await getItem('saveShortCode');
-      console.log(saveShortCode, 'saveShortCode');
-      let headers = {'Content-Type': 'multipart/form-data'};
       actions
         .signupDoc(
           {},
@@ -328,6 +352,10 @@ export default function Signup({route, navigation}) {
   };
 
   const _onSignup = () => {
+    if (otpToShow.length !== 6) {
+      showErrorOnModal(modalRef, strings.OTPNOTVALID);
+      return;
+    }
     setSignupLoading(true);
     dummyTags = selectedTags.map(item => {
       return item.name;
@@ -505,7 +533,7 @@ export default function Signup({route, navigation}) {
         {
           dial_code: callingCode,
           phone_number: phoneNumber,
-          app_hash_key: 'jkldhfkghlkjgh',
+          app_hash_key: appHashKey,
         },
         {client: clientInfo?.database_name},
       )
@@ -514,10 +542,8 @@ export default function Signup({route, navigation}) {
         if (res?.data) {
           updateState({isLoading: false});
           setOtpModal(true);
-
           setSendOtpLoading(false);
-
-          showSuccess(strings.OTPSENDSUCCESS);
+          showErrorOnModal(modalRef, strings.OTPSENDSUCCESS);
         }
       })
       .catch(errorMethod);
@@ -876,6 +902,7 @@ export default function Signup({route, navigation}) {
             keyboardType="number-pad"
             onTextChange={otpToShow => setOtpToShow(otpToShow)}
           />
+
           <ButtonWithLoader
             onPress={() => {
               setSendOtpLoading(true);
@@ -906,7 +933,7 @@ export default function Signup({route, navigation}) {
         </View>
       </KeyboardAvoidingView>
     );
-  }, [otpToShow, phoneNumber, callingCode]);
+  }, [otpToShow, phoneNumber, callingCode, isSendOtpLoading, isSignupLoading]);
 
   return (
     <WrapperContainer
@@ -1444,8 +1471,7 @@ export default function Signup({route, navigation}) {
       />
       <Modal
         isVisible={isWaitingModal}
-        style={{margin: 0, justifyContent: 'flex-end'}}
-        onBackdropPress={() => updateState({isWaitingModal: false})}>
+        style={{margin: 0, justifyContent: 'flex-end'}}>
         <View style={styles.modalMainView}>
           <Text style={styles.thanksMsgTxt}>{strings.THANKS_MSG}</Text>
           <Text style={styles.signupDoneTxt}>

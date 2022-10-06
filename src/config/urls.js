@@ -4,7 +4,7 @@
 // export const API_BASE_URL = 'https://sales.royodispatch.com/';
 //Staging
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
-
+// export const API_BASE_URL = 'https://spryton.royodispatch.com/';
 // export const API_BASE_URL = 'https://dispatch.halatalabat.com/'
 
 //  export const API_BASE_URL = 'https://dispatch.ubercann.com/';
@@ -33,7 +33,7 @@ export const API_BASE_URL = 'https://dispatch.abberides.com/';
 // export const API_BASE_URL = 'https://dispatch.knockknock.online/'
 // export const API_BASE_URL = 'https://api.winhires.com/';
 //export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
-//export const API_BASE_URL = 'http://192.168.96.84:9091/';
+export const API_BASE_URL = 'http://192.168.96.152:9091/';
 //export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
