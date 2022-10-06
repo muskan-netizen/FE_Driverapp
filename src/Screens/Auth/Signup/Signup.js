@@ -195,12 +195,6 @@ export default function Signup({route, navigation}) {
 
   const updateState = data => setState(state => ({...state, ...data}));
 
-  console.log(clientInfo, 'clientInfo');
-  //Naviagtion to specific screen
-  const moveToNewScreen = (screenName, data) => () => {
-    navigation.navigate(screenName, {data});
-  };
-
   const styles = stylesFunction({defaultLanguage});
 
   //On country change
@@ -230,6 +224,9 @@ export default function Signup({route, navigation}) {
 
   useEffect(() => {
     getRequiredDatas();
+  }, []);
+
+  useEffect(() => {
     if (Platform.OS === 'android') {
       RNOtpVerify.getHash()
         .then(res => {
@@ -245,7 +242,7 @@ export default function Signup({route, navigation}) {
         RNOtpVerify.removeListener();
       };
     }
-  }, [otpToShow]);
+  }, []);
 
   const otpHandler = message => {
     console.log(message, 'complete msg>>>');
@@ -260,9 +257,6 @@ export default function Signup({route, navigation}) {
 
   const getRequiredDatas = () => {
     (async () => {
-      const saveShortCode = await getItem('saveShortCode');
-      console.log(saveShortCode, 'saveShortCode');
-      let headers = {'Content-Type': 'multipart/form-data'};
       actions
         .signupDoc(
           {},
@@ -1477,8 +1471,7 @@ export default function Signup({route, navigation}) {
       />
       <Modal
         isVisible={isWaitingModal}
-        style={{margin: 0, justifyContent: 'flex-end'}}
-        onBackdropPress={() => updateState({isWaitingModal: false})}>
+        style={{margin: 0, justifyContent: 'flex-end'}}>
         <View style={styles.modalMainView}>
           <Text style={styles.thanksMsgTxt}>{strings.THANKS_MSG}</Text>
           <Text style={styles.signupDoneTxt}>

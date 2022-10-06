@@ -202,15 +202,16 @@ android {
 
      flavorDimensions "appType"
  productFlavors {
-        gokab{
+         
+        smile{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-              applicationId 'com.Gokab.royodispatcher'
-            resValue "string", "app_name", "Gokab Dispatch"
+            applicationId 'com.Smile.royodispatcher'
+            resValue "string", "app_name", "Miist Dispatcher"
         }
  }
      
@@ -6590,7 +6591,7 @@ android {
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
 //             applicationId 'com.mywaybill.royodispatcher'
-//             resValue "string", "app_name", "MYWAYBILL Dispatcher"
+//             resValue "string", "app_name", "MyWaysRide Driver"
 //         }
 //         cattch{
 //             dimension "appType"
