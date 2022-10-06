@@ -73,9 +73,6 @@ export default function MyProfile({route, navigation}) {
   } = state;
   const commonStyles = commonStylesFunc({fontFamily});
 
-  useEffect(() => {
-    console.log(transportationArray, 'transportationArray');
-  }, [transportationArray]);
   const updateState = data => setState(state => ({...state, ...data}));
 
   const defaultLanguagae = useSelector(
@@ -87,12 +84,6 @@ export default function MyProfile({route, navigation}) {
   //Naviagtion to specific screen
   const moveToNewScreen = (screenName, data) => () => {
     navigation.navigate(screenName, {data});
-  };
-
-  //On country change
-  const _onCountryChange = data => {
-    updateState({cca2: data.cca2, callingCode: data.callingCode[0]});
-    return;
   };
 
   const onDeleteAccount = () => {
@@ -128,19 +119,6 @@ export default function MyProfile({route, navigation}) {
     }
   };
 
-  const logout = () => {
-    actions
-      .logout({}, {client: clientInfo?.database_name})
-      .then(res => {
-        moveToNewScreen(navigationStrings.LOGIN)();
-      })
-      .catch(errorMethod);
-  };
-
-  const errorMethod = error => {
-    showError(error?.message || error?.error);
-  };
-
   return (
     <WrapperContainer
       statusBarColor={colors.white}
@@ -152,8 +130,6 @@ export default function MyProfile({route, navigation}) {
         // hideRight={true}
         // onPressLeft={()=>navigation.goBack()}
         centerTitle={strings.PROFILE}
-        rightIcon={imagePath.delete}
-        onPressRight={onDeleteAccount}
       />
       <View style={{...commonStyles.headerTopLine}} />
       <View style={styles.rootContainer}>
@@ -368,6 +344,24 @@ export default function MyProfile({route, navigation}) {
           </View>
         </KeyboardAwareScrollView>
       </View>
+      <TouchableOpacity
+        onPress={onDeleteAccount}
+        style={{
+          marginTop: 'auto',
+          alignSelf: 'center',
+          marginBottom: moderateScaleVertical(12),
+          // backgroundColor: colors.blueBackGroudC,
+          // padding: 7,
+        }}>
+        <Text
+          style={{
+            color: colors.redB,
+            fontFamily: fontFamily.bold,
+            fontSize: textScale(20),
+          }}>
+          Delete Account
+        </Text>
+      </TouchableOpacity>
     </WrapperContainer>
   );
 }

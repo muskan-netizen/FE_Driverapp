@@ -1,6 +1,6 @@
 // export const API_BASE_URL = 'http://192.168.101.88:8009/';
 
-//  export const API_BASE_URL = 'https://api.royodispatch.com/';
+// export const API_BASE_URL = 'https://api.royodispatch.com/';
 // export const API_BASE_URL = 'https://sales.royodispatch.com/';
 //Staging
 export const API_BASE_URL = 'https://api.rdstaging.com/';
