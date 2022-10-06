@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "908108426666",
+    "project_id": "lex-dispatcher",
+    "storage_bucket": "lex-dispatcher.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:908108426666:android:55b56222b624b80bbc4fd3",
+        "android_client_info": {
+          "package_name": "com.lex.royodispatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "908108426666-qnko0n0jb6aq8gllpa1vdup3cdfgfo9a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyotSHvdhSHLH6bBos0pxsyJH0XJJTysQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "908108426666-qnko0n0jb6aq8gllpa1vdup3cdfgfo9a.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "908108426666-1uchd6tpgcs54kg2t1sl309q59r6nqls.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.lex.royodispatcher"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -3,7 +3,7 @@
 // export const API_BASE_URL = 'https://api.royodispatch.com/';
 // export const API_BASE_URL = 'https://sales.royodispatch.com/';
 //Staging
-export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // export const API_BASE_URL = 'https://dispatch.halatalabat.com/'
 
@@ -20,6 +20,9 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //Staging
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
 
+// export const API_BASE_URL = 'https://jazzybug.rdstaging.com/';
+// export const API_BASE_URL = 'https://dispatch.elog.group/'
+
 // export const API_BASE_URL = 'https://grub.rdstaging.com/';
 
 // export const API_BASE_URL = 'https://dispatch.elog.group/';
@@ -32,6 +35,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //Staging
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://dispatch.myevplus.com/';
 
 //Misst
 // export const API_BASE_URL = 'https://miist-dispatch.netsolutionindia.com/';
@@ -79,7 +83,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.quicklube.us/'
 
 //  export const API_BASE_URL = 'https://dispatch.swantaxi.net/'
-
+// export const API_BASE_URL = 'https://dispatch.dropitoffusa.com/'
 //fairex
 // export const API_BASE_URL = 'https://dispatch.fairexglobal.com/';
 //dimavega
@@ -182,6 +186,9 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //empire
 // export const API_BASE_URL = 'https://dispatch.empirehub.com/';
 //Ullaz
+
+// export const API_BASE_URL = 'https://dispatch.ullaz.co.ke/';
+
 // export const API_BASE_URL = 'https://dispatch.ullaz.co.ke/';
 
 //LocalDropOff
@@ -269,7 +276,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.loopwhole.ca/';
 
 //MARTINONWHEELS
-// export const API_BASE_URL = 'https://dispatch.martinionwheelsllc.org/';
+// export const API_BASE_URL = 'https://dispatch.martinionwheelsllc.rorg/';
 
 //
 // export const API_BASE_URL = 'https://dispatch.viversbox.com/'
@@ -330,7 +337,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //export const API_BASE_URL = 'https://dispatch.meltivers.com/';
 //  butler delivery
-// export const API_BASE_URL = 'https://dispatch.butlerdeliveryusa.com/';
+//  export const API_BASE_URL = 'https://dispatch.butlerdeliveryusa.com/';
 // bimolaa
 // export const API_BASE_URL = 'https://dispatch.bimol.in/'
 

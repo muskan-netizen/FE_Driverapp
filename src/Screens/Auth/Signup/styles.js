@@ -188,9 +188,12 @@ export default ({defaultLanguagae}) => {
     cellStyle: {
       borderBottomWidth: 1,
       borderColor: colors.textGrey,
+      color: colors.black,
+      alignSelf:'center'
     },
     cellStyleFocused: {
       borderColor: colors.textGrey,
+      color: colors.black,
     },
     textStyleCodeInput: {
       fontSize: 24,
