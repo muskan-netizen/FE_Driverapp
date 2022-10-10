@@ -3,7 +3,10 @@
 //  export const API_BASE_URL = 'https://api.royodispatch.com/';
 // export const API_BASE_URL = 'https://sales.royodispatch.com/';
 //Staging
-export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL='https://hitaxi-dispatch.netsolutionindia.com/'
+// export const API_BASE_URL='https://dispatch.choizez.com/'
+// export const API_BASE_URL='https://dispatch.maxisdelivery.net/'
 // export const API_BASE_URL = 'https://spryton.royodispatch.com/';
 // export const API_BASE_URL = 'https://dispatch.halatalabat.com/'
 
@@ -314,7 +317,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // africanize
 // export const API_BASE_URL = 'https://dispatch.africanize.co/';
 
-// export const API_BASE_URL = 'https://dispatch.africanvillage.market/';
+export const API_BASE_URL = 'https://dispatch.africanvillage.market/';
 
 // orderchekout
 // export const API_BASE_URL = 'https://dispatch.orderchekout.com/';
