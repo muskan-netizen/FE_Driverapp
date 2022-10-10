@@ -1,4 +1,4 @@
-import { requireNativeComponent } from 'react-native';
+import {requireNativeComponent} from 'react-native';
 
 export default {
   analyctiSelected: require('../assets/images/ic_analyctis_selected.png'),
@@ -99,4 +99,7 @@ export default {
   send: require('../assets/images/ic_send.png'),
   icBgLight: require('../assets/images/ic_lightbg.png'),
   icBgDark: require('../assets/images/ic_darkbg.png'),
+  icChatroom: require('../assets/images/ic_chatroom.png'),
+  icStartChat: require('../assets/images/ic_start_chat.png'),
+  icChatroomDrawer: require('../assets/images/ic_chatroom1.png'),
 };

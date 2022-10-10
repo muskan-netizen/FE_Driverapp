@@ -142,7 +142,7 @@ const Header = ({
                 : 'flex-end',
           }}>
           {!!rightIcon ? (
-            <TouchableOpacity onPress={onPressRight}>
+            <TouchableOpacity hitSlop={hitSlopProp} onPress={onPressRight}>
               <Image style={rightIconStyle} source={rightIcon} />
             </TouchableOpacity>
           ) : !!customRight ? (

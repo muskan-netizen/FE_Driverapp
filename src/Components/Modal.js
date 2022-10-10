@@ -30,7 +30,6 @@ export default function ModalView({
       isVisible={isVisible}
       onBackButtonPress={onClose}
       onBackdropPress={onClose1}
-      backdropTransitionInTiming={transistionIn}
       backdropTransitionInTiming={transistionOut}
       style={[styles.modalStyle, modalStyle]}>
       <View
