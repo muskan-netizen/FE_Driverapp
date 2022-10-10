@@ -396,6 +396,7 @@ const shortCodes = {
   qwiker: '2b8a5b',
   spryton: '179034',
   nittosadai: '7ea9b3',
+  clickOkart:'81586c'
 };
 
 const appIds = {
@@ -1961,6 +1962,10 @@ const appIds = {
   nittosadai: Platform.select({
     ios: 'com.nittosadai.royodispatcher',
     android: 'com.nittosadai.royodispatcher',
+  }),
+  clickOkart: Platform.select({
+    ios: 'com.clickOkart.royodispatcher',
+    android: 'com.clickOkart.royodispatcher',
   }),
 };
 
