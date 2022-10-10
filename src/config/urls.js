@@ -4,7 +4,7 @@
 // export const API_BASE_URL = 'https://sales.royodispatch.com/';
 //Staging
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
-// export const API_BASE_URL = 'https://spryton.royodispatch.com/';
+export const API_BASE_URL = 'https://spryton.royodispatch.com/';
 // export const API_BASE_URL = 'https://dispatch.halatalabat.com/'
 
 //  export const API_BASE_URL = 'https://dispatch.ubercann.com/';
@@ -22,7 +22,6 @@
 
 // export const API_BASE_URL = 'https://dispatch.abberides.com/';z
 
-
 // export const API_BASE_URL = 'https://jazzybug.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.elog.group/'
 
@@ -36,8 +35,6 @@
 // export const API_BASE_URL = 'http://192.168.96.152:9091/';
 //export const API_BASE_URL = 'https://api.royodispatch.com/';
 
-//Staging
-export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL='https://dispatch.ourvalley.app/'
 //Misst
 // export const API_BASE_URL = 'https://miist-dispatch.netsolutionindia.com/';

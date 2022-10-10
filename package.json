@@ -787,6 +787,8 @@
     "tiimodispatcherRelease": "cd android && ./gradlew assembletiimoRelease",
     "carryFooddispatcher": "react-native run-android --variant=carryFoodDebug",
     "carryFooddispatcherRelease": "cd android && ./gradlew assemblecarryFoodRelease",
+    "ragioMigodispatcher": "react-native run-android --variant=ragioMigoDebug",
+    "ragioMigodispatcherRelease": "cd android && ./gradlew assembleragioMigoRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",

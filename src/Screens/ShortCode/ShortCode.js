@@ -2465,30 +2465,36 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
-          case appIds.clickOkart:
-            updateState({
-              shortCode: shortCodes.clickOkart,
-              isShortcodePrefilled: true,
-            });
-            break;
-            case appIds.verz:
-              updateState({
-                shortCode: shortCodes.verz,
-                isShortcodePrefilled: true,
-              });
-              break;
-              case appIds.tiimo:
-              updateState({
-                shortCode: shortCodes.tiimo,
-                isShortcodePrefilled: true,
-              });
-              break;
-              case appIds.carryFood:
-                updateState({
-                  shortCode: shortCodes.carryFood,
-                  isShortcodePrefilled: true,
-                });
-                break;
+        case appIds.clickOkart:
+          updateState({
+            shortCode: shortCodes.clickOkart,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.verz:
+          updateState({
+            shortCode: shortCodes.verz,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.tiimo:
+          updateState({
+            shortCode: shortCodes.tiimo,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.carryFood:
+          updateState({
+            shortCode: shortCodes.carryFood,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.ragioMigo:
+          updateState({
+            shortCode: shortCodes.ragioMigo,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);
