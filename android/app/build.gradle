@@ -203,15 +203,48 @@ android {
      flavorDimensions "appType"
 
 productFlavors {
-        weTogether{
+        smile{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.weTogether.royodispatcher'
-            resValue "string", "app_name", "WeTogether Dispatcher"
+            applicationId 'com.Smile.royodispatcher'
+            resValue "string", "app_name", "Miist Dispatcher"
+            resValue "string", "mauron85_bgloc_content_authority", "com.marianhello.app.mauron85.bgloc.provider.smile"
+        }
+                royodispatcher {
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.codebew.royodispatcher'
+            resValue "string", "app_name", "RoyoDriverApp"
+            resValue "string", "mauron85_bgloc_content_authority", "com.marianhello.app.mauron85.bgloc.provider.beta"
+        } 
+                 fairexpay{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Fairexpay.royodispatcher'
+            resValue "string", "app_name", "Fairexpay Dispatcher"
+        }
+                grub{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId "com.Grub.royodispatcher"
+            resValue "string", "app_name", "Grub Dispatch"
+        
         }
 }
     
