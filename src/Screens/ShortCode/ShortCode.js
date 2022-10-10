@@ -2465,6 +2465,12 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+          case appIds.clickOkart:
+            updateState({
+              shortCode: shortCodes.clickOkart,
+              isShortcodePrefilled: true,
+            });
+            break;
       }
     })();
   }, [internetConnection]);
