@@ -4,9 +4,6 @@
 // export const API_BASE_URL = 'https://sales.royodispatch.com/';
 //Staging
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
-// export const API_BASE_URL='https://hitaxi-dispatch.netsolutionindia.com/'
-// export const API_BASE_URL='https://dispatch.choizez.com/'
-// export const API_BASE_URL='https://dispatch.maxisdelivery.net/'
 // export const API_BASE_URL = 'https://spryton.royodispatch.com/';
 // export const API_BASE_URL = 'https://dispatch.halatalabat.com/'
 
@@ -23,7 +20,7 @@
 //Staging
 // export const API_BASE_URL = 'https://dispatch.xborne.com/';
 
-// export const API_BASE_URL = 'https://dispatch.abberides.com/';
+// export const API_BASE_URL = 'https://dispatch.abberides.com/';z
 
 
 // export const API_BASE_URL = 'https://jazzybug.rdstaging.com/';
@@ -41,7 +38,7 @@
 
 //Staging
 export const API_BASE_URL = 'https://api.rdstaging.com/';
-
+// export const API_BASE_URL='https://dispatch.ourvalley.app/'
 //Misst
 // export const API_BASE_URL = 'https://miist-dispatch.netsolutionindia.com/';
 
