@@ -6905,6 +6905,16 @@ android {
             applicationId 'com.carryFood.royodispatcher'
             resValue "string", "app_name", "Carry Food Driver"
         }
+        ragioMigo{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.ragiomigo.royodispatcher'
+            resValue "string", "app_name", "RagioMigo Driver"
+        }
 }
 }
 

@@ -396,10 +396,11 @@ const shortCodes = {
   qwiker: '2b8a5b',
   spryton: '179034',
   nittosadai: '7ea9b3',
-  clickOkart:'81586c',
-  verz:'93c9e7',
-  tiimo:'57fff9',
-  carryFood:'b06460'
+  clickOkart: '81586c',
+  verz: '93c9e7',
+  tiimo: '57fff9',
+  carryFood: 'b06460',
+  ragioMigo: '58a83e',
 };
 
 const appIds = {
@@ -1981,6 +1982,10 @@ const appIds = {
   carryFood: Platform.select({
     ios: 'com.carryFood.royodispatcher',
     android: 'com.carryFood.royodispatcher',
+  }),
+  ragioMigo: Platform.select({
+    ios: 'com.ragiomigo.royodispatcher',
+    android: 'com.ragiomigo.royodispatcher',
   }),
 };
 
