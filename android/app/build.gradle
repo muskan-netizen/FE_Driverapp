@@ -201,28 +201,6 @@ android {
     }
 
      flavorDimensions "appType"
- productFlavors {
-         qdelo{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.qdelo.dispatcher'
-            resValue "string", "app_name", "Qdelo Dispatcher"
-        }
-                africanVillageMarket {
-            dimension "appType"
-            versionCode 3
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.AfricanVillageMarketApp.royodispatcher'
-            resValue "string", "app_name", "AfricanVillageMarket Driver"
-        } 
- }
      
     productFlavors {
         royodispatcher {
