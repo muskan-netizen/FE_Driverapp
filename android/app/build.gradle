@@ -201,7 +201,18 @@ android {
     }
 
      flavorDimensions "appType"
-     
+    //  productFlavors{
+    //        carryFood{
+    //         dimension "appType"
+    //         versionCode 1
+    //         versionName "1.0"
+    //         minSdkVersion rootProject.ext.minSdkVersion
+    //         targetSdkVersion rootProject.ext.targetSdkVersion
+    //         // applicationIdSuffix ".royoorder"
+    //         applicationId 'com.carryFood.royodispatcher'
+    //         resValue "string", "app_name", "Carry Food Driver"
+    //     }
+    //  }
     productFlavors {
         royodispatcher {
             dimension "appType"
@@ -6863,6 +6874,36 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.clickOkart.royodispatcher'
             resValue "string", "app_name", "CLICKOKART Driver"
+        }
+        verz{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.verz.royodispatcher'
+            resValue "string", "app_name", "Verz Driver"
+        } 
+         tiimo{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.tiimo.royodispatcher'
+            resValue "string", "app_name", "Tiimo Driver"
+        }
+         carryFood{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.carryFood.royodispatcher'
+            resValue "string", "app_name", "Carry Food Driver"
         }
 }
 }

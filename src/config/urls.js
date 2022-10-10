@@ -3,7 +3,7 @@
 //  export const API_BASE_URL = 'https://api.royodispatch.com/';
 // export const API_BASE_URL = 'https://sales.royodispatch.com/';
 //Staging
-export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://spryton.royodispatch.com/';
 // export const API_BASE_URL = 'https://dispatch.halatalabat.com/'
 
@@ -37,8 +37,8 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
-
+export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL='https://dispatch.ourvalley.app/'
 //Misst
 // export const API_BASE_URL = 'https://miist-dispatch.netsolutionindia.com/';
 
@@ -59,7 +59,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //Papruki
 // export const API_BASE_URL='https://dispatch.papiruki.com/'
 // export const API_BASE_URL = 'https://dispatch.drusdeliveries.com/';
-
+// export const API_BASE_URL='https://dispatch.dbairro.com/'
 // export const API_BASE_URL = 'https://dispatch.pas41.com/'
 
 // tmg Shops

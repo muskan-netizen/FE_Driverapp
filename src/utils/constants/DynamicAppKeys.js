@@ -396,7 +396,10 @@ const shortCodes = {
   qwiker: '2b8a5b',
   spryton: '179034',
   nittosadai: '7ea9b3',
-  clickOkart:'81586c'
+  clickOkart:'81586c',
+  verz:'93c9e7',
+  tiimo:'57fff9',
+  carryFood:'b06460'
 };
 
 const appIds = {
@@ -1298,7 +1301,7 @@ const appIds = {
     android: 'com.TimHomeServices.royodispatcher',
   }),
   dbairro: Platform.select({
-    ios: 'com.Dbairro.royoDriver',
+    ios: 'com.Dbairro.DriverApp',
     android: 'com.Dbairro.dispatcher',
   }),
   knockknock: Platform.select({
@@ -1966,6 +1969,18 @@ const appIds = {
   clickOkart: Platform.select({
     ios: 'com.clickOkart.royodispatcher',
     android: 'com.clickOkart.royodispatcher',
+  }),
+  verz: Platform.select({
+    ios: 'com.verz.royodispatcher',
+    android: 'com.verz.royodispatcher',
+  }),
+  tiimo: Platform.select({
+    ios: 'com.tiimo.royodispatcher',
+    android: 'com.tiimo.royodispatcher',
+  }),
+  carryFood: Platform.select({
+    ios: 'com.carryFood.royodispatcher',
+    android: 'com.carryFood.royodispatcher',
   }),
 };
 
