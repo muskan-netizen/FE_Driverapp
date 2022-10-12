@@ -140,6 +140,7 @@ export default function Signup({route, navigation}) {
     ],
     selectedCustomerType: null,
     isCustomer: false,
+    vehicleTypes: [],
   });
 
   const {
@@ -181,6 +182,7 @@ export default function Signup({route, navigation}) {
     isDatePicker,
     selectedDateField,
     selectedDate,
+    vehicleTypes,
   } = state;
   const [isOtpModal, setOtpModal] = useState(false);
   const [otpToShow, setOtpToShow] = useState('');
@@ -242,10 +244,12 @@ export default function Signup({route, navigation}) {
         )
         .then(res => {
           console.log(res, 'getRequiredDatas data');
+
           updateState({
             driverTags: res?.data?.agent_tags,
             driverTagsAry: res?.data?.agent_tags,
             driverTeams: res?.data?.all_teams,
+            vehicleTypes: res?.data?.vehicle_types,
           });
           if (res?.data) {
             updateState({
@@ -394,6 +398,7 @@ export default function Signup({route, navigation}) {
         }
       });
     }
+    console.log(formdata, 'formdaataaaaaa');
     actions
       .signUp(formdata, {
         client: clientInfo?.database_name,
@@ -1317,47 +1322,54 @@ export default function Signup({route, navigation}) {
               )}
             </View>
 
-            <View
-              onTouchStart={() => updateState({isTagsShow: false})}
-              style={{marginVertical: moderateScaleVertical(5)}}>
-              <Text style={styles.label}>{strings.TRASNPORTATION}</Text>
-            </View>
-            <View onTouchStart={() => updateState({isTagsShow: false})}>
-              <ScrollView
-                horizontal
-                alwaysBounceHorizontal={false}
-                style={styles.transporationOuterContainer}>
-                {allTransportation.map((i, inx) => {
-                  if (savedShortCode === shortCodes.drus && inx == 0) return;
+            {vehicleTypes !== '' ? (
+              <>
+                <View
+                  onTouchStart={() => updateState({isTagsShow: false})}
+                  style={{marginVertical: moderateScaleVertical(5)}}>
+                  <Text style={styles.label}>{strings.TRASNPORTATION}</Text>
+                </View>
 
-                  return (
-                    <TouchableOpacity
-                      style={[
-                        styles.transportationContainer,
-                        {...styles.shadowStyle},
-                      ]}
-                      onPress={() => {
-                        _selectedTransportation(i);
-                      }}>
-                      {selectedVehicleType == i ? (
-                        <Image
-                          style={{position: 'absolute', end: 5, top: 10}}
-                          source={imagePath.blue_tik}
-                        />
-                      ) : null}
+                <View onTouchStart={() => updateState({isTagsShow: false})}>
+                  <ScrollView
+                    horizontal
+                    alwaysBounceHorizontal={false}
+                    style={styles.transporationOuterContainer}>
+                    {allTransportation.map((i, inx) => {
+                      if (savedShortCode === shortCodes.drus && inx == 0)
+                        return;
+                      if (vehicleTypes.includes(i?.id)) {
+                        return (
+                          <TouchableOpacity
+                            style={[
+                              styles.transportationContainer,
+                              {...styles.shadowStyle},
+                            ]}
+                            onPress={() => {
+                              _selectedTransportation(i);
+                            }}>
+                            {selectedVehicleType == i ? (
+                              <Image
+                                style={{position: 'absolute', end: 5, top: 10}}
+                                source={imagePath.blue_tik}
+                              />
+                            ) : null}
 
-                      <Image
-                        source={
-                          selectedVehicleType == i
-                            ? i.activeIcon
-                            : i.inactiveIcon
-                        }
-                      />
-                    </TouchableOpacity>
-                  );
-                })}
-              </ScrollView>
-            </View>
+                            <Image
+                              source={
+                                selectedVehicleType == i
+                                  ? i.activeIcon
+                                  : i.inactiveIcon
+                              }
+                            />
+                          </TouchableOpacity>
+                        );
+                      }
+                    })}
+                  </ScrollView>
+                </View>
+              </>
+            ):null}
             {/* { getEmployeeViewBasedOnClient(savedShortCode)} */}
 
             {/* <View style={{marginTop: moderateScaleVertical(10)}}>
