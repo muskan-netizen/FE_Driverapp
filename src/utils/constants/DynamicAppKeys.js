@@ -48,8 +48,8 @@ const shortCodes = {
   jetrider: '387dd4',
   bilionza: 'd97efd',
   baytukom: '7df249',
-  // gokab: '94d183', // staging
-  gokab: '362d14', // live
+  gokab: '94d183', // staging
+  // gokab: '362d14', // live
   bezalio: '2c0bf4',
   doleyPharmacy: '72d02d',
   taquick: '7c335c',
@@ -391,6 +391,17 @@ const shortCodes = {
   novamed: '9ac189',
   eatHalal: '0954a9',
   awamer: '96874b',
+  goTech: '9c43ec',
+  idrv: 'f8d46b',
+  qwiker: '2b8a5b',
+  spryton: '179034',
+  nittosadai: '7ea9b3',
+  clickOkart: '81586c',
+  verz: '93c9e7',
+  tiimo: '57fff9',
+  carryFood: 'b06460',
+  ragioMigo: '58a83e',
+  jimsAutoRescue: '2a0b56',
 };
 
 const appIds = {
@@ -419,8 +430,8 @@ const appIds = {
     android: 'com.tranzit.royodispatcher',
   }),
   hemptify: Platform.select({
-    ios: 'com.HemptiFy.royoDriver',
-    android: 'com.HemptiFy.royoDriver',
+    ios: 'com.HemptiFyDriver',
+    android: 'com.HemptiFyDriver',
   }),
   goody: Platform.select({
     ios: 'com.Goody.Dispatch',
@@ -1241,7 +1252,7 @@ const appIds = {
   }),
   xborne: Platform.select({
     ios: 'com.Xborne.Dispatch',
-    android: 'com.Xborne.royodispatcher',
+    android: 'com.Xborne.dispatcher',
   }),
   fawaz: Platform.select({
     ios: 'com.Fawaz.Dispatch',
@@ -1292,7 +1303,7 @@ const appIds = {
     android: 'com.TimHomeServices.royodispatcher',
   }),
   dbairro: Platform.select({
-    ios: 'com.Dbairro.royoDriver',
+    ios: 'com.Dbairro.DriverApp',
     android: 'com.Dbairro.dispatcher',
   }),
   knockknock: Platform.select({
@@ -1774,8 +1785,8 @@ const appIds = {
     android: 'com.app.swipeDriver',
   }),
   sheRyders: Platform.select({
-    ios: 'com.sheRyders.royodispatcher',
-    android: 'com.sheRyders.royodispatcher',
+    ios: 'com.sheRyders.dispatcher',
+    android: 'com.sheRyders.dispatcher',
   }),
   kurrix: Platform.select({
     ios: 'com.kurrix.royoDispatcher',
@@ -1936,6 +1947,50 @@ const appIds = {
   awamer: Platform.select({
     ios: 'com.awamer.royodispatcher',
     android: 'com.awamer.royodispatcher',
+  }),
+  goTech: Platform.select({
+    ios: 'com.goTech.royodispatcher',
+    android: 'com.goTech.royodispatcher',
+  }),
+  idrv: Platform.select({
+    ios: 'com.idvr.royodispatcher',
+    android: 'com.idvr.royodispatcher',
+  }),
+  qwiker: Platform.select({
+    ios: 'com.qwiker.royodispatcher',
+    android: 'com.qwiker.royodispatcher',
+  }),
+  spryton: Platform.select({
+    ios: 'com.spryton.royodispatcher',
+    android: 'com.spryton.royodispatcher',
+  }),
+  nittosadai: Platform.select({
+    ios: 'com.nittosadai.royodispatcher',
+    android: 'com.nittosadai.royodispatcher',
+  }),
+  clickOkart: Platform.select({
+    ios: 'com.clickOkart.royodispatcher',
+    android: 'com.clickOkart.royodispatcher',
+  }),
+  verz: Platform.select({
+    ios: 'com.verz.royodispatcher',
+    android: 'com.verz.royodispatcher',
+  }),
+  tiimo: Platform.select({
+    ios: 'com.tiimo.royodispatcher',
+    android: 'com.tiimo.royodispatcher',
+  }),
+  carryFood: Platform.select({
+    ios: 'com.carryFood.royodispatcher',
+    android: 'com.carryFood.royodispatcher',
+  }),
+  ragioMigo: Platform.select({
+    ios: 'com.ragiomigo.royodispatcher',
+    android: 'com.ragiomigo.royodispatcher',
+  }),
+  jimsAutoRescue: Platform.select({
+    ios: 'com.jimsAutoRescue.royodispatcher',
+    android: 'com.jimsAutoRescue.royodispatcher',
   }),
 };
 

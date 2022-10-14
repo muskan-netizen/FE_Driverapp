@@ -639,6 +639,7 @@ export default function TaskDetail({route, navigation}) {
             <Text style={styles.text}>{buttonText}</Text>
           </View>
         </TouchableWithoutFeedback>
+        
       </View>
     );
   };
@@ -1515,17 +1516,33 @@ export default function TaskDetail({route, navigation}) {
   /**** */
 
   /*****Google cordinate and call apple map */
-  const googleCoordinate = {
-    latitude: Number(taskDetail?.location?.latitude),
-    longitude: Number(taskDetail?.location?.longitude),
-    provider: 'google',
-    zoom: 10,
-    end: `${taskDetail?.location?.address}`,
-    start: 'My Location',
-    travelType: 'drive',
-  };
+  const googleCoordinate =()=> {
+    // latitude: Number(taskDetail?.location?.latitude),
+    // longitude: Number(taskDetail?.location?.longitude),
+    // provider: 'google',
+    // zoom: 10,
+    // end: `${taskDetail?.location?.address}`,
+    // start: 'My Location',
+    // travelType: 'drive',
 
-  const openGoogleMap = createOpenLink(googleCoordinate);
+
+  };
+  
+
+  const openGoogleMap = ()=>{
+  var url = `https://www.google.com/maps/dir/?api=1&travelmode=driving&dir_action=navigate&destination=${taskDetail?.location?.address}`;
+  Linking.canOpenURL(url).then(supported => {
+    console.log(supported,"supportedsupported");
+      if (!supported) {
+          console.log('Can\'t handle url: ' + url);
+      } else {
+          return Linking.openURL(url);
+      }
+  }).catch(err => console.error('An error occurred', err));  
+  }
+
+  console.log(taskDetail?.location,"taskDetail?.location");
+
 
   /**** */
 

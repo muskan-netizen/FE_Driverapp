@@ -1,25 +1,23 @@
-// export const API_BASE_URL = 'http://192.168.101.88:8009/';
+// export const API_BASE_URL = 'https://baggage-dispatch.netsolutionindia.com/';
 
-//  export const API_BASE_URL = 'https://api.royodispatch.com/';
+//export const API_BASE_URL = 'https://api.royodispatch.com/';
 // export const API_BASE_URL = 'https://sales.royodispatch.com/';
 
 //Staging
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
-
-// export const API_BASE_URL = 'https://dispatch.halatalabat.com/'
-
+// export const API_BASE_URL='https://dispatch.sheryders.com/'
 //  export const API_BASE_URL = 'https://dispatch.ubercann.com/';
 // export const API_BASE_URL = 'https://dispatch.swantaxi.net/';
-// export const API_BASE_URL = 'https://dispatch.keystonedelivery.com/'
 // export const API_BASE_URL = 'https://dispatch.yogo.gd/';
-
+// export const API_BASE_URL='https://dispatch.delcolink.com/'
 // export const API_BASE_URL = 'https://gokab.royodispatch.com/'
-//export const API_BASE_URL = 'https://ace.royodispatch.com/';
+//export const API_BASE_URL = 'https://dispatch.miistshop.com/';
 
 // export const API_BASE_URL = 'https://dispatch.tmgsalesllc.com/';
 
 //Staging
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://dispatch.xborne.com/';
+
+// export const API_BASE_URL = 'https://dispatch.abberides.com/';
 
 // export const API_BASE_URL = 'https://jazzybug.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.elog.group/'
@@ -31,7 +29,7 @@
 // export const API_BASE_URL = 'https://dispatch.knockknock.online/';
 // export const API_BASE_URL = 'https://api.winhires.com/';
 //export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
-//export const API_BASE_URL = 'http://192.168.96.84:9091/';
+// export const API_BASE_URL = 'http://192.168.96.152:9091/';
 //export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
@@ -61,7 +59,7 @@
 //Papruki
 // export const API_BASE_URL='https://dispatch.papiruki.com/'
 // export const API_BASE_URL = 'https://dispatch.drusdeliveries.com/';
-
+// export const API_BASE_URL='https://dispatch.dbairro.com/'
 // export const API_BASE_URL = 'https://dispatch.pas41.com/'
 
 // tmg Shops
@@ -171,7 +169,7 @@
 // export const API_BASE_URL = 'https://Snabbhem.rdstaging.com/';
 
 // abberides;
-export const API_BASE_URL = 'https://dispatch.abberides.com/';
+// export const API_BASE_URL = 'https://dispatch.abberides.com/';
 
 //Fastmikes
 // export const API_BASE_URL = 'https://dispatch.fastmikes.com/';
@@ -233,7 +231,7 @@ export const API_BASE_URL = 'https://dispatch.abberides.com/';
 // export const API_BASE_URL = 'https://dispatch.uvennow.com/';
 
 //hemptify
-// export const API_BASE_URL = 'https://dispatch.hemptify.com/';
+export const API_BASE_URL = 'https://dispatch.hemptify.com/';
 
 //Express Delivery
 //  export const API_BASE_URL = 'https://dispatch.expresdeliverys.com/';
@@ -367,7 +365,7 @@ export const API_BASE_URL = 'https://dispatch.abberides.com/';
 // export const API_BASE_URL = 'https://meateasy.royodispatch.com/';
 
 // aaujaau
-// export const API_BASE_URL = 'https://dispatch.aaujaaunepal.com/';
+//export const API_BASE_URL = 'https://dispatch.aaujaaunepal.com/';
 
 // lastminutedress
 // export const API_BASE_URL = 'https://dispatch.lastminutedress.com/';
@@ -514,3 +512,4 @@ export const AGENT_CHAT_ROOM = '/api/room/fetchRoomByUserAgent';
 export const SEND_MESSAGE = '/api/chat/sendMessageJoin';
 export const GET_ALL_MESSAGES = '/api/chat';
 export const ALL_ROOM_USER = '/api/chat/getRoomUser';
+export const SEND_NOTIFCATION = getApiUrl('/api/chat/sendNotificationToUser');

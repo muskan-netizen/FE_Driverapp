@@ -2435,6 +2435,72 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.goTech:
+          updateState({
+            shortCode: shortCodes.goTech,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.idrv:
+          updateState({
+            shortCode: shortCodes.idrv,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.qwiker:
+          updateState({
+            shortCode: shortCodes.qwiker,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.spryton:
+          updateState({
+            shortCode: shortCodes.spryton,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.nittosadai:
+          updateState({
+            shortCode: shortCodes.nittosadai,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.clickOkart:
+          updateState({
+            shortCode: shortCodes.clickOkart,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.verz:
+          updateState({
+            shortCode: shortCodes.verz,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.tiimo:
+          updateState({
+            shortCode: shortCodes.tiimo,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.carryFood:
+          updateState({
+            shortCode: shortCodes.carryFood,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.ragioMigo:
+          updateState({
+            shortCode: shortCodes.ragioMigo,
+            isShortcodePrefilled: true,
+          });
+          break;
+          case appIds.jimsAutoRescue:
+            updateState({
+              shortCode: shortCodes.jimsAutoRescue,
+              isShortcodePrefilled: true,
+            });
+            break;
       }
     })();
   }, [internetConnection]);
