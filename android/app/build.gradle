@@ -203,16 +203,16 @@ android {
      flavorDimensions "appType"
 
     productFlavors {
-    //     royodispatcher {
-    //         dimension "appType"
-    //         versionCode 1
-    //         versionName "1.0"
-    //         minSdkVersion rootProject.ext.minSdkVersion
-    //         targetSdkVersion rootProject.ext.targetSdkVersion
-    //         // applicationIdSuffix ".royoorder"
-    //         applicationId 'com.codebew.royodispatcher'
-    //         resValue "string", "app_name", "RoyoDriverApp"
-    //     } 
+        royodispatcher {
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.codebew.royodispatcher'
+            resValue "string", "app_name", "RoyoDriverApp"
+        } 
     //      runrun {
     //         dimension "appType"
     //         versionCode 1
@@ -6479,16 +6479,16 @@ android {
         //     applicationId 'com.balyDlvry.royodispatcher'
         //     resValue "string", "app_name", "Baly Dlvry Dispatcher"
         // }
-        // hezniTaxi{
-        //     dimension "appType"
-        //     versionCode 1
-        //     versionName "1.0"
-        //     minSdkVersion rootProject.ext.minSdkVersion
-        //     targetSdkVersion rootProject.ext.targetSdkVersion
-        //     // applicationIdSuffix ".royoorder"
-        //     applicationId 'com.balyDlvry.royodispatcher'
-        //     resValue "string", "app_name", "Hezni Taxi Dispatcher"
-        // }
+        hezniTaxi{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.hezniTaxi.royodispatcher'
+            resValue "string", "app_name", "Hezni Taxi Dispatcher"
+        }
         // onTheWheel{
         //     dimension "appType"
         //     versionCode 1

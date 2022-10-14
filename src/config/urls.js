@@ -1,6 +1,6 @@
 // export const API_BASE_URL = 'https://baggage-dispatch.netsolutionindia.com/';
 
-//  export const API_BASE_URL = 'https://api.royodispatch.com/';
+ //export const API_BASE_URL = 'https://api.royodispatch.com/';
 // export const API_BASE_URL = 'https://sales.royodispatch.com/';
 //Staging
 export const API_BASE_URL = 'https://api.rdstaging.com/';
@@ -497,3 +497,4 @@ export const AGENT_CHAT_ROOM = '/api/room/fetchRoomByUserAgent';
 export const SEND_MESSAGE = '/api/chat/sendMessageJoin';
 export const GET_ALL_MESSAGES = '/api/chat';
 export const ALL_ROOM_USER = '/api/chat/getRoomUser';
+export const SEND_NOTIFCATION = getApiUrl('/api/chat/sendNotificationToUser');

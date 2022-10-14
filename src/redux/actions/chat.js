@@ -1,4 +1,4 @@
-import { AGENT_CHAT_ROOM, ALL_ROOM_USER, GET_ALL_MESSAGES, SEND_MESSAGE, START_CHAT } from "../../config/urls";
+import { AGENT_CHAT_ROOM, ALL_ROOM_USER, GET_ALL_MESSAGES, SEND_MESSAGE, SEND_NOTIFCATION, START_CHAT } from "../../config/urls";
 import { apiGet, apiPost, getItem } from "../../utils/utils";
 
 export function onStartChat(data = {}, headers = {}) {
@@ -72,6 +72,18 @@ export function getAllRoomUser(query = '', data = {}, headers = {}) {
     const socketUrl = getClientInfo?.socket_url ? getClientInfo?.socket_url : defaultUrl
 
     apiGet(socketUrl + ALL_ROOM_USER + query, data, headers)
+      .then((response) => {
+        resolve(response);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+}
+
+export function sendNotification(data = {}, headers = {}) {
+  return new Promise(async(resolve, reject) => {
+    apiPost(SEND_NOTIFCATION, data, headers)
       .then((response) => {
         resolve(response);
       })
