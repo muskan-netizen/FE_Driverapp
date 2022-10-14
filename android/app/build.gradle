@@ -202,18 +202,7 @@ android {
 
      flavorDimensions "appType"
 
-// productFlavors {
-//                         perucabs{
-//             dimension "appType"
-//             versionCode 1
-//             versionName "1.0"
-//             minSdkVersion rootProject.ext.minSdkVersion
-//             targetSdkVersion rootProject.ext.targetSdkVersion
-//             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.perucabs.dispatcher'
-//             resValue "string", "app_name", "Perucabs Dispatcher"
-//         }
-// }
+
     productFlavors {
         royodispatcher {
             dimension "appType"
@@ -3146,7 +3135,7 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.Dropitoffusa.royoDriver'
+            applicationId 'com.DropitoffusaDriver'
             resValue "string", "app_name", "Dropitoffusa Driver"
         }
 
@@ -6029,8 +6018,8 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.abbeRides.dispatch'
-            resValue "string", "app_name", "Abbe Rides Dispatcher"
+            applicationId 'com.abbeRides.Driver'
+            resValue "string", "app_name", "Abbe Rides Driver"
         }
           nrsa{
             dimension "appType"
@@ -6785,6 +6774,8 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.novamed.royodispatcher'
             resValue "string", "app_name", "Novamed Dispatcher"
+           resValue "string", "mauron85_bgloc_content_authority", "com.marianhello.app.mauron85.bgloc.provider.novamed"
+
         }
         awamer{
             dimension "appType"
@@ -6795,6 +6786,8 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.awamer.royodispatcher'
             resValue "string", "app_name", "Awamer Dispatcher"
+            resValue "string", "mauron85_bgloc_content_authority", "com.marianhello.app.mauron85.bgloc.provider.awamer"
+
         }
 }
 }

@@ -1396,8 +1396,8 @@ const appIds = {
     android: 'com.CapitalDiagnostics.royodispatcher',
   }),
   dropitoffusa: Platform.select({
-    ios: 'com.Dropitoffusa.royoDriver',
-    android: 'com.Dropitoffusa.royoDriver',
+    ios: 'com.Dropitoffusa.Dispatch',
+    android: 'com.DropitoffusaDriver',
   }),
   handyPickup: Platform.select({
     ios: 'com.HandyPickup.Dispatch',
@@ -1630,8 +1630,8 @@ const appIds = {
     android: 'com.spa.royodispatcher',
   }),
   abbeRides: Platform.select({
-    ios: 'com.abbeRides.dispatch',
-    android: 'com.abbeRides.dispatch',
+    ios: 'com.abbeRides.Driver',
+    android: 'com.abbeRides.Driver',
   }),
   nrsa: Platform.select({
     ios: 'com.nrsa.dispatch',

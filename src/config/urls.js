@@ -2,6 +2,7 @@
 
 //  export const API_BASE_URL = 'https://api.royodispatch.com/';
 // export const API_BASE_URL = 'https://sales.royodispatch.com/';
+
 //Staging
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
 
@@ -86,7 +87,7 @@
 // export const API_BASE_URL = 'https://dispatch.quicklube.us/'
 
 //  export const API_BASE_URL = 'https://dispatch.swantaxi.net/'
-// export const API_BASE_URL = 'https://dispatch.dropitoffusa.com/'
+// export const API_BASE_URL = 'https://dispatch.dropitoffusa.com/';
 //fairex
 // export const API_BASE_URL = 'https://dispatch.fairexglobal.com/';
 //dimavega
@@ -169,6 +170,9 @@
 // Snabbhem;
 // export const API_BASE_URL = 'https://Snabbhem.rdstaging.com/';
 
+// abberides;
+export const API_BASE_URL = 'https://dispatch.abberides.com/';
+
 //Fastmikes
 // export const API_BASE_URL = 'https://dispatch.fastmikes.com/';
 // export const API_BASE_URL = 'https://dispatch.beachhopdelivery.com/';
@@ -211,7 +215,10 @@
 
 //dimahalal
 
-export const API_BASE_URL = 'https://dispatch.perucabs.com/';
+// export const API_BASE_URL = 'https://dispatch.perucabs.com/';
+
+// sheryders
+// export const API_BASE_URL = 'https://dispatch.sheryders.com/';
 
 // export const API_BASE_URL = 'https://dispatch.dimahalal.com/';
 // export const API_BASE_URL = 'https://dispatch.toor.life/'
