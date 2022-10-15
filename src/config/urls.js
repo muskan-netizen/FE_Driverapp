@@ -27,7 +27,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.knockknock.online/'
 // export const API_BASE_URL = 'https://api.winhires.com/';
 //export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
-//export const API_BASE_URL = 'http://192.168.96.84:9091/';
+//export const API_BASE_URL = 'http://192.168.98.136:8009/';
  //export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
@@ -497,4 +497,4 @@ export const AGENT_CHAT_ROOM = '/api/room/fetchRoomByUserAgent';
 export const SEND_MESSAGE = '/api/chat/sendMessageJoin';
 export const GET_ALL_MESSAGES = '/api/chat';
 export const ALL_ROOM_USER = '/api/chat/getRoomUser';
-export const SEND_NOTIFCATION = getApiUrl('/api/chat/sendNotificationToUser');
+export const SEND_NOTIFCATION = getApiUrl('api/chat/sendNotification');
