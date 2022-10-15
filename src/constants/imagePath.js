@@ -102,4 +102,5 @@ export default {
   icChatroom: require('../assets/images/ic_chatroom.png'),
   icStartChat: require('../assets/images/ic_start_chat.png'),
   icChatroomDrawer: require('../assets/images/ic_chatroom1.png'),
+  flank: require('../assets/Flank.mp4'),
 };

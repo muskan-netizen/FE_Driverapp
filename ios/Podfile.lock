@@ -361,6 +361,11 @@ PODS:
     - React
   - react-native-splash-screen (3.3.0):
     - React-Core
+  - react-native-video (5.2.1):
+    - React-Core
+    - react-native-video/Video (= 5.2.1)
+  - react-native-video/Video (5.2.1):
+    - React-Core
   - react-native-webview (11.23.1):
     - React-Core
   - React-perflogger (0.65.2)
@@ -477,7 +482,7 @@ PODS:
     - React-Core
   - RNReanimated (1.13.4):
     - React-Core
-  - RNScreens (3.17.0):
+  - RNScreens (3.18.2):
     - React-Core
     - React-RCTImage
   - RNSVG (12.4.4):
@@ -562,6 +567,7 @@ DEPENDENCIES:
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - react-native-signature-capture (from `../node_modules/react-native-signature-capture`)
   - react-native-splash-screen (from `../node_modules/react-native-splash-screen`)
+  - react-native-video (from `../node_modules/react-native-video`)
   - react-native-webview (from `../node_modules/react-native-webview`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
@@ -718,6 +724,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-signature-capture"
   react-native-splash-screen:
     :path: "../node_modules/react-native-splash-screen"
+  react-native-video:
+    :path: "../node_modules/react-native-video"
   react-native-webview:
     :path: "../node_modules/react-native-webview"
   React-perflogger:
@@ -851,6 +859,7 @@ SPEC CHECKSUMS:
   react-native-safe-area-context: 9e40fb181dac02619414ba1294d6c2a807056ab9
   react-native-signature-capture: 416a3947684e049a5b012cdd6496f878dc797f16
   react-native-splash-screen: 4312f786b13a81b5169ef346d76d33bc0c6dc457
+  react-native-video: c26780b224543c62d5e1b2a7244a5cd1b50e8253
   react-native-webview: d33e2db8925d090871ffeb232dfa50cb3a727581
   React-perflogger: 939564c838f8b6ec099b4f858559f0f406c99745
   React-RCTActionSheet: b5135d36ee35ebd883c4fe043db7bd8cbba7516e
@@ -883,7 +892,7 @@ SPEC CHECKSUMS:
   RNPermissions: dcdb7b99796bbeda6975a6e79ad519c41b251b1c
   RNReactNativeHapticFeedback: 1e3efeca9628ff9876ee7cdd9edec1b336913f8c
   RNReanimated: c1b56d030d1616239861534d9adb531f8cffab68
-  RNScreens: 0df01424e9e0ed7827200d6ed1087ddd06c493f9
+  RNScreens: 34cc502acf1b916c582c60003dc3089fa01dc66d
   RNSVG: ecd661f380a07ba690c9c5929c475a44f432d674
   RNZendeskChat: c3835f664be1746b121b69736d5c95e236cae382
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
