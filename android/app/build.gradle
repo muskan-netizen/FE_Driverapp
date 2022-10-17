@@ -201,7 +201,19 @@ android {
     }
 
      flavorDimensions "appType"
-   
+//    productFlavors
+//    {
+//        flank{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.flank.royodispatcher'
+//             resValue "string", "app_name", "Flank Dispatcher"
+//         }
+//    }
     productFlavors {
         royodispatcher {
             dimension "appType"
@@ -210,7 +222,7 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.codebew.royodispatcher'
+            applicationId 'com.codebrew.royodispatcher'
             resValue "string", "app_name", "RoyoDriverApp"
         } 
          runrun {
@@ -260,8 +272,8 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.App.HemptiFy.royodispatcher'
-            resValue "string", "app_name", "HemptiFy Dispatch"
+            applicationId 'com.HemptiFyDriver'
+            resValue "string", "app_name", "HemptiFy Driver"
         } 
 
         goody {
@@ -6893,13 +6905,25 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.jimsAutoRescue.royodispatcher'
-            resValue "string", "app_name", "Jim's Auto Rescue Driver"
+            resValue "string", "app_name", "Jims Auto Rescue Driver"
+        }
+         nhazi{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.nhazi.royodispatcher'
+            resValue "string", "app_name", "Nhazi Driver"
         }
 }
 }
 
 
 dependencies {
+     compile project(':react-native-video')
+     implementation "androidx.appcompat:appcompat:1.0.0"
     implementation 'androidx.work:work-runtime-ktx:2.7.0' // required to avoid crash on Android 12 API 31
     implementation 'com.android.support:multidex:2.0.1'
     implementation 'com.facebook.fresco:animated-gif:2.5.0'

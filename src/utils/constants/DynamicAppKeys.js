@@ -407,7 +407,7 @@ const shortCodes = {
 const appIds = {
   royoorder: Platform.select({
     ios: 'com.CodeBrew.Royo.Driver',
-    android: 'com.codebew.royodispatcher',
+    android: 'com.codebrew.royodispatcher',
   }),
   runrun: Platform.select({
     ios: 'com.RunrunOne.Dispatch',
@@ -431,7 +431,7 @@ const appIds = {
   }),
   hemptify: Platform.select({
     ios: 'com.HemptyFy.Dispatch',
-    android: 'com.App.HemptiFy.royodispatcher',
+    android: 'com.HemptiFyDriver',
   }),
   goody: Platform.select({
     ios: 'com.Goody.Dispatch',
@@ -987,7 +987,7 @@ const appIds = {
     android: 'com.VendorSpot.royodispatcher',
   }),
   SXM2GO: Platform.select({
-    ios: 'com.SXM2GO.Dispatch',
+    ios: 'com.SXM2GO.driverApp',
     android: 'com.SXM2GO.driverApp',
   }),
   farmerSouq: Platform.select({
