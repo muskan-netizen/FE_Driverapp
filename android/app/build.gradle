@@ -2715,7 +2715,7 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.Xborne.royodispatcher'
+            applicationId 'com.Xborne.dispatcher'
             resValue "string", "app_name", "Xborne Dispatcher"
         }
         fawaz{
@@ -4635,16 +4635,6 @@ android {
             applicationId 'com.Seratho.royodispatcher'
             resValue "string", "app_name", "Seratho Dispatcher"
         }
-        xborne{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.Xborne.royodispatcher'
-            resValue "string", "app_name", "Xborne Dispatcher"
-        }
         fawaz{
             dimension "appType"
             versionCode 1
@@ -5105,16 +5095,7 @@ android {
             applicationId 'com.Seratho.royodispatcher'
             resValue "string", "app_name", "Seratho Dispatcher"
         }
-        xborne{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.Xborne.royodispatcher'
-            resValue "string", "app_name", "Xborne Dispatcher"
-        }
+
         fawaz{
             dimension "appType"
             versionCode 1
@@ -6412,8 +6393,8 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.sheRyders.royodispatcher'
-            resValue "string", "app_name", "SheRyders Dispatcher"
+            applicationId 'com.sheRyders.dispatcher'
+            resValue "string", "app_name", "SheRyders Driver"
         }
 
            kurrix{
@@ -6903,7 +6884,47 @@ android {
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.ragiomigo.royodispatcher'
-            resValue "string", "app_name", "RagioMigo Driver"
+            resValue "string", "app_name", "RegioMigo Driver"
+        }
+         jimsAutoRescue{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.jimsAutoRescue.royodispatcher'
+            resValue "string", "app_name", "Jims Auto Rescue Driver"
+        }
+        nhazi{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.nhazi.royodispatcher'
+            resValue "string", "app_name", "Nhazi Driver"
+        }
+         petverse{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.petverse.royodispatcher'
+            resValue "string", "app_name", "Petverse Driver"
+        }
+         clickNDrop{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.clickNDrop.royodispatcher'
+            resValue "string", "app_name", "Click N Drop Driver"
         }
 }
 }

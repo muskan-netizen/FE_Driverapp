@@ -2500,6 +2500,30 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.jimsAutoRescue:
+          updateState({
+            shortCode: shortCodes.jimsAutoRescue,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.nhazi:
+          updateState({
+            shortCode: shortCodes.nhazi,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.petverse:
+          updateState({
+            shortCode: shortCodes.petverse,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.clickNDrop:
+          updateState({
+            shortCode: shortCodes.clickNDrop,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);
