@@ -1213,6 +1213,7 @@
 		2CE293C428CB58F100972BC8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CE293C328CB58DC00972BC8 /* Images.xcassets */; };
 		2CE293C628CB59DB00972BC8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE293C528CB59DA00972BC8 /* GoogleService-Info.plist */; };
 		2CE293C828CB5AFA00972BC8 /* CattchInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE293C728CB5AFA00972BC8 /* CattchInfo.plist */; };
+		2CE3746928FD374B007E30AB /* BoltDeliveryInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE3746828FD3748007E30AB /* BoltDeliveryInfo.plist */; };
 		2CE4051C28BA2CE100E97B4B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2CE4051D28BA2CE100E97B4B /* RoyoDriverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84961AE127EB05D300B58C31 /* RoyoDriverApp.swift */; };
 		2CE4051E28BA2CE100E97B4B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -2303,7 +2304,7 @@
 		8434817D27313D1D00D96624 /* MaxisDeliveryInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8434817C27313D1D00D96624 /* MaxisDeliveryInfo.plist */; };
 		8434819F2731417C00D96624 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8434819E2731417C00D96624 /* GoogleService-Info.plist */; };
 		84357A7627E858A000E1BE5E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
-		84357A7727E858A000E1BE5E /* BuildFile in Sources */ = {isa = PBXBuildFile; };
+		84357A7727E858A000E1BE5E /* (null) in Sources */ = {isa = PBXBuildFile; };
 		84357A7827E858A000E1BE5E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		84357A8027E858A000E1BE5E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		84357A8127E858A000E1BE5E /* RoyoDriverInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8404E588271EE077000D6E95 /* RoyoDriverInfo.plist */; };
@@ -2362,7 +2363,7 @@
 		843800DA27E34076001B13A3 /* QseekInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 843800D927E34076001B13A3 /* QseekInfo.plist */; };
 		8438F67427E32FFA001B13A3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8438F67327E32FFA001B13A3 /* Images.xcassets */; };
 		8438F84127E33CF7001B13A3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
-		8438F84227E33CF7001B13A3 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
+		8438F84227E33CF7001B13A3 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		8438F84327E33CF7001B13A3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		8438F84A27E33CF7001B13A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		8438F84B27E33CF7001B13A3 /* RoyoDriverInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8404E588271EE077000D6E95 /* RoyoDriverInfo.plist */; };
@@ -3310,7 +3311,7 @@
 		84814C5727AD62CF008EABE3 /* IPicknDropInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84814C5627AD62CF008EABE3 /* IPicknDropInfo.plist */; };
 		84814D1027AD6376008EABE3 /* CabioInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84814D0F27AD6376008EABE3 /* CabioInfo.plist */; };
 		8482090E27E8A064005AFDEE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
-		8482090F27E8A064005AFDEE /* BuildFile in Sources */ = {isa = PBXBuildFile; };
+		8482090F27E8A064005AFDEE /* (null) in Sources */ = {isa = PBXBuildFile; };
 		8482091027E8A064005AFDEE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		8482091927E8A064005AFDEE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		8482091A27E8A064005AFDEE /* RoyoDriverInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8404E588271EE077000D6E95 /* RoyoDriverInfo.plist */; };
@@ -7451,6 +7452,7 @@
 		2CE293C328CB58DC00972BC8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2CE293C528CB59DA00972BC8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2CE293C728CB5AFA00972BC8 /* CattchInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CattchInfo.plist; sourceTree = "<group>"; };
+		2CE3746828FD3748007E30AB /* BoltDeliveryInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = BoltDeliveryInfo.plist; sourceTree = "<group>"; };
 		2CE4053928BA2CE200E97B4B /* Nuvoni.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nuvoni.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CE4053C28BA2D1500E97B4B /* Nuvoni(Development).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Nuvoni(Development).xcconfig"; sourceTree = "<group>"; };
 		2CE4053E28BA2D3C00E97B4B /* Nuvoni(Production).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Nuvoni(Production).xcconfig"; sourceTree = "<group>"; };
@@ -15774,6 +15776,7 @@
 				2CB1E88828FAD8D100F0CE13 /* NhaziInfo.plist */,
 				2CB1E88A28FAD90300F0CE13 /* PetverseInfo.plist */,
 				2CC45C1428FD201700FD9FA8 /* ClickNDropInfo.plist */,
+				2CE3746828FD3748007E30AB /* BoltDeliveryInfo.plist */,
 			);
 			path = Plists;
 			sourceTree = "<group>";
@@ -31551,6 +31554,7 @@
 				841D1EF827B5230400010C7E /* campton-medium.ttf in Resources */,
 				841D1EF927B5230400010C7E /* notification.mp3 in Resources */,
 				841D1EFA27B5230400010C7E /* campton-book.ttf in Resources */,
+				2CE3746928FD374B007E30AB /* BoltDeliveryInfo.plist in Resources */,
 				841D1EFF27B5230400010C7E /* campton-semibold.ttf in Resources */,
 				841D237027B526CC00010C7E /* BoltDelivery(Production).xcconfig in Resources */,
 			);
@@ -72307,7 +72311,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84357A7627E858A000E1BE5E /* AppDelegate.m in Sources */,
-				84357A7727E858A000E1BE5E /* BuildFile in Sources */,
+				84357A7727E858A000E1BE5E /* (null) in Sources */,
 				84357A7827E858A000E1BE5E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -72347,7 +72351,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8438F84127E33CF7001B13A3 /* AppDelegate.m in Sources */,
-				8438F84227E33CF7001B13A3 /* BuildFile in Sources */,
+				8438F84227E33CF7001B13A3 /* (null) in Sources */,
 				8438F84327E33CF7001B13A3 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -72967,7 +72971,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8482090E27E8A064005AFDEE /* AppDelegate.m in Sources */,
-				8482090F27E8A064005AFDEE /* BuildFile in Sources */,
+				8482090F27E8A064005AFDEE /* (null) in Sources */,
 				8482091027E8A064005AFDEE /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

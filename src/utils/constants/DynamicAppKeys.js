@@ -404,7 +404,7 @@ const shortCodes = {
   jimsAutoRescue: '2a0b56',
   nhazi: '064fd8',
   petverse: '1d5220',
-  clickNDrop: '9536ba',
+  clickNDrop: 'd27ec3',
 };
 
 const appIds = {
