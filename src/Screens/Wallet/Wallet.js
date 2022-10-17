@@ -97,6 +97,7 @@ export default function Wallet({route, navigation}) {
         {client: clientInfo?.database_name},
       )
       .then(res => {
+        console.log(res,"ressssss")
         updateState({
           lifetimeAmount: res?.lifetime_earnings,
           currentAmount: Number(res?.wallet_balance),
@@ -140,6 +141,7 @@ export default function Wallet({route, navigation}) {
           paddingVertical: moderateScale(20),
           paddingHorizontal: moderateScale(5),
         }}>
+         
         <View
           style={{
             flexDirection: 'row',
@@ -241,7 +243,7 @@ export default function Wallet({route, navigation}) {
                 ? `+ ${
                     userData?.client_preference?.currency?.symbol
                   }${currencyNumberFormatter(Number(item?.amount).toFixed(2))}`
-                : item?.task_type_id && `${strings.TASK} #${item?.id}`}
+                : item?.task_type_id && `${strings?.ORDER} #${item?.order?.order_number}`}
             </Text>
           </View>
         </View>

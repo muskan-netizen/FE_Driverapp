@@ -308,6 +308,7 @@ export default function AddMoney({navigation}) {
 
   //Offline payments
   const _offineLinePayment = async () => {
+    
     if (cardInfo) {
       console.log(cardInfo, 'details');
       // alert("123")
