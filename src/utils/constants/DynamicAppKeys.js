@@ -426,7 +426,7 @@ const appIds = {
   }),
   hemptify: Platform.select({
     ios: 'com.HemptyFy.Dispatch',
-    android: 'com.App.HemptiFy.royodispatcher',
+    android: 'com.HemptiFyDriver',
   }),
   goody: Platform.select({
     ios: 'com.Goody.Dispatch',
@@ -1167,7 +1167,7 @@ const appIds = {
   }),
   ambuTap: Platform.select({
     ios: 'com.AmbuTap.Dispatch',
-    android: 'com.AmbuTap.royodispatcher',
+    android: 'com.ambutap.driver',
   }),
   swiffyLLC: Platform.select({
     ios: 'com.SwiffyLLC.Dispatcher',

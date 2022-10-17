@@ -201,7 +201,7 @@ android {
     }
 
      flavorDimensions "appType"
-     
+    
     productFlavors {
         royodispatcher {
             dimension "appType"
@@ -2504,16 +2504,7 @@ android {
             applicationId 'com.GamaDelivery.royodispatcher'
             resValue "string", "app_name", "Gama Delivery"
         }
-        ambuTap{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.AmbuTap.royodispatcher'
-            resValue "string", "app_name", "AmbuTap Dispatcher"
-        }
+
 
            swiffyLLC{
             dimension "appType"
@@ -4438,8 +4429,8 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.AmbuTap.royodispatcher'
-            resValue "string", "app_name", "AmbuTap Dispatcher"
+            applicationId 'com.ambutap.driver'
+            resValue "string", "app_name", "AmbuTap Driver"
         }
 
            swiffyLLC{
