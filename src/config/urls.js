@@ -1,10 +1,9 @@
-// export const API_BASE_URL = 'http://192.168.101.88:8009/';
+// export const API_BASE_URL = 'https://baggage-dispatch.netsolutionindia.com/';
 
-//  export const API_BASE_URL = 'https://api.royodispatch.com/';
+ //export const API_BASE_URL = 'https://api.royodispatch.com/';
 // export const API_BASE_URL = 'https://sales.royodispatch.com/';
 //Staging
 export const API_BASE_URL = 'https://api.rdstaging.com/';
-// export const API_BASE_URL = 'https://dispatch.ullaz.co.ke/';
 // export const API_BASE_URL='https://delivery.rdstaging.com/'
 // export const API_BASE_URL = 'https://spryton.royodispatch.com/';
 // export const API_BASE_URL = 'https://dispatch.halatalabat.com/'
@@ -15,7 +14,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.yogo.gd/';
 // export const API_BASE_URL='https://dispatch.delcolink.com/'
 // export const API_BASE_URL = 'https://gokab.royodispatch.com/'
-//export const API_BASE_URL = 'https://ace.royodispatch.com/';
+//export const API_BASE_URL = 'https://dispatch.miistshop.com/';
 
 // export const API_BASE_URL = 'https://dispatch.tmgsalesllc.com/';
 
@@ -358,7 +357,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://meateasy.royodispatch.com/';
 
 // aaujaau
-// export const API_BASE_URL = 'https://dispatch.aaujaaunepal.com/';
+ //export const API_BASE_URL = 'https://dispatch.aaujaaunepal.com/';
 
 // lastminutedress
 // export const API_BASE_URL = 'https://dispatch.lastminutedress.com/';
@@ -505,3 +504,4 @@ export const AGENT_CHAT_ROOM = '/api/room/fetchRoomByUserAgent';
 export const SEND_MESSAGE = '/api/chat/sendMessageJoin';
 export const GET_ALL_MESSAGES = '/api/chat';
 export const ALL_ROOM_USER = '/api/chat/getRoomUser';
+export const SEND_NOTIFCATION = getApiUrl('/api/chat/sendNotificationToUser');
