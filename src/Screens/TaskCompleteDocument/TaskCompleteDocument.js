@@ -806,7 +806,7 @@ export default function TaskCompleteDocument({route, navigation}) {
                       totalTravelData?.distance?.text.length - 2,
                     ) * 1.609344,
                   ).toFixed(2)}{' '}
-              {appIds.weTogether ? 'Miles' : ' KM'}
+              {appIds.weTogether == getBundleId() ? 'Miles' : ' KM'}
             </Text>
           </View>
           <View>
