@@ -26,6 +26,8 @@ import RNRestart from 'react-native-restart';
 import navigationStrings from '../../navigation/navigationStrings';
 import {appIds} from '../../utils/constants/DynamicAppKeys';
 import DeviceInfo from 'react-native-device-info';
+import {removeItem} from '../../utils/utils';
+import {removerUserData} from '../../redux/actions/auth';
 
 export default function Settings({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
@@ -104,6 +106,11 @@ export default function Settings({route, navigation}) {
               id: 10,
               label: 'Nepali',
               value: 'ne',
+            },
+            {
+              id: 11,
+              label: 'Swahili',
+              value: 'swa',
             },
           ],
     selectedLangauge: defaultLanguage?.label
@@ -252,6 +259,39 @@ export default function Settings({route, navigation}) {
     ]);
   };
 
+  const onDeleteAccount = () => {
+    Alert.alert('', strings.ARE_YOU_SURE_YOU_WANT_TO_DELETE, [
+      {
+        text: strings.CANCEL,
+        onPress: () => console.log('Cancel Pressed'),
+        // style: 'destructive',
+      },
+      {
+        text: strings.CONFIRM,
+        onPress: deleleUserAccount,
+      },
+    ]);
+  };
+  const deleleUserAccount = async () => {
+    try {
+      const res = await actions.deleteAccount(
+        {},
+        {
+          client: clientInfo?.database_name,
+          language: defaultLanguage?.value ? defaultLanguage?.value : 'en',
+        },
+      );
+      console.log('delete user account res++++', res);
+      await removeItem('userData');
+      removerUserData(null);
+      showSuccess(res?.massage);
+      // logout()
+    } catch (error) {
+      console.log('erro raised', error);
+      showError(error?.message);
+    }
+  };
+
   return (
     <WrapperContainer
       statusBarColor={colors.white}
@@ -286,6 +326,24 @@ export default function Settings({route, navigation}) {
             </View>
           </TouchableOpacity>
         </View>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={onDeleteAccount}
+        style={{
+          marginTop: 'auto',
+          alignSelf: 'center',
+          marginBottom: moderateScaleVertical(12),
+          // backgroundColor: colors.blueBackGroudC,
+          // padding: 7,
+        }}>
+        <Text
+          style={{
+            color: colors.redB,
+            fontFamily: fontFamily.bold,
+            fontSize: textScale(20),
+          }}>
+          Delete Account
+        </Text>
       </TouchableOpacity>
       <ModalView
         isVisible={isModalVisibleForLanguage}

@@ -1,6 +1,3 @@
-/**
- * @format
- */
 import 'react-native-gesture-handler';
 import {AppRegistry} from 'react-native';
 import App from './App';
@@ -15,7 +12,7 @@ import navigationStrings from './src/navigation/navigationStrings';
 messaging().setBackgroundMessageHandler(async remoteMessage => {
   console.log('Message handled in the background!', remoteMessage);
   const {data, messageId, notification} = remoteMessage;
-  let notificationType = data?.type?data?.type:data?.notificationType
+  let notificationType = data?.type ? data?.type : data?.notificationType;
   if (
     Platform.OS == 'android' &&
     notification?.android?.sound == 'notification'
