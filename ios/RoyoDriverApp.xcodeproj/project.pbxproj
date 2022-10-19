@@ -6686,6 +6686,7 @@
 		F83CBF0D28F4093600A337CD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F83CBF0C28F4093500A337CD /* Images.xcassets */; };
 		F83CBF0F28F417E700A337CD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F83CBF0E28F417DD00A337CD /* GoogleService-Info.plist */; };
 		F83CBF1128F41A5500A337CD /* TiimoInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = F83CBF1028F41A5500A337CD /* TiimoInfo.plist */; };
+		F8796BE828FFFB84008835CD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8796BE728FFFB82008835CD /* GoogleService-Info.plist */; };
 		F885CEEC2844D406003D9B65 /* Valley(Development).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F885CEEB2844D406003D9B65 /* Valley(Development).xcconfig */; };
 		F885CEEE2844D431003D9B65 /* Valley(Production).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F885CEED2844D431003D9B65 /* Valley(Production).xcconfig */; };
 		F885CEF02844D44B003D9B65 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F885CEEF2844D44B003D9B65 /* Images.xcassets */; };
@@ -10350,6 +10351,7 @@
 		F83CBF0E28F417DD00A337CD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F83CBF1028F41A5500A337CD /* TiimoInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = TiimoInfo.plist; sourceTree = "<group>"; };
 		F86B0845CE06FAFBF8CED8DF /* Pods-available_pods-DestinationOps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-DestinationOps.release.xcconfig"; path = "Target Support Files/Pods-available_pods-DestinationOps/Pods-available_pods-DestinationOps.release.xcconfig"; sourceTree = "<group>"; };
+		F8796BE728FFFB82008835CD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F885CEEB2844D406003D9B65 /* Valley(Development).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Valley(Development).xcconfig"; sourceTree = "<group>"; };
 		F885CEED2844D431003D9B65 /* Valley(Production).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Valley(Production).xcconfig"; sourceTree = "<group>"; };
 		F885CEEF2844D44B003D9B65 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -20345,6 +20347,7 @@
 		F80CB08628FFC41100192590 /* LifeHomeFit */ = {
 			isa = PBXGroup;
 			children = (
+				F8796BE728FFFB82008835CD /* GoogleService-Info.plist */,
 				F80CB08728FFC44200192590 /* LifeHomeFit(Development).xcconfig */,
 				F80CB08928FFC48300192590 /* LifeHomeFit(Production).xcconfig */,
 				F80CB08B28FFC4A800192590 /* Images.xcassets */,
@@ -37266,6 +37269,7 @@
 				F80CB08C28FFC4A800192590 /* Images.xcassets in Resources */,
 				F80CB07928FFC3A400192590 /* campton-book.ttf in Resources */,
 				F80CB07D28FFC3A400192590 /* campton-semibold.ttf in Resources */,
+				F8796BE828FFFB84008835CD /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
