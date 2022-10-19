@@ -107,6 +107,11 @@ export default function Settings({route, navigation}) {
               label: 'Nepali',
               value: 'ne',
             },
+            {
+              id: 11,
+              label: 'Swahili',
+              value: 'swa',
+            },
           ],
     selectedLangauge: defaultLanguage?.label
       ? defaultLanguage

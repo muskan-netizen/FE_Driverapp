@@ -1,9 +1,9 @@
-//
-//  Jeevann(Development).xcconfig
-//  Jeevann
-//
-//  Created by CBL-MAC-016 on 23/09/22.
-//
+#include "Pods/Target Support Files/Pods-available_pods-Jeevann/Pods-available_pods-Jeevann.debug.xcconfig"
 
-// Configuration settings file format documentation can be found at:
-// https://help.apple.com/xcode/#/dev745c5c974
+
+PROJECT_BUNDLE_ID = com.jeevann.royodispatcher
+PROJECT_APP_VERSION = 1.0
+PROJECT_BUILD_NUMBER = 1
+PROJECT_APP_NAME =Jeevann Dispatcher
+PROJECT_PLIST =JeevannInfo
+PROJECT_ENTITLEMENT=RoyoDriverAppRelease

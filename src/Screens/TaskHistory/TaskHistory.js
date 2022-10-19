@@ -123,6 +123,8 @@ export default function TaskHistory({route, navigation}) {
   };
   const renderTaskList = ({item, index}) => {
     return (
+      <>
+      
       <TaskListCard
         data={item}
         index={index}
@@ -130,7 +132,10 @@ export default function TaskHistory({route, navigation}) {
         showCurrency={true}
         _onPressTask={() => _onPressTask(item)}
         isFromHistory={true}
+        previousData={allTaskInHistory[index-1]}
+       
       />
+      </>
     );
   };
 
@@ -161,6 +166,9 @@ export default function TaskHistory({route, navigation}) {
       });
     }
   };
+
+
+
 
   return (
     <WrapperContainer

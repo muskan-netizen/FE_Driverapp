@@ -2,6 +2,8 @@ package com.royodriverapp;
 import android.os.Bundle;
 import com.facebook.react.ReactActivity;
 import org.devio.rn.splashscreen.SplashScreen; // here
+import com.brentvatne.react.ReactVideoPackage;
+import com.facebook.react.shell.MainReactPackage;
 
 public class MainActivity extends ReactActivity {
 

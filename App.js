@@ -2,7 +2,7 @@ import NetInfo from '@react-native-community/netinfo';
 import React, {useEffect, useState} from 'react';
 import FlashMessage from 'react-native-flash-message';
 import SplashScreen from 'react-native-splash-screen';
-
+import {getBundleId} from 'react-native-device-info';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 // import SplashScreen from 'react-native-splash-screen';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -122,9 +122,19 @@ const App = () => {
   useEffect(() => {
     checkExistChannel();
     notificationConfig();
-    setTimeout(() => {
-      SplashScreen.hide();
-    }, 1500);
+    if(
+       getBundleId()==appIds?.flank
+    ){
+      setTimeout(() => {
+        SplashScreen.hide();
+      }, 100);
+    }
+    else {
+      setTimeout(() => {
+        SplashScreen.hide();
+      }, 1500);
+    }
+   
   }, []);
 
   //rest of code will be performing for iOS on background too

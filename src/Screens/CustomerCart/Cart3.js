@@ -1688,15 +1688,17 @@ export default function Cart({navigation, route}) {
                       flex: 0.7,
                       flexDirection: 'row',
                       alignItems: 'center',
+                      width: moderateScale(16),
+                      height: moderateScale(16),
                     }}>
                     <FastImage
                       style={{tintColor: themeColors.primary_color}}
                       source={imagePath.percent}
                       resizeMode="contain"
-                      style={{
-                        width: moderateScale(16),
-                        height: moderateScale(16),
-                      }}
+                      // style={{
+                      //   width: moderateScale(16),
+                      //   height: moderateScale(16),
+                      // }}
                     />
                     <Text
                       numberOfLines={1}
@@ -1934,7 +1936,7 @@ export default function Cart({navigation, route}) {
                     updateState({pickupDriverComment: text})
                   }
                   placeholder={strings.PLACEHOLDERCOMMENTFORPICKUPDRIVER}
-                  placeholderTextColor={colors.textGreyOpcaity6}
+                  // placeholderTextColor={colors.textGreyOpcaity6}
                   style={{
                     height: 40,
                     alignItems: 'center',
@@ -1973,7 +1975,7 @@ export default function Cart({navigation, route}) {
                   onChangeText={text =>
                     updateState({dropOffDriverComment: text})
                   }
-                  placeholderTextColor={colors.textGreyOpcaity6}
+                  // placeholderTextColor={colors.textGreyOpcaity6}
                   placeholder={strings.PLACEHOLDERCOMMENTFORDROPUPDRIVER}
                   style={{
                     height: 40,
@@ -2009,7 +2011,7 @@ export default function Cart({navigation, route}) {
               </View>
               <View style={{flex: 0.5, marginTop: moderateScale(5)}}>
                 <TextInput
-                  placeholderTextColor={colors.textGreyOpcaity6}
+                  // placeholderTextColor={colors.textGreyOpcaity6}
                   placeholder={strings.PLACEHOLDERCOMMENTFORVENDOR}
                   value={vendorComment}
                   onChangeText={text => updateState({vendorComment: text})}
@@ -2890,26 +2892,6 @@ export default function Cart({navigation, route}) {
 
         <View style={{marginVertical: moderateScaleVertical(8)}} />
 
-        {recommendedVendorsdata && recommendedVendorsdata.length > 0 && (
-          <View>
-            <Text
-              style={{
-                ...styles.commTextStyle,
-                color: isDarkMode ? MyDarkTheme.colors.text : colors.black,
-              }}>
-              {strings.RECOMMENDED_VENDORS}
-            </Text>
-            <FlatList
-              horizontal
-              data={recommendedVendorsdata}
-              renderItem={renderRecommendedVendors}
-              keyExtractor={(item, index) => item?.id.toString()}
-              keyboardShouldPersistTaps="always"
-              showsHorizontalScrollIndicator={false}
-              ItemSeparatorComponent={() => <View style={{height: 20}} />}
-            />
-          </View>
-        )}
 
         <View style={{marginBottom: moderateScale(100)}} />
       </View>
@@ -3452,10 +3434,10 @@ export default function Cart({navigation, route}) {
             ListHeaderComponent={cartItems?.length ? getHeader() : null}
             ListFooterComponent={cartItems?.length ? getFooter() : null}
             showsVerticalScrollIndicator={false}
-            style={{backgroundColor: colors.backgroundGrey}}
+            style={{backgroundColor: colors.backgroundGrey,flex: 1}}
             keyExtractor={(item, index) => String(index)}
             renderItem={_renderItem}
-            style={{flex: 1}}
+            
             refreshControl={
               <RefreshControl
                 refreshing={isRefreshing}

@@ -3,6 +3,7 @@ import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {
   I18nManager,
   Image,
+  Keyboard,
   KeyboardAvoidingView,
   Platform,
   ScrollView,
@@ -69,6 +70,8 @@ import DeviceCountry, {
 import SmoothPinCodeInput from 'react-native-smooth-pincode-input';
 import ButtonWithLoader from '../../../Components/ButtonWithLoader';
 import ModalComponent from '../../../Components/ModalComponent';
+import RNOtpVerify from 'react-native-otp-verify';
+
 var getPhonesCallingCodeAndCountryData = null;
 DeviceCountry.getCountryCode()
   .then(result => {
@@ -140,6 +143,7 @@ export default function Signup({route, navigation}) {
     ],
     selectedCustomerType: null,
     isCustomer: false,
+    vehicleTypes: [],
   });
 
   const {
@@ -181,21 +185,17 @@ export default function Signup({route, navigation}) {
     isDatePicker,
     selectedDateField,
     selectedDate,
+    vehicleTypes,
   } = state;
   const [isOtpModal, setOtpModal] = useState(false);
   const [otpToShow, setOtpToShow] = useState('');
   const [isSendOtpLoading, setSendOtpLoading] = useState(false);
   const [isSignupLoading, setSignupLoading] = useState(false);
+  const [appHashKey, setAppHashKey] = useState('');
 
   const commonStyles = commonStylesFunc({fontFamily});
 
   const updateState = data => setState(state => ({...state, ...data}));
-
-  console.log(clientInfo, 'clientInfo');
-  //Naviagtion to specific screen
-  const moveToNewScreen = (screenName, data) => () => {
-    navigation.navigate(screenName, {data});
-  };
 
   const styles = stylesFunction({defaultLanguage});
 
@@ -228,11 +228,37 @@ export default function Signup({route, navigation}) {
     getRequiredDatas();
   }, []);
 
+  useEffect(() => {
+    if (Platform.OS === 'android') {
+      RNOtpVerify.getHash()
+        .then(res => {
+          setAppHashKey(res[0]);
+        })
+        .catch();
+      RNOtpVerify.getOtp()
+        .then(res => {
+          RNOtpVerify.addListener(otpHandler);
+        })
+        .catch(error => console.log(error, 'error>>>>'));
+      return () => {
+        RNOtpVerify.removeListener();
+      };
+    }
+  }, []);
+
+  const otpHandler = message => {
+    console.log(message, 'complete msg>>>');
+    if (!!message) {
+      let msgOTP = message.replace(/[^0-9]/g, '');
+      let OTP = msgOTP.substring(0, 6);
+      setOtpToShow(OTP);
+    }
+    RNOtpVerify.removeListener();
+    Keyboard.dismiss();
+  };
+
   const getRequiredDatas = () => {
     (async () => {
-      const saveShortCode = await getItem('saveShortCode');
-      console.log(saveShortCode, 'saveShortCode');
-      let headers = {'Content-Type': 'multipart/form-data'};
       actions
         .signupDoc(
           {},
@@ -242,10 +268,12 @@ export default function Signup({route, navigation}) {
         )
         .then(res => {
           console.log(res, 'getRequiredDatas data');
+
           updateState({
             driverTags: res?.data?.agent_tags,
             driverTagsAry: res?.data?.agent_tags,
             driverTeams: res?.data?.all_teams,
+            vehicleTypes: res?.data?.vehicle_types,
           });
           if (res?.data) {
             updateState({
@@ -328,6 +356,10 @@ export default function Signup({route, navigation}) {
   };
 
   const _onSignup = () => {
+    if (otpToShow.length !== 6) {
+      showErrorOnModal(modalRef, strings.OTPNOTVALID);
+      return;
+    }
     setSignupLoading(true);
     dummyTags = selectedTags.map(item => {
       return item.name;
@@ -394,6 +426,7 @@ export default function Signup({route, navigation}) {
         }
       });
     }
+    console.log(formdata, 'formdaataaaaaa');
     actions
       .signUp(formdata, {
         client: clientInfo?.database_name,
@@ -403,7 +436,8 @@ export default function Signup({route, navigation}) {
       .then(res => {
         setOtpModal(false);
         setTimeout(() => {
-          updateState({isWaitingModal: true});
+          updateState({isWaitingModal: true
+          });
         }, 500);
         setSignupLoading(false);
         setTimeout(() => {
@@ -412,6 +446,7 @@ export default function Signup({route, navigation}) {
           });
           navigation.goBack();
         }, 10000);
+        setOtpToShow('')
       })
       .catch(errorMethod);
   };
@@ -500,12 +535,13 @@ export default function Signup({route, navigation}) {
   };
 
   const onSendOtpApi = () => {
+    setOtpToShow('')
     actions
       .sendOtpOnSignup(
         {
           dial_code: callingCode,
           phone_number: phoneNumber,
-          app_hash_key: 'jkldhfkghlkjgh',
+          app_hash_key: appHashKey,
         },
         {client: clientInfo?.database_name},
       )
@@ -514,22 +550,23 @@ export default function Signup({route, navigation}) {
         if (res?.data) {
           updateState({isLoading: false});
           setOtpModal(true);
-
           setSendOtpLoading(false);
-
-          showSuccess(strings.OTPSENDSUCCESS);
+          showErrorOnModal(modalRef, strings.OTPSENDSUCCESS);
         }
       })
       .catch(errorMethod);
   };
 
   const errorMethod = error => {
+    console.log(error,"erorororororo");
     updateState({isLoading: false});
     setSendOtpLoading(false);
     setSignupLoading(false);
     isOtpModal
       ? showErrorOnModal(modalRef, error?.message || error?.error)
       : showError(error?.message || error?.error);
+
+      setOtpToShow('')
   };
 
   const _selectedTransportation = i => {
@@ -876,6 +913,7 @@ export default function Signup({route, navigation}) {
             keyboardType="number-pad"
             onTextChange={otpToShow => setOtpToShow(otpToShow)}
           />
+
           <ButtonWithLoader
             onPress={() => {
               setSendOtpLoading(true);
@@ -906,7 +944,7 @@ export default function Signup({route, navigation}) {
         </View>
       </KeyboardAvoidingView>
     );
-  }, [otpToShow, phoneNumber, callingCode]);
+  }, [otpToShow, phoneNumber, callingCode, isSendOtpLoading, isSignupLoading]);
 
   return (
     <WrapperContainer
@@ -1317,47 +1355,54 @@ export default function Signup({route, navigation}) {
               )}
             </View>
 
-            <View
-              onTouchStart={() => updateState({isTagsShow: false})}
-              style={{marginVertical: moderateScaleVertical(5)}}>
-              <Text style={styles.label}>{strings.TRASNPORTATION}</Text>
-            </View>
-            <View onTouchStart={() => updateState({isTagsShow: false})}>
-              <ScrollView
-                horizontal
-                alwaysBounceHorizontal={false}
-                style={styles.transporationOuterContainer}>
-                {allTransportation.map((i, inx) => {
-                  if (savedShortCode === shortCodes.drus && inx == 0) return;
+            {vehicleTypes !== '' ? (
+              <>
+                <View
+                  onTouchStart={() => updateState({isTagsShow: false})}
+                  style={{marginVertical: moderateScaleVertical(5)}}>
+                  <Text style={styles.label}>{strings.TRASNPORTATION}</Text>
+                </View>
 
-                  return (
-                    <TouchableOpacity
-                      style={[
-                        styles.transportationContainer,
-                        {...styles.shadowStyle},
-                      ]}
-                      onPress={() => {
-                        _selectedTransportation(i);
-                      }}>
-                      {selectedVehicleType == i ? (
-                        <Image
-                          style={{position: 'absolute', end: 5, top: 10}}
-                          source={imagePath.blue_tik}
-                        />
-                      ) : null}
+                <View onTouchStart={() => updateState({isTagsShow: false})}>
+                  <ScrollView
+                    horizontal
+                    alwaysBounceHorizontal={false}
+                    style={styles.transporationOuterContainer}>
+                    {allTransportation.map((i, inx) => {
+                      if (savedShortCode === shortCodes.drus && inx == 0)
+                        return;
+                      if (vehicleTypes.includes(i?.id)) {
+                        return (
+                          <TouchableOpacity
+                            style={[
+                              styles.transportationContainer,
+                              {...styles.shadowStyle},
+                            ]}
+                            onPress={() => {
+                              _selectedTransportation(i);
+                            }}>
+                            {selectedVehicleType == i ? (
+                              <Image
+                                style={{position: 'absolute', end: 5, top: 10}}
+                                source={imagePath.blue_tik}
+                              />
+                            ) : null}
 
-                      <Image
-                        source={
-                          selectedVehicleType == i
-                            ? i.activeIcon
-                            : i.inactiveIcon
-                        }
-                      />
-                    </TouchableOpacity>
-                  );
-                })}
-              </ScrollView>
-            </View>
+                            <Image
+                              source={
+                                selectedVehicleType == i
+                                  ? i.activeIcon
+                                  : i.inactiveIcon
+                              }
+                            />
+                          </TouchableOpacity>
+                        );
+                      }
+                    })}
+                  </ScrollView>
+                </View>
+              </>
+            ):null}
             {/* { getEmployeeViewBasedOnClient(savedShortCode)} */}
 
             {/* <View style={{marginTop: moderateScaleVertical(10)}}>
@@ -1444,8 +1489,7 @@ export default function Signup({route, navigation}) {
       />
       <Modal
         isVisible={isWaitingModal}
-        style={{margin: 0, justifyContent: 'flex-end'}}
-        onBackdropPress={() => updateState({isWaitingModal: false})}>
+        style={{margin: 0, justifyContent: 'flex-end'}}>
         <View style={styles.modalMainView}>
           <Text style={styles.thanksMsgTxt}>{strings.THANKS_MSG}</Text>
           <Text style={styles.signupDoneTxt}>
