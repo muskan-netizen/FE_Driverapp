@@ -48,7 +48,8 @@ const shortCodes = {
   jetrider: '387dd4',
   bilionza: 'd97efd',
   baytukom: '7df249',
-  gokab: '94d183',
+  // gokab: '94d183', // staging
+  gokab: '362d14', // live
   bezalio: '2c0bf4',
   doleyPharmacy: '72d02d',
   taquick: '7c335c',
@@ -75,7 +76,7 @@ const shortCodes = {
   elixir: 'cca668',
   ace: '3c58a1',
   zest: 'ddceeb',
-  homeric: 'f31a69',
+  homeric: '66951f',
   share: 'eb1244',
   yeboy: '604a5f',
   moboErrandsService: 'cb01c8',
