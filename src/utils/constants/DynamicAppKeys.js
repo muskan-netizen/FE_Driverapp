@@ -1177,7 +1177,7 @@ const appIds = {
   }),
   ambuTap: Platform.select({
     ios: 'com.AmbuTap.Dispatch',
-    android: 'com.AmbuTap.royodispatcher',
+    android: 'com.ambutap.driver',
   }),
   swiffyLLC: Platform.select({
     ios: 'com.SwiffyLLC.Dispatcher',
