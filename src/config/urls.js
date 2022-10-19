@@ -1,11 +1,11 @@
 // export const API_BASE_URL = 'https://baggage-dispatch.netsolutionindia.com/';
 
-//export const API_BASE_URL = 'https://api.royodispatch.com/';
+// export const API_BASE_URL = 'https://api.royodispatch.com/';
 // export const API_BASE_URL = 'https://sales.royodispatch.com/';
 //Staging
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.goadeliv.com/';
-export const API_BASE_URL = 'https://dispatch.boltdeliveries.com/';
+// export const API_BASE_URL = 'https://dispatch.boltdeliveries.com/';
 // export const API_BASE_URL = 'https://spryton.royodispatch.com/';
 // export const API_BASE_URL = 'https://dispatch.halatalabat.com/'
 // export const API_BASE_URL='https://dispatch.sheryders.com/'
@@ -225,7 +225,7 @@ export const API_BASE_URL = 'https://dispatch.boltdeliveries.com/';
 
 //hemptify
 // export const API_BASE_URL = 'https://dispatch.hemptify.com/';
-export const API_BASE_URL = ' https://dispatch.ambutap.com/'
+// export const API_BASE_URL = ' https://dispatch.ambutap.com/'
 
 
 //Express Delivery

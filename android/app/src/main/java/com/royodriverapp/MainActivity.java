@@ -3,6 +3,7 @@ import android.os.Bundle;
 import com.facebook.react.ReactActivity;
 import org.devio.rn.splashscreen.SplashScreen; // here
 import com.brentvatne.react.ReactVideoPackage;
+import com.facebook.react.shell.MainReactPackage;
 
 public class MainActivity extends ReactActivity {
 
@@ -20,11 +21,4 @@ protected void onCreate(Bundle savedInstanceState) {
   protected String getMainComponentName() {
     return "RoyoDriverApp";
   }
-  @Override
-protected List<ReactPackage> getPackages() {
-    return Arrays.asList(
-            new MainReactPackage(),
-            new ReactVideoPackage()
-    );
-}
 }

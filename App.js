@@ -122,9 +122,19 @@ const App = () => {
   useEffect(() => {
     checkExistChannel();
     notificationConfig();
-    setTimeout(() => {
-      SplashScreen.hide();
-    }, 1500);
+    if(
+       getBundleId()==appIds?.flank
+    ){
+      setTimeout(() => {
+        SplashScreen.hide();
+      }, 100);
+    }
+    else {
+      setTimeout(() => {
+        SplashScreen.hide();
+      }, 1500);
+    }
+   
   }, []);
 
   //rest of code will be performing for iOS on background too
