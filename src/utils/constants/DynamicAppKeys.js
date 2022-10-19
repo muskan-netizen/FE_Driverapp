@@ -401,7 +401,12 @@ const shortCodes = {
   tiimo: '57fff9',
   carryFood: 'b06460',
   ragioMigo: '58a83e',
-  jimsAutoRescue:'2a0b56',
+  jimsAutoRescue: '2a0b56',
+  nhazi: '064fd8',
+  petverse: '1d5220',
+  clickNDrop: 'd27ec3',
+  appi:'15ba2c',
+  lifeHomeFit:'af03e6',
 };
 
 const appIds = {
@@ -1991,6 +1996,26 @@ const appIds = {
   jimsAutoRescue: Platform.select({
     ios: 'com.jimsAutoRescue.royodispatcher',
     android: 'com.jimsAutoRescue.royodispatcher',
+  }),
+  nhazi: Platform.select({
+    ios: 'com.nhazi.royodispatcher',
+    android: 'com.nhazi.royodispatcher',
+  }),
+  petverse: Platform.select({
+    ios: 'com.petverse.royodispatcher',
+    android: 'com.petverse.royodispatcher',
+  }),
+  clickNDrop: Platform.select({
+    ios: 'com.clickNDrop.royodispatcher',
+    android: 'com.clickNDrop.royodispatcher',
+  }),
+  appi: Platform.select({
+    ios: 'com.appi.royodispatcher',
+    android: 'com.appi.royodispatcher',
+  }),
+  lifeHomeFit: Platform.select({
+    ios: 'com.lifeHomeFit.royodispatcher',
+    android: 'com.lifeHomeFit.royodispatcher',
   }),
 };
 

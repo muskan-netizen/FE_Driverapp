@@ -2500,12 +2500,42 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
-          case appIds.jimsAutoRescue:
-            updateState({
-              shortCode: shortCodes.jimsAutoRescue,
-              isShortcodePrefilled: true,
-            });
-            break;
+        case appIds.jimsAutoRescue:
+          updateState({
+            shortCode: shortCodes.jimsAutoRescue,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.nhazi:
+          updateState({
+            shortCode: shortCodes.nhazi,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.petverse:
+          updateState({
+            shortCode: shortCodes.petverse,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.clickNDrop:
+          updateState({
+            shortCode: shortCodes.clickNDrop,
+            isShortcodePrefilled: true,
+          });
+          break;
+          case appIds.appi:
+          updateState({
+            shortCode: shortCodes.appi,
+            isShortcodePrefilled: true,
+          });
+          break;
+          case appIds.lifeHomeFit:
+          updateState({
+            shortCode: shortCodes.lifeHomeFit,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);
@@ -2643,7 +2673,6 @@ export default function ShortCode({route, navigation}) {
       <View
         style={{
           flex: 1,
-          backgroundColor: 'pink',
         }}>
         <Video
           ref={videoRef}
@@ -2654,6 +2683,8 @@ export default function ShortCode({route, navigation}) {
             left: 0,
             bottom: 0,
             right: 0,
+            height: height,
+            width: width+4
           }}
           resizeMode="cover"
           onEnd={() => onVideoDurationEnded()}
