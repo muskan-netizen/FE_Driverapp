@@ -31,6 +31,7 @@ import CircularImages from "../../Components/CircularImages";
 import Modal from "react-native-modal";
 import { ScrollView } from "react-native-gesture-handler";
 import fontFamily from "../../styles/fontFamily";
+import { useFocusEffect } from "@react-navigation/native";
 
 export default function ChatScreen({ route }) {
   const paramData = route.params.data;
@@ -50,20 +51,17 @@ export default function ChatScreen({ route }) {
     showParticipant: false,
     isLoading: false,
     roomUsers: [],
-    chatUsersData: [],
-    chatAgentData: [],
-    cahtVendorData: [],
+    allRoomUsersAppartFromAgent: [],
+    allAgentIds: [],
+    allAgentIds: [],
   });
   const {
     isLoading,
     roomUsers,
     showParticipant,
-    chatUsersData,
-    chatAgentData,
-    cahtVendorData,
+    allRoomUsersAppartFromAgent,
+    allAgentIds,
   } = state;
-
-  console.log(chatUsersData,chatAgentData,cahtVendorData,"cahtVendorDatacahtVendorData");
 
   const updateState = (data) => setState((state) => ({ ...state, ...data }));
 
@@ -90,7 +88,6 @@ export default function ChatScreen({ route }) {
 
   useEffect(() => {
     updateState({ isLoading: true });
-
     fetchAllRoomUser();
     fetchAllMessages();
   }, []);
@@ -110,7 +107,7 @@ export default function ChatScreen({ route }) {
     }
   }, []);
 
-  const fetchAllRoomUser = useCallback(async () => {
+  const fetchAllRoomUser = async () => {
     try {
       const apiData = `/${paramData?._id}`;
       const res = await actions.getAllRoomUser(
@@ -121,99 +118,88 @@ export default function ChatScreen({ route }) {
           language: defaultLanguagae?.value ? defaultLanguagae?.value : "en",
         }
       );
-      console.log("fetchAllRoomUser res", res);
+
       if (!!res?.userData) {
-        console.log(res?.userData, "res?.userData");
-        var chatUsersData = res?.userData?.find(
-          (item) => item?.user_type == "user"
+        const allRoomUsersAppartFromAgent = res?.userData.splice(
+          res?.userData.findIndex((item) => item?.user_type != "agent")
         );
-        var chatAgentData = res?.userData?.find(
-          (item) => item?.user_type == "agent"
-        );
-        var cahtVendorData = res?.userData?.find(
-          (item) => item?.user_type == "vendor"
+        const allAgentIds = res?.userData.splice(
+          res?.userData.findIndex((item) => item?.user_type == "agent")
         );
         updateState({
-          chatUsersData: chatUsersData?chatUsersData:{},
-          chatAgentData: chatAgentData?chatAgentData:{},
-          cahtVendorData: cahtVendorData?cahtVendorData:{},
-          roomUsers: res?.userData
+          allRoomUsersAppartFromAgent: allRoomUsersAppartFromAgent,
+          allAgentIds: allAgentIds,
+          roomUsers: res?.userData,
         });
       }
     } catch (error) {
       console.log("error raised in fetchAllRoomUser api", error);
     }
-  }, []);
+  };
 
-  console.log({...chatUsersData,...cahtVendorData},"cahtVendorDatacahtVendorData");
+  const onSend = useCallback(
+    async (messages = []) => {
+      if (String(messages[0].text).trim().length < 1) {
+        return;
+      }
+      try {
+        const apiData = {
+          room_id: paramData?._id,
+          message: messages[0].text,
+          user_type: "agent",
+          to_message: "to_user",
+          from_message: "from_agent",
+          user_id: userData?.id || "",
+          email: userData?.email || "",
+          username: userData?.name || "",
+          phone_num: `${userData.phone_number}`,
+          display_image: userData?.image_url,
+          // sub_domain: clientInfo?.custom_domain,
+          //'room_name' =>$data->name,
+          chat_type: "agent_to_user",
+        };
+        console.log("sending api data", apiData);
+        const res = await actions.sendMessage(apiData, {
+          client: clientInfo?.database_name,
+          language: defaultLanguagae?.value ? defaultLanguagae?.value : "en",
+        });
+        console.log("on send message res", res);
+        socketServices.emit("save-message", res);
 
-  const onSend = useCallback(async (messages = []) => {
-    if (String(messages[0].text).trim().length < 1) {
-      return;
-    }
-    try {
-      const apiData = {
-        room_id: paramData?._id,
-        message: messages[0].text,
-        user_type: "agent",
-        to_message: "to_user",
-        from_message: "from_agent",
-        user_id: userData?.id || "",
-        email: userData?.email || "",
-        username: userData?.name || "",
-        phone_num: `${userData.phone_number}`,
-        display_image: userData?.image_url,
-        // sub_domain: clientInfo?.custom_domain,
-        //'room_name' =>$data->name,
-        chat_type: "agent_to_user",
-      };
-      console.log("sending api data", apiData);
-      const res = await actions.sendMessage(apiData, {
-        client: clientInfo?.database_name,
-        language: defaultLanguagae?.value ? defaultLanguagae?.value : "en",
-      });
-      console.log("on send message res", res);
-      socketServices.emit("save-message", res);
-      // const message = {
-      //   _id: userData.id,
-      //   auth_user_id: userData.id,
-      //   message: messages[0].text,
-      //   createdAt: new Date(),
-      //   username: userData?.name,
-      //   user: {},
-      //   display_image: getImageUrl(
-      //     userData?.source?.proxy_url,
-      //     userData?.source?.image_path,
-      //     '200/200',
-      //   )
-      // };
-      // setMessages(previousMessages => GiftedChat.append(previousMessages, message))
-
-      await sendToUserNotification(paramData?._id, messages[0].text)
-    } catch (error) {
-      console.log("error raised in sendMessage api", error);
-    }
-  }, []);
+        await sendToUserNotification(paramData?._id, messages[0].text);
+      } catch (error) {
+        console.log("error raised in sendMessage api", error);
+      }
+    },
+    [allRoomUsersAppartFromAgent, allAgentIds]
+  );
 
   const sendToUserNotification = async (id, text) => {
     let apiData = {
-      user_ids: roomUsers,
+      user_ids: allRoomUsersAppartFromAgent,
       roomId: id,
       roomIdText: paramData?.room_id,
       text_message: text,
       chat_type: paramData?.type,
-    }
-    console.log("sending api data", apiData)
+      order_number: paramData?.room_id,
+      all_agentids: allAgentIds,
+      order_vendor_id: paramData?.order_vendor_id,
+      username: userData?.name,
+      vendor_id: paramData?.vendor_id,
+      auth_id: userData?.id,
+    };
+    console.log("sending api data>>>>>", apiData);
+
     try {
       const res = await actions.sendNotification(apiData, {
         client: clientInfo?.database_name,
         language: defaultLanguagae?.value ? defaultLanguagae?.value : "en",
-      })
-      console.log("res sendNotification", res)
+      });
+      console.log("res sendNotification", res);
     } catch (error) {
-      console.log('error raised in sendToUserNotification api', error)
+      console.log("error raised in sendToUserNotification api", error);
     }
-  }
+  };
 
   const showRoomUser = useCallback(
     (props) => {

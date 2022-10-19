@@ -28,6 +28,7 @@ const TaskListCard = ({
   previousData = null,
   isFromHistory = false,
 }) => {
+  console.log(data, 'dataisddddd');
   //Get Date
   const defaultLanguagae = useSelector(
     state => state?.initBoot?.defaultLanguage,
@@ -81,10 +82,13 @@ const TaskListCard = ({
       data['blur'] = 0.5;
       data['click'] = true;
       allTasks[allTasks.indexOf(data)] = data;
+      data['marginTop'] = moderateScale(0);
       return {
         backgroundColor: data?.backgroundColor,
         blur: data?.blur,
         click: data?.click,
+
+        marginTop: data?.marginTop,
       };
     } else {
       data['backgroundColor'] =
@@ -92,57 +96,97 @@ const TaskListCard = ({
       data['blur'] = 1;
       data['click'] = false;
       allTasks[allTasks.indexOf(data)] = data;
+      data['marginTop'] = moderateScale(20);
+
       return {
         backgroundColor: data?.backgroundColor,
         blur: data?.blur,
         click: data?.click,
+        marginTop: data?.marginTop,
       };
       // return colorData[allTasks.indexOf(data) % colorData.length];
     }
   };
 
   return (
-    <TouchableOpacity
+    <View
       activeOpacity={1}
       disabled={getDynamicUpdateOnValues().click}
-      onPress={_onPressTask}>
+      // onPress={_onPressTask}
+      style={{
+        marginTop: isFromHistory ? getDynamicUpdateOnValues().marginTop : 0,
+      }}>
+      {isFromHistory && data?.order_id != previousData?.order_id && (
+        <View
+          style={{
+            marginHorizontal: moderateScale(11),
+            backgroundColor: colors?.white,
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            padding:moderateScale(8),
+            borderTopWidth:moderateScale(2),
+            borderTopRightRadius:moderateScale(8),
+            borderTopLeftRadius:moderateScale(8),
+            borderColor:colors?.themeColor
+          }}>
+          {!!data?.order?.cash_to_be_collected ?(
+            <Text 
+              style={{
+                fontFamily:fontFamily?.bold
+              }}
+            >
+              {'Cash Collected :'} {data?.order?.cash_to_be_collected}{' '}
+            </Text>
+          ) : <View />}
+          {!!data?.order?.driver_cost ? (
+            <Text 
+            style={{
+              fontFamily:fontFamily?.bold
+            }}
+            >
+              {'Earning :'} {data?.order?.driver_cost}{' '}
+            </Text>
+          ) :<View />}
+        </View>
+      )}
       <View
         opacity={getDynamicUpdateOnValues().blur}
         style={{
           ...styles.shadowStyle,
 
-          borderTopRadius: 8,
-          borderLeftRadius: 8,
-          borderRightRadius: 8,
-          borderBottomRadius:
-            allTasks[index]?.order.id == allTasks[index + 1]?.order.id ? 0 : 8,
-          marginBottom:
-            allTasks[index]?.order.id == allTasks[index + 1]?.order.id
-              ? -2
-              : 20,
-          ...generateBoxShadowStyle(
-            -2,
-            allTasks[index]?.order.id == allTasks[index + 1]?.order.id ? -2 : 4,
-            '#171717',
-            0.2,
-            3,
-            4,
-            '#171717',
-          ),
+          // borderTopRadius: 8,
+          // borderLeftRadius: 8,
+          // borderRightRadius: 8,
+          // borderBottomRadius:
+          //   allTasks[index]?.order.id == allTasks[index + 1]?.order.id ? 0 : 8,
+          // marginBottom:
+          //   allTasks[index]?.order.id == allTasks[index + 1]?.order.id
+          //     ? -2
+          //     : 20,
+          // ...generateBoxShadowStyle(
+          //   -2,
+          //   allTasks[index]?.order.id == allTasks[index + 1]?.order.id ? -2 : 4,
+          //   '#171717',
+          //   0.2,
+          //   3,
+          //   4,
+          //   '#171717',
+          // ),
         }}>
-        <View
+        {/* <View
           style={[
             styles.borderLine,
 
             {
-              backgroundColor: getDynamicUpdateOnValues().backgroundColor,
+              backgroundColor: "red",
               borderBottomLeftRadius:
                 allTasks[index]?.order.id == allTasks[index + 1]?.order.id
                   ? 0
                   : 8,
             },
           ]}
-        />
+        /> */}
+
         <View style={styles.mainContainer}>
           <Text style={styles.address} numberOfLines={2}>
             {data?.location?.address}
@@ -158,13 +202,13 @@ const TaskListCard = ({
           {!!showCurrency && (
             <View style={styles.currencyContainer}>
               {/* <Image source={imagePath.dollor} /> */}
-              <Text style={styles.dateTimeStyle}>
+              {/* <Text style={styles.dateTimeStyle}>
                 {data?.order?.amount
                   ? Number(data?.order?.amount)
                       .toFixed(2)
                       .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
                   : Number(0).toFixed(2)}
-              </Text>
+              </Text> */}
             </View>
           )}
         </View>
@@ -224,7 +268,7 @@ const TaskListCard = ({
           </View>
         </View>
       </View>
-    </TouchableOpacity>
+    </View>
   );
 };
 
