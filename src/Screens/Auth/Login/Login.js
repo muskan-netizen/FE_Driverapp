@@ -307,7 +307,7 @@ export default function Login({navigation, route}) {
           headerStyle={{backgroundColor: colors.white}}
         />
       )}
-      {console.log(clientInfo, 'clientInfo>>>clientInfo')}
+  
       <View
         style={{
           flex: 1,

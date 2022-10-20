@@ -201,6 +201,7 @@ const NotificationModal = () => {
       <View style={{overflow: 'hidden', borderRadius: moderateScale(10)}}>
         <View>{!!region && mapView()}</View>
         <View style={{padding: 8}}>
+         
           <View
             style={styles.notificationModalMainHeaderStyle}>
            {notificationType =='CANCELLED'? <View

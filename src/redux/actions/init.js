@@ -109,7 +109,7 @@ export function logsApi(data = {}, headers = {}) {
 }
 
 export function isModalVisibleForAcceptReject(data = false) {
-  console.log(data, 'data');
+  console.log(data, 'data>>>>>>>>.');
   dispatch({
     type: types.MODAL_VISIBLE_ACCEPT_REJECT,
     payload: data,
