@@ -1,6 +1,6 @@
 // export const API_BASE_URL = 'https://baggage-dispatch.netsolutionindia.com/';
 
-//export const API_BASE_URL = 'https://api.royodispatch.com/';
+export const API_BASE_URL = 'https://api.royodispatch.com/';
 // export const API_BASE_URL = 'https://sales.royodispatch.com/';
 
 //Staging
@@ -231,7 +231,7 @@
 // export const API_BASE_URL = 'https://dispatch.uvennow.com/';
 
 //hemptify
-export const API_BASE_URL = 'https://dispatch.hemptify.com/';
+// export const API_BASE_URL = 'https://dispatch.hemptify.com/';
 
 //Express Delivery
 //  export const API_BASE_URL = 'https://dispatch.expresdeliverys.com/';
