@@ -325,6 +325,7 @@ export default function Login({navigation, route}) {
             }
           />
         </View>
+        {console.log(clientInfo, 'clientInfo')}
         <KeyboardAwareScrollView
           showsVerticalScrollIndicator={false}
           keyboardShouldPersistTaps="handled"

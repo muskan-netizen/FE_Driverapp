@@ -402,12 +402,17 @@ const shortCodes = {
   carryFood: 'b06460',
   ragioMigo: '58a83e',
   jimsAutoRescue: '2a0b56',
+  nhazi: '064fd8',
+  petverse: '1d5220',
+  clickNDrop: 'd27ec3',
+  appi: '15ba2c',
+  lifeHomeFit: 'af03e6',
 };
 
 const appIds = {
   royoorder: Platform.select({
     ios: 'com.CodeBrew.Royo.Driver',
-    android: 'com.codebew.royodispatcher',
+    android: 'com.codebrew.royodispatcher',
   }),
   runrun: Platform.select({
     ios: 'com.RunrunOne.Dispatch',
@@ -430,7 +435,7 @@ const appIds = {
     android: 'com.tranzit.royodispatcher',
   }),
   hemptify: Platform.select({
-    ios: 'com.HemptiFyDriver',
+    ios: 'com.HemptyFy.Dispatch',
     android: 'com.HemptiFyDriver',
   }),
   goody: Platform.select({
@@ -571,8 +576,8 @@ const appIds = {
     android: 'com.Gumastas.royodispatcher',
   }),
   dishefs: Platform.select({
-    ios: 'com.Dishefs.Dispatch',
-    android: 'com.Dishefs.royodispatcher',
+    ios: 'com.DishefsDriver',
+    android: 'com.DishefsDriver',
   }),
   govachow: Platform.select({
     ios: 'com.application.Govachow.Dispatcher',
@@ -987,7 +992,7 @@ const appIds = {
     android: 'com.VendorSpot.royodispatcher',
   }),
   SXM2GO: Platform.select({
-    ios: 'com.SXM2GO.Dispatch',
+    ios: 'com.SXM2GO.driverApp',
     android: 'com.SXM2GO.driverApp',
   }),
   farmerSouq: Platform.select({
@@ -1172,7 +1177,7 @@ const appIds = {
   }),
   ambuTap: Platform.select({
     ios: 'com.AmbuTap.Dispatch',
-    android: 'com.AmbuTap.royodispatcher',
+    android: 'com.ambutap.driver',
   }),
   swiffyLLC: Platform.select({
     ios: 'com.SwiffyLLC.Dispatcher',
@@ -1991,6 +1996,26 @@ const appIds = {
   jimsAutoRescue: Platform.select({
     ios: 'com.jimsAutoRescue.royodispatcher',
     android: 'com.jimsAutoRescue.royodispatcher',
+  }),
+  nhazi: Platform.select({
+    ios: 'com.nhazi.royodispatcher',
+    android: 'com.nhazi.royodispatcher',
+  }),
+  petverse: Platform.select({
+    ios: 'com.petverse.royodispatcher',
+    android: 'com.petverse.royodispatcher',
+  }),
+  clickNDrop: Platform.select({
+    ios: 'com.clickNDrop.royodispatcher',
+    android: 'com.clickNDrop.royodispatcher',
+  }),
+  appi: Platform.select({
+    ios: 'com.appi.royodispatcher',
+    android: 'com.appi.royodispatcher',
+  }),
+  lifeHomeFit: Platform.select({
+    ios: 'com.lifeHomeFit.royodispatcher',
+    android: 'com.lifeHomeFit.royodispatcher',
   }),
 };
 

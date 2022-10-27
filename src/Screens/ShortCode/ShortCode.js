@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import {Image, Text, TouchableOpacity, View} from 'react-native';
 import {getBundleId} from 'react-native-device-info';
 import SmoothPinCodeInput from 'react-native-smooth-pincode-input';
@@ -11,6 +11,7 @@ import imagePath from '../../constants/imagePath';
 import strings from '../../constants/lang';
 import navigationStrings from '../../navigation/navigationStrings';
 import actions from '../../redux/actions';
+import Video from 'react-native-video';
 // import store from '../../redux/store';
 import colors from '../../styles/colors';
 import {
@@ -35,10 +36,12 @@ export default function ShortCode({route, navigation}) {
     shortCode: null,
     shortCodeShow: '',
     changeInShortCode: false,
+    videoDurationEnded: false,
     shortCodeDataInfo: null,
     isModalVisibleForShortCodeDetail: false,
     isShortcodePrefilled: true,
     viewWidth: null,
+    initapiresponse: false,
   });
 
   const {
@@ -50,6 +53,8 @@ export default function ShortCode({route, navigation}) {
     isModalVisibleForShortCodeDetail,
     isShortcodePrefilled,
     viewWidth,
+    videoDurationEnded,
+    initapiresponse,
   } = state;
   const updateState = data => setState(state => ({...state, ...data}));
 
@@ -63,7 +68,7 @@ export default function ShortCode({route, navigation}) {
   );
 
   const {userData} = useSelector(state => state?.auth);
-
+  const videoRef = useRef();
   useEffect(() => {
     requestUserPermission();
   }, []);
@@ -2495,16 +2500,59 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
-          case appIds.jimsAutoRescue:
-            updateState({
-              shortCode: shortCodes.jimsAutoRescue,
-              isShortcodePrefilled: true,
-            });
-            break;
+        case appIds.jimsAutoRescue:
+          updateState({
+            shortCode: shortCodes.jimsAutoRescue,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.nhazi:
+          updateState({
+            shortCode: shortCodes.nhazi,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.petverse:
+          updateState({
+            shortCode: shortCodes.petverse,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.clickNDrop:
+          updateState({
+            shortCode: shortCodes.clickNDrop,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.appi:
+          updateState({
+            shortCode: shortCodes.appi,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.lifeHomeFit:
+          updateState({
+            shortCode: shortCodes.lifeHomeFit,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);
 
+  useEffect(() => {
+    if (initapiresponse && videoDurationEnded) {
+      navigation.navigate(navigationStrings.LOGIN);
+    }
+  }, [videoDurationEnded, initapiresponse]);
+
+  const checkNavigationState = (apiRes, videoEnd) => {
+    console.log('api res+++++++', apiRes);
+    console.log('videoEnd res+++++++', videoEnd);
+    if (apiRes && videoEnd) {
+      navigation.navigate(navigationStrings.LOGIN);
+    }
+  };
   //Process init when code update
   useEffect(() => {
     if (shortCode && isShortcodePrefilled) {
@@ -2559,7 +2607,7 @@ export default function ShortCode({route, navigation}) {
       }
 
       let updatedShortCode = shortCode;
-      // updatedShortCode = '7ebe0a';
+      // let updatedShortCode = '94d183';
       //  let updatedShortCode = '1fdd1d';
 
       actions
@@ -2585,13 +2633,88 @@ export default function ShortCode({route, navigation}) {
               });
             }
           } else {
-            _redirectToLogin(res?.data);
+            // _redirectToLogin(res?.data);
+            if (getBundleId() == appIds.flank) {
+              updateState({
+                // videoDurationEnded: true,
+                initapiresponse: true,
+              });
+              checkNavigationState(true, videoDurationEnded);
+            } else {
+              _redirectToLogin(res?.data);
+            }
           }
         })
         .catch(errorMethod);
     })();
   };
+  const animationVideo = () => {
+    switch (getBundleId()) {
+      case appIds?.flank:
+        return imagePath.flank;
+    }
+  };
 
+  const onVideoDurationEnded = () => {
+    updateState({
+      videoDurationEnded: true,
+      initapiresponse: true,
+    });
+    checkNavigationState(initapiresponse, true);
+  };
+
+  const animatedSplash = () => {
+    return (
+      <View
+        style={{
+          flex: 1,
+        }}>
+        <Video
+          ref={videoRef}
+          source={animationVideo()} // Can be a URL or a local file.
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            bottom: 0,
+            right: 0,
+            height: height,
+            width: width + moderateScale(5),
+          }}
+          resizeMode="cover"
+          onEnd={() => onVideoDurationEnded()}
+          muted={true}
+        />
+      </View>
+    );
+  };
+  const _renderSplash = () => {
+    switch (getBundleId()) {
+      case appIds.flank:
+        return animatedSplash();
+      default:
+        return imageSplash();
+    }
+  };
+
+  const imageSplash = () => {
+    return (
+      <View style={{flex: 1}}>
+        <View
+          style={{
+            flex: 1,
+            position: 'absolute',
+            zIndex: 99,
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '100%',
+            height: '100%',
+            backgroundColor: 'rgba(0,0,0,0.5)',
+          }}></View>
+        <Image source={{uri: 'Splash'}} style={{flex: 1, zIndex: -1}} />
+      </View>
+    );
+  };
   //Error handling in screen
   const errorMethod = error => {
     console.log(error, 'short code error');
@@ -2674,7 +2797,7 @@ export default function ShortCode({route, navigation}) {
       isLoadingB={isLoading}
       source={loaderOne}>
       {isShortcodePrefilled ? (
-        <View style={{flex: 1}}></View>
+        _renderSplash()
       ) : (
         <>
           <View style={{flex: 1}}>

@@ -70,7 +70,7 @@ export function getAllRoomUser(query = '', data = {}, headers = {}) {
     const defaultUrl = 'https://chat.royoorders.com';
     const getClientInfo = await getItem('clientInfo');
     const socketUrl = getClientInfo?.socket_url ? getClientInfo?.socket_url : defaultUrl
-
+console.log(socketUrl,"socketUrlsocketUrlsocketUrl",ALL_ROOM_USER);
     apiGet(socketUrl + ALL_ROOM_USER + query, data, headers)
       .then((response) => {
         resolve(response);
