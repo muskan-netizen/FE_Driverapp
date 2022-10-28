@@ -76,9 +76,10 @@ const DatePickerModal = ({
               mode={mode}
               locale={defaultLanguagae?.value}
               // minimumDate={undefined}
-
+              theme={'light'}
               style={{width: width - 20, height: height / 4}}
               onDateChange={value => onDateChange(value)}
+              textColor={colors.black}
             />
           </View>
         </ScrollView>

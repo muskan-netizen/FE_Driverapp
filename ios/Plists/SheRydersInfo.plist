@@ -51,10 +51,7 @@
 	<string>$(PRODUCT_NAME) collects location data in background and foreground mode to track the order delivery location and estimate delivery time for the end customer </string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>$(PRODUCT_NAME) would like access to your photo gallery to upload photos and set profile picture</string>
-  <key>BGTaskSchedulerPermittedIdentifiers</key>
-  <array>
-      <string>$(PROJECT_BUNDLE_ID)</string>
-  </array>
+  
 	<key>UIAppFonts</key>
 	<array>
 		<string>campton-book.ttf</string>
@@ -66,7 +63,7 @@
   <array>
   <string>fetch</string>
   <string>location</string>
-  <string>processing</string>
+  
   <string>remote-notification</string>
   </array>
 	<key>UILaunchStoryboardName</key>

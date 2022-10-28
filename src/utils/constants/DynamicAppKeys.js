@@ -407,6 +407,8 @@ const shortCodes = {
   clickNDrop: 'd27ec3',
   appi:'15ba2c',
   lifeHomeFit:'af03e6',
+  dbairro_:'120a7d',
+  genee:'033b2e'
 };
 
 const appIds = {
@@ -1140,8 +1142,8 @@ const appIds = {
     android: 'com.Kampick.royodispatcher',
   }),
   IPicknDrop: Platform.select({
-    ios: 'com.IPicknDrop.Dispatch',
-    android: 'com.IPicknDrop.royodispatcher',
+    ios: 'com.IPicknDrop.dispatcher',
+    android: 'com.IPicknDrop.dispatcher',
   }),
   bluebolt: Platform.select({
     ios: 'com.Bluebolt.Dispatch',
@@ -1177,7 +1179,7 @@ const appIds = {
   }),
   ambuTap: Platform.select({
     ios: 'com.AmbuTap.Dispatch',
-    android: 'com.AmbuTap.royodispatcher',
+    android: 'com.ambutap.driver',
   }),
   swiffyLLC: Platform.select({
     ios: 'com.SwiffyLLC.Dispatcher',
@@ -2016,6 +2018,14 @@ const appIds = {
   lifeHomeFit: Platform.select({
     ios: 'com.lifeHomeFit.royodispatcher',
     android: 'com.lifeHomeFit.royodispatcher',
+  }),
+  dbairro_: Platform.select({
+    ios: 'com.royodispatcher.dbairro',
+    android: 'com.dbairro_.royodispatcher',
+  }),
+  genee: Platform.select({
+    ios: 'com.royodispatcher.genee',
+    android: 'com.genee.royodispatcher',
   }),
 };
 

@@ -202,16 +202,26 @@ android {
 
      flavorDimensions "appType"
 productFlavors{
-            zuzuclean {
+             africanVillageMarket {
+            dimension "appType"
+            versionCode 5
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.AfricanVillageMarketApp.royodispatcher'
+            resValue "string", "app_name", "AVM Direct"
+        } 
+         genee{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
-                applicationId 'com.zuzuclean.royodispatcher'
-            resValue "string", "app_name", "ZuzuClean Dispatch"
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.genee.royodispatcher'
+            resValue "string", "app_name", "Genee Dispatcher"
         }
-
 }
     
     productFlavors {
@@ -2429,7 +2439,7 @@ productFlavors{
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.IPicknDrop.royodispatcher'
+            applicationId 'com.IPicknDrop.dispatcher'
             resValue "string", "app_name", "iPicknDrop Driver"
         }
 
@@ -6956,6 +6966,36 @@ productFlavors{
             // applicationIdSuffix ".royoorder"
             applicationId 'com.lifeHomeFit.royodispatcher'
             resValue "string", "app_name", "LifeHomeFit Driver"
+        }
+         dbairro_{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.dbairro_.royodispatcher'
+            resValue "string", "app_name", "Dbairro_Dispatcher"
+        }
+     maiz{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Maiz.royodispatcher'
+            resValue "string", "app_name", "Maiz Dispatcher"
+        }
+         genee{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.genee.royodispatcher'
+            resValue "string", "app_name", "Genee Dispatcher"
         }
 }
 }
