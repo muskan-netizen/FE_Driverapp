@@ -799,7 +799,7 @@ const appIds = {
   }),
   iNeed: Platform.select({
     ios: 'com.INeed.Dispatch',
-    android: 'com.INeed.royodispatcher',
+    android: 'com.ineed.userApplication',
   }),
   naDelivery: Platform.select({
     ios: 'com.NaDelivery.Dispatcher',
@@ -1793,7 +1793,7 @@ const appIds = {
   }),
   kurrix: Platform.select({
     ios: 'com.kurrix.royoDispatcher',
-    android: 'com.kurrix.royoDispatcher',
+    android: 'com.goadeliv.driverapp',
   }),
   easyDrink: Platform.select({
     ios: 'com.kurrix.royoDispatcher',
