@@ -408,7 +408,9 @@ const shortCodes = {
   appi:'15ba2c',
   lifeHomeFit:'af03e6',
   dbairro_:'120a7d',
-  genee:'033b2e'
+  genee:'033b2e',
+  speedyDelivery:'9ddb59',
+  holla:'09f477'
 };
 
 const appIds = {
@@ -2026,6 +2028,14 @@ const appIds = {
   genee: Platform.select({
     ios: 'com.royodispatcher.genee',
     android: 'com.genee.royodispatcher',
+  }),
+  speedyDelivery: Platform.select({
+    ios: 'com.royodispatcher.speedyDelivery',
+    android: 'com.speedyDelivery.royodispatcher',
+  }),
+  holla: Platform.select({
+    ios: 'com.royodispatcher.holla',
+    android: 'com.holla.royodispatcher',
   }),
 };
 

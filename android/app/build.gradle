@@ -202,25 +202,15 @@ android {
 
      flavorDimensions "appType"
 productFlavors{
-             africanVillageMarket {
-            dimension "appType"
-            versionCode 5
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.AfricanVillageMarketApp.royodispatcher'
-            resValue "string", "app_name", "AVM Direct"
-        } 
-         genee{
+              iPicknDrop{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.genee.royodispatcher'
-            resValue "string", "app_name", "Genee Dispatcher"
+            applicationId 'com.IPicknDrop.dispatcher'
+            resValue "string", "app_name", "iPicknDrop Driver"
         }
 }
     
@@ -6996,6 +6986,26 @@ productFlavors{
             // applicationIdSuffix ".royoorder"
             applicationId 'com.genee.royodispatcher'
             resValue "string", "app_name", "Genee Dispatcher"
+        }
+        speedyDelivery{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.speedyDelivery.royodispatcher'
+            resValue "string", "app_name", "speedy Delivery Dispatcher"
+        }
+         holla{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.holla.royodispatcher'
+            resValue "string", "app_name", "\$10 Holla Dispatcher"
         }
 }
 }
