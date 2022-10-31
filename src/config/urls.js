@@ -108,6 +108,10 @@
 
 //beachhop
 // export const API_BASE_URL = 'https://dispatch.beachhopdelivery.com/'
+
+//myjazzybug
+// export const API_BASE_URL = 'https://dispatch.myjazzybug.club/';
+
 //gdotdelivery
 // export const API_BASE_URL = 'https://dispatch.gdotdelivery.com/';
 
@@ -291,7 +295,7 @@
 // export const API_BASE_URL = 'https://dispatch.loopwhole.ca/';
 
 //MARTINONWHEELS
-// export const API_BASE_URL = 'https://dispatch.martinionwheelsllc.rorg/';
+// export const API_BASE_URL = 'https://dispatch.martinionwheelsllc.org/';
 
 //
 // export const API_BASE_URL = 'https://dispatch.viversbox.com/'

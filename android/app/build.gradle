@@ -1622,7 +1622,7 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.Ullaz.royodispatcher'
+            applicationId 'com.UllazDriver'
             resValue "string", "app_name", "ullaz Dispatcher"
         }
         privatepremiumpickups{
@@ -2963,8 +2963,8 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.jazzyBug.royodispatcher'
-            resValue "string", "app_name", "Jazzy Bug Dispatcher"
+            applicationId 'com.jazzyBugDriver'
+            resValue "string", "app_name", "Jazzy Bug Driver"
        }
          savannaRags{
             dimension "appType"

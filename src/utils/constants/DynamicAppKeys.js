@@ -1060,8 +1060,8 @@ const appIds = {
     android: 'com.Fides.royodispatcher',
   }),
   ullaz: Platform.select({
-    ios: 'com.Ullaz.Dispatch',
-    android: 'com.Ullaz.royodispatcher',
+    ios: 'com.UllazDriver',
+    android: 'com.UllazDriver',
   }),
   privatepremiumpickups: Platform.select({
     ios: 'com.PrivatePremiumPickups.Dispatch',
@@ -1566,8 +1566,8 @@ const appIds = {
     android: 'com.jiffex.driver',
   }),
   jazzyBug: Platform.select({
-    ios: 'com.jazzyBug.Dispatch',
-    android: 'com.jazzyBug.royodispatcher',
+    ios: 'com.jazzyBugDriver',
+    android: 'com.jazzyBugDriver',
   }),
   keystoneDelivery: Platform.select({
     ios: 'com.keystonedelivery.driver',
