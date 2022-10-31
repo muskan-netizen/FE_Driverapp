@@ -1,5 +1,5 @@
 export default {
-  themeColor: 'cyan',
+  themeColor: '#2C80FF',
   lophtBlue: '#0056a4',
   btnABlue: '#61A0F2',
   btnBBlue: '#32A3E0',
@@ -104,5 +104,4 @@ export default {
   ligthBlue: '#E7F7FB',
   greenLight: '#80b34d',
   textGreyOpcaity6: 'rgba(30,36,40,.6)',
-
 };
