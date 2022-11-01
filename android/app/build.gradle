@@ -202,15 +202,15 @@ android {
 
      flavorDimensions "appType"
 productFlavors{
-        sheRyders{
+       jeevann{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.sheRyders.dispatcher'
-            resValue "string", "app_name", "SheRyders Driver"
+            applicationId 'com.jeevann.royodispatcher'
+            resValue "string", "app_name", "Jeevann Dispatcher"
         }
 }
     
