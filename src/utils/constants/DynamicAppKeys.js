@@ -385,7 +385,7 @@ const shortCodes = {
   delcolink: '522499',
   youSmokeShop: 'fc66a8',
   sylomart: 'c63e45',
-  doober: '2bcbd6',
+  doober: 'aeeafd',
   inmotion: 'a8d728',
   jeevann: 'bd51fb',
   novamed: '9ac189',
