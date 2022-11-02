@@ -3,8 +3,10 @@
 // export const API_BASE_URL = 'https://api.royodispatch.com/';
 // export const API_BASE_URL = 'https://sales.royodispatch.com/';
 // //Staging
- export const API_BASE_URL = 'https://api.rdstaging.com/';
-// export const API_BASE_URL='http://192.168.96.84:9091/'
+//  export const API_BASE_URL = 'https://api.rdstaging.com/';
+//  export const API_BASE_URL='https://zuzucleans.royodispatch.com/'
+
+// export const API_BASE_URL=' http://192.168.101.140:9091/'
 //export const API_BASE_URL   ='https://fcba-103-72-170-243.ngrok.io/'
 // export const API_BASE_URL='https://delivery.rdstaging.com/'
 // export const API_BASE_URL = 'https://dispatch.goadeliv.com/';
@@ -12,7 +14,7 @@
 // export const API_BASE_URL = 'https://spryton.royodispatch.com/';
 // export const API_BASE_URL = 'https://dispatch.halatalabat.com/'
 // export const API_BASE_URL='https://dispatch.handy-pickup.com/'
-// export const API_BASE_URL='https://dispatch.sheryders.com/'
+export const API_BASE_URL='https://dispatch.sheryders.com/'
 //  export const API_BASE_URL = 'https://dispatch.ubercann.com/';
 // export const API_BASE_URL = 'https://dispatch.swantaxi.net/';
 // export const API_BASE_URL = 'https://dispatch.keystonedelivery.com/'

@@ -2295,7 +2295,7 @@
 		8434817D27313D1D00D96624 /* MaxisDeliveryInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8434817C27313D1D00D96624 /* MaxisDeliveryInfo.plist */; };
 		8434819F2731417C00D96624 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8434819E2731417C00D96624 /* GoogleService-Info.plist */; };
 		84357A7627E858A000E1BE5E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
-		84357A7727E858A000E1BE5E /* BuildFile in Sources */ = {isa = PBXBuildFile; };
+		84357A7727E858A000E1BE5E /* (null) in Sources */ = {isa = PBXBuildFile; };
 		84357A7827E858A000E1BE5E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		84357A8027E858A000E1BE5E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		84357A8127E858A000E1BE5E /* RoyoDriverInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8404E588271EE077000D6E95 /* RoyoDriverInfo.plist */; };
@@ -2354,7 +2354,7 @@
 		843800DA27E34076001B13A3 /* QseekInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 843800D927E34076001B13A3 /* QseekInfo.plist */; };
 		8438F67427E32FFA001B13A3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8438F67327E32FFA001B13A3 /* Images.xcassets */; };
 		8438F84127E33CF7001B13A3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
-		8438F84227E33CF7001B13A3 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
+		8438F84227E33CF7001B13A3 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		8438F84327E33CF7001B13A3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		8438F84A27E33CF7001B13A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		8438F84B27E33CF7001B13A3 /* RoyoDriverInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8404E588271EE077000D6E95 /* RoyoDriverInfo.plist */; };
@@ -3302,7 +3302,7 @@
 		84814C5727AD62CF008EABE3 /* IPicknDropInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84814C5627AD62CF008EABE3 /* IPicknDropInfo.plist */; };
 		84814D1027AD6376008EABE3 /* CabioInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84814D0F27AD6376008EABE3 /* CabioInfo.plist */; };
 		8482090E27E8A064005AFDEE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
-		8482090F27E8A064005AFDEE /* BuildFile in Sources */ = {isa = PBXBuildFile; };
+		8482090F27E8A064005AFDEE /* (null) in Sources */ = {isa = PBXBuildFile; };
 		8482091027E8A064005AFDEE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		8482091927E8A064005AFDEE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		8482091A27E8A064005AFDEE /* RoyoDriverInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8404E588271EE077000D6E95 /* RoyoDriverInfo.plist */; };
@@ -5398,6 +5398,7 @@
 		A72ADD16CE3BB05C3A055765 /* libPods-available_pods-AfricanVillageMarket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DE6DD13034F1FFAAA40C586 /* libPods-available_pods-AfricanVillageMarket.a */; };
 		A7798CFFF4CCB1061182E9EE /* libPods-available_pods-Vdu.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C691B0DC20BB2063524C8F6E /* libPods-available_pods-Vdu.a */; };
 		A7B4317D5DEBEE7FD0F62EC8 /* libPods-available_pods-Atasktt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 92066BE312A4C497969E7EB5 /* libPods-available_pods-Atasktt.a */; };
+		A7F8790F1DED068841196305 /* libPods-available_pods-Holla.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44DC3FDE75810D46E4F46826 /* libPods-available_pods-Holla.a */; };
 		A81ECB0F7228DF9AB5B72ED9 /* libPods-available_pods-Lex.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 914D97F55268E71D45C85DB8 /* libPods-available_pods-Lex.a */; };
 		A8F2FA35470A9B8378B643B8 /* libPods-available_pods-JadorDrive.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B4446CD8C1F61B88CF0A163D /* libPods-available_pods-JadorDrive.a */; };
 		AA32F9E71844063E66DABAF6 /* libPods-available_pods-YouChillax.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02F95CA4EB987FC044A8F7F1 /* libPods-available_pods-YouChillax.a */; };
@@ -6767,6 +6768,11 @@
 		F88762C32841091A00B0517D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F88762C22841091900B0517D /* Images.xcassets */; };
 		F88CE85827DD721F53512D46 /* libPods-available_pods-FoodSpot.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C894608467CF0747A21F393F /* libPods-available_pods-FoodSpot.a */; };
 		F896C4E82845DE23001DA6C2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F896C4E72845DE22001DA6C2 /* GoogleService-Info.plist */; };
+		F8A00D88291106D3006D8F56 /* Holla(Development).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F8A00D87291106D3006D8F56 /* Holla(Development).xcconfig */; };
+		F8A00D8A29110756006D8F56 /* Holla(Production).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F8A00D8929110756006D8F56 /* Holla(Production).xcconfig */; };
+		F8A00D8C2911078D006D8F56 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8A00D8B2911078D006D8F56 /* Images.xcassets */; };
+		F8A00D8E2911089B006D8F56 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8A00D8D29110898006D8F56 /* GoogleService-Info.plist */; };
+		F8A00D9029110911006D8F56 /* HollaInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8A00D8F29110910006D8F56 /* HollaInfo.plist */; };
 		F8B9484028F52E9D0009AD6D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		F8B9484128F52E9D0009AD6D /* RoyoDriverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84961AE127EB05D300B58C31 /* RoyoDriverApp.swift */; };
 		F8B9484228F52E9D0009AD6D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -6851,13 +6857,22 @@
 		F8E3B898290F91B400853553 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		F8E3B899290F91B400853553 /* campton-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC426E9E6D20066EEEE /* campton-light.ttf */; };
 		F8E3B89A290F91B400853553 /* campton-medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC626E9E6D20066EEEE /* campton-medium.ttf */; };
-		F8E3B89B290F91B400853553 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8460C3BD27102AAC001B0D07 /* GoogleService-Info.plist */; };
 		F8E3B89C290F91B400853553 /* notification.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84C27C3E270EFAF100C30CA4 /* notification.mp3 */; };
 		F8E3B89D290F91B400853553 /* campton-book.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC526E9E6D20066EEEE /* campton-book.ttf */; };
-		F8E3B89E290F91B400853553 /* RoyoDispatcher(Development).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 84E4481426E8C71700452095 /* RoyoDispatcher(Development).xcconfig */; };
-		F8E3B89F290F91B400853553 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84E4481026E8C63B00452095 /* Images.xcassets */; };
-		F8E3B8A0290F91B400853553 /* RoyoDispatcher(Production).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 84E4481826E8C73F00452095 /* RoyoDispatcher(Production).xcconfig */; };
 		F8E3B8A1290F91B400853553 /* campton-semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC326E9E6D20066EEEE /* campton-semibold.ttf */; };
+		F8F036A52911346800FA8C84 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
+		F8F036A62911346800FA8C84 /* RoyoDriverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84961AE127EB05D300B58C31 /* RoyoDriverApp.swift */; };
+		F8F036A72911346800FA8C84 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		F8F036A92911346800FA8C84 /* libPods-available_pods-RoyoDriverApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D068239477A80959DB5A6A /* libPods-available_pods-RoyoDriverApp.a */; };
+		F8F036AB2911346800FA8C84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		F8F036AC2911346800FA8C84 /* KeystoneDeliverInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = E89A1D96283FA6DC0036AD88 /* KeystoneDeliverInfo.plist */; };
+		F8F036AD2911346800FA8C84 /* RoyoDriverInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8404E588271EE077000D6E95 /* RoyoDriverInfo.plist */; };
+		F8F036AE2911346800FA8C84 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		F8F036AF2911346800FA8C84 /* campton-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC426E9E6D20066EEEE /* campton-light.ttf */; };
+		F8F036B02911346800FA8C84 /* campton-medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC626E9E6D20066EEEE /* campton-medium.ttf */; };
+		F8F036B22911346800FA8C84 /* notification.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84C27C3E270EFAF100C30CA4 /* notification.mp3 */; };
+		F8F036B32911346800FA8C84 /* campton-book.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC526E9E6D20066EEEE /* campton-book.ttf */; };
+		F8F036B72911346800FA8C84 /* campton-semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC326E9E6D20066EEEE /* campton-semibold.ttf */; };
 		F8FA35D0B56623039188EB77 /* libPods-available_pods-EnsoDigitalAgencydispatcherRelease.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 818875555743EA7D8E97EB39 /* libPods-available_pods-EnsoDigitalAgencydispatcherRelease.a */; };
 		FBCD276864AEDEAE4AC1D5CC /* libPods-available_pods-Spidbi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A7DAB81A76B0E7918C35212 /* libPods-available_pods-Spidbi.a */; };
 		FC49E47C88C7A5394CFBD752 /* libPods-available_pods-Go.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B49B25DDB8F0938CF2839BC /* libPods-available_pods-Go.a */; };
@@ -6946,6 +6961,7 @@
 		023768425E007C0565D0474F /* Pods-available_pods-KaribaMart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-KaribaMart.debug.xcconfig"; path = "Target Support Files/Pods-available_pods-KaribaMart/Pods-available_pods-KaribaMart.debug.xcconfig"; sourceTree = "<group>"; };
 		0242051C0FC463EBEF591A7D /* Pods-available_pods-EquMD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-EquMD.release.xcconfig"; path = "Target Support Files/Pods-available_pods-EquMD/Pods-available_pods-EquMD.release.xcconfig"; sourceTree = "<group>"; };
 		0256370DBB49BABB4D5EDEBF /* Pods-available_pods-WeTogether.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-WeTogether.release.xcconfig"; path = "Target Support Files/Pods-available_pods-WeTogether/Pods-available_pods-WeTogether.release.xcconfig"; sourceTree = "<group>"; };
+		025B32B6A3747221F0ECE62B /* Pods-available_pods-Holla.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-Holla.release.xcconfig"; path = "Target Support Files/Pods-available_pods-Holla/Pods-available_pods-Holla.release.xcconfig"; sourceTree = "<group>"; };
 		028C897CE4DB9FD68D701335 /* libPods-available_pods-NRSA.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-available_pods-NRSA.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0291975A3392D404748D4AFE /* Pods-available_pods-NaDelivery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-NaDelivery.debug.xcconfig"; path = "Target Support Files/Pods-available_pods-NaDelivery/Pods-available_pods-NaDelivery.debug.xcconfig"; sourceTree = "<group>"; };
 		02E5FA965B3660E4070D3AA7 /* Pods-available_pods-CannabusExpress.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-CannabusExpress.debug.xcconfig"; path = "Target Support Files/Pods-available_pods-CannabusExpress/Pods-available_pods-CannabusExpress.debug.xcconfig"; sourceTree = "<group>"; };
@@ -7719,6 +7735,7 @@
 		4405410A5C46616162E65D19 /* Pods-available_pods-HeyBuddy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-HeyBuddy.release.xcconfig"; path = "Target Support Files/Pods-available_pods-HeyBuddy/Pods-available_pods-HeyBuddy.release.xcconfig"; sourceTree = "<group>"; };
 		4444494262FA5DCFCC4CB68F /* Pods-available_pods-KnockKnock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-KnockKnock.release.xcconfig"; path = "Target Support Files/Pods-available_pods-KnockKnock/Pods-available_pods-KnockKnock.release.xcconfig"; sourceTree = "<group>"; };
 		44C5A180801E1A8AE91BAFC9 /* libPods-available_pods-Xborne.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-available_pods-Xborne.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		44DC3FDE75810D46E4F46826 /* libPods-available_pods-Holla.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-available_pods-Holla.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		44FEBA6265D7E075F9F13241 /* libPods-available_pods-Homeric.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-available_pods-Homeric.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		453F12C42F387577BE8D57AB /* Pods-available_pods-RagioMigo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-RagioMigo.release.xcconfig"; path = "Target Support Files/Pods-available_pods-RagioMigo/Pods-available_pods-RagioMigo.release.xcconfig"; sourceTree = "<group>"; };
 		4551B6AC1F48801EAC78CFBE /* libPods-available_pods-Fides.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-available_pods-Fides.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -9751,6 +9768,7 @@
 		BB4A66C4D39E009A874B7465 /* Pods-available_pods-Eureka.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-Eureka.release.xcconfig"; path = "Target Support Files/Pods-available_pods-Eureka/Pods-available_pods-Eureka.release.xcconfig"; sourceTree = "<group>"; };
 		BBCADE4D23EE910C501393D5 /* libPods-available_pods-TripTCI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-available_pods-TripTCI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBD95C52325E6A5FD1341C9D /* Pods-available_pods-MylaGlobal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-MylaGlobal.release.xcconfig"; path = "Target Support Files/Pods-available_pods-MylaGlobal/Pods-available_pods-MylaGlobal.release.xcconfig"; sourceTree = "<group>"; };
+		BBFFD9B8AD406D50B80993FE /* Pods-available_pods-Holla.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-Holla.debug.xcconfig"; path = "Target Support Files/Pods-available_pods-Holla/Pods-available_pods-Holla.debug.xcconfig"; sourceTree = "<group>"; };
 		BC2F87B26828473B679B2C52 /* Pods-available_pods-ClickOKart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-ClickOKart.release.xcconfig"; path = "Target Support Files/Pods-available_pods-ClickOKart/Pods-available_pods-ClickOKart.release.xcconfig"; sourceTree = "<group>"; };
 		BC7567F17E3A8E95B6D807AF /* Pods-available_pods-Inmotion.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-Inmotion.debug.xcconfig"; path = "Target Support Files/Pods-available_pods-Inmotion/Pods-available_pods-Inmotion.debug.xcconfig"; sourceTree = "<group>"; };
 		BC95E61BABF691FC882557CF /* Pods-available_pods-HitchDelivery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-HitchDelivery.debug.xcconfig"; path = "Target Support Files/Pods-available_pods-HitchDelivery/Pods-available_pods-HitchDelivery.debug.xcconfig"; sourceTree = "<group>"; };
@@ -10469,6 +10487,11 @@
 		F88762C22841091900B0517D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F896C4E72845DE22001DA6C2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F89D7649CBC6389089F0FA62 /* Pods-available_pods-JimsAutoRescue.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-JimsAutoRescue.release.xcconfig"; path = "Target Support Files/Pods-available_pods-JimsAutoRescue/Pods-available_pods-JimsAutoRescue.release.xcconfig"; sourceTree = "<group>"; };
+		F8A00D87291106D3006D8F56 /* Holla(Development).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Holla(Development).xcconfig"; sourceTree = "<group>"; };
+		F8A00D8929110756006D8F56 /* Holla(Production).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Holla(Production).xcconfig"; sourceTree = "<group>"; };
+		F8A00D8B2911078D006D8F56 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F8A00D8D29110898006D8F56 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F8A00D8F29110910006D8F56 /* HollaInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = HollaInfo.plist; sourceTree = "<group>"; };
 		F8B9485A28F52E9D0009AD6D /* CarryFood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarryFood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8B9485D28F52F1F0009AD6D /* CarryFood(Development).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "CarryFood(Development).xcconfig"; sourceTree = "<group>"; };
 		F8B9485F28F52F4C0009AD6D /* CarryFood(Production).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "CarryFood(Production).xcconfig"; sourceTree = "<group>"; };
@@ -10501,6 +10524,7 @@
 		F8D2AD1228F3F8A0001138BB /* VerzInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = VerzInfo.plist; sourceTree = "<group>"; };
 		F8DAA82C2901319200E93A33 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F8E3B8A6290F91B400853553 /* Holla.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Holla.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8F036BE2911346800FA8C84 /* Stabex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stabex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F95CDA8BA3E596156E7C5BDC /* libPods-available_pods-Taquick.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-available_pods-Taquick.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F95FC003395C6B45044FE0CE /* Pods-available_pods-Foodies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-Foodies.debug.xcconfig"; path = "Target Support Files/Pods-available_pods-Foodies/Pods-available_pods-Foodies.debug.xcconfig"; sourceTree = "<group>"; };
 		F97E2E4174241D789FC67D7D /* Pods-available_pods-Seaeats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-Seaeats.release.xcconfig"; path = "Target Support Files/Pods-available_pods-Seaeats/Pods-available_pods-Seaeats.release.xcconfig"; sourceTree = "<group>"; };
@@ -13730,6 +13754,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7F8790F1DED068841196305 /* libPods-available_pods-Holla.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8F036A82911346800FA8C84 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8F036A92911346800FA8C84 /* libPods-available_pods-RoyoDriverApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -14989,6 +15022,7 @@
 				489204FA2EEA8E7EC02BAE2B /* libPods-available_pods-ZuzuClean.a */,
 				ECE6B5EA00A7962FD3330D11 /* libPods-available_pods-Zynoride.a */,
 				641E55C6EC7A6B57B9E6ACCB /* libPods-available_pods-kurrix.a */,
+				44DC3FDE75810D46E4F46826 /* libPods-available_pods-Holla.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -15423,6 +15457,7 @@
 				F85B97BD290961640010B059 /* Genee.app */,
 				F8391BA2290BABF9007122DD /* SpeedyDelivery.app */,
 				F8E3B8A6290F91B400853553 /* Holla.app */,
+				F8F036BE2911346800FA8C84 /* Stabex.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -15992,6 +16027,7 @@
 				F881F88D29011E6B0030CA45 /* Dbairro_Info.plist */,
 				F85B97CC29096B500010B059 /* GeneeInfo.plist */,
 				F83A22C0290C07910035FC9D /* SpeedyDeliveryInfo.plist */,
+				F8A00D8F29110910006D8F56 /* HollaInfo.plist */,
 			);
 			path = Plists;
 			sourceTree = "<group>";
@@ -18286,6 +18322,7 @@
 		84E4480A26E8C50700452095 /* Configs */ = {
 			isa = PBXGroup;
 			children = (
+				F8A00D8629110654006D8F56 /* Holla */,
 				F8BDF01E290BB1EC000FEF6E /* SpeedyDelivery */,
 				F85B97C3290967650010B059 /* Genee */,
 				F881F88629011B5D0030CA45 /* Dbairro_ */,
@@ -19786,6 +19823,8 @@
 				2AE3A12AF962E02B2E8D10AC /* Pods-available_pods-Zynoride.release.xcconfig */,
 				C6181736FC9659CD0DF54048 /* Pods-available_pods-kurrix.debug.xcconfig */,
 				34F9E135A051A7502600E4A1 /* Pods-available_pods-kurrix.release.xcconfig */,
+				BBFFD9B8AD406D50B80993FE /* Pods-available_pods-Holla.debug.xcconfig */,
+				025B32B6A3747221F0ECE62B /* Pods-available_pods-Holla.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -20567,6 +20606,17 @@
 				F88762C22841091900B0517D /* Images.xcassets */,
 			);
 			path = BusTaMove;
+			sourceTree = "<group>";
+		};
+		F8A00D8629110654006D8F56 /* Holla */ = {
+			isa = PBXGroup;
+			children = (
+				F8A00D8D29110898006D8F56 /* GoogleService-Info.plist */,
+				F8A00D87291106D3006D8F56 /* Holla(Development).xcconfig */,
+				F8A00D8929110756006D8F56 /* Holla(Production).xcconfig */,
+				F8A00D8B2911078D006D8F56 /* Images.xcassets */,
+			);
+			path = Holla;
 			sourceTree = "<group>";
 		};
 		F8B9485C28F52EF80009AD6D /* CarryFood */ = {
@@ -29279,10 +29329,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F8E3B8A3290F91B400853553 /* Build configuration list for PBXNativeTarget "Holla" */;
 			buildPhases = (
+				20E3B8E97413E65FB7F34AB2 /* [CP] Check Pods Manifest.lock */,
 				F8E3B88F290F91B400853553 /* Sources */,
 				F8E3B893290F91B400853553 /* Frameworks */,
 				F8E3B894290F91B400853553 /* Resources */,
 				F8E3B8A2290F91B400853553 /* Bundle React Native code and images */,
+				9B441516DFB2B03612860FF1 /* [CP] Embed Pods Frameworks */,
+				526F9D6C13DE4261F1065D83 /* [CP] Copy Pods Resources */,
+				F8A00D9129111980006D8F56 /* Start Packager */,
 			);
 			buildRules = (
 			);
@@ -29291,6 +29345,27 @@
 			name = Holla;
 			productName = RoyoDriverApp;
 			productReference = F8E3B8A6290F91B400853553 /* Holla.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F8F036A22911346800FA8C84 /* Stabex */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F8F036BB2911346800FA8C84 /* Build configuration list for PBXNativeTarget "Stabex" */;
+			buildPhases = (
+				F8F036A32911346800FA8C84 /* [CP] Check Pods Manifest.lock */,
+				F8F036A42911346800FA8C84 /* Sources */,
+				F8F036A82911346800FA8C84 /* Frameworks */,
+				F8F036AA2911346800FA8C84 /* Resources */,
+				F8F036B82911346800FA8C84 /* Bundle React Native code and images */,
+				F8F036B92911346800FA8C84 /* [CP] Embed Pods Frameworks */,
+				F8F036BA2911346800FA8C84 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Stabex;
+			productName = RoyoDriverApp;
+			productReference = F8F036BE2911346800FA8C84 /* Stabex.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -29719,6 +29794,7 @@
 				F85B97A1290961640010B059 /* Genee */,
 				F8391B86290BABF9007122DD /* SpeedyDelivery */,
 				F8E3B88E290F91B400853553 /* Holla */,
+				F8F036A22911346800FA8C84 /* Stabex */,
 			);
 		};
 /* End PBXProject section */
@@ -37773,19 +37849,36 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8A00D8E2911089B006D8F56 /* GoogleService-Info.plist in Resources */,
+				F8A00D9029110911006D8F56 /* HollaInfo.plist in Resources */,
 				F8E3B895290F91B400853553 /* LaunchScreen.storyboard in Resources */,
+				F8A00D8A29110756006D8F56 /* Holla(Production).xcconfig in Resources */,
 				F8E3B896290F91B400853553 /* KeystoneDeliverInfo.plist in Resources */,
+				F8A00D88291106D3006D8F56 /* Holla(Development).xcconfig in Resources */,
 				F8E3B897290F91B400853553 /* RoyoDriverInfo.plist in Resources */,
 				F8E3B898290F91B400853553 /* Images.xcassets in Resources */,
 				F8E3B899290F91B400853553 /* campton-light.ttf in Resources */,
 				F8E3B89A290F91B400853553 /* campton-medium.ttf in Resources */,
-				F8E3B89B290F91B400853553 /* GoogleService-Info.plist in Resources */,
 				F8E3B89C290F91B400853553 /* notification.mp3 in Resources */,
+				F8A00D8C2911078D006D8F56 /* Images.xcassets in Resources */,
 				F8E3B89D290F91B400853553 /* campton-book.ttf in Resources */,
-				F8E3B89E290F91B400853553 /* RoyoDispatcher(Development).xcconfig in Resources */,
-				F8E3B89F290F91B400853553 /* Images.xcassets in Resources */,
-				F8E3B8A0290F91B400853553 /* RoyoDispatcher(Production).xcconfig in Resources */,
 				F8E3B8A1290F91B400853553 /* campton-semibold.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8F036AA2911346800FA8C84 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8F036AB2911346800FA8C84 /* LaunchScreen.storyboard in Resources */,
+				F8F036AC2911346800FA8C84 /* KeystoneDeliverInfo.plist in Resources */,
+				F8F036AD2911346800FA8C84 /* RoyoDriverInfo.plist in Resources */,
+				F8F036AE2911346800FA8C84 /* Images.xcassets in Resources */,
+				F8F036AF2911346800FA8C84 /* campton-light.ttf in Resources */,
+				F8F036B02911346800FA8C84 /* campton-medium.ttf in Resources */,
+				F8F036B22911346800FA8C84 /* notification.mp3 in Resources */,
+				F8F036B32911346800FA8C84 /* campton-book.ttf in Resources */,
+				F8F036B72911346800FA8C84 /* campton-semibold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41499,6 +41592,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-CitySuds/Pods-available_pods-CitySuds-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		20E3B8E97413E65FB7F34AB2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-available_pods-Holla-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		21033C4C8E52A28193AF30A4 /* [CP] Embed Pods Frameworks */ = {
@@ -46531,6 +46646,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-Sadia/Pods-available_pods-Sadia-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		526F9D6C13DE4261F1065D83 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-available_pods-Holla/Pods-available_pods-Holla-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-available_pods-Holla/Pods-available_pods-Holla-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-Holla/Pods-available_pods-Holla-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		52924749503D3856BD52DE54 /* [CP] Copy Pods Resources */ = {
@@ -60323,6 +60455,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		9B441516DFB2B03612860FF1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-available_pods-Holla/Pods-available_pods-Holla-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-available_pods-Holla/Pods-available_pods-Holla-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-Holla/Pods-available_pods-Holla-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9B8A7A536D1E83E102D71F3C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -71163,6 +71312,24 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
+		F8A00D9129111980006D8F56 /* Start Packager */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Start Packager";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n\nexport RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\nif nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\nif ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\necho \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\nexit 2\nfi\nelse\nopen \"$SRCROOT/../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\nfi\nfi\n";
+		};
 		F8B255BD5BA60CFBD05B823F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -71404,6 +71571,81 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
+		};
+		F8F036A32911346800FA8C84 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-available_pods-RoyoDriverApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F8F036B82911346800FA8C84 /* Bundle React Native code and images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-available_pods-Zest/Pods-available_pods-Zest-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "Bundle React Native code and images";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
+		};
+		F8F036B92911346800FA8C84 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-available_pods-RoyoDriverApp/Pods-available_pods-RoyoDriverApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-available_pods-RoyoDriverApp/Pods-available_pods-RoyoDriverApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-RoyoDriverApp/Pods-available_pods-RoyoDriverApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F8F036BA2911346800FA8C84 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-available_pods-RoyoDriverApp/Pods-available_pods-RoyoDriverApp-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-available_pods-RoyoDriverApp/Pods-available_pods-RoyoDriverApp-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-RoyoDriverApp/Pods-available_pods-RoyoDriverApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		F9049495A27B8BDAF7660FE8 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -73285,7 +73527,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84357A7627E858A000E1BE5E /* AppDelegate.m in Sources */,
-				84357A7727E858A000E1BE5E /* BuildFile in Sources */,
+				84357A7727E858A000E1BE5E /* (null) in Sources */,
 				84357A7827E858A000E1BE5E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73325,7 +73567,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8438F84127E33CF7001B13A3 /* AppDelegate.m in Sources */,
-				8438F84227E33CF7001B13A3 /* BuildFile in Sources */,
+				8438F84227E33CF7001B13A3 /* (null) in Sources */,
 				8438F84327E33CF7001B13A3 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73945,7 +74187,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8482090E27E8A064005AFDEE /* AppDelegate.m in Sources */,
-				8482090F27E8A064005AFDEE /* BuildFile in Sources */,
+				8482090F27E8A064005AFDEE /* (null) in Sources */,
 				8482091027E8A064005AFDEE /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -75947,6 +76189,16 @@
 				F8E3B890290F91B400853553 /* AppDelegate.m in Sources */,
 				F8E3B891290F91B400853553 /* RoyoDriverApp.swift in Sources */,
 				F8E3B892290F91B400853553 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8F036A42911346800FA8C84 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8F036A52911346800FA8C84 /* AppDelegate.m in Sources */,
+				F8F036A62911346800FA8C84 /* RoyoDriverApp.swift in Sources */,
+				F8F036A72911346800FA8C84 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109883,6 +110135,94 @@
 		};
 		F8E3B8A4290F91B400853553 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F8A00D87291106D3006D8F56 /* Holla(Development).xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = RoyoDriverApp/RoyoDriverAppRelease.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = 6FXUMT5X23;
+				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "$(SRCROOT)/Plists/HollaInfo.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(PROJECT_APP_NAME)\"",
+				);
+				MARKETING_VERSION = "$(PROJECT_APP_VERSION)";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(PROJECT_BUNDLE_ID)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROJECT_APP_NAME = "${PROJECT_APP_NAME}";
+				PROJECT_APP_VERSION = "$(PROJECT_APP_VERSION)";
+				PROJECT_BUILD_NUMBER = "$(PROJECT_BUILD_NUMBER)";
+				PROJECT_BUNDLE_ID = "$(PROJECT_BUNDLE_ID)";
+				PROJECT_NAME = "${PROJECT_NAME}";
+				PROJECT_PLIST = "$(PROJECT_PLIST)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "RoyoDriverApp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		F8E3B8A5290F91B400853553 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F8A00D8929110756006D8F56 /* Holla(Production).xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = RoyoDriverApp/RoyoDriverAppRelease.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = 6FXUMT5X23;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "$(SRCROOT)/Plists/HollaInfo.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(PROJECT_APP_NAME)\"",
+				);
+				MARKETING_VERSION = "$(PROJECT_APP_VERSION)";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(PROJECT_BUNDLE_ID)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROJECT_APP_NAME = "${PROJECT_APP_NAME}";
+				PROJECT_APP_VERSION = "$(PROJECT_APP_VERSION)";
+				PROJECT_BUILD_NUMBER = "$(PROJECT_BUILD_NUMBER)";
+				PROJECT_BUNDLE_ID = "$(PROJECT_BUNDLE_ID)";
+				PROJECT_NAME = "${PROJECT_NAME}";
+				PROJECT_PLIST = "$(PROJECT_PLIST)";
+				PROVISIONING_PROFILE_SPECIFIER = HollaDriver;
+				SWIFT_OBJC_BRIDGING_HEADER = "RoyoDriverApp-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		F8F036BC2911346800FA8C84 /* Debug */ = {
+			isa = XCBuildConfiguration;
 			baseConfigurationReference = 84E4481426E8C71700452095 /* RoyoDispatcher(Development).xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -109926,7 +110266,7 @@
 			};
 			name = Debug;
 		};
-		F8E3B8A5290F91B400853553 /* Release */ = {
+		F8F036BD2911346800FA8C84 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 84E4481826E8C73F00452095 /* RoyoDispatcher(Production).xcconfig */;
 			buildSettings = {
@@ -113577,6 +113917,15 @@
 			buildConfigurations = (
 				F8E3B8A4290F91B400853553 /* Debug */,
 				F8E3B8A5290F91B400853553 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F8F036BB2911346800FA8C84 /* Build configuration list for PBXNativeTarget "Stabex" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8F036BC2911346800FA8C84 /* Debug */,
+				F8F036BD2911346800FA8C84 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -410,7 +410,10 @@ const shortCodes = {
   dbairro_:'120a7d',
   genee:'033b2e',
   speedyDelivery:'9ddb59',
-  holla:'09f477'
+  holla:'09f477',
+  icabPro:'ee50e0',
+  uberWeeds:'773548',
+  stabex:'76bf13'
 };
 
 const appIds = {
@@ -2036,6 +2039,18 @@ const appIds = {
   holla: Platform.select({
     ios: 'com.royodispatcher.holla',
     android: 'com.holla.royodispatcher',
+  }),
+  icabPro: Platform.select({
+    ios: 'com.royodispatcher.icabPro',
+    android: 'com.icabPro.royodispatcher',
+  }),
+  uberWeeds: Platform.select({
+    ios: 'com.royodispatcher.uberWeeds',
+    android: 'com.uberWeeds.royodispatcher',
+  }),
+  stabex: Platform.select({
+    ios: 'com.royodispatcher.stabex',
+    android: 'com.stabex.royodispatcher',
   }),
 };
 
