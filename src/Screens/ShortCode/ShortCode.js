@@ -2536,6 +2536,30 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.dbairro_:
+          updateState({
+            shortCode: shortCodes.dbairro_,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.genee:
+          updateState({
+            shortCode: shortCodes.genee,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.speedyDelivery:
+          updateState({
+            shortCode: shortCodes.speedyDelivery,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.holla:
+          updateState({
+            shortCode: shortCodes.holla,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);
@@ -2611,13 +2635,13 @@ export default function ShortCode({route, navigation}) {
       //  let updatedShortCode = '1fdd1d';
 
       actions
-        .initApp({shortCode: updatedShortCode}, header)
+        .initApp({shortCode: '745e3f'}, header)
         .then(res => {
           if (getBundleId() == appIds.royoorder && res?.data) {
             actions.saveShortCode(updatedShortCode);
           }
           actions.saveShortCode(updatedShortCode);
-          console.log(res, 'res>res>res');
+          console.log(res, 'res>res>resv');
           updateState({
             changeInShortCode: false,
             isLoading: false,

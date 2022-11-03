@@ -350,6 +350,8 @@ PODS:
     - React-Core
   - react-native-netinfo (8.3.1):
     - React-Core
+  - react-native-otp-verify (1.1.3):
+    - React-Core
   - react-native-razorpay (2.2.9):
     - razorpay-pod
     - React
@@ -450,7 +452,7 @@ PODS:
   - RNFaceApi (0.0.38):
     - FaceSDK (= 3.1.952)
     - React
-  - RNFastImage (8.6.1):
+  - RNFastImage (8.6.3):
     - React-Core
     - SDWebImage (~> 5.11.1)
     - SDWebImageWebPCoder (~> 0.8.4)
@@ -562,6 +564,7 @@ DEPENDENCIES:
   - react-native-google-maps (from `../node_modules/react-native-maps`)
   - react-native-maps (from `../node_modules/react-native-maps`)
   - "react-native-netinfo (from `../node_modules/@react-native-community/netinfo`)"
+  - react-native-otp-verify (from `../node_modules/react-native-otp-verify`)
   - react-native-razorpay (from `../node_modules/react-native-razorpay`)
   - react-native-restart (from `../node_modules/react-native-restart`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
@@ -714,6 +717,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-maps"
   react-native-netinfo:
     :path: "../node_modules/@react-native-community/netinfo"
+  react-native-otp-verify:
+    :path: "../node_modules/react-native-otp-verify"
   react-native-razorpay:
     :path: "../node_modules/react-native-razorpay"
   react-native-restart:
@@ -854,6 +859,7 @@ SPEC CHECKSUMS:
   react-native-google-maps: 34517207071d54f3bc23c68752bbec0217bfc79e
   react-native-maps: a421fe6aeb74279597c4ea9598f25796108e2d89
   react-native-netinfo: 1a6035d3b9780221d407c277ebfb5722ace00658
+  react-native-otp-verify: bf283519c1d736a21fbdae47e810b3492226595f
   react-native-razorpay: 6d613f3464a509e3a4bb5b9ca43b70013b3d96d4
   react-native-restart: 733a51ad137f15b0f8dc34c4082e55af7da00979
   react-native-safe-area-context: 9e40fb181dac02619414ba1294d6c2a807056ab9
@@ -881,8 +887,8 @@ SPEC CHECKSUMS:
   RNCClipboard: 41d8d918092ae8e676f18adada19104fa3e68495
   RNCPushNotificationIOS: 87b8d16d3ede4532745e05b03c42cff33a36cc45
   RNDeviceInfo: aad3c663b25752a52bf8fce93f2354001dd185aa
-  RNFaceApi: feef7081a2352310ae8746d2740b9466c3126872
-  RNFastImage: 3207b9eb17c2425d574ca40db35185db6e324f4e
+  RNFaceApi: b8166420173e93cb76ff97c9a0edeeae0891d4ea
+  RNFastImage: 5c9c9fed9c076e521b3f509fe79e790418a544e8
   RNFBApp: 729c0666395b1953198dc4a1ec6deb8fbe1c302e
   RNFBMessaging: 8415ec196e5c1196caa26ec0742cdb48ed4d0f97
   RNFS: 4ac0f0ea233904cb798630b3c077808c06931688
@@ -911,6 +917,6 @@ SPEC CHECKSUMS:
   ZendeskMessagingSDK: 95d396c981dacfab83cc7b9736e8561d51a3052b
   ZendeskSDKConfigurationsSDK: ebced171fd1f4eb57760e8537d8cfa6a450122be
 
-PODFILE CHECKSUM: cd707c43f4420f5b4f7d8f5b499446d46291121a
+PODFILE CHECKSUM: 9c2016979fc1a6a2aa5becaa516ea6539b7982f1
 
 COCOAPODS: 1.11.3

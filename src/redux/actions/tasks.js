@@ -18,6 +18,9 @@ import {
   GETCANCELORDERREASONLIST,
   CANCELORDER,
   GETWEBURL,
+  CREATECONTACT,
+  CREATERAZORPAYADDFUND,
+  CREATERAZORPAYDETAIL,
 } from '../../config/urls';
 import {apiGet, apiPost} from '../../utils/utils';
 import store from '../store';
@@ -25,6 +28,7 @@ const {dispatch} = store;
 
 //Get List of payment method
 export function getListOfTasks(url = '', data = {}, headers = {}) {
+  console.log(headers, 'headersheaders');
   return new Promise((resolve, reject) => {
     apiGet(GETTASKS + url, data, headers)
       .then(res => {
@@ -409,6 +413,32 @@ export function openPaymentWebUrl(query = '', data = {}, headers = {}) {
       })
       .catch(error => {
         console.log(error, 'error in web Url');
+        reject(error);
+      });
+  });
+}
+
+//razorpay create contact
+export function createContact(data = {}, headers = {}) {
+  return new Promise((resolve, reject) => {
+    apiPost(CREATERAZORPAYDETAIL, data, headers)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+}
+
+export function createRazorpayFund(data = {}, headers = {}) {
+  console.log(data, headers, 'createContact>>>');
+  return new Promise((resolve, reject) => {
+    apiPost(CREATERAZORPAYADDFUND, data, headers)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(error => {
         reject(error);
       });
   });
