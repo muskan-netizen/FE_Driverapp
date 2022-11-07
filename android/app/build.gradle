@@ -202,15 +202,15 @@ android {
 
      flavorDimensions "appType"
 productFlavors{
-       jeevann{
+         awamer{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.jeevann.royodispatcher'
-            resValue "string", "app_name", "Jeevann Dispatcher"
+            applicationId 'com.awamer.royodispatcher'
+            resValue "string", "app_name", "Awamer Dispatcher"
         }
 }
     

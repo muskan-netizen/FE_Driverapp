@@ -1542,7 +1542,8 @@ export default function TaskDetail({route, navigation}) {
   
 
   const openGoogleMap = ()=>{
-  var url = `https://www.google.com/maps/dir/?api=1&travelmode=driving&dir_action=navigate&destination=${taskDetail?.location?.address}`;
+  var url = `https://www.google.com/maps/dir/?api=1&travelmode=driving&dir_action=navigate&destination=${taskDetail?.location?.latitude},${taskDetail?.location?.longitude}`;
+ 
   Linking.canOpenURL(url).then(supported => {
     console.log(supported,"supportedsupported");
       if (!supported) {
