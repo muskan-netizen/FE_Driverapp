@@ -202,15 +202,15 @@ android {
 
      flavorDimensions "appType"
 // productFlavors{
-//              sponge{
+//                   abbeRides{
 //             dimension "appType"
 //             versionCode 1
 //             versionName "1.0"
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId "com.Sponge.royodispatcher"
-//             resValue "string", "app_name", "Sponge Dispatch"
+//             applicationId 'com.abbeRides.dispatch'
+//             resValue "string", "app_name", "Abbe Rides Dispatcher"
 //         }
 // }
     
@@ -7036,6 +7036,16 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.stabex.royodispatcher'
             resValue "string", "app_name", "Stabex Dispatcher"
+        }
+        pointoneExpediteDelivery{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.pointoneExpediteDelivery.royodispatcher'
+            resValue "string", "app_name", "Pointone Expedite Delivery Dispatcher"
         }
 }
 }

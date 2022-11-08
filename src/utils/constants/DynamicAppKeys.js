@@ -413,7 +413,8 @@ const shortCodes = {
   holla:'09f477',
   icabPro:'ee50e0',
   uberWeeds:'773548',
-  stabex:'76bf13'
+  stabex:'76bf13',
+  pointoneExpediteDelivery:'43bdda',
 };
 
 const appIds = {
@@ -2051,6 +2052,10 @@ const appIds = {
   stabex: Platform.select({
     ios: 'com.royodispatcher.stabex',
     android: 'com.stabex.royodispatcher',
+  }),
+  pointoneExpediteDelivery: Platform.select({
+    ios: 'com.royodispatcher.pointoneExpediteDelivery',
+    android: 'com.pointoneExpediteDelivery.royodispatcher',
   }),
 };
 

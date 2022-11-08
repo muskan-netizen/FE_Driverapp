@@ -817,6 +817,8 @@
     "uberWeedsdispatcherRelease": "cd android && ./gradlew assembleuberWeedsRelease",
     "stabexdispatcher": "react-native run-android --variant=stabexDebug",
     "stabexdispatcherRelease": "cd android && ./gradlew assemblestabexRelease",
+    "pointoneExpediteDeliverydispatcher": "react-native run-android --variant=pointoneExpediteDeliveryDebug",
+    "pointoneExpediteDeliverydispatcherRelease": "cd android && ./gradlew assemblepointoneExpediteDeliveryRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",

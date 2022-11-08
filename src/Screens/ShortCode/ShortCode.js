@@ -2578,6 +2578,12 @@ export default function ShortCode({ route, navigation }) {
             isShortcodePrefilled: true,
           });
           break;
+          case appIds.pointoneExpediteDelivery:
+          updateState({
+            shortCode: shortCodes.pointoneExpediteDelivery,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);
@@ -2652,8 +2658,8 @@ export default function ShortCode({ route, navigation }) {
         };
       }
 
-      let updatedShortCode = shortCode;
-    //  let updatedShortCode = '85938b';
+      // let updatedShortCode = shortCode;
+     let updatedShortCode = 'b65020';
       //  let updatedShortCode = '1fdd1d';
 
       actions

@@ -431,7 +431,7 @@ const NotificationModal = () => {
       isLoading: false,
       isModalVisibleForAcceptReject: false,
     });
-    showError(error?.message || error?.error);
+    showError(error?.message || error?.error,4000);
   };
 
   return (
