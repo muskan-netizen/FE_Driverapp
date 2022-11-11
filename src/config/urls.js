@@ -3,7 +3,7 @@
 // export const API_BASE_URL = 'https://api.royodispatch.com/';
 // export const API_BASE_URL = 'https://sales.royodispatch.com/';
 // //Staging
- export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
 //  export const API_BASE_URL='https://zuzucleans.royodispatch.com/'
 
 // export const API_BASE_URL='https://dispatch.bendeta.biz/'
@@ -237,7 +237,6 @@
 // export const API_BASE_URL = 'https://dispatch.hemptify.com/';
 // export const API_BASE_URL = ' https://dispatch.ambutap.com/'
 
-
 //Express Delivery
 //  export const API_BASE_URL = 'https://dispatch.expresdeliverys.com/';
 //DOORSTEP
@@ -442,6 +441,9 @@
 // export const API_BASE_URL = 'https://dispatch.sxm2go.com/';
 
 // export const personaltoken = 'TMJdbQlNWkYl1JzMONzRgF4zQFuP8s';
+
+// hiperabasto
+export const API_BASE_URL = 'https://dispatch.hiperabasto.mx/';
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;
 
 export const SEND_OTP = getApiUrl('api/auth/login');
@@ -519,4 +521,3 @@ export const GET_ALL_MESSAGES = '/api/chat';
 export const ALL_ROOM_USER = '/api/chat/getRoomUser';
 export const SEND_NOTIFCATION = getApiUrl('api/chat/sendNotification');
 export const CAB_POOLING_STATUS = getApiUrl('api/updateCabPoolingStatus');
-
