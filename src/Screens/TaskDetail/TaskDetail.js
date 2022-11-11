@@ -202,7 +202,9 @@ export default function TaskDetail({route, navigation}) {
   const moveToNewScreen = (screenName, data) => () => {
     navigation.navigate(screenName, {data});
   };
-
+  const moveToSameScreen = (screenName, data) => () => {
+    navigation.push(screenName, {data});
+  };
   //Error handling in api
   const errorMethod = error => {
     updateState({isLoading: false, isRefreshing: false, isLoading: false});
@@ -442,6 +444,7 @@ export default function TaskDetail({route, navigation}) {
   };
 
   const getUpdatedStatus = () => {
+    console.log('1jehjil')
     switch (taskStatus) {
       case 1:
         return 2;
@@ -451,6 +454,9 @@ export default function TaskDetail({route, navigation}) {
         break;
       case 3:
         return 4;
+        break;
+        case 4:
+          return 2;
         break;
       default:
         break;
@@ -595,11 +601,21 @@ export default function TaskDetail({route, navigation}) {
       .then(res => {
         console.log(res, 'updateTaskStatus>res>res');
         updateState({isLoading: false});
-        if (res?.data) {
+        if ( res?.data?.nextTask?.length == 0  || res?.data?.nextTask ==null){
+          if (res?.data) {
+            updateState({
+              isLoading: false,
+            });
+          
+            navigation.navigate(navigationStrings.DASHBOARD);
+          }
+         
+        }
+        else{
           updateState({
             isLoading: false,
           });
-          navigation.navigate(navigationStrings.DASHBOARD);
+          moveToSameScreen(navigationStrings.TASKDETAIL,{item:res?.data?.nextTask[0]})()
         }
       })
       .catch(errorMethod);
@@ -1566,6 +1582,7 @@ export default function TaskDetail({route, navigation}) {
       <Header
         headerStyle={{backgroundColor: colors.white}}
         leftIconStyle={{tintColor: colors.themeColor}}
+        onPressLeft={moveToNewScreen(navigationStrings?.DASHBOARD)}
         // hideRight={true}
         // onPressLeft={()=>navigation.goBack()}
         centerTitle={`${strings.TASK} #${taskDetail?.id}`}

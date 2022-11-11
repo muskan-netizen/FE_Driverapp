@@ -435,13 +435,15 @@ export default function TaskCompleteDocument({route, navigation}) {
       isEmpty(signatureImage)
     ) {
       showError(strings.SIGNATUREIMAGE);
-    } else if (
+    }
+     else if (
       findDataToCheck?.image &&
       findDataToCheck?.image_requried &&
       isEmpty(image)
     ) {
       showError(strings.PHOTOIMAGE);
-    } else if (
+    }
+     else if (
       findDataToCheck?.note &&
       findDataToCheck?.note_requried &&
       note == ''
@@ -459,13 +461,15 @@ export default function TaskCompleteDocument({route, navigation}) {
       isEmpty(faceImage)
     ) {
       showError(strings.FACEIMAGEREQUIRED);
-    } else if (
+    }
+     else if (
       !!findDataToCheck?.qrcode &&
       !!findDataToCheck?.qrcode_requried &&
       !!isEmpty(qrCode)
     ) {
       showError('QR code scan is required!');
-    } else if (
+    }
+     else if (
       params?.data?.otpEnabled &&
       params?.data?.otpRequired &&
       otpField.trim() == ''
@@ -555,7 +559,16 @@ export default function TaskCompleteDocument({route, navigation}) {
             });
             return;
           }
-          navigation.navigate(navigationStrings.DASHBOARD);
+          if(res?.data?.nextTask?.length==0  || res?.data?.nextTask==null)
+          {
+            navigation.navigate(navigationStrings.DASHBOARD);
+          }
+          else {
+            
+            moveToNewScreen(navigationStrings.TASKDETAIL,{item:res?.data?.nextTask[0]})()
+           
+          }
+         
         }
       })
       .catch(errorMethod);

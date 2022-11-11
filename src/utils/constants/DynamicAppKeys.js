@@ -405,6 +405,12 @@ const shortCodes = {
   nhazi: '064fd8',
   petverse: '1d5220',
   clickNDrop: 'd27ec3',
+  appi:'15ba2c',
+  lifeHomeFit:'af03e6',
+  dbairro_:'120a7d',
+  genee:'033b2e',
+  speedyDelivery:'9ddb59',
+  holla:'09f477'
 };
 
 const appIds = {
@@ -647,7 +653,7 @@ const appIds = {
   }),
   agriOnline: Platform.select({
     ios: 'com.AgriOnline.Dispatcher',
-    android: 'com.AgriOnline.royodispatcher',
+    android: 'com.AgriOnline.Dispatcher',
   }),
   clickeat: Platform.select({
     ios: 'com.clickEat.royoDispatcher',
@@ -851,7 +857,7 @@ const appIds = {
   }),
   foodNests: Platform.select({
     ios: 'com.FoodNests.Dispatch',
-    android: 'com.FoodNests.royodispatcher',
+    android: 'com.FoodNests.driverapp',
   }),
   tasmeem: Platform.select({
     ios: 'com.Tasmeem.Dispatch',
@@ -1138,8 +1144,8 @@ const appIds = {
     android: 'com.Kampick.royodispatcher',
   }),
   IPicknDrop: Platform.select({
-    ios: 'com.IPicknDrop.Dispatch',
-    android: 'com.IPicknDrop.royodispatcher',
+    ios: 'com.IPicknDrop.dispatcher',
+    android: 'com.IPicknDrop.dispatcher',
   }),
   bluebolt: Platform.select({
     ios: 'com.Bluebolt.Dispatch',
@@ -1331,7 +1337,7 @@ const appIds = {
   }),
   sunShineRideShare: Platform.select({
     ios: 'com.SunShineRideShare.Dispatcher',
-    android: 'com.SunShineRideShare.royodispatcher',
+    android: 'com.SunShineRideShare.driver',
   }),
   spliffNation: Platform.select({
     ios: 'com.SpliffNation.Dispatcher',
@@ -1636,8 +1642,8 @@ const appIds = {
     android: 'com.kurs.royodispatcher',
   }),
   torunz: Platform.select({
-    ios: 'com.torunz.Dispatch',
-    android: 'com.torunz.royodispatcher',
+    ios: 'com.torunz.driverapp',
+    android: 'com.torunz.driverapp',
   }),
   spa: Platform.select({
     ios: 'com.spa.Dispatch',
@@ -2006,6 +2012,30 @@ const appIds = {
   clickNDrop: Platform.select({
     ios: 'com.clickNDrop.royodispatcher',
     android: 'com.clickNDrop.royodispatcher',
+  }),
+  appi: Platform.select({
+    ios: 'com.appi.royodispatcher',
+    android: 'com.appi.royodispatcher',
+  }),
+  lifeHomeFit: Platform.select({
+    ios: 'com.lifeHomeFit.royodispatcher',
+    android: 'com.lifeHomeFit.royodispatcher',
+  }),
+  dbairro_: Platform.select({
+    ios: 'com.royodispatcher.dbairro',
+    android: 'com.dbairro_.royodispatcher',
+  }),
+  genee: Platform.select({
+    ios: 'com.royodispatcher.genee',
+    android: 'com.genee.royodispatcher',
+  }),
+  speedyDelivery: Platform.select({
+    ios: 'com.royodispatcher.speedyDelivery',
+    android: 'com.speedyDelivery.royodispatcher',
+  }),
+  holla: Platform.select({
+    ios: 'com.royodispatcher.holla',
+    android: 'com.holla.royodispatcher',
   }),
 };
 

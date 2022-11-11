@@ -46,6 +46,7 @@ export default function AddMoney({navigation}) {
   const isDarkMode = themeToggle ? darkthemeusingDevice : themeColor;
   console.log(userData, 'userData');
   const {client_preference} = userData;
+  console.log(client_preference,"client_preference");
   const [state, setState] = useState({
     customAmount: [
       {id: 0, amount: 300},
@@ -79,6 +80,7 @@ export default function AddMoney({navigation}) {
       initStripe({
         publishableKey: client_preference?.stripe_publishable_key,
         merchantIdentifier: 'merchant.identifier',
+        
       });
     }
     getWalletData();
@@ -308,6 +310,7 @@ export default function AddMoney({navigation}) {
 
   //Offline payments
   const _offineLinePayment = async () => {
+    
     if (cardInfo) {
       console.log(cardInfo, 'details');
       // alert("123")
