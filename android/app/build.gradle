@@ -2926,7 +2926,7 @@ productFlavors{
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.SunShineRideShare.royodispatcher'
-            resValue "string", "app_name", "SunShineRideShare Dispatcher"
+            resValue "string", "app_name", "SunShineRideShare Driver"
         }
 
         spliffNation{
