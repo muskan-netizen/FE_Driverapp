@@ -1,9 +1,9 @@
-export const API_BASE_URL = 'http://192.168.100.130:9091/';
+// export const API_BASE_URL = 'http://192.168.100.130:9091/';
 
 // export const API_BASE_URL = 'https://api.royodispatch.com/';
 // export const API_BASE_URL = 'https://sales.royodispatch.com/';
 // //Staging
-//  export const API_BASE_URL = 'https://api.rdstaging.com/';
+ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //  export const API_BASE_URL='https://zuzucleans.royodispatch.com/'
 
 // export const API_BASE_URL='https://dispatch.bendeta.biz/'
@@ -518,3 +518,5 @@ export const SEND_MESSAGE = '/api/chat/sendMessageJoin';
 export const GET_ALL_MESSAGES = '/api/chat';
 export const ALL_ROOM_USER = '/api/chat/getRoomUser';
 export const SEND_NOTIFCATION = getApiUrl('api/chat/sendNotification');
+export const CAB_POOLING_STATUS = getApiUrl('api/updateCabPoolingStatus');
+

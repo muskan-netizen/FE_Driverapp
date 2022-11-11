@@ -415,6 +415,14 @@ const shortCodes = {
   uberWeeds:'773548',
   stabex:'76bf13',
   pointoneExpediteDelivery:'43bdda',
+  saamanShop:'63f37f',
+  tdc :'a36786',
+  pik:'cf0372',
+  flyCommerce:'93ea40',
+  motina:'392731',
+  greenHippo:'6a6b8b',
+  hungry:'08aeee',
+  myMeddy:'ceb53d'
 };
 
 const appIds = {
@@ -2056,6 +2064,38 @@ const appIds = {
   pointoneExpediteDelivery: Platform.select({
     ios: 'com.royodispatcher.pointoneExpediteDelivery',
     android: 'com.pointoneExpediteDelivery.royodispatcher',
+  }),
+  saamanShop: Platform.select({
+    ios: 'com.royodispatcher.saamanShop',
+    android: 'com.saamanShop.royodispatcher',
+  }),
+  tdc: Platform.select({
+    ios: 'com.royodispatcher.tdc',
+    android: 'com.tdc.royodispatcher',
+  }),
+  flyCommerce: Platform.select({
+    ios: 'com.royodispatcher.flyCommerce',
+    android: 'com.flyCommerce.royodispatcher',
+  }),
+  pik: Platform.select({
+    ios: 'com.royodispatcher.pik',
+    android: 'com.PIK.royodispatcher',
+  }),
+  motina: Platform.select({
+    ios: 'com.royodispatcher.motina',
+    android: 'com.motina.royodispatcher',
+  }),
+  hungry: Platform.select({
+    ios: 'com.royodispatcher.hungry',
+    android: 'com.hungry.royodispatcher',
+  }),
+  myMeddy: Platform.select({
+    ios: 'com.royodispatcher.myMeddy',
+    android: 'com.myMeddy.royodispatcher',
+  }),
+  greenHippo: Platform.select({
+    ios: 'com.royodispatcher.greenHippo',
+    android: 'com.greenHippo.royodispatcher',
   }),
 };
 

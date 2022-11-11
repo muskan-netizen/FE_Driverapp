@@ -2584,6 +2584,54 @@ export default function ShortCode({ route, navigation }) {
             isShortcodePrefilled: true,
           });
           break;
+          case appIds.tdc:
+            updateState({
+              shortCode: shortCodes.tdc,
+              isShortcodePrefilled: true,
+            });
+            break;
+            case appIds.pik:
+            updateState({
+              shortCode: shortCodes.pik,
+              isShortcodePrefilled: true,
+            });
+            break;
+            case appIds.saamanShop:
+            updateState({
+              shortCode: shortCodes.saamanShop,
+              isShortcodePrefilled: true,
+            });
+            break;
+            case appIds.flyCommerce:
+            updateState({
+              shortCode: shortCodes.flyCommerce,
+              isShortcodePrefilled: true,
+            });
+            break;
+            case appIds.motina:
+            updateState({
+              shortCode: shortCodes.motina,
+              isShortcodePrefilled: true,
+            });
+            break;
+            case appIds.hungry:
+            updateState({
+              shortCode: shortCodes.hungry,
+              isShortcodePrefilled: true,
+            });
+            break;
+            case appIds.myMeddy:
+            updateState({
+              shortCode: shortCodes.myMeddy,
+              isShortcodePrefilled: true,
+            });
+            break;
+            case appIds.greenHippo:
+            updateState({
+              shortCode: shortCodes.greenHippo,
+              isShortcodePrefilled: true,
+            });
+            break;
       }
     })();
   }, [internetConnection]);
@@ -2658,8 +2706,8 @@ export default function ShortCode({ route, navigation }) {
         };
       }
 
-      // let updatedShortCode = shortCode;
-     let updatedShortCode = 'b65020';
+      let updatedShortCode = shortCode;
+    //  let updatedShortCode = 'b65020';
       //  let updatedShortCode = '1fdd1d';
 
       actions

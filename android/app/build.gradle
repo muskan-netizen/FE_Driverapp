@@ -202,16 +202,38 @@ android {
 
      flavorDimensions "appType"
 // productFlavors{
-//                   abbeRides{
+              
+//          hungry{
 //             dimension "appType"
 //             versionCode 1
 //             versionName "1.0"
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.abbeRides.dispatch'
-//             resValue "string", "app_name", "Abbe Rides Dispatcher"
+//             applicationId 'com.hungry.royodispatcher'
+//             resValue "string", "app_name", "Hungry Dispatcher"
 //         }
+//          greenHippo{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.greenHippo.royodispatcher'
+//             resValue "string", "app_name", "Green Hippo Dispatcher"
+//         }
+//      myMeddy{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.myMeddy.royodispatcher'
+//             resValue "string", "app_name", "MyMeddy Dispatcher"
+//         }
+
 // }
     
     productFlavors {
@@ -7046,6 +7068,86 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.pointoneExpediteDelivery.royodispatcher'
             resValue "string", "app_name", "Pointone Expedite Delivery Dispatcher"
+        }
+      tdc{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.tdc.royodispatcher'
+            resValue "string", "app_name", "TDC Dispatcher"
+        }
+      pik{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.PIK.royodispatcher'
+            resValue "string", "app_name", "PIK Dispatcher"
+        }
+          flyCommerce{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.flyCommerce.royodispatcher'
+            resValue "string", "app_name", "Fly Commerce Dispatcher"
+        }
+          saamanShop{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.saamanShop.royodispatcher'
+            resValue "string", "app_name", "Saaman Shop Dispatcher"
+        }
+         motina{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.motina.royodispatcher'
+            resValue "string", "app_name", "Motina Dispatcher"
+        }
+     hungry{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.hungry.royodispatcher'
+            resValue "string", "app_name", "Hungry Dispatcher"
+        }
+         greenHippo{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.greenHippo.royodispatcher'
+            resValue "string", "app_name", "Green Hippo Dispatcher"
+        }
+     myMeddy{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.myMeddy.royodispatcher'
+            resValue "string", "app_name", "MyMeddy Dispatcher"
         }
 }
 }

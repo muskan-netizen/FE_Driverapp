@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "832178470585",
+    "project_id": "greenhippo-driver",
+    "storage_bucket": "greenhippo-driver.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:832178470585:android:e593c17069cfc971ff2568",
+        "android_client_info": {
+          "package_name": "com.greenHippo.royodispatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "832178470585-p14b8hqlf6r8f115h59fqm5dbq244dhk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAo7fUxnVZxLAbmAYv00hnjIPsdwdjRXfY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "832178470585-p14b8hqlf6r8f115h59fqm5dbq244dhk.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "832178470585-lubpot115h41kan1e8v80e81rq89k4fu.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.royodispatcher.greenHippo"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
