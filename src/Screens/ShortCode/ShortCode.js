@@ -2632,6 +2632,12 @@ export default function ShortCode({ route, navigation }) {
               isShortcodePrefilled: true,
             });
             break;
+            case appIds.uRyd:
+            updateState({
+              shortCode: shortCodes.uRyd,
+              isShortcodePrefilled: true,
+            });
+            break;
       }
     })();
   }, [internetConnection]);

@@ -422,7 +422,8 @@ const shortCodes = {
   motina:'392731',
   greenHippo:'6a6b8b',
   hungry:'08aeee',
-  myMeddy:'ceb53d'
+  myMeddy:'ceb53d',
+  uRyd:'5d7b49',
 };
 
 const appIds = {
@@ -2096,6 +2097,10 @@ const appIds = {
   greenHippo: Platform.select({
     ios: 'com.royodispatcher.greenHippo',
     android: 'com.greenHippo.royodispatcher',
+  }),
+  uRyd: Platform.select({
+    ios: 'com.royodispatcher.uRyd',
+    android: 'com.uRyd.royodispatcher',
   }),
 };
 

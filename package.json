@@ -835,6 +835,8 @@
     "hungrydispatcherRelease": "cd android && ./gradlew assemblehungryRelease",
     "myMeddydispatcher": "react-native run-android --variant=myMeddyDebug",
     "myMeddydispatcherRelease": "cd android && ./gradlew assemblemyMeddyRelease",
+    "uRyddispatcher": "react-native run-android --variant=uRydDebug",
+    "uRyddispatcherRelease": "cd android && ./gradlew assembleuRydRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
