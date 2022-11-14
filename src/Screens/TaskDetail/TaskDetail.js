@@ -66,7 +66,7 @@ export default function TaskDetail({route, navigation}) {
   const styles = stylesFunc({defaultLanguage});
   const commonStyles = commonStylesFunc({fontFamily});
 
-  console.log(taskDetail, 'taskDetail...taskDetail');
+  console.log(taskDetail, 'taskDetail...taskDetail>');
 
   const [state, setState] = useState({
     vendors: {},
@@ -444,16 +444,18 @@ export default function TaskDetail({route, navigation}) {
   };
 
   const getUpdatedStatus = () => {
+    console.log(taskStatus,"taskStatustaskStatus")
     switch (taskStatus) {
       case 1:
         return 2;
-        break;
+       
       case 2:
         return 3;
-        break;
+        
       case 3:
         return 4;
-        break;
+      case 4:
+         return 2;
       default:
         break;
     }
@@ -611,6 +613,7 @@ export default function TaskDetail({route, navigation}) {
           updateState({
             isLoading: false,
           });
+          {console.log(res?.data?.nextTask[0],"res?.data?.nextTask[0]")}
           moveToSameScreen(navigationStrings.TASKDETAIL,{item:res?.data?.nextTask[0]})()
         }
       })

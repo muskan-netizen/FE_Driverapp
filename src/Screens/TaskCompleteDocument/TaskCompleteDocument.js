@@ -564,7 +564,7 @@ export default function TaskCompleteDocument({route, navigation}) {
             navigation.navigate(navigationStrings.DASHBOARD);
           }
           else {
-            
+            {console.log(res?.data?.nextTask[0],"ONDONEETasK")}
             moveToNewScreen(navigationStrings.TASKDETAIL,{item:res?.data?.nextTask[0]})()
            
           }

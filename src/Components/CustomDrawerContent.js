@@ -389,7 +389,6 @@ export default function CustomDrawerContent({
                   // alignItems: 'center',
                   flexDirection: 'row',
                   alignItems: 'center',
-
                   justifyContent: 'center',
                 }}>
                 {/* {options.drawerIcon({focused: isFocused})} */}

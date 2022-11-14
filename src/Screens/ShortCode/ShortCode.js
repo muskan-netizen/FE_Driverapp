@@ -2611,7 +2611,7 @@ export default function ShortCode({ route, navigation }) {
       }
 
       let updatedShortCode = shortCode;
-     // let updatedShortCode = '94d183';
+    //  let updatedShortCode = '1ead91';
       //  let updatedShortCode = '1fdd1d';
 
       actions
