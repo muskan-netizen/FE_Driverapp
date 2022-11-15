@@ -1229,8 +1229,8 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId  "com.LastMinuteDress.royodispatcher"
-            resValue "string", "app_name", "Last Minute Dress Dispatcher"
+            applicationId  "com.LastMinuteDress.Driver"
+            resValue "string", "app_name", "LastMinuteDress Driver"
         }
         travo{
             dimension "appType"
@@ -3135,8 +3135,8 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.HiperAbasto.royodispatcher'
-            resValue "string", "app_name", "HiperAbasto Dispatcher"
+            applicationId 'com.hiperAbastoDriver'
+            resValue "string", "app_name", "HiperAbasto Driver"
         }
 
         redglee{

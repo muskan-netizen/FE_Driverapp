@@ -1417,8 +1417,8 @@ const appIds = {
     android: 'com.EnsoDigitalAgency.royodispatcher',
   }),
   hiperAbasto: Platform.select({
-    ios: 'com.HiperAbasto.Dispatch',
-    android: 'com.HiperAbasto.royodispatcher',
+    ios: 'com.hiperAbastoDriver',
+    android: 'com.hiperAbastoDriver',
   }),
   redglee: Platform.select({
     ios: 'com.Redglee.Dispatch',
