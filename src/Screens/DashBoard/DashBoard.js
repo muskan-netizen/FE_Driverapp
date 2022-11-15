@@ -1,5 +1,5 @@
-import {debounce} from 'lodash';
-import React, {useEffect, useRef, useState} from 'react';
+import { debounce } from 'lodash';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   Alert,
   BackHandler,
@@ -12,18 +12,18 @@ import {
   Text,
   View,
 } from 'react-native';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 import Header from '../../Components/Header';
-import {loaderOne} from '../../Components/Loaders/AnimatedLoaderFiles';
+import { loaderOne } from '../../Components/Loaders/AnimatedLoaderFiles';
 import SwitchSelectorComponent from '../../Components/SwitchSelector';
 import WrapperContainer from '../../Components/WrapperContainer';
 import imagePath from '../../constants/imagePath';
 import actions from '../../redux/actions';
 // import store from '../../redux/store';
-import {useFocusEffect} from '@react-navigation/native';
-import {Platform, TouchableOpacity} from 'react-native';
-import DeviceInfo from 'react-native-device-info';
-import MapView, {Marker} from 'react-native-maps'; // remove PROVIDER_GOOGLE import if not using Google Maps
+import { useFocusEffect } from '@react-navigation/native';
+import { Platform, TouchableOpacity } from 'react-native';
+import DeviceInfo, { getBundleId } from 'react-native-device-info';
+import MapView, { Marker } from 'react-native-maps'; // remove PROVIDER_GOOGLE import if not using Google Maps
 import ListEmptyComponent from '../../Components/ListEmptyComponent';
 import TaskListCard from '../../Components/TaskListCard';
 import strings from '../../constants/lang';
@@ -36,8 +36,8 @@ import {
   moderateScaleVertical,
   width,
 } from '../../styles/responsiveSize';
-import {getCurrentLocation, showError} from '../../utils/helperFunctions';
-import {requestUserPermission} from '../../utils/notificationServices';
+import { getCurrentLocation, showError } from '../../utils/helperFunctions';
+import { requestUserPermission } from '../../utils/notificationServices';
 
 import styles from './styles';
 navigator.geolocation = require('react-native-geolocation-service');
@@ -45,20 +45,21 @@ navigator.geolocation = require('react-native-geolocation-service');
 import socketServices from '../../utils/scoketService';
 // import BackgroundTimer from 'react-native-background-timer';
 import BackgroundGeolocation from '@darron1217/react-native-background-geolocation';
-import {chekLocationPermission} from '../../utils/permissions';
-import {colorArray} from '../../utils/constants/ConstantValues';
+import { chekLocationPermission } from '../../utils/permissions';
+import { colorArray } from '../../utils/constants/ConstantValues';
 import generateBoxShadowStyle from '../../Components/generateBoxShadowStyle';
+import { appIds } from '../../utils/constants/DynamicAppKeys';
 var finalAllTasks = [];
 var finaltodayTasks = [];
-export default function DashBoard({route, navigation}) {
+export default function DashBoard({ route, navigation }) {
   const userData = useSelector(state => state?.auth?.userData);
   console.log(userData, 'userData');
   const [state, setState] = useState({
     isLoading: false,
     isEnabled: userData && userData?.is_available ? true : false,
     options: [
-      {label: strings.TODAYSTASK, value: 0, testID: '1'},
-      {label: strings.ALLTASKS, value: 1, testID: '2'},
+      { label: strings.TODAYSTASK, value: 0, testID: '1' },
+      { label: strings.ALLTASKS, value: 1, testID: '2' },
     ],
     initial: 0,
     selectedOption: 0,
@@ -132,7 +133,7 @@ export default function DashBoard({route, navigation}) {
         fcm_token: fcmToken,
       });
     })();
-    return () => {};
+    return () => { };
   }, []);
 
   useEffect(() => {
@@ -260,8 +261,8 @@ export default function DashBoard({route, navigation}) {
       updateState({
         isLoading: true,
         options: [
-          {label: strings.TODAYSTASK, value: 0, testID: '1'},
-          {label: strings.ALLTASKS, value: 1, testID: '2'},
+          { label: getBundleId() == appIds.tdc  ? strings.TODAYTRIP : strings.TODAYSTASK, value: 0, testID: '1' },
+          { label:getBundleId() ==  appIds.tdc  ? strings.ALLTRIP : strings.ALLTASKS, value: 1, testID: '2' },
         ],
       });
     }, []),
@@ -284,7 +285,7 @@ export default function DashBoard({route, navigation}) {
       // console.log(data, 'data>data');
       console.log(data, 'sending data data??????');
       actions
-        .logsApi(data, {client: clientInfo?.database_name})
+        .logsApi(data, { client: clientInfo?.database_name })
         .then(res => {
           console.log(res, 'logs data');
           if (
@@ -294,10 +295,10 @@ export default function DashBoard({route, navigation}) {
           ) {
             if (
               zendeskKeys?.keys?.account_key !=
-                res?.data?.user?.client_preference?.customer_support_key &&
+              res?.data?.user?.client_preference?.customer_support_key &&
               zendeskKeys?.keys?.application_id !=
-                res?.data?.user?.client_preference
-                  ?.customer_support_application_id
+              res?.data?.user?.client_preference
+                ?.customer_support_application_id
             )
               actions?.setZendeskKeys({
                 keys: {
@@ -311,9 +312,9 @@ export default function DashBoard({route, navigation}) {
           }
 
           if (selectedOption == 1) {
-            updateState({allTasks: res?.data?.tasks});
+            updateState({ allTasks: res?.data?.tasks });
           } else {
-            updateState({todaysTasks: res?.data?.tasks});
+            updateState({ todaysTasks: res?.data?.tasks });
           }
         })
         .catch(errorMethod);
@@ -345,7 +346,7 @@ export default function DashBoard({route, navigation}) {
         fcm_token: fcmToken,
       });
     })();
-    return () => {};
+    return () => { };
   }, []);
 
   const currentLocation = () => {
@@ -390,7 +391,7 @@ export default function DashBoard({route, navigation}) {
       .getListOfTasks(
         `?all=${selectedOption}`,
         {},
-        {client: clientInfo?.database_name},
+        { client: clientInfo?.database_name },
       )
       .then(res => {
         actions.updateHomepage(false);
@@ -430,14 +431,14 @@ export default function DashBoard({route, navigation}) {
   useEffect(() => {
     data(allTasks);
     updateState({
-      isLoading:false
+      isLoading: false
     })
   }, [allTasks]);
 
   useEffect(() => {
     todayTaskData(todaysTasks);
     updateState({
-      isLoading:false
+      isLoading: false
     })
   }, [todaysTasks]);
 
@@ -453,13 +454,13 @@ export default function DashBoard({route, navigation}) {
         }
       }
 
-      finaltodayTasks = [...finaltodayTasks, {title: i, data: arr}];
+      finaltodayTasks = [...finaltodayTasks, { title: i, data: arr }];
     }
   };
   const data = (data, type) => {
     finalAllTasks = [];
     let len;
-    let datalength=data?.length
+    let datalength = data?.length
     for (let i = 0; i < datalength; i = i + len) {
       let arr = [];
       for (let j = i; j < datalength; j++) {
@@ -469,18 +470,18 @@ export default function DashBoard({route, navigation}) {
         }
       }
 
-      finalAllTasks = [...finalAllTasks, {title: i, data: arr}];
+      finalAllTasks = [...finalAllTasks, { title: i, data: arr }];
     }
   };
   console.log(finalAllTasks, 'finalArray');
 
-  const updateState = data => setState(state => ({...state, ...data}));
+  const updateState = data => setState(state => ({ ...state, ...data }));
 
-  const commonStyles = commonStylesFunc({fontFamily});
+  const commonStyles = commonStylesFunc({ fontFamily });
 
   //Naviagtion to specific screen
   const moveToNewScreen = (screenName, data) => () => {
-    navigation.navigate(screenName, {data});
+    navigation.navigate(screenName, { data });
   };
 
   const onOffDuty = () => {
@@ -488,14 +489,14 @@ export default function DashBoard({route, navigation}) {
       .onOffDuty(
         `?device_token=${fcm_token ? fcm_token : DeviceInfo.getDeviceToken()}`,
         {},
-        {client: clientInfo?.database_name},
+        { client: clientInfo?.database_name },
       )
       .then(res => {
         console.log(res, 'onOffDuty>res>res');
-        updateState({isLoadingSwitch: false});
+        updateState({ isLoadingSwitch: false });
         if (res?.data) {
-          updateState({statusChanged: false});
-          let updatedUserData = {...userData};
+          updateState({ statusChanged: false });
+          let updatedUserData = { ...userData };
           updatedUserData['is_available'] = res?.data?.is_available;
           actions.updataeUserData(updatedUserData);
         }
@@ -529,22 +530,22 @@ export default function DashBoard({route, navigation}) {
   };
 
   const updateContent = value => {
-    updateState({selectedOption: value, isLoading: true});
+    updateState({ selectedOption: value, isLoading: true });
   };
   const customCenter = () => {
     return (
-      <View style={{flexDirection: 'row', alignItems: 'center'}}>
-        <View style={{paddingHorizontal: 10}}>
+      <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+        <View style={{ paddingHorizontal: 10 }}>
           <Image source={imagePath.locationOff} />
         </View>
         <Switch
-          trackColor={{false: colors.backGround, true: colors.themeColor}}
+          trackColor={{ false: colors.backGround, true: colors.themeColor }}
           thumbColor={colors.white}
           // ios_backgroundColor=#3e3e3e"
           onValueChange={toggleSwitch}
           value={isEnabled}
         />
-        <View style={{paddingHorizontal: 10}}>
+        <View style={{ paddingHorizontal: 10 }}>
           <Image source={imagePath.locationOn} />
         </View>
       </View>
@@ -552,8 +553,8 @@ export default function DashBoard({route, navigation}) {
   };
 
   //pagination of data
-  const onEndReached = ({distanceFromEnd}) => {
-    updateState({pageNo: pageNo + 1});
+  const onEndReached = ({ distanceFromEnd }) => {
+    updateState({ pageNo: pageNo + 1 });
   };
 
   const onEndReachedDelayed = debounce(onEndReached, 1000, {
@@ -562,17 +563,17 @@ export default function DashBoard({route, navigation}) {
   });
 
   const _onPressTask = item => {
-   
-    moveToNewScreen(navigationStrings.TASKDETAIL, {item: item})();
+
+    moveToNewScreen(navigationStrings.TASKDETAIL, { item: item })();
   };
   const getDynamicUpdateOnValues = data => {
     var colorData = colorArray;
-     return (
+    return (
       colorData[finalAllTasks.indexOf(data) % colorData.length]
-     )
-    
+    )
+
   };
-  const renderTaskList = ({item, index}) => {
+  const renderTaskList = ({ item, index }) => {
     return (
       <TouchableOpacity
         onPress={() => _onPressTask(item?.data[0])}
@@ -599,13 +600,13 @@ export default function DashBoard({route, navigation}) {
 
   //Pull to refresh
   const handleRefresh = () => {
-    updateState({pageNo: 1, isRefreshing: true});
+    updateState({ pageNo: 1, isRefreshing: true });
   };
 
   const homeMainView = () => {
     return (
       <>
-        <View style={{flex: 1}}>
+        <View style={{ flex: 1 }}>
           {(selectedOption ? allTasks?.length : todaysTasks?.length) ? (
             <FlatList
               data={selectedOption ? finalAllTasks : finaltodayTasks}
@@ -618,8 +619,8 @@ export default function DashBoard({route, navigation}) {
                 backgroundColor: !!(selectedOption == 1 && !allTasks.length)
                   ? colors.backGround
                   : !!(selectedOption == 0 && !todaysTasks.length)
-                  ? colors.backGround
-                  : colors.white,
+                    ? colors.backGround
+                    : colors.white,
               }}
               contentContainerStyle={{
                 flexGrow: 1,
@@ -637,28 +638,28 @@ export default function DashBoard({route, navigation}) {
               ListEmptyComponent={() => (
                 <ListEmptyComponent
                   isLoading={isLoading}
-                  message={strings.NOTASK}
+                  message={getBundleId() == appIds.tdc  ? strings.NOTRIP : strings.NOTASK}
                   subMessage={strings.NOTASKASSIGNED}
-                  containerStyle={{backgroundColor: colors.backGround}}
+                  containerStyle={{ backgroundColor: colors.backGround }}
                 />
               )}
             />
           ) : (
             <ListEmptyComponent
               isLoading={isLoading}
-              message={strings.NOTASK}
+              message={getBundleId()== appIds.tdc  ? strings.NOTRIP : strings.NOTASK}
               subMessage={strings.NOTASKASSIGNED}
-              containerStyle={{backgroundColor: colors.backGround}}
+              containerStyle={{ backgroundColor: colors.backGround }}
             />
           )}
         </View>
       </>
     );
   };
-  const DEFAULT_PADDING = {top: 40, right: 40, bottom: 40, left: 40};
+  const DEFAULT_PADDING = { top: 40, right: 40, bottom: 40, left: 40 };
 
   const _onRegionChange = region => {
-    updateState({region: region});
+    updateState({ region: region });
     // _getAddressBasedOnCoordinates(region);
   };
 
@@ -731,14 +732,14 @@ export default function DashBoard({route, navigation}) {
     Linking.openSettings();
   };
 
-  const toggleWarning = state => updateState({isWarningAlert: state});
+  const toggleWarning = state => updateState({ isWarningAlert: state });
   useEffect(() => {
     const interval = setInterval(() => {
       requestUserPermission(toggleWarning);
     }, 1000);
     if (!isWarningAlert && interval && (fcmToken || warningStatus))
       clearInterval(interval);
-    updateState({warningStatus: 1});
+    updateState({ warningStatus: 1 });
     return () => {
       if (interval) clearInterval(interval);
     };
@@ -746,12 +747,12 @@ export default function DashBoard({route, navigation}) {
 
   const offDutyView = () => {
     return (
-      <View style={{flex: 1}}>
+      <View style={{ flex: 1 }}>
         <ListEmptyComponent
           isLoading={isLoadingSwitch}
           message={strings.OFFDUTY}
           subMessage={strings.OFFDUTYMESSAGE}
-          containerStyle={{backgroundColor: colors.backGround}}
+          containerStyle={{ backgroundColor: colors.backGround }}
           image={imagePath?.offDuty}
         />
       </View>
@@ -762,8 +763,8 @@ export default function DashBoard({route, navigation}) {
 
   const fitPadding = newArray => {
     if (mapRef.current) {
-      mapRef.current.fitToCoordinates([{latitude, longitude}, ...newArray], {
-        edgePadding: {top: 80, right: 80, bottom: 80, left: 80},
+      mapRef.current.fitToCoordinates([{ latitude, longitude }, ...newArray], {
+        edgePadding: { top: 80, right: 80, bottom: 80, left: 80 },
         animated: true,
       });
     }
@@ -881,7 +882,7 @@ export default function DashBoard({route, navigation}) {
   };
 
   const _onSwitchMapView = () => {
-    updateState({enableMap: !enableMap});
+    updateState({ enableMap: !enableMap });
   };
 
   return (
@@ -892,7 +893,7 @@ export default function DashBoard({route, navigation}) {
       source={loaderOne}>
       <Header
         reverse={false}
-        headerStyle={{backgroundColor: colors.white}}
+        headerStyle={{ backgroundColor: colors.white }}
         leftIcon={imagePath.menu}
         onPressLeft={() => navigation.toggleDrawer()}
         // hideRight={true}
@@ -900,7 +901,7 @@ export default function DashBoard({route, navigation}) {
         rightIcon={!enableMap ? imagePath.map : imagePath.listMenu}
         onPressRight={_onSwitchMapView}
       />
-      <View style={{...commonStyles.headerTopLine}} />
+      <View style={{ ...commonStyles.headerTopLine }} />
       {isWarningAlert && (
         <View
           style={{
@@ -909,8 +910,8 @@ export default function DashBoard({route, navigation}) {
             justifyContent: 'space-between',
             paddingHorizontal: moderateScale(10),
           }}>
-          <View style={{width: width / 2.2, justifyContent: 'center'}}>
-            <Text style={{color: colors.white, fontFamily: fontFamily.regular}}>
+          <View style={{ width: width / 2.2, justifyContent: 'center' }}>
+            <Text style={{ color: colors.white, fontFamily: fontFamily.regular }}>
               {strings.notificationAlert}
             </Text>
           </View>
@@ -933,7 +934,7 @@ export default function DashBoard({route, navigation}) {
                 borderRadius: 8,
               }}
               onPress={() => toggleWarning(false)}>
-              <Text style={{color: colors.white}}>{strings.CANCEL}</Text>
+              <Text style={{ color: colors.white }}>{strings.CANCEL}</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={{
@@ -945,7 +946,7 @@ export default function DashBoard({route, navigation}) {
                 borderRadius: 8,
               }}
               onPress={() => _onOpenSettings()}>
-              <Text style={{color: colors.white}}>{strings.ENABLE}</Text>
+              <Text style={{ color: colors.white }}>{strings.ENABLE}</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -967,10 +968,10 @@ export default function DashBoard({route, navigation}) {
             onPress={value => updateContent(value)}
           />
         ) : (
-          <View style={{height: 35}} />
+          <View style={{ height: 35 }} />
         )}
       </View>
-      <View style={{flex: 1}}>{renderComponents()}</View>
+      <View style={{ flex: 1 }}>{renderComponents()}</View>
 
       {/* {isEnabled ? (enableMap ? mapView() : homeMainView()) : offDutyView()} */}
     </WrapperContainer>

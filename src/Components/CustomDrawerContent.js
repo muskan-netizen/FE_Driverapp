@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { Alert } from 'react-native';
-import { Text, TouchableOpacity, View, Image } from 'react-native';
+import { Text, TouchableOpacity, View, Image, Switch } from 'react-native';
 // import Animated from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useSelector } from 'react-redux';
@@ -13,6 +13,7 @@ import fontFamily from '../styles/fontFamily';
 import {
   height,
   moderateScale,
+  moderateScaleVertical,
   textScale,
   width,
 } from '../styles/responsiveSize';
@@ -21,12 +22,14 @@ import Loader from './Loader';
 import { useFocusEffect } from '@react-navigation/native';
 import { cloneDeep } from 'lodash';
 import ScaledImage from 'react-native-scalable-image';
-import DeviceInfo from 'react-native-device-info';
+import DeviceInfo, { getBundleId } from 'react-native-device-info';
 import ZendeskChat from '../library/react-native-zendesk-chat';
 import { appIds } from '../utils/constants/DynamicAppKeys';
 import { Subscriptions } from '../Screens';
 import BackgroundGeolocation from '@darron1217/react-native-background-geolocation';
 import { useDarkMode } from 'react-native-dark-mode';
+import { getItem } from '../utils/utils';
+import { string } from 'is_js';
 
 export default function CustomDrawerContent({
   state,
@@ -38,16 +41,17 @@ export default function CustomDrawerContent({
   const { zendeskKeys, clientInfo, defaultLanguage } = useSelector(
     state => state?.initBoot,
   );
-  const { userData } = useSelector(state => state?.auth);
-
+  const { userData, isCabPooling } = useSelector(state => state?.auth);
+  const [isEnable, setIsEnable] = useState(isCabPooling)
   const darkthemeusingDevice = useDarkMode();
+
   const isDarkMode = themeToggle ? darkthemeusingDevice : themeColor;
-  console.log(userData, 'clientInfoclientInfo')
+  console.log(isCabPooling, 'clientInfoclientInfo')
   const [states, setState] = useState({
     routes: [
       {
         id: 1,
-        label: strings.TASKHISTORY,
+        label: getBundleId() == appIds.tdc ? strings.TRIPHISTORY : strings.TASKHISTORY,
         image: imagePath.taskHistory,
         key: navigationStrings.TASKSTACK,
         subRoute: navigationStrings.TASKHISTORY,
@@ -132,6 +136,7 @@ export default function CustomDrawerContent({
         key: navigationStrings.SUBSCRIPTION_STACK,
         subRoute: navigationStrings.SUBSCRIPTION_STACK,
       },
+
     ],
     logoutAlert: false,
     selectedDrawerItem: null,
@@ -161,9 +166,11 @@ export default function CustomDrawerContent({
     );
     updateState({
       routes: [
+
+
         {
           id: 1,
-          label: strings.TASKHISTORY,
+          label: getBundleId() == appIds.tdc ? strings.TRIPHISTORY : strings.TASKHISTORY,
           image: imagePath.taskHistory,
           key: navigationStrings.TASKSTACK,
           subRoute: navigationStrings.TASKHISTORY,
@@ -217,15 +224,15 @@ export default function CustomDrawerContent({
           // key: navigationStrings.PROFILESTACK,
           // subRoute:navigationStrings.MYPROFILE
         },
-          subscription === undefined ? {} : subscription?.hide_subscription_module == 0 ?
-              {
-                id: 9,
-                label: strings.SUBSCRIPTIONS,
-                support: true,
-                image: imagePath.icSubscription,
-                key: navigationStrings.SUBSCRIPTION_STACK,
-                subRoute: navigationStrings.SUBSCRIPTION_STACK,
-              } : {} ,
+        subscription === undefined ? {} : subscription?.hide_subscription_module == 0 ?
+          {
+            id: 9,
+            label: strings.SUBSCRIPTIONS,
+            support: true,
+            image: imagePath.icSubscription,
+            key: navigationStrings.SUBSCRIPTION_STACK,
+            subRoute: navigationStrings.SUBSCRIPTION_STACK,
+          } : {},
 
         // {
         //   if(subscription != undefined ) {
@@ -345,6 +352,21 @@ export default function CustomDrawerContent({
     });
   };
 
+  const toggleSwitch = () => {
+
+    actions.updateCabPoolingStatus({
+      is_pooling_available: !isEnable
+    },
+      {
+        client: clientInfo?.database_name,
+      }).then((res) => {
+        console.log(res, 'resres-----')
+      })
+      .catch((error) => {
+        console.log(error, 'errororro')
+      })
+  }
+    ;
   return (
     <>
       <View
@@ -371,7 +393,31 @@ export default function CustomDrawerContent({
             }
           />
         </View>
-
+        {userData?.client_preference?.is_cab_pooling_toggle == 1 ?
+          <View style={{
+            marginHorizontal: moderateScale(10), flexDirection: 'row',
+            justifyContent: 'space-around',
+            marginBottom: moderateScaleVertical(15)
+          }}>
+            <Text
+              style={{
+                // paddingLeft: moderateScale(5),
+                paddingRight: 0,
+                fontSize: textScale(17),
+                fontFamily: fontFamily?.regular,
+                ...props.labelStyle,
+                color: colors.black,
+              }}>
+              {strings.AVAILABLEFORPOOLING}
+            </Text>
+            <Switch
+              trackColor={{ false: colors.backGround, true: colors.themeColor }}
+              thumbColor={colors.white}
+              // ios_backgroundColor=#3e3e3e"
+              onValueChange={toggleSwitch}
+              value={isEnable}
+            />
+          </View> : null}
         {routes.map((route, index) => {
           // const {options} = descriptors[route.key];
           const isFocused = selectedDrawerItem?.index === index;
@@ -411,6 +457,7 @@ export default function CustomDrawerContent({
                   justifyContent: 'center',
                 }}>
                 {/* {options.drawerIcon({focused: isFocused})} */}
+
                 <View style={{ flex: 0.15 }}>
                   <Image source={route?.image} />
                 </View>
