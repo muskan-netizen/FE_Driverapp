@@ -203,15 +203,25 @@ android {
      flavorDimensions "appType"
 // productFlavors{
               
-//            oxo{
+//              ace{
 //             dimension "appType"
 //             versionCode 1
 //             versionName "1.0"
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.OXO.royodispatcher'
-//             resValue "string", "app_name", "OXO Dispatcher"
+//                applicationId "com.Ace.royodispatcher"
+//             resValue "string", "app_name", "Ace Dispatch"
+//         }
+//           sheRyders{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.sheRyders.dispatcher'
+//             resValue "string", "app_name", "SheRyders Driver"
 //         }
 
 // }
