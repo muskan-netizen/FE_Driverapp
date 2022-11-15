@@ -444,6 +444,7 @@ export default function TaskDetail({route, navigation}) {
   };
 
   const getUpdatedStatus = () => {
+    console.log('1jehjil')
     switch (taskStatus) {
       case 1:
         return 2;
@@ -453,6 +454,9 @@ export default function TaskDetail({route, navigation}) {
         break;
       case 3:
         return 4;
+        break;
+        case 4:
+          return 2;
         break;
       default:
         break;

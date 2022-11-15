@@ -702,6 +702,7 @@
 		2C36E9FB28BA41CF008AEF37 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C36E9FA28BA41CF008AEF37 /* Images.xcassets */; };
 		2C36E9FD28BA4208008AEF37 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C36E9FC28BA4206008AEF37 /* GoogleService-Info.plist */; };
 		2C36E9FF28BA42E4008AEF37 /* FairDealInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C36E9FE28BA42E4008AEF37 /* FairDealInfo.plist */; };
+		2C39C71D2922454D0096CCAC /* ServernInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C39C71C2922454C0096CCAC /* ServernInfo.plist */; };
 		2C3A1B4828DC69750037D17A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2C3A1B4928DC69750037D17A /* RoyoDriverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84961AE127EB05D300B58C31 /* RoyoDriverApp.swift */; };
 		2C3A1B4A28DC69750037D17A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -7403,6 +7404,7 @@
 		2C36E9FA28BA41CF008AEF37 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2C36E9FC28BA4206008AEF37 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2C36E9FE28BA42E4008AEF37 /* FairDealInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = FairDealInfo.plist; sourceTree = "<group>"; };
+		2C39C71C2922454C0096CCAC /* ServernInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ServernInfo.plist; sourceTree = "<group>"; };
 		2C3A1B7528DC69750037D17A /* Inmotion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Inmotion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C3A1B7828DC6A7A0037D17A /* Inmotion(Development).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Inmotion(Development).xcconfig"; sourceTree = "<group>"; };
 		2C3A1B7A28DC6AD50037D17A /* Inmotion(Production).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Inmotion(Production).xcconfig"; sourceTree = "<group>"; };
@@ -15992,6 +15994,7 @@
 				F881F88D29011E6B0030CA45 /* Dbairro_Info.plist */,
 				F85B97CC29096B500010B059 /* GeneeInfo.plist */,
 				F83A22C0290C07910035FC9D /* SpeedyDeliveryInfo.plist */,
+				2C39C71C2922454C0096CCAC /* ServernInfo.plist */,
 			);
 			path = Plists;
 			sourceTree = "<group>";
@@ -25689,9 +25692,9 @@
 				84B68CC32773512E00E8FB1A /* Frameworks */,
 				84B68CE22773512E00E8FB1A /* Resources */,
 				84B68CEF2773512E00E8FB1A /* Bundle React Native code and images */,
-				E6615DB2605A57B19799743F /* Bundle React Native code and images */,
 				CA1811CA5B259DB5FFC98A61 /* [CP] Embed Pods Frameworks */,
 				B962D90739553A7C9DD1F173 /* [CP] Copy Pods Resources */,
+				F4B2984F290FD66F007A5522 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -27852,6 +27855,7 @@
 				E82600D128756AF100839AED /* Resources */,
 				8667A72A784E301A6D250F9D /* [CP] Embed Pods Frameworks */,
 				55B01F98ACF56B18C917BC1C /* [CP] Copy Pods Resources */,
+				F4B29850291002D2007A5522 /* Start Packager */,
 			);
 			buildRules = (
 			);
@@ -36209,6 +36213,7 @@
 				E810C7C828746CD7009F9CA5 /* SevernInfo.plist in Resources */,
 				E810C7C02874690A009F9CA5 /* Servern(Development).xcconfig in Resources */,
 				E810C7AE287467D0009F9CA5 /* campton-medium.ttf in Resources */,
+				2C39C71D2922454D0096CCAC /* ServernInfo.plist in Resources */,
 				E810C7B0287467D0009F9CA5 /* notification.mp3 in Resources */,
 				E810C7C428746995009F9CA5 /* Images.xcassets in Resources */,
 				E810C7B1287467D0009F9CA5 /* campton-book.ttf in Resources */,
@@ -67394,25 +67399,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-Eureka/Pods-available_pods-Eureka-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E6615DB2605A57B19799743F /* Bundle React Native code and images */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-available_pods-DimaVega/Pods-available_pods-DimaVega-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			inputPaths = (
-			);
-			name = "Bundle React Native code and images";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-available_pods-DimaVega/Pods-available_pods-DimaVega-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-DimaVega/Pods-available_pods-DimaVega-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		E6CCE87491AF9344657F630E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -70394,6 +70380,41 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-FifteenP/Pods-available_pods-FifteenP-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		F4B2984F290FD66F007A5522 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "";
+		};
+		F4B29850291002D2007A5522 /* Start Packager */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Start Packager";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n\nexport RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\nif nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\nif ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\necho \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\nexit 2\nfi\nelse\nopen \"$SRCROOT/../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\nfi\nfi\n";
 		};
 		F4BDB74528EEFFF0000C0308 /* Start Packager */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -95820,7 +95841,7 @@
 				PROJECT_BUNDLE_ID = "$(PROJECT_BUNDLE_ID)";
 				PROJECT_NAME = "${PROJECT_NAME}";
 				PROJECT_PLIST = "$(PROJECT_PLIST)";
-				PROVISIONING_PROFILE_SPECIFIER = "DimaVega Dispatch[AppStore]";
+				PROVISIONING_PROFILE_SPECIFIER = "DimaVega Dispatch[AppStore";
 				SWIFT_OBJC_BRIDGING_HEADER = "RoyoDriverApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -104082,7 +104103,7 @@
 				ENABLE_BITCODE = NO;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = "$(SRCROOT)/Plists/ElentaMartInfo.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -104126,7 +104147,7 @@
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = "$(SRCROOT)/Plists/ElentaMartInfo.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -105134,7 +105155,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = 6FXUMT5X23;
+				DEVELOPMENT_TEAM = D24Q42L2DS;
 				ENABLE_BITCODE = NO;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				HEADER_SEARCH_PATHS = "$(inherited)";
@@ -105179,7 +105200,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = 6FXUMT5X23;
+				DEVELOPMENT_TEAM = D24Q42L2DS;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
@@ -105205,7 +105226,7 @@
 				PROJECT_BUNDLE_ID = "$(PROJECT_BUNDLE_ID)";
 				PROJECT_NAME = "${PROJECT_NAME}";
 				PROJECT_PLIST = "$(PROJECT_PLIST)";
-				PROVISIONING_PROFILE_SPECIFIER = Torunz;
+				PROVISIONING_PROFILE_SPECIFIER = "Torunz Driver";
 				SWIFT_OBJC_BRIDGING_HEADER = "RoyoDriverApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";

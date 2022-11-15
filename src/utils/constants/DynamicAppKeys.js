@@ -653,7 +653,7 @@ const appIds = {
   }),
   agriOnline: Platform.select({
     ios: 'com.AgriOnline.Dispatcher',
-    android: 'com.AgriOnline.royodispatcher',
+    android: 'com.AgriOnline.Dispatcher',
   }),
   clickeat: Platform.select({
     ios: 'com.clickEat.royoDispatcher',
@@ -805,7 +805,7 @@ const appIds = {
   }),
   iNeed: Platform.select({
     ios: 'com.INeed.Dispatch',
-    android: 'com.INeed.royodispatcher',
+    android: 'com.ineed.userApplication',
   }),
   naDelivery: Platform.select({
     ios: 'com.NaDelivery.Dispatcher',
@@ -857,7 +857,7 @@ const appIds = {
   }),
   foodNests: Platform.select({
     ios: 'com.FoodNests.Dispatch',
-    android: 'com.FoodNests.royodispatcher',
+    android: 'com.FoodNests.driverapp',
   }),
   tasmeem: Platform.select({
     ios: 'com.Tasmeem.Dispatch',
@@ -1337,7 +1337,7 @@ const appIds = {
   }),
   sunShineRideShare: Platform.select({
     ios: 'com.SunShineRideShare.Dispatcher',
-    android: 'com.SunShineRideShare.royodispatcher',
+    android: 'com.SunShineRideShare.driver',
   }),
   spliffNation: Platform.select({
     ios: 'com.SpliffNation.Dispatcher',
@@ -1642,8 +1642,8 @@ const appIds = {
     android: 'com.kurs.royodispatcher',
   }),
   torunz: Platform.select({
-    ios: 'com.torunz.Dispatch',
-    android: 'com.torunz.royodispatcher',
+    ios: 'com.torunz.driverapp',
+    android: 'com.torunz.driverapp',
   }),
   spa: Platform.select({
     ios: 'com.spa.Dispatch',
@@ -1799,7 +1799,7 @@ const appIds = {
   }),
   kurrix: Platform.select({
     ios: 'com.kurrix.royoDispatcher',
-    android: 'com.kurrix.royoDispatcher',
+    android: 'com.goadeliv.driverapp',
   }),
   easyDrink: Platform.select({
     ios: 'com.kurrix.royoDispatcher',
