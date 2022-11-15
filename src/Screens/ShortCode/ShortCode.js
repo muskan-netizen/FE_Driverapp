@@ -2610,8 +2610,8 @@ export default function ShortCode({ route, navigation }) {
         };
       }
 
-      let updatedShortCode = shortCode;
-     // let updatedShortCode = '94d183';
+     let updatedShortCode = shortCode;
+      //let updatedShortCode = 'b65020';
       //  let updatedShortCode = '1fdd1d';
 
       actions
@@ -2660,7 +2660,6 @@ export default function ShortCode({ route, navigation }) {
   };
 
   const onVideoDurationEnded = () => {
-
     updateState({
       videoDurationEnded: true,
       initapiresponse: true

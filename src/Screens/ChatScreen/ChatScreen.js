@@ -126,6 +126,7 @@ export default function ChatScreen({ route }) {
         const allAgentIds = res?.userData.splice(
           res?.userData.findIndex((item) => item?.user_type == "agent")
         );
+        console.log(allRoomUsersAppartFromAgent,allAgentIds,"allAgentIds>>>>");
         updateState({
           allRoomUsersAppartFromAgent: allRoomUsersAppartFromAgent,
           allAgentIds: allAgentIds,

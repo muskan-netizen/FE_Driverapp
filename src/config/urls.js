@@ -1,9 +1,9 @@
-//export const API_BASE_URL = 'http://192.168.96.84:9091/';
+//export const API_BASE_URL = 'https://805c-103-72-170-243.ngrok.io/';
 
-// export const API_BASE_URL = 'https://api.royodispatch.com/';
+ //export const API_BASE_URL = 'https://api.royodispatch.com/';
 // export const API_BASE_URL = 'https://sales.royodispatch.com/';
 // //Staging
- export const API_BASE_URL = 'https://api.rdstaging.com/';
+ //export const API_BASE_URL = 'https://api.rdstaging.com/';
 //export const API_BASE_URL   ='https://fcba-103-72-170-243.ngrok.io/'
 // export const API_BASE_URL='https://delivery.rdstaging.com/'
 // export const API_BASE_URL = 'https://dispatch.goadeliv.com/';
@@ -34,7 +34,7 @@
 // export const API_BASE_URL = 'https://dispatch.elog.group/';
 
 // export const API_BASE_URL = 'https://dispatch.knockknock.online/'
-// export const API_BASE_URL = 'https://api.winhires.com/';
+ export const API_BASE_URL = 'https://api.winhires.com/';
 //export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
 // export const API_BASE_URL = 'http://192.168.96.152:9091/';
 //export const API_BASE_URL = 'https://api.royodispatch.com/';
@@ -47,7 +47,7 @@
 // export const API_BASE_URL = 'https://miist-dispatch.netsolutionindia.com/';
 
 // export const API_BASE_URL='https://d078-103-72-170-243.in.ngrok.io/'
-//  export const API_BASE_URL = 'https://baytukom-dispatch.netsolutionindia.com/';
+//export const API_BASE_URL = 'https://baytukom-dispatch.netsolutionindia.com/';
 
 //export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
 // export const API_BASE_URL = 'http://192.168.97.160:9090/';
