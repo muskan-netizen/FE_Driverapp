@@ -1,5 +1,5 @@
 import React, {Fragment, useEffect, useState} from 'react';
-import {Alert} from 'react-native';
+import {Alert, ScrollView} from 'react-native';
 import {Text, TouchableOpacity, View, Image} from 'react-native';
 // import Animated from 'react-native-reanimated';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
@@ -13,6 +13,7 @@ import fontFamily from '../styles/fontFamily';
 import {
   height,
   moderateScale,
+  moderateScaleVertical,
   textScale,
   width,
 } from '../styles/responsiveSize';
@@ -329,9 +330,13 @@ export default function CustomDrawerContent({
 
   return (
     <>
+    <ScrollView
+    showsVerticalScrollIndicator={false}>
+
+    
       <View
         style={{
-          height: height,
+          // height: height,
           marginTop: moderateScale(10),
         }}
         colors={[colors.white, colors.white]}>
@@ -414,13 +419,14 @@ export default function CustomDrawerContent({
             </Fragment>
           ) : null;
         })}
-        <View
+       
+      </View>
+      <View
           style={{
             alignItems: 'center',
-            position: 'absolute',
-            left: 0,
-            right: 0,
-            top: height - 150,
+            // position: 'absolute',
+            marginVertical:moderateScaleVertical(10)
+          
           }}>
           <Text
             numberOfLines={2}
@@ -433,7 +439,7 @@ export default function CustomDrawerContent({
             <Text>{`(${DeviceInfo.getBuildNumber()})`}</Text>
           </Text>
         </View>
-      </View>
+      </ScrollView>
       <Loader isLoading={isLoading} withModal={true} />
     </>
   );
