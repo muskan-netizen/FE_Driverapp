@@ -1,40 +1,40 @@
-import React, { useEffect, useState, useRef } from "react";
-import { Image, Text, TouchableOpacity, View } from "react-native";
-import { getBundleId } from "react-native-device-info";
-import SmoothPinCodeInput from "react-native-smooth-pincode-input";
-import { useSelector } from "react-redux";
-import ButtonWithLoader from "../../Components/ButtonWithLoader";
-import { loaderOne } from "../../Components/Loaders/AnimatedLoaderFiles";
-import ModalView from "../../Components/ShortCodeConfirmModal";
-import WrapperContainer from "../../Components/WrapperContainer";
-import imagePath from "../../constants/imagePath";
-import strings from "../../constants/lang";
-import navigationStrings from "../../navigation/navigationStrings";
-import actions from "../../redux/actions";
-import Video from "react-native-video";
+import React, {useEffect, useState, useRef} from 'react';
+import {Image, Text, TouchableOpacity, View} from 'react-native';
+import {getBundleId} from 'react-native-device-info';
+import SmoothPinCodeInput from 'react-native-smooth-pincode-input';
+import {useSelector} from 'react-redux';
+import ButtonWithLoader from '../../Components/ButtonWithLoader';
+import {loaderOne} from '../../Components/Loaders/AnimatedLoaderFiles';
+import ModalView from '../../Components/ShortCodeConfirmModal';
+import WrapperContainer from '../../Components/WrapperContainer';
+import imagePath from '../../constants/imagePath';
+import strings from '../../constants/lang';
+import navigationStrings from '../../navigation/navigationStrings';
+import actions from '../../redux/actions';
+import Video from 'react-native-video';
 // import store from '../../redux/store';
-import colors from "../../styles/colors";
+import colors from '../../styles/colors';
 import {
   height,
   moderateScale,
   moderateScaleVertical,
   width,
-} from "../../styles/responsiveSize";
-import { appIds, shortCodes } from "../../utils/constants/DynamicAppKeys";
-import { showError } from "../../utils/helperFunctions";
-import { requestUserPermission } from "../../utils/notificationServices";
-import { getItem, getUserData } from "../../utils/utils";
-import styles from "./styles";
-import store from "../../redux/store";
-import types from "../../redux/types";
+} from '../../styles/responsiveSize';
+import {appIds, shortCodes} from '../../utils/constants/DynamicAppKeys';
+import {showError} from '../../utils/helperFunctions';
+import {requestUserPermission} from '../../utils/notificationServices';
+import {getItem, getUserData} from '../../utils/utils';
+import styles from './styles';
+import store from '../../redux/store';
+import types from '../../redux/types';
 
-export default function ShortCode({ route, navigation }) {
+export default function ShortCode({route, navigation}) {
   const shortCodeParam = route?.params?.shortCodeParam;
 
   const [state, setState] = useState({
     isLoading: false,
     shortCode: null,
-    shortCodeShow: "",
+    shortCodeShow: '',
     changeInShortCode: false,
     videoDurationEnded: false,
     shortCodeDataInfo: null,
@@ -56,29 +56,29 @@ export default function ShortCode({ route, navigation }) {
     videoDurationEnded,
     initapiresponse,
   } = state;
-  const updateState = (data) => setState((state) => ({ ...state, ...data }));
+  const updateState = data => setState(state => ({...state, ...data}));
 
   //Naviagtion to specific screen
   const moveToNewScreen = (screenName, data) => () => {
-    navigation.navigate(screenName, { data });
+    navigation.navigate(screenName, {data});
   };
 
-  const { defaultLanguage, internetConnection } = useSelector(
-    (state) => state?.initBoot
+  const {defaultLanguage, internetConnection} = useSelector(
+    state => state?.initBoot,
   );
 
-  const { userData } = useSelector((state) => state?.auth);
+  const {userData} = useSelector(state => state?.auth);
   const videoRef = useRef();
   useEffect(() => {
     requestUserPermission();
   }, []);
 
   const checkAsynStorageData = async () => {
-    const { dispatch } = store;
+    const {dispatch} = store;
     const userData = await getUserData();
-    const defaultLanguage = await getItem("defaultLanguage");
-    console.log(userData, "userdata in app.js");
-    console.log(defaultLanguage, "defaultLanguage in app.js");
+    const defaultLanguage = await getItem('defaultLanguage');
+    console.log(userData, 'userdata in app.js');
+    console.log(defaultLanguage, 'defaultLanguage in app.js');
     if (userData && !!userData?.access_token) {
       dispatch({
         type: types.LOGIN,
@@ -92,8 +92,8 @@ export default function ShortCode({ route, navigation }) {
         payload: defaultLanguage,
       });
     }
-    const getClientInfo = await getItem("clientInfo");
-    console.log("clientInfoclientInfo", getClientInfo);
+    const getClientInfo = await getItem('clientInfo');
+    console.log('clientInfoclientInfo', getClientInfo);
     dispatch({
       type: types.APP_INIT,
       payload: getClientInfo,
@@ -107,8 +107,8 @@ export default function ShortCode({ route, navigation }) {
 
   useEffect(() => {
     (async () => {
-      const saveShortCode = await getItem("saveShortCode");
-      console.log(saveShortCode, "this is short code");
+      const saveShortCode = await getItem('saveShortCode');
+      console.log(saveShortCode, 'this is short code');
       switch (getBundleId()) {
         case appIds.royoorder:
           // updateState({shortCode: '245bae', isShortcodePrefilled: true});
@@ -118,7 +118,7 @@ export default function ShortCode({ route, navigation }) {
               isShortcodePrefilled: true,
             });
           } else {
-            updateState({ shortCode: "", isShortcodePrefilled: false });
+            updateState({shortCode: '', isShortcodePrefilled: false});
           }
           break;
 
@@ -2560,6 +2560,84 @@ export default function ShortCode({ route, navigation }) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.icabPro:
+          updateState({
+            shortCode: shortCodes.icabPro,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.uberWeeds:
+          updateState({
+            shortCode: shortCodes.uberWeeds,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.stabex:
+          updateState({
+            shortCode: shortCodes.stabex,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.pointoneExpediteDelivery:
+          updateState({
+            shortCode: shortCodes.pointoneExpediteDelivery,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.tdc:
+          updateState({
+            shortCode: shortCodes.tdc,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.pik:
+          updateState({
+            shortCode: shortCodes.pik,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.saamanShop:
+          updateState({
+            shortCode: shortCodes.saamanShop,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.flyCommerce:
+          updateState({
+            shortCode: shortCodes.flyCommerce,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.motina:
+          updateState({
+            shortCode: shortCodes.motina,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.hungry:
+          updateState({
+            shortCode: shortCodes.hungry,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.myMeddy:
+          updateState({
+            shortCode: shortCodes.myMeddy,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.greenHippo:
+          updateState({
+            shortCode: shortCodes.greenHippo,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.uRyd:
+          updateState({
+            shortCode: shortCodes.uRyd,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);
@@ -2571,8 +2649,8 @@ export default function ShortCode({ route, navigation }) {
   }, [videoDurationEnded, initapiresponse]);
 
   const checkNavigationState = (apiRes, videoEnd) => {
-    console.log("api res+++++++", apiRes);
-    console.log("videoEnd res+++++++", videoEnd);
+    console.log('api res+++++++', apiRes);
+    console.log('videoEnd res+++++++', videoEnd);
     if (apiRes && videoEnd) {
       navigation.navigate(navigationStrings.LOGIN);
     }
@@ -2589,7 +2667,7 @@ export default function ShortCode({ route, navigation }) {
   };
 
   //Opt input function
-  const onOtpInput = (code) => {
+  const onOtpInput = code => {
     (async () => {
       updateState({
         isLoading: true,
@@ -2609,7 +2687,7 @@ export default function ShortCode({ route, navigation }) {
 
   //On click login button
   const _onSubmitShortCode = () => {
-    updateState({ isLoading: true });
+    updateState({isLoading: true});
     initApiHit();
   };
 
@@ -2617,8 +2695,8 @@ export default function ShortCode({ route, navigation }) {
   const initApiHit = () => {
     // alert("hjbvgnvhgvhbnbhj")
     (async () => {
-      const saveShortCode = await getItem("saveShortCode");
-      console.log(defaultLanguage?.value, "Language in init screen");
+      const saveShortCode = await getItem('saveShortCode');
+      console.log(defaultLanguage?.value, 'Language in init screen');
       let header = {};
       if (defaultLanguage?.id) {
         header = {
@@ -2626,7 +2704,7 @@ export default function ShortCode({ route, navigation }) {
         };
       } else {
         header = {
-          language: "en",
+          language: 'en',
         };
       }
 
@@ -2635,13 +2713,13 @@ export default function ShortCode({ route, navigation }) {
       //  let updatedShortCode = '1fdd1d';
 
       actions
-        .initApp({ shortCode: updatedShortCode }, header)
-        .then((res) => {
+        .initApp({shortCode: updatedShortCode}, header)
+        .then(res => {
           if (getBundleId() == appIds.royoorder && res?.data) {
             actions.saveShortCode(updatedShortCode);
           }
           actions.saveShortCode(updatedShortCode);
-          console.log(res, "res>res>res");
+          console.log(res, 'res>res>res');
           updateState({
             changeInShortCode: false,
             isLoading: false,
@@ -2692,13 +2770,12 @@ export default function ShortCode({ route, navigation }) {
       <View
         style={{
           flex: 1,
-        }}
-      >
+        }}>
         <Video
           ref={videoRef}
           source={animationVideo()} // Can be a URL or a local file.
           style={{
-            position: "absolute",
+            position: 'absolute',
             top: 0,
             left: 0,
             bottom: 0,
@@ -2724,30 +2801,29 @@ export default function ShortCode({ route, navigation }) {
 
   const imageSplash = () => {
     return (
-      <View style={{ flex: 1 }}>
+      <View style={{flex: 1}}>
         <View
           style={{
             flex: 1,
-            position: "absolute",
+            position: 'absolute',
             zIndex: 99,
-            alignItems: "center",
-            justifyContent: "center",
-            width: "100%",
-            height: "100%",
-            backgroundColor: "rgba(0,0,0,0.5)",
-          }}
-        ></View>
-        <Image source={{ uri: "Splash" }} style={{ flex: 1, zIndex: -1 }} />
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '100%',
+            height: '100%',
+            backgroundColor: 'rgba(0,0,0,0.5)',
+          }}></View>
+        <Image source={{uri: 'Splash'}} style={{flex: 1, zIndex: -1}} />
       </View>
     );
   };
   //Error handling in screen
-  const errorMethod = (error) => {
-    console.log(error, "short code error");
+  const errorMethod = error => {
+    console.log(error, 'short code error');
     updateState({
       isLoading: false,
-      shortCode: "",
-      shortCodeShow: "",
+      shortCode: '',
+      shortCodeShow: '',
       changeInShortCode: false,
       isLoadingB: false,
       isRefreshing: false,
@@ -2755,8 +2831,8 @@ export default function ShortCode({ route, navigation }) {
     showError(error?.message || error?.error);
   };
 
-  const _redirectToLogin = async (shortCodeDataInfo) => {
-    updateState({ isModalVisibleForShortCodeDetail: false });
+  const _redirectToLogin = async shortCodeDataInfo => {
+    updateState({isModalVisibleForShortCodeDetail: false});
     checkAsynStorageData();
     // const userData = await getUserData();
     // console.log(userData, 'userDataInShortcode');
@@ -2769,23 +2845,21 @@ export default function ShortCode({ route, navigation }) {
   const modalMainContent = () => {
     return (
       <View
-        onLayout={(event) => {
-          updateState({ viewWidth: event.nativeEvent.layout.width });
-        }}
-      >
+        onLayout={event => {
+          updateState({viewWidth: event.nativeEvent.layout.width});
+        }}>
         <View style={styles.imageView}>
           <Image
-            source={{ uri: shortCodeDataInfo?.logo }}
-            style={{ height: 100, width: 100, borderRadius: 100 / 2 }}
-            resizeMode={"contain"}
+            source={{uri: shortCodeDataInfo?.logo}}
+            style={{height: 100, width: 100, borderRadius: 100 / 2}}
+            resizeMode={'contain'}
           />
         </View>
         <View
           style={{
             marginTop: moderateScale(75),
             marginHorizontal: moderateScale(10),
-          }}
-        >
+          }}>
           <Text style={styles.company_address}>
             <Text>{`${shortCodeDataInfo?.company_name} ,`}</Text>
             {shortCodeDataInfo?.company_address}
@@ -2796,13 +2870,12 @@ export default function ShortCode({ route, navigation }) {
           <TouchableOpacity
             activeOpacity={0}
             onPress={() =>
-              updateState({ isModalVisibleForShortCodeDetail: false })
+              updateState({isModalVisibleForShortCodeDetail: false})
             }
             style={[
               styles.cancelButtonView,
-              { width: viewWidth ? viewWidth / 2 : width - (width / 1.5 - 20) },
-            ]}
-          >
+              {width: viewWidth ? viewWidth / 2 : width - (width / 1.5 - 20)},
+            ]}>
             <Text style={styles.cancel}>{strings.CANCEL}</Text>
           </TouchableOpacity>
           <TouchableOpacity
@@ -2810,9 +2883,8 @@ export default function ShortCode({ route, navigation }) {
             onPress={() => _redirectToLogin(shortCodeDataInfo)}
             style={[
               styles.confirmButtonView,
-              { width: viewWidth ? viewWidth / 2 : width - (width / 1.5 - 20) },
-            ]}
-          >
+              {width: viewWidth ? viewWidth / 2 : width - (width / 1.5 - 20)},
+            ]}>
             <Text style={styles.confirm}>{strings.CONFIRM}</Text>
           </TouchableOpacity>
         </View>
@@ -2825,31 +2897,29 @@ export default function ShortCode({ route, navigation }) {
       statusBarColor={colors.white}
       bgColor={colors.white}
       isLoadingB={isLoading}
-      source={loaderOne}
-    >
+      source={loaderOne}>
       {isShortcodePrefilled ? (
         _renderSplash()
       ) : (
         <>
-          <View style={{ flex: 1 }}>
+          <View style={{flex: 1}}>
             <View
               style={{
                 flex: 0.4,
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}>
               <Image source={imagePath.logo} />
             </View>
-            <View style={{ flex: 0.6, marginHorizontal: moderateScale(20) }}>
+            <View style={{flex: 0.6, marginHorizontal: moderateScale(20)}}>
               <Text style={styles.loginUsing}>{strings.LOGINUSING}</Text>
               <Text style={styles.loginUsing}>{strings.COMPANYCODE}</Text>
               <Text style={styles.weneedCompany}>
                 {strings.WENEDDCOMPNAYCODE}
               </Text>
-              <View style={{ marginTop: moderateScale(20) }}>
+              <View style={{marginTop: moderateScale(20)}}>
                 <SmoothPinCodeInput
-                  containerStyle={{ alignSelf: "center" }}
+                  containerStyle={{alignSelf: 'center'}}
                   password
                   mask={<View style={styles.maskStyle} />}
                   cellSize={width / 8}
@@ -2861,23 +2931,20 @@ export default function ShortCode({ route, navigation }) {
                   textStyle={styles.textStyleCodeInput}
                   textStyleFocused={styles.textStyleFocused}
                   inputProps={{
-                    autoCapitalize: "none",
+                    autoCapitalize: 'none',
                   }}
                   value={shortCodeShow}
                   autoFocus={false}
-                  keyboardType={"default"}
-                  onTextChange={(shortCodeShow) =>
-                    updateState({ shortCodeShow })
-                  }
-                  onFulfill={(code) => onOtpInput(code)}
+                  keyboardType={'default'}
+                  onTextChange={shortCodeShow => updateState({shortCodeShow})}
+                  onFulfill={code => onOtpInput(code)}
                 />
               </View>
               <View
                 style={{
                   marginTop: moderateScaleVertical(20),
-                  justifyContent: "flex-end",
-                }}
-              >
+                  justifyContent: 'flex-end',
+                }}>
                 <ButtonWithLoader
                   color={colors.black}
                   btnStyle={styles.buttonStyle}
@@ -2899,7 +2966,7 @@ export default function ShortCode({ route, navigation }) {
             data={shortCodeDataInfo}
             isVisible={isModalVisibleForShortCodeDetail}
             onClose={() =>
-              updateState({ isModalVisibleForShortCodeDetail: false })
+              updateState({isModalVisibleForShortCodeDetail: false})
             }
             mainViewStyle={{
               // minHeight: height / 3,

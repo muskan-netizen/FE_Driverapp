@@ -2,7 +2,8 @@ import types from '../types';
 
 const initial_state = {
   userData: {},
-  profileAddress:{}
+  profileAddress:{}, 
+  isCabPooling:false,
 };
 
 export default function (state = initial_state, action) {
@@ -20,6 +21,10 @@ export default function (state = initial_state, action) {
     case types.USER_LOGOUT: {
       const data = action.payload;
       return {userData: undefined};
+    }
+    case types.POOLING: {
+      // const data = action.payload;
+      return {...state, isCabPooling: !isCabPooling };
     }
 
     // case types.PROFILE_ADDRESS: {
