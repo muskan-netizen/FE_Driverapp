@@ -1365,7 +1365,7 @@ const appIds = {
   }),
   rideShare: Platform.select({
     ios: 'com.RideShare.Dispatch',
-    android: 'com.RideShare.royodispatcher',
+    android: 'com.RideShare.driverapp',
   }),
   newYorkMiniMart: Platform.select({
     ios: 'com.NewYorkMiniMart.Driver',

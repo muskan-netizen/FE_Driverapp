@@ -211,7 +211,7 @@ export default function PhoneVerification({navigation, route}) {
 
   //Error handling in api
   const errorMethod = error => {
-    updateState({isLoading: false});
+    updateState({isLoading: false,otpToShow:''});
     showError(error?.message || error?.error);
   };
 
