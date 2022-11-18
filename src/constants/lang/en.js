@@ -323,5 +323,6 @@ export default {
   PICKERCANCLLED:'Picker Canclled',
   CHAT_ROOM:"Chat Room",
   ORDER_CANCELLED_BY_CUSTOMER:'Order Cancelled By Customer',
-  ORDER:"Order"
+  ORDER:"Order",
+  LOCATION_UNAVAILABLE:'Location Not Available'
 };
