@@ -201,6 +201,19 @@ android {
     }
 
      flavorDimensions "appType"
+
+     productFlavors{
+                eatHalal{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.eatHalal.royodispatcher'
+            resValue "string", "app_name", "EatHalal Dispatcher"
+        }
+     }
     
     productFlavors {
         royodispatcher {
