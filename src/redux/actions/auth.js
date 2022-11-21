@@ -11,7 +11,13 @@ import {
   SIGNUP_API,
   SIGNUP_SEND_OTP,
 } from '../../config/urls';
-import {apiGet, apiPost, removeItem, setUserData} from '../../utils/utils';
+import {
+  apiGet,
+  apiPost,
+  removeItem,
+  setItem,
+  setUserData,
+} from '../../utils/utils';
 import store from '../store';
 import types from '../types';
 const {dispatch} = store;

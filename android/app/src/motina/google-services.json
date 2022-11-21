@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "138584184827",
+    "project_id": "motina-driver",
+    "storage_bucket": "motina-driver.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:138584184827:android:50f8033a1a40c5e4c8dd5e",
+        "android_client_info": {
+          "package_name": "com.motina.royodispatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "138584184827-tba0vrgc7ef4hoj5h7srvarktos6v2ll.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDj44yDz8WQkrx32t6i3Mecmn7XBzhUKAM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "138584184827-tba0vrgc7ef4hoj5h7srvarktos6v2ll.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "138584184827-oedqo1i04upob5q1a0mg0qnkjtlgc0i1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.royodispatcher.motina"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

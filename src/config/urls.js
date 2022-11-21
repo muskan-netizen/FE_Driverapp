@@ -4,8 +4,15 @@
 // export const API_BASE_URL = 'https://sales.royodispatch.com/';
 // export const API_BASE_URL='http://192.168.101.140:9091/'
 // //Staging
-// // export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
+<<<<<<< HEAD
 // export const API_BASE_URL = 'https://dispatch.dimahalal.com/'
+=======
+//  export const API_BASE_URL='https://zuzucleans.royodispatch.com/'
+// export const API_BASE_URL='http://192.168.100.142:8001/'
+// export const API_BASE_URL='https://dispatch.bendeta.biz/'
+// export const API_BASE_URL='http://192.168.100.130:9091/'
+>>>>>>> 9f7f07a2af34e8cf682e396edf17f0abde41ea32
 //export const API_BASE_URL   ='https://fcba-103-72-170-243.ngrok.io/'
 // export const API_BASE_URL='https://delivery.rdstaging.com/'
 // export const API_BASE_URL = 'https://dispatch.goadeliv.com/';
@@ -64,7 +71,7 @@
 // export const API_BASE_URL = 'http://192.168.96.84:9091/';
 
 // export const API_BASE_URL = 'https://dispatch.knockknock.online/';
-
+// export const API_BASE_URL = 'https://dispatcher.mrveloz.com.mx/';
 //Papruki
 // export const API_BASE_URL='https://dispatch.papiruki.com/'
 // export const API_BASE_URL = 'https://dispatch.drusdeliveries.com/';
@@ -243,7 +250,6 @@
 // export const API_BASE_URL = 'https://dispatch.hemptify.com/';
 // export const API_BASE_URL = ' https://dispatch.ambutap.com/'
 // export const API_BASE_URL = ' https://dispatch.hiperabasto.mx/'
-
 //Express Delivery
 //  export const API_BASE_URL = 'https://dispatch.expresdeliverys.com/';
 //DOORSTEP
@@ -365,7 +371,7 @@
 // mobi
 //bimol
 // export const API_BASE_URL = 'https://dispatch.bimol.in/';
-export const API_BASE_URL = 'https://dispatch.mobimarket.com.mx/';
+// export const API_BASE_URL = 'https://dispatch.mobimarket.com.mx/';
 // grub and gusto
 
 //export const API_BASE_URL = 'https://punnet.royodispatch.com/'
@@ -426,7 +432,7 @@ export const API_BASE_URL = 'https://dispatch.mobimarket.com.mx/';
 // export const API_BASE_URL = 'https://dispatch.elcheregio.mx/';
 
 // sunshinerideshare live domain
-// export const API_BASE_URL = 'https://dispatch.sunshinerideshare.com/';
+export const API_BASE_URL = 'https://dispatch.sunshinerideshare.com/';
 
 //Swiffy live domain
 // export const API_BASE_URL = 'https://dispatch.swiffy.us/';
@@ -448,6 +454,9 @@ export const API_BASE_URL = 'https://dispatch.mobimarket.com.mx/';
 // export const API_BASE_URL = 'https://dispatch.sxm2go.com/';
 
 // export const personaltoken = 'TMJdbQlNWkYl1JzMONzRgF4zQFuP8s';
+
+// hiperabasto
+// export const API_BASE_URL = 'https://dispatch.hiperabasto.mx/';
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;
 
 export const SEND_OTP = getApiUrl('api/auth/login');
@@ -524,3 +533,4 @@ export const SEND_MESSAGE = '/api/chat/sendMessageJoin';
 export const GET_ALL_MESSAGES = '/api/chat';
 export const ALL_ROOM_USER = '/api/chat/getRoomUser';
 export const SEND_NOTIFCATION = getApiUrl('api/chat/sendNotification');
+export const CAB_POOLING_STATUS = getApiUrl('api/updateCabPoolingStatus');
