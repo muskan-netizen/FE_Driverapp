@@ -95,7 +95,7 @@ export default function Signup({route, navigation}) {
     callingCode:
       getPhonesCallingCodeAndCountryData &&
       getPhonesCallingCodeAndCountryData.length
-        ? getPhonesCallingCodeAndCountryData[0].countryCodes[0]
+        ? getPhonesCallingCodeAndCountryData[0].countryCodes[0].replace("-","")
         : clientInfo?.get_country_set?.phonecode
         ? clientInfo?.get_country_set?.phonecode
         : '91',
