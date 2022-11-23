@@ -252,7 +252,9 @@ export default function Login({navigation, route}) {
     if (checkValid) {
       let data = {};
       data['phone_number'] = `+${callingCode}${phoneNumber}`;
-      data['app_hash_key'] = appHashKey;
+      if (Platform.OS === 'android' && !!appHashKey) {
+        data['app_hash_key'] = appHashKey;
+      }
       console.log(data, 'Here is data');
       // actions.sessionLogoutUser(false);
       updateState({isLoading: true});

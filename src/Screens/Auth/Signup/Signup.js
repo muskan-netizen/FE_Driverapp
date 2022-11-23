@@ -436,8 +436,7 @@ export default function Signup({route, navigation}) {
       .then(res => {
         setOtpModal(false);
         setTimeout(() => {
-          updateState({isWaitingModal: true
-          });
+          updateState({isWaitingModal: true});
         }, 500);
         setSignupLoading(false);
         setTimeout(() => {
@@ -446,7 +445,7 @@ export default function Signup({route, navigation}) {
           });
           navigation.goBack();
         }, 10000);
-        setOtpToShow('')
+        setOtpToShow('');
       })
       .catch(errorMethod);
   };
@@ -535,16 +534,16 @@ export default function Signup({route, navigation}) {
   };
 
   const onSendOtpApi = () => {
-    setOtpToShow('')
+    setOtpToShow('');
+    let data = {
+      dial_code: callingCode,
+      phone_number: phoneNumber,
+    };
+    if (Platform.OS === 'android' && !!appHashKey) {
+      data['app_hash_key'] = appHashKey;
+    }
     actions
-      .sendOtpOnSignup(
-        {
-          dial_code: callingCode,
-          phone_number: phoneNumber,
-          app_hash_key: appHashKey,
-        },
-        {client: clientInfo?.database_name},
-      )
+      .sendOtpOnSignup(data, {client: clientInfo?.database_name})
       .then(res => {
         console.log(res, 'login data');
         if (res?.data) {
@@ -558,7 +557,7 @@ export default function Signup({route, navigation}) {
   };
 
   const errorMethod = error => {
-    console.log(error,"erorororororo");
+    console.log(error, 'erorororororo');
     updateState({isLoading: false});
     setSendOtpLoading(false);
     setSignupLoading(false);
@@ -566,7 +565,7 @@ export default function Signup({route, navigation}) {
       ? showErrorOnModal(modalRef, error?.message || error?.error)
       : showError(error?.message || error?.error);
 
-      setOtpToShow('')
+    setOtpToShow('');
   };
 
   const _selectedTransportation = i => {
@@ -1402,7 +1401,7 @@ export default function Signup({route, navigation}) {
                   </ScrollView>
                 </View>
               </>
-            ):null}
+            ) : null}
             {/* { getEmployeeViewBasedOnClient(savedShortCode)} */}
 
             {/* <View style={{marginTop: moderateScaleVertical(10)}}>
