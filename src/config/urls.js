@@ -535,4 +535,3 @@ export const SEND_MESSAGE = '/api/chat/sendMessageJoin';
 export const GET_ALL_MESSAGES = '/api/chat';
 export const ALL_ROOM_USER = '/api/chat/getRoomUser';
 export const SEND_NOTIFCATION = getApiUrl('api/chat/sendNotification');
-export const CAB_POOLING_STATUS = getApiUrl('api/updateCabPoolingStatus');
