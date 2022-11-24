@@ -323,5 +323,10 @@ export default {
   PICKERCANCLLED:'Picker Canclled',
   CHAT_ROOM:"Chat Room",
   ORDER_CANCELLED_BY_CUSTOMER:'Order Cancelled By Customer',
-  ORDER:"Order"
+  ORDER:"Order",
+  AVAILABLEFORPOOLING:"Available For Pooling",
+  TODAYTRIP:"Today's Trip",
+  ALLTRIP:'All Trip',
+  TRIPHISTORY:"Trip History",
+  NOTRIP: 'No Trips Assigned Yet',
 };

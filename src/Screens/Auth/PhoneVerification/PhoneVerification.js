@@ -1,10 +1,10 @@
-import React, {useState, useEffect} from 'react';
-import {Platform, View, Image, Text, Keyboard} from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { Platform, View, Image, Text, Keyboard } from 'react-native';
 import DeviceInfo from 'react-native-device-info';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-import {useSelector} from 'react-redux';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { useSelector } from 'react-redux';
 import GradientButton from '../../../Components/GradientButton';
-import {loaderOne} from '../../../Components/Loaders/AnimatedLoaderFiles';
+import { loaderOne } from '../../../Components/Loaders/AnimatedLoaderFiles';
 import WrapperContainer from '../../../Components/WrapperContainer';
 import imagePath from '../../../constants/imagePath';
 import strings from '../../../constants/lang';
@@ -28,14 +28,16 @@ import PhoneNumberInput from '../../../Components/PhoneNumberInput';
 import Header from '../../../Components/Header';
 import SmoothPinCodeInput from 'react-native-smooth-pincode-input';
 import fontFamily from '../../../styles/fontFamily';
-import {getItem} from '../../../utils/utils';
+import { getItem } from '../../../utils/utils';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {requestUserPermission} from '../../../utils/notificationServices';
+import { requestUserPermission } from '../../../utils/notificationServices';
 import RNOtpVerify from 'react-native-otp-verify';
 import useInterval from '../../../utils/useInterval';
+import { clockRunning } from 'react-native-reanimated';
 
-export default function PhoneVerification({navigation, route}) {
+export default function PhoneVerification({ navigation, route }) {
   const paramData = route?.params?.data;
+  console.log(paramData, 'paramData')
   const [state, setState] = useState({
     isLoading: false,
     callingCode: paramData?.callingCode ? paramData?.callingCode : '91',
@@ -58,32 +60,32 @@ export default function PhoneVerification({navigation, route}) {
     otpTimer,
   } = state;
   //   const fontFamily = appStyle?.fontSizeData;
-  const {themeColors} = useSelector(state => state?.initBoot);
+  const { themeColors } = useSelector(state => state?.initBoot);
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
   const fcmToken = useSelector(state => state?.initBoot?.fcmToken);
 
   //Update states
-  const updateState = data => setState(state => ({...state, ...data}));
+  const updateState = data => setState(state => ({ ...state, ...data }));
   //Styles in app
   const defaultLanguagae = useSelector(
     state => state?.initBoot?.defaultLanguage,
   );
 
-  const styles = stylesFunction({defaultLanguagae});
+  const styles = stylesFunction({ defaultLanguagae });
   //all states used in this screen
 
   //Naviagtion to specific screen
   const moveToNewScreen = (screenName, data) => () => {
-    navigation.navigate(screenName, {data});
+    navigation.navigate(screenName, { data });
   };
   //On change textinput
   const _onChangeText = key => val => {
-    updateState({[key]: val});
+    updateState({ [key]: val });
   };
 
   //Validate form
   const isValidData = () => {
-    const error = validator({phoneNumber});
+    const error = validator({ phoneNumber });
     if (error) {
       showError(error);
       return;
@@ -95,7 +97,7 @@ export default function PhoneVerification({navigation, route}) {
     let timerId;
     if (otpTimer > 0) {
       timerId = setTimeout(() => {
-        updateState({otpTimer: otpTimer - 1});
+        updateState({ otpTimer: otpTimer - 1 });
       }, 1000);
     }
     return () => {
@@ -137,7 +139,7 @@ export default function PhoneVerification({navigation, route}) {
 
   useEffect(() => {
     if (otp && otpPrefilled) {
-      updateState({isLoading: false});
+      updateState({ isLoading: false });
     }
   }, [otp, otpPrefilled]);
 
@@ -164,23 +166,24 @@ export default function PhoneVerification({navigation, route}) {
     if (otp.length === 6) {
       verfifyAccount();
     }
-  }, [otp]);
 
+  }, [otp]);
+  // console.log(otp,'otpotp')
   //VerifyAccount
   const verfifyAccount = async () => {
-    let data = {};
 
+    let data = {};
     data['phone_number'] = `${paramData?.phone_number}`;
     data['otp'] = otp;
     data['device_token'] = !!fcmToken ? fcmToken : '12345689';
     data['device_type'] = Platform.OS;
     console.log(data, 'data>>>data>data>data');
-    updateState({isLoading: true});
+    updateState({ isLoading: true });
     actions
-      .verifyAccount(data, {client: clientInfo?.database_name})
+      .verifyAccount(data, { client: clientInfo?.database_name })
       .then(res => {
         console.log(res, 'verifyAccountverifyAccount');
-        updateState({isLoading: false});
+        updateState({ isLoading: false });
         // setTimeout(() => {
         //   if (res?.data) {
         // showSuccess(strings.ACCOUNTVERIFYSUCESS);
@@ -194,11 +197,11 @@ export default function PhoneVerification({navigation, route}) {
   const _resendCode = () => {
     let data = {};
     data['phone_number'] = `${paramData?.phone_number}`;
-    updateState({isLoading: true});
+    updateState({ isLoading: true });
     actions
-      .login(data, {client: clientInfo?.database_name})
+      .login(data, { client: clientInfo?.database_name })
       .then(res => {
-        updateState({isLoading: false});
+        updateState({ isLoading: false });
         if (res?.data) {
           showSuccess('Otp send successfuly');
           updateState({
@@ -211,7 +214,7 @@ export default function PhoneVerification({navigation, route}) {
 
   //Error handling in api
   const errorMethod = error => {
-    updateState({isLoading: false});
+    updateState({isLoading: false,otpToShow:''});
     showError(error?.message || error?.error);
   };
 
@@ -224,7 +227,7 @@ export default function PhoneVerification({navigation, route}) {
       <Header
         leftIcon={imagePath.backArrow}
         // centerTitle={title}
-        headerStyle={{backgroundColor: colors.white}}
+        headerStyle={{ backgroundColor: colors.white }}
       />
       {/* <View style={{height: moderateScaleVertical(28)}} /> */}
       <View
@@ -240,7 +243,7 @@ export default function PhoneVerification({navigation, route}) {
           }>{`${strings.CODESENTTO} ${paramData?.phone_number}`}</Text>
 
         <SmoothPinCodeInput
-          containerStyle={{alignSelf: 'center'}}
+          containerStyle={{ alignSelf: 'center' }}
           password
           autoFocus={true}
           mask={<View style={styles.maskStyle} />}
@@ -258,13 +261,13 @@ export default function PhoneVerification({navigation, route}) {
           }}
           value={otpToShow}
           keyboardType={'numeric'}
-          onTextChange={otpToShow => updateState({otpToShow})}
+          onTextChange={otpToShow => updateState({ otpToShow })}
           onFulfill={code => onOtpInput(code)}
         />
         <Text style={styles.didntgetOtp}>
           {`${strings.DIDNTRECIEVEANYCODE}`}
           <Text
-            onPress={otpTimer > 0 ? () => {} : _resendCode}
+            onPress={otpTimer > 0 ? () => { } : _resendCode}
             style={{
               color: colors.themeColor,
               fontFamily: fontFamily.bold,

@@ -1,112 +1,64 @@
 {
   "project_info": {
-    "project_number": "694056211454",
-    "project_id": "royodispatcher-10",
-    "storage_bucket": "royodispatcher-10.appspot.com"
+    "project_number": "824887324409",
+    "project_id": "classiccab-driver",
+    "storage_bucket": "classiccab-driver.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:694056211454:android:bc075add78976eff81e6af",
+        "mobilesdk_app_id": "1:824887324409:android:d725288a55dec91b653c28",
         "android_client_info": {
-          "package_name": "com.Delvento.royodispatcher"
+          "package_name": "com.RideShare.driverapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "694056211454-jkkcsnn4itpastsi3ge38v2ucuvb5u13.apps.googleusercontent.com",
+          "client_id": "824887324409-249063ssjjnkpsugsiisblutqe4e4bdf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.RideShare.driverapp",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "824887324409-97r14sasv0dp4jeavtu9usvn159h1ote.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.RideShare.driverapp",
+            "certificate_hash": "a88b766ebe08c535516406fab3741781973c03ad"
+          }
+        },
+        {
+          "client_id": "824887324409-r3s311e4mqsl4q2g5bqnahri5hv68rn5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.RideShare.driverapp",
+            "certificate_hash": "6e35fcb20bda370ed0025e8c1df6109a03d09b6e"
+          }
+        },
+        {
+          "client_id": "824887324409-cegk9cv9cfpe9qvp7pteaoc4fqipj1fn.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyA7Wszn7yFaleGPdPftjl8HhgBw8e4bQ1w"
+          "current_key": "AIzaSyAkTkXR2EkqAixNMaN69E1ApLoMHha-jbs"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "694056211454-jkkcsnn4itpastsi3ge38v2ucuvb5u13.apps.googleusercontent.com",
+              "client_id": "824887324409-cegk9cv9cfpe9qvp7pteaoc4fqipj1fn.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "694056211454-5mq86rpcgqlha83ooj3h81e7uroks7ns.apps.googleusercontent.com",
+              "client_id": "824887324409-9hc9bnedu45kq4sj68vlg1m7qfgdp85f.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.Delvento.Dispatch"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:694056211454:android:c90a9dca69db51f181e6af",
-        "android_client_info": {
-          "package_name": "com.Qseek.royodispatcher"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "694056211454-jkkcsnn4itpastsi3ge38v2ucuvb5u13.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyA7Wszn7yFaleGPdPftjl8HhgBw8e4bQ1w"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "694056211454-jkkcsnn4itpastsi3ge38v2ucuvb5u13.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "694056211454-5mq86rpcgqlha83ooj3h81e7uroks7ns.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.Delvento.Dispatch"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:694056211454:android:113a6ab4619e177381e6af",
-        "android_client_info": {
-          "package_name": "com.RideShare.royodispatcher"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "694056211454-jkkcsnn4itpastsi3ge38v2ucuvb5u13.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyA7Wszn7yFaleGPdPftjl8HhgBw8e4bQ1w"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "694056211454-jkkcsnn4itpastsi3ge38v2ucuvb5u13.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "694056211454-5mq86rpcgqlha83ooj3h81e7uroks7ns.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.Delvento.Dispatch"
+                "bundle_id": "com.RideShare.driverapp"
               }
             }
           ]
