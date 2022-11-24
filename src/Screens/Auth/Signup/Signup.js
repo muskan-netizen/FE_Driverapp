@@ -75,7 +75,6 @@ import RNOtpVerify from 'react-native-otp-verify';
 var getPhonesCallingCodeAndCountryData = null;
 DeviceCountry.getCountryCode()
   .then(result => {
-    console.log(result, 'getCountryCoderesult');
     getPhonesCallingCodeAndCountryData = codes.filter(
       x => x.isoCode2 == result.code.toUpperCase(),
     );
