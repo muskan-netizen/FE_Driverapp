@@ -1,12 +1,13 @@
+import BottomSheet, {BottomSheetScrollView} from '@gorhom/bottom-sheet';
+import {cloneDeep, isEmpty} from 'lodash';
 import {useFocusEffect} from '@react-navigation/native';
 import moment from 'moment';
-import React, {useEffect, useMemo, useRef, useState} from 'react';
+import React, {useEffect, useMemo, useRef, useState, useCallback} from 'react';
 import {
   FlatList,
   Image,
   RefreshControl,
   Text,
-  TextInput,
   TouchableOpacity,
   View,
 } from 'react-native';
@@ -29,7 +30,6 @@ import {
   moderateScale,
   moderateScaleVertical,
   textScale,
-  width,
 } from '../../styles/responsiveSize';
 import {currencyNumberFormatter} from '../../utils/commonFunction';
 import {showError, showSuccess} from '../../utils/helperFunctions';
@@ -38,8 +38,6 @@ import {
   default as validator,
 } from '../../utils/validations';
 import stylesFun from './styles';
-import BottomSheet, {BottomSheetScrollView} from '@gorhom/bottom-sheet';
-import {el} from 'date-fns/locale';
 export default function AddMoney({navigation}) {
   const {userData} = useSelector(state => state?.auth);
   const {clientInfo} = useSelector(state => state?.initBoot);
@@ -423,7 +421,7 @@ export default function AddMoney({navigation}) {
 
   // ---------------------RajorPay-----------------------
 
-  const _createContact = () => {
+  const _createContact = useCallback(() => {
     if (createContactData || payoutDetails?.agent?.razorpay_contact_json) {
       alert(strings?.ALLREADYCONNECTED);
     } else {
@@ -445,7 +443,7 @@ export default function AddMoney({navigation}) {
         })
         .catch(errorMethod);
     }
-  };
+  });
   const _connectRajorPayBottomSheet = inx => {
     if (inx == 0) {
       updateState({
@@ -478,8 +476,7 @@ export default function AddMoney({navigation}) {
       </View>
     );
   };
-
-  const _razorPayConnectSubmit = () => {
+  const _razorPayConnectSubmit = useCallback(() => {
     const checkValid = isRazorpayFund();
     if (!checkValid) {
       return;
@@ -512,7 +509,7 @@ export default function AddMoney({navigation}) {
         }
       })
       .catch(errorMethod);
-  };
+  });
   return (
     <WrapperContainer
       bgColor={colors.white}
@@ -562,7 +559,7 @@ export default function AddMoney({navigation}) {
             {/* payoutDetails.payout_options */}
           </View>
         )}
-        {razorPayExistOrNot ? (
+        {isEmpty(razorPayExistOrNot) ? null : (
           <View style={styles.mainViewStripe}>
             <TouchableOpacity
               onPress={() => updateState({razorPayConnect: true})}
@@ -576,7 +573,7 @@ export default function AddMoney({navigation}) {
             </TouchableOpacity>
             {/* payoutDetails.payout_options */}
           </View>
-        ) : null}
+        )}
       </View>
 
       <View style={{flex: 1, marginHorizontal: moderateScale(15)}}>

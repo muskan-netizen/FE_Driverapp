@@ -2635,7 +2635,7 @@ export default function ShortCode({route, navigation}) {
       //  let updatedShortCode = '1fdd1d';
 
       actions
-        .initApp({shortCode: '745e3f'}, header)
+        .initApp({shortCode: updatedShortCode}, header)
         .then(res => {
           if (getBundleId() == appIds.royoorder && res?.data) {
             actions.saveShortCode(updatedShortCode);
