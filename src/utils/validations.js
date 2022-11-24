@@ -59,6 +59,8 @@ export default function (data) {
     beneficiaryAcNum,
     beneficiaryISFC,
     beneficiaryBankName,
+    accountNumber,
+    confirmAccountNumber,
   } = data;
 
   if (username !== undefined) {
@@ -344,6 +346,33 @@ export default function (data) {
     );
     if (emptyValidationText !== '') {
       return emptyValidationText;
+    }
+  }
+
+  if (accountNumber !== undefined) {
+    let emptyValidationText = checkEmpty(
+      accountNumber,
+      strings.ACCOUNTNUMBER.toLocaleLowerCase(),
+    );
+    if (emptyValidationText !== '') {
+      return emptyValidationText;
+    }
+    if (!/^[0][0-9]$|^[0-9]\d{4,20}$/.test(accountNumber)) {
+      return `${strings.PLEASE_ENTER} ${
+        strings.VALID
+      } ${strings.ACCOUNTNUMBER.toLocaleLowerCase()}`;
+    }
+  }
+  if (confirmAccountNumber !== undefined) {
+    let emptyValidationText = checkEmpty(
+      confirmAccountNumber,
+      strings?.CONFIRMACCOUNTNUMBER,
+    );
+    if (emptyValidationText !== '') {
+      return emptyValidationText;
+    }
+    if (confirmAccountNumber != accountNumber) {
+      return strings.ACCOUNTVALIDATION;
     }
   }
 }

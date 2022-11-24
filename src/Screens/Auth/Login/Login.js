@@ -258,7 +258,7 @@ export default function Login({navigation, route}) {
       console.log(data, 'Here is data');
       // actions.sessionLogoutUser(false);
       updateState({isLoading: true});
-
+      console.log(clientInfo?.database_name, 'clientInfo?.database_name');
       actions
         .login(data, {client: clientInfo?.database_name})
         .then(res => {
@@ -319,6 +319,7 @@ export default function Login({navigation, route}) {
         <View style={styles.imageStyle}>
           <ScaledImage
             width={getBundleId() == appIds.lOPHT ? width : width / 2}
+            height={width / 2}
             source={
               clientInfo && (clientInfo?.logo || clientInfo?.dark_logo)
                 ? {uri: isDarkMode ? clientInfo?.dark_logo : clientInfo?.logo}
@@ -326,6 +327,7 @@ export default function Login({navigation, route}) {
             }
           />
         </View>
+        {console.log(clientInfo, 'clientInfo')}
         <KeyboardAwareScrollView
           showsVerticalScrollIndicator={false}
           keyboardShouldPersistTaps="handled"

@@ -1,9 +1,9 @@
-import React, {Fragment, useEffect, useState} from 'react';
-import {Alert} from 'react-native';
-import {Text, TouchableOpacity, View, Image} from 'react-native';
+import React, { Fragment, useEffect, useState } from 'react';
+import { Alert } from 'react-native';
+import { Text, TouchableOpacity, View, Image } from 'react-native';
 // import Animated from 'react-native-reanimated';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {useSelector} from 'react-redux';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useSelector } from 'react-redux';
 import imagePath from '../constants/imagePath';
 import strings from '../constants/lang';
 import navigationStrings from '../navigation/navigationStrings';
@@ -16,17 +16,17 @@ import {
   textScale,
   width,
 } from '../styles/responsiveSize';
-import {showError, showSuccess} from '../utils/helperFunctions';
+import { showError, showSuccess } from '../utils/helperFunctions';
 import Loader from './Loader';
-import {useFocusEffect} from '@react-navigation/native';
-import {cloneDeep} from 'lodash';
+import { useFocusEffect } from '@react-navigation/native';
+import { cloneDeep } from 'lodash';
 import ScaledImage from 'react-native-scalable-image';
 import DeviceInfo from 'react-native-device-info';
 import ZendeskChat from '../library/react-native-zendesk-chat';
-import {appIds} from '../utils/constants/DynamicAppKeys';
-import {Subscriptions} from '../Screens';
+import { appIds } from '../utils/constants/DynamicAppKeys';
+import { Subscriptions } from '../Screens';
 import BackgroundGeolocation from '@darron1217/react-native-background-geolocation';
-import {useDarkMode} from 'react-native-dark-mode';
+import { useDarkMode } from 'react-native-dark-mode';
 
 export default function CustomDrawerContent({
   state,
@@ -35,14 +35,14 @@ export default function CustomDrawerContent({
   progress,
   ...props
 }) {
-  const {zendeskKeys, clientInfo, defaultLanguage} = useSelector(
+  const { zendeskKeys, clientInfo, defaultLanguage } = useSelector(
     state => state?.initBoot,
   );
-  const {userData} = useSelector(state => state?.auth);
+  const { userData } = useSelector(state => state?.auth);
 
   const darkthemeusingDevice = useDarkMode();
   const isDarkMode = themeToggle ? darkthemeusingDevice : themeColor;
-
+  console.log(userData, 'clientInfoclientInfo')
   const [states, setState] = useState({
     routes: [
       {
@@ -95,21 +95,21 @@ export default function CustomDrawerContent({
       },
       appIds.transportSystem === DeviceInfo.getBundleId()
         ? {
-            id: 7,
-            label: strings.DAMAGEREPORT,
-            image: imagePath.damagereport,
-            key: navigationStrings.DAMAGEREPORT,
-            // subRoute:navigationStrings.MYPROFILE
-          }
+          id: 7,
+          label: strings.DAMAGEREPORT,
+          image: imagePath.damagereport,
+          key: navigationStrings.DAMAGEREPORT,
+          // subRoute:navigationStrings.MYPROFILE
+        }
         : {},
       appIds.transportSystem === DeviceInfo.getBundleId()
         ? {
-            id: 7,
-            label: strings.REIMBURSEMENT,
-            image: imagePath.reimbursement,
-            key: navigationStrings.REIMBURSEMENT,
-            // subRoute:navigationStrings.MYPROFILE
-          }
+          id: 7,
+          label: strings.REIMBURSEMENT,
+          image: imagePath.reimbursement,
+          key: navigationStrings.REIMBURSEMENT,
+          // subRoute:navigationStrings.MYPROFILE
+        }
         : {},
       {
         id: 9,
@@ -150,6 +150,10 @@ export default function CustomDrawerContent({
   //   'kI9WjmYer9iy7gCYF2sne4gXUure2AK4',
   //   'bdea936e4bdb8130bb3f74cf9be7001aeaf503fe61c1543c',
   // );
+
+  const subscription = !!userData?.client_preference?.custom_mode ? JSON.parse(userData?.client_preference?.custom_mode) : undefined
+
+  // console.log(subscription?.hide_subscription_module, "daoisdhfa");
   useEffect(() => {
     ZendeskChat.init(
       `${zendeskKeys?.keys?.account_key}`,
@@ -213,42 +217,56 @@ export default function CustomDrawerContent({
           // key: navigationStrings.PROFILESTACK,
           // subRoute:navigationStrings.MYPROFILE
         },
+          subscription === undefined ? {} : subscription?.hide_subscription_module == 0 ?
+              {
+                id: 9,
+                label: strings.SUBSCRIPTIONS,
+                support: true,
+                image: imagePath.icSubscription,
+                key: navigationStrings.SUBSCRIPTION_STACK,
+                subRoute: navigationStrings.SUBSCRIPTION_STACK,
+              } : {} ,
 
-        {
-          id: 9,
-          label: strings.SUBSCRIPTIONS,
-          support: true,
-          image: imagePath.icSubscription,
-          key: navigationStrings.SUBSCRIPTION_STACK,
-          subRoute: navigationStrings.SUBSCRIPTION_STACK,
-        },
+        // {
+        //   if(subscription != undefined ) {
+        //     subscription?.hide_subscription_module == 0 && subscription?.hide_subscription_module != undefined ?
+        //       {
+        //         id: 9,
+        //         label: strings.SUBSCRIPTIONS,
+        //         support: true,
+        //         image: imagePath.icSubscription,
+        //         key: navigationStrings.SUBSCRIPTION_STACK,
+        //         subRoute: navigationStrings.SUBSCRIPTION_STACK,
+        //       } : {}
+        // }
+        // },
         appIds.transportSystem === DeviceInfo.getBundleId()
           ? {
-              id: 7,
-              label: strings.DAMAGEREPORT,
-              image: imagePath.damagereport,
-              key: navigationStrings.DAMAGEREPORT,
-              // subRoute:navigationStrings.MYPROFILE
-            }
+            id: 7,
+            label: strings.DAMAGEREPORT,
+            image: imagePath.damagereport,
+            key: navigationStrings.DAMAGEREPORT,
+            // subRoute:navigationStrings.MYPROFILE
+          }
           : {},
         appIds.transportSystem === DeviceInfo.getBundleId()
           ? {
-              id: 7,
-              label: strings.REIMBURSEMENT,
-              image: imagePath.reimbursement,
-              key: navigationStrings.REIMBURSEMENT,
-              // subRoute:navigationStrings.MYPROFILE
-            }
+            id: 7,
+            label: strings.REIMBURSEMENT,
+            image: imagePath.reimbursement,
+            key: navigationStrings.REIMBURSEMENT,
+            // subRoute:navigationStrings.MYPROFILE
+          }
           : {},
 
         !!clientInfo?.socket_url
           ? {
-              id: 9,
-              label: strings.CHAT_ROOM,
-              image: imagePath.settingsIcon,
-              key: navigationStrings.CHAT_ROOM,
-              // subRoute:navigationStrings.MYPROFILE
-            }
+            id: 9,
+            label: strings.CHAT_ROOM,
+            image: imagePath.settingsIcon,
+            key: navigationStrings.CHAT_ROOM,
+            // subRoute:navigationStrings.MYPROFILE
+          }
           : {},
         {
           id: 10,
@@ -269,11 +287,11 @@ export default function CustomDrawerContent({
 
   //Naviagtion to specific screen
   const moveToNewScreen = (screenName, data) => () => {
-    navigation.navigate(screenName, {data});
+    navigation.navigate(screenName, { data });
   };
 
   //Update states
-  const updateState = data => setState(state => ({...state, ...data}));
+  const updateState = data => setState(state => ({ ...state, ...data }));
 
   const onLogoutPress = () => {
     navigation.toggleDrawer();
@@ -296,12 +314,12 @@ export default function CustomDrawerContent({
   };
 
   const logout = () => {
-    updateState({isLoading: true});
+    updateState({ isLoading: true });
     actions
-      .logout({}, {client: clientInfo?.database_name})
+      .logout({}, { client: clientInfo?.database_name })
       .then(res => {
         console.log(res, 'login data');
-        updateState({isLoading: false});
+        updateState({ isLoading: false });
         showSuccess(res?.message ? res?.message : 'Logout successfully.');
         moveToNewScreen(navigationStrings.LOGIN)();
       })
@@ -310,7 +328,7 @@ export default function CustomDrawerContent({
 
   //Error handling in api
   const errorMethod = error => {
-    updateState({isLoading: false});
+    updateState({ isLoading: false });
     showError(error?.message || error?.error);
   };
 
@@ -345,10 +363,11 @@ export default function CustomDrawerContent({
             // backgroundColor:'red'
           }}>
           <ScaledImage
-            width={width / 2}
+            width={width / 3}
+            height={width / 3}
             source={
               clientInfo && (clientInfo?.logo || clientInfo?.dark_logo)
-                ? {uri: isDarkMode ? clientInfo?.dark_logo : clientInfo?.logo}
+                ? { uri: isDarkMode ? clientInfo?.dark_logo : clientInfo?.logo }
                 : imagePath.logo
             }
           />
@@ -393,11 +412,11 @@ export default function CustomDrawerContent({
                   justifyContent: 'center',
                 }}>
                 {/* {options.drawerIcon({focused: isFocused})} */}
-                <View style={{flex: 0.15}}>
+                <View style={{ flex: 0.15 }}>
                   <Image source={route?.image} />
                 </View>
 
-                <View style={{flex: 0.85}}>
+                <View style={{ flex: 0.85 }}>
                   <Text
                     style={{
                       // paddingLeft: moderateScale(5),

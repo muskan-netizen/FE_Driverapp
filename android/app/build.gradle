@@ -78,7 +78,7 @@ import com.android.build.OutputFile
  */
 
 project.ext.react = [
-    enableHermes: true,  // clean and rebuild if changing
+    enableHermes: false,  // clean and rebuild if changing
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
@@ -98,7 +98,7 @@ def enableSeparateBuildPerCPUArchitecture = false
 /**
  * Run Proguard to shrink the Java bytecode in release builds.
  */
-def enableProguardInReleaseBuilds = true
+def enableProguardInReleaseBuilds = false
 
 /**
  * The preferred build flavor of JavaScriptCore.
@@ -123,8 +123,8 @@ def jscFlavor = 'org.webkit:android-jsc:+'
 def enableHermes = project.ext.react.get("enableHermes", false);
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
-   
+    // compileSdkVersion rootProject.ext.compileSdkVersion
+    compileSdkVersion 31
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -137,9 +137,8 @@ android {
     defaultConfig {
         applicationId "com.royodriverapp"
         minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
         // targetSdkVersion rootProject.ext.targetSdkVersion
-        //  targetSdkVersion 31
+         targetSdkVersion 31
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
@@ -6984,10 +6983,7 @@ dependencies {
     implementation 'com.facebook.fresco:webpsupport:1.+'
     // implementation 'com.facebook.android:facebook-android-sdk:[5,6)'
     implementation 'com.facebook.fresco:animated-base-support:1.3.0'
-  implementation "com.google.android.gms:play-services-base:16.0.1"
-  
-    implementation "com.google.android.gms:play-services-location:20.0.0"
-    compile project(':@darron1217_react-native-background-geolocation')
+
 
     implementation fileTree(dir: "libs", include: ["*.jar"])
     //noinspection GradleDynamicVersion

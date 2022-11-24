@@ -1,34 +1,41 @@
 {
   "project_info": {
-    "project_number": "150316322638",
-    "project_id": "xborne-966f4",
-    "storage_bucket": "xborne-966f4.appspot.com"
+    "project_number": "986812354552",
+    "project_id": "xborne-dispatch-1a005",
+    "storage_bucket": "xborne-dispatch-1a005.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:150316322638:android:25ef6a718036f05a07d81f",
+        "mobilesdk_app_id": "1:986812354552:android:4719f64dd870ee4b60500d",
         "android_client_info": {
-          "package_name": "com.Xborne.dispatcher"
+          "package_name": "com.Xborne.royodispatcher"
         }
       },
       "oauth_client": [
         {
-          "client_id": "150316322638-ltgti4ut09dvovhkrlc3tlvillpuh58e.apps.googleusercontent.com",
+          "client_id": "986812354552-ahg07ecd9c96fu3428r92h11intgd3fb.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBI2DSyfHzKJtkBnqzCI0qWCmHS6SJZ7mQ"
+          "current_key": "AIzaSyA4CciayUPUZvCSl6pSIfLkEBpO-ZN1fJg"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "150316322638-ltgti4ut09dvovhkrlc3tlvillpuh58e.apps.googleusercontent.com",
+              "client_id": "986812354552-ahg07ecd9c96fu3428r92h11intgd3fb.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "986812354552-65124iir2hg63lnntpvmnngjj9q220op.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.Xborne.Dispatch"
+              }
             }
           ]
         }
