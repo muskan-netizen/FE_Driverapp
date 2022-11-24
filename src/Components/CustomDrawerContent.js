@@ -46,7 +46,6 @@ export default function CustomDrawerContent({
   const darkthemeusingDevice = useDarkMode();
 
   const isDarkMode = themeToggle ? darkthemeusingDevice : themeColor;
-  console.log(isCabPooling, 'clientInfoclientInfo')
   const [states, setState] = useState({
     routes: [
       {
