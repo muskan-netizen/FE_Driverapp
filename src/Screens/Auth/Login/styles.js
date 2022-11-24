@@ -85,6 +85,7 @@ export default ({defaultLanguagae}) => {
 
       justifyContent: 'center',
       alignItems: 'center',
+      // marginTop:moderateScaleVertical(50)
     },
     bottomSectionStyle: {
       height: height - height / 2,

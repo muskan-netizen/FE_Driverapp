@@ -78,7 +78,7 @@ import com.android.build.OutputFile
  */
 
 project.ext.react = [
-    enableHermes: false,  // clean and rebuild if changing
+    enableHermes: true,  // clean and rebuild if changing
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
@@ -98,7 +98,7 @@ def enableSeparateBuildPerCPUArchitecture = false
 /**
  * Run Proguard to shrink the Java bytecode in release builds.
  */
-def enableProguardInReleaseBuilds = false
+def enableProguardInReleaseBuilds = true
 
 /**
  * The preferred build flavor of JavaScriptCore.
@@ -123,8 +123,8 @@ def jscFlavor = 'org.webkit:android-jsc:+'
 def enableHermes = project.ext.react.get("enableHermes", false);
 
 android {
-    // compileSdkVersion rootProject.ext.compileSdkVersion
-    compileSdkVersion 31
+    compileSdkVersion rootProject.ext.compileSdkVersion
+   
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -137,8 +137,9 @@ android {
     defaultConfig {
         applicationId "com.royodriverapp"
         minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
         // targetSdkVersion rootProject.ext.targetSdkVersion
-         targetSdkVersion 31
+        //  targetSdkVersion 31
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
@@ -200,7 +201,8 @@ android {
     }
 
      flavorDimensions "appType"
-productFlavors{
+
+     productFlavors{
             grub{
             dimension "appType"
             versionCode 1
@@ -212,8 +214,7 @@ productFlavors{
             resValue "string", "app_name", "Grub Dispatch"
         
         }
-
-}
+     }
     
 //     productFlavors {
 //         royodispatcher {
@@ -297,16 +298,6 @@ productFlavors{
 //                 applicationId 'com.yogofood.royodispatcher'
 //                 resValue "string", "app_name", "YogoFood Dispatch"
 //             } 
-//  pAS41{
-//             dimension "appType"
-//             versionCode 1
-//             versionName "1.0"
-//             minSdkVersion rootProject.ext.minSdkVersion
-//             targetSdkVersion rootProject.ext.targetSdkVersion
-//             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.PAS41.royodispatcher'
-//             resValue "string", "app_name", "pAS41 Dispatch"   
-//         }
 //         arenagrub {
 //             dimension "appType"
 //             versionCode 1
@@ -1021,19 +1012,17 @@ productFlavors{
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
 //             applicationId "com.helpnowrightnow.royodispatcher"
-//             resValue "string", "app_name", "HN!RightNow!"
-        
+//             resValue "string", "app_name", "HN!RightNow!"       
 //         }
 //         agriOnline{
 //             dimension "appType"
-//             versionCode 7
+//             versionCode 8
 //             versionName "1.1"
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId "com.AgriOnline.royodispatcher"
-//             resValue "string", "app_name", "AgriOnline Rider"
-        
+//             applicationId "com.AgriOnline.Dispatcher"
+//             resValue "string", "app_name", "AgriOnline Rider" 
 //         }
 //         click_eat{
 //             dimension "appType"
@@ -1228,8 +1217,8 @@ productFlavors{
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId  "com.LastMinuteDress.royodispatcher"
-//             resValue "string", "app_name", "Last Minute Dress Dispatcher"
+//             applicationId  "com.LastMinuteDress.Driver"
+//             resValue "string", "app_name", "LastMinuteDress Driver"
 //         }
 //         travo{
 //             dimension "appType"
@@ -1427,7 +1416,7 @@ productFlavors{
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.INeed.royodispatcher'
+//             applicationId 'com.ineed.userApplication'
 //             resValue "string", "app_name", "I Need Dispatcher"
 //         }
 //         chipeTaxi{
@@ -1699,12 +1688,12 @@ productFlavors{
 //         }
 //         foodNests{
 //             dimension "appType"
-//             versionCode 1
+//             versionCode 2
 //             versionName "1.0"
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.FoodNests.royodispatcher'
+//             applicationId 'com.FoodNests.driverapp'
 //             resValue "string", "app_name", "FoodNests Dispatch"
 //         }
 //         tasmeem{
@@ -2440,7 +2429,7 @@ productFlavors{
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.IPicknDrop.royodispatcher'
+//             applicationId 'com.IPicknDrop.dispatcher'
 //             resValue "string", "app_name", "iPicknDrop Driver"
 //         }
 
@@ -2529,13 +2518,13 @@ productFlavors{
 //         }
 //         ambuTap{
 //             dimension "appType"
-//             versionCode 1
+//             versionCode 2
 //             versionName "1.0"
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.AmbuTap.royodispatcher'
-//             resValue "string", "app_name", "AmbuTap Dispatcher"
+//             applicationId 'com.ambutap.driver'
+//             resValue "string", "app_name", "AmbuTap Driver"
 //         }
 
 //            swiffyLLC{
@@ -2660,16 +2649,7 @@ productFlavors{
 //             applicationId 'com.Yalary.royodispatcher'
 //             resValue "string", "app_name", "Yalary Dispatcher"
 //         }
-//          heyBuddy{
-//             dimension "appType"
-//             versionCode 2
-//             versionName "1.1"
-//             minSdkVersion rootProject.ext.minSdkVersion
-//             targetSdkVersion rootProject.ext.targetSdkVersion
-//             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.HeyBuddy.royodispatcher'
-//             resValue "string", "app_name", "Soy Buddy"
-//         }
+
 //         petsChoice{
 //             dimension "appType"
 //             versionCode 1
@@ -2780,16 +2760,7 @@ productFlavors{
 //             applicationId 'com.Delivadrinks.royodispatcher'
 //             resValue "string", "app_name", "Delivadrinks Dispatcher"
 //         }
-//          getfix{
-//             dimension "appType"
-//             versionCode 1
-//             versionName "1.0"
-//             minSdkVersion rootProject.ext.minSdkVersion
-//             targetSdkVersion rootProject.ext.targetSdkVersion
-//             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.Getfix.dispatcher'
-//             resValue "string", "app_name", "Getfix Dispatcher"
-//         }
+
 
 //         scoopaTechnologies{
 //             dimension "appType"
@@ -2931,13 +2902,13 @@ productFlavors{
 
 //         sunShineRideShare{
 //             dimension "appType"
-//             versionCode 1
+//             versionCode 2
 //             versionName "1.0"
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.SunShineRideShare.royodispatcher'
-//             resValue "string", "app_name", "SunShineRideShare Dispatcher"
+//             applicationId 'com.SunShineRideShare.driver'
+//             resValue "string", "app_name", "SunShineRideShare Driver"
 //         }
 
 //         spliffNation{
@@ -3008,13 +2979,13 @@ productFlavors{
 
 //         rideShare{
 //             dimension "appType"
-//             versionCode 1
+//             versionCode 2
 //             versionName "1.0"
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.RideShare.royodispatcher'
-//             resValue "string", "app_name", "Classic Cab Dispatcher"
+//             applicationId 'com.RideShare.driverapp'
+//             resValue "string", "app_name", "Classic Cab Driver"
 //         }
 
 //         newYorkMiniMart{
@@ -3134,8 +3105,8 @@ productFlavors{
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.HiperAbasto.royodispatcher'
-//             resValue "string", "app_name", "HiperAbasto Dispatcher"
+//             applicationId 'com.hiperAbastoDriver'
+//             resValue "string", "app_name", "HiperAbasto Driver"
 //         }
 
 //         redglee{
@@ -3540,7 +3511,7 @@ productFlavors{
 //         }
 //         mobi{
 //             dimension "appType"
-//             versionCode 2
+//             versionCode 3
 //             versionName "1.0"
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
@@ -3602,18 +3573,16 @@ productFlavors{
 //             // applicationIdSuffix ".royoorder"
 //             applicationId 'com.SamakeeMart.royodispatcher'
 //             resValue "string", "app_name", "Samakee Mart Dispatch"
-
 //         }
 //         SXM2GO{
 //             dimension "appType"
-//             versionCode 1
+//             versionCode 2
 //             versionName "1.0"
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
 //             applicationId 'com.SXM2GO.driverApp'
-//             resValue "string", "app_name", "SXM2GO Driver"
-            
+//             resValue "string", "app_name", "SXM2GO Driver"         
 //         }
 //         doorstep{
 //             dimension "appType"
@@ -3645,16 +3614,7 @@ productFlavors{
 //             applicationId 'com.Enext.royodispatcher'
 //             resValue "string", "app_name", "Enext Dispatch"
 //         }
-//         foodNests{
-//             dimension "appType"
-//             versionCode 1
-//             versionName "1.0"
-//             minSdkVersion rootProject.ext.minSdkVersion
-//             targetSdkVersion rootProject.ext.targetSdkVersion
-//             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.FoodNests.royodispatcher'
-//             resValue "string", "app_name", "FoodNests Dispatch"
-//         }
+
 //         tasmeem{
 //             dimension "appType"
 //             versionCode 1
@@ -4697,16 +4657,7 @@ productFlavors{
 //             applicationId 'com.Delivadrinks.royodispatcher'
 //             resValue "string", "app_name", "Delivadrinks Dispatcher"
 //         }
-//          getfix{
-//             dimension "appType"
-//             versionCode 1
-//             versionName "1.0"
-//             minSdkVersion rootProject.ext.minSdkVersion
-//             targetSdkVersion rootProject.ext.targetSdkVersion
-//             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.Getfix.dispatcher'
-//             resValue "string", "app_name", "Getfix Dispatcher"
-//         }
+
 
 //           martinonwheels{
 //             dimension "appType"
@@ -5297,17 +5248,6 @@ productFlavors{
 //             resValue "string", "app_name", "Ola Dispatcher"
 //         }
 
-//         sunShineRideShare{
-//             dimension "appType"
-//             versionCode 1
-//             versionName "1.0"
-//             minSdkVersion rootProject.ext.minSdkVersion
-//             targetSdkVersion rootProject.ext.targetSdkVersion
-//             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.SunShineRideShare.royodispatcher'
-//             resValue "string", "app_name", "SunShineRideShare Dispatcher"
-//         }
-
 //         spliffNation{
 //             dimension "appType"
 //             versionCode 1
@@ -5372,17 +5312,6 @@ productFlavors{
 //             // applicationIdSuffix ".royoorder"
 //             applicationId 'com.Delvento.royodispatcher'
 //             resValue "string", "app_name", "Delvento Dispatcher"
-//         }
-
-//         rideShare{
-//             dimension "appType"
-//             versionCode 1
-//             versionName "1.0"
-//             minSdkVersion rootProject.ext.minSdkVersion
-//             targetSdkVersion rootProject.ext.targetSdkVersion
-//             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.RideShare.royodispatcher'
-//             resValue "string", "app_name", "RideShare Dispatcher"
 //         }
 
 //         newYorkMiniMart{
@@ -5718,7 +5647,7 @@ productFlavors{
 
 //          swan{
 //             dimension "appType"
-//             versionCode 2
+//             versionCode 5
 //             versionName "1.0"
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
@@ -6021,7 +5950,7 @@ productFlavors{
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.torunz.royodispatcher'
+//             applicationId 'com.torunz.driverapp'
 //             resValue "string", "app_name", "Torunz Dispatcher"
 //         }
 //         spa{
@@ -6426,7 +6355,7 @@ productFlavors{
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.kurrix.royoDispatcher'
+//             applicationId 'com.goadeliv.driverapp'
 //             resValue "string", "app_name", "kurrix Dispatcher"
 //         }
 
@@ -6968,6 +6897,186 @@ productFlavors{
 //             applicationId 'com.lifeHomeFit.royodispatcher'
 //             resValue "string", "app_name", "LifeHomeFit Driver"
 //         }
+//          dbairro_{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.dbairro_.royodispatcher'
+//             resValue "string", "app_name", "Dbairro_Dispatcher"
+//         }
+//      maiz{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.Maiz.royodispatcher'
+//             resValue "string", "app_name", "Maiz Dispatcher"
+//         }
+//          genee{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.genee.royodispatcher'
+//             resValue "string", "app_name", "Genee Dispatcher"
+//         }
+//         speedyDelivery{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.speedyDelivery.royodispatcher'
+//             resValue "string", "app_name", "speedy Delivery Dispatcher"
+//         }
+//          holla{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.holla.royodispatcher'
+//             resValue "string", "app_name", "\$10 Holla Dispatcher"
+//         }
+//          icabPro{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.icabPro.royodispatcher'
+//             resValue "string", "app_name", "I-Cab Pro Dispatcher"
+//         }
+//          uberWeeds{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.uberWeeds.royodispatcher'
+//             resValue "string", "app_name", "Uber Weeds Dispatcher"
+//         }
+//          stabex{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.stabex.royodispatcher'
+//             resValue "string", "app_name", "Stabex Dispatcher"
+//         }
+//         pointoneExpediteDelivery{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.pointoneExpediteDelivery.royodispatcher'
+//             resValue "string", "app_name", "Pointone Expedite Delivery Dispatcher"
+//         }
+//       tdc{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.tdc.royodispatcher'
+//             resValue "string", "app_name", "TDC Dispatcher"
+//         }
+//       pik{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.PIK.royodispatcher'
+//             resValue "string", "app_name", "PIK Dispatcher"
+//         }
+//           flyCommerce{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.flyCommerce.royodispatcher'
+//             resValue "string", "app_name", "Fly Commerce Dispatcher"
+//         }
+//           saamanShop{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.saamanShop.royodispatcher'
+//             resValue "string", "app_name", "Saaman Shop Dispatcher"
+//         }
+//          motina{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.motina.royodispatcher'
+//             resValue "string", "app_name", "Motina Dispatcher"
+//         }
+//      hungry{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.hungry.royodispatcher'
+//             resValue "string", "app_name", "Hungry Dispatcher"
+//         }
+//          greenHippo{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.greenHippo.royodispatcher'
+//             resValue "string", "app_name", "Green Hippo Dispatcher"
+//         }
+//      myMeddy{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.myMeddy.royodispatcher'
+//             resValue "string", "app_name", "MyMeddy Dispatcher"
+//         }
+//      uRyd{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.uRyd.royodispatcher'
+//             resValue "string", "app_name", "U Ryd Dispatcher"
+//         }
 // }
 }
 
@@ -6983,7 +7092,10 @@ dependencies {
     implementation 'com.facebook.fresco:webpsupport:1.+'
     // implementation 'com.facebook.android:facebook-android-sdk:[5,6)'
     implementation 'com.facebook.fresco:animated-base-support:1.3.0'
-
+  implementation "com.google.android.gms:play-services-base:16.0.1"
+  
+    implementation "com.google.android.gms:play-services-location:20.0.0"
+    compile project(':@darron1217_react-native-background-geolocation')
 
     implementation fileTree(dir: "libs", include: ["*.jar"])
     //noinspection GradleDynamicVersion

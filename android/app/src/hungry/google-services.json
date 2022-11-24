@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "595119348378",
+    "project_id": "hungry-driver",
+    "storage_bucket": "hungry-driver.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:595119348378:android:0bbe2b555564a7fc061d23",
+        "android_client_info": {
+          "package_name": "com.hungry.royodispatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "595119348378-avhgqd915j62vr5k1j7vuv341c5q4t7l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDt0_bt3IZ0LzZzSkt0iQiTkzP4guzu5Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "595119348378-avhgqd915j62vr5k1j7vuv341c5q4t7l.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "595119348378-36l8qf4ker2r1ak409k80iphtd9epcbc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.royodispatcher.hungry"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -444,6 +444,7 @@ export default function TaskDetail({route, navigation}) {
   };
 
   const getUpdatedStatus = () => {
+    console.log(taskStatus, 'taskStatustaskStatustaskStatus');
     switch (taskStatus) {
       case 1:
         return 2;
@@ -453,6 +454,9 @@ export default function TaskDetail({route, navigation}) {
         break;
       case 3:
         return 4;
+        break;
+      case 4:
+        return 2;
         break;
       default:
         break;
@@ -597,21 +601,21 @@ export default function TaskDetail({route, navigation}) {
       .then(res => {
         console.log(res, 'updateTaskStatus>res>res');
         updateState({isLoading: false});
-        if ( res?.data?.nextTask?.length == 0  || res?.data?.nextTask ==null){
+        if (res?.data?.nextTask?.length == 0 || res?.data?.nextTask == null) {
           if (res?.data) {
             updateState({
               isLoading: false,
             });
-          
+
             navigation.navigate(navigationStrings.DASHBOARD);
           }
-         
-        }
-        else{
+        } else {
           updateState({
             isLoading: false,
           });
-          moveToSameScreen(navigationStrings.TASKDETAIL,{item:res?.data?.nextTask[0]})()
+          moveToSameScreen(navigationStrings.TASKDETAIL, {
+            item: res?.data?.nextTask[0],
+          })();
         }
       })
       .catch(errorMethod);
@@ -651,7 +655,6 @@ export default function TaskDetail({route, navigation}) {
             <Text style={styles.text}>{buttonText}</Text>
           </View>
         </TouchableWithoutFeedback>
-        
       </View>
     );
   };
@@ -852,7 +855,6 @@ export default function TaskDetail({route, navigation}) {
                         marginTop: moderateScale(10),
                         alignItems: 'center',
                         flex: 0.65,
-                       
                       }}>
                       <Image
                         source={imagePath.mail2}
@@ -876,7 +878,6 @@ export default function TaskDetail({route, navigation}) {
                         marginTop: moderateScale(10),
                         alignItems: 'center',
                         flex: 0.35,
-                        
                       }}>
                       <Image
                         source={imagePath.phone2}
@@ -897,7 +898,6 @@ export default function TaskDetail({route, navigation}) {
                     flexDirection: 'row',
                     marginTop: moderateScale(10),
                     alignItems: 'center',
-                    
                   }}>
                   <Image
                     source={imagePath?.location2}
@@ -914,7 +914,6 @@ export default function TaskDetail({route, navigation}) {
                   flexDirection: 'row',
                   marginTop: moderateScale(10),
                   justifyContent: 'space-between',
-                  
                 }}>
                 {!!taskDetail?.quantity && (
                   <View
@@ -995,7 +994,6 @@ export default function TaskDetail({route, navigation}) {
                     // opacity: 0.5,
                     flexDirection: 'row',
                     justifyContent: 'space-between',
-                    
                   }}>
                   {!!vendors?.email && (
                     <TouchableOpacity
@@ -1243,9 +1241,7 @@ export default function TaskDetail({route, navigation}) {
                         true,
                       )
                     }>
-                    <Image
-                      source={imagePath.phone2}
-                    />
+                    <Image source={imagePath.phone2} />
                   </TouchableOpacity>
 
                   {!!clientInfo?.socket_url ? (
@@ -1253,13 +1249,10 @@ export default function TaskDetail({route, navigation}) {
                       style={{
                         flexDirection: 'row',
                         alignItems: 'center',
-                        marginLeft:moderateScale(5)
+                        marginLeft: moderateScale(5),
                       }}
                       onPress={() => createRoom(taskDetail)}>
-                      <Image
-                        source={imagePath.icStartChat}
-                      
-                      />
+                      <Image source={imagePath.icStartChat} />
                     </TouchableOpacity>
                   ) : null}
                 </View>
@@ -1528,7 +1521,7 @@ export default function TaskDetail({route, navigation}) {
   /**** */
 
   /*****Google cordinate and call apple map */
-  const googleCoordinate =()=> {
+  const googleCoordinate = () => {
     // latitude: Number(taskDetail?.location?.latitude),
     // longitude: Number(taskDetail?.location?.longitude),
     // provider: 'google',
@@ -1536,25 +1529,23 @@ export default function TaskDetail({route, navigation}) {
     // end: `${taskDetail?.location?.address}`,
     // start: 'My Location',
     // travelType: 'drive',
-
-
   };
-  
 
-  const openGoogleMap = ()=>{
-  var url = `https://www.google.com/maps/dir/?api=1&travelmode=driving&dir_action=navigate&destination=${taskDetail?.location?.address}`;
-  Linking.canOpenURL(url).then(supported => {
-    console.log(supported,"supportedsupported");
-      if (!supported) {
-          console.log('Can\'t handle url: ' + url);
-      } else {
+  const openGoogleMap = () => {
+    var url = `https://www.google.com/maps/dir/?api=1&travelmode=driving&dir_action=navigate&destination=${taskDetail?.location?.address}`;
+    Linking.canOpenURL(url)
+      .then(supported => {
+        console.log(supported, 'supportedsupported');
+        if (!supported) {
+          console.log("Can't handle url: " + url);
+        } else {
           return Linking.openURL(url);
-      }
-  }).catch(err => console.error('An error occurred', err));  
-  }
+        }
+      })
+      .catch(err => console.error('An error occurred', err));
+  };
 
-  console.log(taskDetail?.location,"taskDetail?.location");
-
+  console.log(taskDetail?.location, 'taskDetail?.location');
 
   /**** */
 

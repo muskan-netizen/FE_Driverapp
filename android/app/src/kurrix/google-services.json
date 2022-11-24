@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "917117605143",
+    "project_id": "goadeliv-driver",
+    "storage_bucket": "goadeliv-driver.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:917117605143:android:5c100e387562d5bd539352",
+        "android_client_info": {
+          "package_name": "com.goadeliv.driverapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "917117605143-8bospvapb4427lj4ug5rbvbrrlu8skss.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvWWZ-Tn-_kwiMjQJoFX-Hv8O2aYNhKhM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "917117605143-8bospvapb4427lj4ug5rbvbrrlu8skss.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "917117605143-umhe3bf92v8blqd5ufipi3s0gvodpvor.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.goadeliv.driverapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

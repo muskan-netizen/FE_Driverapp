@@ -341,4 +341,9 @@ export default {
   PLEASECREATECONTACT: 'Please create account',
   ACCOUNTCREATEDSUCESS: 'Account created successfully.',
   CONFIRMACCOUNTNUMBER: 'Confirm Account Number',
+  AVAILABLEFORPOOLING: 'Available For Pooling',
+  TODAYTRIP: "Today's Trip",
+  ALLTRIP: 'All Trip',
+  TRIPHISTORY: 'Trip History',
+  NOTRIP: 'No Trips Assigned Yet',
 };

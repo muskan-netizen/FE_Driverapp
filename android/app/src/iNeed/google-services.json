@@ -1,472 +1,64 @@
 {
   "project_info": {
-    "project_number": "558907969182",
-    "project_id": "royo-dispatch-f3339",
-    "storage_bucket": "royo-dispatch-f3339.appspot.com"
+    "project_number": "441295161653",
+    "project_id": "ineed-user",
+    "storage_bucket": "ineed-user.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:558907969182:android:6bf1724e6e0a95c880358f",
+        "mobilesdk_app_id": "1:441295161653:android:ea67f61e45aaebbe75247c",
         "android_client_info": {
-          "package_name": "com.BlacNetwork.royodispatcher"
+          "package_name": "com.ineed.userApplication"
         }
       },
       "oauth_client": [
         {
-          "client_id": "558907969182-vv9804bsd9f6j5e2p5qn5bv4k50sj0uk.apps.googleusercontent.com",
+          "client_id": "441295161653-n4vvpbfseees2853q8h13qks902t1oh8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ineed.userApplication",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "441295161653-npncrqq05k8l3gagm8dnt4hipje595i2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ineed.userApplication",
+            "certificate_hash": "6e35fcb20bda370ed0025e8c1df6109a03d09b6e"
+          }
+        },
+        {
+          "client_id": "441295161653-s9gtm67u4s8mot21vl42qlkgr0hfma1l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ineed.userApplication",
+            "certificate_hash": "a88b766ebe08c535516406fab3741781973c03ad"
+          }
+        },
+        {
+          "client_id": "441295161653-58nuiqjcms00sd2g1q8loabic4f7kcss.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCUYbc-waEzd_0nfmiGTYjhrFQkXIZ7KBQ"
+          "current_key": "AIzaSyDaeNy_XCzF0zfV75fPs5-3meH5RP95uy8"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "558907969182-vv9804bsd9f6j5e2p5qn5bv4k50sj0uk.apps.googleusercontent.com",
+              "client_id": "441295161653-58nuiqjcms00sd2g1q8loabic4f7kcss.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "558907969182-1u3vgb8cs10r5k0n5qmtv7e25aqtau98.apps.googleusercontent.com",
+              "client_id": "441295161653-d6qvhh845q3q3sktsel69pi7lg4bhlfn.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.LaundryOrders.Dispatch"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:558907969182:android:4d500e15d368522b80358f",
-        "android_client_info": {
-          "package_name": "com.ChipeTaxi.royodispatcher"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "558907969182-vv9804bsd9f6j5e2p5qn5bv4k50sj0uk.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCUYbc-waEzd_0nfmiGTYjhrFQkXIZ7KBQ"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "558907969182-vv9804bsd9f6j5e2p5qn5bv4k50sj0uk.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "558907969182-1u3vgb8cs10r5k0n5qmtv7e25aqtau98.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.LaundryOrders.Dispatch"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:558907969182:android:966a4b04202c8ccd80358f",
-        "android_client_info": {
-          "package_name": "com.EzMobileFuel.royodispatcher"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "558907969182-vv9804bsd9f6j5e2p5qn5bv4k50sj0uk.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCUYbc-waEzd_0nfmiGTYjhrFQkXIZ7KBQ"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "558907969182-vv9804bsd9f6j5e2p5qn5bv4k50sj0uk.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "558907969182-1u3vgb8cs10r5k0n5qmtv7e25aqtau98.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.LaundryOrders.Dispatch"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:558907969182:android:ebd7b2007eb11db980358f",
-        "android_client_info": {
-          "package_name": "com.INeed.royodispatcher"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "558907969182-vv9804bsd9f6j5e2p5qn5bv4k50sj0uk.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCUYbc-waEzd_0nfmiGTYjhrFQkXIZ7KBQ"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "558907969182-vv9804bsd9f6j5e2p5qn5bv4k50sj0uk.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "558907969182-1u3vgb8cs10r5k0n5qmtv7e25aqtau98.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.LaundryOrders.Dispatch"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:558907969182:android:49e1cb319b2e640280358f",
-        "android_client_info": {
-          "package_name": "com.LaundryOrders.royodispatcher"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "558907969182-vv9804bsd9f6j5e2p5qn5bv4k50sj0uk.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCUYbc-waEzd_0nfmiGTYjhrFQkXIZ7KBQ"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "558907969182-vv9804bsd9f6j5e2p5qn5bv4k50sj0uk.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "558907969182-1u3vgb8cs10r5k0n5qmtv7e25aqtau98.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.LaundryOrders.Dispatch"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:558907969182:android:0d59d96d966e54d280358f",
-        "android_client_info": {
-          "package_name": "com.NaDelivery.royodispatcher"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "558907969182-vv9804bsd9f6j5e2p5qn5bv4k50sj0uk.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCUYbc-waEzd_0nfmiGTYjhrFQkXIZ7KBQ"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "558907969182-vv9804bsd9f6j5e2p5qn5bv4k50sj0uk.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "558907969182-1u3vgb8cs10r5k0n5qmtv7e25aqtau98.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.LaundryOrders.Dispatch"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:558907969182:android:cf25b7779aba95da80358f",
-        "android_client_info": {
-          "package_name": "com.PaySic.royodispatcher"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "558907969182-vv9804bsd9f6j5e2p5qn5bv4k50sj0uk.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCUYbc-waEzd_0nfmiGTYjhrFQkXIZ7KBQ"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "558907969182-vv9804bsd9f6j5e2p5qn5bv4k50sj0uk.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "558907969182-1u3vgb8cs10r5k0n5qmtv7e25aqtau98.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.LaundryOrders.Dispatch"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:558907969182:android:ca9c8f02dff7f26e80358f",
-        "android_client_info": {
-          "package_name": "com.RunaRound.royodispatcher"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "558907969182-vv9804bsd9f6j5e2p5qn5bv4k50sj0uk.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCUYbc-waEzd_0nfmiGTYjhrFQkXIZ7KBQ"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "558907969182-vv9804bsd9f6j5e2p5qn5bv4k50sj0uk.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "558907969182-1u3vgb8cs10r5k0n5qmtv7e25aqtau98.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.LaundryOrders.Dispatch"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:558907969182:android:51246352ef4931bd80358f",
-        "android_client_info": {
-          "package_name": "com.Ssuum.royodispatcher"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "558907969182-vv9804bsd9f6j5e2p5qn5bv4k50sj0uk.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCUYbc-waEzd_0nfmiGTYjhrFQkXIZ7KBQ"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "558907969182-vv9804bsd9f6j5e2p5qn5bv4k50sj0uk.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "558907969182-1u3vgb8cs10r5k0n5qmtv7e25aqtau98.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.LaundryOrders.Dispatch"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:558907969182:android:aa6d919d290d12ac80358f",
-        "android_client_info": {
-          "package_name": "com.Stonses.royodispatcher"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "558907969182-vv9804bsd9f6j5e2p5qn5bv4k50sj0uk.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCUYbc-waEzd_0nfmiGTYjhrFQkXIZ7KBQ"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "558907969182-vv9804bsd9f6j5e2p5qn5bv4k50sj0uk.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "558907969182-1u3vgb8cs10r5k0n5qmtv7e25aqtau98.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.LaundryOrders.Dispatch"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:558907969182:android:017aca569ba92fd180358f",
-        "android_client_info": {
-          "package_name": "com.SwiftandValu.royodispatcher"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "558907969182-vv9804bsd9f6j5e2p5qn5bv4k50sj0uk.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCUYbc-waEzd_0nfmiGTYjhrFQkXIZ7KBQ"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "558907969182-vv9804bsd9f6j5e2p5qn5bv4k50sj0uk.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "558907969182-1u3vgb8cs10r5k0n5qmtv7e25aqtau98.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.LaundryOrders.Dispatch"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:558907969182:android:ede5e7ff2df1feca80358f",
-        "android_client_info": {
-          "package_name": "com.ThreadAgain.royodispatcher"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "558907969182-vv9804bsd9f6j5e2p5qn5bv4k50sj0uk.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCUYbc-waEzd_0nfmiGTYjhrFQkXIZ7KBQ"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "558907969182-vv9804bsd9f6j5e2p5qn5bv4k50sj0uk.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "558907969182-1u3vgb8cs10r5k0n5qmtv7e25aqtau98.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.LaundryOrders.Dispatch"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:558907969182:android:a4c60d533ec6930f80358f",
-        "android_client_info": {
-          "package_name": "com.Trucxi.royodispatcher"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "558907969182-vv9804bsd9f6j5e2p5qn5bv4k50sj0uk.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCUYbc-waEzd_0nfmiGTYjhrFQkXIZ7KBQ"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "558907969182-vv9804bsd9f6j5e2p5qn5bv4k50sj0uk.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "558907969182-1u3vgb8cs10r5k0n5qmtv7e25aqtau98.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.LaundryOrders.Dispatch"
+                "bundle_id": "com.ineed.user"
               }
             }
           ]

@@ -2,7 +2,8 @@ import types from '../types';
 
 const initial_state = {
   userData: {},
-  profileAddress:{}
+  profileAddress: {},
+  isCabPooling: false,
 };
 
 export default function (state = initial_state, action) {
