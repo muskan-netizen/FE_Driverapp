@@ -7227,6 +7227,16 @@ productFlavors{
             applicationId 'com.todaysDeliverys.royodispatcher'
             resValue "string", "app_name", "Todays Deliverys Dispatcher"
         }
+        georgiacollective{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.georgiacollective.royodispatcher'
+            resValue "string", "app_name", "Georgiacollective Dispatcher"
+        }
 }
 }
 

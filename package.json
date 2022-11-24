@@ -853,6 +853,8 @@
     "bigBayongdispatcherRelease": "cd android && ./gradlew assemblebigBayongRelease",
     "todaysDeliverysdispatcher": "react-native run-android --variant=todaysDeliverysDebug",
     "todaysDeliverysdispatcherRelease": "cd android && ./gradlew assembletodaysDeliverysRelease",
+    "georgiacollectivedispatcher": "react-native run-android --variant=georgiacollectiveDebug",
+    "georgiacollectivedispatcherRelease": "cd android && ./gradlew assemblegeorgiacollectiveRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",

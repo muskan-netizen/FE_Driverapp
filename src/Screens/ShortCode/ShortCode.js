@@ -2686,6 +2686,12 @@ export default function ShortCode({ route, navigation }) {
                     isShortcodePrefilled: true,
                   });
                   break;
+                  case appIds.georgiacollective:
+                  updateState({
+                    shortCode: shortCodes.georgiacollective,
+                    isShortcodePrefilled: true,
+                  });
+                  break;
       }
     })();
   }, [internetConnection]);

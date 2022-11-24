@@ -432,6 +432,7 @@ const shortCodes = {
   bigbayong:'2c614d',
   locate:'c119ae',
   todaysDeliverys:'9fc243',
+  georgiacollective:'834623',
 };
 
 const appIds = {
@@ -2142,6 +2143,10 @@ const appIds = {
     ios: 'com.royodispatcher.todaysDeliverys',
     android: 'com.todaysDeliverys.royodispatcher',
   }), 
+  georgiacollective: Platform.select({
+    ios: 'com.royodispatcher.georgiacollective',
+    android: 'com.georgiacollective.royodispatcher',
+  }),
 
 };
 
