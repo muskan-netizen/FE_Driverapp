@@ -212,14 +212,10 @@ export default function PhoneVerification({navigation, route}) {
 
   //Error handling in api
   const errorMethod = error => {
-<<<<<<< HEAD
     updateState({isLoading: false, otpToShow: ''});
 
     console.log(error, 'errorerror');
 
-=======
-    updateState({isLoading: false,otpToShow:''});
->>>>>>> 549ee6250d0aa17b35efd5929434cf06077721a7
     showError(error?.message || error?.error);
   };
 
