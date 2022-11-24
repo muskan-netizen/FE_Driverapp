@@ -103,7 +103,7 @@ export const chekLocationPermission = () =>
         .then(result => {
           switch (result) {
             case RESULTS.UNAVAILABLE:
-              showError(strings.LOCATION_UNAVAILABLE);
+              openAppSetting('LOCATION_SERVICES');
               break;
             case RESULTS.DENIED:
               request(

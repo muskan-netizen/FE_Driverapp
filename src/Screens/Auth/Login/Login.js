@@ -113,6 +113,7 @@ export default function Login({navigation, route}) {
         updateState({
           locationPermissionStatus: true,
         });
+        console.log(res, 'resresres');
       })
       .catch(error => {
         updateState({
@@ -133,12 +134,14 @@ export default function Login({navigation, route}) {
                 if (error != 'blocked' || error == 'denied') {
                   chekLocationPermission()
                     .then(res => {
+                      console.log(res, 'resresresresresres');
                       if (res == 'granted') {
                         updateState({
                           locationPermissionStatus: true,
                         });
                       } else {
                         openAppSetting('LOCATION_SERVICES');
+                        console.log(error, 'errororor for location>>>>');
                       }
                     })
                     .catch(error => {
@@ -149,6 +152,7 @@ export default function Login({navigation, route}) {
                     });
                 } else {
                   openAppSetting('LOCATION_SERVICES');
+                  console.log(error, 'errororor for location++++');
                 }
               },
             },
@@ -255,10 +259,9 @@ export default function Login({navigation, route}) {
       if (Platform.OS === 'android' && !!appHashKey) {
         data['app_hash_key'] = appHashKey;
       }
-      console.log(data, 'Here is data');
+      console.log(data, 'sending data ', data);
       // actions.sessionLogoutUser(false);
       updateState({isLoading: true});
-      console.log(clientInfo?.database_name, 'clientInfo?.database_name');
       actions
         .login(data, {client: clientInfo?.database_name})
         .then(res => {
@@ -343,7 +346,9 @@ export default function Login({navigation, route}) {
               <PhoneNumberInput
                 onCountryChange={_onCountryChange}
                 onChangePhone={phoneNumber =>
-                  updateState({phoneNumber: phoneNumber.replace(/[^0-9]/g, '')})
+                  updateState({
+                    phoneNumber: phoneNumber.replace(/[^0-9]/g, ''),
+                  })
                 }
                 cca2={cca2}
                 phoneNumber={phoneNumber}

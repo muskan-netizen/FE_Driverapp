@@ -62,7 +62,7 @@ export const API_BASE_URL = 'https://api.royodispatch.com/';
 // export const API_BASE_URL = 'https://baggage-dispatch.netsolutionindia.com/';
 
 // export const API_BASE_URL='https://d078-103-72-170-243.in.ngrok.io/'
-//  export const API_BASE_URL = 'https://baytukom-dispatch.netsolutionindia.com/';
+//export const API_BASE_URL = 'https://baytukom-dispatch.netsolutionindia.com/';
 
 //export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
 // export const API_BASE_URL = 'http://192.168.97.160:9090/';

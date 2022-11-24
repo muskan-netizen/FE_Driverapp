@@ -1,6 +1,6 @@
 import React, {Fragment, useEffect, useState} from 'react';
-import {Alert} from 'react-native';
-import {Text, TouchableOpacity, View, Image, Switch} from 'react-native';
+import {Alert, ScrollView} from 'react-native';
+import {Text, TouchableOpacity, View, Image} from 'react-native';
 // import Animated from 'react-native-reanimated';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useSelector} from 'react-redux';
@@ -362,100 +362,100 @@ export default function CustomDrawerContent({
 
   return (
     <>
-      <View
-        style={{
-          height: height,
-          marginTop: moderateScale(10),
-        }}
-        colors={[colors.white, colors.white]}>
-        {/* client logo */}
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View
           style={{
-            // height: height / 3,
-            justifyContent: 'center',
-            alignItems: 'center',
-            marginBottom: moderateScale(30),
-            // backgroundColor:'red'
-          }}>
-          <ScaledImage
-            width={width / 3}
-            height={width / 3}
-            source={
-              clientInfo && (clientInfo?.logo || clientInfo?.dark_logo)
-                ? {uri: isDarkMode ? clientInfo?.dark_logo : clientInfo?.logo}
-                : imagePath.logo
-            }
-          />
-        </View>
-
-        {routes.map((route, index) => {
-          // const {options} = descriptors[route.key];
-          const isFocused = selectedDrawerItem?.index === index;
-          const label = route?.label;
-          const onPress = () => {
-            if (route?.key) {
-              if (route?.subRoute) {
-                navigation.navigate(route.key, {
-                  screen: route?.subRoute,
-                });
-              } else {
-                navigation.navigate(route.key);
+            // height: height,
+            marginTop: moderateScale(10),
+          }}
+          colors={[colors.white, colors.white]}>
+          {/* client logo */}
+          <View
+            style={{
+              // height: height / 3,
+              justifyContent: 'center',
+              alignItems: 'center',
+              marginBottom: moderateScale(30),
+              // backgroundColor:'red'
+            }}>
+            <ScaledImage
+              width={width / 3}
+              height={width / 3}
+              source={
+                clientInfo && (clientInfo?.logo || clientInfo?.dark_logo)
+                  ? {uri: isDarkMode ? clientInfo?.dark_logo : clientInfo?.logo}
+                  : imagePath.logo
               }
-            } else if (route?.support) {
-              onStartSupportChat();
-            } else {
-              onLogoutPress();
-            }
-            // navigation.navigate(route.key, { screen: navigationStrings.subRoute });
-          };
+            />
+          </View>
 
-          return route?.id ? (
-            <Fragment key={route?.name}>
-              <TouchableOpacity
-                key={index}
-                accessibilityRole="button"
-                accessibilityStates={isFocused ? ['selected'] : []}
-                testID={JSON.stringify(route?.id)}
-                onPress={onPress}
-                // onLongPress={onLongPress}
-                style={{
-                  margin: moderateScale(8),
-                  // alignItems: 'center',
-                  flexDirection: 'row',
-                  alignItems: 'center',
+          {routes.map((route, index) => {
+            // const {options} = descriptors[route.key];
+            const isFocused = selectedDrawerItem?.index === index;
+            const label = route?.label;
+            const onPress = () => {
+              if (route?.key) {
+                if (route?.subRoute) {
+                  navigation.navigate(route.key, {
+                    screen: route?.subRoute,
+                  });
+                } else {
+                  navigation.navigate(route.key);
+                }
+              } else if (route?.support) {
+                onStartSupportChat();
+              } else {
+                onLogoutPress();
+              }
+              // navigation.navigate(route.key, { screen: navigationStrings.subRoute });
+            };
 
-                  justifyContent: 'center',
-                }}>
-                {/* {options.drawerIcon({focused: isFocused})} */}
+            return route?.id ? (
+              <Fragment key={route?.name}>
+                <TouchableOpacity
+                  key={index}
+                  accessibilityRole="button"
+                  accessibilityStates={isFocused ? ['selected'] : []}
+                  testID={JSON.stringify(route?.id)}
+                  onPress={onPress}
+                  // onLongPress={onLongPress}
+                  style={{
+                    margin: moderateScale(8),
+                    // alignItems: 'center',
+                    flexDirection: 'row',
+                    alignItems: 'center',
 
-                <View style={{flex: 0.15}}>
-                  <Image source={route?.image} />
-                </View>
+                    justifyContent: 'center',
+                  }}>
+                  {/* {options.drawerIcon({focused: isFocused})} */}
 
-                <View style={{flex: 0.85}}>
-                  <Text
-                    style={{
-                      // paddingLeft: moderateScale(5),
-                      paddingRight: 0,
-                      fontSize: textScale(15),
-                      fontFamily: fontFamily?.regular,
-                      ...props.labelStyle,
-                      color: colors.black,
-                    }}>
-                    {label}
-                  </Text>
-                </View>
-              </TouchableOpacity>
-            </Fragment>
-          ) : null;
-        })}
+                  <View style={{flex: 0.15}}>
+                    <Image source={route?.image} />
+                  </View>
+
+                  <View style={{flex: 0.85}}>
+                    <Text
+                      style={{
+                        // paddingLeft: moderateScale(5),
+                        paddingRight: 0,
+                        fontSize: textScale(15),
+                        fontFamily: fontFamily?.regular,
+                        ...props.labelStyle,
+                        color: colors.black,
+                      }}>
+                      {label}
+                    </Text>
+                  </View>
+                </TouchableOpacity>
+              </Fragment>
+            ) : null;
+          })}
+        </View>
         <View
           style={{
             alignItems: 'center',
-            position: 'absolute',
-            left: 0,
-            right: 0,
-            top: height - 150,
+            // position: 'absolute',
+            marginVertical: moderateScaleVertical(10),
           }}>
           <Text
             numberOfLines={2}
@@ -468,7 +468,7 @@ export default function CustomDrawerContent({
             <Text>{`(${DeviceInfo.getBuildNumber()})`}</Text>
           </Text>
         </View>
-      </View>
+      </ScrollView>
       <Loader isLoading={isLoading} withModal={true} />
     </>
   );

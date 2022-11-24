@@ -82,6 +82,7 @@ console.log(socketUrl,"socketUrlsocketUrlsocketUrl",ALL_ROOM_USER);
 }
 
 export function sendNotification(data = {}, headers = {}) {
+  console.log(data,"datadatadatadata> for notification");
   return new Promise(async(resolve, reject) => {
     apiPost(SEND_NOTIFCATION, data, headers)
       .then((response) => {

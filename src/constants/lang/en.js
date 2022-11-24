@@ -346,4 +346,5 @@ export default {
   ALLTRIP: 'All Trip',
   TRIPHISTORY: 'Trip History',
   NOTRIP: 'No Trips Assigned Yet',
+  LOCATION_UNAVAILABLE: 'Location Not Available',
 };
