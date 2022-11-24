@@ -10,7 +10,7 @@ import {
   Text,
 } from 'react-native';
 import CountryPicker, {Flag} from 'react-native-country-picker-modal';
-import { getBundleId } from 'react-native-device-info';
+import {getBundleId} from 'react-native-device-info';
 import {useSelector} from 'react-redux';
 import imagePath from '../constants/imagePath';
 import colors from '../styles/colors';
@@ -21,7 +21,7 @@ import {
   textScale,
   width,
 } from '../styles/responsiveSize';
-import { appIds } from '../utils/constants/DynamicAppKeys';
+import {appIds} from '../utils/constants/DynamicAppKeys';
 
 export default function PhoneNumberInput({
   cca2 = '',
@@ -57,9 +57,9 @@ export default function PhoneNumberInput({
     onCountryChange(data);
   };
   const _openCountryPicker = () => {
-   if(getBundleId()!==appIds.baytukom){
-    setState({countryPickerModalVisible: true});
-   }
+    if (getBundleId() !== appIds.baytukom) {
+      setState({countryPickerModalVisible: true});
+    }
   };
   const _onCountryPickerModalClose = () => {
     setState({countryPickerModalVisible: false});
@@ -142,7 +142,6 @@ export default function PhoneNumberInput({
             onClose={_onCountryPickerModalClose}
             countryCode={callingCode}
             onSelect={_onCountryChange}
-          
             closeButtonImage={imagePath.closeButton}
           />
         )}

@@ -113,6 +113,7 @@ export default function Login({navigation, route}) {
         updateState({
           locationPermissionStatus: true,
         });
+        console.log(res, 'resresres');
       })
       .catch(error => {
         updateState({
@@ -133,12 +134,14 @@ export default function Login({navigation, route}) {
                 if (error != 'blocked' || error == 'denied') {
                   chekLocationPermission()
                     .then(res => {
+                      console.log(res, 'resresresresresres');
                       if (res == 'granted') {
                         updateState({
                           locationPermissionStatus: true,
                         });
                       } else {
                         openAppSetting('LOCATION_SERVICES');
+                        console.log(error, 'errororor for location>>>>');
                       }
                     })
                     .catch(error => {
@@ -149,6 +152,7 @@ export default function Login({navigation, route}) {
                     });
                 } else {
                   openAppSetting('LOCATION_SERVICES');
+                  console.log(error, 'errororor for location++++');
                 }
               },
             },
@@ -252,11 +256,12 @@ export default function Login({navigation, route}) {
     if (checkValid) {
       let data = {};
       data['phone_number'] = `+${callingCode}${phoneNumber}`;
-      data['app_hash_key'] = appHashKey;
-      console.log(data, 'Here is data');
+      if (Platform.OS === 'android' && !!appHashKey) {
+        data['app_hash_key'] = appHashKey;
+      }
+      console.log(data, 'sending data ', data);
       // actions.sessionLogoutUser(false);
       updateState({isLoading: true});
-
       actions
         .login(data, {client: clientInfo?.database_name})
         .then(res => {
@@ -317,6 +322,7 @@ export default function Login({navigation, route}) {
         <View style={styles.imageStyle}>
           <ScaledImage
             width={getBundleId() == appIds.lOPHT ? width : width / 2}
+            height={width / 2}
             source={
               clientInfo && (clientInfo?.logo || clientInfo?.dark_logo)
                 ? {uri: isDarkMode ? clientInfo?.dark_logo : clientInfo?.logo}
@@ -324,6 +330,7 @@ export default function Login({navigation, route}) {
             }
           />
         </View>
+        {console.log(clientInfo, 'clientInfo')}
         <KeyboardAwareScrollView
           showsVerticalScrollIndicator={false}
           keyboardShouldPersistTaps="handled"
@@ -339,7 +346,9 @@ export default function Login({navigation, route}) {
               <PhoneNumberInput
                 onCountryChange={_onCountryChange}
                 onChangePhone={phoneNumber =>
-                  updateState({phoneNumber: phoneNumber.replace(/[^0-9]/g, '')})
+                  updateState({
+                    phoneNumber: phoneNumber.replace(/[^0-9]/g, ''),
+                  })
                 }
                 cca2={cca2}
                 phoneNumber={phoneNumber}

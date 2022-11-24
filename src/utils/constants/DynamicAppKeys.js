@@ -405,25 +405,25 @@ const shortCodes = {
   nhazi: '064fd8',
   petverse: '1d5220',
   clickNDrop: 'd27ec3',
-  appi:'15ba2c',
-  lifeHomeFit:'af03e6',
-  dbairro_:'120a7d',
-  genee:'033b2e',
-  speedyDelivery:'9ddb59',
-  holla:'09f477',
-  icabPro:'ee50e0',
-  uberWeeds:'773548',
-  stabex:'76bf13',
-  pointoneExpediteDelivery:'43bdda',
-  saamanShop:'63f37f',
-  tdc :'a36786',
-  pik:'cf0372',
-  flyCommerce:'93ea40',
-  motina:'392731',
-  greenHippo:'6a6b8b',
-  hungry:'08aeee',
-  myMeddy:'ceb53d',
-  uRyd:'5d7b49',
+  appi: '15ba2c',
+  lifeHomeFit: 'af03e6',
+  dbairro_: '120a7d',
+  genee: '033b2e',
+  speedyDelivery: '9ddb59',
+  holla: '09f477',
+  icabPro: 'ee50e0',
+  uberWeeds: '773548',
+  stabex: '76bf13',
+  pointoneExpediteDelivery: '43bdda',
+  saamanShop: '63f37f',
+  tdc: 'a36786',
+  pik: 'cf0372',
+  flyCommerce: '93ea40',
+  motina: '392731',
+  greenHippo: '6a6b8b',
+  hungry: '08aeee',
+  myMeddy: 'ceb53d',
+  uRyd: '5d7b49',
 };
 
 const appIds = {
@@ -593,8 +593,8 @@ const appIds = {
     android: 'com.Gumastas.royodispatcher',
   }),
   dishefs: Platform.select({
-    ios: 'com.Dishefs.Dispatch',
-    android: 'com.Dishefs.royodispatcher',
+    ios: 'com.DishefsDriver',
+    android: 'com.DishefsDriver',
   }),
   govachow: Platform.select({
     ios: 'com.application.Govachow.Dispatcher',
@@ -777,7 +777,7 @@ const appIds = {
     android: 'com.ThreadAgain.royodispatcher',
   }),
   blacNetwork: Platform.select({
-    ios: 'com.BlacNetwork.Dispatch',
+    ios: 'com.BlacNetwork.Driver',
     android: 'com.BlacNetwork.Driver',
   }),
   ezMobileFuel: Platform.select({
@@ -1077,8 +1077,8 @@ const appIds = {
     android: 'com.Fides.royodispatcher',
   }),
   ullaz: Platform.select({
-    ios: 'com.Ullaz.Dispatch',
-    android: 'com.Ullaz.royodispatcher',
+    ios: 'com.UllazDriver',
+    android: 'com.UllazDriver',
   }),
   privatepremiumpickups: Platform.select({
     ios: 'com.PrivatePremiumPickups.Dispatch',
@@ -1430,7 +1430,7 @@ const appIds = {
   }),
   dropitoffusa: Platform.select({
     ios: 'com.Dropitoffusa.Dispatch',
-    android: 'com.Dropitoffusa.royodispatcher',
+    android: 'com.DropitoffusaDriver',
   }),
   handyPickup: Platform.select({
     ios: 'com.HandyPickup.Dispatch',
@@ -1583,8 +1583,8 @@ const appIds = {
     android: 'com.jiffex.driver',
   }),
   jazzyBug: Platform.select({
-    ios: 'com.jazzyBug.Dispatch',
-    android: 'com.jazzyBug.royodispatcher',
+    ios: 'com.jazzyBugDriver',
+    android: 'com.jazzyBugDriver',
   }),
   keystoneDelivery: Platform.select({
     ios: 'com.keystonedelivery.driver',
@@ -1663,8 +1663,8 @@ const appIds = {
     android: 'com.spa.royodispatcher',
   }),
   abbeRides: Platform.select({
-    ios: 'com.abbeRides.dispatch',
-    android: 'com.abbeRides.dispatch',
+    ios: 'com.abbeRides.Driver',
+    android: 'com.abbeRides.Driver',
   }),
   nrsa: Platform.select({
     ios: 'com.nrsa.dispatch',

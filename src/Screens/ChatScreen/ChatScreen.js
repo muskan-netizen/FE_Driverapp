@@ -118,14 +118,15 @@ export default function ChatScreen({ route }) {
           language: defaultLanguagae?.value ? defaultLanguagae?.value : "en",
         }
       );
-
+      console.log(res, "resresresres");
       if (!!res?.userData) {
-        const allRoomUsersAppartFromAgent = res?.userData.splice(
-          res?.userData.findIndex((item) => item?.user_type != "agent")
-        );
-        const allAgentIds = res?.userData.splice(
-          res?.userData.findIndex((item) => item?.user_type == "agent")
-        );
+        const allRoomUsersAppartFromAgent  = res?.userData.filter(function (el) {
+          return el.user_type != 'agent';
+        });
+        const allAgentIds  = res?.userData.filter(function (el) {
+          return el.user_type == 'agent';
+        });
+
         updateState({
           allRoomUsersAppartFromAgent: allRoomUsersAppartFromAgent,
           allAgentIds: allAgentIds,

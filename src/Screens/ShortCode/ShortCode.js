@@ -2709,7 +2709,6 @@ export default function ShortCode({route, navigation}) {
       }
 
       let updatedShortCode = shortCode;
-      //  let updatedShortCode = 'b0eeff';
       //  let updatedShortCode = '1fdd1d';
 
       actions
@@ -2719,7 +2718,7 @@ export default function ShortCode({route, navigation}) {
             actions.saveShortCode(updatedShortCode);
           }
           actions.saveShortCode(updatedShortCode);
-          console.log(res, 'res>res>res');
+          console.log(res, 'res>res>resv');
           updateState({
             changeInShortCode: false,
             isLoading: false,

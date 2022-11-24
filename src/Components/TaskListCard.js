@@ -144,11 +144,12 @@ const TaskListCard = ({
               fontFamily:fontFamily?.bold
             }}
             >
-              {'Earning :'} {data?.order?.driver_cost}{' '}
+              {'Earning :'} {data?.order?.status=='completed'?data?.order?.driver_cost:0}
             </Text>
           ) :<View />}
         </View>
       )}
+      {console.log(data?.order?.status,data?.order?.driver_cost,"data?.order?.status")}
       <View
         opacity={getDynamicUpdateOnValues().blur}
         style={{
