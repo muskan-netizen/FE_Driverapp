@@ -3,9 +3,10 @@
 // export const API_BASE_URL = 'https://api.royodispatch.com/';
 // export const API_BASE_URL = 'https://sales.royodispatch.com/';
 // //Staging
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
+
 //  export const API_BASE_URL='https://zuzucleans.royodispatch.com/'
-// export const API_BASE_URL='http://192.168.100.142:8001/'
+// export const API_BASE_URL='https://delivery.go912.app/'
 // export const API_BASE_URL='https://dispatch.bendeta.biz/'
 // export const API_BASE_URL='http://192.168.100.130:9091/'
 //export const API_BASE_URL   ='https://fcba-103-72-170-243.ngrok.io/'
@@ -83,8 +84,8 @@
 
 //export const API_BASE_URL = 'https://dispatch.runrun.ae/';
 //
-// export const API_BASE_URL ='http://192.168.96.84:9091/'
-
+// export const API_BASE_URL ='https://dispatch.halatalabat.com/'
+// export const API_BASE_URL ='http://192.168.100.130:9091/'
 // export const API_BASE_URL = 'https://dispatch.dingdongdelivers.com/'
 
 // export const API_BASE_URL = 'https://dispatch.pas41.com/'
@@ -443,7 +444,7 @@
 // export const personaltoken = 'TMJdbQlNWkYl1JzMONzRgF4zQFuP8s';
 
 // hiperabasto
-export const API_BASE_URL = 'https://dispatch.hiperabasto.mx/';
+// export const API_BASE_URL = 'https://dispatch.hiperabasto.mx/';
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;
 
 export const SEND_OTP = getApiUrl('api/auth/login');

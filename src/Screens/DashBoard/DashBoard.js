@@ -230,7 +230,7 @@ export default function DashBoard({ route, navigation }) {
       distanceFilter: 10,
       debug: false,
       startOnBoot: false,
-      stopOnTerminate: true,
+      stopOnTerminate: false,
       notificationTitle: 'Location Tracking',
       notificationText: `Tracking driver's location in background.`,
       locationProvider: BackgroundGeolocation.ACTIVITY_PROVIDER,

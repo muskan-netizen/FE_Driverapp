@@ -2638,6 +2638,54 @@ export default function ShortCode({ route, navigation }) {
               isShortcodePrefilled: true,
             });
             break;
+            case appIds.happySingh:
+            updateState({
+              shortCode: shortCodes.happySingh,
+              isShortcodePrefilled: true,
+            });
+            break;
+            case appIds.vital:
+              updateState({
+                shortCode: shortCodes.vital,
+                isShortcodePrefilled: true,
+              });
+              break;
+              case appIds.parcelWorks:
+                updateState({
+                  shortCode: shortCodes.parcelWorks,
+                  isShortcodePrefilled: true,
+                });
+                break;
+                case appIds.konectame:
+                updateState({
+                  shortCode: shortCodes.konectame,
+                  isShortcodePrefilled: true,
+                });
+                break;
+                case appIds.usVetsDeliver:
+                  updateState({
+                    shortCode: shortCodes.usVetsDeliver,
+                    isShortcodePrefilled: true,
+                  });
+                  break;
+                  case appIds.locate:
+                  updateState({
+                    shortCode: shortCodes.locate,
+                    isShortcodePrefilled: true,
+                  });
+                  break;
+                  case appIds.bigbayong:
+                  updateState({
+                    shortCode: shortCodes.bigbayong,
+                    isShortcodePrefilled: true,
+                  });
+                  break;
+                  case appIds.todaysDeliverys:
+                  updateState({
+                    shortCode: shortCodes.todaysDeliverys,
+                    isShortcodePrefilled: true,
+                  });
+                  break;
       }
     })();
   }, [internetConnection]);

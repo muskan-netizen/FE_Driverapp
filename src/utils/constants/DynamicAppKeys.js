@@ -424,6 +424,14 @@ const shortCodes = {
   hungry:'08aeee',
   myMeddy:'ceb53d',
   uRyd:'5d7b49',
+  happySingh:'8c6c20',
+  vital:'59dc15',
+  parcelWorks:'fd186b',
+  konectame:'cac8dc',
+  usVetsDeliver:'5087c1',
+  bigbayong:'2c614d',
+  locate:'c119ae',
+  todaysDeliverys:'9fc243',
 };
 
 const appIds = {
@@ -2102,6 +2110,39 @@ const appIds = {
     ios: 'com.royodispatcher.uRyd',
     android: 'com.uRyd.royodispatcher',
   }),
+  happySingh: Platform.select({
+    ios: 'com.royodispatcher.happySingh',
+    android: 'com.happySingh.royodispatcher',
+  }),
+  vital: Platform.select({
+    ios: 'com.royodispatcher.vital',
+    android: 'com.vital.royodispatcher',
+  }),
+  parcelWorks: Platform.select({
+    ios: 'com.royodispatcher.parcelWorks',
+    android: 'com.parcelWorks.royodispatcher',
+  }),
+  konectame: Platform.select({
+    ios: 'com.royodispatcher.konectame',
+    android: 'com.konectame.royodispatcher',
+  }),
+  usVetsDeliver: Platform.select({
+    ios: 'com.royodispatcher.usVetsDeliver',
+    android: 'com.usVetsDeliver.royodispatcher',
+  }),
+  bigbayong: Platform.select({
+    ios: 'com.royodispatcher.bigbayong',
+    android: 'com.bigbayong.royodispatcher',
+  }),
+  locate: Platform.select({
+    ios: 'com.royodispatcher.locate',
+    android: 'com.locate.royodispatcher',
+  }),
+  todaysDeliverys: Platform.select({
+    ios: 'com.royodispatcher.todaysDeliverys',
+    android: 'com.todaysDeliverys.royodispatcher',
+  }), 
+
 };
 
 export {appIds, shortCodes};

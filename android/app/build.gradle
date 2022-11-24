@@ -201,30 +201,28 @@ android {
     }
 
      flavorDimensions "appType"
-// productFlavors{
-              
-//              ace{
-//             dimension "appType"
-//             versionCode 1
-//             versionName "1.0"
-//             minSdkVersion rootProject.ext.minSdkVersion
-//             targetSdkVersion rootProject.ext.targetSdkVersion
-//             // applicationIdSuffix ".royoorder"
-//                applicationId "com.Ace.royodispatcher"
-//             resValue "string", "app_name", "Ace Dispatch"
-//         }
-//           sheRyders{
-//             dimension "appType"
-//             versionCode 1
-//             versionName "1.0"
-//             minSdkVersion rootProject.ext.minSdkVersion
-//             targetSdkVersion rootProject.ext.targetSdkVersion
-//             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.sheRyders.dispatcher'
-//             resValue "string", "app_name", "SheRyders Driver"
-//         }
-
-// }
+productFlavors{
+                konectame{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.konectame.royodispatcher'
+            resValue "string", "app_name", "konectame Dispatcher"
+        }
+     orderFirst{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.OrderFirst.royodispatcher'
+            resValue "string", "app_name", "orderFirst Dispatcher"
+        }
+}
     
     productFlavors {
         royodispatcher {
@@ -7148,6 +7146,86 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.uRyd.royodispatcher'
             resValue "string", "app_name", "U Ryd Dispatcher"
+        }
+         happySingh{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.happySingh.royodispatcher'
+            resValue "string", "app_name", "Happy Singh Dispatcher"
+        }
+     vital{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.vital.royodispatcher'
+            resValue "string", "app_name", "Vital Dispatcher"
+        }
+     parcelWorks{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.parcelWorks.royodispatcher'
+            resValue "string", "app_name", "ParcelWorks Dispatcher"
+        }
+      konectame{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.konectame.royodispatcher'
+            resValue "string", "app_name", "konectame Dispatcher"
+        }
+     usVetsDeliver{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.usVetsDeliver.royodispatcher'
+            resValue "string", "app_name", "UsVetsDeliver Dispatcher"
+        }
+      locate{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.locate.royodispatcher'
+            resValue "string", "app_name", "Locate Dispatcher"
+        }
+     bigBayong{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.bigbayong.royodispatcher'
+            resValue "string", "app_name", "Bigbayong Dispatcher"
+        }
+          todaysDeliverys{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.todaysDeliverys.royodispatcher'
+            resValue "string", "app_name", "Todays Deliverys Dispatcher"
         }
 }
 }
