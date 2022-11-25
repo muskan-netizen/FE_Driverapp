@@ -3240,16 +3240,7 @@ android {
             applicationId  "com.travo.royodispatcher"
             resValue "string", "app_name", "Travo Dispatcher"
         }
-        washvalley{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId  "com.washvalley.royodispatcher"
-            resValue "string", "app_name", "Wash Valley Dispatcher"
-        }
+
         cabWay{
             dimension "appType"
             versionCode 1
