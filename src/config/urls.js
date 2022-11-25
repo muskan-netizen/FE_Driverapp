@@ -5,7 +5,6 @@
 // export const API_BASE_URL='http://192.168.101.140:9091/'
 // //Staging
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // export const API_BASE_URL = 'https://dispatch.dimahalal.com/'
 
