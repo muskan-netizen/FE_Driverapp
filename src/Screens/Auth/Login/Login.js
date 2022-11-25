@@ -1,19 +1,26 @@
+import {useFocusEffect} from '@react-navigation/native';
+import codes from 'country-calling-code';
+import {isEmpty} from 'lodash';
 import React, {useEffect, useState} from 'react';
 import {
-  Platform,
-  View,
-  Image,
-  BackHandler,
-  Text,
-  Linking,
   Alert,
-  PermissionsAndroid,
+  BackHandler,
+  Platform,
+  Text,
+  TouchableOpacity,
+  View,
 } from 'react-native';
+import {useDarkMode} from 'react-native-dark-mode';
+import DeviceCountry from 'react-native-device-country';
 import DeviceInfo, {getBundleId} from 'react-native-device-info';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import RNOtpVerify from 'react-native-otp-verify';
+import ScaledImage from 'react-native-scalable-image';
 import {useSelector} from 'react-redux';
 import GradientButton from '../../../Components/GradientButton';
+import Header from '../../../Components/Header';
 import {loaderOne} from '../../../Components/Loaders/AnimatedLoaderFiles';
+import PhoneNumberInput from '../../../Components/PhoneNumberInput';
 import WrapperContainer from '../../../Components/WrapperContainer';
 import imagePath from '../../../constants/imagePath';
 import strings from '../../../constants/lang';
@@ -26,37 +33,19 @@ import {
   moderateScaleVertical,
   width,
 } from '../../../styles/responsiveSize';
-import {showError, showSuccess} from '../../../utils/helperFunctions';
-import validator from '../../../utils/validations';
-import stylesFunc from './styles';
-import PhoneNumberInput from '../../../Components/PhoneNumberInput';
-import ScaledImage from 'react-native-scalable-image';
 import {appIds} from '../../../utils/constants/DynamicAppKeys';
-import Header from '../../../Components/Header';
-import {TouchableOpacity} from 'react-native';
-import {requestUserPermission} from '../../../utils/notificationServices';
-import * as RNLocalize from 'react-native-localize';
-import codes from 'country-calling-code';
-import DeviceCountry, {
-  TYPE_ANY,
-  TYPE_TELEPHONY,
-  TYPE_CONFIGURATION,
-} from 'react-native-device-country';
-import RNOtpVerify from 'react-native-otp-verify';
-import {request, PERMISSIONS} from 'react-native-permissions';
+import {showError, showSuccess} from '../../../utils/helperFunctions';
+import {openAppSetting} from '../../../utils/openNativeApp';
 import {
   chekLocationPermission,
   locationPermission,
 } from '../../../utils/permissions';
-import {openAppSetting} from '../../../utils/openNativeApp';
-import {useFocusEffect} from '@react-navigation/native';
-import {useDarkMode} from 'react-native-dark-mode';
+import validator from '../../../utils/validations';
+import stylesFunc from './styles';
 
 var getPhonesCallingCodeAndCountryData = null;
 DeviceCountry.getCountryCode()
   .then(result => {
-    console.log(result, 'getCountryCoderesult');
-    // {"code": "BY", "type": "telephony"}
     getPhonesCallingCodeAndCountryData = codes.filter(
       x => x.isoCode2 == result.code.toUpperCase(),
     );
@@ -65,32 +54,27 @@ DeviceCountry.getCountryCode()
     console.log(e);
   });
 
-// var getPhonesCallingCodeAndCountryData = codes.filter(x => x.isoCode2 == RNLocalize.getCountry())
-
 export default function Login({navigation, route}) {
-  const paramData = route?.params?.data;
-
-  const {themeColor, themeToggle, clientInfo} = useSelector(
+  const {themeColor, themeToggle, clientInfo, defaultLanguage} = useSelector(
     state => state?.initBoot,
   );
-  const fcmToken = useSelector(state => state?.initBoot?.fcmToken);
   const darkthemeusingDevice = useDarkMode();
   const isDarkMode = themeToggle ? darkthemeusingDevice : themeColor;
 
   const [state, setState] = useState({
     isLoading: false,
     callingCode:
-      getPhonesCallingCodeAndCountryData &&
-      getPhonesCallingCodeAndCountryData.length
+      !isEmpty(getPhonesCallingCodeAndCountryData) &&
+      getBundleId() !== appIds.SXM2GO
         ? getPhonesCallingCodeAndCountryData[0].countryCodes[0]
-        : clientInfo?.get_country_set?.phonecode
+        : !!clientInfo?.get_country_set?.phonecode
         ? clientInfo?.get_country_set?.phonecode
         : '91',
     cca2:
-      getPhonesCallingCodeAndCountryData &&
-      getPhonesCallingCodeAndCountryData.length
+      !isEmpty(getPhonesCallingCodeAndCountryData) &&
+      getBundleId() !== appIds.SXM2GO
         ? getPhonesCallingCodeAndCountryData[0].isoCode2
-        : clientInfo?.get_country_set?.code
+        : !!clientInfo?.get_country_set?.code
         ? clientInfo?.get_country_set?.code
         : 'IN',
     phoneNumber: '',
@@ -186,25 +170,15 @@ export default function Login({navigation, route}) {
     }
   };
 
-  //   const fontFamily = appStyle?.fontSizeData;
-
   //Update states
   const updateState = data => setState(state => ({...state, ...data}));
 
-  const defaultLanguagae = useSelector(
-    state => state?.initBoot?.defaultLanguage,
-  );
-
   //Styles in app
-  const styles = stylesFunc({defaultLanguagae});
+  const styles = stylesFunc({defaultLanguage});
 
   //Naviagtion to specific screen
   const moveToNewScreen = (screenName, data) => () => {
     navigation.navigate(screenName, {data});
-  };
-  //On change textinput
-  const _onChangeText = key => val => {
-    updateState({[key]: val});
   };
 
   useEffect(() => {
@@ -220,17 +194,17 @@ export default function Login({navigation, route}) {
     // actions.sessionLogoutUser(false);
     updateState({
       callingCode:
-        getPhonesCallingCodeAndCountryData &&
-        getPhonesCallingCodeAndCountryData.length
+        !isEmpty(getPhonesCallingCodeAndCountryData) &&
+        getBundleId() !== appIds.SXM2GO
           ? getPhonesCallingCodeAndCountryData[0].countryCodes[0]
-          : clientInfo?.get_country_set?.phonecode
+          : !!clientInfo?.get_country_set?.phonecode
           ? clientInfo?.get_country_set?.phonecode
           : '91',
       cca2:
-        getPhonesCallingCodeAndCountryData &&
-        getPhonesCallingCodeAndCountryData.length
+        !isEmpty(getPhonesCallingCodeAndCountryData) &&
+        getBundleId() !== appIds.SXM2GO
           ? getPhonesCallingCodeAndCountryData[0].isoCode2
-          : clientInfo?.get_country_set?.code
+          : !!clientInfo?.get_country_set?.code
           ? clientInfo?.get_country_set?.code
           : 'IN',
     });

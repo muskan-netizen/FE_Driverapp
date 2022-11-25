@@ -92,15 +92,15 @@ export default function Signup({route, navigation}) {
     fullName: '',
     phoneNumber: '',
     callingCode:
-      getPhonesCallingCodeAndCountryData &&
-      getPhonesCallingCodeAndCountryData.length
+      !isEmpty(getPhonesCallingCodeAndCountryData) &&
+      getBundleId() !== appIds.SXM2GO
         ? getPhonesCallingCodeAndCountryData[0].countryCodes[0]
         : clientInfo?.get_country_set?.phonecode
         ? clientInfo?.get_country_set?.phonecode
         : '91',
     cca2:
-      getPhonesCallingCodeAndCountryData &&
-      getPhonesCallingCodeAndCountryData.length
+      !isEmpty(getPhonesCallingCodeAndCountryData) &&
+      getBundleId() !== appIds.SXM2GO
         ? getPhonesCallingCodeAndCountryData[0].isoCode2
         : clientInfo?.get_country_set?.code
         ? clientInfo?.get_country_set?.code
