@@ -316,7 +316,7 @@ export default function Signup({route, navigation}) {
           mediaType: 'photo',
         })
           .then(res => {
-            console.log(res, 'res');
+            console.log(res, 'resasfasdfsdf');
             if (res.path) {
               if (profilePic) {
                 updateState({userImage: res?.sourceURL || res?.path});
@@ -356,7 +356,8 @@ export default function Signup({route, navigation}) {
 
   const _onSignup = () => {
     if (otpToShow.length !== 6) {
-      showErrorOnModal(modalRef, strings.OTPNOTVALID);
+      // showErrorOnModal(modalRef, strings.OTPNOTVALID);
+      alert(strings.OTPNOTVALID);
       return;
     }
     setSignupLoading(true);
@@ -561,7 +562,7 @@ export default function Signup({route, navigation}) {
     setSendOtpLoading(false);
     setSignupLoading(false);
     isOtpModal
-      ? showErrorOnModal(modalRef, error?.message || error?.error)
+      ? alert(error?.message || error?.error)
       : showError(error?.message || error?.error);
 
     setOtpToShow('');
@@ -869,9 +870,14 @@ export default function Signup({route, navigation}) {
 
   const modalMainContent = useCallback(() => {
     return (
-      <KeyboardAvoidingView
-        keyboardVerticalOffset={height / 2.5}
-        behavior={'padding'}>
+      <KeyboardAwareScrollView
+        keyboardShouldPersistTaps="handled"
+        showsVerticalScrollIndicator={false}
+        scrollEnabled={false}
+        enableOnAndroid={true}
+        contentContainerStyle={{
+          flexGrow: 1,
+        }}>
         <View style={styles.modalMainViewOTP}>
           <Text
             style={{
@@ -940,7 +946,7 @@ export default function Signup({route, navigation}) {
             btnText={strings.SIGNUP}
           />
         </View>
-      </KeyboardAvoidingView>
+      </KeyboardAwareScrollView>
     );
   }, [otpToShow, phoneNumber, callingCode, isSendOtpLoading, isSignupLoading]);
 
@@ -1353,7 +1359,7 @@ export default function Signup({route, navigation}) {
               )}
             </View>
 
-            {vehicleTypes !== '' ? (
+            {vehicleTypes !== '' && vehicleTypes ? (
               <>
                 <View
                   onTouchStart={() => updateState({isTagsShow: false})}
@@ -1369,7 +1375,7 @@ export default function Signup({route, navigation}) {
                     {allTransportation.map((i, inx) => {
                       if (savedShortCode === shortCodes.drus && inx == 0)
                         return;
-                      if (vehicleTypes.includes(i?.id)) {
+                      if (vehicleTypes?.includes(i?.id)) {
                         return (
                           <TouchableOpacity
                             style={[

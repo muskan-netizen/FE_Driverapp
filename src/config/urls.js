@@ -1,7 +1,7 @@
 // export const API_BASE_URL = 'http://192.168.100.130:9091/';
 
 // export const API_BASE_URL = 'https://api.royodispatch.com/';
-export const API_BASE_URL = 'https://sales.royodispatch.com/';
+// export const API_BASE_URL = 'https://sales.royodispatch.com/';
 // export const API_BASE_URL='http://192.168.101.140:9091/'
 // //Staging
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
@@ -430,7 +430,7 @@ export const API_BASE_URL = 'https://sales.royodispatch.com/';
 // export const API_BASE_URL = 'https://dispatcher.drivereeshops.com/';
 
 // helpNowRightNow live domain
-// export const API_BASE_URL = 'https://dispatch.helpnowrightnow.com/';
+export const API_BASE_URL = 'https://dispatch.helpnowrightnow.com/';
 
 // tranzit live domain
 // export const API_BASE_URL = 'https://dispatch.tranzit.app/';
