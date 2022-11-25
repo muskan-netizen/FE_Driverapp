@@ -1599,8 +1599,8 @@ const appIds = {
     android: 'com.BusTaMove.royodispatcher',
   }),
   valley: Platform.select({
-    ios: 'com.valley.Dispatch',
-    android: 'com.valley.royodispatcher',
+    ios: 'com.valley.driverapp',
+    android: 'com.valley.driverapp',
   }),
   myFarma: Platform.select({
     ios: 'com.myFarma.driver',

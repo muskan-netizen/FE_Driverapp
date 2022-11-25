@@ -1,40 +1,64 @@
 {
   "project_info": {
-    "project_number": "1020845196491",
-    "project_id": "valley-dispatch",
-    "storage_bucket": "valley-dispatch.appspot.com"
+    "project_number": "792505959590",
+    "project_id": "valley-driver",
+    "storage_bucket": "valley-driver.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1020845196491:android:50da911c63700fa154c74e",
+        "mobilesdk_app_id": "1:792505959590:android:982439cd83abbd3f0de067",
         "android_client_info": {
-          "package_name": "com.valley.royodispatcher"
+          "package_name": "com.valley.driverapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1020845196491-95fqns7o388fodfurf3kvqui1g8a4pq0.apps.googleusercontent.com",
+          "client_id": "792505959590-5d975koo6jmqs0ea8mnjgf5t43h8igqk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.valley.driverapp",
+            "certificate_hash": "6e35fcb20bda370ed0025e8c1df6109a03d09b6e"
+          }
+        },
+        {
+          "client_id": "792505959590-9dnvd6qfatmpncgej6s1slbp7bl443hk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.valley.driverapp",
+            "certificate_hash": "a88b766ebe08c535516406fab3741781973c03ad"
+          }
+        },
+        {
+          "client_id": "792505959590-jhgdob6ha1fepdnhl2u3e5htf1p375rc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.valley.driverapp",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "792505959590-jns9ae9danva3knjinj3m3le3rl3qpre.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBNISubCcrNWTUKHcgFQ_cd6AsDnDSYuJg"
+          "current_key": "AIzaSyCio7hgmzFCPjT9Vv2MHDZGsYCHpqVceNM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1020845196491-95fqns7o388fodfurf3kvqui1g8a4pq0.apps.googleusercontent.com",
+              "client_id": "792505959590-jns9ae9danva3knjinj3m3le3rl3qpre.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "1020845196491-8o902ftev0qg0kpcscchgbm3m80ie1pc.apps.googleusercontent.com",
+              "client_id": "792505959590-8jtiv3ll2muu0afja7n8rp5qg0lgjtrt.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.valley.Dispatch"
+                "bundle_id": "com.valley.driverapp"
               }
             }
           ]
