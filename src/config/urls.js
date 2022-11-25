@@ -468,7 +468,7 @@ export const API_BASE_URL = 'https://dispatch.helpnowrightnow.com/';
 // export const API_BASE_URL = 'https://dispatch.quicklube.us/'
 
 // sxm2Go
-// export const API_BASE_URL = 'https://dispatch.sxm2go.com/';
+export const API_BASE_URL = 'https://dispatch.sxm2go.com/';
 
 // export const personaltoken = 'TMJdbQlNWkYl1JzMONzRgF4zQFuP8s';
 
