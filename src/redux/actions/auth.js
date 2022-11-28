@@ -12,7 +12,7 @@ import {
   SIGNUP_SEND_OTP,
   CAB_POOLING_STATUS,
 } from '../../config/urls';
-import { apiGet, apiPost, removeItem, setItem, setUserData } from '../../utils/utils';
+import { apiGet, apiPost, removeItem, saveCabPollingStatus, setItem, setUserData } from '../../utils/utils';
 import store from '../store';
 import types from '../types';
 const { dispatch } = store;
@@ -200,10 +200,6 @@ export function updateCabPoolingStatus(data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
     apiPost(CAB_POOLING_STATUS, data, headers)
       .then(async res => {
-        dispatch({
-          type: types.POOLING,
-          payload: {},
-        })
         resolve(res)
       }
       )
@@ -212,3 +208,10 @@ export function updateCabPoolingStatus(data = {}, headers = {}) {
       });
   });
 }
+
+
+
+
+
+
+

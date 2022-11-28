@@ -31,8 +31,11 @@ import {
   requestUserPermission,
 } from './src/utils/notificationServices';
 import ShowNotificationForeground from './src/utils/ShowNotificationForeground';
+import types from './src/redux/types';
 
 let CodePushOptions = {checkFrequency: codePush.CheckFrequency.MANUAL};
+
+const {dispatch}= store
 
 const App = () => {
   const [internetConnection, setInternet] = useState(true);
@@ -111,6 +114,17 @@ const App = () => {
       } else {
       }
     }); // Add some error handling, also you can simply do this.setState({fistLaunch: value == null})
+    AsyncStorage.getItem('cabPoolingStatus').then(value => {
+      const poolingStatus = JSON.parse(value)
+     dispatch({
+        type: types.POOLING,
+        payload:poolingStatus,
+      });
+    }).catch((error)=>{
+      console.log(error,'error in getting poolstatus');
+    })// Add some error handling, also you can simply do this.setState({fistLaunch: value == null})
+  
+  
   }, []);
 
   const notificationConfig = () => {

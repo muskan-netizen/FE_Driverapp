@@ -18,6 +18,7 @@ import {
   GETCANCELORDERREASONLIST,
   CANCELORDER,
   GETWEBURL,
+  GET_CAB_POOLING_SUGGESTION,
 } from '../../config/urls';
 import {apiGet, apiPost} from '../../utils/utils';
 import store from '../store';
@@ -410,6 +411,20 @@ export function openPaymentWebUrl(query = '', data = {}, headers = {}) {
       })
       .catch((error) => {
         console.log(error,"error in web Url")
+        reject(error);
+      });
+  });
+}
+
+
+//getAllPoolingSuggestions
+export function getAllPoolingSuggestions(data = {}, headers = {}) {
+  return new Promise((resolve, reject) => {
+    apiGet(GET_CAB_POOLING_SUGGESTION , data, headers)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(error => {
         reject(error);
       });
   });
