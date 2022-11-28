@@ -155,7 +155,7 @@
 // export const API_BASE_URL = 'https://dispatch.bustamovepartybus.com/';
 
 //ipickndrop
-// export const API_BASE_URL ="https://dispatch.ipickndrop.com/"
+export const API_BASE_URL = 'https://dispatch.ipickndrop.com/';
 // export const API_BASE_URL ="https://dispatch.grn.green/"
 
 // dropitoffusa
@@ -402,7 +402,7 @@
 
 // lastminutedress
 // export const API_BASE_URL = 'https://dispatch.lastminutedress.com/';
-export const API_BASE_URL = 'https://dispatch.ourvalley.app/';
+// export const API_BASE_URL = 'https://dispatch.ourvalley.app/';
 // destinationops app domain
 // export const API_BASE_URL = 'https://dispatch.destinationops.com/';
 // bluebundles
