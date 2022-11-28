@@ -574,7 +574,7 @@ const appIds = {
     android: 'com.MokabFix.royodispatcher',
   }),
   spidbi: Platform.select({
-    ios: 'com.Spidbi.Dispatch',
+    ios: 'com.Spidbi.Dispatcher',
     android: 'com.spidbi.royodispatcher',
   }),
   wh: Platform.select({
