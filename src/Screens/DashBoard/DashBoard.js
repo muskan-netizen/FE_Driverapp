@@ -282,7 +282,7 @@ export default function DashBoard({ route, navigation }) {
       data['lat'] = lat;
       data['device_token'] = !!fcmToken ? fcmToken : '';
       data['heading_angle'] = heading_;
-      // console.log(data, 'data>data');
+      
       console.log(data, 'sending data data??????');
       actions
         .logsApi(data, { client: clientInfo?.database_name })

@@ -24,7 +24,7 @@ export function initApp(data = {}, headers = {}, reload = false) {
     apiPost(APP_INITIAL_SETTINGS, data, headers)
       .then(async res => {
         let data = res?.data;
-         setClientInfo(data).then(suc => {
+        setClientInfo(data).then(suc => {
           dispatch({
             type: types.APP_INIT,
             payload: data,
@@ -109,7 +109,7 @@ export function logsApi(data = {}, headers = {}) {
 }
 
 export function isModalVisibleForAcceptReject(data = false) {
-  console.log(data, 'data');
+  console.log(data, 'data>>>>>>>>.');
   dispatch({
     type: types.MODAL_VISIBLE_ACCEPT_REJECT,
     payload: data,

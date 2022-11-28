@@ -75,7 +75,6 @@ import RNOtpVerify from 'react-native-otp-verify';
 var getPhonesCallingCodeAndCountryData = null;
 DeviceCountry.getCountryCode()
   .then(result => {
-    console.log(result, 'getCountryCoderesult');
     getPhonesCallingCodeAndCountryData = codes.filter(
       x => x.isoCode2 == result.code.toUpperCase(),
     );
@@ -93,15 +92,15 @@ export default function Signup({route, navigation}) {
     fullName: '',
     phoneNumber: '',
     callingCode:
-      getPhonesCallingCodeAndCountryData &&
-      getPhonesCallingCodeAndCountryData.length
+      !isEmpty(getPhonesCallingCodeAndCountryData) &&
+      getBundleId() !== appIds.SXM2GO
         ? getPhonesCallingCodeAndCountryData[0].countryCodes[0]
         : clientInfo?.get_country_set?.phonecode
         ? clientInfo?.get_country_set?.phonecode
         : '91',
     cca2:
-      getPhonesCallingCodeAndCountryData &&
-      getPhonesCallingCodeAndCountryData.length
+      !isEmpty(getPhonesCallingCodeAndCountryData) &&
+      getBundleId() !== appIds.SXM2GO
         ? getPhonesCallingCodeAndCountryData[0].isoCode2
         : clientInfo?.get_country_set?.code
         ? clientInfo?.get_country_set?.code
@@ -317,7 +316,7 @@ export default function Signup({route, navigation}) {
           mediaType: 'photo',
         })
           .then(res => {
-            console.log(res, 'res');
+            console.log(res, 'resasfasdfsdf');
             if (res.path) {
               if (profilePic) {
                 updateState({userImage: res?.sourceURL || res?.path});
@@ -357,7 +356,8 @@ export default function Signup({route, navigation}) {
 
   const _onSignup = () => {
     if (otpToShow.length !== 6) {
-      showErrorOnModal(modalRef, strings.OTPNOTVALID);
+      // showErrorOnModal(modalRef, strings.OTPNOTVALID);
+      alert(strings.OTPNOTVALID);
       return;
     }
     setSignupLoading(true);
@@ -436,8 +436,7 @@ export default function Signup({route, navigation}) {
       .then(res => {
         setOtpModal(false);
         setTimeout(() => {
-          updateState({isWaitingModal: true
-          });
+          updateState({isWaitingModal: true});
         }, 500);
         setSignupLoading(false);
         setTimeout(() => {
@@ -446,7 +445,7 @@ export default function Signup({route, navigation}) {
           });
           navigation.goBack();
         }, 10000);
-        setOtpToShow('')
+        setOtpToShow('');
       })
       .catch(errorMethod);
   };
@@ -535,16 +534,16 @@ export default function Signup({route, navigation}) {
   };
 
   const onSendOtpApi = () => {
-    setOtpToShow('')
+    setOtpToShow('');
+    let data = {
+      dial_code: callingCode,
+      phone_number: phoneNumber,
+    };
+    if (Platform.OS === 'android' && !!appHashKey) {
+      data['app_hash_key'] = appHashKey;
+    }
     actions
-      .sendOtpOnSignup(
-        {
-          dial_code: callingCode,
-          phone_number: phoneNumber,
-          app_hash_key: appHashKey,
-        },
-        {client: clientInfo?.database_name},
-      )
+      .sendOtpOnSignup(data, {client: clientInfo?.database_name})
       .then(res => {
         console.log(res, 'login data');
         if (res?.data) {
@@ -558,15 +557,15 @@ export default function Signup({route, navigation}) {
   };
 
   const errorMethod = error => {
-    console.log(error,"erorororororo");
+    console.log(error, 'erorororororo');
     updateState({isLoading: false});
     setSendOtpLoading(false);
     setSignupLoading(false);
     isOtpModal
-      ? showErrorOnModal(modalRef, error?.message || error?.error)
+      ? alert(error?.message || error?.error)
       : showError(error?.message || error?.error);
 
-      setOtpToShow('')
+    setOtpToShow('');
   };
 
   const _selectedTransportation = i => {
@@ -871,9 +870,14 @@ export default function Signup({route, navigation}) {
 
   const modalMainContent = useCallback(() => {
     return (
-      <KeyboardAvoidingView
-        keyboardVerticalOffset={height / 2.5}
-        behavior={'padding'}>
+      <KeyboardAwareScrollView
+        keyboardShouldPersistTaps="handled"
+        showsVerticalScrollIndicator={false}
+        scrollEnabled={false}
+        enableOnAndroid={true}
+        contentContainerStyle={{
+          flexGrow: 1,
+        }}>
         <View style={styles.modalMainViewOTP}>
           <Text
             style={{
@@ -942,7 +946,7 @@ export default function Signup({route, navigation}) {
             btnText={strings.SIGNUP}
           />
         </View>
-      </KeyboardAvoidingView>
+      </KeyboardAwareScrollView>
     );
   }, [otpToShow, phoneNumber, callingCode, isSendOtpLoading, isSignupLoading]);
 
@@ -1355,7 +1359,7 @@ export default function Signup({route, navigation}) {
               )}
             </View>
 
-            {vehicleTypes !== '' ? (
+            {vehicleTypes !== '' && vehicleTypes ? (
               <>
                 <View
                   onTouchStart={() => updateState({isTagsShow: false})}
@@ -1371,7 +1375,7 @@ export default function Signup({route, navigation}) {
                     {allTransportation.map((i, inx) => {
                       if (savedShortCode === shortCodes.drus && inx == 0)
                         return;
-                      if (vehicleTypes.includes(i?.id)) {
+                      if (vehicleTypes?.includes(i?.id)) {
                         return (
                           <TouchableOpacity
                             style={[
@@ -1402,7 +1406,7 @@ export default function Signup({route, navigation}) {
                   </ScrollView>
                 </View>
               </>
-            ):null}
+            ) : null}
             {/* { getEmployeeViewBasedOnClient(savedShortCode)} */}
 
             {/* <View style={{marginTop: moderateScaleVertical(10)}}>

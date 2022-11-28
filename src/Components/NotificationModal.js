@@ -43,7 +43,7 @@ const NotificationModal = () => {
     orderCost: null,
     totalDistance: null,
     taskId: null,
-    orderData:{}
+    orderData: {},
   });
   const {notificationData} = useSelector(state => state?.initBoot);
 
@@ -61,7 +61,7 @@ const NotificationModal = () => {
     orderCost,
     totalDistance,
     taskId,
-    orderData
+    orderData,
   } = state;
 
   useEffect(() => {
@@ -104,8 +104,7 @@ const NotificationModal = () => {
           orderCost: res?.order?.order_cost,
           totalDistance: res?.order?.actual_distance,
           taskId: res?.order?.unique_id,
-          orderData:res?.order
-
+          orderData: res?.order,
         });
       })
       .catch(error => console.log('error in notification Data', error));
@@ -177,9 +176,7 @@ const NotificationModal = () => {
     return (
       <>
         <View style={{height: 40, overflow: 'hidden', alignItems: 'center'}}>
-          <View
-            style={styles.dotContainerStyle}
-          />
+          <View style={styles.dotContainerStyle} />
         </View>
 
         <Image
@@ -192,7 +189,10 @@ const NotificationModal = () => {
     );
   };
 
-  console.log(orderData?.cash_to_be_collected,"orderData?.cash_to_be_collected");
+  console.log(
+    orderData?.cash_to_be_collected,
+    'orderData?.cash_to_be_collected',
+  );
 
   const modalMainContent = () => {
     let data = notificationData?.notificationData?.data;
@@ -201,56 +201,43 @@ const NotificationModal = () => {
       <View style={{overflow: 'hidden', borderRadius: moderateScale(10)}}>
         <View>{!!region && mapView()}</View>
         <View style={{padding: 8}}>
-          <View
-            style={styles.notificationModalMainHeaderStyle}>
-           {notificationType =='CANCELLED'? <View
-              style={styles.taskCanceledContainer}>
-              <View style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-              }}>
-                <Text
-                  numberOfLines={1}
-                  style={styles.taskIdStyle}>
+          <View style={styles.notificationModalMainHeaderStyle}>
+            {notificationType == 'CANCELLED' ? (
+              <View style={styles.taskCanceledContainer}>
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                  }}>
+                  <Text numberOfLines={1} style={styles.taskIdStyle}>
+                    {strings.TASKID}
+                  </Text>
+                  <Text numberOfLines={1} style={styles.taskIdStyle}>
+                    {` ${taskId}`}
+                  </Text>
+                </View>
+                <View>
+                  <Text numberOfLines={1} style={styles.taskCanceledTextStyle}>
+                    {strings.ORDER_CANCELLED_BY_CUSTOMER}
+                  </Text>
+                </View>
+              </View>
+            ) : (
+              <View style={styles.taskacceptrRejectContainer}>
+                <Text numberOfLines={1} style={styles.taskIdTitleText}>
                   {strings.TASKID}
                 </Text>
-                <Text
-                  numberOfLines={1}
-                  style={styles.taskIdStyle}>
+                <Text numberOfLines={1} style={styles.taskIdTextStyle}>
                   {` ${taskId}`}
                 </Text>
               </View>
-              <View>
-                <Text
-                  numberOfLines={1}
-                  style={styles.taskCanceledTextStyle}>
-                  {strings.ORDER_CANCELLED_BY_CUSTOMER}
-                </Text></View>
-
-            </View>
-           : <View
-           style={styles.taskacceptrRejectContainer}>
-           <Text
-             numberOfLines={1}
-             style={styles.taskIdTitleText}>
-             {strings.TASKID}
-           </Text>
-           <Text
-             numberOfLines={1}
-             style={styles.taskIdTextStyle}>
-             {` ${taskId}`}
-           </Text>
-         </View>}
-            {orderData?.cash_to_be_collected> 0 && (
+            )}
+            {orderData?.cash_to_be_collected > 0 && (
               <View style={{alignItems: 'center'}}>
-                <Text
-                  numberOfLines={1}
-                  style={styles.priceTitleTextStyle}>
+                <Text numberOfLines={1} style={styles.priceTitleTextStyle}>
                   {strings.PRICE}
                 </Text>
-                <Text
-                  numberOfLines={1}
-                  style={styles.priceTextStyle}>
+                <Text numberOfLines={1} style={styles.priceTextStyle}>
                   {orderData?.cash_to_be_collected}
                 </Text>
                 <Text style={styles.address}></Text>
@@ -331,9 +318,8 @@ const NotificationModal = () => {
               <Text style={styles.text}>{strings.ACCEPT}</Text>
             </TouchableOpacity>
           </View>
-        ) : (notificationType=='CANCELLED')?  (
-          <View
-            style={styles.taskCancelledByCustomerContainer}>
+        ) : notificationType == 'CANCELLED' ? (
+          <View style={styles.taskCancelledByCustomerContainer}>
             <TouchableOpacity
               onPress={() => {
                 navigate(navigationStrings.TASKHISTORY);
@@ -342,7 +328,6 @@ const NotificationModal = () => {
                   notificationData: null,
                 });
                 actions.updateHomepage(true);
-               
               }}
               style={{
                 flex: 1,
@@ -355,8 +340,7 @@ const NotificationModal = () => {
               <Text style={styles.text}>{strings.OK}</Text>
             </TouchableOpacity>
           </View>
-        ):
-         (
+        ) : (
           <View
             style={{
               borderRadius: 10,
@@ -389,7 +373,9 @@ const NotificationModal = () => {
       </View>
     );
   };
-
+  {
+    console.log(clientInfo?.database_name, 'clientInfo?.database_name');
+  }
   const aceptRejectTask = status => {
     let notifData = notificationData?.notificationData?.data;
 
@@ -431,7 +417,7 @@ const NotificationModal = () => {
       isLoading: false,
       isModalVisibleForAcceptReject: false,
     });
-    showError(error?.message || error?.error,4000);
+    showError(error?.message || error?.error, 4000);
   };
 
   return (
@@ -484,79 +470,92 @@ const styles = StyleSheet.create({
     color: colors.white,
     fontFamily: fontFamily.semiBold,
     fontSize: textScale(14),
-  },  dotContainerStyle:{
+  },
+  dotContainerStyle: {
     height: 40,
     width: 0.5,
     backgroundColor: colors.textGreyLight,
-  }, notificationModalMainHeaderStyle:{
+  },
+  notificationModalMainHeaderStyle: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-  } ,taskCanceledContainer :{
+  },
+  taskCanceledContainer: {
     width: '100%',
     alignItems: 'center',
-    justifyContent: 'center'
-  }, taskIdStyle:{
+    justifyContent: 'center',
+  },
+  taskIdStyle: {
     textAlign: 'right',
     fontSize: textScale(10),
     color: colors.black,
     fontFamily: fontFamily.regular,
-  }, taskCanceledTextStyle:{
+  },
+  taskCanceledTextStyle: {
     marginVertical: moderateScaleVertical(5),
     textAlign: 'right',
     fontSize: textScale(12),
     color: colors.redB,
     fontFamily: fontFamily.bold,
-  },taskacceptrRejectContainer:{
+  },
+  taskacceptrRejectContainer: {
     flexDirection: 'row',
     width: width / 2.4,
     alignItems: 'center',
-  },taskIdTitleText:{
+  },
+  taskIdTitleText: {
     marginVertical: moderateScaleVertical(10),
     textAlign: 'right',
     fontSize: textScale(10),
     color: colors.black,
     fontFamily: fontFamily.regular,
-  },taskIdTextStyle  :{
+  },
+  taskIdTextStyle: {
     marginVertical: moderateScaleVertical(10),
     textAlign: 'right',
     fontSize: textScale(12),
     color: colors.black,
     fontFamily: fontFamily.regular,
-  },priceTitleTextStyle  :{
+  },
+  priceTitleTextStyle: {
     marginVertical: moderateScaleVertical(10),
     textAlign: 'right',
     fontSize: textScale(10),
     color: colors.green,
     fontFamily: fontFamily.bold,
-  },priceTextStyle  :{
+  },
+  priceTextStyle: {
     marginVertical: moderateScaleVertical(-5),
     textAlign: 'right',
     fontSize: textScale(12),
     color: colors.green,
     fontFamily: fontFamily.bold,
-  } ,grayDotImageStyle :{
+  },
+  grayDotImageStyle: {
     position: 'absolute',
     marginHorizontal: moderateScale(11),
     top: 8,
-  },taskRejectButtonTextStyle  :{
+  },
+  taskRejectButtonTextStyle: {
     flex: 0.5,
     borderBottomLeftRadius: moderateScale(15),
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'red',
-  },taskAcceptButtonTextStyle  :{
+  },
+  taskAcceptButtonTextStyle: {
     flex: 0.5,
     borderBottomRightRadius: moderateScale(15),
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'green',
-  },taskCancelledByCustomerContainer  :{
+  },
+  taskCancelledByCustomerContainer: {
     borderRadius: 10,
     height: 40,
     flexDirection: 'row',
     alignSelf: 'flex-end',
-   
-  }
+  },
 });
 
 export default NotificationModal;

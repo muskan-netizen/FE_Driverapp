@@ -1,7 +1,13 @@
 import {StyleSheet} from 'react-native';
 import colors from '../../styles/colors';
 import fontFamily from '../../styles/fontFamily';
-import {moderateScale, textScale, width} from '../../styles/responsiveSize';
+import {
+  height,
+  moderateScale,
+  moderateScaleVertical,
+  textScale,
+  width,
+} from '../../styles/responsiveSize';
 
 export default () => {
   const styles = StyleSheet.create({
@@ -86,7 +92,7 @@ export default () => {
       fontFamily: fontFamily.medium,
       fontSize: textScale(16),
     },
-    stripeuttonLayout:{
+    stripeuttonLayout: {
       borderRadius: width / 2.5 / 2,
       borderWidth: 2,
       borderColor: colors.themeColor,
@@ -94,16 +100,30 @@ export default () => {
       padding: 10,
       alignItems: 'center',
     },
-    stipeText:{
+    stipeText: {
       fontFamily: fontFamily?.bold,
-      fontSize: 14,
+      fontSize: 13,
       color: colors?.themeColor,
     },
-    mainViewStripe:{
+    mainViewStripe: {
       justifyContent: 'flex-end',
       alignItems: 'flex-end',
       marginHorizontal: 10,
-    }
+    },
+    razorPayContainer: {
+      backgroundColor: colors?.white,
+      height: height / 3,
+      borderRadius: moderateScale(15),
+      justifyContent: 'center',
+      paddingHorizontal: moderateScale(10),
+    },
+    handleHeaderStyle: {
+      backgroundColor: colors?.whiteSmokeColor,
+      paddingHorizontal: moderateScale(10),
+      paddingTop: moderateScaleVertical(10),
+      borderTopLeftRadius: moderateScale(15),
+      borderTopRightRadius: moderateScale(15),
+    },
   });
   return styles;
 };

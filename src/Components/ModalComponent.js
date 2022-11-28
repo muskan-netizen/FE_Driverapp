@@ -5,7 +5,11 @@ import FlashMessage from 'react-native-flash-message';
 import Modal from 'react-native-modal';
 import imagePath from '../constants/imagePath';
 import colors from '../styles/colors';
-import {moderateScaleVertical} from '../styles/responsiveSize';
+import {
+  height,
+  moderateScaleVertical,
+  StatusBarHeight,
+} from '../styles/responsiveSize';
 import Header from './Header';
 
 export default function ModalComponent({
@@ -34,7 +38,6 @@ export default function ModalComponent({
       onBackdropPress={onClose}
       avoidKeyboard={true}
       backdropTransitionInTiming={transistionOut}
-      avoidKeyboard={true}
       style={{...styles.modalStyle, ...modalStyle}}>
       <View
         style={{
@@ -56,7 +59,13 @@ export default function ModalComponent({
 
         <>{modalBottomContent()}</>
       </View>
-      <FlashMessage ref={modalRef} position={'top'} />
+      <FlashMessage
+        ref={modalRef}
+        position={'center'}
+        style={{
+          backgroundColor: 'green',
+        }}
+      />
     </Modal>
   );
 }

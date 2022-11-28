@@ -1,34 +1,313 @@
 {
   "project_info": {
-    "project_number": "938225665096",
-    "project_id": "yogolift-driver",
-    "storage_bucket": "yogolift-driver.appspot.com"
+    "project_number": "817994139657",
+    "project_id": "royo-dispatcher-28d93",
+    "storage_bucket": "royo-dispatcher-28d93.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:938225665096:android:7f14a07281ccd044b5447d",
+        "mobilesdk_app_id": "1:817994139657:android:6da515fc875ce242de10d8",
         "android_client_info": {
-          "package_name": "com.yogoLift.dispatcher"
+          "package_name": "com.carhoptechnologies.royodispatcher"
         }
       },
       "oauth_client": [
         {
-          "client_id": "938225665096-s7nrvliijr2cdavtbd19e8erim5p4uod.apps.googleusercontent.com",
+          "client_id": "817994139657-0inncedtkm4k1kf1hlp0pej0dgj5dh15.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.carhoptechnologies.royodispatcher",
+            "certificate_hash": "6459a6610b3282cfa392061710892a1dd3a663c7"
+          }
+        },
+        {
+          "client_id": "817994139657-icfmmpifvjteifundoc27a6gf8tgi142.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCAHhUrOTUs5mVwOLmaSgjM1txpLHFjrgs"
+          "current_key": "AIzaSyBdg0klOPtO5Ocmb07OMe6eyrVhvT6Ufsg"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "938225665096-s7nrvliijr2cdavtbd19e8erim5p4uod.apps.googleusercontent.com",
+              "client_id": "817994139657-icfmmpifvjteifundoc27a6gf8tgi142.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "817994139657-4oh0ehgpe7jnim49qrgiqdo5tle3b451.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.CarHopTechnologies.Dispatch"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:817994139657:android:a939f6a892563515de10d8",
+        "android_client_info": {
+          "package_name": "com.destinationOps.royodispatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "817994139657-4t4juuslj867dvdc5g230c57ep47in0o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.destinationOps.royodispatcher",
+            "certificate_hash": "6459a6610b3282cfa392061710892a1dd3a663c7"
+          }
+        },
+        {
+          "client_id": "817994139657-icfmmpifvjteifundoc27a6gf8tgi142.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdg0klOPtO5Ocmb07OMe6eyrVhvT6Ufsg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "817994139657-icfmmpifvjteifundoc27a6gf8tgi142.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "817994139657-4oh0ehgpe7jnim49qrgiqdo5tle3b451.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.CarHopTechnologies.Dispatch"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:817994139657:android:8cf0b4ce7797e53fde10d8",
+        "android_client_info": {
+          "package_name": "com.loopwhole.royodispatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "817994139657-8iu16a8jh6efjat2q6javbgoog1eku86.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.loopwhole.royodispatcher",
+            "certificate_hash": "6459a6610b3282cfa392061710892a1dd3a663c7"
+          }
+        },
+        {
+          "client_id": "817994139657-icfmmpifvjteifundoc27a6gf8tgi142.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdg0klOPtO5Ocmb07OMe6eyrVhvT6Ufsg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "817994139657-icfmmpifvjteifundoc27a6gf8tgi142.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "817994139657-4oh0ehgpe7jnim49qrgiqdo5tle3b451.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.CarHopTechnologies.Dispatch"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:817994139657:android:d92486961278016bde10d8",
+        "android_client_info": {
+          "package_name": "com.thehouse.royodispatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "817994139657-l18thd2vs58kpvleb121j34u731m0voq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.thehouse.royodispatcher",
+            "certificate_hash": "6459a6610b3282cfa392061710892a1dd3a663c7"
+          }
+        },
+        {
+          "client_id": "817994139657-icfmmpifvjteifundoc27a6gf8tgi142.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdg0klOPtO5Ocmb07OMe6eyrVhvT6Ufsg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "817994139657-icfmmpifvjteifundoc27a6gf8tgi142.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "817994139657-4oh0ehgpe7jnim49qrgiqdo5tle3b451.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.CarHopTechnologies.Dispatch"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:817994139657:android:b0f23138cf038cfede10d8",
+        "android_client_info": {
+          "package_name": "com.travo.royodispatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "817994139657-n31hdvo3s8kit2a0tfbu877aq4u0gj2e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.travo.royodispatcher",
+            "certificate_hash": "6459a6610b3282cfa392061710892a1dd3a663c7"
+          }
+        },
+        {
+          "client_id": "817994139657-icfmmpifvjteifundoc27a6gf8tgi142.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdg0klOPtO5Ocmb07OMe6eyrVhvT6Ufsg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "817994139657-icfmmpifvjteifundoc27a6gf8tgi142.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "817994139657-4oh0ehgpe7jnim49qrgiqdo5tle3b451.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.CarHopTechnologies.Dispatch"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:817994139657:android:ee7f32ee098383d3de10d8",
+        "android_client_info": {
+          "package_name": "com.vici.royodispatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "817994139657-r5oftf4len6p0lk949phn4thccvr3bi8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vici.royodispatcher",
+            "certificate_hash": "6459a6610b3282cfa392061710892a1dd3a663c7"
+          }
+        },
+        {
+          "client_id": "817994139657-icfmmpifvjteifundoc27a6gf8tgi142.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdg0klOPtO5Ocmb07OMe6eyrVhvT6Ufsg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "817994139657-icfmmpifvjteifundoc27a6gf8tgi142.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "817994139657-4oh0ehgpe7jnim49qrgiqdo5tle3b451.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.CarHopTechnologies.Dispatch"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:817994139657:android:74091e0bbcbef1dede10d8",
+        "android_client_info": {
+          "package_name": "com.yogoLift.royodispatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "817994139657-t0m45aver4ku9jns8tl9249h62dd9e20.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.yogoLift.royodispatcher",
+            "certificate_hash": "6459a6610b3282cfa392061710892a1dd3a663c7"
+          }
+        },
+        {
+          "client_id": "817994139657-icfmmpifvjteifundoc27a6gf8tgi142.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdg0klOPtO5Ocmb07OMe6eyrVhvT6Ufsg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "817994139657-icfmmpifvjteifundoc27a6gf8tgi142.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "817994139657-4oh0ehgpe7jnim49qrgiqdo5tle3b451.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.CarHopTechnologies.Dispatch"
+              }
             }
           ]
         }
