@@ -49,6 +49,7 @@ DeviceCountry.getCountryCode()
     getPhonesCallingCodeAndCountryData = codes.filter(
       x => x.isoCode2 == result.code.toUpperCase(),
     );
+    console.log(getPhonesCallingCodeAndCountryData,"getPhonesCallingCodeAndCountryData")
   })
   .catch(e => {
     console.log(e);
@@ -60,7 +61,7 @@ export default function Login({navigation, route}) {
   );
   const darkthemeusingDevice = useDarkMode();
   const isDarkMode = themeToggle ? darkthemeusingDevice : themeColor;
-
+  console.log(clientInfo?.get_country_set?.phonecode,"codeeeee")
   const [state, setState] = useState({
     isLoading: false,
     callingCode:
@@ -286,7 +287,7 @@ export default function Login({navigation, route}) {
           headerStyle={{backgroundColor: colors.white}}
         />
       )}
-      {console.log(clientInfo, 'clientInfo>>>clientInfo')}
+  
       <View
         style={{
           flex: 1,

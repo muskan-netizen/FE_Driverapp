@@ -66,7 +66,7 @@ export default function TaskDetail({route, navigation}) {
   const styles = stylesFunc({defaultLanguage});
   const commonStyles = commonStylesFunc({fontFamily});
 
-  console.log(taskDetail, 'taskDetail...taskDetail');
+  console.log(taskDetail, 'taskDetail...taskDetail>');
 
   const [state, setState] = useState({
     vendors: {},
@@ -448,10 +448,10 @@ export default function TaskDetail({route, navigation}) {
     switch (taskStatus) {
       case 1:
         return 2;
-        break;
+       
       case 2:
         return 3;
-        break;
+        
       case 3:
         return 4;
         break;
@@ -1532,7 +1532,8 @@ export default function TaskDetail({route, navigation}) {
   };
 
   const openGoogleMap = () => {
-    var url = `https://www.google.com/maps/dir/?api=1&travelmode=driving&dir_action=navigate&destination=${taskDetail?.location?.address}`;
+    var url = `https://www.google.com/maps/dir/?api=1&travelmode=driving&dir_action=navigate&destination=${taskDetail?.location?.latitude},${taskDetail?.location?.longitude}`;
+ 
     Linking.canOpenURL(url)
       .then(supported => {
         console.log(supported, 'supportedsupported');
