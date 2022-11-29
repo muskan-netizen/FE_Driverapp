@@ -1,9 +1,9 @@
-//
-//  TodaysDeliverys(Production).xcconfig
-//  TodaysDeliverys
-//
-//  Created by CBL-MAC-034 on 24/11/22.
-//
+#include "Pods/Target Support Files/Pods-available_pods-TodaysDeliverys/Pods-available_pods-TodaysDeliverys.release.xcconfig"
 
-// Configuration settings file format documentation can be found at:
-// https://help.apple.com/xcode/#/dev745c5c974
+PROJECT_BUNDLE_ID =  com.royodispatcher.todaysDeliverys
+PROJECT_APP_VERSION = 1.0
+PROJECT_BUILD_NUMBER = 1
+PROJECT_APP_NAME = Todays Deliverys Driver
+PROJECT_PLIST = TodaysDeliverysInfo
+PROJECT_ENTITLEMENT=RoyoDriverAppRelease
+

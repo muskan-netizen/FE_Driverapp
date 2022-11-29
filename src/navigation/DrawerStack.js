@@ -23,7 +23,6 @@ export default function DrawerRoutes(props) {
     state => state?.initBoot?.defaultLanguage,
   );
 
-  let _drawer = React.useRef();
 
   return (
     <Drawer.Navigator

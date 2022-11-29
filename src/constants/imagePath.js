@@ -102,5 +102,7 @@ export default {
   icChatroom: require('../assets/images/ic_chatroom.png'),
   icStartChat: require('../assets/images/ic_start_chat.png'),
   icChatroomDrawer: require('../assets/images/ic_chatroom1.png'),
+  ic_pickupAddress:require('../assets/images/ic_ellipse.png'),
+  ic_dropupAddress:require('../assets/images/ic_location1.png'),
   flank: require('../assets/Flank.mp4'),
 };
