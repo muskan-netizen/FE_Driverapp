@@ -156,7 +156,7 @@
 // export const API_BASE_URL = 'https://dispatch.bustamovepartybus.com/';
 
 //ipickndrop
-// export const API_BASE_URL ="https://dispatch.ipickndrop.com/"
+export const API_BASE_URL ="https://dispatch.ipickndrop.com/"
 // export const API_BASE_URL ="https://dispatch.grn.green/"
 
 // dropitoffusa
@@ -473,7 +473,7 @@
 // export const personaltoken = 'TMJdbQlNWkYl1JzMONzRgF4zQFuP8s';
 
 // hiperabasto
-export const API_BASE_URL = 'https://dispatch.hiperabasto.mx/';
+// export const API_BASE_URL = 'https://dispatch.hiperabasto.mx/';
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;
 
 export const SEND_OTP = getApiUrl('api/auth/login');
