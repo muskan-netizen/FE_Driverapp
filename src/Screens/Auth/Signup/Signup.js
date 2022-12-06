@@ -93,14 +93,14 @@ export default function Signup({route, navigation}) {
     phoneNumber: '',
     callingCode:
       !isEmpty(getPhonesCallingCodeAndCountryData) &&
-      getBundleId() !== appIds.SXM2GO
+      getBundleId() !== (appIds.SXM2GO && appIds.delivery)
         ? getPhonesCallingCodeAndCountryData[0].countryCodes[0]
         : clientInfo?.get_country_set?.phonecode
         ? clientInfo?.get_country_set?.phonecode
         : '91',
     cca2:
       !isEmpty(getPhonesCallingCodeAndCountryData) &&
-      getBundleId() !== appIds.SXM2GO
+      getBundleId() !== (appIds.SXM2GO && appIds.delivery)
         ? getPhonesCallingCodeAndCountryData[0].isoCode2
         : clientInfo?.get_country_set?.code
         ? clientInfo?.get_country_set?.code
@@ -203,7 +203,6 @@ export default function Signup({route, navigation}) {
     updateState({cca2: data.cca2, callingCode: data.callingCode[0]});
     return;
   };
-
   let actionSheet = useRef();
   const showActionSheet = value => {
     console.log(value, 'value>value');
@@ -266,7 +265,7 @@ export default function Signup({route, navigation}) {
           },
         )
         .then(res => {
-          console.log(res, 'getRequiredDatas data');
+          console.log(res?.data?.documents, 'getRequiredDatas data');
 
           updateState({
             driverTags: res?.data?.agent_tags,
@@ -1434,11 +1433,6 @@ export default function Signup({route, navigation}) {
                 onChangeText={text => updateState({vehiclePlateNumber: text})}
               />
             </View> */}
-
-            {!!(addtionalTextInputs && addtionalTextInputs.length) &&
-              addtionalTextInputs.map((item, index) => {
-                return getTextInputField(item, index);
-              })}
 
             {!isEmpty(additionalDateFields) &&
               additionalDateFields.map((item, index) => {

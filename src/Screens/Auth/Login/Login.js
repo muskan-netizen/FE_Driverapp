@@ -49,7 +49,10 @@ DeviceCountry.getCountryCode()
     getPhonesCallingCodeAndCountryData = codes.filter(
       x => x.isoCode2 == result.code.toUpperCase(),
     );
-    console.log(getPhonesCallingCodeAndCountryData,"getPhonesCallingCodeAndCountryData")
+    console.log(
+      getPhonesCallingCodeAndCountryData,
+      'getPhonesCallingCodeAndCountryData',
+    );
   })
   .catch(e => {
     console.log(e);
@@ -61,19 +64,19 @@ export default function Login({navigation, route}) {
   );
   const darkthemeusingDevice = useDarkMode();
   const isDarkMode = themeToggle ? darkthemeusingDevice : themeColor;
-  console.log(clientInfo?.get_country_set?.phonecode,"codeeeee")
+  console.log(clientInfo, 'codeeeee');
   const [state, setState] = useState({
     isLoading: false,
     callingCode:
       !isEmpty(getPhonesCallingCodeAndCountryData) &&
-      getBundleId() !== appIds.SXM2GO
+      getBundleId() !== (appIds.SXM2GO || appIds.delivery)
         ? getPhonesCallingCodeAndCountryData[0].countryCodes[0]
         : !!clientInfo?.get_country_set?.phonecode
         ? clientInfo?.get_country_set?.phonecode
         : '91',
     cca2:
       !isEmpty(getPhonesCallingCodeAndCountryData) &&
-      getBundleId() !== appIds.SXM2GO
+      getBundleId() !== (appIds.SXM2GO && appIds.delivery)
         ? getPhonesCallingCodeAndCountryData[0].isoCode2
         : !!clientInfo?.get_country_set?.code
         ? clientInfo?.get_country_set?.code
@@ -196,14 +199,14 @@ export default function Login({navigation, route}) {
     updateState({
       callingCode:
         !isEmpty(getPhonesCallingCodeAndCountryData) &&
-        getBundleId() !== appIds.SXM2GO
+        getBundleId() !== (appIds.SXM2GO && appIds.delivery)
           ? getPhonesCallingCodeAndCountryData[0].countryCodes[0]
           : !!clientInfo?.get_country_set?.phonecode
           ? clientInfo?.get_country_set?.phonecode
           : '91',
       cca2:
         !isEmpty(getPhonesCallingCodeAndCountryData) &&
-        getBundleId() !== appIds.SXM2GO
+        getBundleId() !== (appIds.SXM2GO && appIds.delivery)
           ? getPhonesCallingCodeAndCountryData[0].isoCode2
           : !!clientInfo?.get_country_set?.code
           ? clientInfo?.get_country_set?.code
@@ -287,7 +290,7 @@ export default function Login({navigation, route}) {
           headerStyle={{backgroundColor: colors.white}}
         />
       )}
-  
+
       <View
         style={{
           flex: 1,

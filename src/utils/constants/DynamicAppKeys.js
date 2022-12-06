@@ -1246,7 +1246,7 @@ const appIds = {
   }),
   heyBuddy: Platform.select({
     ios: 'com.HeyBuddy.Dispatch',
-    android: 'com.HeyBuddy.royodispatcher',
+    android: 'com.HeyBuddy.driverApp',
   }),
   petsChoice: Platform.select({
     ios: 'com.PetsChoice.Dispatch',
@@ -1687,8 +1687,8 @@ const appIds = {
     android: 'com.fresHest.dispatcher',
   }),
   servern: Platform.select({
-    ios: 'com.servern.dispatcher',
-    android: 'com.servern.dispatcher',
+    ios: 'com.servern.driverapp',
+    android: 'com.servern.driverapp',
   }),
   smokeRun: Platform.select({
     ios: 'com.smokeRun.dispatcher',
