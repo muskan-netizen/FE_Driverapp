@@ -1,184 +1,64 @@
 {
   "project_info": {
-    "project_number": "596283579049",
-    "project_id": "royodispatcher7",
-    "storage_bucket": "royodispatcher7.appspot.com"
+    "project_number": "524412721936",
+    "project_id": "heybuddy-driver",
+    "storage_bucket": "heybuddy-driver.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:596283579049:android:07adcdf43374bf93d427b8",
+        "mobilesdk_app_id": "1:524412721936:android:1724d0209c440149c2a395",
         "android_client_info": {
-          "package_name": "com.Baubau.royodispatcher"
+          "package_name": "com.HeyBuddy.driverApp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "596283579049-22pipkdp0v4m83vr4lsac15pt9g2lg6k.apps.googleusercontent.com",
+          "client_id": "524412721936-abrq9n45qr3o3kg3fmkkkpmffna8dih4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.HeyBuddy.driverApp",
+            "certificate_hash": "a88b766ebe08c535516406fab3741781973c03ad"
+          }
+        },
+        {
+          "client_id": "524412721936-eq8qni2pjh599m44f58iivd8vfgv3gtj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.HeyBuddy.driverApp",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "524412721936-s4s9p6n2fun7virvf0t8mkl42qhu2jdf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.HeyBuddy.driverApp",
+            "certificate_hash": "6e35fcb20bda370ed0025e8c1df6109a03d09b6e"
+          }
+        },
+        {
+          "client_id": "524412721936-ar4ca36469ntevg5ejdcin7dbfojvg71.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBZdMmJYynUXzE6Q6_Xn2msVxnNGPXlc30"
+          "current_key": "AIzaSyDIVw3LD7fvqoWBU7mw6w9HCK8XPf0LSuk"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "596283579049-22pipkdp0v4m83vr4lsac15pt9g2lg6k.apps.googleusercontent.com",
+              "client_id": "524412721936-ar4ca36469ntevg5ejdcin7dbfojvg71.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "596283579049-muc28ohiu0t5q2cbklh9jf9us69abe8s.apps.googleusercontent.com",
+              "client_id": "524412721936-kckiohfivjsv8sljc6uhs2ka62g20gj2.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.Baubau.Dispatch"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:596283579049:android:eb5156abf636acecd427b8",
-        "android_client_info": {
-          "package_name": "com.Bookaryde.royodispatcher"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "596283579049-22pipkdp0v4m83vr4lsac15pt9g2lg6k.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBZdMmJYynUXzE6Q6_Xn2msVxnNGPXlc30"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "596283579049-22pipkdp0v4m83vr4lsac15pt9g2lg6k.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "596283579049-muc28ohiu0t5q2cbklh9jf9us69abe8s.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.Baubau.Dispatch"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:596283579049:android:2017a0f788ae82e5d427b8",
-        "android_client_info": {
-          "package_name": "com.HeyBuddy.royodispatcher"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "596283579049-22pipkdp0v4m83vr4lsac15pt9g2lg6k.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBZdMmJYynUXzE6Q6_Xn2msVxnNGPXlc30"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "596283579049-22pipkdp0v4m83vr4lsac15pt9g2lg6k.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "596283579049-muc28ohiu0t5q2cbklh9jf9us69abe8s.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.Baubau.Dispatch"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:596283579049:android:37f320a741e08f29d427b8",
-        "android_client_info": {
-          "package_name": "com.MandaExpress.royodispatcher"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "596283579049-22pipkdp0v4m83vr4lsac15pt9g2lg6k.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBZdMmJYynUXzE6Q6_Xn2msVxnNGPXlc30"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "596283579049-22pipkdp0v4m83vr4lsac15pt9g2lg6k.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "596283579049-muc28ohiu0t5q2cbklh9jf9us69abe8s.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.Baubau.Dispatch"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:596283579049:android:cb3fd2aab7b462d4d427b8",
-        "android_client_info": {
-          "package_name": "com.Yalary.royodispatcher"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "596283579049-22pipkdp0v4m83vr4lsac15pt9g2lg6k.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBZdMmJYynUXzE6Q6_Xn2msVxnNGPXlc30"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "596283579049-22pipkdp0v4m83vr4lsac15pt9g2lg6k.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "596283579049-muc28ohiu0t5q2cbklh9jf9us69abe8s.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.Baubau.Dispatch"
+                "bundle_id": "com.HeyBuddy.Dispatch"
               }
             }
           ]
