@@ -4,7 +4,7 @@
 // export const API_BASE_URL = 'https://sales.royodispatch.com/';
 // export const API_BASE_URL='http://192.168.101.140:9091/'
 // //Staging
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // export const API_BASE_URL = 'https://dispatch.dimahalal.com/'
 
@@ -75,7 +75,7 @@
 // export const API_BASE_URL = 'https://dispatch.knockknock.online/';
 // export const API_BASE_URL = 'https://dispatcher.mrveloz.com.mx/';
 //Papruki
-export const API_BASE_URL='https://dispatch.papiruki.com/'
+// export const API_BASE_URL='https://dispatch.papiruki.com/'
 // export const API_BASE_URL = 'https://dispatch.drusdeliveries.com/';
 // export const API_BASE_URL='https://dispatch.dbairro.com/'
 // export const API_BASE_URL = 'https://dispatch.pas41.com/'
@@ -155,7 +155,7 @@ export const API_BASE_URL='https://dispatch.papiruki.com/'
 // export const API_BASE_URL = 'https://dispatch.bustamovepartybus.com/';
 
 //ipickndrop
-export const API_BASE_URL = 'https://dispatch.ipickndrop.com/';
+// export const API_BASE_URL = 'https://dispatch.ipickndrop.com/';
 // export const API_BASE_URL ="https://dispatch.grn.green/"
 
 // dropitoffusa
