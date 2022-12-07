@@ -433,6 +433,8 @@ const shortCodes = {
   locate:'c119ae',
   todaysDeliverys:'9fc243',
   georgiacollective:'834623',
+  lincshare:'84ee7c',
+  rumbella:'0233dd',
 };
 
 const appIds = {
@@ -1996,8 +1998,8 @@ const appIds = {
     android: 'com.spryton.royodispatcher',
   }),
   nittosadai: Platform.select({
-    ios: 'com.nittosadai.royodispatcher',
-    android: 'com.nittosadai.royodispatcher',
+    ios: 'com.nittosadai.dispatcher',
+    android: 'com.nittosadai.dispatcher',
   }),
   clickOkart: Platform.select({
     ios: 'com.clickOkart.royodispatcher',
@@ -2147,7 +2149,14 @@ const appIds = {
     ios: 'com.royodispatcher.georgiacollective',
     android: 'com.georgiacollective.royodispatcher',
   }),
-
+  lincshare: Platform.select({
+    ios: 'com.lincshare.royodispatcher',
+    android: 'com.lincshare.royodispatcher',
+  }),
+  rumbella: Platform.select({
+    ios: 'com.rumbella.royodispatcher',
+    android: 'com.rumbella.royodispatcher',
+  }),
 };
 
 export {appIds, shortCodes};

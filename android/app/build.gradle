@@ -203,35 +203,25 @@ android {
      flavorDimensions "appType"
 productFlavors{
                   
-     bigBayong{
+      rumbella{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.bigbayong.royodispatcher'
-            resValue "string", "app_name", "Bigbayong Dispatcher"
+            applicationId 'com.rumbella.royodispatcher'
+            resValue "string", "app_name", "Rumbella Dispatcher"
         }
-             axxi{
+           nittosadai{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.axxi.royodispatcher'
-            resValue "string", "app_name", "Axxione Dispatcher"
-        }
-        georgiacollective{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.georgiacollective.royodispatcher'
-            resValue "string", "app_name", "Georgiacollective Dispatcher"
+            applicationId 'com.nittosadai.dispatcher'
+            resValue "string", "app_name", "Nittosadai Driver"
         }
 }
     
@@ -7206,7 +7196,7 @@ productFlavors{
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
 //             applicationId 'com.usVetsDeliver.royodispatcher'
-//             resValue "string", "app_name", "UsVetsDeliver Dispatcher"
+//             resValue "string", "app_name", "UsVets Driver"
 //         }
 //       locate{
 //             dimension "appType"
@@ -7247,6 +7237,26 @@ productFlavors{
 //             // applicationIdSuffix ".royoorder"
 //             applicationId 'com.georgiacollective.royodispatcher'
 //             resValue "string", "app_name", "Georgiacollective Dispatcher"
+//         }
+ //       lincshare{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.lincshare.royodispatcher'
+//             resValue "string", "app_name", "Lincshare Dispatcher"
+//         }
+ //      rumbella{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.rumbella.royodispatcher'
+//             resValue "string", "app_name", "Rumbella Dispatcher"
 //         }
 // }
 }

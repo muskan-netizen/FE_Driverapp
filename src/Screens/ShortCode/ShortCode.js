@@ -2692,6 +2692,18 @@ export default function ShortCode({ route, navigation }) {
                     isShortcodePrefilled: true,
                   });
                   break;
+                  case appIds.lincshare:
+                  updateState({
+                    shortCode: shortCodes.lincshare,
+                    isShortcodePrefilled: true,
+                  });
+                  break;
+                  case appIds.rumbella:
+                  updateState({
+                    shortCode: shortCodes.rumbella,
+                    isShortcodePrefilled: true,
+                  });
+                  break;
       }
     })();
   }, [internetConnection]);
@@ -2767,7 +2779,7 @@ export default function ShortCode({ route, navigation }) {
       }
 
       let updatedShortCode = shortCode;
-    //  let updatedShortCode = '08aeee';
+    //  let updatedShortCode = 'f6be38';
       //  let updatedShortCode = '1fdd1d';
 
       actions
