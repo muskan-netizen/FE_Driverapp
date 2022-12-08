@@ -4,16 +4,18 @@
 // export const API_BASE_URL = 'https://sales.royodispatch.com/';
 // export const API_BASE_URL='http://192.168.101.140:9091/'
 // //Staging
-export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // export const API_BASE_URL = 'https://dispatch.dimahalal.com/'
-export const API_BASE_URL = 'https://dispatch.laundrozone.net/';
+// export const API_BASE_URL = 'https://dispatch.laundrozone.net/';
 
 //  export const API_BASE_URL='https://zuzucleans.royodispatch.com/'
 // export const API_BASE_URL='http://192.168.100.142:8001/'
 // export const API_BASE_URL = 'https://dispatch.bendeta.biz/';
 // export const API_BASE_URL = 'https://dispatch.shophairrun.app/';
 // export const API_BASE_URL='http://192.168.100.130:9091/'
+
+ export const API_BASE_URL='https://dispatch.movingwheelsdeliveryservices.com/'
 
 //export const API_BASE_URL   ='https://fcba-103-72-170-243.ngrok.io/'
 // export const API_BASE_URL='https://delivery.rdstaging.com/'
