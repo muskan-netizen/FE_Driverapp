@@ -1799,8 +1799,8 @@ const appIds = {
     android: 'com.taxiology.driverApp',
   }),
   laundroZone: Platform.select({
-    ios: 'com.LaundroZone.driverApp',
-    android: 'com.LaundroZone.driverApp',
+    ios: 'com.LaundroZone.driver',
+    android: 'com.LaundroZone.driver',
   }),
   swipe: Platform.select({
     ios: 'com.app.swipeDriver',
@@ -1820,7 +1820,7 @@ const appIds = {
   }),
   mrVeloz: Platform.select({
     ios: 'com.mrVeloz.royodispatcher',
-    android: 'com.mrVeloz.royodispatcher',
+    android: 'com.mrVeloz.driverapp',
   }),
   pets: Platform.select({
     ios: 'com.pets.royodispatcher',

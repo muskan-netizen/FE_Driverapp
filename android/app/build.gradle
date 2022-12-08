@@ -202,6 +202,18 @@ android {
 
      flavorDimensions "appType"
 
+    //  productFlavors{
+    //        laundroZone{
+    //         dimension "appType"
+    //         versionCode 1
+    //         versionName "1.0"
+    //         minSdkVersion rootProject.ext.minSdkVersion
+    //         targetSdkVersion rootProject.ext.targetSdkVersion
+    //         // applicationIdSuffix ".royoorder"
+    //         applicationId 'com.LaundroZone.driver'
+    //         resValue "string", "app_name", "laundroZone Driver"
+    //     }
+    //  }
 
     
     productFlavors {
@@ -6249,8 +6261,8 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.LaundroZone.driverApp'
-            resValue "string", "app_name", "laundroZone Dispatcher"
+            applicationId 'com.LaundroZone.driver'
+            resValue "string", "app_name", "laundroZone Driver"
         }
 
            swipe{
@@ -6303,8 +6315,8 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.mrVeloz.royodispatcher'
-            resValue "string", "app_name", "MrVeloz Dispatcher"
+            applicationId 'com.mrVeloz.driverapp'
+            resValue "string", "app_name", "MrVeloz Driver"
         }
 
          pets{
