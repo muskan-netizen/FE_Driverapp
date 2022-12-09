@@ -201,20 +201,20 @@ android {
     }
 
      flavorDimensions "appType"
-// productFlavors{
+productFlavors{
                   
-//       rumbella{
-//             dimension "appType"
-//             versionCode 1
-//             versionName "1.0"
-//             minSdkVersion rootProject.ext.minSdkVersion
-//             targetSdkVersion rootProject.ext.targetSdkVersion
-//             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.rumbella.royodispatcher'
-//             resValue "string", "app_name", "Rumbella Dispatcher"
-//         }
-           
-// }
+      rumbella{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.rumbella.royodispatcher'
+            resValue "string", "app_name", "Rumbella Dispatcher"
+        }
+            
+}
     
     productFlavors {
         royodispatcher {
