@@ -435,6 +435,7 @@ const shortCodes = {
   georgiacollective:'834623',
   lincshare:'84ee7c',
   rumbella:'0233dd',
+  glavour:'430cb3'
 };
 
 const appIds = {
@@ -2156,6 +2157,10 @@ const appIds = {
   rumbella: Platform.select({
     ios: 'com.rumbella.royodispatcher',
     android: 'com.rumbella.royodispatcher',
+  }),
+  glavour: Platform.select({
+    ios: 'com.glavour.royodispatcher',
+    android: 'com.glavour.royodispatcher',
   }),
 };
 

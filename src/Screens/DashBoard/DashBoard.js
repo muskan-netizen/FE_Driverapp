@@ -79,7 +79,7 @@ export default function DashBoard({ route, navigation }) {
     zendeskKeys,
     isCabPooling,
   } = useSelector((state) => state?.initBoot);
-
+  console.log(isCabPooling,'isCabPoolingisCabPooling')
   const [state, setState] = useState({
     isLoading: false,
     isEnabled: userData && userData?.is_available ? true : false,
@@ -1138,7 +1138,7 @@ export default function DashBoard({ route, navigation }) {
             options={options}
             initial={selectedOption}
             onPress={(value) => updateContent(value)}
-            textInputStyle={{ width: isCabPooling = 1 ? moderateScale(width - 20): moderateScale(width - 40) }}
+            textInputStyle={{ width:  moderateScale(width - 40) }}
           />
         ) : (
           <View style={{ height: 35 }} />
