@@ -75,9 +75,12 @@
 //  export const API_BASE_URL = 'https://delivery.taquick.com/';
 
 // export const API_BASE_URL = 'http://192.168.96.84:9091/';
+export const API_BASE_URL = 'https://dispatch.carryfood.org/';
 
 // export const API_BASE_URL = 'https://dispatch.knockknock.online/';
 // export const API_BASE_URL = 'https://dispatcher.mrveloz.com.mx/';
+// export const API_BASE_URL =
+//   'https://dispatch.movingwheelsdeliveryservices.com/';
 //Papruki
 // export const API_BASE_URL = 'https://dispatch.papiruki.com/';
 // export const API_BASE_URL = 'https://dispatch.drusdeliveries.com/';
