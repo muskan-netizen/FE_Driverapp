@@ -1819,7 +1819,7 @@ const appIds = {
     android: 'com.kurrix.royoDispatcher',
   }),
   mrVeloz: Platform.select({
-    ios: 'com.mrVeloz.royodispatcher',
+    ios: 'com.mrVeloz.driverapp',
     android: 'com.mrVeloz.driverapp',
   }),
   pets: Platform.select({
