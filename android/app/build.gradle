@@ -244,6 +244,18 @@ productFlavors{
             resValue "string", "app_name", "Euodoo Technologies Dispatcher"
         }
 
+          mml{
+            dimension "appType"
+            versionCode 5
+            versionName "1.1"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.app.MML.royodispatcher'
+            resValue "string", "app_name", "MML Driver"
+           
+        }
+
 }
     
 //     productFlavors {
