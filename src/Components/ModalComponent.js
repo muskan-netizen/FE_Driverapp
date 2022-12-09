@@ -33,6 +33,7 @@ export default function ModalComponent({
       onBackButtonPress={onClose}
       onBackdropPress={onClose}
       backdropTransitionInTiming={transistionOut}
+      avoidKeyboard={true}
       style={{...styles.modalStyle, ...modalStyle}}>
       <View
         style={{

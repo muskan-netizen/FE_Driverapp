@@ -2,7 +2,8 @@ import types from '../types';
 
 const initial_state = {
   userData: {},
-  profileAddress:{}
+  profileAddress:{}, 
+ 
 };
 
 export default function (state = initial_state, action) {
@@ -21,15 +22,8 @@ export default function (state = initial_state, action) {
       const data = action.payload;
       return {userData: undefined};
     }
+ 
 
-    // case types.PROFILE_ADDRESS: {
-    //   const data = action.payload;
-    //   console.log(data,'yaha')
-    //   return {
-    //     ...state,
-    //     profileAddress: data
-    //   };
-    // }
     default: {
       return {...state};
     }

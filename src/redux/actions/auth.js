@@ -10,11 +10,12 @@ import {
   SIGNUPDOC,
   SIGNUP_API,
   SIGNUP_SEND_OTP,
+  CAB_POOLING_STATUS,
 } from '../../config/urls';
-import {apiGet, apiPost, removeItem, setUserData} from '../../utils/utils';
+import { apiGet, apiPost, removeItem, saveCabPollingStatus, setItem, setUserData } from '../../utils/utils';
 import store from '../store';
 import types from '../types';
-const {dispatch} = store;
+const { dispatch } = store;
 
 export const saveUserData = data => {
   dispatch({
@@ -29,6 +30,7 @@ export const removerUserData = data => {
     payload: data,
   });
 };
+
 
 export function login(data = {}, headers = {}) {
   console.log(data, 'login>data>data>data', headers);
@@ -192,3 +194,24 @@ export function sendOtpOnSignup(data = {}, headers = {}) {
       });
   });
 }
+
+export function updateCabPoolingStatus(data = {}, headers = {}) {
+  console.log(headers, data, "headers,dataheaders,data");
+  return new Promise((resolve, reject) => {
+    apiPost(CAB_POOLING_STATUS, data, headers)
+      .then(async res => {
+        resolve(res)
+      }
+      )
+      .catch(error => {
+        reject(error);
+      });
+  });
+}
+
+
+
+
+
+
+
