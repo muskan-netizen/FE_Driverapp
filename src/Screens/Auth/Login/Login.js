@@ -8,6 +8,7 @@ import {
   Linking,
   Alert,
   PermissionsAndroid,
+  FlatList,
 } from "react-native";
 import DeviceInfo, { getBundleId } from "react-native-device-info";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
@@ -24,6 +25,7 @@ import {
   height,
   moderateScale,
   moderateScaleVertical,
+  textScale,
   width,
 } from "../../../styles/responsiveSize";
 import { showError, showSuccess } from "../../../utils/helperFunctions";
@@ -51,6 +53,8 @@ import {
 import { openAppSetting } from "../../../utils/openNativeApp";
 import { useFocusEffect } from "@react-navigation/native";
 import { useDarkMode } from "react-native-dark-mode";
+import Modal from 'react-native-modal';
+
 
 var getPhonesCallingCodeAndCountryData = null;
 DeviceCountry.getCountryCode()
@@ -81,21 +85,22 @@ export default function Login({ navigation, route }) {
     isLoading: false,
     callingCode:
       getPhonesCallingCodeAndCountryData &&
-      getPhonesCallingCodeAndCountryData.length
+        getPhonesCallingCodeAndCountryData.length
         ? getPhonesCallingCodeAndCountryData[0].countryCodes[0]
         : clientInfo?.get_country_set?.phonecode
-        ? clientInfo?.get_country_set?.phonecode
-        : "91",
+          ? clientInfo?.get_country_set?.phonecode
+          : "91",
     cca2:
       getPhonesCallingCodeAndCountryData &&
-      getPhonesCallingCodeAndCountryData.length
+        getPhonesCallingCodeAndCountryData.length
         ? getPhonesCallingCodeAndCountryData[0].isoCode2
         : clientInfo?.get_country_set?.code
-        ? clientInfo?.get_country_set?.code
-        : "IN",
+          ? clientInfo?.get_country_set?.code
+          : "IN",
     phoneNumber: "",
     appHashKey: "",
     locationPermissionStatus: false,
+   
   });
   //all states used in this screen
   const {
@@ -105,6 +110,7 @@ export default function Login({ navigation, route }) {
     isLoading,
     appHashKey,
     locationPermissionStatus,
+  
   } = state;
 
   const checkLocationPermission = () => {
@@ -221,18 +227,18 @@ export default function Login({ navigation, route }) {
     updateState({
       callingCode:
         getPhonesCallingCodeAndCountryData &&
-        getPhonesCallingCodeAndCountryData.length
+          getPhonesCallingCodeAndCountryData.length
           ? getPhonesCallingCodeAndCountryData[0].countryCodes[0]
           : clientInfo?.get_country_set?.phonecode
-          ? clientInfo?.get_country_set?.phonecode
-          : "91",
+            ? clientInfo?.get_country_set?.phonecode
+            : "91",
       cca2:
         getPhonesCallingCodeAndCountryData &&
-        getPhonesCallingCodeAndCountryData.length
+          getPhonesCallingCodeAndCountryData.length
           ? getPhonesCallingCodeAndCountryData[0].isoCode2
           : clientInfo?.get_country_set?.code
-          ? clientInfo?.get_country_set?.code
-          : "IN",
+            ? clientInfo?.get_country_set?.code
+            : "IN",
     });
   }, [clientInfo]);
 
@@ -284,10 +290,15 @@ export default function Login({ navigation, route }) {
 
   //On country change
   const _onCountryChange = (data) => {
-    updateState({ cca2: data.cca2, callingCode: data.callingCode[0] });
+   
+    
+      updateState({ cca2: data.cca2, callingCode: data.callingCode[0] });
     return;
-  };
 
+
+  };
+  
+ 
   const _signUp = () => {
     navigation.navigate(navigationStrings.SIGN_UP);
   };
@@ -359,7 +370,7 @@ export default function Login({ navigation, route }) {
                 color={colors.black}
                 borderColor={colors.themeColor}
                 callingCodeTextStyle={styles.callingCodeTextStyle}
-                // color={isDarkMode ? MyDarkTheme.colors.text : null}
+              // color={isDarkMode ? MyDarkTheme.colors.text : null}
               />
             </View>
             <GradientButton
@@ -407,6 +418,8 @@ export default function Login({ navigation, route }) {
           </View>
         </KeyboardAwareScrollView>
       </View>
+     
+
     </WrapperContainer>
   );
 }

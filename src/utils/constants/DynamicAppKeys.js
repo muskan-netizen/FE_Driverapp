@@ -435,6 +435,12 @@ const shortCodes = {
   georgiacollective:'834623',
   lincshare:'84ee7c',
   rumbella:'0233dd',
+  glavour:'430cb3',
+  shipmoe:'d3b17f',
+  skyline:'083e4d',
+  rentzy:'16ce83',
+  bliss:'24a7bf',
+  otgWeeds:'801707'
 };
 
 const appIds = {
@@ -2058,8 +2064,8 @@ const appIds = {
     android: 'com.speedyDelivery.royodispatcher',
   }),
   holla: Platform.select({
-    ios: 'com.royodispatcher.holla',
-    android: 'com.holla.royodispatcher',
+    ios: 'com.dispatcher.holla',
+    android: 'com.holla.dispatcher',
   }),
   icabPro: Platform.select({
     ios: 'com.royodispatcher.icabPro',
@@ -2156,6 +2162,30 @@ const appIds = {
   rumbella: Platform.select({
     ios: 'com.rumbella.royodispatcher',
     android: 'com.rumbella.royodispatcher',
+  }),
+  glavour: Platform.select({
+    ios: 'com.glavour.royodispatcher',
+    android: 'com.glavour.royodispatcher',
+  }),
+  shipmoe: Platform.select({
+    ios: 'com.shipmoe.royodispatcher',
+    android: 'com.shipmoe.royodispatcher',
+  }),
+  bliss: Platform.select({
+    ios: 'com.bliss.royodispatcher',
+    android: 'com.bliss.royodispatcher',
+  }),
+  skyline: Platform.select({
+    ios: 'com.skyline.royodispatcher',
+    android: 'com.skyline.royodispatcher',
+  }),
+  rentzy: Platform.select({
+    ios: 'com.rentzy.royodispatcher',
+    android: 'com.rentzy.royodispatcher',
+  }),
+  otgWeeds: Platform.select({
+    ios: 'com.otgWeeds.royodispatcher',
+    android: 'com.otgWeeds.royodispatcher',
   }),
 };
 

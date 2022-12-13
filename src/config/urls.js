@@ -1,7 +1,7 @@
 
 //export const API_BASE_URL = 'https://805c-103-72-170-243.ngrok.io/';
 
-// export const API_BASE_URL = 'http://192.168.100.130:9091/';
+// export const API_BASE_URL = 'https://dispatch.10dollahollla.com/';
 
 
  //export const API_BASE_URL = 'https://api.royodispatch.com/';
@@ -44,7 +44,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.elog.group/';
 
 // export const API_BASE_URL = 'https://dispatch.knockknock.online/'
- //export const API_BASE_URL = 'https://api.winhires.com/';
+//  export const API_BASE_URL = 'https://api.winhires.com/';
 //export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
 // export const API_BASE_URL = 'http://192.168.96.152:9091/';
 //export const API_BASE_URL = 'https://api.royodispatch.com/';

@@ -203,17 +203,16 @@ android {
      flavorDimensions "appType"
 productFlavors{
                   
-      rumbella{
+              royodispatcher {
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.rumbella.royodispatcher'
-            resValue "string", "app_name", "Rumbella Dispatcher"
-        }
-            
+            applicationId 'com.codebrew.royodispatcher'
+            resValue "string", "app_name", "RoyoDriverApp"
+        } 
 }
     
     productFlavors {
@@ -7006,7 +7005,7 @@ productFlavors{
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.holla.royodispatcher'
+            applicationId 'com.holla.dispatcher'
             resValue "string", "app_name", "\$10 Holla Dispatcher"
         }
          icabPro{
@@ -7258,6 +7257,56 @@ productFlavors{
             // applicationIdSuffix ".royoorder"
             applicationId 'com.glavour.royodispatcher'
             resValue "string", "app_name", "Glavour Dispatcher"
+        }
+      shipmoe{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.shipmoe.royodispatcher'
+            resValue "string", "app_name", "Shipmoe Dispatcher"
+        }
+      bliss{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.bliss.royodispatcher'
+            resValue "string", "app_name", "Bliss Dispatcher"
+        }
+      rentzy{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.rentzy.royodispatcher'
+            resValue "string", "app_name", "Rentzy Dispatcher"
+        }
+      skyline{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.skyline.royodispatcher'
+            resValue "string", "app_name", "Skyline Dispatcher"
+        }
+     otgWeeds{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.otgWeeds.royodispatcher'
+            resValue "string", "app_name", "Otg Weeds Dispatcher"
         }
 }
 }

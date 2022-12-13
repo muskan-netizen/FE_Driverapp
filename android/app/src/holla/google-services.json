@@ -1,34 +1,41 @@
 {
   "project_info": {
-    "project_number": "657041186941",
-    "project_id": "holla-driver-fdffc",
-    "storage_bucket": "holla-driver-fdffc.appspot.com"
+    "project_number": "41868844741",
+    "project_id": "holla-driver-834c2",
+    "storage_bucket": "holla-driver-834c2.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:657041186941:android:b52aa02896f7bd50949114",
+        "mobilesdk_app_id": "1:41868844741:android:0285e4ab8eae09d0da5aac",
         "android_client_info": {
-          "package_name": "com.holla.royodispatcher"
+          "package_name": "com.holla.dispatcher"
         }
       },
       "oauth_client": [
         {
-          "client_id": "657041186941-87ms082csn9nitj6leqiviq7v6rtoqbc.apps.googleusercontent.com",
+          "client_id": "41868844741-n5pjs68ljrnk55kej7msisi2mq04lbll.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBaehJmgH-dH99hzqX7hs8HIh9tfiB80sE"
+          "current_key": "AIzaSyAgNm79Y-n4sQkaZfwXbMzT2ga72S8Q5es"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "657041186941-87ms082csn9nitj6leqiviq7v6rtoqbc.apps.googleusercontent.com",
+              "client_id": "41868844741-n5pjs68ljrnk55kej7msisi2mq04lbll.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "41868844741-hs0pvoj43t0g3trgpofgrd9jmvptluvs.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.dispatcher.holla"
+              }
             }
           ]
         }

@@ -285,7 +285,7 @@ export default function Cart({navigation, route}) {
       actions
         .getCustomerOrderDetail(url, data, {client: clientInfo?.database_name})
         .then(res => {
-          console.log(res, 'all response after hit order api');
+          console.log(res, 'all response after hit order api++++++++');
 
           updateState({
             isRefreshing: false,
