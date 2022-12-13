@@ -6,7 +6,8 @@
 // //Staging
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
 
-// export const API_BASE_URL = 'https://dispatch.dimahalal.com/'
+// export const API_BASE_URL = 'https://dispatch.dimahalal.com/';
+// export const API_BASE_URL = 'https://dispatch.kaypee.app/';
 // export const API_BASE_URL = 'https://dispatch.laundrozone.net/';
 
 //  export const API_BASE_URL='https://zuzucleans.royodispatch.com/'
@@ -73,7 +74,7 @@
 //  export const API_BASE_URL = 'https://delivery.taquick.com/';
 
 // export const API_BASE_URL = 'http://192.168.96.84:9091/';
-export const API_BASE_URL = 'https://dispatch.carryfood.org/';
+// export const API_BASE_URL = 'https://dispatch.carryfood.org/';
 
 // export const API_BASE_URL = 'https://dispatch.knockknock.online/';
 // export const API_BASE_URL = 'https://dispatcher.mrveloz.com.mx/';
@@ -116,7 +117,7 @@ export const API_BASE_URL = 'https://dispatch.carryfood.org/';
 // export const API_BASE_URL = 'https://dispatch.fijieats.com/';
 
 //  jiffix
-// export const API_BASE_URL = 'https://dispatch.jiffex.in/'
+export const API_BASE_URL = 'https://dispatch.jiffex.in/';
 
 // halatalabat
 // export const API_BASE_URL = ' https://dispatch.halatalabat.com/'
