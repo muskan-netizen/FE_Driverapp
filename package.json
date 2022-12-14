@@ -859,6 +859,8 @@
     "lincsharedispatcherRelease": "cd android && ./gradlew assemblelincshareRelease",
     "rumbelladispatcher": "react-native run-android --variant=rumbellaDebug",
     "rumbelladispatcherRelease": "cd android && ./gradlew assemblerumbellaRelease",
+    "glavourdispatcher": "react-native run-android --variant=glavourDebug",
+    "glavourdispatcherRelease": "cd android && ./gradlew assembleglavourRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
