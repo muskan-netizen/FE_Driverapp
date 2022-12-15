@@ -201,29 +201,18 @@ android {
     }
 
      flavorDimensions "appType"
-productFlavors{
-                  
-      rumbella{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.rumbella.royodispatcher'
-            resValue "string", "app_name", "Rumbella Dispatcher"
-        }
-            glavour{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.glavour.royodispatcher'
-            resValue "string", "app_name", "Glavour Dispatcher"
-        }
-}
+// productFlavors{
+//       bksTaxi{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.BksTaxi.royodispatcher'
+//             resValue "string", "app_name", "BKS Taxi Dispatcher"
+//         }
+// }
     
     productFlavors {
         royodispatcher {
@@ -7258,16 +7247,7 @@ productFlavors{
             applicationId 'com.rumbella.royodispatcher'
             resValue "string", "app_name", "Rumbella Dispatcher"
         }
-      glavour{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.glavour.royodispatcher'
-            resValue "string", "app_name", "Glavour Dispatcher"
-        }
+  
 }
 }
 

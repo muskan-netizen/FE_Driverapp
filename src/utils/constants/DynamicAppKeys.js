@@ -1285,7 +1285,7 @@ const appIds = {
     android: 'com.Seratho.royodispatcher',
   }),
   xborne: Platform.select({
-    ios: 'com.Xborne.Dispatch',
+    ios: 'com.Xborne.dispatcher',
     android: 'com.Xborne.dispatcher',
   }),
   fawaz: Platform.select({

@@ -1138,11 +1138,9 @@ export default function DashBoard({ route, navigation }) {
             options={options}
             initial={selectedOption}
             onPress={(value) => updateContent(value)}
-<<<<<<< HEAD
+
             textInputStyle={{ width:   moderateScale(width - 40) }}
-=======
-            textInputStyle={{ width:  moderateScale(width - 40) }}
->>>>>>> 02c5adead06eb9c60eee5801e00f6341d244a4f0
+
           />
         ) : (
           <View style={{ height: 35 }} />
