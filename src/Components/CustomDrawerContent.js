@@ -311,7 +311,7 @@ console.log(isCabPooling,"isCabPooling");
 
   //Naviagtion to specific screen
   const moveToNewScreen = (screenName, data) => () => {
-    navigation.navigate(screenName, { data });
+    navigation.navigate(screenName, {data});
   };
 
   //Update states
@@ -338,7 +338,7 @@ console.log(isCabPooling,"isCabPooling");
   };
 
   const logout = () => {
-    updateState({ isLoading: true });
+    updateState({isLoading: true});
     actions
       .logout({}, { client: clientInfo?.database_name })
       .then((res) => {
@@ -470,15 +470,10 @@ console.log(isCabPooling,"isCabPooling");
                   screen: route?.subRoute,
                 });
               } else {
-                navigation.navigate(route.key);
+                onLogoutPress();
               }
-            } else if (route?.support) {
-              onStartSupportChat();
-            } else {
-              onLogoutPress();
-            }
-            // navigation.navigate(route.key, { screen: navigationStrings.subRoute });
-          };
+              // navigation.navigate(route.key, { screen: navigationStrings.subRoute });
+            };
 
           return route?.id ? (
             <Fragment key={route?.name}>
@@ -500,9 +495,9 @@ console.log(isCabPooling,"isCabPooling");
               >
                 {/* {options.drawerIcon({focused: isFocused})} */}
 
-                <View style={{ flex: 0.15 }}>
-                  <Image source={route?.image} />
-                </View>
+                  <View style={{flex: 0.15}}>
+                    <Image source={route?.image} />
+                  </View>
 
                 <View style={{ flex: 0.85 }}>
                   <Text
@@ -520,7 +515,7 @@ console.log(isCabPooling,"isCabPooling");
                 </View>
               </TouchableOpacity>
             </Fragment>
-          ) : null;
+          ) : null}
         })}
        
       </View>

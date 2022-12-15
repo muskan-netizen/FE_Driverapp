@@ -85,6 +85,7 @@ export default function AddMoney({navigation}) {
     }
     getWalletData();
   }, []);
+  
 
   const getWalletData = () => {
     actions
@@ -317,7 +318,7 @@ export default function AddMoney({navigation}) {
       // updateState({isLoadingB: true});
       await createToken({...cardInfo, type: 'Card'})
         .then(res => {
-          console.log(res, 'res>>STRIpe');
+          console.log(res, 'res>>STRIpe........');
           console.log(cardInfo, 'stripeTokencardInfo>>');
           if (res && res?.token && res.token?.id) {
             let selectedMethod = seletedPaymentGateway.code.toLowerCase();
