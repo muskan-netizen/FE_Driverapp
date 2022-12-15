@@ -159,6 +159,7 @@ export default function DashBoard({ route, navigation }) {
     );
     return () => backHandler.remove();
   }, []);
+  console.log("add my code");
 
   useEffect(() => {
     BackgroundGeolocation.on('location', location => {
