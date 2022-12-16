@@ -299,27 +299,27 @@ export default function TaskDetail({route, navigation}) {
     );
   };
 
-  // useEffect(() => {
-  //   if (new_dispatch_traking_url()) {
-  //     updateState({
-  //       isLoading: true,
-  //     });
-  //     _getproductUpdateDetails();
-  //   }
-  //   if (fromHistory) {
-  //     if (
-  //       taskDetail?.tasktype?.name == 'Drop' &&
-  //       taskDetail?.order?.task?.length >= 1 &&
-  //       taskDetail?.order?.task[0]?.location?.address &&
-  //       taskDetail?.order?.task[1]?.location?.address
-  //     ) {
-  //       getAllMovingDetails([
-  //         {pickupAddress: taskDetail?.order?.task[0]?.location?.address},
-  //         {dropAddress: taskDetail?.order?.task[1]?.location?.address},
-  //       ]);
-  //     }
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (new_dispatch_traking_url()) {
+      updateState({
+        isLoading: true,
+      });
+      _getproductUpdateDetails();
+    }
+    if (fromHistory) {
+      if (
+        taskDetail?.tasktype?.name == 'Drop' &&
+        taskDetail?.order?.task?.length >= 1 &&
+        taskDetail?.order?.task[0]?.location?.address &&
+        taskDetail?.order?.task[1]?.location?.address
+      ) {
+        getAllMovingDetails([
+          {pickupAddress: taskDetail?.order?.task[0]?.location?.address},
+          {dropAddress: taskDetail?.order?.task[1]?.location?.address},
+        ]);
+      }
+    }
+  }, []);
 
   const getAllMovingDetails = data => {
     getAllTravelDetails(data)

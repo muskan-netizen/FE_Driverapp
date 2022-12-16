@@ -9,6 +9,7 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Linking,
 } from 'react-native';
 import {useDarkMode} from 'react-native-dark-mode';
 import DeviceCountry from 'react-native-device-country';
@@ -31,15 +32,18 @@ import {
   height,
   moderateScale,
   moderateScaleVertical,
+  textScale,
   width,
 } from '../../../styles/responsiveSize';
 import {appIds} from '../../../utils/constants/DynamicAppKeys';
 import {showError, showSuccess} from '../../../utils/helperFunctions';
-import {openAppSetting} from '../../../utils/openNativeApp';
 import {
   chekLocationPermission,
   locationPermission,
-} from '../../../utils/permissions';
+} from "../../../utils/permissions";
+import { openAppSetting } from "../../../utils/openNativeApp";
+
+
 import validator from '../../../utils/validations';
 import stylesFunc from './styles';
 
@@ -80,6 +84,7 @@ export default function Login({navigation, route}) {
     phoneNumber: '',
     appHashKey: '',
     locationPermissionStatus: false,
+   
   });
   //all states used in this screen
   const {
@@ -89,6 +94,7 @@ export default function Login({navigation, route}) {
     isLoading,
     appHashKey,
     locationPermissionStatus,
+  
   } = state;
 
   const checkLocationPermission = () => {
@@ -261,8 +267,11 @@ export default function Login({navigation, route}) {
   const _onCountryChange = data => {
     updateState({cca2: data.cca2, callingCode: data.callingCode[0]});
     return;
-  };
 
+
+  };
+  
+ 
   const _signUp = () => {
     navigation.navigate(navigationStrings.SIGN_UP);
   };
@@ -333,7 +342,7 @@ export default function Login({navigation, route}) {
                 color={colors.black}
                 borderColor={colors.themeColor}
                 callingCodeTextStyle={styles.callingCodeTextStyle}
-                // color={isDarkMode ? MyDarkTheme.colors.text : null}
+              // color={isDarkMode ? MyDarkTheme.colors.text : null}
               />
             </View>
             <GradientButton
@@ -379,6 +388,8 @@ export default function Login({navigation, route}) {
           </View>
         </KeyboardAwareScrollView>
       </View>
+     
+
     </WrapperContainer>
   );
 }

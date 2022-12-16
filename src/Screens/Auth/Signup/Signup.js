@@ -1358,7 +1358,6 @@ export default function Signup({route, navigation}) {
                 </View>
               )}
             </View>
-
             {vehicleTypes !== '' && vehicleTypes ? (
               <>
                 <View
@@ -1372,7 +1371,7 @@ export default function Signup({route, navigation}) {
                     horizontal
                     alwaysBounceHorizontal={false}
                     style={styles.transporationOuterContainer}>
-                    {allTransportation.map((i, inx) => {
+                    {allTransportation?.map((i, inx) => {
                       if (savedShortCode === shortCodes.drus && inx == 0)
                         return;
                       if (vehicleTypes?.includes(i?.id)) {

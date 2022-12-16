@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "179070429773",
+    "project_id": "baggage-taxi",
+    "storage_bucket": "baggage-taxi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:179070429773:android:97a712cf5003b0fcbf4a04",
+        "android_client_info": {
+          "package_name": "com.baggageTaxi.dispatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "179070429773-8gbisk4jca4kaa3v60ehp6laarh5mahs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6fMtVZgs24OM5Ezr0C8Mn0r9P6lGlrIQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "179070429773-8gbisk4jca4kaa3v60ehp6laarh5mahs.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "179070429773-04lil1sq7sqae498le5o9r8it8ejs1c9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.baggageTaxi.dispatcher"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

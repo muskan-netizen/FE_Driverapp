@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "950009529673",
+    "project_id": "swipe-dispatcher",
+    "storage_bucket": "swipe-dispatcher.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:950009529673:android:0d923471865ec5b34b8698",
+        "android_client_info": {
+          "package_name": "com.app.swipeDriver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "950009529673-6npabmq7q6p1fak8rm7ljnqlemgqihva.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAP1l9Yb0iVnE3Q5mz2txINC0pLOrvy47Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "950009529673-6npabmq7q6p1fak8rm7ljnqlemgqihva.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "950009529673-r5b762vp6fp4u732l358fo6tmd0l9m1i.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.app.swipeDriver"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

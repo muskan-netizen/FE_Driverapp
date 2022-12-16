@@ -67,7 +67,7 @@ import {
 } from '../../utils/helperFunctions';
 import {getItem, removeItem, setItem} from '../../utils/utils';
 import stylesFun from './styles';
-import BottomSheet, {BottomSheetScrollView} from '@gorhom/bottom-sheet';
+// import BottomSheet, {BottomSheetScrollView} from '@gorhom/bottom-sheet';
 import VariantAddons from '../../Components/VariantAddons';
 
 export default function Cart({navigation, route}) {
@@ -285,7 +285,7 @@ export default function Cart({navigation, route}) {
       actions
         .getCustomerOrderDetail(url, data, {client: clientInfo?.database_name})
         .then(res => {
-          console.log(res, 'all response after hit order api');
+          console.log(res, 'all response after hit order api++++++++');
 
           updateState({
             isRefreshing: false,
