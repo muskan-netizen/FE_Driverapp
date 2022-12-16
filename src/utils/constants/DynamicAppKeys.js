@@ -440,7 +440,8 @@ const shortCodes = {
   skyline:'083e4d',
   rentzy:'16ce83',
   bliss:'24a7bf',
-  otgWeeds:'801707'
+  otgWeeds:'801707',
+
 };
 
 const appIds = {
@@ -2187,6 +2188,8 @@ const appIds = {
     ios: 'com.otgWeeds.royodispatcher',
     android: 'com.otgWeeds.royodispatcher',
   }),
+  
+  
 };
 
 export {appIds, shortCodes};

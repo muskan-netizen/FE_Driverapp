@@ -871,6 +871,7 @@
     "skylinedispatcherRelease": "cd android && ./gradlew assembleskylineRelease",
     "otgWeedsdispatcher": "react-native run-android --variant=otgWeedsDebug",
     "otgWeedsdispatcherRelease": "cd android && ./gradlew assembleotgWeedsRelease",
+    
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
