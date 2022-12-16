@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { Alert } from "react-native";
+import { Alert ,ScrollView} from "react-native";
 import { Text, TouchableOpacity, View, Image, Switch } from "react-native";
 // import Animated from 'react-native-reanimated';
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -311,7 +311,7 @@ console.log(isCabPooling,"isCabPooling");
 
   //Naviagtion to specific screen
   const moveToNewScreen = (screenName, data) => () => {
-    navigation.navigate(screenName, { data });
+    navigation.navigate(screenName, {data});
   };
 
   //Update states
@@ -338,7 +338,7 @@ console.log(isCabPooling,"isCabPooling");
   };
 
   const logout = () => {
-    updateState({ isLoading: true });
+    updateState({isLoading: true});
     actions
       .logout({}, { client: clientInfo?.database_name })
       .then((res) => {
@@ -399,9 +399,13 @@ console.log(isCabPooling,"isCabPooling");
 
   return (
     <>
+    <ScrollView
+    showsVerticalScrollIndicator={false}>
+
+    
       <View
         style={{
-          height: height,
+          // height: height,
           marginTop: moderateScale(10),
         }}
         colors={[colors.white, colors.white]}
@@ -475,7 +479,6 @@ console.log(isCabPooling,"isCabPooling");
             }
             // navigation.navigate(route.key, { screen: navigationStrings.subRoute });
           };
-
           return route?.id ? (
             <Fragment key={route?.name}>
               <TouchableOpacity
@@ -496,9 +499,9 @@ console.log(isCabPooling,"isCabPooling");
               >
                 {/* {options.drawerIcon({focused: isFocused})} */}
 
-                <View style={{ flex: 0.15 }}>
-                  <Image source={route?.image} />
-                </View>
+                  <View style={{flex: 0.15}}>
+                    <Image source={route?.image} />
+                  </View>
 
                 <View style={{ flex: 0.85 }}>
                   <Text
@@ -516,9 +519,11 @@ console.log(isCabPooling,"isCabPooling");
                 </View>
               </TouchableOpacity>
             </Fragment>
-          ) : null;
+          ) : null
         })}
-        <View
+       
+      </View>
+      <View
           style={{
             alignItems: "center",
             position: "absolute",
@@ -539,7 +544,7 @@ console.log(isCabPooling,"isCabPooling");
             <Text>{`(${DeviceInfo.getBuildNumber()})`}</Text>
           </Text>
         </View>
-      </View>
+      </ScrollView>
       <Loader isLoading={isLoading} withModal={true} />
     </>
   );

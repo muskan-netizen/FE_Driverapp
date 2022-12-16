@@ -8,6 +8,7 @@ import { navigationRef } from './NavigationService';
 import navigationStrings from './navigationStrings';
 import AuthStack from './AuthStack';
 import DrawerRoutes from './DrawerStack';
+import ProfileStack from './ProfileStack';
 
 const Stack = createNativeStackNavigator();
 

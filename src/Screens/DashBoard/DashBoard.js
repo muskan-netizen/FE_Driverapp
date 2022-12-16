@@ -177,6 +177,7 @@ export default function DashBoard({ route, navigation }) {
     );
     return () => backHandler.remove();
   }, []);
+  console.log("add my code");
 
   useEffect(() => {
     BackgroundGeolocation.on("location", (location) => {
@@ -1138,9 +1139,7 @@ export default function DashBoard({ route, navigation }) {
             options={options}
             initial={selectedOption}
             onPress={(value) => updateContent(value)}
-
-            textInputStyle={{ width:   moderateScale(width - 40) }}
-
+            textInputStyle={{ width:  moderateScale(width - 40) }}
           />
         ) : (
           <View style={{ height: 35 }} />

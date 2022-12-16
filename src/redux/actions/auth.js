@@ -15,7 +15,7 @@ import {
 import { apiGet, apiPost, removeItem, saveCabPollingStatus, setItem, setUserData } from '../../utils/utils';
 import store from '../store';
 import types from '../types';
-const { dispatch } = store;
+const {dispatch} = store;
 
 export const saveUserData = data => {
   dispatch({
@@ -30,7 +30,6 @@ export const removerUserData = data => {
     payload: data,
   });
 };
-
 
 export function login(data = {}, headers = {}) {
   console.log(data, 'login>data>data>data', headers);

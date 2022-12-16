@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "64835672928",
+    "project_id": "rentzy-driver",
+    "storage_bucket": "rentzy-driver.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:64835672928:android:9eda12c4598e01fb711c05",
+        "android_client_info": {
+          "package_name": "com.rentzy.royodispatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "64835672928-slijhce27hp6l05ld160bakr6298v7ff.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwkQJPs-IGQixfpb8tdOBsAWWAPzbEhS0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "64835672928-slijhce27hp6l05ld160bakr6298v7ff.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "64835672928-6qdo4auoj5lqq34k3j87h4k46bartaje.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.rentzy.royodispatcher"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

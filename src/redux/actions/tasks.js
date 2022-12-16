@@ -19,6 +19,9 @@ import {
   CANCELORDER,
   GETWEBURL,
   GET_CAB_POOLING_SUGGESTION,
+  CREATECONTACT,
+  CREATERAZORPAYADDFUND,
+  CREATERAZORPAYDETAIL,
 } from '../../config/urls';
 import {apiGet, apiPost} from '../../utils/utils';
 import store from '../store';
@@ -26,6 +29,7 @@ const {dispatch} = store;
 
 //Get List of payment method
 export function getListOfTasks(url = '', data = {}, headers = {}) {
+  console.log(headers, 'headersheaders');
   return new Promise((resolve, reject) => {
     apiGet(GETTASKS + url, data, headers)
       .then(res => {
@@ -132,11 +136,11 @@ export function getProductUpdateDetails(uri = '', data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
     apiGet(uri, data, headers)
       .then(res => {
-        console.log('resres',res)
+        console.log('resres', res);
         resolve(res);
       })
       .catch(error => {
-        console.log('error',error)
+        console.log('error', error);
         reject(error);
       });
   });
@@ -397,20 +401,45 @@ export function submitCancelOrderRequest(url = '', data = {}, headers = {}) {
   });
 }
 
-
 //Get List of payment method
 export function openPaymentWebUrl(query = '', data = {}, headers = {}) {
-  console.log("payment++ query", query)
-  console.log("payment++ data", data)
-  console.log(GETWEBURL + query, data, headers ,"webPaymentUrl")
+  console.log('payment++ query', query);
+  console.log('payment++ data', data);
+  console.log(GETWEBURL + query, data, headers, 'webPaymentUrl');
   return new Promise((resolve, reject) => {
     apiGet(GETWEBURL + query, data, headers)
-      .then((res) => {
+      .then(res => {
         resolve(res);
-        console.log(res,"ressssofweburl")
+        console.log(res, 'ressssofweburl');
       })
-      .catch((error) => {
-        console.log(error,"error in web Url")
+      .catch(error => {
+        console.log(error, 'error in web Url');
+        reject(error);
+      });
+  });
+}
+
+//razorpay create contact
+export function createContact(data = {}, headers = {}) {
+  return new Promise((resolve, reject) => {
+    apiPost(CREATERAZORPAYDETAIL, data, headers)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+}
+
+export function createRazorpayFund(data = {}, headers = {}) {
+  console.log(data, headers, 'createContact>>>');
+  return new Promise((resolve, reject) => {
+    apiPost(CREATERAZORPAYADDFUND, data, headers)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(error => {
         reject(error);
       });
   });
