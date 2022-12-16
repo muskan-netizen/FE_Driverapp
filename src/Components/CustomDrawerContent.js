@@ -470,11 +470,15 @@ console.log(isCabPooling,"isCabPooling");
                   screen: route?.subRoute,
                 });
               } else {
-                onLogoutPress();
+                navigation.navigate(route.key);
               }
-              // navigation.navigate(route.key, { screen: navigationStrings.subRoute });
-            };
-
+            } else if (route?.support) {
+              onStartSupportChat();
+            } else {
+              onLogoutPress();
+            }
+            // navigation.navigate(route.key, { screen: navigationStrings.subRoute });
+          };
           return route?.id ? (
             <Fragment key={route?.name}>
               <TouchableOpacity
@@ -515,7 +519,7 @@ console.log(isCabPooling,"isCabPooling");
                 </View>
               </TouchableOpacity>
             </Fragment>
-          ) : null}
+          ) : null
         })}
        
       </View>

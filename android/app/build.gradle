@@ -203,25 +203,15 @@ android {
      flavorDimensions "appType"
 // productFlavors{
                   
-//                shipmoe{
+//               glavour{
 //             dimension "appType"
 //             versionCode 1
 //             versionName "1.0"
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.shipmoe.royodispatcher'
-//             resValue "string", "app_name", "Shipmoe Dispatcher"
-//         }
-//       bliss{
-//             dimension "appType"
-//             versionCode 1
-//             versionName "1.0"
-//             minSdkVersion rootProject.ext.minSdkVersion
-//             targetSdkVersion rootProject.ext.targetSdkVersion
-//             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.bliss.royodispatcher'
-//             resValue "string", "app_name", "Bliss Dispatcher"
+//             applicationId 'com.glavour.royodispatcher'
+//             resValue "string", "app_name", "Glavour Dispatcher"
 //         }
 //       rentzy{
 //             dimension "appType"

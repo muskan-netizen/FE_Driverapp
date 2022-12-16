@@ -41,7 +41,8 @@ export default function DrawerRoutes(props) {
       // hideStatusBar={true}
 
       drawerStyle={{ width: '75%', backgroundColor: colors.blueHeaderColor }}
-      drawerContent={props => <CustomDrawerContent {...props} />}>
+      drawerContent={props => <CustomDrawerContent {...props} />}
+      >
       <Drawer.Screen
         component={TaskStack}
         name={navigationStrings.TASKSTACK}
