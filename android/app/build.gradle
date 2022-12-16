@@ -201,19 +201,6 @@ android {
     }
 
      flavorDimensions "appType"
-
-     productFlavors{
-        jiffex{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.jiffex.driver'
-            resValue "string", "app_name", "Jiffex Driver"
-        }
-     }
     
     productFlavors {
         royodispatcher {
@@ -3643,8 +3630,8 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.HandyPickup.royodispatcher'
-            resValue "string", "app_name", "HandyPickup Dispatcher"
+            applicationId 'com.HandyPickup.driverapp'
+            resValue "string", "app_name", "HandyPickup Driver"
         }
 
         orbitGroup{

@@ -21,12 +21,11 @@
 //export const API_BASE_URL   ='https://fcba-103-72-170-243.ngrok.io/'
 // export const API_BASE_URL='https://delivery.rdstaging.com/'
 // export const API_BASE_URL = 'https://dispatch.goadeliv.com/';
-// export const API_BASE_URL = 'https://dispatch.handy-pickup.com/';
+export const API_BASE_URL = 'https://dispatch.handy-pickup.com/';
 // export const API_BASE_URL = 'https://dispatch.boltdeliveries.com/';
 //  export const API_BASE_URL = 'https://zuzucleans.royodispatch.com/';
 // export const API_BASE_URL = 'https://spryton.royodispatch.com/';
 // export const API_BASE_URL = 'https://dispatch.halatalabat.com/';
-// export const API_BASE_URL='https://dispatch.handy-pickup.com/'
 // export const API_BASE_URL='https://dispatch.sheryders.com/'
 //  export const API_BASE_URL = 'https://dispatch.ubercann.com/';
 // export const API_BASE_URL = 'https://dispatch.swantaxi.net/';
@@ -119,7 +118,7 @@
 // export const API_BASE_URL = 'https://dispatch.fijieats.com/';
 
 //  jiffix
-export const API_BASE_URL = 'https://dispatch.jiffex.in/';
+// export const API_BASE_URL = 'https://dispatch.jiffex.in/';
 
 // halatalabat
 // export const API_BASE_URL = ' https://dispatch.halatalabat.com/'

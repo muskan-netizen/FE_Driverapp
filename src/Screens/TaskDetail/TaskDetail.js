@@ -299,27 +299,27 @@ export default function TaskDetail({route, navigation}) {
     );
   };
 
-  // useEffect(() => {
-  //   if (new_dispatch_traking_url()) {
-  //     updateState({
-  //       isLoading: true,
-  //     });
-  //     _getproductUpdateDetails();
-  //   }
-  //   if (fromHistory) {
-  //     if (
-  //       taskDetail?.tasktype?.name == 'Drop' &&
-  //       taskDetail?.order?.task?.length >= 1 &&
-  //       taskDetail?.order?.task[0]?.location?.address &&
-  //       taskDetail?.order?.task[1]?.location?.address
-  //     ) {
-  //       getAllMovingDetails([
-  //         {pickupAddress: taskDetail?.order?.task[0]?.location?.address},
-  //         {dropAddress: taskDetail?.order?.task[1]?.location?.address},
-  //       ]);
-  //     }
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (new_dispatch_traking_url()) {
+      updateState({
+        isLoading: true,
+      });
+      _getproductUpdateDetails();
+    }
+    if (fromHistory) {
+      if (
+        taskDetail?.tasktype?.name == 'Drop' &&
+        taskDetail?.order?.task?.length >= 1 &&
+        taskDetail?.order?.task[0]?.location?.address &&
+        taskDetail?.order?.task[1]?.location?.address
+      ) {
+        getAllMovingDetails([
+          {pickupAddress: taskDetail?.order?.task[0]?.location?.address},
+          {dropAddress: taskDetail?.order?.task[1]?.location?.address},
+        ]);
+      }
+    }
+  }, []);
 
   const getAllMovingDetails = data => {
     getAllTravelDetails(data)
@@ -448,10 +448,10 @@ export default function TaskDetail({route, navigation}) {
     switch (taskStatus) {
       case 1:
         return 2;
-       
+
       case 2:
         return 3;
-        
+
       case 3:
         return 4;
         break;
@@ -1533,7 +1533,7 @@ export default function TaskDetail({route, navigation}) {
 
   const openGoogleMap = () => {
     var url = `https://www.google.com/maps/dir/?api=1&travelmode=driving&dir_action=navigate&destination=${taskDetail?.location?.latitude},${taskDetail?.location?.longitude}`;
- 
+
     Linking.canOpenURL(url)
       .then(supported => {
         console.log(supported, 'supportedsupported');
