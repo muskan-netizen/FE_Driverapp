@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "111290412408",
+    "project_id": "pets-dispatcher",
+    "storage_bucket": "pets-dispatcher.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:111290412408:android:baa26ad871cc89dc29ac8d",
+        "android_client_info": {
+          "package_name": "com.pets.royodispatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "111290412408-jn77p657n81sj14jp1jjev4utcmeaggq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-7l4YfwrSWPMTlCHqDG-Tdn4pVgaSjOY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "111290412408-jn77p657n81sj14jp1jjev4utcmeaggq.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "111290412408-amg4n592b0o2esi8nki9vore6of1lgua.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.pets.royodispatcher"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

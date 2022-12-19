@@ -4,6 +4,8 @@ const {dispatch} = store;
 import {
   apiGet,
   apiPost,
+  removeCabPollingStatusFromAsyncStorage,
+  saveCabPollingStatus,
   saveShortCodeData,
   setClientInfo,
   setDefaultSelectedLanguage,
@@ -155,3 +157,29 @@ export const setZendeskKeys = data => {
     payload: data,
   });
 };
+
+
+export function saveCabPoolingStatus(data = {}) {
+  saveCabPollingStatus(data).then((res)=>{
+    dispatch({
+      type: types.POOLING,
+      payload: data,
+    })
+   }).catch((error)=>{
+     console.log('data not saved in asyncStorage');
+   })
+
+}
+
+
+export function removeAllCabPoolingStatus(data = {}) {
+  removeCabPollingStatusFromAsyncStorage('cabPoolingStatus').then((res)=>{
+    dispatch({
+      type: types.POOLING,
+      payload: data,
+    })
+   }).catch((error)=>{
+     console.log('data not saved in asyncStorage');
+   })
+
+}

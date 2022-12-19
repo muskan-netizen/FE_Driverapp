@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "5930296264",
+    "project_id": "spryton-dispatcher",
+    "storage_bucket": "spryton-dispatcher.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:5930296264:android:9e64e3d3aa33c59fa196fd",
+        "android_client_info": {
+          "package_name": "com.spryton.royodispatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "5930296264-1ke8vuo9g57051unutnnnqpl6td5mgd5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhYE0vD3yw9Er7mjcIEdTQNwz9ue979d0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "5930296264-1ke8vuo9g57051unutnnnqpl6td5mgd5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "5930296264-q2h5f6j5idvnl0lbt1amepspio8t87ai.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.spryton.royodispatcher"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

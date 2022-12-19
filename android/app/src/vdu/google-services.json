@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1008364371059",
+    "project_id": "vdu-dispatcher",
+    "storage_bucket": "vdu-dispatcher.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1008364371059:android:5a1ba60687ecb6d4cdbe06",
+        "android_client_info": {
+          "package_name": "com.vdu.dispatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1008364371059-4pmcjummv8rgqts1l4lbsnmoa7m7pe93.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHtuEB7ivx62PA3b3oxPqa2cQM9UE1_As"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1008364371059-4pmcjummv8rgqts1l4lbsnmoa7m7pe93.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1008364371059-00d9772j4u5096gv6fp8ampq6i1bfu7m.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.vdu.dispatcher"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

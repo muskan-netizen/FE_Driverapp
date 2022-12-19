@@ -1,27 +1,21 @@
-// export const API_BASE_URL = 'http://192.168.100.130:9091/';
+//export const API_BASE_URL = 'https://805c-103-72-170-243.ngrok.io/';
+
+// export const API_BASE_URL = 'https://dispatch.10dollahollla.com/';
 
 // export const API_BASE_URL = 'https://api.royodispatch.com/';
 // export const API_BASE_URL = 'https://sales.royodispatch.com/';
 // export const API_BASE_URL='http://192.168.101.140:9091/'
-// //Staging
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
 
-// export const API_BASE_URL = 'https://dispatch.dimahalal.com/';
-// export const API_BASE_URL = 'https://dispatch.kaypee.app/';
-// export const API_BASE_URL = 'https://dispatch.laundrozone.net/';
-
+// export const API_BASE_URL='https://dispatch.nittosadai.com/'
+// export const API_BASE_URL = 'https://dispatch.jeevannapp.com/';
 //  export const API_BASE_URL='https://zuzucleans.royodispatch.com/'
-// export const API_BASE_URL='http://192.168.100.142:8001/'
-// export const API_BASE_URL = 'https://dispatch.bendeta.biz/';
-// export const API_BASE_URL = 'https://dispatch.shophairrun.app/';
-// export const API_BASE_URL='http://192.168.100.130:9091/'
-
-//  export const API_BASE_URL='https://dispatch.movingwheelsdeliveryservices.com/'
-
+// export const API_BASE_URL='https://delivery.go912.app/'
+// export const API_BASE_URL='https://dispatch.bendeta.biz/'
+// export const API_BASE_URL='https://despacho.speedy.com.do/'
 //export const API_BASE_URL   ='https://fcba-103-72-170-243.ngrok.io/'
 // export const API_BASE_URL='https://delivery.rdstaging.com/'
 // export const API_BASE_URL = 'https://dispatch.goadeliv.com/';
-export const API_BASE_URL = 'https://dispatch.handy-pickup.com/';
+// export const API_BASE_URL = 'https://dispatch.handy-pickup.com/';
 // export const API_BASE_URL = 'https://dispatch.boltdeliveries.com/';
 //  export const API_BASE_URL = 'https://zuzucleans.royodispatch.com/';
 // export const API_BASE_URL = 'https://spryton.royodispatch.com/';
@@ -49,14 +43,15 @@ export const API_BASE_URL = 'https://dispatch.handy-pickup.com/';
 
 // export const API_BASE_URL = 'https://dispatch.elog.group/';
 
-// export const API_BASE_URL = 'https://dispatch.knockknock.online/';
-// export const API_BASE_URL = 'https://api.winhires.com/';
+// export const API_BASE_URL = 'https://dispatch.knockknock.online/'
+//  export const API_BASE_URL = 'https://api.winhires.com/';
 //export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
 // export const API_BASE_URL = 'http://192.168.96.152:9091/';
-//export const API_BASE_URL = 'https://api.royodispatch.com/';
+// export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://dispatch.swatirx.com/';
 // export const API_BASE_URL = 'https://dispatch.myevplus.com/';
 
 //Misst
@@ -99,8 +94,8 @@ export const API_BASE_URL = 'https://dispatch.handy-pickup.com/';
 
 //export const API_BASE_URL = 'https://dispatch.runrun.ae/';
 //
-// export const API_BASE_URL ='http://192.168.96.84:9091/'
-
+// export const API_BASE_URL ='https://dispatch.halatalabat.com/'
+// export const API_BASE_URL ='http://192.168.100.130:9091/'
 // export const API_BASE_URL = 'https://dispatch.dingdongdelivers.com/'
 
 // export const API_BASE_URL = 'https://dispatch.pas41.com/'
@@ -556,6 +551,10 @@ export const SEND_MESSAGE = '/api/chat/sendMessageJoin';
 export const GET_ALL_MESSAGES = '/api/chat';
 export const ALL_ROOM_USER = '/api/chat/getRoomUser';
 export const SEND_NOTIFCATION = getApiUrl('api/chat/sendNotification');
+export const CAB_POOLING_STATUS = getApiUrl('api/updateCabPoolingStatus');
+export const GET_CAB_POOLING_SUGGESTION = getApiUrl(
+  'api/agent/poolingTaskSuggession',
+);
 
 //razorpay url end point'
 export const CREATERAZORPAYDETAIL = getApiUrl('api/create-razorpay-details');

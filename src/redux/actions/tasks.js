@@ -18,6 +18,7 @@ import {
   GETCANCELORDERREASONLIST,
   CANCELORDER,
   GETWEBURL,
+  GET_CAB_POOLING_SUGGESTION,
   CREATECONTACT,
   CREATERAZORPAYADDFUND,
   CREATERAZORPAYDETAIL,
@@ -435,6 +436,20 @@ export function createRazorpayFund(data = {}, headers = {}) {
   console.log(data, headers, 'createContact>>>');
   return new Promise((resolve, reject) => {
     apiPost(CREATERAZORPAYADDFUND, data, headers)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+}
+
+
+//getAllPoolingSuggestions
+export function getAllPoolingSuggestions(data = {}, headers = {}) {
+  return new Promise((resolve, reject) => {
+    apiGet(GET_CAB_POOLING_SUGGESTION , data, headers)
       .then(res => {
         resolve(res);
       })
