@@ -261,7 +261,8 @@ const shortCodes = {
   orbitGroup: '5f0ef9',
   cartnar: '550805',
   uven: 'ac954e',
-  pAS41: '989565',
+  // pAS41: '989565',
+  pAS41:'434c5e',
   snabbhem: '01b449',
   waterTaxi: '217ec5',
   freshFarmz: '71542b',
@@ -449,6 +450,7 @@ const shortCodes = {
   superpana:'e0ac7c',
   solace:'8c7637',
   kero:'253d2d',
+  housingSubsidies:'ea2a79'
 };
 
 const appIds = {
@@ -2226,6 +2228,10 @@ const appIds = {
   kero: Platform.select({
     ios: 'com.kero.royodispatcher',
     android: 'com.kero.royodispatcher',
+  }),
+  housingSubsidies: Platform.select({
+    ios: 'com.housingSubsidies.royodispatcher',
+    android: 'com.housingSubsidies.royodispatcher',
   }),
 };
 

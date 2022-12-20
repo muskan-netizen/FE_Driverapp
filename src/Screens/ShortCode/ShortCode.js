@@ -2788,6 +2788,12 @@ export default function ShortCode({route, navigation}) {
               isShortcodePrefilled: true,
             });
             break;
+            case appIds.housingSubsidies:
+            updateState({
+              shortCode: shortCodes.housingSubsidies,
+              isShortcodePrefilled: true,
+            });
+            break;
       }
     })();
   }, [internetConnection]);

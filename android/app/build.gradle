@@ -212,15 +212,15 @@ productFlavors{
             applicationId 'com.kero.royodispatcher'
             resValue "string", "app_name", "kero Dispatcher"
         }
-          bksTaxi{
+          housingSubsidies{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.BksTaxi.royodispatcher'
-            resValue "string", "app_name", "BKS Taxi Dispatcher"
+            applicationId 'com.housingSubsidies.royodispatcher'
+            resValue "string", "app_name", "Housing Subsidies Dispatcher"
         }
 }
     
@@ -7396,6 +7396,16 @@ productFlavors{
 //             // applicationIdSuffix ".royoorder"
 //             applicationId 'com.kero.royodispatcher'
 //             resValue "string", "app_name", "kero Dispatcher"
+//         }
+//       housingSubsidies{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.housingSubsidies.royodispatcher'
+//             resValue "string", "app_name", "Housing Subsidies Dispatcher"
 //         }
 // }
 }
