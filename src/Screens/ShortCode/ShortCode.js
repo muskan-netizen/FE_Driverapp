@@ -2740,6 +2740,54 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+          case appIds.zyno:
+          updateState({
+            shortCode: shortCodes.zyno,
+            isShortcodePrefilled: true,
+          });
+          break;
+          case appIds.efectibo:
+          updateState({
+            shortCode: shortCodes.efectibo,
+            isShortcodePrefilled: true,
+          });
+          break;
+          case appIds.sooq:
+          updateState({
+            shortCode: shortCodes.sooq,
+            isShortcodePrefilled: true,
+          });
+          break;
+          case appIds.glamguide:
+          updateState({
+            shortCode: shortCodes.glamguide,
+            isShortcodePrefilled: true,
+          });
+          break;
+          case appIds.hectoHomes:
+          updateState({
+            shortCode: shortCodes.hectoHomes,
+            isShortcodePrefilled: true,
+          });
+          break;
+          case appIds.superpana:
+          updateState({
+            shortCode: shortCodes.superpana,
+            isShortcodePrefilled: true,
+          });
+          break;
+          case appIds.solace:
+          updateState({
+            shortCode: shortCodes.solace,
+            isShortcodePrefilled: true,
+          });
+          break;
+          case appIds.kero:
+            updateState({
+              shortCode: shortCodes.kero,
+              isShortcodePrefilled: true,
+            });
+            break;
       }
     })();
   }, [internetConnection]);

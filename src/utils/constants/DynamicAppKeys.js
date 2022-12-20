@@ -440,7 +440,15 @@ const shortCodes = {
   skyline:'083e4d',
   rentzy:'16ce83',
   bliss:'24a7bf',
-  otgWeeds:'801707'
+  otgWeeds:'801707',
+  zyno:'2cdbe7',
+  efectibo:'8c55a5',
+  hectoHomes:'',
+  glamguide:'c6cc57',
+  sooq:'80d590',
+  superpana:'e0ac7c',
+  solace:'8c7637',
+  kero:'253d2d',
 };
 
 const appIds = {
@@ -2186,6 +2194,38 @@ const appIds = {
   otgWeeds: Platform.select({
     ios: 'com.otgWeeds.royodispatcher',
     android: 'com.otgWeeds.royodispatcher',
+  }),
+  hectoHomes: Platform.select({
+    ios: 'com.hectoHomes.royodispatcher',
+    android: 'com.hectoHomes.royodispatcher',
+  }),
+  glamguide: Platform.select({
+    ios: 'com.glamguide.royodispatcher',
+    android: 'com.glamguide.royodispatcher',
+  }),
+  efectibo: Platform.select({
+    ios: 'com.efectibo.royodispatcher',
+    android: 'com.efectibo.royodispatcher',
+  }),
+  zyno: Platform.select({
+    ios: 'com.zyno.royodispatcher',
+    android: 'com.zyno.royodispatcher',
+  }),
+  sooq: Platform.select({
+    ios: 'com.sooq.dispatcher',
+    android: 'com.sooq.dispatcher',
+  }),
+  superpana: Platform.select({
+    ios: 'com.superpana.royodispatcher',
+    android: 'com.superpana.royodispatcher',
+  }),
+  solace: Platform.select({
+    ios: 'com.solace.royodispatcher',
+    android: 'com.solace.royodispatcher',
+  }),
+  kero: Platform.select({
+    ios: 'com.kero.royodispatcher',
+    android: 'com.kero.royodispatcher',
   }),
 };
 

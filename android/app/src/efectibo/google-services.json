@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "850351641403",
+    "project_id": "efectibo-driver",
+    "storage_bucket": "efectibo-driver.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:850351641403:android:eca3f49fa94fc48a239d1e",
+        "android_client_info": {
+          "package_name": "com.efectibo.royodispatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "850351641403-fqngq67elqu2kq511fh9sr77rh5is1hu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCU6IzGEssdMcvhTs5zHmGlUADi6fb7Buo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "850351641403-fqngq67elqu2kq511fh9sr77rh5is1hu.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "850351641403-ulhbul01oq4rhefp6okraskh8sk1dde1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.efectibo.royodispatcher"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
