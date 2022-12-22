@@ -212,15 +212,16 @@ productFlavors{
             applicationId 'com.kero.royodispatcher'
             resValue "string", "app_name", "kero Dispatcher"
         }
-          housingSubsidies{
+         pAS41{
             dimension "appType"
-            versionCode 1
+            versionCode 5
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.housingSubsidies.royodispatcher'
-            resValue "string", "app_name", "Housing Subsidies Dispatcher"
+            applicationId "com.PAS41.royodispatcher"
+            resValue "string", "app_name", "PAS41"
+        
         }
 }
     
@@ -1021,6 +1022,17 @@ productFlavors{
 //             // applicationIdSuffix ".royoorder"
 //             applicationId "com.helpnowrightnow.royodispatcher"
 //             resValue "string", "app_name", "HN!RightNow!"
+        
+//         }
+//       pAS41{
+//             dimension "appType"
+//             versionCode 5
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId "com.PAS41.royodispatcher"
+//             resValue "string", "app_name", "PAS41"
         
 //         }
 //         agriOnline{
