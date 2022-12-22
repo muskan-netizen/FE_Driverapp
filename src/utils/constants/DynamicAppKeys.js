@@ -452,6 +452,7 @@ const shortCodes = {
   kero:'253d2d',
   housingSubsidies:'ea2a79',
   bocch:'74c882',
+  potolo:'75902f',
 };
 
 const appIds = {
@@ -2237,6 +2238,10 @@ const appIds = {
   bocch: Platform.select({
     ios: 'com.bocch.royodispatcher',
     android: 'com.bocch.royodispatcher',
+  }),
+  potolo: Platform.select({
+    ios: 'com.potolo.royodispatcher',
+    android: 'com.potolo.royodispatcher',
   }),
 };
 

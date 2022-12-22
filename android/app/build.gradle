@@ -202,15 +202,15 @@ android {
 
      flavorDimensions "appType"
 productFlavors{
-               bocch{
+               potolo{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.bocch.royodispatcher'
-            resValue "string", "app_name", "Bocch Dispatcher"
+            applicationId 'com.potolo.royodispatcher'
+            resValue "string", "app_name", "Potolo Dispatcher"
         }
 }
     
@@ -7417,6 +7417,16 @@ productFlavors{
 //             // applicationIdSuffix ".royoorder"
 //             applicationId 'com.bocch.royodispatcher'
 //             resValue "string", "app_name", "Bocch Dispatcher"
+//         }
+//      potolo{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.potolo.royodispatcher'
+//             resValue "string", "app_name", "Potolo Dispatcher"
 //         }
 // }
 }

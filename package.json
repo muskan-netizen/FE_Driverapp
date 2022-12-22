@@ -893,6 +893,8 @@
     "housingSubsidiesdispatcherRelease": "cd android && ./gradlew assemblehousingSubsidiesRelease",
     "bocchdispatcher": "react-native run-android --variant=bocchDebug",
     "bocchdispatcherRelease": "cd android && ./gradlew assemblebocchRelease",
+    "potolodispatcher": "react-native run-android --variant=potoloDebug",
+    "potolodispatcherRelease": "cd android && ./gradlew assemblepotoloRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",

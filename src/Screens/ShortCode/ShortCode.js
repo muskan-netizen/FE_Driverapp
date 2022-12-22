@@ -2800,6 +2800,12 @@ export default function ShortCode({route, navigation}) {
                 isShortcodePrefilled: true,
               });
               break;
+              case appIds.potolo:
+              updateState({
+                shortCode: shortCodes.potolo,
+                isShortcodePrefilled: true,
+              });
+              break;
       }
     })();
   }, [internetConnection]);
