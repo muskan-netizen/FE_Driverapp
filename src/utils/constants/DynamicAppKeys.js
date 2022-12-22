@@ -450,7 +450,8 @@ const shortCodes = {
   superpana:'e0ac7c',
   solace:'8c7637',
   kero:'253d2d',
-  housingSubsidies:'ea2a79'
+  housingSubsidies:'ea2a79',
+  bocch:'74c882',
 };
 
 const appIds = {
@@ -2232,6 +2233,10 @@ const appIds = {
   housingSubsidies: Platform.select({
     ios: 'com.housingSubsidies.royodispatcher',
     android: 'com.housingSubsidies.royodispatcher',
+  }),
+  bocch: Platform.select({
+    ios: 'com.bocch.royodispatcher',
+    android: 'com.bocch.royodispatcher',
   }),
 };
 

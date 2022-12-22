@@ -891,6 +891,8 @@
     "kerodispatcherRelease": "cd android && ./gradlew assemblekeroRelease",
     "housingSubsidiesdispatcher": "react-native run-android --variant=housingSubsidiesDebug",
     "housingSubsidiesdispatcherRelease": "cd android && ./gradlew assemblehousingSubsidiesRelease",
+    "bocchdispatcher": "react-native run-android --variant=bocchDebug",
+    "bocchdispatcherRelease": "cd android && ./gradlew assemblebocchRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",

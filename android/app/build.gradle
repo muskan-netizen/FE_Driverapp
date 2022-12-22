@@ -202,26 +202,15 @@ android {
 
      flavorDimensions "appType"
 productFlavors{
-                  kero{
+               bocch{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.kero.royodispatcher'
-            resValue "string", "app_name", "kero Dispatcher"
-        }
-         pAS41{
-            dimension "appType"
-            versionCode 5
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId "com.PAS41.royodispatcher"
-            resValue "string", "app_name", "PAS41"
-        
+            applicationId 'com.bocch.royodispatcher'
+            resValue "string", "app_name", "Bocch Dispatcher"
         }
 }
     
@@ -7418,6 +7407,16 @@ productFlavors{
 //             // applicationIdSuffix ".royoorder"
 //             applicationId 'com.housingSubsidies.royodispatcher'
 //             resValue "string", "app_name", "Housing Subsidies Dispatcher"
+//         }
+//       bocch{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.bocch.royodispatcher'
+//             resValue "string", "app_name", "Bocch Dispatcher"
 //         }
 // }
 }
