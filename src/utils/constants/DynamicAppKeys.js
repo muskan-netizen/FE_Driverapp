@@ -2061,8 +2061,8 @@ const appIds = {
     android: 'com.genee.royodispatcher',
   }),
   speedyDelivery: Platform.select({
-    ios: 'com.royodispatcher.speedyDelivery',
-    android: 'com.speedyDelivery.royodispatcher',
+    ios: 'com.speedyDelivery.driver',
+    android: 'com.speedyDelivery.driver',
   }),
   holla: Platform.select({
     ios: 'com.dispatcher.holla',
