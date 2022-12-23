@@ -202,15 +202,15 @@ android {
 
      flavorDimensions "appType"
 productFlavors{
-               potolo{
+                kero{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.potolo.royodispatcher'
-            resValue "string", "app_name", "Potolo Dispatcher"
+            applicationId 'com.kero.royodispatcher'
+            resValue "string", "app_name", "kero Dispatcher"
         }
 }
     
