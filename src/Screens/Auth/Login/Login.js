@@ -122,7 +122,10 @@ export default function Login({navigation, route}) {
               text: 'OK',
               onPress: () => {
                 if (error != 'blocked' || error == 'denied') {
-                  chekLocationPermission()
+                  if(Number(Platform.constants.Release) >Number(10)){
+                    openAppSetting('LOCATION_SERVICES');
+                  }else{
+                    chekLocationPermission()
                     .then(res => {
                       console.log(res, 'resresresresresres');
                       if (res == 'granted') {
@@ -140,6 +143,8 @@ export default function Login({navigation, route}) {
                       });
                       console.log(error, 'errororor for location');
                     });
+                  }
+                  
                 } else {
                   openAppSetting('LOCATION_SERVICES');
                   console.log(error, 'errororor for location++++');
