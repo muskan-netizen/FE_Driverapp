@@ -51,7 +51,7 @@
 //export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
 // export const API_BASE_URL = 'http://192.168.96.152:9091/';
 // export const API_BASE_URL = 'https://api.royodispatch.com/';
-export const API_BASE_URL='https://dispatch.shophairrun.app/'
+// export const API_BASE_URL='https://dispatch.shophairrun.app/'
 //Staging
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.myevplus.com/';
@@ -147,7 +147,7 @@ export const API_BASE_URL='https://dispatch.shophairrun.app/'
 
 // export const API_BASE_URL = 'https://delivery.go912.app/';
 
-// export const API_BASE_URL = 'https://dispatch.nittosadai.com/';
+export const API_BASE_URL = 'https://dispatch.nittosadai.com/';
 
 // dbairro
 // export const API_BASE_URL = 'https://dispatch.dbairro.com/';
