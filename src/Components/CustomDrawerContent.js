@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { Alert ,ScrollView} from "react-native";
+import { Alert, ScrollView } from "react-native";
 import { Text, TouchableOpacity, View, Image, Switch } from "react-native";
 // import Animated from 'react-native-reanimated';
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -32,7 +32,6 @@ import { getItem } from "../utils/utils";
 import { string } from "is_js";
 import { saveCabPoolingStatus } from "../redux/actions/init";
 
-
 export default function CustomDrawerContent({
   state,
   descriptors,
@@ -40,15 +39,19 @@ export default function CustomDrawerContent({
   progress,
   ...props
 }) {
-  const { zendeskKeys, clientInfo, defaultLanguage,isCabPooling } = useSelector(
-    (state) => state?.initBoot
-  );
+  const {
+    zendeskKeys,
+    clientInfo,
+    defaultLanguage,
+  } = useSelector((state) => state?.initBoot);
+
+  const {isCabPooling} =useSelector((state) => state?.auth);
+
   const { userData } = useSelector((state) => state?.auth);
 
   const darkthemeusingDevice = useDarkMode();
 
-console.log(isCabPooling,"isCabPooling");
-
+  console.log(isCabPooling, "isCabPooling");
 
   const isDarkMode = themeToggle ? darkthemeusingDevice : themeColor;
   const [states, setState] = useState({
@@ -296,22 +299,17 @@ console.log(isCabPooling,"isCabPooling");
         },
       ],
     });
-
   }, [
     defaultLanguage,
     zendeskKeys?.keys?.account_key,
     zendeskKeys?.keys?.application_id,
   ]);
 
-
-
-
-
   //
 
   //Naviagtion to specific screen
   const moveToNewScreen = (screenName, data) => () => {
-    navigation.navigate(screenName, {data});
+    navigation.navigate(screenName, { data });
   };
 
   //Update states
@@ -338,7 +336,7 @@ console.log(isCabPooling,"isCabPooling");
   };
 
   const logout = () => {
-    updateState({isLoading: true});
+    updateState({ isLoading: true });
     actions
       .logout({}, { client: clientInfo?.database_name })
       .then((res) => {
@@ -370,160 +368,151 @@ console.log(isCabPooling,"isCabPooling");
   };
 
   const toggleSwitch = (status) => {
-    saveCabPoolingStatus(status)
+    const data = {};
+    data["is_pooling_available"] = status;
+    const header = {
+      client: clientInfo?.database_name,
+    };
+    actions
+      .updateCabPoolingStatus(data, header)
+      .then((res) => {
+        console.log(res, "pooling");
+        
+      })
+      .catch((error) => {
+        console.log(error, "errororro");
+      });
   };
-
-
-
-
-
-  useEffect(()=>{
-    const data = {
-       is_pooling_available: isCabPooling,
-     };
- 
-     const header = {
-       client: clientInfo?.database_name,
-     };
-     actions
-       .updateCabPoolingStatus(data, header)
-       .then((res) => {
-         console.log(res, "resres-----");
-       })
-       .catch((error) => {
-         console.log(error, "errororro");
-       });
-   },[isCabPooling])
-
-
 
   return (
     <>
-    <ScrollView
-    showsVerticalScrollIndicator={false}>
-
-    
-      <View
-        style={{
-          // height: height,
-          marginTop: moderateScale(10),
-        }}
-        colors={[colors.white, colors.white]}
-      >
-        {/* client logo */}
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View
           style={{
-            // height: height / 3,
-            justifyContent: "center",
-            alignItems: "center",
-            marginBottom: moderateScale(30),
-            // backgroundColor:'red'
+            // height: height,
+            marginTop: moderateScale(10),
           }}
+          colors={[colors.white, colors.white]}
         >
-          <ScaledImage
-            width={width / 2}
-            source={
-              clientInfo && (clientInfo?.logo || clientInfo?.dark_logo)
-                ? { uri: isDarkMode ? clientInfo?.dark_logo : clientInfo?.logo }
-                : imagePath.logo
-            }
-          />
-        </View>
-        {userData?.client_preference?.is_cab_pooling_toggle ? (
+          {/* client logo */}
           <View
             style={{
-              marginHorizontal: moderateScale(10),
-              flexDirection: "row",
-              justifyContent: "space-around",
-              marginBottom: moderateScaleVertical(15),
+              // height: height / 3,
+              justifyContent: "center",
+              alignItems: "center",
+              marginBottom: moderateScale(30),
+              // backgroundColor:'red'
             }}
           >
-            <Text
-              style={{
-                // paddingLeft: moderateScale(5),
-                paddingRight: 0,
-                fontSize: textScale(15),
-                fontFamily: fontFamily?.regular,
-                ...props.labelStyle,
-                color: colors.black,
-              }}
-            >
-              {strings.AVAILABLEFORPOOLING}
-            </Text>
-            <Switch
-              trackColor={{ false: colors.backGround, true: colors.themeColor }}
-              thumbColor={colors.white}
-              onValueChange={(status)=>toggleSwitch(status)}
-              value={isCabPooling}
-              
+            <ScaledImage
+              width={width / 2}
+              source={
+                clientInfo && (clientInfo?.logo || clientInfo?.dark_logo)
+                  ? {
+                      uri: isDarkMode
+                        ? clientInfo?.dark_logo
+                        : clientInfo?.logo,
+                    }
+                  : imagePath.logo
+              }
             />
           </View>
-        ) : null}
-        {routes.map((route, index) => {
-          // const {options} = descriptors[route.key];
-          const isFocused = selectedDrawerItem?.index === index;
-          const label = route?.label;
-          const onPress = () => {
-            if (route?.key) {
-              if (route?.subRoute) {
-                navigation.navigate(route.key, {
-                  screen: route?.subRoute,
-                });
-              } else {
-                navigation.navigate(route.key);
-              }
-            } else if (route?.support) {
-              onStartSupportChat();
-            } else {
-              onLogoutPress();
-            }
-            // navigation.navigate(route.key, { screen: navigationStrings.subRoute });
-          };
-          return route?.id ? (
-            <Fragment key={route?.name}>
-              <TouchableOpacity
-                key={index}
-                accessibilityRole="button"
-                accessibilityStates={isFocused ? ["selected"] : []}
-                testID={JSON.stringify(route?.id)}
-                onPress={onPress}
-                // onLongPress={onLongPress}
+          {userData?.client_preference?.is_cab_pooling_toggle ? (
+            <View
+              style={{
+                marginHorizontal: moderateScale(10),
+                flexDirection: "row",
+                justifyContent: "space-around",
+                marginBottom: moderateScaleVertical(15),
+              }}
+            >
+              <Text
                 style={{
-                  margin: moderateScale(8),
-                  // alignItems: 'center',
-                  flexDirection: "row",
-                  alignItems: "center",
-
-                  justifyContent: "center",
+                  // paddingLeft: moderateScale(5),
+                  paddingRight: 0,
+                  fontSize: textScale(15),
+                  fontFamily: fontFamily?.regular,
+                  ...props.labelStyle,
+                  color: colors.black,
                 }}
               >
-                {/* {options.drawerIcon({focused: isFocused})} */}
+                {strings.AVAILABLEFORPOOLING}
+              </Text>
+              <Switch
+                trackColor={{
+                  false: colors.backGround,
+                  true: colors.themeColor,
+                }}
+                thumbColor={colors.white}
+                onValueChange={(status) => toggleSwitch(status)}
+                value={isCabPooling}
+              />
+            </View>
+          ) : null}
+          {routes.map((route, index) => {
+            // const {options} = descriptors[route.key];
+            const isFocused = selectedDrawerItem?.index === index;
+            const label = route?.label;
+            const onPress = () => {
+              if (route?.key) {
+                if (route?.subRoute) {
+                  navigation.navigate(route.key, {
+                    screen: route?.subRoute,
+                  });
+                } else {
+                  navigation.navigate(route.key);
+                }
+              } else if (route?.support) {
+                onStartSupportChat();
+              } else {
+                onLogoutPress();
+              }
+              // navigation.navigate(route.key, { screen: navigationStrings.subRoute });
+            };
+            return route?.id ? (
+              <Fragment key={route?.name}>
+                <TouchableOpacity
+                  key={index}
+                  accessibilityRole="button"
+                  accessibilityStates={isFocused ? ["selected"] : []}
+                  testID={JSON.stringify(route?.id)}
+                  onPress={onPress}
+                  // onLongPress={onLongPress}
+                  style={{
+                    margin: moderateScale(8),
+                    // alignItems: 'center',
+                    flexDirection: "row",
+                    alignItems: "center",
 
-                  <View style={{flex: 0.15}}>
+                    justifyContent: "center",
+                  }}
+                >
+                  {/* {options.drawerIcon({focused: isFocused})} */}
+
+                  <View style={{ flex: 0.15 }}>
                     <Image source={route?.image} />
                   </View>
 
-                <View style={{ flex: 0.85 }}>
-                  <Text
-                    style={{
-                      // paddingLeft: moderateScale(5),
-                      paddingRight: 0,
-                      fontSize: textScale(15),
-                      fontFamily: fontFamily?.regular,
-                      ...props.labelStyle,
-                      color: colors.black,
-                    }}
-                  >
-                    {label}
-                  </Text>
-                </View>
-              </TouchableOpacity>
-            </Fragment>
-          ) : null
-        })}
-       
-      </View>
-      <View
+                  <View style={{ flex: 0.85 }}>
+                    <Text
+                      style={{
+                        // paddingLeft: moderateScale(5),
+                        paddingRight: 0,
+                        fontSize: textScale(15),
+                        fontFamily: fontFamily?.regular,
+                        ...props.labelStyle,
+                        color: colors.black,
+                      }}
+                    >
+                      {label}
+                    </Text>
+                  </View>
+                </TouchableOpacity>
+              </Fragment>
+            ) : null;
+          })}
+        </View>
+        <View
           style={{
             alignItems: "center",
             position: "absolute",

@@ -49,7 +49,7 @@ export const androidCameraPermission = () =>
 
 //   return Promise.resolve('granted');
 // };
-
+console.log(Platform.constants.Release, 'Platform.constants.ReleasePlatform.constants.Release')
 export const locationPermission = () =>
   new Promise(async (resolve, reject) => {
     if (Platform.OS === 'ios') {
@@ -64,28 +64,68 @@ export const locationPermission = () =>
       } catch (error) {
         return reject(error);
       }
-    } else {
-      return PermissionsAndroid.request(
-        Platform.constants.Release <= String(9)
-          ? PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION &&
-              PERMISSIONS.ANDROID.ACCESS_COARSE_LOCATION
-          : PermissionsAndroid.PERMISSIONS.ACCESS_BACKGROUND_LOCATION,
-      )
-        .then(granted => {
-          if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-            //console.log('You can use the location');
-            console.log(granted, 'grantedgranted');
-            return resolve('granted');
+    }
+    else {
+     
+
+
+      if (Number(Platform.constants.Release) <= Number(9)) {
+        return PermissionsAndroid.request(
+          PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION &&
+          PERMISSIONS.ANDROID.ACCESS_COARSE_LOCATION
+        )
+          .then(granted => {
+            if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+              //console.log('You can use the location');
+              console.log(granted, 'grantedgranted');
+              return resolve('granted');
+            }
+            //console.log('Location permission denied');
+            else {
+              return reject('denied');
+            }
+          })
+          .catch(error => {
+            console.log('Ask Location permission error: ', error);
+            return reject(error);
+          });
+      } else if(Number(Platform.constants.Release) >=Number(10)) {
+        return PermissionsAndroid.request(
+          PermissionsAndroid.PERMISSIONS.ACCESS_BACKGROUND_LOCATION,
+          {
+            title: 'Permission Requires',
+            message: 'collects location data in background and foreground mode to track the order delivery location and estimate delivery time for the end customer',
+            buttonPositive: 'Ok',
+            buttonNegative: 'Cancel',
+            
           }
-          //console.log('Location permission denied');
-          else {
-            return reject('denied');
-          }
-        })
-        .catch(error => {
-          console.log('Ask Location permission error: ', error);
-          return reject(error);
-        });
+          [
+            {
+              text: "Cancel",
+              onPress: () => console.log("Cancel Pressed"),
+              style: "cancel"
+            },
+            { text: "OK", onPress: () => console.log("OK Pressed") }
+          ]
+        )
+          .then(granted => {
+            if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+              //console.log('You can use the location');
+              console.log(granted, 'grantedgranted');
+              return resolve('granted');
+            }
+            //console.log('Location permission denied');
+            else {
+              return reject('denied');
+            }
+          })
+          .catch(error => {
+            console.log('Ask Location permission error: ', error);
+            return reject(error);
+          });
+      }
+
+
     }
   });
 
@@ -96,9 +136,9 @@ export const chekLocationPermission = () =>
         Platform.OS === 'ios'
           ? PERMISSIONS.IOS.LOCATION_WHEN_IN_USE
           : Platform.constants.Release <= String(9)
-          ? PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION &&
+            ? PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION &&
             PERMISSIONS.ANDROID.ACCESS_COARSE_LOCATION
-          : PERMISSIONS.ANDROID.ACCESS_BACKGROUND_LOCATION,
+            : PERMISSIONS.ANDROID.ACCESS_BACKGROUND_LOCATION,
       )
         .then(result => {
           switch (result) {

@@ -11,20 +11,27 @@ import {
   SIGNUP_API,
   SIGNUP_SEND_OTP,
   CAB_POOLING_STATUS,
-} from '../../config/urls';
-import { apiGet, apiPost, removeItem, saveCabPollingStatus, setItem, setUserData } from '../../utils/utils';
-import store from '../store';
-import types from '../types';
-const {dispatch} = store;
+} from "../../config/urls";
+import {
+  apiGet,
+  apiPost,
+  removeItem,
+  saveCabPollingStatus,
+  setItem,
+  setUserData,
+} from "../../utils/utils";
+import store from "../store";
+import types from "../types";
+const { dispatch } = store;
 
-export const saveUserData = data => {
+export const saveUserData = (data) => {
   dispatch({
     type: types.LOGIN,
     payload: data,
   });
 };
 
-export const removerUserData = data => {
+export const removerUserData = (data) => {
   dispatch({
     type: types.USER_LOGOUT,
     payload: data,
@@ -32,33 +39,33 @@ export const removerUserData = data => {
 };
 
 export function login(data = {}, headers = {}) {
-  console.log(data, 'login>data>data>data', headers);
+  console.log(data, "login>data>data>data", headers);
   return new Promise((resolve, reject) => {
     apiPost(LOGIN_API, data, headers)
-      .then(async res => {
+      .then(async (res) => {
         resolve(res);
       })
-      .catch(error => {
+      .catch((error) => {
         reject(error);
       });
   });
 }
 
 export function signUp(data = {}, headers = {}) {
-  console.log(data, 'login>data>data>data', headers);
+  console.log(data, "login>data>data>data", headers);
   return new Promise((resolve, reject) => {
     apiPost(SIGNUP_API, data, headers)
-      .then(async res => {
+      .then(async (res) => {
         resolve(res);
       })
-      .catch(error => {
+      .catch((error) => {
         reject(error);
       });
   });
 }
 
-export const updataeUserData = data => {
-  setUserData(data).then(suc => {
+export const updataeUserData = (data) => {
+  setUserData(data).then((suc) => {
     dispatch({
       type: types.UPDATEUSER,
       payload: data,
@@ -67,16 +74,16 @@ export const updataeUserData = data => {
 };
 
 export function verifyAccount(data = {}, headers = {}) {
-  console.log(data, 'verifyAccount>data>data>data');
+  console.log(data, "verifyAccount>data>data>data");
   return new Promise((resolve, reject) => {
     apiPost(SEND_OTP, data, headers)
-      .then(async res => {
-        setUserData(res.data).then(suc => {
+      .then(async (res) => {
+        setUserData(res.data).then((suc) => {
           saveUserData(res.data);
           resolve(res);
         });
       })
-      .catch(error => {
+      .catch((error) => {
         reject(error);
       });
   });
@@ -87,12 +94,12 @@ export function verifyAccount(data = {}, headers = {}) {
 export function logout(data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
     apiGet(LOGOUT_API, data, headers)
-      .then(async res => {
-        await removeItem('userData');
+      .then(async (res) => {
+        await removeItem("userData");
         removerUserData();
         resolve(res);
       })
-      .catch(error => {
+      .catch((error) => {
         reject(error);
       });
   });
@@ -103,10 +110,10 @@ export function logout(data = {}, headers = {}) {
 export function signupDoc(data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
     apiPost(SIGNUPDOC, data, headers)
-      .then(async res => {
+      .then(async (res) => {
         resolve(res);
       })
-      .catch(error => {
+      .catch((error) => {
         reject(error);
       });
   });
@@ -116,10 +123,10 @@ export function signupDoc(data = {}, headers = {}) {
 export function getAllSubscriptions(data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
     apiGet(GET_ALL_SUBSCRIPTION_PLANS, data, headers)
-      .then(res => {
+      .then((res) => {
         resolve(res);
       })
-      .catch(error => {
+      .catch((error) => {
         reject(error);
       });
   });
@@ -127,56 +134,56 @@ export function getAllSubscriptions(data = {}, headers = {}) {
 
 //Select specific subscription
 export function selectSpecificSubscriptionPlan(
-  query = '',
+  query = "",
   data = {},
-  headers = {},
+  headers = {}
 ) {
-  console.log(SELECT_SPECIFIC_PLAN + query, 'apiIsThis ');
+  console.log(SELECT_SPECIFIC_PLAN + query, "apiIsThis ");
   return new Promise((resolve, reject) => {
     apiGet(SELECT_SPECIFIC_PLAN + query, data, headers)
-      .then(res => {
+      .then((res) => {
         resolve(res);
       })
-      .catch(error => {
-        console.log(error, 'errrrrrSELECT_SPECIFIC_PLAN');
+      .catch((error) => {
+        console.log(error, "errrrrrSELECT_SPECIFIC_PLAN");
         reject(error);
       });
   });
 }
 
 //Purchase subscription plan
-export function purchaseSubscriptionPlan(query = '', data = {}, headers = {}) {
+export function purchaseSubscriptionPlan(query = "", data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
     apiPost(PURCHASE_SPECIFIC_PLAN + query, data, headers)
-      .then(res => {
+      .then((res) => {
         resolve(res);
       })
-      .catch(error => {
+      .catch((error) => {
         reject(error);
       });
   });
 }
 
 //Cancel subscription plan
-export function cancelSubscriptionPlan(query = '', data = {}, headers = {}) {
+export function cancelSubscriptionPlan(query = "", data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
     apiPost(CANCEL_SPECIFIC_PLAN + query, data, headers)
-      .then(res => {
+      .then((res) => {
         resolve(res);
       })
-      .catch(error => {
+      .catch((error) => {
         reject(error);
       });
   });
 }
 export function deleteAccount(data = {}, headers = {}) {
-  console.log(data, headers, 'data>>>>>>');
+  console.log(data, headers, "data>>>>>>");
   return new Promise((resolve, reject) => {
     apiPost(AGENT_DELETE, data, headers)
-      .then(async res => {
+      .then(async (res) => {
         resolve(res);
       })
-      .catch(error => {
+      .catch((error) => {
         reject(error);
       });
   });
@@ -185,32 +192,34 @@ export function deleteAccount(data = {}, headers = {}) {
 export function sendOtpOnSignup(data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
     apiPost(SIGNUP_SEND_OTP, data, headers)
-      .then(async res => {
+      .then(async (res) => {
         resolve(res);
       })
-      .catch(error => {
+      .catch((error) => {
         reject(error);
       });
   });
 }
 
 export function updateCabPoolingStatus(data = {}, headers = {}) {
-  console.log(headers, data, "headers,dataheaders,data");
   return new Promise((resolve, reject) => {
     apiPost(CAB_POOLING_STATUS, data, headers)
-      .then(async res => {
-        resolve(res)
-      }
-      )
-      .catch(error => {
+      .then((res) => {
+        const isPooling  = res?.data?.is_pooling_available==1 ? true:false
+        if(isPooling){
+          saveCabPollingStatus(true);
+        }else{
+          saveCabPollingStatus(false);
+        }
+        dispatch({
+          type: types.POOLING,
+          payload: isPooling,
+        });
+        resolve(res);
+      })
+      .catch((error) => {
+        alert('faild')
         reject(error);
       });
   });
 }
-
-
-
-
-
-
-

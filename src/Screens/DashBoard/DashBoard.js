@@ -68,7 +68,6 @@ export default function DashBoard({ route, navigation }) {
   const defaultLanguagae = useSelector(
     (state) => state?.initBoot?.defaultLanguage
   );
-  console.log(userData, "userData");
 
   const {
     clientInfo,
@@ -77,8 +76,9 @@ export default function DashBoard({ route, navigation }) {
     defaultLanguage,
     fcmToken,
     zendeskKeys,
-    isCabPooling,
   } = useSelector((state) => state?.initBoot);
+
+  const {isCabPooling} =useSelector((state) => state?.auth);
 
   const [state, setState] = useState({
     isLoading: false,
@@ -116,7 +116,6 @@ export default function DashBoard({ route, navigation }) {
     isWarningAlert: false,
     warningStatus: false,
     allPoolingingSuggestions: [],
-    showPoolingSuggestionsSwitch: false,
   });
   const {
     longitude,
@@ -141,7 +140,6 @@ export default function DashBoard({ route, navigation }) {
     isWarningAlert,
     warningStatus,
     allPoolingingSuggestions,
-    showPoolingSuggestionsSwitch,
   } = state;
 
   useEffect(() => {
@@ -184,7 +182,8 @@ export default function DashBoard({ route, navigation }) {
       let headingAngle = location?.bearing || 0.0;
       let lat = location?.latitude || 0;
       let long = location.longitude || 0;
-      fetchgentLogs(lat, long, headingAngle);
+      let cabPoolingStatus = isCabPooling;
+      fetchgentLogs(lat, long, headingAngle, cabPoolingStatus);
     });
 
     BackgroundGeolocation.on("error", (error) => {
@@ -254,6 +253,7 @@ export default function DashBoard({ route, navigation }) {
       notificationText: `Tracking driver's location in background.`,
       locationProvider: BackgroundGeolocation.ACTIVITY_PROVIDER,
       interval: 10000,
+
       fastestInterval: 10000,
       activitiesInterval: 10000,
       stopOnStillActivity: false,
@@ -325,7 +325,7 @@ export default function DashBoard({ route, navigation }) {
     }, [isCabPooling])
   );
 
-  const fetchgentLogs = async (lat, lng, heading_) => {
+  const fetchgentLogs = async (lat, lng, heading_, cabPoolingStatus) => {
     if (userData?.access_token) {
       let data = {};
       data["device_type"] = Platform.OS;
@@ -339,13 +339,16 @@ export default function DashBoard({ route, navigation }) {
       data["lat"] = lat;
       data["device_token"] = !!fcmToken ? fcmToken : "";
       data["heading_angle"] = heading_;
-      data["is_pooling_available"] = isCabPooling ? 1 : 0;
-      // console.log(data, 'data>data');
-      console.log(data, "sending data data??????");
+      // if (!!cabPoolingStatus) {
+      //   data["is_pooling_available"] = 1;
+      // }
+
+      console.log(data, "data>data====");
+
       actions
         .logsApi(data, { client: clientInfo?.database_name })
         .then((res) => {
-          console.log(res, "logs data");
+          // console.log(res, "logs data");
           if (
             res?.data?.user?.client_preference
               ?.customer_support_application_id != null &&
@@ -370,7 +373,8 @@ export default function DashBoard({ route, navigation }) {
           }
 
           if (res?.data?.user?.is_pooling_available) {
-          } else {
+          }
+           else if (isCabPooling) {
             actions.removeAllCabPoolingStatus(false);
           }
 
@@ -501,12 +505,17 @@ export default function DashBoard({ route, navigation }) {
   };
 
   const getAllPoolingSuggestions = () => {
+    allPoolingSuggestions()
+  };
+
+  const allPoolingSuggestions = () => {
     const header = {
       client: clientInfo?.database_name,
     };
     actions
       .getAllPoolingSuggestions({}, header)
       .then((res) => {
+        console.log(res,"pooling");
         const poolingSuggestionAccordingToDistance = res?.data?.order_suggession?.sort(
           function (a, b) {
             return a?.distance_pickup - b?.distance_pickup;
@@ -748,6 +757,7 @@ export default function DashBoard({ route, navigation }) {
           borderLeftWidth: 3,
           marginHorizontal: moderateScale(10),
           ...generateBoxShadowStyle(-2, 0, "#171717", 0.2, 3, 3, "#171717"),
+          paddingBottom: moderateScaleVertical(10),
         }}
       >
         <PoolingSuggestionCard
@@ -862,18 +872,10 @@ export default function DashBoard({ route, navigation }) {
       </>
     );
   };
-  const DEFAULT_PADDING = { top: 40, right: 40, bottom: 40, left: 40 };
 
   const _onRegionChange = (region) => {
     updateState({ region: region });
     // _getAddressBasedOnCoordinates(region);
-  };
-
-  const animate = (region) => {
-    mapRef.current.animateToRegion({
-      region: region,
-      duration: 500,
-    });
   };
 
   const fitToMap = () => {
@@ -1139,7 +1141,7 @@ export default function DashBoard({ route, navigation }) {
             options={options}
             initial={selectedOption}
             onPress={(value) => updateContent(value)}
-            textInputStyle={{ width:  moderateScale(width - 40) }}
+            textInputStyle={{ width: moderateScale(width - 40) }}
           />
         ) : (
           <View style={{ height: 35 }} />

@@ -47,13 +47,13 @@
 // export const API_BASE_URL = 'https://dispatch.elog.group/';
 
 // export const API_BASE_URL = 'https://dispatch.knockknock.online/'
-//  export const API_BASE_URL = 'https://api.winhires.com/';
+  export const API_BASE_URL = 'https://api.winhires.com/';
 //export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
-// export const API_BASE_URL = 'http://192.168.96.152:9091/';
+//export const API_BASE_URL = 'http://192.168.100.135:9091/';
 // export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.myevplus.com/';
 
 //Misst
@@ -468,7 +468,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.quicklube.us/'
 
 // sxm2Go
-// export const API_BASE_URL = 'https://dispatch.sxm2go.com/';
+//  export const API_BASE_URL = 'https://dispatch.sxm2go.com/';
 
 // export const personaltoken = 'TMJdbQlNWkYl1JzMONzRgF4zQFuP8s';
 
