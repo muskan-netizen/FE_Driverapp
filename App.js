@@ -114,26 +114,7 @@ const App = () => {
       } else {
       }
     }); // Add some error handling, also you can simply do this.setState({fistLaunch: value == null})
-    await AsyncStorage.getItem("cabPoolingStatus")
-      .then((value) => {
-        const poolingStatus = JSON.parse(value);
-        console.log(
-          typeof poolingStatus,
-          poolingStatus,
-          value,
-          "poolingStatus"
-        );
-        dispatch({
-          type: types.POOLING,
-          payload:
-            poolingStatus != null || poolingStatus != undefined
-              ? poolingStatus
-              : false,
-        });
-      })
-      .catch((error) => {
-        console.log(error, "error in getting poolstatus");
-      }); // Add some error handling, also you can simply do this.setState({fistLaunch: value == null})
+ 
   }, []);
 
   const notificationConfig = () => {

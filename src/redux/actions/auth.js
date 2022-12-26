@@ -205,21 +205,38 @@ export function updateCabPoolingStatus(data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
     apiPost(CAB_POOLING_STATUS, data, headers)
       .then((res) => {
-        const isPooling  = res?.data?.is_pooling_available==1 ? true:false
-        if(isPooling){
-          saveCabPollingStatus(true);
-        }else{
-          saveCabPollingStatus(false);
+        const isPooling = !!res?.data?.is_pooling_available? true : false;
+        if (isPooling) {
+       
+          dispatch({
+            type: types.POOLING,
+            payload: true,
+          });
+        } else {
+      
+          dispatch({
+            type: types.POOLING,
+            payload: false,
+          });
         }
-        dispatch({
-          type: types.POOLING,
-          payload: isPooling,
-        });
+
         resolve(res);
       })
       .catch((error) => {
-        alert('faild')
+        alert("faild");
         reject(error);
       });
   });
 }
+
+export function savePoolingStatusForLifeCycle(data = {}) {
+  dispatch({
+    type: types.POOLING,
+    payload:data?true: false,
+  });
+
+}
+
+
+
+

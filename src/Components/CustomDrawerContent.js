@@ -32,7 +32,7 @@ import { getItem } from "../utils/utils";
 import { string } from "is_js";
 import { saveCabPoolingStatus } from "../redux/actions/init";
 
-export default function CustomDrawerContent({
+function CustomDrawerContent({
   state,
   descriptors,
   navigation,
@@ -51,7 +51,7 @@ export default function CustomDrawerContent({
 
   const darkthemeusingDevice = useDarkMode();
 
-  console.log(isCabPooling, "isCabPooling");
+
 
   const isDarkMode = themeToggle ? darkthemeusingDevice : themeColor;
   const [states, setState] = useState({
@@ -150,6 +150,7 @@ export default function CustomDrawerContent({
     logoutAlert: false,
     selectedDrawerItem: null,
     isLoading: false,
+    isCabPoolingOn:false
   });
   const {
     routes,
@@ -158,6 +159,7 @@ export default function CustomDrawerContent({
     isLoading,
     themeToggle,
     themeColor,
+    isCabPoolingOn
   } = states;
 
   // ZendeskChat.init(
@@ -376,8 +378,9 @@ export default function CustomDrawerContent({
     actions
       .updateCabPoolingStatus(data, header)
       .then((res) => {
-        console.log(res, "pooling");
-        
+        updateState({
+          isCabPoolingOn:res?.data?.is_pooling_available
+        })
       })
       .catch((error) => {
         console.log(error, "errororro");
@@ -445,7 +448,7 @@ export default function CustomDrawerContent({
                 }}
                 thumbColor={colors.white}
                 onValueChange={(status) => toggleSwitch(status)}
-                value={isCabPooling}
+                value={isCabPooling || isCabPoolingOn}
               />
             </View>
           ) : null}
@@ -538,3 +541,6 @@ export default function CustomDrawerContent({
     </>
   );
 }
+
+
+export default  React.memo(CustomDrawerContent)

@@ -56,11 +56,7 @@ import { appIds } from "../../utils/constants/DynamicAppKeys";
 import PoolingSuggestionCard from "../../Components/PoolingSuggestionCard";
 import GradientButton from "../../Components/GradientButton";
 import { showMessage } from "react-native-flash-message";
-import {
-  removeAllCabPoolingStatus,
-  saveCabPoolingStatus,
-} from "../../redux/actions/init";
-import { removeCabPollingStatus } from "../../utils/utils";
+
 var finalAllTasks = [];
 var finaltodayTasks = [];
 export default function DashBoard({ route, navigation }) {
@@ -78,7 +74,7 @@ export default function DashBoard({ route, navigation }) {
     zendeskKeys,
   } = useSelector((state) => state?.initBoot);
 
-  const {isCabPooling} =useSelector((state) => state?.auth);
+  const { isCabPooling } = useSelector((state) => state?.auth);
 
   const [state, setState] = useState({
     isLoading: false,
@@ -182,8 +178,7 @@ export default function DashBoard({ route, navigation }) {
       let headingAngle = location?.bearing || 0.0;
       let lat = location?.latitude || 0;
       let long = location.longitude || 0;
-      let cabPoolingStatus = isCabPooling;
-      fetchgentLogs(lat, long, headingAngle, cabPoolingStatus);
+      fetchgentLogs(lat, long, headingAngle);
     });
 
     BackgroundGeolocation.on("error", (error) => {
@@ -325,7 +320,7 @@ export default function DashBoard({ route, navigation }) {
     }, [isCabPooling])
   );
 
-  const fetchgentLogs = async (lat, lng, heading_, cabPoolingStatus) => {
+  const fetchgentLogs = async (lat, lng, heading_) => {
     if (userData?.access_token) {
       let data = {};
       data["device_type"] = Platform.OS;
@@ -339,16 +334,13 @@ export default function DashBoard({ route, navigation }) {
       data["lat"] = lat;
       data["device_token"] = !!fcmToken ? fcmToken : "";
       data["heading_angle"] = heading_;
-      // if (!!cabPoolingStatus) {
-      //   data["is_pooling_available"] = 1;
-      // }
 
       console.log(data, "data>data====");
 
       actions
         .logsApi(data, { client: clientInfo?.database_name })
         .then((res) => {
-          // console.log(res, "logs data");
+           console.log(res, "logs data");
           if (
             res?.data?.user?.client_preference
               ?.customer_support_application_id != null &&
@@ -373,9 +365,7 @@ export default function DashBoard({ route, navigation }) {
           }
 
           if (res?.data?.user?.is_pooling_available) {
-          }
-           else if (isCabPooling) {
-            actions.removeAllCabPoolingStatus(false);
+            actions.savePoolingStatusForLifeCycle(res?.data?.user?.is_pooling_available)
           }
 
           if (selectedOption == 1) {
@@ -505,7 +495,7 @@ export default function DashBoard({ route, navigation }) {
   };
 
   const getAllPoolingSuggestions = () => {
-    allPoolingSuggestions()
+    allPoolingSuggestions();
   };
 
   const allPoolingSuggestions = () => {
@@ -515,7 +505,7 @@ export default function DashBoard({ route, navigation }) {
     actions
       .getAllPoolingSuggestions({}, header)
       .then((res) => {
-        console.log(res,"pooling");
+        console.log(res, "pooling");
         const poolingSuggestionAccordingToDistance = res?.data?.order_suggession?.sort(
           function (a, b) {
             return a?.distance_pickup - b?.distance_pickup;
@@ -1140,7 +1130,7 @@ export default function DashBoard({ route, navigation }) {
           <SwitchSelectorComponent
             options={options}
             initial={selectedOption}
-            onPress={(value) => updateContent(value)}
+            onPress={  (value) => updateContent(value)}
             textInputStyle={{ width: moderateScale(width - 40) }}
           />
         ) : (
