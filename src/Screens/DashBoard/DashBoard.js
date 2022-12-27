@@ -742,12 +742,13 @@ export default function DashBoard({ route, navigation }) {
         // onPress={() => _onPressTask(item?.data[0])}
         activeOpacity={0.8}
         style={{
-          marginTop: moderateScale(30),
+          marginTop: moderateScale(20),
           borderLeftColor: getDynamicUpdateOnValues(item),
           borderLeftWidth: 3,
           marginHorizontal: moderateScale(10),
           ...generateBoxShadowStyle(-2, 0, "#171717", 0.2, 3, 3, "#171717"),
           paddingBottom: moderateScaleVertical(10),
+          marginBottom:moderateScaleVertical(20)
         }}
       >
         <PoolingSuggestionCard

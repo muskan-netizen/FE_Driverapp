@@ -91,6 +91,7 @@ const NotificationModal = () => {
   };
 
   const getCustomNotificationData = () => {
+    console.log(notificationData,"notificationData");
     actions
       .getCustomNotificationPayload(
         `/${notificationData?.notificationData?.data?.order_id}`,
@@ -98,7 +99,7 @@ const NotificationModal = () => {
         {shortCode: shortCode},
       )
       .then(res => {
-        console.log(res, 'resres');
+        console.log(res, 'resres>> for notification');
         updateState({
           notificationDropLocationsData: res?.tasks,
           orderCost: res?.order?.order_cost,
@@ -222,15 +223,19 @@ const NotificationModal = () => {
                   </Text>
                 </View>
               </View>
-            ) : (
+            ) :  (
+             <>
+             {taskId ?
               <View style={styles.taskacceptrRejectContainer}>
-                <Text numberOfLines={1} style={styles.taskIdTitleText}>
-                  {strings.TASKID}
-                </Text>
-                <Text numberOfLines={1} style={styles.taskIdTextStyle}>
-                  {` ${taskId}`}
-                </Text>
-              </View>
+              <Text numberOfLines={1} style={styles.taskIdTitleText}>
+                {strings.TASKID}
+              </Text>
+              <Text numberOfLines={1} style={styles.taskIdTextStyle}>
+                {` ${taskId} `}{`${!!orderData?.is_cab_pooling? `(Pooling)`:''}`}
+              </Text>
+            </View>:null}
+             </>
+             
             )}
             {orderData?.cash_to_be_collected > 0 && (
               <View style={{alignItems: 'center'}}>
