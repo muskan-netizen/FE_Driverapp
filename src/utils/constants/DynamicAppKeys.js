@@ -453,6 +453,11 @@ const shortCodes = {
   housingSubsidies:'ea2a79',
   bocch:'74c882',
   potolo:'75902f',
+  earnApp:'72e7cb',
+  aredoo:'1a5da0',
+  bukam:'ef4046',
+  shopcart:'e505e4',
+  dot:'4827ee'
 };
 
 const appIds = {
@@ -1924,7 +1929,7 @@ const appIds = {
     android: 'com.eureka.royodispatcher',
   }),
   kaypee: Platform.select({
-    ios: 'com.kaypee.royodispatcher',
+    ios: 'com.kaypee.driverapp',
     android: 'com.kaypee.royodispatcher',
   }),
   hitaxi: Platform.select({
@@ -2242,6 +2247,26 @@ const appIds = {
   potolo: Platform.select({
     ios: 'com.potolo.royodispatcher',
     android: 'com.potolo.royodispatcher',
+  }),
+  earnApp: Platform.select({
+    ios: 'com.earnApp.royodisaptcher',
+    android: 'com.earnApp.royodisaptcher',
+  }),
+  aredoo: Platform.select({
+    ios: 'com.aredoo.royodispatcher',
+    android: 'com.aredoo.royodispatcher',
+  }),
+  bukam: Platform.select({
+    ios: 'com.bukam.royodispatcher',
+    android: 'com.bukam.royodispatcher',
+  }),
+  shopcart: Platform.select({
+    ios: 'com.shopcart.royodispatcher',
+    android: 'com.shopcart.royodispatcher',
+  }),
+  dot: Platform.select({
+    ios: 'com.dot.royodispatcher',
+    android: 'com.dot.royodispatcher',
   }),
 };
 

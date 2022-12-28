@@ -202,15 +202,25 @@ android {
 
      flavorDimensions "appType"
 productFlavors{
-                kero{
+    rentzy{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.kero.royodispatcher'
-            resValue "string", "app_name", "kero Dispatcher"
+            applicationId 'com.rentzy.royodispatcher'
+            resValue "string", "app_name", "Rentzy Dispatcher"
+        }
+      skyline{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.skyline.royodispatcher'
+            resValue "string", "app_name", "Skyline Dispatcher"
         }
 }
     
@@ -7427,6 +7437,56 @@ productFlavors{
 //             // applicationIdSuffix ".royoorder"
 //             applicationId 'com.potolo.royodispatcher'
 //             resValue "string", "app_name", "Potolo Dispatcher"
+//         }
+//      earnApp{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.earnApp.royodispatcher'
+//             resValue "string", "app_name", "EarnApp Dispatcher"
+//         }
+//      aredoo{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.aredoo.royodispatcher'
+//             resValue "string", "app_name", "Aredoo Dispatcher"
+//         }
+//      bukam{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.bukam.royodispatcher'
+//             resValue "string", "app_name", "Bukam Dispatcher"
+//         }
+//         shopcart{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.shopcart.royodispatcher'
+//             resValue "string", "app_name", "Shopcart Dispatcher"
+//         }
+//       dot{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.dot.royodispatcher'
+//             resValue "string", "app_name", "Dot Dispatcher"
 //         }
 // }
 }
