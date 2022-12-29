@@ -907,6 +907,8 @@
     "dotdispatcherRelease": "cd android && ./gradlew assembledotRelease",
     "wizsonicdispatcher": "react-native run-android --variant=wizsonicDebug",
     "wizsonicdispatcherRelease": "cd android && ./gradlew assemblewizsonicRelease",
+    "udkaydispatcher": "react-native run-android --variant=udkayDebug",
+    "udkaydispatcherRelease": "cd android && ./gradlew assembleudkayRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",

@@ -458,7 +458,8 @@ const shortCodes = {
   bukam:'ef4046',
   shopcart:'e505e4',
   dot:'4827ee',
-  wizsonic:'82d165'
+  wizsonic:'82d165',
+  udkay:'29a641'
 };
 
 const appIds = {
@@ -2272,6 +2273,10 @@ const appIds = {
   wizsonic: Platform.select({
     ios: 'com.wizsonic.royodispatcher',
     android: 'com.wizsonic.royodispatcher',
+  }),
+  udkay: Platform.select({
+    ios: 'com.udkay.royodispatcher',
+    android: 'com.udkay.royodispatcher',
   }),
 };
 

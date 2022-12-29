@@ -2842,6 +2842,12 @@ export default function ShortCode({route, navigation}) {
                         isShortcodePrefilled: true,
                       });
                       break;
+                      case appIds.udkay:
+                        updateState({
+                          shortCode: shortCodes.udkay,
+                          isShortcodePrefilled: true,
+                        });
+                        break;
       }
     })();
   }, [internetConnection]);

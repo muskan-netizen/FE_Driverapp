@@ -202,15 +202,15 @@ android {
 
      flavorDimensions "appType"
 productFlavors{
-           skyline{
+             jeevann{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.skyline.royodispatcher'
-            resValue "string", "app_name", "Skyline Dispatcher"
+            applicationId 'com.jeevan.driver'
+            resValue "string", "app_name", "Jeevann Driver"
         }
 }
     
@@ -6785,7 +6785,7 @@ productFlavors{
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.jeevann.royodispatcher'
+//             applicationId 'com.jeevan.driver'
 //             resValue "string", "app_name", "Jeevann Dispatcher"
 //         }
 //          novamed{
@@ -7487,6 +7487,16 @@ productFlavors{
 //             // applicationIdSuffix ".royoorder"
 //             applicationId 'com.wizsonic.royodispatcher'
 //             resValue "string", "app_name", "Wizsonic Dispatcher"
+//         }
+//          udkay{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.udkay.royodispatcher'
+//             resValue "string", "app_name", "Udkay Dispatcher"
 //         }
 // }
 }
