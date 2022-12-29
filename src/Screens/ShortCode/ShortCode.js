@@ -2836,6 +2836,12 @@ export default function ShortCode({route, navigation}) {
                       isShortcodePrefilled: true,
                     });
                     break;
+                    case appIds.wizsonic:
+                      updateState({
+                        shortCode: shortCodes.wizsonic,
+                        isShortcodePrefilled: true,
+                      });
+                      break;
       }
     })();
   }, [internetConnection]);

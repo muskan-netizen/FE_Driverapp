@@ -202,17 +202,7 @@ android {
 
      flavorDimensions "appType"
 productFlavors{
-    rentzy{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.rentzy.royodispatcher'
-            resValue "string", "app_name", "Rentzy Dispatcher"
-        }
-      skyline{
+           skyline{
             dimension "appType"
             versionCode 1
             versionName "1.0"
@@ -7487,6 +7477,16 @@ productFlavors{
 //             // applicationIdSuffix ".royoorder"
 //             applicationId 'com.dot.royodispatcher'
 //             resValue "string", "app_name", "Dot Dispatcher"
+//         }
+ //        wizsonic{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.wizsonic.royodispatcher'
+//             resValue "string", "app_name", "Wizsonic Dispatcher"
 //         }
 // }
 }

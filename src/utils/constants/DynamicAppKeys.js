@@ -457,7 +457,8 @@ const shortCodes = {
   aredoo:'1a5da0',
   bukam:'ef4046',
   shopcart:'e505e4',
-  dot:'4827ee'
+  dot:'4827ee',
+  wizsonic:'82d165'
 };
 
 const appIds = {
@@ -2267,6 +2268,10 @@ const appIds = {
   dot: Platform.select({
     ios: 'com.dot.royodispatcher',
     android: 'com.dot.royodispatcher',
+  }),
+  wizsonic: Platform.select({
+    ios: 'com.wizsonic.royodispatcher',
+    android: 'com.wizsonic.royodispatcher',
   }),
 };
 

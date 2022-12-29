@@ -905,6 +905,8 @@
     "shopcartdispatcherRelease": "cd android && ./gradlew assembleshopcartRelease",
     "dotdispatcher": "react-native run-android --variant=dotDebug",
     "dotdispatcherRelease": "cd android && ./gradlew assembledotRelease",
+    "wizsonicdispatcher": "react-native run-android --variant=wizsonicDebug",
+    "wizsonicdispatcherRelease": "cd android && ./gradlew assemblewizsonicRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
