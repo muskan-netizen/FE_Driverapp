@@ -49,7 +49,7 @@
 // export const API_BASE_URL = 'https://dispatch.knockknock.online/'
 //  export const API_BASE_URL = 'https://api.winhires.com/';
 //export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
-export const API_BASE_URL = 'http://192.168.100.135:9091/';
+export const API_BASE_URL = 'http://192.168.101.54:9091/';
 // export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
