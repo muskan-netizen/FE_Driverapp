@@ -909,6 +909,8 @@
     "wizsonicdispatcherRelease": "cd android && ./gradlew assemblewizsonicRelease",
     "udkaydispatcher": "react-native run-android --variant=udkayDebug",
     "udkaydispatcherRelease": "cd android && ./gradlew assembleudkayRelease",
+    "hattaFoodHubdispatcher": "react-native run-android --variant=hattaFoodHubDebug",
+    "hattaFoodHubdispatcherRelease": "cd android && ./gradlew assemblehattaFoodHubRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",

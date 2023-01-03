@@ -202,15 +202,15 @@ android {
 
      flavorDimensions "appType"
 productFlavors{
-             jeevann{
+ hattaFoodHub{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.jeevan.driver'
-            resValue "string", "app_name", "Jeevann Driver"
+            applicationId 'com.hattaFoodHub.royodispatcher'
+            resValue "string", "app_name", "HattaFoodHub Dispatcher"
         }
 }
     
@@ -7497,6 +7497,16 @@ productFlavors{
 //             // applicationIdSuffix ".royoorder"
 //             applicationId 'com.udkay.royodispatcher'
 //             resValue "string", "app_name", "Udkay Dispatcher"
+//         }
+// hattaFoodHub{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.hattaFoodHub.royodispatcher'
+//             resValue "string", "app_name", "HattaFoodHub Dispatcher"
 //         }
 // }
 }
