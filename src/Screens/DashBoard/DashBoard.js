@@ -74,7 +74,9 @@ export default function DashBoard({ route, navigation }) {
     zendeskKeys,
   } = useSelector((state) => state?.initBoot);
 
-  const { isCabPooling } = useSelector((state) => state?.auth);
+  const { isCabPooling,initialValue } = useSelector((state) => state?.auth);
+
+
 
   const [state, setState] = useState({
     isLoading: false,
@@ -145,7 +147,7 @@ export default function DashBoard({ route, navigation }) {
         fcm_token: fcmToken,
       });
     })();
-    return () => {};
+    return () => { };
   }, []);
 
   useEffect(() => {
@@ -173,102 +175,207 @@ export default function DashBoard({ route, navigation }) {
   }, []);
   console.log("add my code");
 
-  useEffect(() => {
-    BackgroundGeolocation.on("location", (location) => {
-      let headingAngle = location?.bearing || 0.0;
-      let lat = location?.latitude || 0;
-      let long = location.longitude || 0;
-      fetchgentLogs(lat, long, headingAngle);
-    });
+  useFocusEffect(
+    React.useCallback(() => {
 
-    BackgroundGeolocation.on("error", (error) => {
-      console.log("[ERROR] BackgroundGeolocation error:", error);
-    });
+      BackgroundGeolocation.configure({
+        activityType: "Fitness",
+        desiredAccuracy: BackgroundGeolocation.HIGH_ACCURACY,
+        stationaryRadius: 10,
+        distanceFilter: 10,
+        debug: false,
+        startOnBoot: false,
+        stopOnTerminate: false,
+        notificationTitle: "Location Tracking",
+        notificationText: `Tracking driver's location in background.`,
+        locationProvider: BackgroundGeolocation.ACTIVITY_PROVIDER,
+        interval: 10000,
 
-    BackgroundGeolocation.on("authorization", (status) => {
-      console.log(
-        "[INFO] BackgroundGeolocation authorization status: " + status
-      );
-      if (status !== BackgroundGeolocation.AUTHORIZED) {
-        // we need to set delay or otherwise alert may not be shown
-        setTimeout(
-          () =>
-            Alert.alert(
-              "App requires location tracking permission",
-              "Would you like to open app settings?",
-              [
-                {
-                  text: "Yes",
-                  onPress: () => BackgroundGeolocation.showAppSettings(),
-                },
-                {
-                  text: "No",
-                  onPress: () => console.log("No Pressed"),
-                  style: "cancel",
-                },
-              ]
-            ),
-          1000
+        fastestInterval: 10000,
+        activitiesInterval: 10000,
+        stopOnStillActivity: false,
+        pauseLocationUpdates: false,
+        url: "",
+        httpHeaders: {
+          "X-FOO": "bar",
+        },
+        // customize post properties
+        postTemplate: {
+          lat: "@latitude",
+          lon: "@longitude",
+          foo: "bar", // you can also add your own properties
+        },
+      });
+
+      BackgroundGeolocation.on("location", (location) => {
+        let headingAngle = location?.bearing || 0.0;
+        let lat = location?.latitude || 0;
+        let long = location.longitude || 0;
+        fetchgentLogs(lat, long, headingAngle);
+      });
+
+      BackgroundGeolocation.on("error", (error) => {
+        console.log("[ERROR] BackgroundGeolocation error:", error);
+      });
+
+      BackgroundGeolocation.on("authorization", (status) => {
+        console.log(
+          "[INFO] BackgroundGeolocation authorization status: " + status
         );
-      }
-    });
+        if (status !== BackgroundGeolocation.AUTHORIZED) {
+          // we need to set delay or otherwise alert may not be shown
+          setTimeout(
+            () =>
+              Alert.alert(
+                "App requires location tracking permission",
+                "Would you like to open app settings?",
+                [
+                  {
+                    text: "Yes",
+                    onPress: () => BackgroundGeolocation.showAppSettings(),
+                  },
+                  {
+                    text: "No",
+                    onPress: () => console.log("No Pressed"),
+                    style: "cancel",
+                  },
+                ]
+              ),
+            1000
+          );
+        }
+      });
 
-    BackgroundGeolocation.on("background", () => {
-      console.log("[INFO] App is in background");
-    });
+      BackgroundGeolocation.on("background", () => {
+        console.log("[INFO] App is in background");
+      });
 
-    BackgroundGeolocation.on("foreground", () => {
-      console.log("[INFO] App is in foreground");
-    });
+      BackgroundGeolocation.on("foreground", () => {
 
-    BackgroundGeolocation.on("abort_requested", () => {
-      console.log("[INFO] Server responded with 285 Updates Not Required");
-    });
+        console.log("[INFO] App is in foreground");
+      });
 
-    BackgroundGeolocation.on("http_authorization", () => {
-      console.log("[INFO] App needs to authorize the http requests");
-    });
+      BackgroundGeolocation.on("abort_requested", () => {
+        console.log("[INFO] Server responded with 285 Updates Not Required");
+      });
 
-    BackgroundGeolocation.checkStatus((status) => {
-      console.log(status, "status.isRunning");
-      if (!status.isRunning) {
-        BackgroundGeolocation.start(); //triggers start on start event
-      }
-    });
+      BackgroundGeolocation.on("http_authorization", () => {
+        console.log("[INFO] App needs to authorize the http requests");
+      });
 
-    BackgroundGeolocation.configure({
-      activityType: "Fitness",
-      desiredAccuracy: BackgroundGeolocation.HIGH_ACCURACY,
-      stationaryRadius: 10,
-      distanceFilter: 10,
-      debug: false,
-      startOnBoot: false,
-      stopOnTerminate: false,
-      notificationTitle: "Location Tracking",
-      notificationText: `Tracking driver's location in background.`,
-      locationProvider: BackgroundGeolocation.ACTIVITY_PROVIDER,
-      interval: 10000,
+      BackgroundGeolocation.checkStatus((status) => {
+        console.log(status, "status.isRunning");
+        if (!status.isRunning) {
+          BackgroundGeolocation.start(); //triggers start on start event
+        }
+      });
 
-      fastestInterval: 10000,
-      activitiesInterval: 10000,
-      stopOnStillActivity: false,
-      pauseLocationUpdates: false,
-      url: "",
-      httpHeaders: {
-        "X-FOO": "bar",
-      },
-      // customize post properties
-      postTemplate: {
-        lat: "@latitude",
-        lon: "@longitude",
-        foo: "bar", // you can also add your own properties
-      },
-    });
 
-    return () => {
-      BackgroundGeolocation.removeAllListeners();
-    };
-  }, []);
+      return BackgroundGeolocation.removeAllListeners();
+    }, [])
+  );
+
+
+
+  // useEffect(() => {
+
+  //   BackgroundGeolocation.on("location", (location) => {
+  //     alert("Hey")
+  //     console.log('hiiii.........1111');
+  //     let headingAngle = location?.bearing || 0.0;
+  //     let lat = location?.latitude || 0;
+  //     let long = location.longitude || 0;
+  //     fetchgentLogs(lat, long, headingAngle);
+  //   });
+
+  //   BackgroundGeolocation.on("error", (error) => {
+  //     console.log("[ERROR] BackgroundGeolocation error:", error);
+  //   });
+
+  //   BackgroundGeolocation.on("authorization", (status) => {
+  //     console.log(
+  //       "[INFO] BackgroundGeolocation authorization status: " + status
+  //     );
+  //     if (status !== BackgroundGeolocation.AUTHORIZED) {
+  //       // we need to set delay or otherwise alert may not be shown
+  //       setTimeout(
+  //         () =>
+  //           Alert.alert(
+  //             "App requires location tracking permission",
+  //             "Would you like to open app settings?",
+  //             [
+  //               {
+  //                 text: "Yes",
+  //                 onPress: () => BackgroundGeolocation.showAppSettings(),
+  //               },
+  //               {
+  //                 text: "No",
+  //                 onPress: () => console.log("No Pressed"),
+  //                 style: "cancel",
+  //               },
+  //             ]
+  //           ),
+  //         1000
+  //       );
+  //     }
+  //   });
+
+  //   BackgroundGeolocation.on("background", () => {
+  //     console.log("[INFO] App is in background");
+  //   });
+
+  //   BackgroundGeolocation.on("foreground", () => {
+  //     console.log("[INFO] App is in foreground");
+  //   });
+
+  //   BackgroundGeolocation.on("abort_requested", () => {
+  //     console.log("[INFO] Server responded with 285 Updates Not Required");
+  //   });
+
+  //   BackgroundGeolocation.on("http_authorization", () => {
+  //     console.log("[INFO] App needs to authorize the http requests");
+  //   });
+
+  //   BackgroundGeolocation.checkStatus((status) => {
+  //     console.log(status, "status.isRunning");
+  //     if (!status.isRunning) {
+  //       BackgroundGeolocation.start(); //triggers start on start event
+  //     }
+  //   });
+
+  //   BackgroundGeolocation.configure({
+  //     activityType: "Fitness",
+  //     desiredAccuracy: BackgroundGeolocation.HIGH_ACCURACY,
+  //     stationaryRadius: 10,
+  //     distanceFilter: 10,
+  //     debug: false,
+  //     startOnBoot: false,
+  //     stopOnTerminate: false,
+  //     notificationTitle: "Location Tracking",
+  //     notificationText: `Tracking driver's location in background.`,
+  //     locationProvider: BackgroundGeolocation.ACTIVITY_PROVIDER,
+  //     interval: 10000,
+
+  //     fastestInterval: 10000,
+  //     activitiesInterval: 10000,
+  //     stopOnStillActivity: false,
+  //     pauseLocationUpdates: false,
+  //     url: "",
+  //     httpHeaders: {
+  //       "X-FOO": "bar",
+  //     },
+  //     // customize post properties
+  //     postTemplate: {
+  //       lat: "@latitude",
+  //       lon: "@longitude",
+  //       foo: "bar", // you can also add your own properties
+  //     },
+  //   });
+
+  //   return () => {
+  //     BackgroundGeolocation.removeAllListeners();
+  //   };
+  // }, []);
 
   useFocusEffect(
     React.useCallback(() => {
@@ -340,7 +447,7 @@ export default function DashBoard({ route, navigation }) {
       actions
         .logsApi(data, { client: clientInfo?.database_name })
         .then((res) => {
-           console.log(res, "logs data");
+          console.log(res, "logs data");
           if (
             res?.data?.user?.client_preference
               ?.customer_support_application_id != null &&
@@ -348,10 +455,10 @@ export default function DashBoard({ route, navigation }) {
           ) {
             if (
               zendeskKeys?.keys?.account_key !=
-                res?.data?.user?.client_preference?.customer_support_key &&
+              res?.data?.user?.client_preference?.customer_support_key &&
               zendeskKeys?.keys?.application_id !=
-                res?.data?.user?.client_preference
-                  ?.customer_support_application_id
+              res?.data?.user?.client_preference
+                ?.customer_support_application_id
             )
               actions?.setZendeskKeys({
                 keys: {
@@ -415,7 +522,7 @@ export default function DashBoard({ route, navigation }) {
         fcm_token: fcmToken,
       });
     })();
-    return () => {};
+    return () => { };
   }, []);
 
   const currentLocation = () => {
@@ -748,7 +855,7 @@ export default function DashBoard({ route, navigation }) {
           marginHorizontal: moderateScale(10),
           ...generateBoxShadowStyle(-2, 0, "#171717", 0.2, 3, 3, "#171717"),
           paddingBottom: moderateScaleVertical(10),
-          marginBottom:moderateScaleVertical(20)
+          marginBottom: moderateScaleVertical(20)
         }}
       >
         <PoolingSuggestionCard
@@ -783,16 +890,16 @@ export default function DashBoard({ route, navigation }) {
             selectedOption == 2
               ? allPoolingingSuggestions?.length
               : selectedOption
-              ? allTasks?.length
-              : todaysTasks?.length
+                ? allTasks?.length
+                : todaysTasks?.length
           ) ? (
             <FlatList
               data={
                 selectedOption == 2
                   ? allPoolingingSuggestions
                   : selectedOption
-                  ? finalAllTasks
-                  : finaltodayTasks
+                    ? finalAllTasks
+                    : finaltodayTasks
               }
               renderItem={
                 selectedOption != 2 ? renderTaskList : renderPoolingSuggestions
@@ -806,8 +913,8 @@ export default function DashBoard({ route, navigation }) {
                 backgroundColor: !!(selectedOption == 1 && !allTasks.length)
                   ? colors.backGround
                   : !!(selectedOption == 0 && !todaysTasks.length)
-                  ? colors.backGround
-                  : colors.white,
+                    ? colors.backGround
+                    : colors.white,
               }}
               contentContainerStyle={{
                 flexGrow: 1,
@@ -829,8 +936,8 @@ export default function DashBoard({ route, navigation }) {
                     selectedOption == 2
                       ? "No Pooling Suggestions Yet"
                       : getBundleId() == appIds.tdc
-                      ? strings.NOTRIP
-                      : strings.NOTASK
+                        ? strings.NOTRIP
+                        : strings.NOTASK
                   }
                   subMessage={
                     selectedOption == 2
@@ -848,8 +955,8 @@ export default function DashBoard({ route, navigation }) {
                 selectedOption == 2
                   ? "No Pooling Suggestions Yet"
                   : getBundleId() == appIds.tdc
-                  ? strings.NOTRIP
-                  : strings.NOTASK
+                    ? strings.NOTRIP
+                    : strings.NOTASK
               }
               subMessage={
                 selectedOption == 2
@@ -1129,10 +1236,11 @@ export default function DashBoard({ route, navigation }) {
       >
         {isEnabled ? (
           <SwitchSelectorComponent
+            key={selectedOption}
             options={options}
             initial={selectedOption}
-            onPress={  (value) => updateContent(value)}
-            textInputStyle={{ width: moderateScale(width - 40) }}
+            onPress={(value) => updateContent(value)}
+          // textInputStyle={{ width: moderateScale(width - 40) }}
           />
         ) : (
           <View style={{ height: 35 }} />

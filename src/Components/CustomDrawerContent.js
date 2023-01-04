@@ -45,7 +45,11 @@ function CustomDrawerContent({
     defaultLanguage,
   } = useSelector((state) => state?.initBoot);
 
-  const {isCabPooling} =useSelector((state) => state?.auth);
+  const { isCabPooling,initialValue } = useSelector((state) => state?.auth);
+
+  
+
+  console.log("initialValueinitialValueinitialValue",initialValue)
 
   const { userData } = useSelector((state) => state?.auth);
 
@@ -54,6 +58,9 @@ function CustomDrawerContent({
 
 
   const isDarkMode = themeToggle ? darkthemeusingDevice : themeColor;
+  const [poolingState, setPoolingState] = useState()
+  const [isCabPoolingOn, setIsCabPooling] = useState(isCabPooling)
+
   const [states, setState] = useState({
     routes: [
       {
@@ -109,21 +116,21 @@ function CustomDrawerContent({
       },
       appIds.transportSystem === DeviceInfo.getBundleId()
         ? {
-            id: 7,
-            label: strings.DAMAGEREPORT,
-            image: imagePath.damagereport,
-            key: navigationStrings.DAMAGEREPORT,
-            // subRoute:navigationStrings.MYPROFILE
-          }
+          id: 7,
+          label: strings.DAMAGEREPORT,
+          image: imagePath.damagereport,
+          key: navigationStrings.DAMAGEREPORT,
+          // subRoute:navigationStrings.MYPROFILE
+        }
         : {},
       appIds.transportSystem === DeviceInfo.getBundleId()
         ? {
-            id: 7,
-            label: strings.REIMBURSEMENT,
-            image: imagePath.reimbursement,
-            key: navigationStrings.REIMBURSEMENT,
-            // subRoute:navigationStrings.MYPROFILE
-          }
+          id: 7,
+          label: strings.REIMBURSEMENT,
+          image: imagePath.reimbursement,
+          key: navigationStrings.REIMBURSEMENT,
+          // subRoute:navigationStrings.MYPROFILE
+        }
         : {},
       {
         id: 9,
@@ -150,7 +157,7 @@ function CustomDrawerContent({
     logoutAlert: false,
     selectedDrawerItem: null,
     isLoading: false,
-    isCabPoolingOn:false
+
   });
   const {
     routes,
@@ -159,7 +166,6 @@ function CustomDrawerContent({
     isLoading,
     themeToggle,
     themeColor,
-    isCabPoolingOn
   } = states;
 
   // ZendeskChat.init(
@@ -241,7 +247,7 @@ function CustomDrawerContent({
         subscription === undefined
           ? {}
           : subscription?.hide_subscription_module == 0
-          ? {
+            ? {
               id: 9,
               label: strings.SUBSCRIPTIONS,
               support: true,
@@ -249,7 +255,7 @@ function CustomDrawerContent({
               key: navigationStrings.SUBSCRIPTION_STACK,
               subRoute: navigationStrings.SUBSCRIPTION_STACK,
             }
-          : {},
+            : {},
 
         // {
         //   if(subscription != undefined ) {
@@ -266,31 +272,31 @@ function CustomDrawerContent({
         // },
         appIds.transportSystem === DeviceInfo.getBundleId()
           ? {
-              id: 7,
-              label: strings.DAMAGEREPORT,
-              image: imagePath.damagereport,
-              key: navigationStrings.DAMAGEREPORT,
-              // subRoute:navigationStrings.MYPROFILE
-            }
+            id: 7,
+            label: strings.DAMAGEREPORT,
+            image: imagePath.damagereport,
+            key: navigationStrings.DAMAGEREPORT,
+            // subRoute:navigationStrings.MYPROFILE
+          }
           : {},
         appIds.transportSystem === DeviceInfo.getBundleId()
           ? {
-              id: 7,
-              label: strings.REIMBURSEMENT,
-              image: imagePath.reimbursement,
-              key: navigationStrings.REIMBURSEMENT,
-              // subRoute:navigationStrings.MYPROFILE
-            }
+            id: 7,
+            label: strings.REIMBURSEMENT,
+            image: imagePath.reimbursement,
+            key: navigationStrings.REIMBURSEMENT,
+            // subRoute:navigationStrings.MYPROFILE
+          }
           : {},
 
         !!clientInfo?.socket_url
           ? {
-              id: 9,
-              label: strings.CHAT_ROOM,
-              image: imagePath.settingsIcon,
-              key: navigationStrings.CHAT_ROOM,
-              // subRoute:navigationStrings.MYPROFILE
-            }
+            id: 9,
+            label: strings.CHAT_ROOM,
+            image: imagePath.settingsIcon,
+            key: navigationStrings.CHAT_ROOM,
+            // subRoute:navigationStrings.MYPROFILE
+          }
           : {},
         {
           id: 10,
@@ -370,20 +376,22 @@ function CustomDrawerContent({
   };
 
   const toggleSwitch = (status) => {
+
     const data = {};
     data["is_pooling_available"] = status;
     const header = {
       client: clientInfo?.database_name,
     };
-    actions
-      .updateCabPoolingStatus(data, header)
+    setPoolingState(true)
+    setIsCabPooling(!isCabPoolingOn)
+  
+    actions.updateCabPoolingStatus(data, header)
       .then((res) => {
-        updateState({
-          isCabPoolingOn:res?.data?.is_pooling_available
-        })
+        setPoolingState(false)
       })
       .catch((error) => {
         console.log(error, "errororro");
+        setPoolingState(false)
       });
   };
 
@@ -412,10 +420,10 @@ function CustomDrawerContent({
               source={
                 clientInfo && (clientInfo?.logo || clientInfo?.dark_logo)
                   ? {
-                      uri: isDarkMode
-                        ? clientInfo?.dark_logo
-                        : clientInfo?.logo,
-                    }
+                    uri: isDarkMode
+                      ? clientInfo?.dark_logo
+                      : clientInfo?.logo,
+                  }
                   : imagePath.logo
               }
             />
@@ -442,13 +450,14 @@ function CustomDrawerContent({
                 {strings.AVAILABLEFORPOOLING}
               </Text>
               <Switch
+                disabled={poolingState}
                 trackColor={{
                   false: colors.backGround,
                   true: colors.themeColor,
                 }}
                 thumbColor={colors.white}
                 onValueChange={(status) => toggleSwitch(status)}
-                value={isCabPooling || isCabPoolingOn}
+                value={isCabPoolingOn}
               />
             </View>
           ) : null}
@@ -543,4 +552,4 @@ function CustomDrawerContent({
 }
 
 
-export default  React.memo(CustomDrawerContent)
+export default React.memo(CustomDrawerContent)

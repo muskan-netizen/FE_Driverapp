@@ -21,7 +21,9 @@ const SwitchSelectorComponent = ({
   fontSize = textScale(10),
   borderWidth = 0,
 }) => {
+  console.log("inital value+++",initial)
   return (
+  
     <SwitchSelector
       initial={initial}
       onPress={onPress}
@@ -54,4 +56,4 @@ const styles = StyleSheet.create({
    textInputStyle: {width: width - 40},
 });
 
-export default SwitchSelectorComponent;
+export default SwitchSelectorComponent

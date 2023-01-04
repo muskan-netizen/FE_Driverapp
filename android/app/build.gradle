@@ -202,27 +202,6 @@ android {
 
      flavorDimensions "appType"
 productFlavors{
-                  
-              glavour{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.glavour.royodispatcher'
-            resValue "string", "app_name", "Glavour Dispatcher"
-        }
-      rentzy{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.rentzy.royodispatcher'
-            resValue "string", "app_name", "Rentzy Dispatcher"
-        }
          royodispatcher {
             dimension "appType"
             versionCode 1
@@ -233,27 +212,6 @@ productFlavors{
             applicationId 'com.codebrew.royodispatcher'
             resValue "string", "app_name", "RoyoDriverApp"
         } 
-                  abbeRides{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.abbeRides.dispatch'
-            resValue "string", "app_name", "Abbe Rides Dispatcher"
-        }
-                SXM2GO{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.SXM2GO.driverApp'
-            resValue "string", "app_name", "SXM2GO Driver"
-            
-        }
 }
     
 //     productFlavors {
