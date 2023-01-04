@@ -911,6 +911,8 @@
     "udkaydispatcherRelease": "cd android && ./gradlew assembleudkayRelease",
     "hattaFoodHubdispatcher": "react-native run-android --variant=hattaFoodHubDebug",
     "hattaFoodHubdispatcherRelease": "cd android && ./gradlew assemblehattaFoodHubRelease",
+    "ondgoodispatcher": "react-native run-android --variant=ondgooDebug",
+    "ondgoodispatcherRelease": "cd android && ./gradlew assembleondgooRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",

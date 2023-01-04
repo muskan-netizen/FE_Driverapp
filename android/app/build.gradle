@@ -202,15 +202,15 @@ android {
 
      flavorDimensions "appType"
 productFlavors{
- hattaFoodHub{
+   ondgoo{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.hattaFoodHub.royodispatcher'
-            resValue "string", "app_name", "HattaFoodHub Dispatcher"
+            applicationId 'com.ondgoo.royodispatcher'
+            resValue "string", "app_name", "Ondgoo Dispatcher"
         }
 }
     
@@ -7507,6 +7507,16 @@ productFlavors{
 //             // applicationIdSuffix ".royoorder"
 //             applicationId 'com.hattaFoodHub.royodispatcher'
 //             resValue "string", "app_name", "HattaFoodHub Dispatcher"
+//         }
+// ondgoo{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.ondgoo.royodispatcher'
+//             resValue "string", "app_name", "Ondgoo Dispatcher"
 //         }
 // }
 }

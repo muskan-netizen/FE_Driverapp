@@ -2855,6 +2855,12 @@ export default function ShortCode({ route, navigation }) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.ondgoo:
+          updateState({
+            shortCode: shortCodes.ondgoo,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);
