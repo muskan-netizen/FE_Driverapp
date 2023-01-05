@@ -166,216 +166,118 @@ export default function DashBoard({ route, navigation }) {
   }, [refreshHomeData]);
 
   useEffect(() => {
-    // fetchgentLogs()
     const backHandler = BackHandler.addEventListener(
       "hardwareBackPress",
       () => true
     );
     return () => backHandler.remove();
   }, []);
-  console.log("add my code");
 
-  useFocusEffect(
-    React.useCallback(() => {
 
-      BackgroundGeolocation.configure({
-        activityType: "Fitness",
-        desiredAccuracy: BackgroundGeolocation.HIGH_ACCURACY,
-        stationaryRadius: 10,
-        distanceFilter: 10,
-        debug: false,
-        startOnBoot: false,
-        stopOnTerminate: false,
-        notificationTitle: "Location Tracking",
-        notificationText: `Tracking driver's location in background.`,
-        locationProvider: BackgroundGeolocation.ACTIVITY_PROVIDER,
-        interval: 10000,
+ 
 
-        fastestInterval: 10000,
-        activitiesInterval: 10000,
-        stopOnStillActivity: false,
-        pauseLocationUpdates: false,
-        url: "",
-        httpHeaders: {
-          "X-FOO": "bar",
-        },
-        // customize post properties
-        postTemplate: {
-          lat: "@latitude",
-          lon: "@longitude",
-          foo: "bar", // you can also add your own properties
-        },
-      });
 
-      BackgroundGeolocation.on("location", (location) => {
-        let headingAngle = location?.bearing || 0.0;
-        let lat = location?.latitude || 0;
-        let long = location.longitude || 0;
-        fetchgentLogs(lat, long, headingAngle);
-      });
 
-      BackgroundGeolocation.on("error", (error) => {
-        console.log("[ERROR] BackgroundGeolocation error:", error);
-      });
+ 
+  useEffect(() => {
+    BackgroundGeolocation.on('location', location => {
+      let headingAngle = location?.bearing || 0.0;
+      let lat = location?.latitude || 0;
+      let long = location.longitude || 0;
+      fetchgentLogs(lat, long, headingAngle);
+    });
 
-      BackgroundGeolocation.on("authorization", (status) => {
-        console.log(
-          "[INFO] BackgroundGeolocation authorization status: " + status
+    BackgroundGeolocation.on('error', error => {
+      console.log('[ERROR] BackgroundGeolocation error:', error);
+    });
+
+    BackgroundGeolocation.on('authorization', status => {
+      console.log(
+        '[INFO] BackgroundGeolocation authorization status: ' + status,
+      );
+      if (status !== BackgroundGeolocation.AUTHORIZED) {
+        // we need to set delay or otherwise alert may not be shown
+        setTimeout(
+          () =>
+            Alert.alert(
+              'App requires location tracking permission',
+              'Would you like to open app settings?',
+              [
+                {
+                  text: 'Yes',
+                  onPress: () => BackgroundGeolocation.showAppSettings(),
+                },
+                {
+                  text: 'No',
+                  onPress: () => console.log('No Pressed'),
+                  style: 'cancel',
+                },
+              ],
+            ),
+          1000,
         );
-        if (status !== BackgroundGeolocation.AUTHORIZED) {
-          // we need to set delay or otherwise alert may not be shown
-          setTimeout(
-            () =>
-              Alert.alert(
-                "App requires location tracking permission",
-                "Would you like to open app settings?",
-                [
-                  {
-                    text: "Yes",
-                    onPress: () => BackgroundGeolocation.showAppSettings(),
-                  },
-                  {
-                    text: "No",
-                    onPress: () => console.log("No Pressed"),
-                    style: "cancel",
-                  },
-                ]
-              ),
-            1000
-          );
-        }
-      });
+      }
+    });
 
-      BackgroundGeolocation.on("background", () => {
-        console.log("[INFO] App is in background");
-      });
+    BackgroundGeolocation.on('background', () => {
+      console.log('[INFO] App is in background');
+    });
 
-      BackgroundGeolocation.on("foreground", () => {
+    BackgroundGeolocation.on('foreground', () => {
+      console.log('[INFO] App is in foreground');
+    });
 
-        console.log("[INFO] App is in foreground");
-      });
+    BackgroundGeolocation.on('abort_requested', () => {
+      console.log('[INFO] Server responded with 285 Updates Not Required');
+    });
 
-      BackgroundGeolocation.on("abort_requested", () => {
-        console.log("[INFO] Server responded with 285 Updates Not Required");
-      });
+    BackgroundGeolocation.on('http_authorization', () => {
+      console.log('[INFO] App needs to authorize the http requests');
+    });
 
-      BackgroundGeolocation.on("http_authorization", () => {
-        console.log("[INFO] App needs to authorize the http requests");
-      });
+    BackgroundGeolocation.checkStatus(status => {
+      console.log(status, 'status.isRunning');
+      if (!status.isRunning) {
+        BackgroundGeolocation.start(); //triggers start on start event
+      }
+    });
 
-      BackgroundGeolocation.checkStatus((status) => {
-        console.log(status, "status.isRunning");
-        if (!status.isRunning) {
-          BackgroundGeolocation.start(); //triggers start on start event
-        }
-      });
+    BackgroundGeolocation.configure({
+      activityType: 'Fitness',
+      desiredAccuracy: BackgroundGeolocation.HIGH_ACCURACY,
+      stationaryRadius: 10,
+      distanceFilter: 10,
+      debug: false,
+      startOnBoot: false,
+      stopOnTerminate: true,
+      notificationTitle: 'Location Tracking',
+      notificationText: `Tracking driver's location in background.`,
+      locationProvider: BackgroundGeolocation.ACTIVITY_PROVIDER,
+      interval: 10000,
+      fastestInterval: 10000,
+      activitiesInterval: 10000,
+      stopOnStillActivity: false,
+      pauseLocationUpdates: false,
+      url: '',
+      httpHeaders: {
+        'X-FOO': 'bar',
+      },
+      // customize post properties
+      postTemplate: {
+        lat: '@latitude',
+        lon: '@longitude',
+        foo: 'bar', // you can also add your own properties
+      },
+    });
 
+    return () => {
+      BackgroundGeolocation.removeAllListeners();
+    };
 
-      return BackgroundGeolocation.removeAllListeners();
-    }, [])
-  );
+}, []);
 
+  
 
-
-  // useEffect(() => {
-
-  //   BackgroundGeolocation.on("location", (location) => {
-  //     alert("Hey")
-  //     console.log('hiiii.........1111');
-  //     let headingAngle = location?.bearing || 0.0;
-  //     let lat = location?.latitude || 0;
-  //     let long = location.longitude || 0;
-  //     fetchgentLogs(lat, long, headingAngle);
-  //   });
-
-  //   BackgroundGeolocation.on("error", (error) => {
-  //     console.log("[ERROR] BackgroundGeolocation error:", error);
-  //   });
-
-  //   BackgroundGeolocation.on("authorization", (status) => {
-  //     console.log(
-  //       "[INFO] BackgroundGeolocation authorization status: " + status
-  //     );
-  //     if (status !== BackgroundGeolocation.AUTHORIZED) {
-  //       // we need to set delay or otherwise alert may not be shown
-  //       setTimeout(
-  //         () =>
-  //           Alert.alert(
-  //             "App requires location tracking permission",
-  //             "Would you like to open app settings?",
-  //             [
-  //               {
-  //                 text: "Yes",
-  //                 onPress: () => BackgroundGeolocation.showAppSettings(),
-  //               },
-  //               {
-  //                 text: "No",
-  //                 onPress: () => console.log("No Pressed"),
-  //                 style: "cancel",
-  //               },
-  //             ]
-  //           ),
-  //         1000
-  //       );
-  //     }
-  //   });
-
-  //   BackgroundGeolocation.on("background", () => {
-  //     console.log("[INFO] App is in background");
-  //   });
-
-  //   BackgroundGeolocation.on("foreground", () => {
-  //     console.log("[INFO] App is in foreground");
-  //   });
-
-  //   BackgroundGeolocation.on("abort_requested", () => {
-  //     console.log("[INFO] Server responded with 285 Updates Not Required");
-  //   });
-
-  //   BackgroundGeolocation.on("http_authorization", () => {
-  //     console.log("[INFO] App needs to authorize the http requests");
-  //   });
-
-  //   BackgroundGeolocation.checkStatus((status) => {
-  //     console.log(status, "status.isRunning");
-  //     if (!status.isRunning) {
-  //       BackgroundGeolocation.start(); //triggers start on start event
-  //     }
-  //   });
-
-  //   BackgroundGeolocation.configure({
-  //     activityType: "Fitness",
-  //     desiredAccuracy: BackgroundGeolocation.HIGH_ACCURACY,
-  //     stationaryRadius: 10,
-  //     distanceFilter: 10,
-  //     debug: false,
-  //     startOnBoot: false,
-  //     stopOnTerminate: false,
-  //     notificationTitle: "Location Tracking",
-  //     notificationText: `Tracking driver's location in background.`,
-  //     locationProvider: BackgroundGeolocation.ACTIVITY_PROVIDER,
-  //     interval: 10000,
-
-  //     fastestInterval: 10000,
-  //     activitiesInterval: 10000,
-  //     stopOnStillActivity: false,
-  //     pauseLocationUpdates: false,
-  //     url: "",
-  //     httpHeaders: {
-  //       "X-FOO": "bar",
-  //     },
-  //     // customize post properties
-  //     postTemplate: {
-  //       lat: "@latitude",
-  //       lon: "@longitude",
-  //       foo: "bar", // you can also add your own properties
-  //     },
-  //   });
-
-  //   return () => {
-  //     BackgroundGeolocation.removeAllListeners();
-  //   };
-  // }, []);
 
   useFocusEffect(
     React.useCallback(() => {
@@ -400,10 +302,12 @@ export default function DashBoard({ route, navigation }) {
         updateState({
           isLoading: true,
           options: poolingSuggestionTab,
+          selectedOption:0
         });
       } else {
         updateState({
           isLoading: true,
+          selectedOption:0,
           options: [
             {
               label:
@@ -443,7 +347,6 @@ export default function DashBoard({ route, navigation }) {
       data["heading_angle"] = heading_;
 
       console.log(data, "data>data====");
-
       actions
         .logsApi(data, { client: clientInfo?.database_name })
         .then((res) => {
@@ -545,13 +448,15 @@ export default function DashBoard({ route, navigation }) {
           heading: position.coords.heading,
         });
 
-        getCurrentLocation(
-          position.coords.latitude,
-          position.coords.longitude,
-          "address"
-        )
-          .then((res) => alert(res))
-          .catch((error) => console.log("error rasied", error));
+       
+
+        // getCurrentLocation(
+        //   position.coords.latitude,
+        //   position.coords.longitude,
+        //   "address"
+        // )
+        //   .then((res) => alert(res))
+        //   .catch((error) => console.log("error rasied", error));
       },
       (error) => console.log(error.message),
       {
@@ -573,7 +478,7 @@ export default function DashBoard({ route, navigation }) {
         actions.updateHomepage(false);
         // updateState({isRefreshing: false});
         if (selectedOption) {
-          let filterMarker = res.data.filter((val, i) => {
+          let filterMarker = res?.data?.filter((val, i) => {
             if (!!val?.location?.latitude && !!val?.location?.longitude) {
               return val;
             }
@@ -585,7 +490,7 @@ export default function DashBoard({ route, navigation }) {
             // isLoading: false,
           });
         } else {
-          let filterMarker = res.data.filter((val, i) => {
+          let filterMarker = res?.data?.filter((val, i) => {
             if (!!val?.location?.latitude && !!val?.location?.longitude) {
               return val;
             }
@@ -847,9 +752,8 @@ export default function DashBoard({ route, navigation }) {
     return (
       <TouchableOpacity
         // onPress={() => _onPressTask(item?.data[0])}
-        activeOpacity={0.8}
+        activeOpacity={1}
         style={{
-          marginTop: moderateScale(20),
           borderLeftColor: getDynamicUpdateOnValues(item),
           borderLeftWidth: 3,
           marginHorizontal: moderateScale(10),
@@ -993,10 +897,6 @@ export default function DashBoard({ route, navigation }) {
               longitude: Number(i?.location?.longitude),
             },
           ];
-          // return {
-          //   latitude: Number(i?.location?.latitude),
-          //   longitude: Number(i?.location?.longitude),
-          // }
         }
       });
       console.log(arr, "newArray");
@@ -1076,7 +976,7 @@ export default function DashBoard({ route, navigation }) {
     }
   };
 
-  console.log(latitude, longitude, "longitude");
+
 
   const mapView = () => {
     return (

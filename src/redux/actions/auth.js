@@ -207,7 +207,6 @@ export function updateCabPoolingStatus(data = {}, headers = {}) {
       .then((res) => {
         const isPooling = !!res?.data?.is_pooling_available? true : false;
         if (isPooling) {
-       
           dispatch({
             type: types.POOLING,
             payload: true,

@@ -374,6 +374,7 @@ function CustomDrawerContent({
       color: "#000",
     });
   };
+  console.log(isCabPoolingOn,"isCabPoolingOn");
 
   const toggleSwitch = (status) => {
 
