@@ -448,19 +448,18 @@ const NotificationModal = () => {
     <ModalView
       data={""}
       isVisible={notificationData?.isModalVisibleForAcceptReject}
-      // onClose={() =>
-      //   actions.isModalVisibleForAcceptReject({
-      //     isModalVisibleForAcceptReject: false,
-      //     notificationData: null,
-      //   })
-      // }
+      onClose={() =>
+        !!orderData?.is_cab_pooling
+          ? actions.isModalVisibleForAcceptReject({
+              isModalVisibleForAcceptReject: false,
+              notificationData: null,
+            })
+          : {}
+      }
       mainViewStyle={{
-        // minHeight: height / 3,
         maxHeight: height,
-        // marginHorizontal: moderateScale(10),
       }}
       modalMainContent={modalMainContent}
-      // modalBottomContent={modalBottomContent}
     />
   );
 };

@@ -31,6 +31,7 @@ import { useDarkMode } from "react-native-dark-mode";
 import { getItem } from "../utils/utils";
 import { string } from "is_js";
 import { saveCabPoolingStatus } from "../redux/actions/init";
+import {UIActivityIndicator} from 'react-native-indicators';
 
 function CustomDrawerContent({
   state,
@@ -39,27 +40,21 @@ function CustomDrawerContent({
   progress,
   ...props
 }) {
-  const {
-    zendeskKeys,
-    clientInfo,
-    defaultLanguage,
-  } = useSelector((state) => state?.initBoot);
+  const { zendeskKeys, clientInfo, defaultLanguage } = useSelector(
+    (state) => state?.initBoot
+  );
 
-  const { isCabPooling,initialValue } = useSelector((state) => state?.auth);
+  const { isCabPooling, initialValue } = useSelector((state) => state?.auth);
+  const { themeColors } = useSelector((state) => state?.initBoot);
 
-  
-
-  console.log("initialValueinitialValueinitialValue",initialValue)
+  console.log("initialValueinitialValueinitialValue", initialValue);
 
   const { userData } = useSelector((state) => state?.auth);
 
   const darkthemeusingDevice = useDarkMode();
 
-
-
   const isDarkMode = themeToggle ? darkthemeusingDevice : themeColor;
-  const [poolingState, setPoolingState] = useState()
-  const [isCabPoolingOn, setIsCabPooling] = useState(isCabPooling)
+  const [poolingState, setPoolingState] = useState(isCabPooling);
 
   const [states, setState] = useState({
     routes: [
@@ -116,21 +111,21 @@ function CustomDrawerContent({
       },
       appIds.transportSystem === DeviceInfo.getBundleId()
         ? {
-          id: 7,
-          label: strings.DAMAGEREPORT,
-          image: imagePath.damagereport,
-          key: navigationStrings.DAMAGEREPORT,
-          // subRoute:navigationStrings.MYPROFILE
-        }
+            id: 7,
+            label: strings.DAMAGEREPORT,
+            image: imagePath.damagereport,
+            key: navigationStrings.DAMAGEREPORT,
+            // subRoute:navigationStrings.MYPROFILE
+          }
         : {},
       appIds.transportSystem === DeviceInfo.getBundleId()
         ? {
-          id: 7,
-          label: strings.REIMBURSEMENT,
-          image: imagePath.reimbursement,
-          key: navigationStrings.REIMBURSEMENT,
-          // subRoute:navigationStrings.MYPROFILE
-        }
+            id: 7,
+            label: strings.REIMBURSEMENT,
+            image: imagePath.reimbursement,
+            key: navigationStrings.REIMBURSEMENT,
+            // subRoute:navigationStrings.MYPROFILE
+          }
         : {},
       {
         id: 9,
@@ -157,7 +152,7 @@ function CustomDrawerContent({
     logoutAlert: false,
     selectedDrawerItem: null,
     isLoading: false,
-
+    isLoadingB: false,
   });
   const {
     routes,
@@ -166,6 +161,7 @@ function CustomDrawerContent({
     isLoading,
     themeToggle,
     themeColor,
+    isLoadingB,
   } = states;
 
   // ZendeskChat.init(
@@ -247,7 +243,7 @@ function CustomDrawerContent({
         subscription === undefined
           ? {}
           : subscription?.hide_subscription_module == 0
-            ? {
+          ? {
               id: 9,
               label: strings.SUBSCRIPTIONS,
               support: true,
@@ -255,7 +251,7 @@ function CustomDrawerContent({
               key: navigationStrings.SUBSCRIPTION_STACK,
               subRoute: navigationStrings.SUBSCRIPTION_STACK,
             }
-            : {},
+          : {},
 
         // {
         //   if(subscription != undefined ) {
@@ -272,31 +268,31 @@ function CustomDrawerContent({
         // },
         appIds.transportSystem === DeviceInfo.getBundleId()
           ? {
-            id: 7,
-            label: strings.DAMAGEREPORT,
-            image: imagePath.damagereport,
-            key: navigationStrings.DAMAGEREPORT,
-            // subRoute:navigationStrings.MYPROFILE
-          }
+              id: 7,
+              label: strings.DAMAGEREPORT,
+              image: imagePath.damagereport,
+              key: navigationStrings.DAMAGEREPORT,
+              // subRoute:navigationStrings.MYPROFILE
+            }
           : {},
         appIds.transportSystem === DeviceInfo.getBundleId()
           ? {
-            id: 7,
-            label: strings.REIMBURSEMENT,
-            image: imagePath.reimbursement,
-            key: navigationStrings.REIMBURSEMENT,
-            // subRoute:navigationStrings.MYPROFILE
-          }
+              id: 7,
+              label: strings.REIMBURSEMENT,
+              image: imagePath.reimbursement,
+              key: navigationStrings.REIMBURSEMENT,
+              // subRoute:navigationStrings.MYPROFILE
+            }
           : {},
 
         !!clientInfo?.socket_url
           ? {
-            id: 9,
-            label: strings.CHAT_ROOM,
-            image: imagePath.settingsIcon,
-            key: navigationStrings.CHAT_ROOM,
-            // subRoute:navigationStrings.MYPROFILE
-          }
+              id: 9,
+              label: strings.CHAT_ROOM,
+              image: imagePath.settingsIcon,
+              key: navigationStrings.CHAT_ROOM,
+              // subRoute:navigationStrings.MYPROFILE
+            }
           : {},
         {
           id: 10,
@@ -374,25 +370,39 @@ function CustomDrawerContent({
       color: "#000",
     });
   };
-  console.log(isCabPoolingOn,"isCabPoolingOn");
 
   const toggleSwitch = (status) => {
+
+    updateState({
+      isLoadingB:true
+    })
+
 
     const data = {};
     data["is_pooling_available"] = status;
     const header = {
       client: clientInfo?.database_name,
     };
-    setPoolingState(true)
-    setIsCabPooling(!isCabPoolingOn)
-  
-    actions.updateCabPoolingStatus(data, header)
+
+    actions
+      .updateCabPoolingStatus(data, header)
+
       .then((res) => {
-        setPoolingState(false)
+        updateState({
+          isLoadingB:false
+        })
+        if (res?.data?.is_pooling_available) {
+          setPoolingState(true);
+        } else {
+          setPoolingState(false);
+        }
       })
       .catch((error) => {
         console.log(error, "errororro");
-        setPoolingState(false)
+        setPoolingState(false);
+        updateState({
+          isLoadingB:false
+        })
       });
   };
 
@@ -421,10 +431,10 @@ function CustomDrawerContent({
               source={
                 clientInfo && (clientInfo?.logo || clientInfo?.dark_logo)
                   ? {
-                    uri: isDarkMode
-                      ? clientInfo?.dark_logo
-                      : clientInfo?.logo,
-                  }
+                      uri: isDarkMode
+                        ? clientInfo?.dark_logo
+                        : clientInfo?.logo,
+                    }
                   : imagePath.logo
               }
             />
@@ -450,16 +460,26 @@ function CustomDrawerContent({
               >
                 {strings.AVAILABLEFORPOOLING}
               </Text>
-              <Switch
-                disabled={poolingState}
-                trackColor={{
-                  false: colors.backGround,
-                  true: colors.themeColor,
-                }}
-                thumbColor={colors.white}
-                onValueChange={(status) => toggleSwitch(status)}
-                value={isCabPoolingOn}
-              />
+              {isLoadingB ? (
+              <View>
+                  <UIActivityIndicator
+                  color={colors.themeColor}
+                  size={24}
+                  style={{marginLeft:moderateScale(20)}}
+                />
+              </View>
+              ) : (
+                <Switch
+                  // disabled={poolingState}
+                  trackColor={{
+                    false: colors.backGround,
+                    true: colors.themeColor,
+                  }}
+                  thumbColor={colors.white}
+                  onValueChange={(status) => toggleSwitch(status)}
+                  value={poolingState}
+                />
+              )}
             </View>
           ) : null}
           {routes.map((route, index) => {
@@ -552,5 +572,4 @@ function CustomDrawerContent({
   );
 }
 
-
-export default React.memo(CustomDrawerContent)
+export default React.memo(CustomDrawerContent);
