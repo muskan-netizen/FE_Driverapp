@@ -461,7 +461,7 @@ const shortCodes = {
   wizsonic: '82d165',
   udkay: '29a641',
   hattaFoodHub: '4426d1',
-  ondgoo: 'd156ea'
+  ondgoo: 'd156ea',
 };
 
 const appIds = {
