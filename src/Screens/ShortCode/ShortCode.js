@@ -2861,6 +2861,12 @@ export default function ShortCode({ route, navigation }) {
             isShortcodePrefilled: true,
           });
           break;
+          case appIds.junkerz:
+            updateState({
+              shortCode: shortCodes.junkerz,
+              isShortcodePrefilled: true,
+            });
+            break;
       }
     })();
   }, [internetConnection]);

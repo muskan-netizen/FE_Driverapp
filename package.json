@@ -913,6 +913,8 @@
     "hattaFoodHubdispatcherRelease": "cd android && ./gradlew assemblehattaFoodHubRelease",
     "ondgoodispatcher": "react-native run-android --variant=ondgooDebug",
     "ondgoodispatcherRelease": "cd android && ./gradlew assembleondgooRelease",
+    "junkerzdispatcher": "react-native run-android --variant=junkerzDebug",
+    "junkerzdispatcherRelease": "cd android && ./gradlew assemblejunkerzRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",

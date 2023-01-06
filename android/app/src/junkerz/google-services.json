@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "416754947525",
+    "project_id": "junkerz-driver",
+    "storage_bucket": "junkerz-driver.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:416754947525:android:58733a264e00a003b667ac",
+        "android_client_info": {
+          "package_name": "com.junkerz.royodispatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "416754947525-k9p8fk983ccsvi605fd1qfs5fnbl1f9m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYdgQ-QjEB3F7h0FKX2t8t57duI-SCQCU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "416754947525-k9p8fk983ccsvi605fd1qfs5fnbl1f9m.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "416754947525-krmd2oqkaev5h8ncgnuhfrqjmjan9rne.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.junkerz.royodispatcher"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
