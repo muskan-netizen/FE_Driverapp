@@ -203,16 +203,15 @@ android {
      flavorDimensions "appType"
  
     productFlavors{
-        suel{
-           dimension "appType"
+             carryFood{
+            dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-           applicationId "com.Suel.royodispatcher"
-            resValue "string", "app_name", "Suel Dispatch"
-        
+            applicationId 'com.carryFood.royodispatcher'
+            resValue "string", "app_name", "Carry Food Driver"
         }
     }
 //     productFlavors {
@@ -6775,8 +6774,8 @@ android {
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.jeevann.royodispatcher'
-//             resValue "string", "app_name", "Jeevann Dispatcher"
+//             applicationId 'com.jeevan.driver'
+//             resValue "string", "app_name", "Jeevann Driver"
 //         }
 //          novamed{
 //             dimension "appType"
@@ -7308,6 +7307,27 @@ android {
 //             applicationId 'com.otgWeeds.royodispatcher'
 //             resValue "string", "app_name", "Otg Weeds Dispatcher"
 //         }
+//      ginDeliver{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.GinDeliver.royodispatcher'
+//             resValue "string", "app_name", "Gin Deliver Dispatcher"
+//         }
+//        pAS41{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.PAS41.royodispatcher'
+//             resValue "string", "app_name", "PAS41 Dispatcher"
+//         }
+   
    
 // }
 }

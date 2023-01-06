@@ -261,7 +261,8 @@ const shortCodes = {
   orbitGroup: '5f0ef9',
   cartnar: '550805',
   uven: 'ac954e',
-  pAS41: '989565',
+  // pAS41: '989565',
+  pAS41:'434c5e',
   snabbhem: '01b449',
   waterTaxi: '217ec5',
   freshFarmz: '71542b',
@@ -1095,7 +1096,7 @@ const appIds = {
     android: 'com.Fides.royodispatcher',
   }),
   ullaz: Platform.select({
-    ios: 'com.UllazDriver',
+    ios: 'com.Ullaz.Dispatch',
     android: 'com.UllazDriver',
   }),
   privatepremiumpickups: Platform.select({
@@ -1977,8 +1978,8 @@ const appIds = {
     android: 'com.eatHalal.royodispatcher',
   }),
   jeevann: Platform.select({
-    ios: 'com.jeevann.royodispatcher',
-    android: 'com.jeevann.royodispatcher',
+    ios: 'com.jeevan.driver',
+    android: 'com.jeevan.driver',
   }),
   novamed: Platform.select({
     ios: 'com.novamed.royodispatcher',
