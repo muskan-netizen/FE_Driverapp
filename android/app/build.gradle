@@ -202,15 +202,15 @@ android {
 
      flavorDimensions "appType"
 productFlavors{
-   ondgoo{
+   axxi{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.ondgoo.royodispatcher'
-            resValue "string", "app_name", "Ondgoo Dispatcher"
+            applicationId 'com.axxi.royodispatcher'
+            resValue "string", "app_name", "AxxiOne Dispatcher"
         }
 }
     
@@ -6482,7 +6482,7 @@ productFlavors{
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
 //             applicationId 'com.axxi.royodispatcher'
-//             resValue "string", "app_name", "Axxi Dispatcher"
+//             resValue "string", "app_name", "AxxiOne Dispatcher"
 //         }
 //         nuvoni{
 //             dimension "appType"
