@@ -202,15 +202,15 @@ android {
 
      flavorDimensions "appType"
 productFlavors{
-   axxi{
+   viralClean{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.axxi.royodispatcher'
-            resValue "string", "app_name", "AxxiOne Dispatcher"
+            applicationId 'com.viralclean.royodriver'
+            resValue "string", "app_name", "ViralClean Dispatcher"
         }
 }
     
@@ -7517,6 +7517,26 @@ productFlavors{
 //             // applicationIdSuffix ".royoorder"
 //             applicationId 'com.ondgoo.royodispatcher'
 //             resValue "string", "app_name", "Ondgoo Dispatcher"
+//         }
+//          junkerz{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.junkerz.royodispatcher'
+//             resValue "string", "app_name", "Junkerz Dispatcher"
+//         }
+// viralClean{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.viralclean.royodriver'
+//             resValue "string", "app_name", "ViralClean Dispatcher"
 //         }
 // }
 }

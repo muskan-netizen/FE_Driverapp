@@ -462,6 +462,8 @@ const shortCodes = {
   udkay: '29a641',
   hattaFoodHub: '4426d1',
   ondgoo: 'd156ea',
+  junkerz: '1ac153',
+  viralClean: '256a0f'
 };
 
 const appIds = {
@@ -2287,6 +2289,14 @@ const appIds = {
   ondgoo: Platform.select({
     ios: 'com.ondgoo.royodispatcher',
     android: 'com.ondgoo.royodispatcher',
+  }),
+  junkerz: Platform.select({
+    ios: 'com.junkerz.royodispatcher',
+    android: 'com.junkerz.royodispatcher',
+  }),
+  viralClean: Platform.select({
+    ios: 'com.viralclean.royodriver',
+    android: 'com.viralclean.royodriver',
   }),
 };
 
