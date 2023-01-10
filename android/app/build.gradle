@@ -202,7 +202,6 @@ android {
 
      flavorDimensions "appType"
 
-    
     productFlavors {
         royodispatcher {
             dimension "appType"
@@ -1697,7 +1696,7 @@ android {
         }
         destination_ops{
             dimension "appType"
-            versionCode 3
+            versionCode 6
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
@@ -5809,8 +5808,8 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.jazzyBug.royodispatcher'
-            resValue "string", "app_name", "Jazzy Bug Dispatcher"
+            applicationId 'com.jazzyBugDriver'
+            resValue "string", "app_name", "JazzyBug Driver"
        }
          savannaRags{
             dimension "appType"

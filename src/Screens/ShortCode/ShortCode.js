@@ -2811,7 +2811,7 @@ export default function ShortCode({route, navigation}) {
       }
 
       let updatedShortCode = shortCode;
-      //  let updatedShortCode = '1fdd1d';
+      // let updatedShortCode = '745e3f';
 
       actions
         .initApp({shortCode: updatedShortCode}, header)
