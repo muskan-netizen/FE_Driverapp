@@ -463,7 +463,8 @@ const shortCodes = {
   hattaFoodHub: '4426d1',
   ondgoo: 'd156ea',
   junkerz: '1ac153',
-  viralClean: '256a0f'
+  viralClean: '256a0f',
+  superApp: '9f5702'
 };
 
 const appIds = {
@@ -2297,6 +2298,10 @@ const appIds = {
   viralClean: Platform.select({
     ios: 'com.viralclean.royodriver',
     android: 'com.viralclean.royodriver',
+  }),
+  superApp: Platform.select({
+    ios: 'com.superApp.royodispatcher',
+    android: 'com.superApp.royodispatcher',
   }),
 };
 

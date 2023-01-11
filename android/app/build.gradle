@@ -202,15 +202,15 @@ android {
 
      flavorDimensions "appType"
 productFlavors{
-   viralClean{
+   superApp{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.viralclean.royodriver'
-            resValue "string", "app_name", "ViralClean Dispatcher"
+            applicationId 'com.superApp.royodispatcher'
+            resValue "string", "app_name", "SuperApp Dispatcher"
         }
 }
     
@@ -7537,6 +7537,16 @@ productFlavors{
 //             // applicationIdSuffix ".royoorder"
 //             applicationId 'com.viralclean.royodriver'
 //             resValue "string", "app_name", "ViralClean Dispatcher"
+//         }
+// superApp{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.superApp.royodispatcher'
+//             resValue "string", "app_name", "SuperApp Dispatcher"
 //         }
 // }
 }

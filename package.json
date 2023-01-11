@@ -917,6 +917,8 @@
     "junkerzdispatcherRelease": "cd android && ./gradlew assemblejunkerzRelease",
     "viralCleandispatcher": "react-native run-android --variant=viralCleanDebug",
     "viralCleandispatcherRelease": "cd android && ./gradlew assembleviralCleanRelease",
+    "superAppdispatcher": "react-native run-android --variant=superAppDebug",
+    "superAppdispatcherRelease": "cd android && ./gradlew assemblesuperAppRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
