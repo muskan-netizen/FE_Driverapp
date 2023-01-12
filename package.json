@@ -917,6 +917,8 @@
     "junkerzdispatcherRelease": "cd android && ./gradlew assemblejunkerzRelease",
     "viralCleandispatcher": "react-native run-android --variant=viralCleanDebug",
     "viralCleandispatcherRelease": "cd android && ./gradlew assembleviralCleanRelease",
+    "messiaadispatcher": "react-native run-android --variant=messiaaDebug",
+    "messiaadispatcherRelease": "cd android && ./gradlew assemblemessiaaRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
