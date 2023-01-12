@@ -647,10 +647,6 @@
 		181473D4296E75C000013CAA /* notification.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84C27C3E270EFAF100C30CA4 /* notification.mp3 */; };
 		181473D5296E75C000013CAA /* campton-book.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC526E9E6D20066EEEE /* campton-book.ttf */; };
 		181473D7296E75C000013CAA /* campton-semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CE2BC326E9E6D20066EEEE /* campton-semibold.ttf */; };
-		181473E5296E778C00013CAA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 181473E1296E777900013CAA /* GoogleService-Info.plist */; };
-		181473E6296E778C00013CAA /* ViralClean(Development).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 181473E2296E777C00013CAA /* ViralClean(Development).xcconfig */; };
-		181473E7296E778C00013CAA /* ViralClean(Production).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 181473E3296E778000013CAA /* ViralClean(Production).xcconfig */; };
-		181473E8296E778C00013CAA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 181473E4296E778500013CAA /* Images.xcassets */; };
 		181473E9296E78EE00013CAA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 181473E1296E777900013CAA /* GoogleService-Info.plist */; };
 		181473EA296E78FF00013CAA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 181473E4296E778500013CAA /* Images.xcassets */; };
 		181473EB296E795800013CAA /* ViralClean(Development).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 181473E2296E777C00013CAA /* ViralClean(Development).xcconfig */; };
@@ -34147,22 +34143,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8C98CB6292BAEB600CBCBB8 /* GoogleService-Info.plist in Resources */,
-				181473E6296E778C00013CAA /* ViralClean(Development).xcconfig in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				E89A1D97283FA6DC0036AD88 /* KeystoneDeliverInfo.plist in Resources */,
 				8404E60A271EE6D6000D6E95 /* RoyoDriverInfo.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				F8C98CB4292BAE8A00CBCBB8 /* Images.xcassets in Resources */,
-				181473E7296E778C00013CAA /* ViralClean(Production).xcconfig in Resources */,
 				84CE2BC826E9E6D20066EEEE /* campton-light.ttf in Resources */,
 				84CE2BCA26E9E6D20066EEEE /* campton-medium.ttf in Resources */,
 				F8C98CB5292BAEA900CBCBB8 /* RoyoDispatcher(Development).xcconfig in Resources */,
-				181473E8296E778C00013CAA /* Images.xcassets in Resources */,
 				84C27C3F270EFAF100C30CA4 /* notification.mp3 in Resources */,
 				84CE2BC926E9E6D20066EEEE /* campton-book.ttf in Resources */,
 				8485DFF0272A7E1A0011B6BA /* RoyoDispatcher(Production).xcconfig in Resources */,
 				84CE2BC726E9E6D20066EEEE /* campton-semibold.ttf in Resources */,
-				181473E5296E778C00013CAA /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
