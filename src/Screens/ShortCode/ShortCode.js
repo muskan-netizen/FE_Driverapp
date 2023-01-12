@@ -2879,6 +2879,12 @@ export default function ShortCode({ route, navigation }) {
               isShortcodePrefilled: true,
             });
             break;
+        case appIds.superApp:
+          updateState({
+            shortCode: shortCodes.superApp,
+            isShortcodePrefilled: true,
+          });
+          break;
       }
     })();
   }, [internetConnection]);

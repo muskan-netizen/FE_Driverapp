@@ -464,7 +464,8 @@ const shortCodes = {
   ondgoo: 'd156ea',
   junkerz: '1ac153',
   viralClean: '256a0f',
-  messiaa:'c60e40',
+  messiaa: 'c60e40',
+  superApp: '9f5702'
 };
 
 const appIds = {
@@ -2302,6 +2303,10 @@ const appIds = {
   messiaa: Platform.select({
     ios: 'com.messiaa.driver',
     android: 'com.messiaa.driver',
+  }),
+  superApp: Platform.select({
+    ios: 'com.superApp.royodispatcher',
+    android: 'com.superApp.royodispatcher',
   }),
 };
 

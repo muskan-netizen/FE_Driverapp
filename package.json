@@ -919,6 +919,8 @@
     "viralCleandispatcherRelease": "cd android && ./gradlew assembleviralCleanRelease",
     "messiaadispatcher": "react-native run-android --variant=messiaaDebug",
     "messiaadispatcherRelease": "cd android && ./gradlew assemblemessiaaRelease",
+    "superAppdispatcher": "react-native run-android --variant=superAppDebug",
+    "superAppdispatcherRelease": "cd android && ./gradlew assemblesuperAppRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
