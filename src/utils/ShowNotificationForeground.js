@@ -9,13 +9,11 @@ import navigationStrings from '../navigation/navigationStrings';
 
 const ShowNotificationForeground = props => {
   useEffect(() => {
-   
     const unsubscribe = messaging().onMessage(async remoteMessage => {
-   
       console.log('remote message foreground', remoteMessage);
       const {data, messageId, notification} = remoteMessage;
       console.log(remoteMessage.data, notification, 'datadatadatadata');
-      let notificationType = data?.type || data?.notificationType || "AR";
+      let notificationType = data?.type || data?.notificationType || 'AR';
       {
         Platform.OS == 'ios'
           ? PushNotificationIOS.addNotificationRequest({
@@ -37,15 +35,21 @@ const ShowNotificationForeground = props => {
               playSound: true,
             });
       }
+
+      if (data.data == 'chat_text') {
+        PushNotification.localNotification({
+          message: data?.body,
+        });
+      }
+
       if (
         Platform.OS == 'android' &&
         notification.android.sound == 'notification'
       ) {
         console.log('here>>2');
-      
 
         if (!!data && !!notificationType && notificationType != 'N') {
-          console.log(notificationType,"notificationTypenotificationType")
+          console.log(notificationType, 'notificationTypenotificationType');
           actions.isModalVisibleForAcceptReject({
             isModalVisibleForAcceptReject: true,
             notificationData: remoteMessage,

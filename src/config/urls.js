@@ -3,14 +3,15 @@
 // export const API_BASE_URL = 'https://dispatch.10dollahollla.com/';
 
 // export const API_BASE_URL = 'https://api.royodispatch.com/';
+// export const API_BASE_URL = 'https://dispatch.laundrozone.net/';
 // export const API_BASE_URL = 'https://sales.royodispatch.com/';
 // export const API_BASE_URL='http://192.168.101.140:9091/'
 
-// export const API_BASE_URL='https://dispatch.nittosadai.com/'
+// export const API_BASE_URL = 'https://dispatch.kaypee.app/';
 // export const API_BASE_URL = 'https://dispatch.jeevannapp.com/';
 //  export const API_BASE_URL='https://zuzucleans.royodispatch.com/'
 // export const API_BASE_URL='https://delivery.go912.app/'
-// export const API_BASE_URL='https://dispatch.bendeta.biz/'
+// export const API_BASE_URL = 'https://dispatch.bendeta.biz/';
 // export const API_BASE_URL='https://despacho.speedy.com.do/'
 //export const API_BASE_URL   ='https://fcba-103-72-170-243.ngrok.io/'
 // export const API_BASE_URL='https://delivery.rdstaging.com/'
@@ -44,14 +45,14 @@
 // export const API_BASE_URL = 'https://dispatch.elog.group/';
 
 // export const API_BASE_URL = 'https://dispatch.knockknock.online/'
-//  export const API_BASE_URL = 'https://api.winhires.com/';
+// export const API_BASE_URL = 'https://api.winhires.com/';
 //export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
 // export const API_BASE_URL = 'http://192.168.96.152:9091/';
 // export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
-export const API_BASE_URL = 'https://dispatch.swatirx.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://dispatch.swatirx.com/';
 // export const API_BASE_URL = 'https://dispatch.myevplus.com/';
 
 //Misst
@@ -76,6 +77,7 @@ export const API_BASE_URL = 'https://dispatch.swatirx.com/';
 // export const API_BASE_URL = 'https://dispatcher.mrveloz.com.mx/';
 // export const API_BASE_URL =
 //   'https://dispatch.movingwheelsdeliveryservices.com/';
+// export const API_BASE_URL = 'https://dispatch.smokerunstore.com/';
 //Papruki
 // export const API_BASE_URL = 'https://dispatch.papiruki.com/';
 // export const API_BASE_URL = 'https://dispatch.drusdeliveries.com/';
@@ -272,7 +274,7 @@ export const API_BASE_URL = 'https://dispatch.swatirx.com/';
 //DOORSTEP
 // export const API_BASE_URL = 'https://dispatch.doorstep.sd/';
 // export const API_BASE_URL = 'https://dispatch.ubercann.com/';
-// export const API_BASE_URL = 'https://sales.winhires.com/';
+// export const API_BASE_URL = 'https://api.winhires.com/';
 // export const API_BASE_URL = 'https://api.winhires.com/';
 
 //Bezaliohub

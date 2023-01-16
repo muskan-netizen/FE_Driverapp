@@ -643,8 +643,8 @@ export default function AddMoney({navigation}) {
           <KeyboardAwareScrollView
             keyboardShouldPersistTaps="handled"
             showsVerticalScrollIndicator={false}
-            extraScrollHeight="0"
-            // extraScrollHeight={ Platform.OS == 'ios' ? '0' : '48'}
+            // extraScrollHeight="0"
+            // extraScrollHeight={Platform.OS == 'ios' ? '0' : '48'}
           >
             <Text
               style={{
