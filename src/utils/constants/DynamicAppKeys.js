@@ -1412,8 +1412,8 @@ const appIds = {
     android: 'com.UpStreet.royodispatcher',
   }),
   nineOneTwo: Platform.select({
-    ios: 'com.NineOneTwo.Dispatch',
-    android: 'com.NineOneTwo.royodispatcher',
+    ios: 'com.NineOneTwo.dispatcher',
+    android: 'com.NineOneTwo.dispatcher',
   }),
   trip: Platform.select({
     ios: 'com.Trip.Dispatch',
@@ -1722,8 +1722,8 @@ const appIds = {
     android: 'com.pawsee.dispatcher',
   }),
   hairRun: Platform.select({
-    ios: 'com.hairRun.dispatcher',
-    android: 'com.hairRun.dispatcher',
+    ios: 'com.hairrun.driver',
+    android: 'com.hairrun.driver',
   }),
   qdelo: Platform.select({
     ios: 'com.qdelo.dispatcher',
@@ -2023,7 +2023,7 @@ const appIds = {
   }),
   carryFood: Platform.select({
     ios: 'com.carryFood.royodispatcher',
-    android: 'com.carryFood.royodispatcher',
+    android: 'com.carryFood.driver',
   }),
   ragioMigo: Platform.select({
     ios: 'com.ragiomigo.royodispatcher',

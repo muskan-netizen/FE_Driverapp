@@ -203,15 +203,25 @@ android {
      flavorDimensions "appType"
  
     productFlavors{
-             carryFood{
+              hairRun{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.carryFood.royodispatcher'
-            resValue "string", "app_name", "Carry Food Driver"
+            applicationId 'com.hairrun.driver'
+            resValue "string", "app_name", "Hair Runner"
+        }
+          nineOneTwo{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.NineOneTwo.dispatcher'
+            resValue "string", "app_name", "912 Agent"
         }
     }
 //     productFlavors {
@@ -6130,8 +6140,8 @@ android {
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.hairRun.dispatcher'
-//             resValue "string", "app_name", "Hair Run Dispatcher"
+//             applicationId 'com.hairrun.driver'
+//             resValue "string", "app_name", "Hair Runner"
 //         }
 //         qdelo{
 //             dimension "appType"

@@ -93,16 +93,18 @@ export default function Signup({route, navigation}) {
     phoneNumber: '',
     callingCode:
       !isEmpty(getPhonesCallingCodeAndCountryData) &&
-      getBundleId() !== appIds.SXM2GO
+      ( getBundleId() !== appIds.SXM2GO || getBundleId() !== appIds.speedyDelivery)
         ? getPhonesCallingCodeAndCountryData[0].countryCodes[0]
-        : clientInfo?.get_country_set?.phonecode
+        :!isEmpty(getPhonesCallingCodeAndCountryData) &&
+        ( getBundleId() !== appIds.speedyDelivery)? '1': clientInfo?.get_country_set?.phonecode
         ? clientInfo?.get_country_set?.phonecode
         : '91',
     cca2:
       !isEmpty(getPhonesCallingCodeAndCountryData) &&
-      getBundleId() !== appIds.SXM2GO
+      ( getBundleId() !== appIds.SXM2GO || getBundleId() !== appIds.speedyDelivery)
         ? getPhonesCallingCodeAndCountryData[0].isoCode2
-        : clientInfo?.get_country_set?.code
+        :!isEmpty(getPhonesCallingCodeAndCountryData) &&
+        ( getBundleId() !== appIds.speedyDelivery)? 'DO': clientInfo?.get_country_set?.code
         ? clientInfo?.get_country_set?.code
         : 'IN',
     allTransportation: transportationArray,
