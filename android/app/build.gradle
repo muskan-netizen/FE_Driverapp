@@ -201,6 +201,7 @@ android {
     }
 
      flavorDimensions "appType"
+
     
     productFlavors {
         royodispatcher {
@@ -7525,6 +7526,26 @@ viralClean{
             // applicationIdSuffix ".royoorder"
             applicationId 'com.viralclean.royodriver'
             resValue "string", "app_name", "ViralClean Dispatcher"
+        }
+superApp{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+             applicationIdSuffix ".royoorder"
+            applicationId 'com.superApp.royodispatcher'
+            resValue "string", "app_name", "SuperApp Dispatcher"
+        }
+messiaa{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.messiaa.driver'
+            resValue "string", "app_name", "Messiaa Driver"
         }
 }
 }
