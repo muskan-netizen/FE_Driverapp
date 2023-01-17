@@ -235,6 +235,38 @@ productFlavors{
             applicationId 'com.otgWeeds.royodispatcher'
             resValue "string", "app_name", "Otg Weeds Dispatcher"
         }
+
+                 orderFirst{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.OrderFirst.royodispatcher'
+            resValue "string", "app_name", "orderFirst Dispatcher"
+        }
+
+              tdc{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.tdc.royodispatcher'
+            resValue "string", "app_name", "TDC Dispatcher"
+        }
+                ace{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+               applicationId "com.Ace.royodispatcher"
+            resValue "string", "app_name", "Ace Dispatch"
+        }
 }
     
 //     productFlavors {

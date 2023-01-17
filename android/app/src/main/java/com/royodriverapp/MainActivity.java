@@ -5,6 +5,7 @@ import org.devio.rn.splashscreen.SplashScreen; // here
 import com.brentvatne.react.ReactVideoPackage;
 import com.facebook.react.shell.MainReactPackage;
 
+
 public class MainActivity extends ReactActivity {
 
   /**
@@ -17,6 +18,8 @@ protected void onCreate(Bundle savedInstanceState) {
   super.onCreate(null);
   
 }
+
+
   @Override
   protected String getMainComponentName() {
     return "RoyoDriverApp";

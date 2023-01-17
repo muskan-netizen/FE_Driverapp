@@ -105,4 +105,6 @@ export default {
   ic_pickupAddress:require('../assets/images/ic_ellipse.png'),
   ic_dropupAddress:require('../assets/images/ic_location1.png'),
   flank: require('../assets/Flank.mp4'),
+  carMarker: require('../assets/images/ic_topviewcar.png'),
+  
 };

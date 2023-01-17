@@ -11,6 +11,7 @@ import {
   Switch,
   Text,
   View,
+  NativeModules,
 } from "react-native";
 import { useSelector } from "react-redux";
 import Header from "../../Components/Header";
@@ -55,12 +56,13 @@ import generateBoxShadowStyle from "../../Components/generateBoxShadowStyle";
 import { appIds } from "../../utils/constants/DynamicAppKeys";
 import PoolingSuggestionCard from "../../Components/PoolingSuggestionCard";
 import GradientButton from "../../Components/GradientButton";
-import { showMessage } from "react-native-flash-message";
 
 var finalAllTasks = [];
 var finaltodayTasks = [];
+
 export default function DashBoard({ route, navigation }) {
   const userData = useSelector((state) => state?.auth?.userData);
+  const { PictureInPicture } = NativeModules;
   const defaultLanguagae = useSelector(
     (state) => state?.initBoot?.defaultLanguage
   );
@@ -73,10 +75,7 @@ export default function DashBoard({ route, navigation }) {
     fcmToken,
     zendeskKeys,
   } = useSelector((state) => state?.initBoot);
-
-  const { isCabPooling,initialValue } = useSelector((state) => state?.auth);
-
-
+  const { isCabPooling, initialValue } = useSelector((state) => state?.auth);
 
   const [state, setState] = useState({
     isLoading: false,
@@ -147,7 +146,7 @@ export default function DashBoard({ route, navigation }) {
         fcm_token: fcmToken,
       });
     })();
-    return () => { };
+    return () => {};
   }, []);
 
   useEffect(() => {
@@ -165,92 +164,95 @@ export default function DashBoard({ route, navigation }) {
     }
   }, [refreshHomeData]);
 
+  console.log(PictureInPicture, "PictureInPicture");
+
   useEffect(() => {
-    const backHandler = BackHandler.addEventListener(
-      "hardwareBackPress",
-      () => true
+    const backHandler = BackHandler.addEventListener("hardwareBackPress", () =>
+      PictureInPicture?.SUPPORTED ? enablePictureInPicture() : true
     );
     return () => backHandler.remove();
   }, []);
 
+  const enablePictureInPicture = async () => {
+    PictureInPicture.setPictureInPictureEnabled(true);
+    const res = await PictureInPicture.enterPictureInPicture();
+  };
 
- 
-
-
-
- 
   useEffect(() => {
-    BackgroundGeolocation.on('location', location => {
+    BackgroundGeolocation.on("location", (location) => {
       let headingAngle = location?.bearing || 0.0;
       let lat = location?.latitude || 0;
       let long = location.longitude || 0;
       fetchgentLogs(lat, long, headingAngle);
     });
 
-    BackgroundGeolocation.on('error', error => {
-      console.log('[ERROR] BackgroundGeolocation error:', error);
+    BackgroundGeolocation.on("error", (error) => {
+      console.log("[ERROR] BackgroundGeolocation error:", error);
     });
 
-    BackgroundGeolocation.on('authorization', status => {
+    BackgroundGeolocation.on("authorization", (status) => {
       console.log(
-        '[INFO] BackgroundGeolocation authorization status: ' + status,
+        "[INFO] BackgroundGeolocation authorization status: " + status
       );
       if (status !== BackgroundGeolocation.AUTHORIZED) {
         // we need to set delay or otherwise alert may not be shown
         setTimeout(
           () =>
             Alert.alert(
-              'App requires location tracking permission',
-              'Would you like to open app settings?',
+              "App requires location tracking permission",
+              "Would you like to open app settings?",
               [
                 {
-                  text: 'Yes',
+                  text: "Yes",
                   onPress: () => BackgroundGeolocation.showAppSettings(),
                 },
                 {
-                  text: 'No',
-                  onPress: () => console.log('No Pressed'),
-                  style: 'cancel',
+                  text: "No",
+                  onPress: () => console.log("No Pressed"),
+                  style: "cancel",
                 },
-              ],
+              ]
             ),
-          1000,
+          1000
         );
       }
     });
 
-    BackgroundGeolocation.on('background', () => {
-      console.log('[INFO] App is in background');
+    BackgroundGeolocation.on("background", () => {
+      console.log("[INFO] App is in background");
+      if (PictureInPicture?.SUPPORTED) {
+        enablePictureInPicture();
+      }
     });
 
-    BackgroundGeolocation.on('foreground', () => {
-      console.log('[INFO] App is in foreground');
+    BackgroundGeolocation.on("foreground", () => {
+      console.log("[INFO] App is in foreground");
     });
 
-    BackgroundGeolocation.on('abort_requested', () => {
-      console.log('[INFO] Server responded with 285 Updates Not Required');
+    BackgroundGeolocation.on("abort_requested", () => {
+      console.log("[INFO] Server responded with 285 Updates Not Required");
     });
 
-    BackgroundGeolocation.on('http_authorization', () => {
-      console.log('[INFO] App needs to authorize the http requests');
+    BackgroundGeolocation.on("http_authorization", () => {
+      console.log("[INFO] App needs to authorize the http requests");
     });
 
-    BackgroundGeolocation.checkStatus(status => {
-      console.log(status, 'status.isRunning');
+    BackgroundGeolocation.checkStatus((status) => {
+      console.log(status, "status.isRunning");
       if (!status.isRunning) {
         BackgroundGeolocation.start(); //triggers start on start event
       }
     });
 
     BackgroundGeolocation.configure({
-      activityType: 'Fitness',
+      activityType: "Fitness",
       desiredAccuracy: BackgroundGeolocation.HIGH_ACCURACY,
       stationaryRadius: 10,
       distanceFilter: 10,
       debug: false,
       startOnBoot: false,
       stopOnTerminate: true,
-      notificationTitle: 'Location Tracking',
+      notificationTitle: "Location Tracking",
       notificationText: `Tracking driver's location in background.`,
       locationProvider: BackgroundGeolocation.ACTIVITY_PROVIDER,
       interval: 10000,
@@ -258,26 +260,22 @@ export default function DashBoard({ route, navigation }) {
       activitiesInterval: 10000,
       stopOnStillActivity: false,
       pauseLocationUpdates: false,
-      url: '',
+      url: "",
       httpHeaders: {
-        'X-FOO': 'bar',
+        "X-FOO": "bar",
       },
       // customize post properties
       postTemplate: {
-        lat: '@latitude',
-        lon: '@longitude',
-        foo: 'bar', // you can also add your own properties
+        lat: "@latitude",
+        lon: "@longitude",
+        foo: "bar", // you can also add your own properties
       },
     });
 
     return () => {
       BackgroundGeolocation.removeAllListeners();
     };
-
-}, []);
-
-  
-
+  }, []);
 
   useFocusEffect(
     React.useCallback(() => {
@@ -302,12 +300,12 @@ export default function DashBoard({ route, navigation }) {
         updateState({
           isLoading: true,
           options: poolingSuggestionTab,
-          selectedOption:0
+          selectedOption: 0,
         });
       } else {
         updateState({
           isLoading: true,
-          selectedOption:0,
+          selectedOption: 0,
           options: [
             {
               label:
@@ -358,10 +356,10 @@ export default function DashBoard({ route, navigation }) {
           ) {
             if (
               zendeskKeys?.keys?.account_key !=
-              res?.data?.user?.client_preference?.customer_support_key &&
+                res?.data?.user?.client_preference?.customer_support_key &&
               zendeskKeys?.keys?.application_id !=
-              res?.data?.user?.client_preference
-                ?.customer_support_application_id
+                res?.data?.user?.client_preference
+                  ?.customer_support_application_id
             )
               actions?.setZendeskKeys({
                 keys: {
@@ -375,7 +373,9 @@ export default function DashBoard({ route, navigation }) {
           }
 
           if (res?.data?.user?.is_pooling_available) {
-            actions.savePoolingStatusForLifeCycle(res?.data?.user?.is_pooling_available)
+            actions.savePoolingStatusForLifeCycle(
+              res?.data?.user?.is_pooling_available
+            );
           }
 
           if (selectedOption == 1) {
@@ -425,7 +425,7 @@ export default function DashBoard({ route, navigation }) {
         fcm_token: fcmToken,
       });
     })();
-    return () => { };
+    return () => {};
   }, []);
 
   const currentLocation = () => {
@@ -447,8 +447,6 @@ export default function DashBoard({ route, navigation }) {
           longitude: position.coords.longitude,
           heading: position.coords.heading,
         });
-
-       
 
         // getCurrentLocation(
         //   position.coords.latitude,
@@ -684,12 +682,14 @@ export default function DashBoard({ route, navigation }) {
       });
     }
   };
+
   const customCenter = () => {
     return (
       <View style={{ flexDirection: "row", alignItems: "center" }}>
         <View style={{ paddingHorizontal: 10 }}>
           <Image source={imagePath.locationOff} />
         </View>
+
         <Switch
           trackColor={{ false: colors.backGround, true: colors.themeColor }}
           thumbColor={colors.white}
@@ -759,7 +759,7 @@ export default function DashBoard({ route, navigation }) {
           marginHorizontal: moderateScale(10),
           ...generateBoxShadowStyle(-2, 0, "#171717", 0.2, 3, 3, "#171717"),
           paddingBottom: moderateScaleVertical(10),
-          marginBottom: moderateScaleVertical(20)
+          marginBottom: moderateScaleVertical(20),
         }}
       >
         <PoolingSuggestionCard
@@ -794,16 +794,16 @@ export default function DashBoard({ route, navigation }) {
             selectedOption == 2
               ? allPoolingingSuggestions?.length
               : selectedOption
-                ? allTasks?.length
-                : todaysTasks?.length
+              ? allTasks?.length
+              : todaysTasks?.length
           ) ? (
             <FlatList
               data={
                 selectedOption == 2
                   ? allPoolingingSuggestions
                   : selectedOption
-                    ? finalAllTasks
-                    : finaltodayTasks
+                  ? finalAllTasks
+                  : finaltodayTasks
               }
               renderItem={
                 selectedOption != 2 ? renderTaskList : renderPoolingSuggestions
@@ -817,8 +817,8 @@ export default function DashBoard({ route, navigation }) {
                 backgroundColor: !!(selectedOption == 1 && !allTasks.length)
                   ? colors.backGround
                   : !!(selectedOption == 0 && !todaysTasks.length)
-                    ? colors.backGround
-                    : colors.white,
+                  ? colors.backGround
+                  : colors.white,
               }}
               contentContainerStyle={{
                 flexGrow: 1,
@@ -840,8 +840,8 @@ export default function DashBoard({ route, navigation }) {
                     selectedOption == 2
                       ? "No Pooling Suggestions Yet"
                       : getBundleId() == appIds.tdc
-                        ? strings.NOTRIP
-                        : strings.NOTASK
+                      ? strings.NOTRIP
+                      : strings.NOTASK
                   }
                   subMessage={
                     selectedOption == 2
@@ -859,8 +859,8 @@ export default function DashBoard({ route, navigation }) {
                 selectedOption == 2
                   ? "No Pooling Suggestions Yet"
                   : getBundleId() == appIds.tdc
-                    ? strings.NOTRIP
-                    : strings.NOTASK
+                  ? strings.NOTRIP
+                  : strings.NOTASK
               }
               subMessage={
                 selectedOption == 2
@@ -975,8 +975,6 @@ export default function DashBoard({ route, navigation }) {
       });
     }
   };
-
-
 
   const mapView = () => {
     return (
@@ -1140,7 +1138,7 @@ export default function DashBoard({ route, navigation }) {
             options={options}
             initial={selectedOption}
             onPress={(value) => updateContent(value)}
-          // textInputStyle={{ width: moderateScale(width - 40) }}
+            // textInputStyle={{ width: moderateScale(width - 40) }}
           />
         ) : (
           <View style={{ height: 35 }} />
