@@ -1,5 +1,6 @@
 import LocalizedStrings from 'react-native-localization';
 import { appIds } from '../../utils/constants/DynamicAppKeys';
+import DeviceInfo, { getBundleId } from "react-native-device-info";
 
 import ar from './ar';
 import de from './de';
@@ -21,7 +22,7 @@ import zh from './zh';
 
 const arbicFile = () => {
   switch (DeviceInfo.getBundleId()) {
-    case appIds?.viralClean:
+    case appIds?.messiaa:
       return heb;
     default:
       return ar;

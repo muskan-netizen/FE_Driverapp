@@ -2873,15 +2873,27 @@ export default function ShortCode({ route, navigation }) {
             isShortcodePrefilled: true,
           });
           break;
-          case appIds.messiaa:
-            updateState({
-              shortCode: shortCodes.messiaa,
-              isShortcodePrefilled: true,
-            });
-            break;
+        case appIds.messiaa:
+          updateState({
+            shortCode: shortCodes.messiaa,
+            isShortcodePrefilled: true,
+          });
+          break;
         case appIds.superApp:
           updateState({
             shortCode: shortCodes.superApp,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.nounou:
+          updateState({
+            shortCode: shortCodes.nounou,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.laith:
+          updateState({
+            shortCode: shortCodes.laith,
             isShortcodePrefilled: true,
           });
           break;

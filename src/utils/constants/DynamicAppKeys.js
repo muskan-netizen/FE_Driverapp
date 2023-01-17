@@ -465,7 +465,9 @@ const shortCodes = {
   junkerz: '1ac153',
   viralClean: '256a0f',
   messiaa: 'c60e40',
-  superApp: '9f5702'
+  superApp: '9f5702',
+  nounou: '2e78fd',
+  laith: '89e6b8'
 };
 
 const appIds = {
@@ -2307,6 +2309,14 @@ const appIds = {
   superApp: Platform.select({
     ios: 'com.superApp.royodispatcher',
     android: 'com.superApp.royodispatcher',
+  }),
+  nounou: Platform.select({
+    ios: 'com.nounou.royodispatcher',
+    android: 'com.nounou.royodispatcher',
+  }),
+  laith: Platform.select({
+    ios: 'com.laith.royodispatcher',
+    android: 'com.laith.royodispatcher',
   }),
 };
 
