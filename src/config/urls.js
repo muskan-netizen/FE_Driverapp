@@ -58,7 +58,7 @@
 // export const API_BASE_URL = 'https://api.royodispatch.com/';
 // export const API_BASE_URL='https://dispatch.shophairrun.app/'
 //Staging
-export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.myevplus.com/';
 
 //Misst
@@ -150,7 +150,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.heybuddy.com.mx/';
 // export const API_BASE_URL = 'https://dispatch.heybuddy.com.mx/';
 
-// export const API_BASE_URL = 'https://delivery.go912.app/';
+export const API_BASE_URL = 'https://delivery.go912.app/';
 
 // export const API_BASE_URL = 'https://dispatch.nittosadai.com/';
 
