@@ -2897,6 +2897,24 @@ export default function ShortCode({ route, navigation }) {
             isShortcodePrefilled: true,
           });
           break;
+          case appIds.oaks:
+            updateState({
+              shortCode: shortCodes.oaks,
+              isShortcodePrefilled: true,
+            });
+            break;
+            case appIds.buzyStores:
+              updateState({
+                shortCode: shortCodes.buzyStores,
+                isShortcodePrefilled: true,
+              });
+              break;
+              case appIds.etiam:
+                updateState({
+                  shortCode: shortCodes.etiam,
+                  isShortcodePrefilled: true,
+                });
+                break;
       }
     })();
   }, [internetConnection]);

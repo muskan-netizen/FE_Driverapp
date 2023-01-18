@@ -467,7 +467,10 @@ const shortCodes = {
   messiaa: 'c60e40',
   superApp: '9f5702',
   nounou: '2e78fd',
-  laith: '89e6b8'
+  laith: '89e6b8',
+  oaks:'5eab74',
+  buzyStores:"8c70ed",
+  etiam:"a10566"
 };
 
 const appIds = {
@@ -2317,6 +2320,19 @@ const appIds = {
   laith: Platform.select({
     ios: 'com.laith.royodispatcher',
     android: 'com.laith.royodispatcher',
+  }),
+  oaks: Platform.select({
+    ios: 'com.oaks.royodispatcher',
+    android: 'com.oaks.royodispatcher',
+  }),
+  buzyStores: Platform.select({
+    ios: 'com.buzyStores.royodispatcher',
+    android: 'com.buzyStores.royodispatcher',
+  }),
+ 
+  etiam: Platform.select({
+    ios: 'com.etiam.royodispatcher',
+    android: 'com.etiam.royodispatcher',
   }),
 };
 

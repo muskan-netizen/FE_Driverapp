@@ -203,15 +203,25 @@ android {
      flavorDimensions "appType"
      
      productFlavors{
-       laith{
+      oaks{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.laith.royodispatcher'
-            resValue "string", "app_name", "Laith Dispatcher"
+            applicationId 'com.oaks.royodispatcher'
+            resValue "string", "app_name", "Oaks Dispatcher"
+        }
+buzyStores{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.buzyStores.royodispatcher'
+            resValue "string", "app_name", "Buzy Stores Dispatcher"
         }
      }
 
@@ -7579,6 +7589,36 @@ android {
 //             // applicationIdSuffix ".royoorder"
 //             applicationId 'com.laith.royodispatcher'
 //             resValue "string", "app_name", "Laith Dispatcher"
+//         }
+// oaks{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.oaks.royodispatcher'
+//             resValue "string", "app_name", "Oaks Dispatcher"
+//         }
+// buzyStores{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.buzyStores.royodispatcher'
+//             resValue "string", "app_name", "Buzy Stores Dispatcher"
+//         }
+// etiam{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.etiam.royodispatcher'
+//             resValue "string", "app_name", "Etiam Dispatcher"
 //         }
 // }
 }
