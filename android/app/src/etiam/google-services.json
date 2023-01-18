@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "10156555154",
+    "project_id": "etiam-driver",
+    "storage_bucket": "etiam-driver.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:10156555154:android:7d59ad9cd14f0ad3ab5f4b",
+        "android_client_info": {
+          "package_name": "com.etiam.royodispatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "10156555154-ahm2nmd0fvdat9dgu51t2gkoi8pp786n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnPyfShSvkHHcvaFWikF9-XunZGlXWRSQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "10156555154-ahm2nmd0fvdat9dgu51t2gkoi8pp786n.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "10156555154-dlupohr3uq9usrkfn2t4fq2hicbkvjir.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.etiam.royodispatcher"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
