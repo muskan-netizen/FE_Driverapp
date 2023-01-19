@@ -150,7 +150,7 @@
 // export const API_BASE_URL = 'https://dispatch.heybuddy.com.mx/';
 // export const API_BASE_URL = 'https://dispatch.heybuddy.com.mx/';
 
-export const API_BASE_URL = 'https://delivery.go912.app/';
+// export const API_BASE_URL = 'https://delivery.go912.app/';
 
 // export const API_BASE_URL = 'https://dispatch.nittosadai.com/';
 
@@ -393,7 +393,7 @@ export const API_BASE_URL = 'https://delivery.go912.app/';
 // mobi
 //bimol
 // export const API_BASE_URL = 'https://dispatch.bimol.in/';
-// export const API_BASE_URL = 'https://dispatch.mobimarket.com.mx/';
+export const API_BASE_URL = 'https://dispatch.mobimarket.com.mx/';
 // grub and gusto
 
 //export const API_BASE_URL = 'https://punnet.royodispatch.com/'

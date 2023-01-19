@@ -213,15 +213,16 @@ android {
             applicationId 'com.hairrun.driver'
             resValue "string", "app_name", "Hair Runner"
         }
-          nineOneTwo{
+           mobi{
             dimension "appType"
-            versionCode 1
+            versionCode 2
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.NineOneTwo.dispatcher'
-            resValue "string", "app_name", "912 Agent"
+             applicationId "com.Mobi.dispatcher"
+            resValue "string", "app_name", "Mobi Conductor"
+            
         }
     }
 //     productFlavors {
