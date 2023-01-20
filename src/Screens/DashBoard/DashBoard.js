@@ -448,6 +448,8 @@ export default function DashBoard({ route, navigation }) {
           heading: position.coords.heading,
         });
 
+        actions.userCurrentLocation(position)
+
         // getCurrentLocation(
         //   position.coords.latitude,
         //   position.coords.longitude,

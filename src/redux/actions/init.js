@@ -91,6 +91,17 @@ export const saveUserData = (data) => {
   });
 };
 
+
+
+export const userCurrentLocation = (data) => {
+  dispatch({
+    type: types.CURRENT_LOCATION,
+    payload: data,
+  });
+};
+
+
+
 //Logs api hitting after  some  frequent interval
 
 export function logsApi(data = {}, headers = {}) {
@@ -157,6 +168,22 @@ export const setZendeskKeys = (data) => {
     payload: data,
   });
 };
+
+export function submitDriverRequestForPush(
+  url = "",
+  data = {},
+  headers = {}
+) {
+  return new Promise((resolve, reject) => {
+    apiPost(url, data, headers)
+      .then((res) => {
+        resolve(res);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+}
 
 
 
