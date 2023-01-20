@@ -1,5 +1,5 @@
 PODS:
-  - "@darron1217_react-native-background-geolocation (0.6.7)":
+  - "@darron1217_react-native-background-geolocation (0.6.6)":
     - React
   - Base64 (1.1.2)
   - boost-for-react-native (1.63.0)
@@ -352,10 +352,6 @@ PODS:
     - React-Core
   - react-native-otp-verify (1.1.4):
     - React-Core
-  - react-native-picture-in-picture (0.0.1):
-    - React
-  - react-native-pip-android (1.0.1):
-    - React-Core
   - react-native-razorpay (2.3.0):
     - razorpay-pod
     - React
@@ -569,8 +565,6 @@ DEPENDENCIES:
   - react-native-maps (from `../node_modules/react-native-maps`)
   - "react-native-netinfo (from `../node_modules/@react-native-community/netinfo`)"
   - react-native-otp-verify (from `../node_modules/react-native-otp-verify`)
-  - react-native-picture-in-picture (from `../node_modules/react-native-picture-in-picture`)
-  - react-native-pip-android (from `../node_modules/react-native-pip-android`)
   - react-native-razorpay (from `../node_modules/react-native-razorpay`)
   - react-native-restart (from `../node_modules/react-native-restart`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
@@ -725,10 +719,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-community/netinfo"
   react-native-otp-verify:
     :path: "../node_modules/react-native-otp-verify"
-  react-native-picture-in-picture:
-    :path: "../node_modules/react-native-picture-in-picture"
-  react-native-pip-android:
-    :path: "../node_modules/react-native-pip-android"
   react-native-razorpay:
     :path: "../node_modules/react-native-razorpay"
   react-native-restart:
@@ -815,7 +805,7 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
-  "@darron1217_react-native-background-geolocation": 2ef6f11a8aa60994926137c47830235c7fd3c857
+  "@darron1217_react-native-background-geolocation": e86cafdfc219f37c5399b782c2aad1b3723c8228
   Base64: cecfb41a004124895a7bcee567a89bae5a89d49b
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   BVLinearGradient: 34a999fda29036898a09c6a6b728b0b4189e1a44
@@ -870,8 +860,6 @@ SPEC CHECKSUMS:
   react-native-maps: a421fe6aeb74279597c4ea9598f25796108e2d89
   react-native-netinfo: 0981b7054d93cf88d3ce1e279c34423ae3db1182
   react-native-otp-verify: 7993f49574998816464a375569810c3529dac145
-  react-native-picture-in-picture: 6dac1e824095e2acbd1dbecaf0367c370e909059
-  react-native-pip-android: 1fe0d3c23b8a064b9b6e58fbab88aed4d58d8a8e
   react-native-razorpay: ca1aa3960facc92824227fac18a7aad2c40fb546
   react-native-restart: d4ea7637e193da7558d229b3704d500ec0d75f9c
   react-native-safe-area-context: 5b8a418400eb3d8364aa87300e865c0262cc17b9
