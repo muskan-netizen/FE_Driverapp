@@ -2915,6 +2915,12 @@ export default function ShortCode({ route, navigation }) {
                   isShortcodePrefilled: true,
                 });
                 break;
+                case appIds.dotTaxi:
+                  updateState({
+                    shortCode: shortCodes.dotTaxi,
+                    isShortcodePrefilled: true,
+                  });
+                  break;
       }
     })();
   }, [internetConnection]);

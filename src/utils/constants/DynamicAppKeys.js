@@ -48,8 +48,8 @@ const shortCodes = {
   jetrider: '387dd4',
   bilionza: 'd97efd',
   baytukom: '7df249',
-  gokab: '94d183', // staging
-  // gokab: '362d14', // live
+  // gokab: '94d183', // staging
+  gokab: '362d14', // live
   bezalio: '2c0bf4',
   doleyPharmacy: '72d02d',
   taquick: '7c335c',
@@ -470,7 +470,8 @@ const shortCodes = {
   laith: '89e6b8',
   oaks:'5eab74',
   buzyStores:"8c70ed",
-  etiam:"a10566"
+  etiam:"a10566",
+  dotTaxi:'ca35c5'
 };
 
 const appIds = {
@@ -2333,6 +2334,10 @@ const appIds = {
   etiam: Platform.select({
     ios: 'com.etiam.royodispatcher',
     android: 'com.etiam.royodispatcher',
+  }),
+  dotTaxi: Platform.select({
+    ios: 'com.dotTaxi.royodispatcher',
+    android: 'com.dotTaxi.royodispatcher',
   }),
 };
 

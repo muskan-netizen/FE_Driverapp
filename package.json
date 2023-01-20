@@ -931,6 +931,8 @@
     "buzyStoresdispatcherRelease": "cd android && ./gradlew assemblebuzyStoresRelease",
     "etiamdispatcher": "react-native run-android --variant=etiamDebug",
     "etiamdispatcherRelease": "cd android && ./gradlew assembleetiamRelease",
+    "dotTaxidispatcher": "react-native run-android --variant=dotTaxiDebug",
+    "dotTaxidispatcherRelease": "cd android && ./gradlew assembledotTaxiRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
