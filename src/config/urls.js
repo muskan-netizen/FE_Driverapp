@@ -393,7 +393,7 @@
 // mobi
 //bimol
 // export const API_BASE_URL = 'https://dispatch.bimol.in/';
-export const API_BASE_URL = 'https://dispatch.mobimarket.com.mx/';
+//export const API_BASE_URL = 'https://dispatch.mobimarket.com.mx/';
 // grub and gusto
 
 //export const API_BASE_URL = 'https://punnet.royodispatch.com/'
@@ -479,6 +479,9 @@ export const API_BASE_URL = 'https://dispatch.mobimarket.com.mx/';
 
 // hiperabasto
 // export const API_BASE_URL = 'https://dispatch.hiperabasto.mx/';
+//parcelworksdelivery
+export const API_BASE_URL ='https://dispatch.parcelworksdelivery.com/';
+
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;
 
 export const SEND_OTP = getApiUrl('api/auth/login');
