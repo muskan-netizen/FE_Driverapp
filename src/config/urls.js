@@ -9,6 +9,7 @@
 // export const API_BASE_URL='http://192.168.101.140:9091/'
 // //Staging
 export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL='https://dispatch.hattafoodhub.com/'
 // export const API_BASE_URL='https://dispatch.nittosadai.com/'
 //  export const API_BASE_URL='https://zuzucleans.royodispatch.com/'
 // export const API_BASE_URL='https://delivery.go912.app/'
@@ -474,6 +475,8 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // hiperabasto
 // export const API_BASE_URL = 'https://dispatch.hiperabasto.mx/';
+// export const API_BASE_URL = 'https://dispatch.vduonline.co.in/';
+
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;
 
 export const SEND_OTP = getApiUrl('api/auth/login');

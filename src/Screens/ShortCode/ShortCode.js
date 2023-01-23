@@ -2921,6 +2921,18 @@ export default function ShortCode({ route, navigation }) {
                     isShortcodePrefilled: true,
                   });
                   break;
+                  case appIds.airvoltTaxi:
+                    updateState({
+                      shortCode: shortCodes.airvoltTaxi,
+                      isShortcodePrefilled: true,
+                    });
+                    break;
+                    case appIds.melak:
+                    updateState({
+                      shortCode: shortCodes.melak,
+                      isShortcodePrefilled: true,
+                    });
+                    break;
       }
     })();
   }, [internetConnection]);
