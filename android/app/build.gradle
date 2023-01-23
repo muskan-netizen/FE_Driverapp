@@ -203,15 +203,15 @@ android {
      flavorDimensions "appType"
  
     productFlavors{
-              hairRun{
+                awamer{
             dimension "appType"
-            versionCode 2
+            versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.hairrun.driver'
-            resValue "string", "app_name", "Hair Runner"
+            applicationId 'com.awamer.royodispatcher'
+            resValue "string", "app_name", "Awamer Dispatcher"
         }
            mobi{
             dimension "appType"
@@ -223,6 +223,16 @@ android {
              applicationId "com.Mobi.dispatcher"
             resValue "string", "app_name", "Mobi Conductor"
             
+        }
+             parcelWorks{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.parcelWorks.royodispatcher'
+            resValue "string", "app_name", "ParcelWorks Dispatcher"
         }
     }
 //     productFlavors {

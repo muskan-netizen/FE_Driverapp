@@ -56,7 +56,7 @@
 //export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
 // export const API_BASE_URL = 'http://192.168.96.152:9091/';
 // export const API_BASE_URL = 'https://api.royodispatch.com/';
-export const API_BASE_URL='https://dispatch.shophairrun.app/'
+// export const API_BASE_URL='https://dispatch.shophairrun.app/'
 //Staging
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.myevplus.com/';
@@ -393,7 +393,7 @@ export const API_BASE_URL='https://dispatch.shophairrun.app/'
 // mobi
 //bimol
 // export const API_BASE_URL = 'https://dispatch.bimol.in/';
-// export const API_BASE_URL = 'https://dispatch.mobimarket.com.mx/';
+//export const API_BASE_URL = 'https://dispatch.mobimarket.com.mx/';
 // grub and gusto
 
 //export const API_BASE_URL = 'https://punnet.royodispatch.com/'
@@ -479,6 +479,11 @@ export const API_BASE_URL='https://dispatch.shophairrun.app/'
 
 // hiperabasto
 // export const API_BASE_URL = 'https://dispatch.hiperabasto.mx/';
+//parcelworksdelivery
+// export const API_BASE_URL ='https://dispatch.parcelworksdelivery.com/';
+// amwer 
+
+export const API_BASE_URL='https://dispatch.awamerapp.com/'
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;
 
 export const SEND_OTP = getApiUrl('api/auth/login');
