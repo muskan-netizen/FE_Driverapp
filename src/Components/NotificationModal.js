@@ -331,9 +331,6 @@ const NotificationModal = () => {
     longitude:Number(dropLocation?.geometry?.location?.lng)
   }
   ]
-
-
-
     const data = {
     tasks:taskArray,
     task_type:'Instant_Booking',
@@ -345,6 +342,8 @@ const NotificationModal = () => {
 
     actions.submitDriverRequestForPush(new_dispatch_push_request_rider_url(),data).then((res)=>{
       showSuccess(res?.message)
+     
+      
     }).catch((error)=>{
      showError(error?.message)
     })
@@ -416,6 +415,31 @@ const NotificationModal = () => {
           </View>
       )
       break;
+      case  'ACK' :
+        return (
+          <View style={styles.taskCancelledByCustomerContainer}>
+              <TouchableOpacity
+                onPress={() => {
+                  actions.isModalVisibleForAcceptReject({
+                    isModalVisibleForAcceptReject: false,
+                    notificationData: null,
+                  });
+                  actions.updateHomepage(true);
+                }}
+                style={{
+                  flex: 1,
+                  borderBottomLeftRadius: moderateScale(15),
+                  borderBottomRightRadius: moderateScale(15),
+                  alignItems: "center",
+                  justifyContent: "center",
+                  backgroundColor: colors.green,
+                }}
+              >
+                <Text style={styles.text}>{strings.DONE}</Text>
+              </TouchableOpacity>
+            </View>
+        )
+        break;
       
       case  'Instant_Booking' :
         return (

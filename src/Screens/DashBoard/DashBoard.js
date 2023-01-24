@@ -1,5 +1,5 @@
-import { debounce, get } from "lodash";
-import React, { useEffect, useRef, useState } from "react";
+import { debounce, get, isEmpty } from "lodash";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import {
   Alert,
   BackHandler,
@@ -78,6 +78,9 @@ export default function DashBoard({ route, navigation }) {
   } = useSelector((state) => state?.initBoot);
   const { isCabPooling, initialValue } = useSelector((state) => state?.auth);
   const shortCode = useSelector((state) => state?.initBoot?.shortCode);
+  const [orderCallbackUrl, setOrderCallbackUrl] = useState('')
+
+  const ref = useRef(orderCallbackUrl);
 
   const [state, setState] = useState({
     isLoading: false,
@@ -115,9 +118,8 @@ export default function DashBoard({ route, navigation }) {
     isWarningAlert: false,
     warningStatus: false,
     allPoolingingSuggestions: [],
-    orderData:{},
-    bidAcceptedOrRejected:false,
-    orderCallbackUrl:''
+    orderData: {},
+    bidAcceptedOrRejected: false,
   });
   const {
     longitude,
@@ -144,7 +146,6 @@ export default function DashBoard({ route, navigation }) {
     allPoolingingSuggestions,
     orderData,
     bidAcceptedOrRejected,
-    orderCallbackUrl
   } = state;
 
   useEffect(() => {
@@ -154,7 +155,7 @@ export default function DashBoard({ route, navigation }) {
         fcm_token: fcmToken,
       });
     })();
-    return () => {};
+    return () => { };
   }, []);
 
   useEffect(() => {
@@ -172,7 +173,7 @@ export default function DashBoard({ route, navigation }) {
     }
   }, [refreshHomeData]);
 
-  
+
 
   useEffect(() => {
     const backHandler = BackHandler.addEventListener("hardwareBackPress", () =>
@@ -189,45 +190,45 @@ export default function DashBoard({ route, navigation }) {
 
   //****************bid request and instant booking customer status chacking****** */
 
-useEffect(() => {
-  let data = notificationData?.notificationData?.data;
-  if (data && data?.order_id) {
-    getCustomNotificationData();
-  }
- 
-}, [notificationData?.notificationData?.data]);
+  useEffect(() => {
+    let data = notificationData?.notificationData?.data;
+    if (data && data?.order_id) {
+      getCustomNotificationData();
+    }
+  }, [notificationData?.notificationData?.data]);
 
 
 
-const getCustomNotificationData = () => {
-  console.log(notificationData, "notificationData");
-  actions
-    .getCustomNotificationPayload(
-      `/${notificationData?.notificationData?.data?.order_id}`,
-      {},
-      { shortCode: shortCode }
-    )
-    .then((res) => {
-      console.log(res, "resres>> for notification");
-      updateState({
-        orderData: res?.order,
-        orderCallbackUrl:new_dispatch_push_request_rider_url(res?.order?.call_back_url)
-      });
-        
-      
-    })
-    .catch((error) => console.log("error in notification Data", error));
-};
+  const getCustomNotificationData = () => {
+    console.log("calinng...")
+    actions
+      .getCustomNotificationPayload(
+        `/${notificationData?.notificationData?.data?.order_id}`,
+        {},
+        { shortCode: shortCode }
+      )
+      .then((res) => {
+        console.log(res, "resres>> for notification");
+        setOrderCallbackUrl(new_dispatch_push_request_rider_url(res?.order?.call_back_url))
+        updateState({
+          orderData: res?.order,
+          // orderCallbackUrl:new_dispatch_push_request_rider_url(res?.order?.call_back_url)
+        });
+      })
+      .catch((error) => console.log("error in notification Data", error));
+
+
+  };
 
 
 
-const new_dispatch_push_request_rider_url = (callBackUrl) => {
+  const new_dispatch_push_request_rider_url = (callBackUrl) => {
+
     if (
       callBackUrl?.includes(
         "/dispatch-order-status-update/"
       )
     ) {
-  
       return (callBackUrl).replace(
         "/dispatch-order-status-update/",
         "/dispatch/driver/bids/status/"
@@ -240,27 +241,36 @@ const new_dispatch_push_request_rider_url = (callBackUrl) => {
         "/dispatch/driver/bids/status/"
       );
     }
-  
- 
-};
+  };
+
+  console.log(notificationData, orderCallbackUrl, "checkCustomerBidStatus =>notificationData => state");
 
 
-
-  const checkCustomerBidStatus = () =>{
-    const apiData = {
-      driver_id:userData?.id,
-    }
-    actions.submitDriverRequestForPush(orderCallbackUrl,apiData).then((res)=>{
-      if(res?.data?.lastBidStatus !=0){
-        actions.isModalVisibleForAcceptReject({
-          isModalVisibleForAcceptReject: false,
-          notificationData: null,
-        })  
+  const checkCustomerBidStatus = useCallback((orderNitificationData, apiCallBackUrl) => {
+    console.log(orderNitificationData, apiCallBackUrl, "checkCustomerBidStatus => param");
+    if (orderNitificationData?.isModalVisibleForAcceptReject) {
+      const apiData = {
+        driver_id: userData?.id,
       }
-      }).catch((error)=>{
-       showError(error?.message)
-      })
-  }
+      if (!isEmpty(apiCallBackUrl)) {
+        console.log('checkCustomerBidStatus iffffff')
+        actions.submitDriverRequestForPush(apiCallBackUrl, apiData).then((res) => {
+          console.log(res, "checkCustomerBidStatus after api hit condition");
+          if (res?.data?.noofbid && res?.data?.lastBidStatus != 'Pending') {
+            actions.isModalVisibleForAcceptReject({
+              isModalVisibleForAcceptReject: false,
+              notificationData: null,
+            })
+            setOrderCallbackUrl('')
+          }else{
+            setOrderCallbackUrl('')
+          }
+        }).catch((error) => {
+          showError(error?.message)
+        })
+      }
+    }
+  }, [])
 
 
 
@@ -273,12 +283,13 @@ const new_dispatch_push_request_rider_url = (callBackUrl) => {
       let headingAngle = location?.bearing || 0.0;
       let lat = location?.latitude || 0;
       let long = location.longitude || 0;
-      fetchgentLogs(lat, long, headingAngle);
-      if(orderCallbackUrl && notificationData?.isModalVisibleForAcceptReject){
-        console.log('condintion working for status check');
-        checkCustomerBidStatus()  
+      ref.current = orderCallbackUrl;
+      console.log("ref.current+++++",ref.current)
+      if (!!orderCallbackUrl) {
+        console.log(notificationData, ref.current, "checkCustomerBidStatus => BackgroundGeolocation =>notificationData => state");
+        checkCustomerBidStatus(notificationData, orderCallbackUrl);
       }
-      
+      fetchgentLogs(lat, long, headingAngle);
     });
 
     BackgroundGeolocation.on("error", (error) => {
@@ -370,7 +381,7 @@ const new_dispatch_push_request_rider_url = (callBackUrl) => {
     return () => {
       BackgroundGeolocation.removeAllListeners();
     };
-  }, []);
+  }, [orderCallbackUrl, setOrderCallbackUrl,ref]);
 
 
 
@@ -458,10 +469,10 @@ const new_dispatch_push_request_rider_url = (callBackUrl) => {
           ) {
             if (
               zendeskKeys?.keys?.account_key !=
-                res?.data?.user?.client_preference?.customer_support_key &&
+              res?.data?.user?.client_preference?.customer_support_key &&
               zendeskKeys?.keys?.application_id !=
-                res?.data?.user?.client_preference
-                  ?.customer_support_application_id
+              res?.data?.user?.client_preference
+                ?.customer_support_application_id
             )
               actions?.setZendeskKeys({
                 keys: {
@@ -527,7 +538,7 @@ const new_dispatch_push_request_rider_url = (callBackUrl) => {
         fcm_token: fcmToken,
       });
     })();
-    return () => {};
+    return () => { };
   }, []);
 
   const currentLocation = () => {
@@ -898,16 +909,16 @@ const new_dispatch_push_request_rider_url = (callBackUrl) => {
             selectedOption == 2
               ? allPoolingingSuggestions?.length
               : selectedOption
-              ? allTasks?.length
-              : todaysTasks?.length
+                ? allTasks?.length
+                : todaysTasks?.length
           ) ? (
             <FlatList
               data={
                 selectedOption == 2
                   ? allPoolingingSuggestions
                   : selectedOption
-                  ? finalAllTasks
-                  : finaltodayTasks
+                    ? finalAllTasks
+                    : finaltodayTasks
               }
               renderItem={
                 selectedOption != 2 ? renderTaskList : renderPoolingSuggestions
@@ -921,8 +932,8 @@ const new_dispatch_push_request_rider_url = (callBackUrl) => {
                 backgroundColor: !!(selectedOption == 1 && !allTasks.length)
                   ? colors.backGround
                   : !!(selectedOption == 0 && !todaysTasks.length)
-                  ? colors.backGround
-                  : colors.white,
+                    ? colors.backGround
+                    : colors.white,
               }}
               contentContainerStyle={{
                 flexGrow: 1,
@@ -944,8 +955,8 @@ const new_dispatch_push_request_rider_url = (callBackUrl) => {
                     selectedOption == 2
                       ? "No Pooling Suggestions Yet"
                       : getBundleId() == appIds.tdc
-                      ? strings.NOTRIP
-                      : strings.NOTASK
+                        ? strings.NOTRIP
+                        : strings.NOTASK
                   }
                   subMessage={
                     selectedOption == 2
@@ -963,8 +974,8 @@ const new_dispatch_push_request_rider_url = (callBackUrl) => {
                 selectedOption == 2
                   ? "No Pooling Suggestions Yet"
                   : getBundleId() == appIds.tdc
-                  ? strings.NOTRIP
-                  : strings.NOTASK
+                    ? strings.NOTRIP
+                    : strings.NOTASK
               }
               subMessage={
                 selectedOption == 2
@@ -1242,7 +1253,7 @@ const new_dispatch_push_request_rider_url = (callBackUrl) => {
             options={options}
             initial={selectedOption}
             onPress={(value) => updateContent(value)}
-            // textInputStyle={{ width: moderateScale(width - 40) }}
+          // textInputStyle={{ width: moderateScale(width - 40) }}
           />
         ) : (
           <View style={{ height: 35 }} />
@@ -1252,3 +1263,4 @@ const new_dispatch_push_request_rider_url = (callBackUrl) => {
     </WrapperContainer>
   );
 }
+
