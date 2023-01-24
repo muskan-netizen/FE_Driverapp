@@ -51,9 +51,9 @@ const NotificationModal = () => {
     totalDistance: null,
     taskId: null,
     orderData: {},
-    customerData:{}
+    customerData: {}
   });
-  const { notificationData,currentLocation } = useSelector((state) => state?.initBoot);
+  const { notificationData, currentLocation } = useSelector((state) => state?.initBoot);
   const userData = useSelector((state) => state?.auth?.userData);
   const clientInfo = useSelector((state) => state?.initBoot?.clientInfo);
   const shortCode = useSelector((state) => state?.initBoot?.shortCode);
@@ -75,10 +75,10 @@ const NotificationModal = () => {
 
 
 
-  const [dropLocation,setDropLocation] = useState('')
+  const [dropLocation, setDropLocation] = useState('')
   const [searchLocationData, setSearchLocationData] = useState([]);
   const [userFocus, setUserFocus] = useState("");
-  const [baseFare,setBaseFare] = useState(null)
+  const [baseFare, setBaseFare] = useState(null)
 
 
 
@@ -127,7 +127,7 @@ const NotificationModal = () => {
           totalDistance: res?.order?.actual_distance,
           taskId: res?.order?.unique_id,
           orderData: res?.order,
-          customerData:res?.customer
+          customerData: res?.customer
         });
       })
       .catch((error) => console.log("error in notification Data", error));
@@ -139,7 +139,7 @@ const NotificationModal = () => {
       return (
         <MapView
           //   provider={PROVIDER_GOOGLE} // remove if not using Google Maps
-          style={{...styles.map,height:data?.notificationType=='Instant_Booking'?width/3:width/2}}
+          style={{ ...styles.map, height: data?.notificationType == 'Instant_Booking' ? width / 3 : width / 2 }}
           region={region}
           initialRegion={region}
           //   customMapStyle={mapStyle}
@@ -220,10 +220,10 @@ const NotificationModal = () => {
 
 
   const _onselectUserLocation = (item) => {
-      setDropLocation(item);
-      setSearchLocationData([]);
-      Keyboard.dismiss()
-   
+    setDropLocation(item);
+    setSearchLocationData([]);
+    Keyboard.dismiss()
+
   };
 
 
@@ -239,7 +239,7 @@ const NotificationModal = () => {
       RNLocalize.getCountry()
     );
 
-    console.log(res,"resresresresres");
+    console.log(res, "resresresresres");
 
     if (res && !!res.results) {
       let arry = res.results.map((val, i) => {
@@ -250,7 +250,7 @@ const NotificationModal = () => {
         };
       });
 
-      console.log(arry,"arryarryarryarryarryarry");
+      console.log(arry, "arryarryarryarryarryarry");
       setSearchLocationData(arry);
     }
   };
@@ -289,7 +289,7 @@ const NotificationModal = () => {
         "/dispatch-order-status-update/"
       )
     ) {
-  
+
       return (orderData?.call_back_url).replace(
         "/dispatch-order-status-update/",
         "/dispatch/driver/bids/update/"
@@ -305,52 +305,57 @@ const NotificationModal = () => {
   };
 
 
-  console.log(userData,"userDatauserData");
-  
+  console.log(userData, "userDatauserData");
 
 
-  const _sendRequestToUser = () =>{
-    console.log(baseFare.length,!dropLocation?.formatted_address,"baseFare");
-    if(baseFare.length ==0 || !dropLocation?.formatted_address){
+
+  const _sendRequestToUser = () => {
+    console.log(baseFare.length, !dropLocation?.formatted_address, "baseFare");
+    if (baseFare.length == 0 || !dropLocation?.formatted_address) {
       alert('Please enter all Details for submit request')
       return
     }
 
-  const taskArray = [
-    {task_type_id:1,
-    address:notificationDropLocationsData[0]?.address,
-    preAddress:notificationDropLocationsData[0]?.address,
-    latitude:Number(notificationDropLocationsData[0]?.latitude),
-    longitude:Number(notificationDropLocationsData[0]?.longitude)
-  },
-  {
-    task_type_id:2,
-    address:dropLocation?.formatted_address,
-    preAddress:dropLocation?.formatted_address,
-    latitude:Number(dropLocation?.geometry?.location?.lat),
-    longitude:Number(dropLocation?.geometry?.location?.lng)
-  }
-  ]
+    const taskArray = [
+      {
+        task_type_id: 1,
+        address: notificationDropLocationsData[0]?.address,
+        preAddress: notificationDropLocationsData[0]?.address,
+        latitude: Number(notificationDropLocationsData[0]?.latitude),
+        longitude: Number(notificationDropLocationsData[0]?.longitude)
+      },
+      {
+        task_type_id: 2,
+        address: dropLocation?.formatted_address,
+        preAddress: dropLocation?.formatted_address,
+        latitude: Number(dropLocation?.geometry?.location?.lat),
+        longitude: Number(dropLocation?.geometry?.location?.lng)
+      }
+    ]
     const data = {
-    tasks:taskArray,
-    task_type:'Instant_Booking',
-    bid_price:baseFare,
-    driver_id:userData?.id,
-    driver_name:userData?.name,
-    driver_image:userData?.image_url     
+      tasks: taskArray,
+      task_type: 'Instant_Booking',
+      bid_price: baseFare,
+      driver_id: userData?.id,
+      driver_name: userData?.name,
+      driver_image: userData?.image_url
     }
 
-    actions.submitDriverRequestForPush(new_dispatch_push_request_rider_url(),data).then((res)=>{
-      showSuccess(res?.message)
-     
-      
-    }).catch((error)=>{
-     showError(error?.message)
+    actions.submitDriverRequestForPush(new_dispatch_push_request_rider_url(), data).then((res) => {
+
+      actions.isModalVisibleForAcceptReject({
+        isModalVisibleForAcceptReject: false,
+        notificationData: null,
+      })
+      setDropLocation('')
+      alert(res?.message)
+    }).catch((error) => {
+      showError(error?.message)
     })
-   
+
   }
 
-  const hideModal = () =>{
+  const hideModal = () => {
     actions.isModalVisibleForAcceptReject({
       isModalVisibleForAcceptReject: false,
       notificationData: null,
@@ -362,36 +367,36 @@ const NotificationModal = () => {
 
 
 
-  const showButtonComponent = (type)=>{
+  const showButtonComponent = (type) => {
     switch (type) {
       case 'AR':
         return (
           <View
-          style={{
-            borderRadius: 10,
-            height: 40,
-            flexDirection: "row",
-            alignSelf: "flex-end",
-          }}
-        >
-          <TouchableOpacity
-            onPress={() => aceptRejectTask(2)}
-            style={styles.taskRejectButtonTextStyle}
+            style={{
+              borderRadius: 10,
+              height: 40,
+              flexDirection: "row",
+              alignSelf: "flex-end",
+            }}
           >
-            <Text style={styles.text}>{strings.REJECT}</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => aceptRejectTask(1)}
-            style={styles.taskAcceptButtonTextStyle}
-          >
-            <Text style={styles.text}>{strings.ACCEPT}</Text>
-          </TouchableOpacity>
-        </View>
+            <TouchableOpacity
+              onPress={() => aceptRejectTask(2)}
+              style={styles.taskRejectButtonTextStyle}
+            >
+              <Text style={styles.text}>{strings.REJECT}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => aceptRejectTask(1)}
+              style={styles.taskAcceptButtonTextStyle}
+            >
+              <Text style={styles.text}>{strings.ACCEPT}</Text>
+            </TouchableOpacity>
+          </View>
         )
         break;
-        case  'CANCELLED' :
-      return (
-        <View style={styles.taskCancelledByCustomerContainer}>
+      case 'CANCELLED':
+        return (
+          <View style={styles.taskCancelledByCustomerContainer}>
             <TouchableOpacity
               onPress={() => {
                 navigate(navigationStrings.TASKHISTORY);
@@ -413,79 +418,79 @@ const NotificationModal = () => {
               <Text style={styles.text}>{strings.OK}</Text>
             </TouchableOpacity>
           </View>
-      )
-      break;
-      case  'ACK' :
-        return (
-          <View style={styles.taskCancelledByCustomerContainer}>
-              <TouchableOpacity
-                onPress={() => {
-                  actions.isModalVisibleForAcceptReject({
-                    isModalVisibleForAcceptReject: false,
-                    notificationData: null,
-                  });
-                  actions.updateHomepage(true);
-                }}
-                style={{
-                  flex: 1,
-                  borderBottomLeftRadius: moderateScale(15),
-                  borderBottomRightRadius: moderateScale(15),
-                  alignItems: "center",
-                  justifyContent: "center",
-                  backgroundColor: colors.green,
-                }}
-              >
-                <Text style={styles.text}>{strings.DONE}</Text>
-              </TouchableOpacity>
-            </View>
         )
         break;
-      
-      case  'Instant_Booking' :
+      case 'ACK':
         return (
           <View style={styles.taskCancelledByCustomerContainer}>
-             <TouchableOpacity
-            onPress={hideModal}
-            style={styles.taskRejectButtonTextStyle}
-          >
-            <Text style={styles.text}>{strings.CANCEL}</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={_sendRequestToUser}
-            style={styles.taskAcceptButtonTextStyle}
-          >
-            <Text style={styles.text}>{strings.SUBMIT}</Text>
-          </TouchableOpacity>
-             
-            </View>
+            <TouchableOpacity
+              onPress={() => {
+                actions.isModalVisibleForAcceptReject({
+                  isModalVisibleForAcceptReject: false,
+                  notificationData: null,
+                });
+                actions.updateHomepage(true);
+              }}
+              style={{
+                flex: 1,
+                borderBottomLeftRadius: moderateScale(15),
+                borderBottomRightRadius: moderateScale(15),
+                alignItems: "center",
+                justifyContent: "center",
+                backgroundColor: colors.green,
+              }}
+            >
+              <Text style={styles.text}>{strings.DONE}</Text>
+            </TouchableOpacity>
+          </View>
         )
         break;
-     
+
+      case 'Instant_Booking':
+        return (
+          <View style={styles.taskCancelledByCustomerContainer}>
+            <TouchableOpacity
+              onPress={hideModal}
+              style={styles.taskRejectButtonTextStyle}
+            >
+              <Text style={styles.text}>{strings.CANCEL}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={_sendRequestToUser}
+              style={styles.taskAcceptButtonTextStyle}
+            >
+              <Text style={styles.text}>{strings.SUBMIT}</Text>
+            </TouchableOpacity>
+
+          </View>
+        )
+        break;
+
       default:
         return (
           <View
-          style={{
-            borderRadius: 10,
-            height: 40,
-            flexDirection: "row",
-            alignSelf: "flex-end",
-          }}
-        >
-          <TouchableOpacity
-            onPress={() => aceptRejectTask(2)}
-            style={styles.taskRejectButtonTextStyle}
+            style={{
+              borderRadius: 10,
+              height: 40,
+              flexDirection: "row",
+              alignSelf: "flex-end",
+            }}
           >
-            <Text style={styles.text}>{strings.REJECT}</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => aceptRejectTask(1)}
-            style={styles.taskAcceptButtonTextStyle}
-          >
-            <Text style={styles.text}>{strings.ACCEPT}</Text>
-          </TouchableOpacity>
-        </View>
+            <TouchableOpacity
+              onPress={() => aceptRejectTask(2)}
+              style={styles.taskRejectButtonTextStyle}
+            >
+              <Text style={styles.text}>{strings.REJECT}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => aceptRejectTask(1)}
+              style={styles.taskAcceptButtonTextStyle}
+            >
+              <Text style={styles.text}>{strings.ACCEPT}</Text>
+            </TouchableOpacity>
+          </View>
         )
-        
+
         break;
     }
   }
@@ -529,218 +534,218 @@ const NotificationModal = () => {
   const modalMainContent = () => {
     let data = notificationData?.notificationData?.data;
     let notificationType = data?.type ? data?.type : data?.notificationType;
-    console.log(orderData,"orderDataorderDataorderData");
+    console.log(orderData, "orderDataorderDataorderData");
     return (
       <View style={{ overflow: "hidden", borderRadius: moderateScale(10) }}>
-       
-  
-      <View>{!!region && mapView()}</View>
-         
-         <View style={{ padding: 8 }}>
-           <View style={styles.notificationModalMainHeaderStyle}>
-             {notificationType == "CANCELLED" ? (
-               <View style={styles.taskCanceledContainer}>
-                 <View
-                   style={{
-                     flexDirection: "row",
-                     justifyContent: "space-between",
-                   }}
-                 >
-                   <Text numberOfLines={1} style={styles.taskIdStyle}>
-                     {strings.TASKID}
-                   </Text>
-                   <Text numberOfLines={1} style={styles.taskIdStyle}>
-                     {` ${taskId}`}
-                   </Text>
-                 </View>
-                 <View>
-                   <Text numberOfLines={1} style={styles.taskCanceledTextStyle}>
-                     {strings.ORDER_CANCELLED_BY_CUSTOMER}
-                   </Text>
-                 </View>
-               </View>
-             ) : (
-               <>
-                 {taskId ? (
-                   <View style={styles.taskacceptrRejectContainer}>
-                     <Text numberOfLines={1} style={styles.taskIdTitleText}>
-                       {strings.TASKID}
-                     </Text>
-                     <Text numberOfLines={1} style={styles.taskIdTextStyle}>
-                       {` ${taskId} `}
-                       {`${!!orderData?.is_cab_pooling ? `(Pooling)` : ""}`}
-                     </Text>
-                   </View>
-                 ) : null}
-               </>
-             )}
-             {orderData?.cash_to_be_collected > 0 && (
-               <View style={{ alignItems: "center" }}>
-                 <Text numberOfLines={1} style={styles.priceTitleTextStyle}>
-                   {strings.PRICE}
-                 </Text>
-                 <Text numberOfLines={1} style={styles.priceTextStyle}>
-                   {orderData?.cash_to_be_collected}
-                 </Text>
-                 <Text style={styles.address}></Text>
-               </View>
-             )}
-           </View>
-           <View style={{ flexDirection: "row" }}>
-             <View>
-               <Image
-                 style={styles.grayDotImageStyle}
-                 source={imagePath.grayDot}
-               />
-             </View>
-             <View>
-               <FlatList
-                 data={
-                   !isEmpty(notificationDropLocationsData)
-                     ? notificationDropLocationsData
-                     : []
-                 }
-                 renderItem={onListAllAddress}
-                 keyExtractor={(item, index) => String(index)}
-                 keyboardShouldPersistTaps="always"
-                 showsVerticalScrollIndicator={false}
-               />
-             </View>
-           </View>
-           {notificationType =='Instant_Booking'&&
-        <View style={{paddingHorizontal:moderateScale(20)}}>
-           <View style={{flexDirection:'row',marginTop:moderateScaleVertical(10)}}>
-             <TouchableOpacity style={{
-               flexDirection:'row',
-               alignItems:'center',
-              //  backgroundColor:colors.themeColor,
-               
-               paddingVertical:moderateScaleVertical(10),
-               paddingHorizontal:moderateScale(10),
-               borderRadius:moderateScale(8)
-               }}
-               onPress={onWhatsapp}>
-               <Image source={imagePath.whatsapp}/>
-               <Text style={{marginHorizontal:moderateScale(10),color:colors.black}}>Whatsapp</Text>
-             </TouchableOpacity>
-             <TouchableOpacity style={{
-               flexDirection:'row',
-               alignItems:'center',
-              //  backgroundColor:colors.themeColor,
-               marginHorizontal:moderateScale(10),
-               paddingHorizontal:moderateScale(10),
-               borderRadius:moderateScale(8)
-               }}
-               onPress={
-                () => Linking.openURL(`tel:${customerData?.phone_number}`)
-                
-              }>
-               <Image  source={imagePath.phone2}/>
-               <Text style={{marginHorizontal:moderateScale(10),color:colors.black}}>Voice Call</Text>
-             </TouchableOpacity>
-           </View>
-              <TextInput
-                    placeholder={'Enter Base Fare'}
-                    onChangeText={(text)=>setBaseFare(text)}
-                    style={{
-                      opacity: 0.7,
-                      color: colors.textGreyOpcaity7,
-                      fontFamily: fontFamily.medium,
-                      fontSize: textScale(14),
-                      paddingHorizontal: 8,
-                      textAlign: I18nManager.isRTL ? 'right' : 'left',
-                      borderBottomWidth:moderateScaleVertical(1),
-                      borderColor:colors.black
-                    }}
-                    keyboardType={'phone-pad'}
-                  />
-                  <Text style={{marginTop:moderateScaleVertical(10),fontFamily:fontFamily?.bold}}>Drop Location</Text>
-                 <View
+
+
+        <View>{!!region && mapView()}</View>
+
+        <View style={{ padding: 8 }}>
+          <View style={styles.notificationModalMainHeaderStyle}>
+            {notificationType == "CANCELLED" ? (
+              <View style={styles.taskCanceledContainer}>
+                <View
                   style={{
-                    ...styles.locationTextInputView,
-                    marginTop: moderateScaleVertical(10),
-                    justifyContent: "center",
-                    marginHorizontal: moderateScale(10),
-                    marginLeft: moderateScale(0),
+                    flexDirection: "row",
+                    justifyContent: "space-between",
                   }}
                 >
-                  
-                  <TextInput
-                    style={styles.textInputStyle}
-                    placeholder={"Enter Drop Location"}
-                     onChangeText={(text) => searchLocation(text)}
-                    onFocus={() => setUserFocus("location")}
-                    value={dropLocation?.formatted_address}
-                    keyboardType={Platform.OS === 'ios' ? 'ascii-capable' : 'visible-password'}
-                    onKeyPress={({ nativeEvent: { key: keyValue } }) => keyValue = "Backspace" && setDropLocation('')}
-                  />
-                  <TouchableOpacity onPress={() => setDropLocation("")}>
-                    <Image
-                      style={{
-                        marginLeft: moderateScale(5),
-                        tintColor: colors.black,
-                      }}
-                      source={imagePath.crossRed}
-                    />
-                  </TouchableOpacity>
+                  <Text numberOfLines={1} style={styles.taskIdStyle}>
+                    {strings.TASKID}
+                  </Text>
+                  <Text numberOfLines={1} style={styles.taskIdStyle}>
+                    {` ${taskId}`}
+                  </Text>
                 </View>
-
-              <View style={{height:searchLocationData?.length>=1 ?width/3:0}}>
-              <FlatList
-                showsVerticalScrollIndicator={false}
-                data={searchLocationData}
-                renderItem={onRenderLocations}
-                keyExtractor={(item) => item.reference.toString()}
-                keyboardShouldPersistTaps
+                <View>
+                  <Text numberOfLines={1} style={styles.taskCanceledTextStyle}>
+                    {strings.ORDER_CANCELLED_BY_CUSTOMER}
+                  </Text>
+                </View>
+              </View>
+            ) : (
+              <>
+                {taskId ? (
+                  <View style={styles.taskacceptrRejectContainer}>
+                    <Text numberOfLines={1} style={styles.taskIdTitleText}>
+                      {strings.TASKID}
+                    </Text>
+                    <Text numberOfLines={1} style={styles.taskIdTextStyle}>
+                      {` ${taskId} `}
+                      {`${!!orderData?.is_cab_pooling ? `(Pooling)` : ""}`}
+                    </Text>
+                  </View>
+                ) : null}
+              </>
+            )}
+            {orderData?.cash_to_be_collected > 0 && (
+              <View style={{ alignItems: "center" }}>
+                <Text numberOfLines={1} style={styles.priceTitleTextStyle}>
+                  {strings.PRICE}
+                </Text>
+                <Text numberOfLines={1} style={styles.priceTextStyle}>
+                  {orderData?.cash_to_be_collected}
+                </Text>
+                <Text style={styles.address}></Text>
+              </View>
+            )}
+          </View>
+          <View style={{ flexDirection: "row" }}>
+            <View>
+              <Image
+                style={styles.grayDotImageStyle}
+                source={imagePath.grayDot}
               />
             </View>
+            <View>
+              <FlatList
+                data={
+                  !isEmpty(notificationDropLocationsData)
+                    ? notificationDropLocationsData
+                    : []
+                }
+                renderItem={onListAllAddress}
+                keyExtractor={(item, index) => String(index)}
+                keyboardShouldPersistTaps="always"
+                showsVerticalScrollIndicator={false}
+              />
+            </View>
+          </View>
+          {notificationType == 'Instant_Booking' &&
+            <View style={{ paddingHorizontal: moderateScale(20) }}>
+              <View style={{ flexDirection: 'row', marginTop: moderateScaleVertical(10) }}>
+                <TouchableOpacity style={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  //  backgroundColor:colors.themeColor,
+
+                  paddingVertical: moderateScaleVertical(10),
+                  paddingHorizontal: moderateScale(10),
+                  borderRadius: moderateScale(8)
+                }}
+                  onPress={onWhatsapp}>
+                  <Image source={imagePath.whatsapp} />
+                  <Text style={{ marginHorizontal: moderateScale(10), color: colors.black }}>Whatsapp</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  //  backgroundColor:colors.themeColor,
+                  marginHorizontal: moderateScale(10),
+                  paddingHorizontal: moderateScale(10),
+                  borderRadius: moderateScale(8)
+                }}
+                  onPress={
+                    () => Linking.openURL(`tel:${customerData?.phone_number}`)
+
+                  }>
+                  <Image source={imagePath.phone2} />
+                  <Text style={{ marginHorizontal: moderateScale(10), color: colors.black }}>Voice Call</Text>
+                </TouchableOpacity>
+              </View>
+              <TextInput
+                placeholder={'Enter Base Fare'}
+                onChangeText={(text) => setBaseFare(text)}
+                style={{
+                  opacity: 0.7,
+                  color: colors.textGreyOpcaity7,
+                  fontFamily: fontFamily.medium,
+                  fontSize: textScale(14),
+                  paddingHorizontal: 8,
+                  textAlign: I18nManager.isRTL ? 'right' : 'left',
+                  borderBottomWidth: moderateScaleVertical(1),
+                  borderColor: colors.black
+                }}
+                keyboardType={'phone-pad'}
+              />
+              <Text style={{ marginTop: moderateScaleVertical(10), fontFamily: fontFamily?.bold }}>Drop Location</Text>
+              <View
+                style={{
+                  ...styles.locationTextInputView,
+                  marginTop: moderateScaleVertical(10),
+                  justifyContent: "center",
+                  marginHorizontal: moderateScale(10),
+                  marginLeft: moderateScale(0),
+                }}
+              >
+
+                <TextInput
+                  style={styles.textInputStyle}
+                  placeholder={"Enter Drop Location"}
+                  onChangeText={(text) => searchLocation(text)}
+                  onFocus={() => setUserFocus("location")}
+                  value={dropLocation?.formatted_address}
+                  keyboardType={Platform.OS === 'ios' ? 'ascii-capable' : 'visible-password'}
+                  onKeyPress={({ nativeEvent: { key: keyValue } }) => keyValue = "Backspace" && setDropLocation('')}
+                />
+                <TouchableOpacity onPress={() => setDropLocation("")}>
+                  <Image
+                    style={{
+                      marginLeft: moderateScale(5),
+                      tintColor: colors.black,
+                    }}
+                    source={imagePath.crossRed}
+                  />
+                </TouchableOpacity>
+              </View>
+
+              <View style={{ height: searchLocationData?.length >= 1 ? width / 3 : 0 }}>
+                <FlatList
+                  showsVerticalScrollIndicator={false}
+                  data={searchLocationData}
+                  renderItem={onRenderLocations}
+                  keyExtractor={(item) => item.reference.toString()}
+                  keyboardShouldPersistTaps
+                />
+              </View>
+            </View>
+          }
+
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <View>
+              <Text
+                style={[styles.dateTimeStyle, { marginTop: moderateScale(10) }]}
+              >
+                {strings.TASKDATE}
+              </Text>
+              <Text style={styles.address}>{getDate(data?.created_at)}</Text>
+            </View>
+            {totalDistance && notificationType != 'Instant_Booking' && (
+              <View style={{ alignItems: "center" }}>
+                <Text
+                  style={[
+                    styles.dateTimeStyle,
+                    { marginTop: moderateScale(10) },
+                  ]}
+                >
+                  {strings.TASKDISTANCE}
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  style={{
+                    fontSize: textScale(14),
+                    color: colors.redB,
+                    fontFamily: fontFamily.bold,
+                  }}
+                >
+                  {`${totalDistance}`}
+                </Text>
+              </View>
+            )}
+          </View>
         </View>
-  }
-      
-           <View
-             style={{
-               flexDirection: "row",
-               justifyContent: "space-between",
-             }}
-           >
-             <View>
-               <Text
-                 style={[styles.dateTimeStyle, { marginTop: moderateScale(10) }]}
-               >
-                 {strings.TASKDATE}
-               </Text>
-               <Text style={styles.address}>{getDate(data?.created_at)}</Text>
-             </View>
-             {totalDistance &&  notificationType !='Instant_Booking'&& (
-               <View style={{ alignItems: "center" }}>
-                 <Text
-                   style={[
-                     styles.dateTimeStyle,
-                     { marginTop: moderateScale(10) },
-                   ]}
-                 >
-                   {strings.TASKDISTANCE}
-                 </Text>
-                 <Text
-                   numberOfLines={1}
-                   style={{
-                     fontSize: textScale(14),
-                     color: colors.redB,
-                     fontFamily: fontFamily.bold,
-                   }}
-                 >
-                   {`${totalDistance}`}
-                 </Text>
-               </View>
-             )}
-           </View>
-         </View>
-        
+
 
 
         {showButtonComponent(notificationType)}
 
-       
+
       </View>
     );
   };
@@ -798,9 +803,9 @@ const NotificationModal = () => {
       onClose={() =>
         !!orderData?.is_cab_pooling
           ? actions.isModalVisibleForAcceptReject({
-              isModalVisibleForAcceptReject: false,
-              notificationData: null,
-            })
+            isModalVisibleForAcceptReject: false,
+            notificationData: null,
+          })
           : {}
       }
       mainViewStyle={{
@@ -934,7 +939,7 @@ const styles = StyleSheet.create({
     marginHorizontal: moderateScale(20),
     marginBottom: moderateScaleVertical(20),
   },
-  textInputStyle :{
+  textInputStyle: {
     borderWidth: 1,
     flex: 0.95,
     borderRadius: moderateScale(5),
