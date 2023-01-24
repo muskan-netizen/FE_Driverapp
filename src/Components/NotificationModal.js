@@ -303,6 +303,9 @@ const NotificationModal = () => {
       );
     }
   };
+
+
+  console.log(userData,"userDatauserData");
   
 
 
@@ -329,18 +332,18 @@ const NotificationModal = () => {
   }
   ]
 
+
+
     const data = {
     tasks:taskArray,
     task_type:'Instant_Booking',
-    bid_price:baseFare     
+    bid_price:baseFare,
+    driver_id:userData?.id,
+    driver_name:userData?.name,
+    driver_image:userData?.image_url     
     }
 
     actions.submitDriverRequestForPush(new_dispatch_push_request_rider_url(),data).then((res)=>{
-      actions.isModalVisibleForAcceptReject({
-        isModalVisibleForAcceptReject: false,
-        notificationData: null,
-      })
-      setDropLocation('')
       showSuccess(res?.message)
     }).catch((error)=>{
      showError(error?.message)

@@ -74,8 +74,10 @@ export default function DashBoard({ route, navigation }) {
     defaultLanguage,
     fcmToken,
     zendeskKeys,
+    notificationData
   } = useSelector((state) => state?.initBoot);
   const { isCabPooling, initialValue } = useSelector((state) => state?.auth);
+  const shortCode = useSelector((state) => state?.initBoot?.shortCode);
 
   const [state, setState] = useState({
     isLoading: false,
@@ -113,6 +115,9 @@ export default function DashBoard({ route, navigation }) {
     isWarningAlert: false,
     warningStatus: false,
     allPoolingingSuggestions: [],
+    orderData:{},
+    bidAcceptedOrRejected:false,
+    orderCallbackUrl:''
   });
   const {
     longitude,
@@ -137,6 +142,9 @@ export default function DashBoard({ route, navigation }) {
     isWarningAlert,
     warningStatus,
     allPoolingingSuggestions,
+    orderData,
+    bidAcceptedOrRejected,
+    orderCallbackUrl
   } = state;
 
   useEffect(() => {
@@ -164,7 +172,7 @@ export default function DashBoard({ route, navigation }) {
     }
   }, [refreshHomeData]);
 
-  console.log(PictureInPicture, "PictureInPicture");
+  
 
   useEffect(() => {
     const backHandler = BackHandler.addEventListener("hardwareBackPress", () =>
@@ -178,12 +186,99 @@ export default function DashBoard({ route, navigation }) {
     const res = await PictureInPicture.enterPictureInPicture();
   };
 
+
+  //****************bid request and instant booking customer status chacking****** */
+
+useEffect(() => {
+  let data = notificationData?.notificationData?.data;
+  if (data && data?.order_id) {
+    getCustomNotificationData();
+  }
+ 
+}, [notificationData?.notificationData?.data]);
+
+
+
+const getCustomNotificationData = () => {
+  console.log(notificationData, "notificationData");
+  actions
+    .getCustomNotificationPayload(
+      `/${notificationData?.notificationData?.data?.order_id}`,
+      {},
+      { shortCode: shortCode }
+    )
+    .then((res) => {
+      console.log(res, "resres>> for notification");
+      updateState({
+        orderData: res?.order,
+        orderCallbackUrl:new_dispatch_push_request_rider_url(res?.order?.call_back_url)
+      });
+        
+      
+    })
+    .catch((error) => console.log("error in notification Data", error));
+};
+
+
+
+const new_dispatch_push_request_rider_url = (callBackUrl) => {
+    if (
+      callBackUrl?.includes(
+        "/dispatch-order-status-update/"
+      )
+    ) {
+  
+      return (callBackUrl).replace(
+        "/dispatch-order-status-update/",
+        "/dispatch/driver/bids/status/"
+      );
+    } else if (
+      callBackUrl?.includes("/dispatch-pickup-delivery/")
+    ) {
+      return (callBackUrl).replace(
+        "/dispatch-pickup-delivery/",
+        "/dispatch/driver/bids/status/"
+      );
+    }
+  
+ 
+};
+
+
+
+  const checkCustomerBidStatus = () =>{
+    const apiData = {
+      driver_id:userData?.id,
+    }
+    actions.submitDriverRequestForPush(orderCallbackUrl,apiData).then((res)=>{
+      if(res?.data?.lastBidStatus !=0){
+        actions.isModalVisibleForAcceptReject({
+          isModalVisibleForAcceptReject: false,
+          notificationData: null,
+        })  
+      }
+      }).catch((error)=>{
+       showError(error?.message)
+      })
+  }
+
+
+
+
+
+
+
   useEffect(() => {
     BackgroundGeolocation.on("location", (location) => {
       let headingAngle = location?.bearing || 0.0;
       let lat = location?.latitude || 0;
       let long = location.longitude || 0;
       fetchgentLogs(lat, long, headingAngle);
+      if(orderCallbackUrl && notificationData?.isModalVisibleForAcceptReject){
+        console.log('condintion working for status check');
+        checkCustomerBidStatus()  
+      }
+      
     });
 
     BackgroundGeolocation.on("error", (error) => {
@@ -276,6 +371,13 @@ export default function DashBoard({ route, navigation }) {
       BackgroundGeolocation.removeAllListeners();
     };
   }, []);
+
+
+
+
+
+
+
 
   useFocusEffect(
     React.useCallback(() => {
