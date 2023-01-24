@@ -6,7 +6,7 @@ export default StyleSheet.create({
   map: {
     // ...StyleSheet.absoluteFillObject,
     height: height,
-    justifyContent: 'flex-end',
+   
   },
   
 });

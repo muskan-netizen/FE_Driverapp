@@ -1165,9 +1165,10 @@ export default function TaskDetail({ route, navigation }) {
                 padding: moderateScale(10),
                 borderRadius: moderateScale(5),
                 marginTop: moderateScale(20),
+                backgroundColor:colors.green
               }}
               onPress={_onDriverTracking}
-              buttonTitle={strings.NAVIGATE}
+              buttonTitle={' IN APP MAP'}
               imagevalue={imagePath?.navigate}
               imageStyle={{ marginHorizontal: moderateScale(2) }}
             />

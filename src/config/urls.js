@@ -6,7 +6,7 @@
 
 //export const API_BASE_URL = 'https://api.royodispatch.com/';
 // export const API_BASE_URL = 'https://sales.royodispatch.com/';
- export const API_BASE_URL='http://192.168.101.104:9091/'
+//  export const API_BASE_URL='http://192.168.101.104:9091/'
 // //Staging
  //export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL='https://dispatch.nittosadai.com/'
@@ -474,6 +474,10 @@
 
 // hiperabasto
 // export const API_BASE_URL = 'https://dispatch.hiperabasto.mx/';
+
+//Tdc app
+export const API_BASE_URL = 'https://dispatch.coop-move.net/';
+
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;
 
 export const SEND_OTP = getApiUrl('api/auth/login');

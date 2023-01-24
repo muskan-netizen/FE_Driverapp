@@ -139,6 +139,11 @@ export default function DashBoard({ route, navigation }) {
     allPoolingingSuggestions,
   } = state;
 
+
+
+
+  const [pipMode,setPipMode] = useState(false)
+
   useEffect(() => {
     (async () => {
       currentLocation();
@@ -175,8 +180,12 @@ export default function DashBoard({ route, navigation }) {
 
   const enablePictureInPicture = async () => {
     PictureInPicture.setPictureInPictureEnabled(true);
+
     const res = await PictureInPicture.enterPictureInPicture();
+     setPipMode(true)  
   };
+
+  console.log(pipMode,PictureInPicture,"pipModepipModepipModepipMode");
 
   useEffect(() => {
     BackgroundGeolocation.on("location", (location) => {
@@ -227,6 +236,7 @@ export default function DashBoard({ route, navigation }) {
 
     BackgroundGeolocation.on("foreground", () => {
       console.log("[INFO] App is in foreground");
+      setPipMode(false) 
     });
 
     BackgroundGeolocation.on("abort_requested", () => {
@@ -1048,103 +1058,142 @@ export default function DashBoard({ route, navigation }) {
     updateState({ enableMap: !enableMap });
   };
 
-  return (
-    <WrapperContainer
-      statusBarColor={colors.white}
-      bgColor={colors.backGround}
-      isLoading={isLoading || isLoadingSwitch}
-      source={loaderOne}
-    >
-      <Header
-        reverse={false}
-        headerStyle={{ backgroundColor: colors.white }}
-        leftIcon={imagePath.menu}
-        onPressLeft={() => navigation.toggleDrawer()}
-        // hideRight={true}
-        customCenter={() => customCenter()}
-        rightIcon={!enableMap ? imagePath.map : imagePath.listMenu}
-        onPressRight={_onSwitchMapView}
-      />
-      <View style={{ ...commonStyles.headerTopLine }} />
-      {isWarningAlert && (
-        <View
-          style={{
-            backgroundColor: colors.lightRed,
-            flexDirection: "row",
-            justifyContent: "space-between",
-            paddingHorizontal: moderateScale(10),
+  console.log(pipMode,"pipModepipMode");
+
+  if(pipMode){
+    return(
+      <View style={{flex:1}}>
+        {/* <Image style={{width:'100%',height:'100%'}} source={imagePath.map1}/> */}
+        <MapView
+        ref={mapRef}
+        //provider={PROVIDER_GOOGLE} // remove if not using Google Maps
+        style={styles.map}
+        // region={region}
+        // zoomEnabled={true}
+        initialRegion={{
+          latitude: Number(latitude),
+          longitude: Number(longitude),
+          latitudeDelta: 0.035,
+          longitudeDelta: 0.0321,
+        }}
+        // showsUserLocation={true}
+         showsMyLocationButton={true}
+      
+        //   customMapStyle={mapStyle}
+        onRegionChangeComplete={_onRegionChange}
+      >
+       
+        <Marker
+          image={imagePath.pinBlue}
+          coordinate={{
+            latitude: Number(latitude),
+            longitude: Number(longitude),
           }}
-        >
-          <View style={{ width: width / 2.2, justifyContent: "center" }}>
-            <Text
-              style={{ color: colors.white, fontFamily: fontFamily.regular }}
-            >
-              {strings.notificationAlert}
-            </Text>
-          </View>
+        ></Marker>
+      </MapView>
+      </View>
+    )
+  }else{
+    return (
+      <WrapperContainer
+        statusBarColor={colors.white}
+        bgColor={colors.backGround}
+        isLoading={isLoading || isLoadingSwitch}
+        source={loaderOne}
+      >
+        <Header
+          reverse={false}
+          headerStyle={{ backgroundColor: colors.white }}
+          leftIcon={imagePath.menu}
+          onPressLeft={() => navigation.toggleDrawer()}
+          // hideRight={true}
+          customCenter={() => customCenter()}
+          rightIcon={!enableMap ? imagePath.map : imagePath.listMenu}
+          onPressRight={_onSwitchMapView}
+        />
+        <View style={{ ...commonStyles.headerTopLine }} />
+        {isWarningAlert && (
           <View
             style={{
-              justifyContent: "space-between",
-              width: width / 2.5,
-              alignItems: "center",
+              backgroundColor: colors.lightRed,
               flexDirection: "row",
-              marginVertical: moderateScaleVertical(5),
-              paddingVertical: moderateScaleVertical(10),
+              justifyContent: "space-between",
+              paddingHorizontal: moderateScale(10),
             }}
           >
-            <TouchableOpacity
+            <View style={{ width: width / 2.2, justifyContent: "center" }}>
+              <Text
+                style={{ color: colors.white, fontFamily: fontFamily.regular }}
+              >
+                {strings.notificationAlert}
+              </Text>
+            </View>
+            <View
               style={{
-                backgroundColor: colors.themeColor,
+                justifyContent: "space-between",
+                width: width / 2.5,
                 alignItems: "center",
-                marginVertical: moderateScaleVertical(10),
-                paddingVertical: moderateScaleVertical(5),
-                paddingHorizontal: moderateScale(10),
-                borderRadius: 8,
+                flexDirection: "row",
+                marginVertical: moderateScaleVertical(5),
+                paddingVertical: moderateScaleVertical(10),
               }}
-              onPress={() => toggleWarning(false)}
             >
-              <Text style={{ color: colors.white }}>{strings.CANCEL}</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={{
-                backgroundColor: colors.themeColor,
-                alignItems: "center",
-                marginVertical: moderateScaleVertical(10),
-                paddingVertical: moderateScaleVertical(5),
-                paddingHorizontal: moderateScale(10),
-                borderRadius: 8,
-              }}
-              onPress={() => _onOpenSettings()}
-            >
-              <Text style={{ color: colors.white }}>{strings.ENABLE}</Text>
-            </TouchableOpacity>
+              <TouchableOpacity
+                style={{
+                  backgroundColor: colors.themeColor,
+                  alignItems: "center",
+                  marginVertical: moderateScaleVertical(10),
+                  paddingVertical: moderateScaleVertical(5),
+                  paddingHorizontal: moderateScale(10),
+                  borderRadius: 8,
+                }}
+                onPress={() => toggleWarning(false)}
+              >
+                <Text style={{ color: colors.white }}>{strings.CANCEL}</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={{
+                  backgroundColor: colors.themeColor,
+                  alignItems: "center",
+                  marginVertical: moderateScaleVertical(10),
+                  paddingVertical: moderateScaleVertical(5),
+                  paddingHorizontal: moderateScale(10),
+                  borderRadius: 8,
+                }}
+                onPress={() => _onOpenSettings()}
+              >
+                <Text style={{ color: colors.white }}>{strings.ENABLE}</Text>
+              </TouchableOpacity>
+            </View>
           </View>
-        </View>
-      )}
-
-      <View
-        style={{
-          justifyContent: "center",
-          alignItems: "center",
-          marginTop: moderateScaleVertical(20),
-          paddingBottom: moderateScaleVertical(20),
-          borderBottomWidth: moderateScaleVertical(1),
-          borderBottomColor: colors.lightGreyBg,
-        }}
-      >
-        {isEnabled ? (
-          <SwitchSelectorComponent
-            key={selectedOption}
-            options={options}
-            initial={selectedOption}
-            onPress={(value) => updateContent(value)}
-            // textInputStyle={{ width: moderateScale(width - 40) }}
-          />
-        ) : (
-          <View style={{ height: 35 }} />
         )}
-      </View>
-      <View style={{ flex: 1 }}>{renderComponents()}</View>
-    </WrapperContainer>
-  );
+  
+        <View
+          style={{
+            justifyContent: "center",
+            alignItems: "center",
+            marginTop: moderateScaleVertical(20),
+            paddingBottom: moderateScaleVertical(20),
+            borderBottomWidth: moderateScaleVertical(1),
+            borderBottomColor: colors.lightGreyBg,
+          }}
+        >
+          {isEnabled ? (
+            <SwitchSelectorComponent
+              key={selectedOption}
+              options={options}
+              initial={selectedOption}
+              onPress={(value) => updateContent(value)}
+              // textInputStyle={{ width: moderateScale(width - 40) }}
+            />
+          ) : (
+            <View style={{ height: 35 }} />
+          )}
+        </View>
+        <View style={{ flex: 1 }}>{renderComponents()}</View>
+      </WrapperContainer>
+    );
+  }
+
+  
 }
