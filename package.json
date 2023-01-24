@@ -937,6 +937,8 @@
     "airvoltTaxidispatcherRelease": "cd android && ./gradlew assembleairvoltTaxiRelease",
     "melakdispatcher": "react-native run-android --variant=melakDebug",
     "melakdispatcherRelease": "cd android && ./gradlew assemblemelakRelease",
+    "vialterandispatcher": "react-native run-android --variant=vialteranDebug",
+    "vialterandispatcherRelease": "cd android && ./gradlew assemblevialteranRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",

@@ -2933,6 +2933,12 @@ export default function ShortCode({ route, navigation }) {
                       isShortcodePrefilled: true,
                     });
                     break;
+                    case appIds.vialteran:
+                      updateState({
+                        shortCode: shortCodes.vialteran,
+                        isShortcodePrefilled: true,
+                      });
+                      break;
       }
     })();
   }, [internetConnection]);

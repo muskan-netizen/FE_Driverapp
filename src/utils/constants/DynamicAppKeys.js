@@ -473,7 +473,8 @@ const shortCodes = {
   etiam:"a10566",
   dotTaxi:'ca35c5',
   airvoltTaxi:'694d92',
-  melak:'1a8ecf'
+  melak:'1a8ecf',
+  vialteran:'0d943d'
 };
 
 const appIds = {
@@ -2349,6 +2350,10 @@ const appIds = {
   melak: Platform.select({
     ios: 'com.melak.royodispatcher',
     android: 'com.melak.royodispatcher',
+  }),
+  vialteran: Platform.select({
+    ios: 'com.vialteran.royodispatcher',
+    android: 'com.vialteran.royodispatcher',
   }),
 };
 

@@ -203,25 +203,15 @@ android {
      flavorDimensions "appType"
      
      productFlavors{
-      melak{
+      vialteran{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.melak.royodispatcher'
-            resValue "string", "app_name", "Ethiopharma  Dispatcher"
-        }
-        airvoltTaxi{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.airvolt.royodispatcher'
-            resValue "string", "app_name", "Airvolt Taxi Dispatcher"
+            applicationId 'com.vialteran.royodispatcher'
+            resValue "string", "app_name", "Vialteran  Dispatcher"
         }
      }
 
@@ -7649,6 +7639,16 @@ android {
 //             // applicationIdSuffix ".royoorder"
 //             applicationId 'com.melak.royodispatcher'
 //             resValue "string", "app_name", "Melak  Dispatcher"
+//         }
+// vialteran{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.vialteran.royodispatcher'
+//             resValue "string", "app_name", "Vialteran  Dispatcher"
 //         }
 // }
 }
