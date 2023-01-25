@@ -93,19 +93,20 @@ export default function Signup({route, navigation}) {
     phoneNumber: '',
     callingCode:
       !isEmpty(getPhonesCallingCodeAndCountryData) &&
-      ( getBundleId() !== appIds.SXM2GO || getBundleId() !== appIds.speedyDelivery)
-        ? getPhonesCallingCodeAndCountryData[0].countryCodes[0]
-        :!isEmpty(getPhonesCallingCodeAndCountryData) &&
-        ( getBundleId() !== appIds.speedyDelivery)? '1': clientInfo?.get_country_set?.phonecode
-        ? clientInfo?.get_country_set?.phonecode
+      (getBundleId() !== appIds.SXM2GO && getBundleId() !== appIds.speedyDelivery )
+        ? getPhonesCallingCodeAndCountryData[0]?.countryCodes[0]?.replace(
+            '-',
+            '',
+          )
+        : getBundleId() == appIds.speedyDelivery ? "1" : appData?.profile?.country?.code
+        ? appData?.profile?.country?.phonecode
         : '91',
     cca2:
       !isEmpty(getPhonesCallingCodeAndCountryData) &&
-      ( getBundleId() !== appIds.SXM2GO || getBundleId() !== appIds.speedyDelivery)
-        ? getPhonesCallingCodeAndCountryData[0].isoCode2
-        :!isEmpty(getPhonesCallingCodeAndCountryData) &&
-        ( getBundleId() !== appIds.speedyDelivery)? 'DO': clientInfo?.get_country_set?.code
-        ? clientInfo?.get_country_set?.code
+      (getBundleId() !== appIds.SXM2GO && getBundleId() !== appIds.speedyDelivery )
+        ? getPhonesCallingCodeAndCountryData[0]?.isoCode2
+        : getBundleId() == appIds.speedyDelivery ? "DO" : appData?.profile?.country?.code
+        ? appData?.profile?.country?.code
         : 'IN',
     allTransportation: transportationArray,
     allEmployeeTypes: employeetypeArray,
@@ -193,7 +194,7 @@ export default function Signup({route, navigation}) {
   const [isSendOtpLoading, setSendOtpLoading] = useState(false);
   const [isSignupLoading, setSignupLoading] = useState(false);
   const [appHashKey, setAppHashKey] = useState('');
-
+  console.log(callingCode,'mobilNomobilNo')
   const commonStyles = commonStylesFunc({fontFamily});
 
   const updateState = data => setState(state => ({...state, ...data}));

@@ -203,36 +203,15 @@ android {
      flavorDimensions "appType"
  
     productFlavors{
-                awamer{
+        speedyDelivery{
             dimension "appType"
-            versionCode 1
+            versionCode 4
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.awamer.royodispatcher'
-            resValue "string", "app_name", "Awamer Dispatcher"
-        }
-           mobi{
-            dimension "appType"
-            versionCode 2
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-             applicationId "com.Mobi.dispatcher"
-            resValue "string", "app_name", "Mobi Conductor"
-            
-        }
-             parcelWorks{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.parcelWorks.royodispatcher'
-            resValue "string", "app_name", "ParcelWorks Dispatcher"
+            applicationId 'com.speedyDelivery.driver'
+            resValue "string", "app_name", "speedy Delivery Drivers"
         }
     }
 //     productFlavors {

@@ -206,7 +206,7 @@ export default function Login({navigation, route}) {
     updateState({
       callingCode:
         !isEmpty(getPhonesCallingCodeAndCountryData) &&
-        ( getBundleId() !== appIds.SXM2GO || getBundleId() !== appIds.speedyDelivery)
+        ( getBundleId() !== appIds.SXM2GO && getBundleId() !== appIds.speedyDelivery)
           ? getPhonesCallingCodeAndCountryData[0].countryCodes[0]
           :  !isEmpty(getPhonesCallingCodeAndCountryData) &&
           ( getBundleId() == appIds.speedyDelivery)? '1':!!clientInfo?.get_country_set?.phonecode
@@ -214,7 +214,7 @@ export default function Login({navigation, route}) {
           : '91',
       cca2:
         !isEmpty(getPhonesCallingCodeAndCountryData) &&
-       ( getBundleId() !== appIds.SXM2GO || getBundleId() !== appIds.speedyDelivery)
+       ( getBundleId() !== appIds.SXM2GO && getBundleId() !== appIds.speedyDelivery)
           ? getPhonesCallingCodeAndCountryData[0].isoCode2
           :  !isEmpty(getPhonesCallingCodeAndCountryData) &&
           ( getBundleId() == appIds.speedyDelivery)? 'DO':!!clientInfo?.get_country_set?.code
