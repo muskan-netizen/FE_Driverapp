@@ -1,6 +1,6 @@
 //import liraries
-import {useNavigation} from '@react-navigation/native';
-import React, {useEffect, useState} from 'react';
+import { useNavigation } from '@react-navigation/native';
+import React, { useEffect, useState } from 'react';
 import {
   FlatList,
   Image,
@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import MapView from 'react-native-maps';
 import Modal from 'react-native-modal';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 import imagePath from '../constants/imagePath';
 import strings from '../constants/lang';
 import actions from '../redux/actions';
@@ -24,11 +24,11 @@ import {
   textScale,
   width,
 } from '../styles/responsiveSize';
-import {showError} from '../utils/helperFunctions';
+import { showError } from '../utils/helperFunctions';
 import ModalView from './ShortCodeConfirmModal';
 import moment from 'moment';
-import {shortCodes} from '../utils/constants/DynamicAppKeys';
-import {navigate} from '../navigation/NavigationService';
+import { shortCodes } from '../utils/constants/DynamicAppKeys';
+import { navigate } from '../navigation/NavigationService';
 import navigationStrings from '../navigation/navigationStrings';
 
 const NotificationModal = () => {
@@ -45,7 +45,7 @@ const NotificationModal = () => {
     taskId: null,
     orderData: {},
   });
-  const {notificationData} = useSelector(state => state?.initBoot);
+  const { notificationData } = useSelector(state => state?.initBoot);
 
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
   const shortCode = useSelector(state => state?.initBoot?.shortCode);
@@ -84,10 +84,10 @@ const NotificationModal = () => {
   }, [notificationData?.notificationData?.data]);
 
   //update state
-  const updateState = data => setState(state => ({...state, ...data}));
+  const updateState = data => setState(state => ({ ...state, ...data }));
 
   const _onRegionChange = region => {
-    updateState({region: region});
+    updateState({ region: region });
   };
 
   const getCustomNotificationData = () => {
@@ -95,7 +95,7 @@ const NotificationModal = () => {
       .getCustomNotificationPayload(
         `/${notificationData?.notificationData?.data?.order_id}`,
         {},
-        {shortCode: shortCode},
+        { shortCode: shortCode },
       )
       .then(res => {
         console.log(res, 'resres');
@@ -139,15 +139,15 @@ const NotificationModal = () => {
     return local;
   };
 
-  const onListAllAddress = ({item, index}) => {
+  const onListAllAddress = ({ item, index }) => {
     console.log(item, 'itemitem');
     if (item?.task_type_id == 2) {
       return (
-        <View style={{flexDirection: 'row'}}>
-          <View style={{marginHorizontal: moderateScale(10)}}>
+        <View style={{ flexDirection: 'row' }}>
+          <View style={{ marginHorizontal: moderateScale(10) }}>
             {renderDotContainer()}
           </View>
-          <View style={{justifyContent: 'center'}}>
+          <View style={{ justifyContent: 'center' }}>
             <Text
               numberOfLines={1}
               style={[
@@ -163,7 +163,7 @@ const NotificationModal = () => {
       );
     } else {
       return (
-        <View style={{paddingHorizontal: moderateScale(30)}}>
+        <View style={{ paddingHorizontal: moderateScale(30) }}>
           <Text numberOfLines={1} style={[styles.address]}>
             {item?.address}
           </Text>
@@ -175,7 +175,7 @@ const NotificationModal = () => {
   const renderDotContainer = () => {
     return (
       <>
-        <View style={{height: 40, overflow: 'hidden', alignItems: 'center'}}>
+        <View style={{ height: 40, overflow: 'hidden', alignItems: 'center' }}>
           <View style={styles.dotContainerStyle} />
         </View>
 
@@ -189,18 +189,13 @@ const NotificationModal = () => {
     );
   };
 
-  console.log(
-    orderData?.cash_to_be_collected,
-    'orderData?.cash_to_be_collected',
-  );
-
   const modalMainContent = () => {
     let data = notificationData?.notificationData?.data;
     let notificationType = data?.type ? data?.type : data?.notificationType;
     return (
-      <View style={{overflow: 'hidden', borderRadius: moderateScale(10)}}>
+      <View style={{ overflow: 'hidden', borderRadius: moderateScale(10) }}>
         <View>{!!region && mapView()}</View>
-        <View style={{padding: 8}}>
+        <View style={{ padding: 8 }}>
           <View style={styles.notificationModalMainHeaderStyle}>
             {notificationType == 'CANCELLED' ? (
               <View style={styles.taskCanceledContainer}>
@@ -233,7 +228,7 @@ const NotificationModal = () => {
               </View>
             )}
             {orderData?.cash_to_be_collected > 0 && (
-              <View style={{alignItems: 'center'}}>
+              <View style={{ alignItems: 'center' }}>
                 <Text numberOfLines={1} style={styles.priceTitleTextStyle}>
                   {strings.PRICE}
                 </Text>
@@ -244,7 +239,7 @@ const NotificationModal = () => {
               </View>
             )}
           </View>
-          <View style={{flexDirection: 'row'}}>
+          <View style={{ flexDirection: 'row' }}>
             <View>
               <Image
                 style={styles.grayDotImageStyle}
@@ -272,17 +267,17 @@ const NotificationModal = () => {
             }}>
             <View>
               <Text
-                style={[styles.dateTimeStyle, {marginTop: moderateScale(10)}]}>
+                style={[styles.dateTimeStyle, { marginTop: moderateScale(10) }]}>
                 {strings.TASKDATE}
               </Text>
               <Text style={styles.address}>{getDate(data?.created_at)}</Text>
             </View>
             {totalDistance && (
-              <View style={{alignItems: 'center'}}>
+              <View style={{ alignItems: 'center' }}>
                 <Text
                   style={[
                     styles.dateTimeStyle,
-                    {marginTop: moderateScale(10)},
+                    { marginTop: moderateScale(10) },
                   ]}>
                   {strings.TASKDISTANCE}
                 </Text>
@@ -389,10 +384,10 @@ const NotificationModal = () => {
 
     console.log(data, clientInfo?.database_name, 'data accept reject');
     actions
-      .acceptRejectTask(data, {client: clientInfo?.database_name})
+      .acceptRejectTask(data, { client: clientInfo?.database_name })
       .then(res => {
         console.log(res, 'submitReason>res>res');
-        updateState({isLoading: false});
+        updateState({ isLoading: false });
         actions.isModalVisibleForAcceptReject({
           isModalVisibleForAcceptReject: false,
           notificationData: null,
@@ -417,7 +412,7 @@ const NotificationModal = () => {
       isLoading: false,
       isModalVisibleForAcceptReject: false,
     });
-    showError(error?.message || error?.error,4000);
+    showError(error?.message || error?.error, 4000);
   };
 
   return (
@@ -436,7 +431,7 @@ const NotificationModal = () => {
         // marginHorizontal: moderateScale(10),
       }}
       modalMainContent={modalMainContent}
-      // modalBottomContent={modalBottomContent}
+    // modalBottomContent={modalBottomContent}
     />
   );
 };

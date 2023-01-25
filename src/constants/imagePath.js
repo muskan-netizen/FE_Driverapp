@@ -1,4 +1,4 @@
-import {requireNativeComponent} from 'react-native';
+import { requireNativeComponent } from 'react-native';
 
 export default {
   analyctiSelected: require('../assets/images/ic_analyctis_selected.png'),
@@ -102,7 +102,12 @@ export default {
   icChatroom: require('../assets/images/ic_chatroom.png'),
   icStartChat: require('../assets/images/ic_start_chat.png'),
   icChatroomDrawer: require('../assets/images/ic_chatroom1.png'),
-  ic_pickupAddress:require('../assets/images/ic_ellipse.png'),
-  ic_dropupAddress:require('../assets/images/ic_location1.png'),
+  ic_pickupAddress: require('../assets/images/ic_ellipse.png'),
+  ic_dropupAddress: require('../assets/images/ic_location1.png'),
+  checkBox2Active: require('../assets/images/ic_check2.png'),
+  checkBox2InActive: require('../assets/images/ic_check1.png'),
+  icActiveRadio: require('../assets/images/ic_radio2.png'),
+  icInActiveRadio: require('../assets/images/ic_radio1.png'),
+  icImgPlaceholder: require('../assets/images/ic_placeholder.png'),
   flank: require('../assets/Flank.mp4'),
 };

@@ -24,13 +24,12 @@ const PoolingSuggestionCard = ({
   data = {},
   allTasks = [],
   index = null,
-  _onPressTask = () => {},
+  _onPressTask = () => { },
   showCurrency = false,
   previousData = null,
   isFromHistory = false,
   mainOrderSuggestionData = {},
 }) => {
-  console.log(data, "dataisddddd");
   //Get Date
   const defaultLanguagae = useSelector(
     (state) => state?.initBoot?.defaultLanguage
@@ -124,13 +123,13 @@ const PoolingSuggestionCard = ({
       </View>
     );
   };
-  
+
 
   return (
     <View
       activeOpacity={1}
       disabled={getDynamicUpdateOnValues().click}
-      // onPress={_onPressTask}
+    // onPress={_onPressTask}
     >
       <View
         opacity={getDynamicUpdateOnValues().blur}
@@ -170,7 +169,7 @@ const PoolingSuggestionCard = ({
                 <Text style={{ fontFamily: fontFamily?.bold }}>
                   Booked Seats :
                 </Text>
-                <Text style={{ marginHorizontal: moderateScale(5),fontFamily:fontFamily?.semiBold }}>
+                <Text style={{ marginHorizontal: moderateScale(5), fontFamily: fontFamily?.semiBold }}>
                   {mainOrderSuggestionData?.no_seats_for_pooling}
                 </Text>
               </View>
@@ -184,24 +183,24 @@ const PoolingSuggestionCard = ({
               alignItems: "center",
             }}
           >
-            {mainOrderSuggestionData?.task?.length>0 &&
-             <View
-             style={{
-               flex: 0.05,
-               alignItems: "center",
-             }}
-           >
-             {renderDotContainer(1)}
-           </View>
+            {mainOrderSuggestionData?.task?.length > 0 &&
+              <View
+                style={{
+                  flex: 0.05,
+                  alignItems: "center",
+                }}
+              >
+                {renderDotContainer(1)}
+              </View>
             }
-           
+
             <View style={{ flex: 0.9, marginLeft: moderateScale(5) }}>
               {mainOrderSuggestionData?.task?.map((item, index) => {
                 return (
                   <Text
                     numberOfLines={1}
                     style={{
-                       marginVertical: moderateScaleVertical(15),
+                      marginVertical: moderateScaleVertical(15),
                       fontSize: textScale(13),
                       fontFamily: fontFamily?.regular,
                     }}

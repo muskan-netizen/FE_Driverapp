@@ -1,4 +1,4 @@
-import {StyleSheet, I18nManager} from 'react-native';
+import { StyleSheet, I18nManager } from 'react-native';
 import colors from '../../styles/colors';
 import fontFamily from '../../styles/fontFamily';
 import {
@@ -9,7 +9,7 @@ import {
   width,
 } from '../../styles/responsiveSize';
 
-export default ({defaultLanguagae}) => {
+export default ({ defaultLanguagae }) => {
   const styles = StyleSheet.create({
     cashCollected: {
       fontSize: textScale(12),
@@ -35,7 +35,7 @@ export default ({defaultLanguagae}) => {
       marginHorizontal: moderateScale(20),
     },
     attachment: {
-      fontSize: textScale(12),
+      fontSize: textScale(13),
       fontFamily: fontFamily.bold,
       color: colors.lightGreyBg2,
       marginHorizontal: moderateScale(10),
@@ -79,7 +79,7 @@ export default ({defaultLanguagae}) => {
       alignItems: 'center',
     },
     arrowstyle: {
-      transform: [{scaleX: defaultLanguagae?.value == 'ar' ? -1 : 1}],
+      transform: [{ scaleX: defaultLanguagae?.value == 'ar' ? -1 : 1 }],
     },
     otpContainer: {
       marginHorizontal: moderateScale(10),
@@ -122,6 +122,52 @@ export default ({defaultLanguagae}) => {
       flexDirection: 'row',
       justifyContent: 'space-around',
       marginVertical: moderateScaleVertical(12),
+    },
+
+    labelStyle: {
+      fontFamily: fontFamily.bold,
+      color: colors.blackOpacity43,
+      fontSize: textScale(12),
+      marginBottom: moderateScale(10),
+    },
+    attributeTitle: {
+      fontSize: textScale(12),
+      fontFamily: fontFamily.bold,
+      color: colors.lightGreyBg2,
+    },
+    textInput: {
+      backgroundColor: colors.blackOpacity10,
+      height: moderateScaleVertical(40),
+      marginTop: moderateScaleVertical(5),
+      borderRadius: moderateScale(5),
+      paddingHorizontal: moderateScale(5),
+    },
+    multiSelect: {
+      height: moderateScaleVertical(40),
+      backgroundColor: colors.blackOpacity10,
+      borderRadius: moderateScale(5),
+      padding: moderateScale(10)
+    },
+    multiSelectPlaceholder: {
+      color: colors.black,
+      paddingHorizontal: moderateScale(5),
+      fontSize: textScale(12),
+      fontFamily: fontFamily.regular,
+    },
+    radioBtn: {
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      marginTop: moderateScaleVertical(5),
+    },
+    checkBox: {
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      marginTop: moderateScaleVertical(5),
+    },
+    submitBtn: {
+      marginBottom: moderateScaleVertical(20),
+      backgroundColor: colors.themeColor,
+      borderWidth: 0,
     },
   });
 

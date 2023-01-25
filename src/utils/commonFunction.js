@@ -1,7 +1,7 @@
-import {algo} from 'crypto-js';
-import {Platform, Keyboard} from 'react-native';
-import {openCamera, openPicker} from './imagePicker';
-import {callingCountries} from 'country-data';
+import { algo } from 'crypto-js';
+import { Platform, Keyboard } from 'react-native';
+import { openCamera, openPicker } from './imagePicker';
+import { callingCountries } from 'country-data';
 const cameraHandler = async (data, option) => {
   Keyboard.dismiss();
   //this condition use for open camera
@@ -14,7 +14,7 @@ const cameraHandler = async (data, option) => {
       if (res) {
         return res;
       }
-    } catch (err) {}
+    } catch (err) { }
   }
 
   //this condition use for open gallery
@@ -33,7 +33,7 @@ const cameraHandler = async (data, option) => {
       if (res) {
         return res;
       }
-    } catch (err) {}
+    } catch (err) { }
   } else {
     return null;
   }
@@ -57,4 +57,9 @@ const kFormatter = num => {
     : Math.sign(num) * Math.abs(num);
 };
 
-export {cameraHandler, currencyNumberFormatter, kFormatter};
+export const checkValueExistInAry = (item = {}, arr2 = []) => {
+  let found = arr2.includes(item?.id);
+  return found;
+};
+
+export { cameraHandler, currencyNumberFormatter, kFormatter };

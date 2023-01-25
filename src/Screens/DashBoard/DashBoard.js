@@ -1,4 +1,4 @@
-import { debounce, get } from "lodash";
+import { debounce } from "lodash";
 import React, { useEffect, useRef, useState } from "react";
 import {
   Alert,
@@ -6,11 +6,9 @@ import {
   FlatList,
   Image,
   Linking,
-  RefreshControl,
-  SectionList,
-  Switch,
+  RefreshControl, Switch,
   Text,
-  View,
+  View
 } from "react-native";
 import { useSelector } from "react-redux";
 import Header from "../../Components/Header";
@@ -20,7 +18,7 @@ import WrapperContainer from "../../Components/WrapperContainer";
 import imagePath from "../../constants/imagePath";
 import actions from "../../redux/actions";
 // import store from '../../redux/store';
-import { useFocusEffect } from "@react-navigation/native";
+import { useFocusEffect, useIsFocused } from "@react-navigation/native";
 import { Platform, TouchableOpacity } from "react-native";
 import DeviceInfo, { getBundleId } from "react-native-device-info";
 import MapView, { Marker } from "react-native-maps"; // remove PROVIDER_GOOGLE import if not using Google Maps
@@ -34,12 +32,12 @@ import fontFamily from "../../styles/fontFamily";
 import {
   moderateScale,
   moderateScaleVertical,
-  width,
+  width
 } from "../../styles/responsiveSize";
 import {
   getCurrentLocation,
   showError,
-  showSuccess,
+  showSuccess
 } from "../../utils/helperFunctions";
 import { requestUserPermission } from "../../utils/notificationServices";
 
@@ -49,27 +47,22 @@ navigator.geolocation = require("react-native-geolocation-service");
 import socketServices from "../../utils/scoketService";
 // import BackgroundTimer from 'react-native-background-timer';
 import BackgroundGeolocation from "@darron1217/react-native-background-geolocation";
-import { chekLocationPermission } from "../../utils/permissions";
-import { colorArray } from "../../utils/constants/ConstantValues";
 import generateBoxShadowStyle from "../../Components/generateBoxShadowStyle";
-import { appIds } from "../../utils/constants/DynamicAppKeys";
-import PoolingSuggestionCard from "../../Components/PoolingSuggestionCard";
 import GradientButton from "../../Components/GradientButton";
-import { showMessage } from "react-native-flash-message";
-import {
-  removeAllCabPoolingStatus,
-  saveCabPoolingStatus,
-} from "../../redux/actions/init";
-import { removeCabPollingStatus } from "../../utils/utils";
+import PoolingSuggestionCard from "../../Components/PoolingSuggestionCard";
+import { colorArray } from "../../utils/constants/ConstantValues";
+import { appIds } from "../../utils/constants/DynamicAppKeys";
+import { chekLocationPermission } from "../../utils/permissions";
+import useInterval from "../../utils/useInterval";
 var finalAllTasks = [];
 var finaltodayTasks = [];
 export default function DashBoard({ route, navigation }) {
   const userData = useSelector((state) => state?.auth?.userData);
+  const { attributeFormData } = useSelector(state => state?.initBoot);
+  console.log(attributeFormData, "attributeFormData...attributeFormData")
   const defaultLanguagae = useSelector(
     (state) => state?.initBoot?.defaultLanguage
   );
-  console.log(userData, "userData");
-
   const {
     clientInfo,
     sessionLogoutUser,
@@ -151,7 +144,7 @@ export default function DashBoard({ route, navigation }) {
         fcm_token: fcmToken,
       });
     })();
-    return () => {};
+    return () => { };
   }, []);
 
   useEffect(() => {
@@ -170,14 +163,20 @@ export default function DashBoard({ route, navigation }) {
   }, [refreshHomeData]);
 
   useEffect(() => {
-    // fetchgentLogs()
     const backHandler = BackHandler.addEventListener(
       "hardwareBackPress",
       () => true
     );
     return () => backHandler.remove();
   }, []);
-  console.log("add my code");
+
+  useInterval(
+    () => {
+      console.log(latitude, longitude, heading, "printing states....")
+      fetchgentLogs(latitude, longitude, heading);
+    },
+    5000,
+  );
 
   useEffect(() => {
     BackgroundGeolocation.on("location", (location) => {
@@ -236,7 +235,6 @@ export default function DashBoard({ route, navigation }) {
     });
 
     BackgroundGeolocation.checkStatus((status) => {
-      console.log(status, "status.isRunning");
       if (!status.isRunning) {
         BackgroundGeolocation.start(); //triggers start on start event
       }
@@ -353,10 +351,10 @@ export default function DashBoard({ route, navigation }) {
           ) {
             if (
               zendeskKeys?.keys?.account_key !=
-                res?.data?.user?.client_preference?.customer_support_key &&
+              res?.data?.user?.client_preference?.customer_support_key &&
               zendeskKeys?.keys?.application_id !=
-                res?.data?.user?.client_preference
-                  ?.customer_support_application_id
+              res?.data?.user?.client_preference
+                ?.customer_support_application_id
             )
               actions?.setZendeskKeys({
                 keys: {
@@ -421,7 +419,7 @@ export default function DashBoard({ route, navigation }) {
         fcm_token: fcmToken,
       });
     })();
-    return () => {};
+    return () => { };
   }, []);
 
   const currentLocation = () => {
@@ -459,6 +457,7 @@ export default function DashBoard({ route, navigation }) {
       }
     );
   };
+
 
   //get all tasks
   const getTasks = () => {
@@ -782,16 +781,16 @@ export default function DashBoard({ route, navigation }) {
             selectedOption == 2
               ? allPoolingingSuggestions?.length
               : selectedOption
-              ? allTasks?.length
-              : todaysTasks?.length
+                ? allTasks?.length
+                : todaysTasks?.length
           ) ? (
             <FlatList
               data={
                 selectedOption == 2
                   ? allPoolingingSuggestions
                   : selectedOption
-                  ? finalAllTasks
-                  : finaltodayTasks
+                    ? finalAllTasks
+                    : finaltodayTasks
               }
               renderItem={
                 selectedOption != 2 ? renderTaskList : renderPoolingSuggestions
@@ -805,8 +804,8 @@ export default function DashBoard({ route, navigation }) {
                 backgroundColor: !!(selectedOption == 1 && !allTasks.length)
                   ? colors.backGround
                   : !!(selectedOption == 0 && !todaysTasks.length)
-                  ? colors.backGround
-                  : colors.white,
+                    ? colors.backGround
+                    : colors.white,
               }}
               contentContainerStyle={{
                 flexGrow: 1,
@@ -828,8 +827,8 @@ export default function DashBoard({ route, navigation }) {
                     selectedOption == 2
                       ? "No Pooling Suggestions Yet"
                       : getBundleId() == appIds.tdc
-                      ? strings.NOTRIP
-                      : strings.NOTASK
+                        ? strings.NOTRIP
+                        : strings.NOTASK
                   }
                   subMessage={
                     selectedOption == 2
@@ -847,8 +846,8 @@ export default function DashBoard({ route, navigation }) {
                 selectedOption == 2
                   ? "No Pooling Suggestions Yet"
                   : getBundleId() == appIds.tdc
-                  ? strings.NOTRIP
-                  : strings.NOTASK
+                    ? strings.NOTRIP
+                    : strings.NOTASK
               }
               subMessage={
                 selectedOption == 2
@@ -1139,7 +1138,7 @@ export default function DashBoard({ route, navigation }) {
             options={options}
             initial={selectedOption}
             onPress={(value) => updateContent(value)}
-            textInputStyle={{ width:  moderateScale(width - 40) }}
+            textInputStyle={{ width: moderateScale(width - 40) }}
           />
         ) : (
           <View style={{ height: 35 }} />

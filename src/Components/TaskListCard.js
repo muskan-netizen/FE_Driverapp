@@ -1,7 +1,7 @@
 import React from 'react';
 import SwitchSelector from 'react-native-switch-selector';
 import colors from '../styles/colors';
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 import fontFamily from '../styles/fontFamily';
 import {
   height,
@@ -10,30 +10,29 @@ import {
   textScale,
   width,
 } from '../styles/responsiveSize';
-import {TouchableOpacity, View, Text, Image} from 'react-native';
+import { TouchableOpacity, View, Text, Image } from 'react-native';
 import imagePath from '../constants/imagePath';
 import moment from 'moment';
 import generateBoxShadowStyle from './generateBoxShadowStyle';
-import {getColorCodeWithOpactiyNumber} from '../utils/helperFunctions';
-import {colorArray} from '../utils/constants/ConstantValues';
-import {format} from 'date-fns';
-import {useSelector} from 'react-redux';
+import { getColorCodeWithOpactiyNumber } from '../utils/helperFunctions';
+import { colorArray } from '../utils/constants/ConstantValues';
+import { format } from 'date-fns';
+import { useSelector } from 'react-redux';
 import strings from '../constants/lang';
 const TaskListCard = ({
   data = {},
   allTasks = [],
   index = null,
-  _onPressTask = () => {},
+  _onPressTask = () => { },
   showCurrency = false,
   previousData = null,
   isFromHistory = false,
 }) => {
-  console.log(data, 'dataisddddd');
   //Get Date
   const defaultLanguagae = useSelector(
     state => state?.initBoot?.defaultLanguage,
   );
-  const styles = stylesFunc({defaultLanguagae});
+  const styles = stylesFunc({ defaultLanguagae });
 
   const getDate = date => {
     const local = moment.utc(date).local().format('DD MMM YYYY hh:mm:a');
@@ -123,33 +122,32 @@ const TaskListCard = ({
             backgroundColor: colors?.white,
             flexDirection: 'row',
             justifyContent: 'space-between',
-            padding:moderateScale(8),
-            borderTopWidth:moderateScale(2),
-            borderTopRightRadius:moderateScale(8),
-            borderTopLeftRadius:moderateScale(8),
-            borderColor:colors?.themeColor
+            padding: moderateScale(8),
+            borderTopWidth: moderateScale(2),
+            borderTopRightRadius: moderateScale(8),
+            borderTopLeftRadius: moderateScale(8),
+            borderColor: colors?.themeColor
           }}>
-          {!!data?.order?.cash_to_be_collected ?(
-            <Text 
+          {!!data?.order?.cash_to_be_collected ? (
+            <Text
               style={{
-                fontFamily:fontFamily?.bold
+                fontFamily: fontFamily?.bold
               }}
             >
               {'Cash Collected :'} {data?.order?.cash_to_be_collected}{' '}
             </Text>
           ) : <View />}
           {!!data?.order?.driver_cost ? (
-            <Text 
-            style={{
-              fontFamily:fontFamily?.bold
-            }}
+            <Text
+              style={{
+                fontFamily: fontFamily?.bold
+              }}
             >
-              {'Earning :'} {data?.order?.status=='completed'?data?.order?.driver_cost:0}
+              {'Earning :'} {data?.order?.status == 'completed' ? data?.order?.driver_cost : 0}
             </Text>
-          ) :<View />}
+          ) : <View />}
         </View>
       )}
-      {console.log(data?.order?.status,data?.order?.driver_cost,"data?.order?.status")}
       <View
         opacity={getDynamicUpdateOnValues().blur}
         style={{
@@ -258,13 +256,12 @@ const TaskListCard = ({
               style={[
                 styles.taskTypeName,
                 // {color: getTextColor(data?.tasktype?.name)},
-                {color: colors.black},
+                { color: colors.black },
               ]}>
-              {`${
-                (data?.tasktype?.name).toLowerCase() == 'drop'
-                  ? strings.DROP
-                  : strings.PICKUP
-              }`}
+              {`${(data?.tasktype?.name).toLowerCase() == 'drop'
+                ? strings.DROP
+                : strings.PICKUP
+                }`}
             </Text>
           </View>
         </View>
@@ -273,12 +270,12 @@ const TaskListCard = ({
   );
 };
 
-export function stylesFunc({defaultLanguagae}) {
+export function stylesFunc({ defaultLanguagae }) {
   const styles = StyleSheet.create({
     textStyle: {
       fontFamily: fontFamily.semiBold,
     },
-    textInputStyle: {width: width / 1.8},
+    textInputStyle: { width: width / 1.8 },
     address: {
       fontFamily: fontFamily.semiBold,
       fontSize: textScale(14),

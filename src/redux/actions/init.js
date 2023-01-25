@@ -1,6 +1,6 @@
 import store from '../store';
 import types from '../types';
-const {dispatch} = store;
+const { dispatch } = store;
 import {
   apiGet,
   apiPost,
@@ -26,7 +26,7 @@ export function initApp(data = {}, headers = {}, reload = false) {
     apiPost(APP_INITIAL_SETTINGS, data, headers)
       .then(async res => {
         let data = res?.data;
-         setClientInfo(data).then(suc => {
+        setClientInfo(data).then(suc => {
           dispatch({
             type: types.APP_INIT,
             payload: data,
@@ -99,6 +99,10 @@ export function logsApi(data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
     apiPost(LOGSAPI, data, headers)
       .then(res => {
+        dispatch({
+          type: types.ATTRIBUTE_FORM_DATA,
+          payload: res?.data?.attribute_form,
+        });
         setUserData(res?.data?.user).then(suc => {
           saveUserData(res?.data?.user);
           resolve(res);
@@ -160,26 +164,26 @@ export const setZendeskKeys = data => {
 
 
 export function saveCabPoolingStatus(data = {}) {
-  saveCabPollingStatus(data).then((res)=>{
+  saveCabPollingStatus(data).then((res) => {
     dispatch({
       type: types.POOLING,
       payload: data,
     })
-   }).catch((error)=>{
-     console.log('data not saved in asyncStorage');
-   })
+  }).catch((error) => {
+    console.log('data not saved in asyncStorage');
+  })
 
 }
 
 
 export function removeAllCabPoolingStatus(data = {}) {
-  removeCabPollingStatusFromAsyncStorage('cabPoolingStatus').then((res)=>{
+  removeCabPollingStatusFromAsyncStorage('cabPoolingStatus').then((res) => {
     dispatch({
       type: types.POOLING,
       payload: data,
     })
-   }).catch((error)=>{
-     console.log('data not saved in asyncStorage');
-   })
+  }).catch((error) => {
+    console.log('data not saved in asyncStorage');
+  })
 
 }
