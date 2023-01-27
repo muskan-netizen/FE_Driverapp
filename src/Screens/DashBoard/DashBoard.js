@@ -56,6 +56,8 @@ import generateBoxShadowStyle from "../../Components/generateBoxShadowStyle";
 import { appIds } from "../../utils/constants/DynamicAppKeys";
 import PoolingSuggestionCard from "../../Components/PoolingSuggestionCard";
 import GradientButton from "../../Components/GradientButton";
+import BottomSheet, {BottomSheetScrollView} from '@gorhom/bottom-sheet';
+import BidAcceptRejectCard from "../../Components/BidAcceptRejectCard";
 
 var finalAllTasks = [];
 var finaltodayTasks = [];
@@ -79,8 +81,14 @@ export default function DashBoard({ route, navigation }) {
   const { isCabPooling, initialValue } = useSelector((state) => state?.auth);
   const shortCode = useSelector((state) => state?.initBoot?.shortCode);
   const [orderCallbackUrl, setOrderCallbackUrl] = useState('')
+  const [allCustomerBidsList,setAllCustomerBidsList] = useState([{
+    id:1,driver_name:'Pavan Sharma',bidAmount:200,expireIn:10,rating:4.5,distance:"2km",address:'CDCL Building Chandigrah'},
+    {id:2,driver_name:'Pavan Sharma',bidAmount:10,expireIn:8,rating:4.5,distance:"4km",address:'CDCL Building Chandigrah'},
+    {id:3,driver_name:'Pavan Sharma',bidAmount:2200,expireIn:10,rating:4.5,distance:"6km",address:'CDCL Building Chandigrah'}])
+
 
   const ref = useRef(orderCallbackUrl);
+  const bottomSheetRef = useRef(null);
 
   const [state, setState] = useState({
     isLoading: false,
@@ -184,7 +192,7 @@ export default function DashBoard({ route, navigation }) {
   };
 
 
-  //****************bid request and instant booking customer status chacking****** */
+
 
 
   useEffect(() => {
@@ -286,11 +294,6 @@ export default function DashBoard({ route, navigation }) {
       BackgroundGeolocation.removeAllListeners();
     };
   }, [orderCallbackUrl, setOrderCallbackUrl,ref]);
-
-
-
-
-
 
 
 
@@ -702,6 +705,16 @@ export default function DashBoard({ route, navigation }) {
     }
   };
 
+
+// useEffect(()=>{
+//   actions.isModalVisibleForAcceptReject({
+//     isModalVisibleForAcceptReject: true,
+//     notificationData: {},
+//   });
+// },[])
+  
+
+
   const customCenter = () => {
     return (
       <View style={{ flexDirection: "row", alignItems: "center" }}>
@@ -1067,8 +1080,60 @@ export default function DashBoard({ route, navigation }) {
     updateState({ enableMap: !enableMap });
   };
 
+
+/*********************************Bid and Ride View *************************/
+
+
+const renderCustomerListCard = useCallback(({item,index})=>{
   return (
-    <WrapperContainer
+  <BidAcceptRejectCard 
+  data={item}  
+   bidExpiryDuration={20}
+  _onDeclineBid={()=>{}}
+   _onAcceptRideBid={()=>{}}  />
+  )
+},[allCustomerBidsList])
+
+const renderBidingView = () =>{
+return (  <BottomSheet
+      ref={bottomSheetRef}
+      index={1}
+      // key={isOpen}
+      snapPoints={['0%', true ? '90%' : '30%']}
+      activeOffsetY={[-1, 1]}
+      failOffsetX={[-5, 5]}
+      animateOnMount={true}
+      enablePanDownToClose={false}
+      enableHandlePanningGesture={false}
+      enableContentPanningGesture={false}
+      // onChange={_connectRajorPayBottomSheet}
+      // handleComponent={_handleComponent}
+      >
+     
+     <FlatList 
+        showsVerticalScrollIndicator={false}
+        data={allCustomerBidsList}
+        renderItem={renderCustomerListCard}
+        //keyExtractor={awesomeChildListKeyExtractor}
+        ListFooterComponent={() => (
+          <View style={{marginLeft: moderateScale(16)}} />
+        )}
+        ListHeaderComponent={() => (
+          <View style={{marginRight: moderateScale(16)}} />
+        )}
+      />
+    </BottomSheet>
+  ) 
+}
+
+
+
+
+
+
+  return (
+    false ? renderBidingView():
+      <WrapperContainer
       statusBarColor={colors.white}
       bgColor={colors.backGround}
       isLoading={isLoading || isLoadingSwitch}
@@ -1163,7 +1228,10 @@ export default function DashBoard({ route, navigation }) {
           <View style={{ height: 35 }} />
         )}
       </View>
-      <View style={{ flex: 1 }}>{renderComponents()}</View>
+
+      <View style={{ flex: 1 }}>
+        {renderComponents()}
+       </View>
     </WrapperContainer>
   );
 }
