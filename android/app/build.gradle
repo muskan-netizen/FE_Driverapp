@@ -203,15 +203,15 @@ android {
      flavorDimensions "appType"
  
     productFlavors{
-        speedyDelivery{
+         pawsee{
             dimension "appType"
-            versionCode 4
+            versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.speedyDelivery.driver'
-            resValue "string", "app_name", "speedy Delivery Drivers"
+            applicationId 'com.pawsee.dispatcher'
+            resValue "string", "app_name", "Pawsee Dispatcher"
         }
     }
 //     productFlavors {
