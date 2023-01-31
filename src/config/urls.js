@@ -476,7 +476,7 @@
 // export const API_BASE_URL = 'https://dispatch.hiperabasto.mx/';
 
 //Tdc app
-export const API_BASE_URL = 'https://dispatch.coop-move.net/';
+ export const API_BASE_URL = 'https://dispatch.coop-move.net/';
 
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;
 

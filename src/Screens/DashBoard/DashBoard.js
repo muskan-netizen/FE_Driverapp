@@ -11,7 +11,6 @@ import {
   Switch,
   Text,
   View,
-  NativeModules,
 } from "react-native";
 import { useSelector } from "react-redux";
 import Header from "../../Components/Header";
@@ -62,7 +61,6 @@ var finaltodayTasks = [];
 
 export default function DashBoard({ route, navigation }) {
   const userData = useSelector((state) => state?.auth?.userData);
-  const { PictureInPicture } = NativeModules;
   const defaultLanguagae = useSelector(
     (state) => state?.initBoot?.defaultLanguage
   );
@@ -169,23 +167,15 @@ export default function DashBoard({ route, navigation }) {
     }
   }, [refreshHomeData]);
 
-  console.log(PictureInPicture, "PictureInPicture");
+
 
   useEffect(() => {
-    const backHandler = BackHandler.addEventListener("hardwareBackPress", () =>
-      PictureInPicture?.SUPPORTED ? enablePictureInPicture() : true
+    const backHandler = BackHandler.addEventListener("hardwareBackPress", () => true
     );
     return () => backHandler.remove();
   }, []);
 
-  const enablePictureInPicture = async () => {
-    PictureInPicture.setPictureInPictureEnabled(true);
 
-    const res = await PictureInPicture.enterPictureInPicture();
-     setPipMode(true)  
-  };
-
-  console.log(pipMode,PictureInPicture,"pipModepipModepipModepipMode");
 
   useEffect(() => {
     BackgroundGeolocation.on("location", (location) => {
@@ -229,9 +219,7 @@ export default function DashBoard({ route, navigation }) {
 
     BackgroundGeolocation.on("background", () => {
       console.log("[INFO] App is in background");
-      if (PictureInPicture?.SUPPORTED) {
-        enablePictureInPicture();
-      }
+    
     });
 
     BackgroundGeolocation.on("foreground", () => {
@@ -1060,40 +1048,7 @@ export default function DashBoard({ route, navigation }) {
 
   console.log(pipMode,"pipModepipMode");
 
-  if(pipMode){
-    return(
-      <View style={{flex:1}}>
-        {/* <Image style={{width:'100%',height:'100%'}} source={imagePath.map1}/> */}
-        <MapView
-        ref={mapRef}
-        //provider={PROVIDER_GOOGLE} // remove if not using Google Maps
-        style={styles.map}
-        // region={region}
-        // zoomEnabled={true}
-        initialRegion={{
-          latitude: Number(latitude),
-          longitude: Number(longitude),
-          latitudeDelta: 0.035,
-          longitudeDelta: 0.0321,
-        }}
-        // showsUserLocation={true}
-         showsMyLocationButton={true}
-      
-        //   customMapStyle={mapStyle}
-        onRegionChangeComplete={_onRegionChange}
-      >
-       
-        <Marker
-          image={imagePath.pinBlue}
-          coordinate={{
-            latitude: Number(latitude),
-            longitude: Number(longitude),
-          }}
-        ></Marker>
-      </MapView>
-      </View>
-    )
-  }else{
+
     return (
       <WrapperContainer
         statusBarColor={colors.white}
@@ -1193,7 +1148,7 @@ export default function DashBoard({ route, navigation }) {
         <View style={{ flex: 1 }}>{renderComponents()}</View>
       </WrapperContainer>
     );
-  }
+
 
   
 }

@@ -272,6 +272,7 @@ export default function AddMoney({navigation}) {
       })
       .catch(err => {
         console.log(err, 'err>>>');
+        alert(err.message);
       });
   };
 

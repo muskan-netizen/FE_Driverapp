@@ -2812,7 +2812,7 @@ export default function ShortCode({route, navigation}) {
       }
 
     let updatedShortCode = shortCode;
-    // let updatedShortCode = '1da2e9';
+    // let updatedShortCode = 'a36786';
 
       actions
         .initApp({shortCode: updatedShortCode}, header)
