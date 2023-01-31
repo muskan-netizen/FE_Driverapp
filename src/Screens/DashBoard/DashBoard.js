@@ -56,7 +56,7 @@ import generateBoxShadowStyle from "../../Components/generateBoxShadowStyle";
 import { appIds } from "../../utils/constants/DynamicAppKeys";
 import PoolingSuggestionCard from "../../Components/PoolingSuggestionCard";
 import GradientButton from "../../Components/GradientButton";
-import BottomSheet, {BottomSheetScrollView} from '@gorhom/bottom-sheet';
+import BottomSheet, { BottomSheetScrollView } from '@gorhom/bottom-sheet';
 import BidAcceptRejectCard from "../../Components/BidAcceptRejectCard";
 
 var finalAllTasks = [];
@@ -81,10 +81,11 @@ export default function DashBoard({ route, navigation }) {
   const { isCabPooling, initialValue } = useSelector((state) => state?.auth);
   const shortCode = useSelector((state) => state?.initBoot?.shortCode);
   const [orderCallbackUrl, setOrderCallbackUrl] = useState('')
-  const [allCustomerBidsList,setAllCustomerBidsList] = useState([{
-    id:1,driver_name:'Pavan Sharma',bidAmount:200,expireIn:10,rating:4.5,distance:"2km",address:'CDCL Building Chandigrah'},
-    {id:2,driver_name:'Pavan Sharma',bidAmount:10,expireIn:8,rating:4.5,distance:"4km",address:'CDCL Building Chandigrah'},
-    {id:3,driver_name:'Pavan Sharma',bidAmount:2200,expireIn:10,rating:4.5,distance:"6km",address:'CDCL Building Chandigrah'}])
+  const [allCustomerBidsList, setAllCustomerBidsList] = useState([{
+    id: 1, driver_name: 'Pavan Sharma', bidAmount: 200, expireIn: 10, rating: 4.5, distance: "2km", address: 'CDCL Building Chandigrah'
+  },
+  { id: 2, driver_name: 'Pavan Sharma', bidAmount: 10, expireIn: 8, rating: 4.5, distance: "4km", address: 'CDCL Building Chandigrah' },
+  { id: 3, driver_name: 'Pavan Sharma', bidAmount: 2200, expireIn: 10, rating: 4.5, distance: "6km", address: 'CDCL Building Chandigrah' }])
 
 
   const ref = useRef(orderCallbackUrl);
@@ -293,7 +294,7 @@ export default function DashBoard({ route, navigation }) {
     return () => {
       BackgroundGeolocation.removeAllListeners();
     };
-  }, [orderCallbackUrl, setOrderCallbackUrl,ref]);
+  }, [orderCallbackUrl, setOrderCallbackUrl, ref]);
 
 
 
@@ -706,13 +707,13 @@ export default function DashBoard({ route, navigation }) {
   };
 
 
-// useEffect(()=>{
-//   actions.isModalVisibleForAcceptReject({
-//     isModalVisibleForAcceptReject: true,
-//     notificationData: {},
-//   });
-// },[])
-  
+  // useEffect(()=>{
+  //   actions.isModalVisibleForAcceptReject({
+  //     isModalVisibleForAcceptReject: true,
+  //     notificationData: {},
+  //   });
+  // },[])
+
 
 
   const customCenter = () => {
@@ -1081,158 +1082,167 @@ export default function DashBoard({ route, navigation }) {
   };
 
 
-/*********************************Bid and Ride View *************************/
+  /*********************************Bid and Ride View *************************/
+  const _onChangeBidPrice = (data) => {
+    alert(data)
+  }
+  const _onAcceptRideBid = (data) => {
+    alert("_onAcceptRideBid")
+  }
+  const _onDeclineBid = (data) => {
+  }
 
+  const renderCustomerListCard = useCallback(({ item, index }) => {
+    return (
+      <BidAcceptRejectCard
+        data={item}
+        bidExpiryDuration={20}
+        _onDeclineBid={_onDeclineBid}
+        _onAcceptRideBid={_onAcceptRideBid}
+        _onChangeBidPrice={_onChangeBidPrice}
+      />
+    )
+  }, [allCustomerBidsList])
 
-const renderCustomerListCard = useCallback(({item,index})=>{
-  return (
-  <BidAcceptRejectCard 
-  data={item}  
-   bidExpiryDuration={20}
-  _onDeclineBid={()=>{}}
-   _onAcceptRideBid={()=>{}}  />
-  )
-},[allCustomerBidsList])
-
-const renderBidingView = () =>{
-return (  <BottomSheet
-      ref={bottomSheetRef}
-      index={1}
-      // key={isOpen}
-      snapPoints={['0%', true ? '90%' : '30%']}
-      activeOffsetY={[-1, 1]}
-      failOffsetX={[-5, 5]}
-      animateOnMount={true}
-      enablePanDownToClose={false}
-      enableHandlePanningGesture={false}
-      enableContentPanningGesture={false}
+  const renderBidingView = () => {
+    return (
+      <BottomSheet
+        ref={bottomSheetRef}
+        index={1}
+        // key={isOpen}
+        snapPoints={['0%', true ? '90%' : '30%']}
+        activeOffsetY={[-1, 1]}
+        failOffsetX={[-5, 5]}
+        animateOnMount={true}
+        enablePanDownToClose={false}
+        enableHandlePanningGesture={false}
+        enableContentPanningGesture={false}
       // onChange={_connectRajorPayBottomSheet}
       // handleComponent={_handleComponent}
       >
-     
-     <FlatList 
-        showsVerticalScrollIndicator={false}
-        data={allCustomerBidsList}
-        renderItem={renderCustomerListCard}
-        //keyExtractor={awesomeChildListKeyExtractor}
-        ListFooterComponent={() => (
-          <View style={{marginLeft: moderateScale(16)}} />
-        )}
-        ListHeaderComponent={() => (
-          <View style={{marginRight: moderateScale(16)}} />
-        )}
-      />
-    </BottomSheet>
-  ) 
-}
 
-
-
-
+        <FlatList
+          showsVerticalScrollIndicator={false}
+          data={allCustomerBidsList}
+          renderItem={renderCustomerListCard}
+          //keyExtractor={awesomeChildListKeyExtractor}
+          ListFooterComponent={() => (
+            <View style={{
+              marginLeft: moderateScale(16),
+              marginBottom: moderateScaleVertical(20),
+            }} />
+          )}
+          ListHeaderComponent={() => (
+            <View style={{ marginRight: moderateScale(16) }} />
+          )}
+        />
+      </BottomSheet>
+    )
+  }
 
 
   return (
-    false ? renderBidingView():
+    true ? renderBidingView() :
       <WrapperContainer
-      statusBarColor={colors.white}
-      bgColor={colors.backGround}
-      isLoading={isLoading || isLoadingSwitch}
-      source={loaderOne}
-    >
-      <Header
-        reverse={false}
-        headerStyle={{ backgroundColor: colors.white }}
-        leftIcon={imagePath.menu}
-        onPressLeft={() => navigation.toggleDrawer()}
-        // hideRight={true}
-        customCenter={() => customCenter()}
-        rightIcon={!enableMap ? imagePath.map : imagePath.listMenu}
-        onPressRight={_onSwitchMapView}
-      />
-      <View style={{ ...commonStyles.headerTopLine }} />
-      {isWarningAlert && (
-        <View
-          style={{
-            backgroundColor: colors.lightRed,
-            flexDirection: "row",
-            justifyContent: "space-between",
-            paddingHorizontal: moderateScale(10),
-          }}
-        >
-          <View style={{ width: width / 2.2, justifyContent: "center" }}>
-            <Text
-              style={{ color: colors.white, fontFamily: fontFamily.regular }}
-            >
-              {strings.notificationAlert}
-            </Text>
-          </View>
+        statusBarColor={colors.white}
+        bgColor={colors.backGround}
+        isLoading={isLoading || isLoadingSwitch}
+        source={loaderOne}
+      >
+        <Header
+          reverse={false}
+          headerStyle={{ backgroundColor: colors.white }}
+          leftIcon={imagePath.menu}
+          onPressLeft={() => navigation.toggleDrawer()}
+          // hideRight={true}
+          customCenter={() => customCenter()}
+          rightIcon={!enableMap ? imagePath.map : imagePath.listMenu}
+          onPressRight={_onSwitchMapView}
+        />
+        <View style={{ ...commonStyles.headerTopLine }} />
+        {isWarningAlert && (
           <View
             style={{
-              justifyContent: "space-between",
-              width: width / 2.5,
-              alignItems: "center",
+              backgroundColor: colors.lightRed,
               flexDirection: "row",
-              marginVertical: moderateScaleVertical(5),
-              paddingVertical: moderateScaleVertical(10),
+              justifyContent: "space-between",
+              paddingHorizontal: moderateScale(10),
             }}
           >
-            <TouchableOpacity
+            <View style={{ width: width / 2.2, justifyContent: "center" }}>
+              <Text
+                style={{ color: colors.white, fontFamily: fontFamily.regular }}
+              >
+                {strings.notificationAlert}
+              </Text>
+            </View>
+            <View
               style={{
-                backgroundColor: colors.themeColor,
+                justifyContent: "space-between",
+                width: width / 2.5,
                 alignItems: "center",
-                marginVertical: moderateScaleVertical(10),
-                paddingVertical: moderateScaleVertical(5),
-                paddingHorizontal: moderateScale(10),
-                borderRadius: 8,
+                flexDirection: "row",
+                marginVertical: moderateScaleVertical(5),
+                paddingVertical: moderateScaleVertical(10),
               }}
-              onPress={() => toggleWarning(false)}
             >
-              <Text style={{ color: colors.white }}>{strings.CANCEL}</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={{
-                backgroundColor: colors.themeColor,
-                alignItems: "center",
-                marginVertical: moderateScaleVertical(10),
-                paddingVertical: moderateScaleVertical(5),
-                paddingHorizontal: moderateScale(10),
-                borderRadius: 8,
-              }}
-              onPress={() => _onOpenSettings()}
-            >
-              <Text style={{ color: colors.white }}>{strings.ENABLE}</Text>
-            </TouchableOpacity>
+              <TouchableOpacity
+                style={{
+                  backgroundColor: colors.themeColor,
+                  alignItems: "center",
+                  marginVertical: moderateScaleVertical(10),
+                  paddingVertical: moderateScaleVertical(5),
+                  paddingHorizontal: moderateScale(10),
+                  borderRadius: 8,
+                }}
+                onPress={() => toggleWarning(false)}
+              >
+                <Text style={{ color: colors.white }}>{strings.CANCEL}</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={{
+                  backgroundColor: colors.themeColor,
+                  alignItems: "center",
+                  marginVertical: moderateScaleVertical(10),
+                  paddingVertical: moderateScaleVertical(5),
+                  paddingHorizontal: moderateScale(10),
+                  borderRadius: 8,
+                }}
+                onPress={() => _onOpenSettings()}
+              >
+                <Text style={{ color: colors.white }}>{strings.ENABLE}</Text>
+              </TouchableOpacity>
+            </View>
           </View>
-        </View>
-      )}
-
-      <View
-        style={{
-          justifyContent: "center",
-          alignItems: "center",
-          marginTop: moderateScaleVertical(20),
-          paddingBottom: moderateScaleVertical(20),
-          borderBottomWidth: moderateScaleVertical(1),
-          borderBottomColor: colors.lightGreyBg,
-        }}
-      >
-        {isEnabled ? (
-          <SwitchSelectorComponent
-            key={selectedOption}
-            options={options}
-            initial={selectedOption}
-            onPress={(value) => updateContent(value)}
-          // textInputStyle={{ width: moderateScale(width - 40) }}
-          />
-        ) : (
-          <View style={{ height: 35 }} />
         )}
-      </View>
 
-      <View style={{ flex: 1 }}>
-        {renderComponents()}
-       </View>
-    </WrapperContainer>
+        <View
+          style={{
+            justifyContent: "center",
+            alignItems: "center",
+            marginTop: moderateScaleVertical(20),
+            paddingBottom: moderateScaleVertical(20),
+            borderBottomWidth: moderateScaleVertical(1),
+            borderBottomColor: colors.lightGreyBg,
+          }}
+        >
+          {isEnabled ? (
+            <SwitchSelectorComponent
+              key={selectedOption}
+              options={options}
+              initial={selectedOption}
+              onPress={(value) => updateContent(value)}
+            // textInputStyle={{ width: moderateScale(width - 40) }}
+            />
+          ) : (
+            <View style={{ height: 35 }} />
+          )}
+        </View>
+
+        <View style={{ flex: 1 }}>
+          {renderComponents()}
+        </View>
+      </WrapperContainer>
   );
 }
 
