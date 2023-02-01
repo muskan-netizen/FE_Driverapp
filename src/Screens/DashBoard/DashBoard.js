@@ -181,16 +181,12 @@ export default function DashBoard({ route, navigation }) {
 
 
   useEffect(() => {
-    const backHandler = BackHandler.addEventListener("hardwareBackPress", () =>
-      PictureInPicture?.SUPPORTED ? enablePictureInPicture() : true
+    const backHandler = BackHandler.addEventListener("hardwareBackPress", () => true
     );
     return () => backHandler.remove();
   }, []);
 
-  const enablePictureInPicture = async () => {
-    PictureInPicture.setPictureInPictureEnabled(true);
-    const res = await PictureInPicture.enterPictureInPicture();
-  };
+
 
 
 
@@ -239,9 +235,7 @@ export default function DashBoard({ route, navigation }) {
 
     BackgroundGeolocation.on("background", () => {
       console.log("[INFO] App is in background");
-      if (PictureInPicture?.SUPPORTED) {
-        enablePictureInPicture();
-      }
+     
     });
 
     BackgroundGeolocation.on("foreground", () => {
@@ -1142,7 +1136,7 @@ export default function DashBoard({ route, navigation }) {
 
 
   return (
-    true ? renderBidingView() :
+    false ? renderBidingView() :
       <WrapperContainer
         statusBarColor={colors.white}
         bgColor={colors.backGround}
