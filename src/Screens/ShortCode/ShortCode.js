@@ -2951,6 +2951,18 @@ export default function ShortCode({ route, navigation }) {
                           isShortcodePrefilled: true,
                         });
                         break;
+                        case appIds.nannyAfrica:
+                        updateState({
+                          shortCode: shortCodes.nannyAfrica,
+                          isShortcodePrefilled: true,
+                        });
+                        break;
+                        case appIds.gokart:
+                        updateState({
+                          shortCode: shortCodes.gokart,
+                          isShortcodePrefilled: true,
+                        });
+                        break;
                       
       }
     })();

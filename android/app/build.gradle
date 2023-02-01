@@ -203,25 +203,35 @@ android {
      flavorDimensions "appType"
      
      productFlavors{
-           potolo{
+           bliss{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.potolo.royodispatcher'
-            resValue "string", "app_name", "Potolo Dispatcher"
+            applicationId 'com.bliss.royodispatcher'
+            resValue "string", "app_name", "Bliss Dispatcher"
         }
-    whatChaGotPckUp{
+   nannyAfrica{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.whatchaGotPckUp.royodispatcher'
-            resValue "string", "app_name", "whatchaGotPckUp  Dispatcher"
+            applicationId 'com.nannyAfrica.royodispatcher'
+            resValue "string", "app_name", "NannyAfrica  Dispatcher"
+        }
+        gokart{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.gokart.royodispatcher'
+            resValue "string", "app_name", "Gokart  Dispatcher"
         }
      }
 
@@ -7679,6 +7689,26 @@ android {
 //             // applicationIdSuffix ".royoorder"
 //             applicationId 'com.whatchaGotPckUp.royodispatcher'
 //             resValue "string", "app_name", "whatchaGotPckUp  Dispatcher"
+//         }
+// nannyAfrica{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.nannyAfrica.royodispatcher'
+//             resValue "string", "app_name", "NannyAfrica  Dispatcher"
+//         }
+// gokart{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.gokart.royodispatcher'
+//             resValue "string", "app_name", "Gokart  Dispatcher"
 //         }
 // }
 }

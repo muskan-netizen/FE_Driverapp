@@ -440,7 +440,7 @@ const shortCodes = {
   shipmoe: 'd3b17f',
   skyline: '083e4d',
   rentzy: '16ce83',
-  bliss: '24a7bf',
+  bliss: '60b280',
   otgWeeds: '801707',
   zyno: '2cdbe7',
   efectibo: '8c55a5',
@@ -476,7 +476,9 @@ const shortCodes = {
   melak:'1a8ecf',
   vialteran:'0d943d',
   wiEnergi:"d13d84",
-  whatChaGotPckUp:"644237"
+  whatChaGotPckUp:"644237",
+  nannyAfrica:'bf57ac',
+  gokart:'86a0ca'
 };
 
 const appIds = {
@@ -2364,6 +2366,14 @@ const appIds = {
   whatChaGotPckUp: Platform.select({
     ios: 'com.whatChaGotPckUp.royodispatcher',
     android: 'com.whatchaGotPckUp.royodispatcher',
+  }),
+  nannyAfrica: Platform.select({
+    ios: 'com.nannyAfrica.royodispatcher',
+    android: 'com.nannyAfrica.royodispatcher',
+  }),
+  gokart: Platform.select({
+    ios: 'com.gokart.royodispatcher',
+    android: 'com.gokart.royodispatcher',
   }),
 };
 
