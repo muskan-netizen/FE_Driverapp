@@ -2939,6 +2939,19 @@ export default function ShortCode({ route, navigation }) {
                         isShortcodePrefilled: true,
                       });
                       break;
+                      case appIds.wiEnergi:
+                      updateState({
+                        shortCode: shortCodes.wiEnergi,
+                        isShortcodePrefilled: true,
+                      });
+                      break;
+                      case appIds.whatChaGotPckUp:
+                        updateState({
+                          shortCode: shortCodes.whatChaGotPckUp,
+                          isShortcodePrefilled: true,
+                        });
+                        break;
+                      
       }
     })();
   }, [internetConnection]);
@@ -3010,7 +3023,7 @@ export default function ShortCode({ route, navigation }) {
       }
 
       let updatedShortCode = shortCode;
-      //  let updatedShortCode = '1fdd1d';
+      //  let updatedShortCode = '75902f';
 
       actions
         .initApp({ shortCode: updatedShortCode }, header)

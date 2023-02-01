@@ -474,7 +474,9 @@ const shortCodes = {
   dotTaxi:'ca35c5',
   airvoltTaxi:'694d92',
   melak:'1a8ecf',
-  vialteran:'0d943d'
+  vialteran:'0d943d',
+  wiEnergi:"d13d84",
+  whatChaGotPckUp:"644237"
 };
 
 const appIds = {
@@ -2354,6 +2356,14 @@ const appIds = {
   vialteran: Platform.select({
     ios: 'com.vialteran.royodispatcher',
     android: 'com.vialteran.royodispatcher',
+  }),
+  wiEnergi: Platform.select({
+    ios: 'com.wiEnergi.royodispatcher',
+    android: 'com.wiEnergi.royodispatcher',
+  }),
+  whatChaGotPckUp: Platform.select({
+    ios: 'com.whatChaGotPckUp.royodispatcher',
+    android: 'com.whatchaGotPckUp.royodispatcher',
   }),
 };
 
