@@ -478,7 +478,8 @@ const shortCodes = {
   wiEnergi:"d13d84",
   whatChaGotPckUp:"644237",
   nannyAfrica:'bf57ac',
-  gokart:'86a0ca'
+  gokart:'86a0ca',
+  hqi:'453367'
 };
 
 const appIds = {
@@ -2374,6 +2375,10 @@ const appIds = {
   gokart: Platform.select({
     ios: 'com.gokart.royodispatcher',
     android: 'com.gokart.royodispatcher',
+  }),
+  hqi: Platform.select({
+    ios: 'com.hqi.royodispatcher',
+    android: 'com.hqi.royodispatcher',
   }),
 };
 

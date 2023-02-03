@@ -203,35 +203,26 @@ android {
      flavorDimensions "appType"
      
      productFlavors{
-           bliss{
+
+                 etiam{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.bliss.royodispatcher'
-            resValue "string", "app_name", "Bliss Dispatcher"
+            applicationId 'com.etiam.royodispatcher'
+            resValue "string", "app_name", "Etiam Dispatcher"
         }
-   nannyAfrica{
+          kero{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.nannyAfrica.royodispatcher'
-            resValue "string", "app_name", "NannyAfrica  Dispatcher"
-        }
-        gokart{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.gokart.royodispatcher'
-            resValue "string", "app_name", "Gokart  Dispatcher"
+            applicationId 'com.kero.royodispatcher'
+            resValue "string", "app_name", "kero Dispatcher"
         }
      }
 
@@ -7709,6 +7700,16 @@ android {
 //             // applicationIdSuffix ".royoorder"
 //             applicationId 'com.gokart.royodispatcher'
 //             resValue "string", "app_name", "Gokart  Dispatcher"
+//         }
+// hqi{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.hqi.royodispatcher'
+//             resValue "string", "app_name", "Hqi  Dispatcher"
 //         }
 // }
 }

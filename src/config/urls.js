@@ -10,6 +10,7 @@
 // export const API_BASE_URL='https://dispatch.mypakela.com/'
 // //Staging
 export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL='http://192.168.101.104:9091/'
 // export const API_BASE_URL='https://dispatch.hattafoodhub.com/'
 // export const API_BASE_URL='https://dispatch.nittosadai.com/'
 //  export const API_BASE_URL='https://zuzucleans.royodispatch.com/'
@@ -363,7 +364,8 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // orderchekout
 // export const API_BASE_URL = 'https://dispatch.orderchekout.com/';
-
+// export const API_BASE_URL='https://dispatch.etiamstore.com/'
+// export const API_BASE_URL='https://dispatch.kerotechnologies.com/'
 // carroi
 // export const API_BASE_URL = 'https://carroi.rdstaging.com/';
 

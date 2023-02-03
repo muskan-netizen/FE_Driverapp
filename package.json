@@ -947,6 +947,8 @@
     "nannyAfricadispatcherRelease": "cd android && ./gradlew assemblenannyAfricaRelease",
     "gokartdispatcher": "react-native run-android --variant=gokartDebug",
     "gokartdispatcherRelease": "cd android && ./gradlew assemblegokartRelease",
+    "hqidispatcher": "react-native run-android --variant=hqiDebug",
+    "hqidispatcherRelease": "cd android && ./gradlew assemblehqiRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
