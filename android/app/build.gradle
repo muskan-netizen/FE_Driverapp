@@ -203,15 +203,15 @@ android {
      flavorDimensions "appType"
  
     productFlavors{
-         pawsee{
+         uberWeeds{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.pawsee.dispatcher'
-            resValue "string", "app_name", "Pawsee Dispatcher"
+            applicationId 'com.uberweeds.driver'
+            resValue "string", "app_name", "Uber Weeds Dispatcher"
         }
     }
 //     productFlavors {
@@ -7024,7 +7024,7 @@ android {
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.uberWeeds.royodispatcher'
+//             applicationId 'com.uberweeds.driver'
 //             resValue "string", "app_name", "Uber Weeds Dispatcher"
 //         }
 //          stabex{

@@ -2074,8 +2074,8 @@ const appIds = {
     android: 'com.icabPro.royodispatcher',
   }),
   uberWeeds: Platform.select({
-    ios: 'com.royodispatcher.uberWeeds',
-    android: 'com.uberWeeds.royodispatcher',
+    ios: 'com.uberweeds.driver',
+    android: 'com.uberweeds.driver',
   }),
   stabex: Platform.select({
     ios: 'com.royodispatcher.stabex',
