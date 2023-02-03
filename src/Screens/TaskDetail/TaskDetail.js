@@ -63,6 +63,7 @@ export default function TaskDetail({route, navigation}) {
   const mapRef = useRef();
   const {userData} = useSelector(state => state?.auth);
   const {clientInfo, defaultLanguage} = useSelector(state => state?.initBoot);
+  console.log(clientInfo,"clientInfoclientInfo");
   const styles = stylesFunc({defaultLanguage});
   const commonStyles = commonStylesFunc({fontFamily});
 
@@ -698,10 +699,11 @@ export default function TaskDetail({route, navigation}) {
   };
 
   const createRoom = async item => {
+    console.log(clientInfo?.client_db_id,"clientInfo?.client_db_id");
     try {
       const apiData = {
         sub_domain: '192.168.101.88',
-        client_id: String(clientInfo?.client_db_id),
+        client_id: String(1),
         db_name: taskDetail?.order?.dbname,
         user_id: String(userData?.id),
         type: 'agent_to_user',

@@ -188,6 +188,7 @@ export default function ChatScreen({ route }) {
       username: userData?.name,
       vendor_id: paramData?.vendor_id,
       auth_id: userData?.id,
+      web:false
     };
     console.log("sending api data>>>>>", apiData);
 
