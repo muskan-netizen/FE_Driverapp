@@ -911,7 +911,7 @@ const appIds = {
     android: 'com.Enext.royodispatcher',
   }),
   foodNests: Platform.select({
-    ios: 'com.FoodNests.Dispatch',
+    ios: 'com.FoodNests.driverapp',
     android: 'com.FoodNests.driverapp',
   }),
   tasmeem: Platform.select({
@@ -1128,7 +1128,7 @@ const appIds = {
   }),
   ihelp: Platform.select({
     ios: 'com.Ihelp.Dispatch',
-    android: 'com.Ihelp.royodispatcher',
+    android: 'com.IHelp.DispatcherApp',
   }),
   bksTaxi: Platform.select({
     ios: 'com.BksTaxi.Dispatch',
@@ -1475,7 +1475,7 @@ const appIds = {
     android: 'com.DropitoffusaDriver',
   }),
   handyPickup: Platform.select({
-    ios: 'com.HandyPickup.Dispatch',
+    ios: 'com.HandyPickup.driverapp',
     android: 'com.HandyPickup.royodispatcher',
   }),
   tjjHub: Platform.select({

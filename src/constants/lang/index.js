@@ -1,5 +1,6 @@
 import LocalizedStrings from 'react-native-localization';
 import { appIds } from '../../utils/constants/DynamicAppKeys';
+import DeviceInfo from 'react-native-device-info';
 
 import ar from './ar';
 import de from './de';
