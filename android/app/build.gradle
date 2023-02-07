@@ -204,25 +204,15 @@ android {
      
      productFlavors{
 
-                 etiam{
+        iCare{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.etiam.royodispatcher'
-            resValue "string", "app_name", "Etiam Dispatcher"
-        }
-          kero{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.kero.royodispatcher'
-            resValue "string", "app_name", "kero Dispatcher"
+            applicationId 'com.ICare.royodispatcher'
+            resValue "string", "app_name", "ICare Dispatcher"
         }
      }
 

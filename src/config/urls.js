@@ -8,8 +8,10 @@
 // export const API_BASE_URL = 'https://sales.royodispatch.com/';
 // export const API_BASE_URL='http://192.168.101.140:9091/'
 // export const API_BASE_URL='https://dispatch.mypakela.com/'
+export const API_BASE_URL = 'https://dispatch.udkay.com/';
+
 // //Staging
-export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL='http://192.168.101.104:9091/'
 // export const API_BASE_URL='https://dispatch.hattafoodhub.com/'
 // export const API_BASE_URL='https://dispatch.nittosadai.com/'
