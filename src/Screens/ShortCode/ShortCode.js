@@ -2740,6 +2740,12 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+          case appIds.gokart:
+            updateState({
+              shortCode: shortCodes.gokart,
+              isShortcodePrefilled: true,
+            });
+            break;
       }
     })();
   }, [internetConnection]);
@@ -2810,9 +2816,8 @@ export default function ShortCode({route, navigation}) {
           language: 'en',
         };
       }
-
-    let updatedShortCode = shortCode;
-    // let updatedShortCode = 'a36786';
+  //  let updatedShortCode = shortCode;
+    let updatedShortCode = '75902f';
 
       actions
         .initApp({shortCode: updatedShortCode}, header)

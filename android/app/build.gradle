@@ -267,6 +267,16 @@ productFlavors{
                applicationId "com.Ace.royodispatcher"
             resValue "string", "app_name", "Ace Dispatch"
         }
+     gokart{
+         dimension "appType"
+         versionCode 1
+        versionName "1.0"
+       minSdkVersion rootProject.ext.minSdkVersion
+      targetSdkVersion rootProject.ext.targetSdkVersion
+       // applicationIdSuffix ".royoorder"
+          applicationId 'com.gokart.royodispatcher'
+          resValue "string", "app_name", "Gokart Dispatcher"
+     }
 }
     
 //     productFlavors {
