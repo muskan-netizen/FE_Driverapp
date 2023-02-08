@@ -1,34 +1,41 @@
 {
   "project_info": {
-    "project_number": "38392630593",
-    "project_id": "smokerun-77a17",
-    "storage_bucket": "smokerun-77a17.appspot.com"
+    "project_number": "98614230152",
+    "project_id": "smokerun-driver",
+    "storage_bucket": "smokerun-driver.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:38392630593:android:a2ee96514927324ae125c0",
+        "mobilesdk_app_id": "1:98614230152:android:f77ab925f370438662f33d",
         "android_client_info": {
-          "package_name": "com.smokeRun.dispatcher"
+          "package_name": "com.smokerundriver.app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "38392630593-5kd310pmm4n71ej6lqq5is42osm82tp9.apps.googleusercontent.com",
+          "client_id": "98614230152-sjiivhpl22tuv5jj91ki00r9psdf0qeh.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAZ7wcUZ6bd2zjMKfbf2LAgPjlBW0oefhs"
+          "current_key": "AIzaSyB6JXrnYJQuIEVMXiAJR850DLM7L4bkDC8"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "38392630593-5kd310pmm4n71ej6lqq5is42osm82tp9.apps.googleusercontent.com",
+              "client_id": "98614230152-sjiivhpl22tuv5jj91ki00r9psdf0qeh.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "98614230152-61o62ci38il72ttg5lucdin9v9svpk9l.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.smokerundriver.app"
+              }
             }
           ]
         }

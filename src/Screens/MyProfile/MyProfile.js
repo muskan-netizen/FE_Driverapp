@@ -1,4 +1,4 @@
-import React, {useState, useEffect,useRef,useCallback} from 'react';
+import React, {useState, useEffect, useRef, useCallback} from 'react';
 import {
   Image,
   View,
@@ -38,7 +38,9 @@ import {removerUserData} from '../../redux/actions/auth';
 export default function MyProfile({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
-  const defaultLanguagae = useSelector(state => state?.initBoot?.defaultLanguage);
+  const defaultLanguagae = useSelector(
+    state => state?.initBoot?.defaultLanguage,
+  );
   const [state, setState] = useState({
     isLoading: false,
     fullName: userData?.name ? userData?.name : '',
@@ -75,26 +77,32 @@ export default function MyProfile({route, navigation}) {
 
   const updateState = data => setState(state => ({...state, ...data}));
   useEffect(() => {
-      if (Object.keys(userData).length > 0) {
-        updateState({
-          isLoading: false,
-          fullName: userData?.name ? userData?.name : '',
-          phoneNumber: userData?.phone_number ? userData?.phone_number : '',
-          callingCode: '91',
-          cca2: 'IN',
-          allTransportation: transportationArray,
-          selectedVehicleType: userData?.vehicle_type_id
-            ? userData?.vehicle_type_id
-            : null,
-          modelMake: userData?.make_model ? userData?.make_model : '',
-          vehicleColor: userData?.color ? userData?.color : '',
-          plateNumber: userData?.plate_number ? userData?.plate_number : '',
-    
-          type: userData?.type ? userData?.type : null,
-          team: userData?.team ? userData?.team : null,
-        })
-      }
-    }, [userData?.vehicle_type_id,userData?.team,userData?.plate_number,userData?.phone_number,userData?.name])
+    if (Object.keys(userData).length > 0) {
+      updateState({
+        isLoading: false,
+        fullName: userData?.name ? userData?.name : '',
+        phoneNumber: userData?.phone_number ? userData?.phone_number : '',
+        callingCode: '91',
+        cca2: 'IN',
+        allTransportation: transportationArray,
+        selectedVehicleType: userData?.vehicle_type_id
+          ? userData?.vehicle_type_id
+          : null,
+        modelMake: userData?.make_model ? userData?.make_model : '',
+        vehicleColor: userData?.color ? userData?.color : '',
+        plateNumber: userData?.plate_number ? userData?.plate_number : '',
+
+        type: userData?.type ? userData?.type : null,
+        team: userData?.team ? userData?.team : null,
+      });
+    }
+  }, [
+    userData?.vehicle_type_id,
+    userData?.team,
+    userData?.plate_number,
+    userData?.phone_number,
+    userData?.name,
+  ]);
 
   const styles = stylesFunction({defaultLanguagae});
 

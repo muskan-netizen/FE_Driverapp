@@ -12,7 +12,14 @@ import {
   SIGNUP_SEND_OTP,
   CAB_POOLING_STATUS,
 } from '../../config/urls';
-import { apiGet, apiPost, removeItem, saveCabPollingStatus, setItem, setUserData } from '../../utils/utils';
+import {
+  apiGet,
+  apiPost,
+  removeItem,
+  saveCabPollingStatus,
+  setItem,
+  setUserData,
+} from '../../utils/utils';
 import store from '../store';
 import types from '../types';
 const {dispatch} = store;
@@ -43,7 +50,19 @@ export function login(data = {}, headers = {}) {
       });
   });
 }
-
+export function deleteAccount(data = {}, headers = {}) {
+  console.log(data, headers, 'data>>>>>>');
+  return new Promise((resolve, reject) => {
+    apiPost(AGENT_DELETE, data, headers)
+      .then(async res => {
+        console.log(res, 'resresresresres>>>>>>');
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+}
 export function signUp(data = {}, headers = {}) {
   console.log(data, 'login>data>data>data', headers);
   return new Promise((resolve, reject) => {
@@ -169,18 +188,6 @@ export function cancelSubscriptionPlan(query = '', data = {}, headers = {}) {
       });
   });
 }
-export function deleteAccount(data = {}, headers = {}) {
-  console.log(data, headers, 'data>>>>>>');
-  return new Promise((resolve, reject) => {
-    apiPost(AGENT_DELETE, data, headers)
-      .then(async res => {
-        resolve(res);
-      })
-      .catch(error => {
-        reject(error);
-      });
-  });
-}
 
 export function sendOtpOnSignup(data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
@@ -195,22 +202,14 @@ export function sendOtpOnSignup(data = {}, headers = {}) {
 }
 
 export function updateCabPoolingStatus(data = {}, headers = {}) {
-  console.log(headers, data, "headers,dataheaders,data");
+  console.log(headers, data, 'headers,dataheaders,data');
   return new Promise((resolve, reject) => {
     apiPost(CAB_POOLING_STATUS, data, headers)
       .then(async res => {
-        resolve(res)
-      }
-      )
+        resolve(res);
+      })
       .catch(error => {
         reject(error);
       });
   });
 }
-
-
-
-
-
-
-
