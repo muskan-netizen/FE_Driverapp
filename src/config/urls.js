@@ -52,7 +52,7 @@
 // export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
-export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.ihelp.app.br/';
 // export const API_BASE_URL = 'https://buzystores-dispatch.netsolutionindia.com/';
 
@@ -341,7 +341,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.agrionline.ph/';
 
 // fleety staging domain
-// export const API_BASE_URL = 'https://dispatch.pideunfleety.com/';
+export const API_BASE_URL = 'https://dispatch.pideunfleety.com/';
 
 //klickmat/snabbhem app domain
 // export const API_BASE_URL = 'https://delivery.snabbhem.se/';

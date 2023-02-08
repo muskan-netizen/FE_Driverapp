@@ -203,15 +203,16 @@ android {
      flavorDimensions "appType"
 
      productFlavors{
-               ace{
+            fleety {
             dimension "appType"
-            versionCode 1
+            versionCode 3
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-               applicationId "com.Ace.royodispatcher"
-            resValue "string", "app_name", "Ace Dispatch"
+            applicationId 'com.fleetydriver.app'
+            resValue "string", "app_name", "fleety Driver"
+
         }
      }
     
