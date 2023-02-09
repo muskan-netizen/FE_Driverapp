@@ -1,5 +1,5 @@
-import {cloneDeep, isEmpty} from 'lodash';
-import React, {useCallback, useEffect, useRef, useState} from 'react';
+import { cloneDeep, isEmpty } from 'lodash';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import {
   I18nManager,
   Image,
@@ -14,11 +14,11 @@ import {
 } from 'react-native';
 import ActionSheet from 'react-native-actionsheet';
 import DocumentPicker from 'react-native-document-picker';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-import {useSelector} from 'react-redux';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { useSelector } from 'react-redux';
 import GradientButton from '../../../Components/GradientButton';
 import Header from '../../../Components/Header';
-import {loaderOne} from '../../../Components/Loaders/AnimatedLoaderFiles';
+import { loaderOne } from '../../../Components/Loaders/AnimatedLoaderFiles';
 import PhoneNumberInput from '../../../Components/PhoneNumberInput';
 import TextInputWithlabel from '../../../Components/TextInputWithlabel';
 import WrapperContainer from '../../../Components/WrapperContainer';
@@ -36,19 +36,19 @@ import {
   textScale,
   width,
 } from '../../../styles/responsiveSize';
-import {cameraHandler} from '../../../utils/commonFunction';
+import { cameraHandler } from '../../../utils/commonFunction';
 import {
   employeetypeArray,
   transportationArray,
 } from '../../../utils/constants/ConstantValues';
-import {appIds, shortCodes} from '../../../utils/constants/DynamicAppKeys';
+import { appIds, shortCodes } from '../../../utils/constants/DynamicAppKeys';
 import {
   showError,
   showErrorOnModal,
   showSuccess,
 } from '../../../utils/helperFunctions';
-import {androidCameraPermission} from '../../../utils/permissions';
-import {getItem} from '../../../utils/utils';
+import { androidCameraPermission } from '../../../utils/permissions';
+import { getItem } from '../../../utils/utils';
 import {
   default as validations,
   default as validator,
@@ -58,7 +58,7 @@ import Modal from 'react-native-modal';
 import DatePicker from 'react-native-date-picker';
 import DatePickerModal from '../../../Components/DatePickerModal';
 import moment from 'moment';
-import {getBundleId} from 'react-native-device-info';
+import { getBundleId } from 'react-native-device-info';
 import * as RNLocalize from 'react-native-localize';
 import codes from 'country-calling-code';
 
@@ -83,9 +83,9 @@ DeviceCountry.getCountryCode()
     console.log(e);
   });
 
-export default function Signup({route, navigation}) {
+export default function Signup({ route, navigation }) {
   const modalRef = useRef(null);
-  const {clientInfo, defaultLanguage} = useSelector(state => state?.initBoot);
+  const { clientInfo, defaultLanguage } = useSelector(state => state?.initBoot);
   var dummyTags = '';
   const [state, setState] = useState({
     isLoading: false,
@@ -93,21 +93,21 @@ export default function Signup({route, navigation}) {
     phoneNumber: '',
     callingCode:
       !isEmpty(getPhonesCallingCodeAndCountryData) &&
-      (getBundleId() !== appIds.SXM2GO && getBundleId() !== appIds.speedyDelivery )
+        (getBundleId() !== appIds.SXM2GO && getBundleId() !== appIds.speedyDelivery)
         ? getPhonesCallingCodeAndCountryData[0]?.countryCodes[0]?.replace(
-            '-',
-            '',
-          )
+          '-',
+          '',
+        )
         : getBundleId() == appIds.speedyDelivery ? "1" : appData?.profile?.country?.code
-        ? appData?.profile?.country?.phonecode
-        : '91',
+          ? appData?.profile?.country?.phonecode
+          : '91',
     cca2:
       !isEmpty(getPhonesCallingCodeAndCountryData) &&
-      (getBundleId() !== appIds.SXM2GO && getBundleId() !== appIds.speedyDelivery )
+        (getBundleId() !== appIds.SXM2GO && getBundleId() !== appIds.speedyDelivery)
         ? getPhonesCallingCodeAndCountryData[0]?.isoCode2
         : getBundleId() == appIds.speedyDelivery ? "DO" : appData?.profile?.country?.code
-        ? appData?.profile?.country?.code
-        : 'IN',
+          ? appData?.profile?.country?.code
+          : 'IN',
     allTransportation: transportationArray,
     allEmployeeTypes: employeetypeArray,
     selectedVehicleType: null,
@@ -139,9 +139,9 @@ export default function Signup({route, navigation}) {
     selectedDateField: {},
     selectedDate: new Date(),
     customerType: [
-      {id: 1, name: 'Individual'},
-      {id: 2, name: 'Retail Store'},
-      {id: 3, name: 'Distribution center'},
+      { id: 1, name: 'Individual' },
+      { id: 2, name: 'Retail Store' },
+      { id: 3, name: 'Distribution center' },
     ],
     selectedCustomerType: null,
     isCustomer: false,
@@ -194,23 +194,23 @@ export default function Signup({route, navigation}) {
   const [isSendOtpLoading, setSendOtpLoading] = useState(false);
   const [isSignupLoading, setSignupLoading] = useState(false);
   const [appHashKey, setAppHashKey] = useState('');
-  console.log(callingCode,'mobilNomobilNo')
-  const commonStyles = commonStylesFunc({fontFamily});
+  console.log(callingCode, 'mobilNomobilNo')
+  const commonStyles = commonStylesFunc({ fontFamily });
 
-  const updateState = data => setState(state => ({...state, ...data}));
+  const updateState = data => setState(state => ({ ...state, ...data }));
 
-  const styles = stylesFunction({defaultLanguage});
+  const styles = stylesFunction({ defaultLanguage });
 
   //On country change
   const _onCountryChange = data => {
-    updateState({cca2: data.cca2, callingCode: data.callingCode[0]});
+    updateState({ cca2: data.cca2, callingCode: data.callingCode[0] });
     return;
   };
 
   let actionSheet = useRef();
   const showActionSheet = value => {
     console.log(value, 'value>value');
-    updateState({profilePic: value});
+    updateState({ profilePic: value });
     setTimeout(() => {
       actionSheet.current.show();
     }, 500);
@@ -220,9 +220,9 @@ export default function Signup({route, navigation}) {
     (async () => {
       const savedCode = await getItem('saveShortCode');
       if (savedCode == shortCodes?.loopWhole) {
-        updateState({selectedEpmloyeetype: allEmployeeTypes[0]});
+        updateState({ selectedEpmloyeetype: allEmployeeTypes[0] });
       }
-      updateState({savedShortCode: savedCode});
+      updateState({ savedShortCode: savedCode });
     })();
   }, [selectedEpmloyeetype]);
 
@@ -299,7 +299,7 @@ export default function Signup({route, navigation}) {
               }),
             });
           }
-          updateState({isLoading: false, documentData: res?.data});
+          updateState({ isLoading: false, documentData: res?.data });
         })
         .catch(errorMethod);
     })();
@@ -322,7 +322,7 @@ export default function Signup({route, navigation}) {
             console.log(res, 'resasfasdfsdf');
             if (res.path) {
               if (profilePic) {
-                updateState({userImage: res?.sourceURL || res?.path});
+                updateState({ userImage: res?.sourceURL || res?.path });
               } else {
                 let data = cloneDeep(addtionalImages);
                 data[addtionSelectedImageIndex].value =
@@ -335,7 +335,7 @@ export default function Signup({route, navigation}) {
                 data[addtionSelectedImageIndex].mime = res?.mime;
                 console.log(data, 'data>>>>');
 
-                updateState({addtionalImages: data});
+                updateState({ addtionalImages: data });
               }
             } else {
               showError(strings.PICKERCANCLLED);
@@ -349,7 +349,7 @@ export default function Signup({route, navigation}) {
   };
 
   const isValidData = () => {
-    const error = validator({phoneNumber});
+    const error = validator({ phoneNumber });
     if (error) {
       showError(error);
       return;
@@ -405,6 +405,20 @@ export default function Signup({route, navigation}) {
         }
       });
     }
+   
+    if (!isEmpty(addtionalTextInputs)) {
+      addtionalTextInputs.map((i, inx) => {
+        console.log(i,inx,'inxxxx')
+        if (i?.contents != '' && !!i?.contents) {
+          formdata.append(`files_text[${inx}][file_type]`, i?.file_type);
+          formdata.append(`files_text[${inx}][id]`, i?.id);
+          formdata.append(
+            `files_text[${inx}][contents]`,i?.contents,
+          );
+          formdata.append(`files_text[${inx}][label_name]`, i?.name);
+        }
+      });
+    }
 
     let concatinatedArray = addtionalImages.concat(addtionalPdfs);
 
@@ -430,6 +444,7 @@ export default function Signup({route, navigation}) {
       });
     }
     console.log(formdata, 'formdaataaaaaa');
+   
     actions
       .signUp(formdata, {
         client: clientInfo?.database_name,
@@ -439,7 +454,7 @@ export default function Signup({route, navigation}) {
       .then(res => {
         setOtpModal(false);
         setTimeout(() => {
-          updateState({isWaitingModal: true});
+          updateState({ isWaitingModal: true });
         }, 500);
         setSignupLoading(false);
         setTimeout(() => {
@@ -532,7 +547,7 @@ export default function Signup({route, navigation}) {
     if (!isRequired) {
       return;
     }
-    updateState({isLoading: true});
+    updateState({ isLoading: true });
     onSendOtpApi();
   };
 
@@ -546,11 +561,11 @@ export default function Signup({route, navigation}) {
       data['app_hash_key'] = appHashKey;
     }
     actions
-      .sendOtpOnSignup(data, {client: clientInfo?.database_name})
+      .sendOtpOnSignup(data, { client: clientInfo?.database_name })
       .then(res => {
         console.log(res, 'login data');
         if (res?.data) {
-          updateState({isLoading: false});
+          updateState({ isLoading: false });
           setOtpModal(true);
           setSendOtpLoading(false);
           showErrorOnModal(modalRef, strings.OTPSENDSUCCESS);
@@ -561,7 +576,7 @@ export default function Signup({route, navigation}) {
 
   const errorMethod = error => {
     console.log(error, 'erorororororo');
-    updateState({isLoading: false});
+    updateState({ isLoading: false });
     setSendOtpLoading(false);
     setSignupLoading(false);
     isOtpModal
@@ -586,7 +601,7 @@ export default function Signup({route, navigation}) {
   const getTextInputField = (type, index) => {
     return (
       <TextInputWithlabel
-        onTouchStart={() => updateState({isTagsShow: false})}
+        onTouchStart={() => updateState({ isTagsShow: false })}
         labelStyle={styles.textInputlabel}
         editable={true}
         label={`${type?.name}${type.is_required ? '*' : ''}`}
@@ -604,9 +619,9 @@ export default function Signup({route, navigation}) {
   const getDateFields = (type, index) => {
     return (
       <View
-        style={{marginVertical: moderateScaleVertical(10)}}
+        style={{ marginVertical: moderateScaleVertical(10) }}
         key={String(index)}
-        onTouchStart={() => updateState({isTagsShow: false})}>
+        onTouchStart={() => updateState({ isTagsShow: false })}>
         <Text
           style={{
             fontSize: textScale(12),
@@ -619,7 +634,7 @@ export default function Signup({route, navigation}) {
         </Text>
         <TouchableOpacity
           onPress={() =>
-            updateState({isDatePicker: !isDatePicker, selectedDateField: type})
+            updateState({ isDatePicker: !isDatePicker, selectedDateField: type })
           }
           activeOpacity={0.7}
           style={{
@@ -631,7 +646,7 @@ export default function Signup({route, navigation}) {
             paddingHorizontal: moderateScale(10),
           }}>
           <Text
-            style={{fontFamily: fontFamily.regular, fontSize: textScale(12)}}>
+            style={{ fontFamily: fontFamily.regular, fontSize: textScale(12) }}>
             {!!type.contents
               ? moment(type.contents).format('DD-MMMM-YYYY')
               : ''}
@@ -643,7 +658,7 @@ export default function Signup({route, navigation}) {
 
   //Update Images
   const updateImages = (type, index) => {
-    updateState({addtionSelectedImage: type, addtionSelectedImageIndex: index});
+    updateState({ addtionSelectedImage: type, addtionSelectedImageIndex: index });
     showActionSheet(false);
   };
 
@@ -661,10 +676,10 @@ export default function Signup({route, navigation}) {
           onPress={() => updateImages(type, index)}
           style={styles.imageUpload}>
           {addtionalImages[index].value != undefined &&
-          addtionalImages[index].value != null &&
-          addtionalImages[index].value != '' ? (
+            addtionalImages[index].value != null &&
+            addtionalImages[index].value != '' ? (
             <Image
-              source={{uri: addtionalImages[index].value}}
+              source={{ uri: addtionalImages[index].value }}
               style={styles.imageStyle2}
             />
           ) : (
@@ -673,7 +688,7 @@ export default function Signup({route, navigation}) {
         </TouchableOpacity>
         <Text
           numberOfLines={2}
-          style={{...styles.label3, minHeight: moderateScale(25)}}>
+          style={{ ...styles.label3, minHeight: moderateScale(25) }}>
           {type?.name}
           {type.is_required ? '*' : ''}
         </Text>
@@ -697,7 +712,7 @@ export default function Signup({route, navigation}) {
         data[index].mime = res[0].type;
 
         console.log(data, 'addtionalPdfs>>>data');
-        updateState({addtionalPdfs: data});
+        updateState({ addtionalPdfs: data });
       }
 
       // console.log(
@@ -720,8 +735,8 @@ export default function Signup({route, navigation}) {
   const getPdfView = (type, index) => {
     return (
       <View
-        onTouchStart={() => updateState({isTagsShow: false})}
-        style={{marginRight: moderateScale(20), marginTop: moderateScale(20)}}>
+        onTouchStart={() => updateState({ isTagsShow: false })}
+        style={{ marginRight: moderateScale(20), marginTop: moderateScale(20) }}>
         <TouchableOpacity
           onPress={() => getDoc(type, index)}
           style={{
@@ -734,8 +749,8 @@ export default function Signup({route, navigation}) {
           }}>
           <Text style={styles.uploadStyle}>
             {addtionalPdfs[index].value != undefined &&
-            addtionalPdfs[index].value != null &&
-            addtionalPdfs[index].value != ''
+              addtionalPdfs[index].value != null &&
+              addtionalPdfs[index].value != ''
               ? `${addtionalPdfs[index].filename}`
               : `+ ${strings.UPLOAD}`}
           </Text>
@@ -758,7 +773,7 @@ export default function Signup({route, navigation}) {
     data[index].file_type = type?.file_type;
     data[index].label_name = type?.name;
     console.log(data, 'data>>>data');
-    updateState({addtionalTextInputs: data});
+    updateState({ addtionalTextInputs: data });
   };
 
   const getEmployeeViewBasedOnClient = code => {
@@ -770,9 +785,9 @@ export default function Signup({route, navigation}) {
         return (
           <View
             onTouchStart={() => {
-              updateState({isTagsShow: false});
+              updateState({ isTagsShow: false });
             }}
-            style={{marginTop: moderateScaleVertical(10)}}>
+            style={{ marginTop: moderateScaleVertical(10) }}>
             <Text style={styles.employeetypeHeadingtext}>
               {strings.EMPLOYEETYPE}
             </Text>
@@ -849,9 +864,9 @@ export default function Signup({route, navigation}) {
       searchedAry = driverTagsNewAry.filter(item => {
         return item?.name.toLowerCase().includes(text.toLowerCase());
       });
-      updateState({driverTagsAry: searchedAry});
+      updateState({ driverTagsAry: searchedAry });
     } else {
-      updateState({driverTagsAry: driverTagsNewAry});
+      updateState({ driverTagsAry: driverTagsNewAry });
     }
   };
 
@@ -868,7 +883,7 @@ export default function Signup({route, navigation}) {
   };
 
   const _onCloseModal = () => {
-    updateState({isDatePicker: false, selectedDate: new Date()});
+    updateState({ isDatePicker: false, selectedDate: new Date() });
   };
 
   const modalMainContent = useCallback(() => {
@@ -900,7 +915,7 @@ export default function Signup({route, navigation}) {
             Please enter 6-digit code sent to {`+${callingCode}${phoneNumber}`}
           </Text>
           <SmoothPinCodeInput
-            containerStyle={{alignSelf: 'center'}}
+            containerStyle={{ alignSelf: 'center' }}
             password
             autoFocus={true}
             mask={<View style={styles.maskStyle} />}
@@ -960,12 +975,12 @@ export default function Signup({route, navigation}) {
       isLoadingB={isLoading}
       source={loaderOne}>
       <Header
-        headerStyle={{backgroundColor: colors.white}}
+        headerStyle={{ backgroundColor: colors.white }}
         // hideRight={true}
         // onPressLeft={()=>navigation.goBack()}
         centerTitle={strings.SIGNUP}
       />
-      <View style={{...commonStyles.headerTopLine}} />
+      <View style={{ ...commonStyles.headerTopLine }} />
       <View
         style={{
           marginHorizontal: moderateScale(15),
@@ -982,7 +997,7 @@ export default function Signup({route, navigation}) {
           <View style={styles.imageViewStyle}>
             {userImage ? (
               <TouchableOpacity onPress={() => showActionSheet(true)}>
-                <Image source={{uri: userImage}} style={styles.imageStyle} />
+                <Image source={{ uri: userImage }} style={styles.imageStyle} />
               </TouchableOpacity>
             ) : (
               <TouchableOpacity onPress={() => showActionSheet(true)}>
@@ -993,14 +1008,14 @@ export default function Signup({route, navigation}) {
               </TouchableOpacity>
             )}
           </View>
-          <View style={{marginTop: moderateScale(20)}}>
+          <View style={{ marginTop: moderateScale(20) }}>
             <Text style={styles.label}>{strings.PERSONAL}</Text>
-            <View style={{marginTop: moderateScaleVertical(20)}}>
+            <View style={{ marginTop: moderateScaleVertical(20) }}>
               <TextInputWithlabel
                 editable={true}
                 label={strings.FULLNAME}
                 value={fullName}
-                onChangeText={text => updateState({fullName: text})}
+                onChangeText={text => updateState({ fullName: text })}
                 labelStyle={styles.textInputlabel}
               />
 
@@ -1010,7 +1025,7 @@ export default function Signup({route, navigation}) {
               <PhoneNumberInput
                 onCountryChange={_onCountryChange}
                 onChangePhone={phoneNumber =>
-                  updateState({phoneNumber: phoneNumber.replace(/[^0-9]/g, '')})
+                  updateState({ phoneNumber: phoneNumber.replace(/[^0-9]/g, '') })
                 }
                 cca2={cca2}
                 phoneNumber={phoneNumber}
@@ -1037,7 +1052,7 @@ export default function Signup({route, navigation}) {
               {strings.TEAMS}
             </Text>
 
-            <View style={{zIndex: 10}}>
+            <View style={{ zIndex: 10 }}>
               <TouchableOpacity
                 style={{
                   borderRadius: 8,
@@ -1076,7 +1091,7 @@ export default function Signup({route, navigation}) {
                     width: '100%',
                     paddingHorizontal: moderateScale(10),
                     paddingVertical: moderateScale(5),
-                    shadowOffset: {width: 0, height: 1},
+                    shadowOffset: { width: 0, height: 1 },
                     shadowOpacity: 0.1,
                     minHeight: moderateScale(50),
                     borderRadius: moderateScale(5),
@@ -1135,7 +1150,7 @@ export default function Signup({route, navigation}) {
                   {strings.CUSTOMERTYPE}
                 </Text>
 
-                <View style={{zIndex: 5}}>
+                <View style={{ zIndex: 5 }}>
                   <TouchableOpacity
                     style={{
                       borderRadius: 8,
@@ -1176,7 +1191,7 @@ export default function Signup({route, navigation}) {
                         width: '100%',
                         paddingHorizontal: moderateScale(10),
                         paddingVertical: moderateScale(5),
-                        shadowOffset: {width: 0, height: 1},
+                        shadowOffset: { width: 0, height: 1 },
                         shadowOpacity: 0.1,
                         minHeight: moderateScale(50),
                         borderRadius: moderateScale(5),
@@ -1234,7 +1249,7 @@ export default function Signup({route, navigation}) {
               {strings.TAGS}
             </Text>
 
-            <View style={{zIndex: 2, marginBottom: moderateScale(10)}}>
+            <View style={{ zIndex: 2, marginBottom: moderateScale(10) }}>
               <View
                 onLayout={event => {
                   updateState({
@@ -1253,7 +1268,7 @@ export default function Signup({route, navigation}) {
                 }}>
                 <View>
                   {selectedTags.length > 0 && (
-                    <View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
+                    <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
                       {selectedTags.map((item, index) => {
                         return (
                           <TouchableOpacity
@@ -1295,8 +1310,8 @@ export default function Signup({route, navigation}) {
                   )}
                   <TextInput
                     placeholder={strings.SELCTED_TAG}
-                    onFocus={() => updateState({isTagsShow: true})}
-                    onBlur={() => updateState({isTagsShow: false})}
+                    onFocus={() => updateState({ isTagsShow: true })}
+                    onBlur={() => updateState({ isTagsShow: false })}
                     onChangeText={onSearchTags}
                     style={{
                       opacity: 0.7,
@@ -1313,12 +1328,12 @@ export default function Signup({route, navigation}) {
                 <View
                   style={{
                     backgroundColor: colors.white,
-                    shadowOffset: {width: 0, height: 1},
+                    shadowOffset: { width: 0, height: 1 },
                     shadowOpacity: 0.1,
                     width: '100%',
                   }}>
                   {driverTagsAry.length > 0 ? (
-                    <View style={{flexWrap: 'wrap', flexDirection: 'row'}}>
+                    <View style={{ flexWrap: 'wrap', flexDirection: 'row' }}>
                       {driverTagsAry.map((item, index) => {
                         return (
                           <TouchableOpacity
@@ -1364,12 +1379,12 @@ export default function Signup({route, navigation}) {
             {vehicleTypes !== '' && vehicleTypes ? (
               <>
                 <View
-                  onTouchStart={() => updateState({isTagsShow: false})}
-                  style={{marginVertical: moderateScaleVertical(5)}}>
+                  onTouchStart={() => updateState({ isTagsShow: false })}
+                  style={{ marginVertical: moderateScaleVertical(5) }}>
                   <Text style={styles.label}>{strings.TRASNPORTATION}</Text>
                 </View>
 
-                <View onTouchStart={() => updateState({isTagsShow: false})}>
+                <View onTouchStart={() => updateState({ isTagsShow: false })}>
                   <ScrollView
                     horizontal
                     alwaysBounceHorizontal={false}
@@ -1382,14 +1397,14 @@ export default function Signup({route, navigation}) {
                           <TouchableOpacity
                             style={[
                               styles.transportationContainer,
-                              {...styles.shadowStyle},
+                              { ...styles.shadowStyle },
                             ]}
                             onPress={() => {
                               _selectedTransportation(i);
                             }}>
                             {selectedVehicleType == i ? (
                               <Image
-                                style={{position: 'absolute', end: 5, top: 10}}
+                                style={{ position: 'absolute', end: 5, top: 10 }}
                                 source={imagePath.blue_tik}
                               />
                             ) : null}
@@ -1436,10 +1451,10 @@ export default function Signup({route, navigation}) {
                 onChangeText={text => updateState({vehiclePlateNumber: text})}
               />
             </View> */}
-
+          
             {!!(addtionalTextInputs && addtionalTextInputs.length) &&
               addtionalTextInputs.map((item, index) => {
-                return getTextInputField(item, index);
+              return getTextInputField(item, index);
               })}
 
             {!isEmpty(additionalDateFields) &&
@@ -1465,11 +1480,11 @@ export default function Signup({route, navigation}) {
           </View>
           <GradientButton
             onPress={onSendOtp}
-            containerStyle={{marginVertical: moderateScaleVertical(40)}}
+            containerStyle={{ marginVertical: moderateScaleVertical(40) }}
             // onPress={_onLogin}
             marginTop={moderateScaleVertical(20)}
             marginBottom={moderateScaleVertical(40)}
-            textStyle={{color: colors.black}}
+            textStyle={{ color: colors.black }}
             btnText={'Send OTP'}
             colorsArray={[colors.themeColor, colors.themeColor]}
           />
@@ -1495,7 +1510,7 @@ export default function Signup({route, navigation}) {
       />
       <Modal
         isVisible={isWaitingModal}
-        style={{margin: 0, justifyContent: 'flex-end'}}>
+        style={{ margin: 0, justifyContent: 'flex-end' }}>
         <View style={styles.modalMainView}>
           <Text style={styles.thanksMsgTxt}>{strings.THANKS_MSG}</Text>
           <Text style={styles.signupDoneTxt}>

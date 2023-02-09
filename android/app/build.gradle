@@ -187,6 +187,7 @@ android {
 
     // applicationVariants are e.g. debug, release
     applicationVariants.all { variant ->
+    
         variant.outputs.each { output ->
             // For each separate APK per architecture, set a unique version code as described here:
             // https://developer.android.com/studio/build/configure-apk-splits.html
@@ -203,16 +204,17 @@ android {
      flavorDimensions "appType"
  
     productFlavors{
-        royodispatcher {
+               zest{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.codebrew.royodispatcher'
-            resValue "string", "app_name", "RoyoDriverApp"
-        } 
+
+            applicationId  "com.Zest.royodispatcher"
+            resValue "string", "app_name", "Zest Dispatch"
+        }
     }
 //     productFlavors {
 //         royodispatcher {

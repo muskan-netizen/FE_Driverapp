@@ -2,7 +2,7 @@
 //export const API_BASE_URL = 'https://805c-103-72-170-243.ngrok.io/';
 
 // export const API_BASE_URL = 'https://dispatch.sta.ug/';
-
+// export const API_BASE_URL='http://192.168.102.169:8000/'
 // export const API_BASE_URL = 'https://dispatch.10dollahollla.com/';
 // export const API_BASE_URL='https://dispatch.movingwheelsdeliveryservices.com/'
 // export const API_BASE_URL='https://dispatch.kaypee.app/'
@@ -11,7 +11,7 @@
 // export const API_BASE_URL='http://192.168.101.140:9091/'
 // export const API_BASE_URL='https://dispatch.usemeow.com/'
 // //Staging
-// export const API_BASE_URL='https://dispatch.uber-weeds.com/'
+export const API_BASE_URL='https://dispatch.uber-weeds.com/'
 // export const API_BASE_URL='https://dispatch.vduonline.co.in/'
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL='https://dispatch.nittosadai.com/'
@@ -280,7 +280,7 @@
 // export const API_BASE_URL = 'https://dispatch.doorstep.sd/';
 // export const API_BASE_URL = 'https://dispatch.ubercann.com/';
 // export const API_BASE_URL = 'https://sales.winhires.com/';
-export const API_BASE_URL = 'https://api.winhires.com/';
+// export const API_BASE_URL = 'https://api.winhires.com/';
 
 //Bezaliohub
 // export const API_BASE_URL = 'https://dispatch.bezaliohub.com/'
