@@ -1,34 +1,41 @@
 {
   "project_info": {
-    "project_number": "746689667384",
-    "project_id": "udkay-driver",
-    "storage_bucket": "udkay-driver.appspot.com"
+    "project_number": "910150712531",
+    "project_id": "udkay-driver-69894",
+    "storage_bucket": "udkay-driver-69894.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:746689667384:android:72f5c9e6e42d71431661cd",
+        "mobilesdk_app_id": "1:910150712531:android:4e6af67e904940b34fe826",
         "android_client_info": {
-          "package_name": "com.udkay.royodispatcher"
+          "package_name": "com.udkaydispatcher"
         }
       },
       "oauth_client": [
         {
-          "client_id": "746689667384-hfuhv11knr6sft7mlubp20girgd83rk6.apps.googleusercontent.com",
+          "client_id": "910150712531-3eotef8diu06pslbdm5jbe0eee23msge.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB-xt6cNz0jtkdpVtQfA5jUIz0BkdyRN08"
+          "current_key": "AIzaSyDM3pJUlI6em1MuCQNde4smXfkxeA01L3Y"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "746689667384-hfuhv11knr6sft7mlubp20girgd83rk6.apps.googleusercontent.com",
+              "client_id": "910150712531-3eotef8diu06pslbdm5jbe0eee23msge.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "910150712531-q4mcrbr4gs82nuc3tea8u80fhovs7qqb.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.udkaydispatcher"
+              }
             }
           ]
         }

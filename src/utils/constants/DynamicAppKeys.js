@@ -261,7 +261,6 @@ const shortCodes = {
   orbitGroup: '5f0ef9',
   cartnar: '550805',
   uven: 'ac954e',
-  // pAS41: '989565',
   pAS41: '434c5e',
   snabbhem: '01b449',
   waterTaxi: '217ec5',
@@ -479,7 +478,11 @@ const shortCodes = {
   whatChaGotPckUp:"644237",
   nannyAfrica:'bf57ac',
   gokart:'86a0ca',
-  hqi:'453367'
+  hqi:'453367',
+  nool:'5bd541',
+  weemoov:'f98830',
+  rally:'51ee69',
+  shipsmart:'a61d20'
 };
 
 const appIds = {
@@ -2295,8 +2298,8 @@ const appIds = {
     android: 'com.wizsonic.royodispatcher',
   }),
   udkay: Platform.select({
-    ios: 'com.udkay.royodispatcher',
-    android: 'com.udkay.royodispatcher',
+    ios: 'com.udkaydispatcher',
+    android: 'com.udkaydispatcher',
   }),
   hattaFoodHub: Platform.select({
     ios: 'com.hattaFoodHub.royodispatcher',
@@ -2379,6 +2382,22 @@ const appIds = {
   hqi: Platform.select({
     ios: 'com.hqi.royodispatcher',
     android: 'com.hqi.royodispatcher',
+  }),
+  nool: Platform.select({
+    ios: 'com.nool.royodispatcher',
+    android: 'com.nool.royodispatcher',
+  }),
+  weemoov: Platform.select({
+    ios: 'com.weemoov.royodispatcher',
+    android: 'com.weemoov.royodispatcher',
+  }),
+  rally: Platform.select({
+    ios: 'com.rally.royodispatcher',
+    android: 'com.rally.royodispatcher',
+  }),
+  shipsmart: Platform.select({
+    ios: 'com.shipsmart.royodispatcher',
+    android: 'com.shipsmart.royodispatcher',
   }),
 };
 

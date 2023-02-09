@@ -2969,6 +2969,30 @@ export default function ShortCode({ route, navigation }) {
                           isShortcodePrefilled: true,
                         });
                         break;
+                        case appIds.nool:
+                          updateState({
+                            shortCode: shortCodes.nool,
+                            isShortcodePrefilled: true,
+                          });
+                          break;
+                          case appIds.weemoov:
+                          updateState({
+                            shortCode: shortCodes.weemoov,
+                            isShortcodePrefilled: true,
+                          });
+                          break;
+                          case appIds.rally:
+                            updateState({
+                              shortCode: shortCodes.rally,
+                              isShortcodePrefilled: true,
+                            });
+                            break;
+                            case appIds.shipsmart:
+                              updateState({
+                                shortCode: shortCodes.shipsmart,
+                                isShortcodePrefilled: true,
+                              });
+                              break;
                       
       }
     })();
