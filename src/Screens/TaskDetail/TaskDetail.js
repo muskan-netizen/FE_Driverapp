@@ -1157,21 +1157,24 @@ export default function TaskDetail({ route, navigation }) {
               imagevalue={imagePath?.navigate}
               imageStyle={{ marginHorizontal: moderateScale(2) }}
             />
+            {false &&
             <ButtonComponent
-              buttonStyle={{
-                flexDirection: "row",
-                justifyContent: "center",
-                alignItems: "center",
-                padding: moderateScale(10),
-                borderRadius: moderateScale(5),
-                marginTop: moderateScale(20),
-                backgroundColor:colors.green
-              }}
-              onPress={_onDriverTracking}
-              buttonTitle={' IN APP MAP'}
-              imagevalue={imagePath?.navigate}
-              imageStyle={{ marginHorizontal: moderateScale(2) }}
-            />
+            buttonStyle={{
+              flexDirection: "row",
+              justifyContent: "center",
+              alignItems: "center",
+              padding: moderateScale(10),
+              borderRadius: moderateScale(5),
+              marginTop: moderateScale(20),
+              backgroundColor:colors.green
+            }}
+            onPress={_onDriverTracking}
+            buttonTitle={' IN APP MAP'}
+            imagevalue={imagePath?.navigate}
+            imageStyle={{ marginHorizontal: moderateScale(2) }}
+          />
+            }
+            
           </View>
           {checkCallBackUrlForShowOrderDeatils() && (
             <View style={{ marginVertical: moderateScale(10) }}>
