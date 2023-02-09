@@ -2885,6 +2885,12 @@ export default function ShortCode({ route, navigation }) {
             isShortcodePrefilled: true,
           });
           break;
+          case appIds.gokart:
+            updateState({
+              shortCode: shortCodes.gokart,
+              isShortcodePrefilled: true,
+            });
+            break;
       }
     })();
   }, [internetConnection]);
@@ -2906,6 +2912,7 @@ export default function ShortCode({ route, navigation }) {
   useEffect(() => {
     if (shortCode && isShortcodePrefilled) {
       checkScreen();
+      
     }
   }, [shortCode, isShortcodePrefilled, internetConnection]);
 
@@ -2956,7 +2963,7 @@ export default function ShortCode({ route, navigation }) {
       }
 
       let updatedShortCode = shortCode;
-      //  let updatedShortCode = '1fdd1d';
+      // let updatedShortCode = '745e3f';
 
       actions
         .initApp({ shortCode: updatedShortCode }, header)

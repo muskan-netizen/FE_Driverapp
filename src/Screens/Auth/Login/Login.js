@@ -40,8 +40,9 @@ import {showError, showSuccess} from '../../../utils/helperFunctions';
 import {
   chekLocationPermission,
   locationPermission,
-} from '../../../utils/permissions';
-import {openAppSetting} from '../../../utils/openNativeApp';
+} from "../../../utils/permissions";
+import { openAppSetting } from "../../../utils/openNativeApp";
+
 
 import validator from '../../../utils/validations';
 import stylesFunc from './styles';
@@ -83,6 +84,7 @@ export default function Login({navigation, route}) {
     phoneNumber: '',
     appHashKey: '',
     locationPermissionStatus: false,
+   
   });
   //all states used in this screen
   const {
@@ -92,6 +94,7 @@ export default function Login({navigation, route}) {
     isLoading,
     appHashKey,
     locationPermissionStatus,
+  
   } = state;
 
   const checkLocationPermission = () => {
@@ -119,28 +122,29 @@ export default function Login({navigation, route}) {
               text: 'OK',
               onPress: () => {
                 if (error != 'blocked' || error == 'denied') {
-                  if (Number(Platform.constants.Release) > Number(10)) {
+                  if(Number(Platform.constants.Release) >Number(10)){
                     openAppSetting('LOCATION_SERVICES');
-                  } else {
+                  }else{
                     chekLocationPermission()
-                      .then(res => {
-                        console.log(res, 'resresresresresres');
-                        if (res == 'granted') {
-                          updateState({
-                            locationPermissionStatus: true,
-                          });
-                        } else {
-                          openAppSetting('LOCATION_SERVICES');
-                          console.log(error, 'errororor for location>>>>');
-                        }
-                      })
-                      .catch(error => {
+                    .then(res => {
+                      console.log(res, 'resresresresresres');
+                      if (res == 'granted') {
                         updateState({
-                          locationPermissionStatus: false,
+                          locationPermissionStatus: true,
                         });
-                        console.log(error, 'errororor for location');
+                      } else {
+                        openAppSetting('LOCATION_SERVICES');
+                        console.log(error, 'errororor for location>>>>');
+                      }
+                    })
+                    .catch(error => {
+                      updateState({
+                        locationPermissionStatus: false,
                       });
+                      console.log(error, 'errororor for location');
+                    });
                   }
+                  
                 } else {
                   openAppSetting('LOCATION_SERVICES');
                   console.log(error, 'errororor for location++++');
@@ -202,16 +206,18 @@ export default function Login({navigation, route}) {
     updateState({
       callingCode:
         !isEmpty(getPhonesCallingCodeAndCountryData) &&
-        getBundleId() !== appIds.SXM2GO
+        ( getBundleId() !== appIds.SXM2GO && getBundleId() !== appIds.speedyDelivery)
           ? getPhonesCallingCodeAndCountryData[0].countryCodes[0]
-          : !!clientInfo?.get_country_set?.phonecode
+          :  !isEmpty(getPhonesCallingCodeAndCountryData) &&
+          ( getBundleId() == appIds.speedyDelivery)? '1':!!clientInfo?.get_country_set?.phonecode
           ? clientInfo?.get_country_set?.phonecode
           : '91',
       cca2:
         !isEmpty(getPhonesCallingCodeAndCountryData) &&
-        getBundleId() !== appIds.SXM2GO
+       ( getBundleId() !== appIds.SXM2GO && getBundleId() !== appIds.speedyDelivery)
           ? getPhonesCallingCodeAndCountryData[0].isoCode2
-          : !!clientInfo?.get_country_set?.code
+          :  !isEmpty(getPhonesCallingCodeAndCountryData) &&
+          ( getBundleId() == appIds.speedyDelivery)? 'DO':!!clientInfo?.get_country_set?.code
           ? clientInfo?.get_country_set?.code
           : 'IN',
     });
@@ -268,8 +274,11 @@ export default function Login({navigation, route}) {
   const _onCountryChange = data => {
     updateState({cca2: data.cca2, callingCode: data.callingCode[0]});
     return;
-  };
 
+
+  };
+  
+ 
   const _signUp = () => {
     navigation.navigate(navigationStrings.SIGN_UP);
   };
@@ -302,10 +311,8 @@ export default function Login({navigation, route}) {
         }}>
         <View style={styles.imageStyle}>
           <ScaledImage
-            width={
-              getBundleId() == appIds.lOPHT ? Number(width) : Number(width) / 2
-            }
-            height={Number(width) / 2}
+            width={getBundleId() == appIds.lOPHT ? width : width / 2}
+            height={width / 2}
             source={
               clientInfo && (clientInfo?.logo || clientInfo?.dark_logo)
                 ? {uri: isDarkMode ? clientInfo?.dark_logo : clientInfo?.logo}
@@ -342,7 +349,7 @@ export default function Login({navigation, route}) {
                 color={colors.black}
                 borderColor={colors.themeColor}
                 callingCodeTextStyle={styles.callingCodeTextStyle}
-                // color={isDarkMode ? MyDarkTheme.colors.text : null}
+              // color={isDarkMode ? MyDarkTheme.colors.text : null}
               />
             </View>
             <GradientButton
@@ -388,6 +395,8 @@ export default function Login({navigation, route}) {
           </View>
         </KeyboardAwareScrollView>
       </View>
+     
+
     </WrapperContainer>
   );
 }

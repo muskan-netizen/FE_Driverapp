@@ -49,10 +49,7 @@ export const androidCameraPermission = () =>
 
 //   return Promise.resolve('granted');
 // };
-console.log(
-  Platform.constants.Release,
-  'Platform.constants.ReleasePlatform.constants.Release',
-);
+console.log(Platform.constants.Release, 'Platform.constants.ReleasePlatform.constants.Release')
 export const locationPermission = () =>
   new Promise(async (resolve, reject) => {
     if (Platform.OS === 'ios') {
@@ -67,11 +64,15 @@ export const locationPermission = () =>
       } catch (error) {
         return reject(error);
       }
-    } else {
+    }
+    else {
+     
+
+
       if (Number(Platform.constants.Release) <= Number(9)) {
         return PermissionsAndroid.request(
           PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION &&
-            PERMISSIONS.ANDROID.ACCESS_COARSE_LOCATION,
+          PERMISSIONS.ANDROID.ACCESS_COARSE_LOCATION
         )
           .then(granted => {
             if (granted === PermissionsAndroid.RESULTS.GRANTED) {
@@ -88,23 +89,24 @@ export const locationPermission = () =>
             console.log('Ask Location permission error: ', error);
             return reject(error);
           });
-      } else if (Number(Platform.constants.Release) >= Number(10)) {
+      } else if(Number(Platform.constants.Release) >=Number(10)) {
         return PermissionsAndroid.request(
           PermissionsAndroid.PERMISSIONS.ACCESS_BACKGROUND_LOCATION,
           {
             title: 'Permission Requires',
-            message:
-              'collects location data in background and foreground mode to track the order delivery location and estimate delivery time for the end customer',
+            message: 'collects location data in background and foreground mode to track the order delivery location and estimate delivery time for the end customer',
             buttonPositive: 'Ok',
             buttonNegative: 'Cancel',
-          }[
-            ({
-              text: 'Cancel',
-              onPress: () => console.log('Cancel Pressed'),
-              style: 'cancel',
+            
+          }
+          [
+            {
+              text: "Cancel",
+              onPress: () => console.log("Cancel Pressed"),
+              style: "cancel"
             },
-            {text: 'OK', onPress: () => console.log('OK Pressed')})
-          ],
+            { text: "OK", onPress: () => console.log("OK Pressed") }
+          ]
         )
           .then(granted => {
             if (granted === PermissionsAndroid.RESULTS.GRANTED) {
@@ -122,6 +124,8 @@ export const locationPermission = () =>
             return reject(error);
           });
       }
+
+
     }
   });
 
@@ -132,9 +136,9 @@ export const chekLocationPermission = () =>
         Platform.OS === 'ios'
           ? PERMISSIONS.IOS.LOCATION_WHEN_IN_USE
           : Platform.constants.Release <= String(9)
-          ? PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION &&
+            ? PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION &&
             PERMISSIONS.ANDROID.ACCESS_COARSE_LOCATION
-          : PERMISSIONS.ANDROID.ACCESS_BACKGROUND_LOCATION,
+            : PERMISSIONS.ANDROID.ACCESS_BACKGROUND_LOCATION,
       )
         .then(result => {
           switch (result) {
