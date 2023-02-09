@@ -368,7 +368,7 @@
 // hairstonexpressgo
 //export const API_BASE_URL = 'https://dispatch.hairstonexpressgo.com/';
 
-//export const API_BASE_URL = 'http://192.168.96.20:8010/';
+//export const API_BASE_URL = 'http://192.168.101.104:9091/';
 // export const API_BASE_URL = 'http://192.168.103.73:8005';
 // export const API_BASE_URL = 'https://api.williamherrick.com/';
 // export const API_BASE_URL = 'http://192.168.99.101:8005/';
@@ -477,6 +477,13 @@
 
 //Tdc app
 //  export const API_BASE_URL = 'https://dispatch.coop-move.net/';
+<<<<<<< HEAD
+=======
+
+ //
+ //export const API_BASE_URL = 'http://192.168.101.104:9091/';
+
+>>>>>>> 9ccc1e2b2599936398ff77a8208b0090589f512c
 
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;
 
