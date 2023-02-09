@@ -477,13 +477,6 @@
 
 //Tdc app
 //  export const API_BASE_URL = 'https://dispatch.coop-move.net/';
-<<<<<<< HEAD
-=======
-
- //
- //export const API_BASE_URL = 'http://192.168.101.104:9091/';
-
->>>>>>> 9ccc1e2b2599936398ff77a8208b0090589f512c
 
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;
 
