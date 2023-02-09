@@ -1,6 +1,6 @@
-import React, {Fragment, useEffect, useState} from 'react';
-import {Alert, ScrollView} from 'react-native';
-import {Text, TouchableOpacity, View, Image, Switch} from 'react-native';
+import React, { Fragment, useEffect, useState } from "react";
+import { Alert, ScrollView } from "react-native";
+import { Text, TouchableOpacity, View, Image, Switch } from "react-native";
 // import Animated from 'react-native-reanimated';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useSelector} from 'react-redux';
@@ -16,39 +16,46 @@ import {
   moderateScaleVertical,
   textScale,
   width,
-} from '../styles/responsiveSize';
-import {showError, showSuccess} from '../utils/helperFunctions';
-import Loader from './Loader';
-import {useFocusEffect} from '@react-navigation/native';
-import {cloneDeep} from 'lodash';
-import ScaledImage from 'react-native-scalable-image';
-import DeviceInfo, {getBundleId} from 'react-native-device-info';
-import ZendeskChat from '../library/react-native-zendesk-chat';
-import {appIds} from '../utils/constants/DynamicAppKeys';
-import {Subscriptions} from '../Screens';
-import BackgroundGeolocation from '@darron1217/react-native-background-geolocation';
-import {useDarkMode} from 'react-native-dark-mode';
-import {getItem} from '../utils/utils';
-import {string} from 'is_js';
-import {saveCabPoolingStatus} from '../redux/actions/init';
+} from "../styles/responsiveSize";
+import { showError, showSuccess } from "../utils/helperFunctions";
+import Loader from "./Loader";
+import { useFocusEffect } from "@react-navigation/native";
+import { cloneDeep } from "lodash";
+import ScaledImage from "react-native-scalable-image";
+import DeviceInfo, { getBundleId } from "react-native-device-info";
+import ZendeskChat from "../library/react-native-zendesk-chat";
+import { appIds } from "../utils/constants/DynamicAppKeys";
+import { Subscriptions } from "../Screens";
+import BackgroundGeolocation from "@darron1217/react-native-background-geolocation";
+import { useDarkMode } from "react-native-dark-mode";
+import { getItem } from "../utils/utils";
+import { string } from "is_js";
+import { saveCabPoolingStatus } from "../redux/actions/init";
+import {UIActivityIndicator} from 'react-native-indicators';
 
-export default function CustomDrawerContent({
+function CustomDrawerContent({
   state,
   descriptors,
   navigation,
   progress,
   ...props
 }) {
-  const {zendeskKeys, clientInfo, defaultLanguage, isCabPooling} = useSelector(
-    state => state?.initBoot,
+  const { zendeskKeys, clientInfo, defaultLanguage } = useSelector(
+    (state) => state?.initBoot
   );
-  const {userData} = useSelector(state => state?.auth);
+
+  const { isCabPooling, initialValue } = useSelector((state) => state?.auth);
+  const { themeColors } = useSelector((state) => state?.initBoot);
+
+  console.log("initialValueinitialValueinitialValue", initialValue);
+
+  const { userData } = useSelector((state) => state?.auth);
 
   const darkthemeusingDevice = useDarkMode();
 
-  console.log(isCabPooling, 'isCabPooling');
-
   const isDarkMode = themeToggle ? darkthemeusingDevice : themeColor;
+  const [poolingState, setPoolingState] = useState(isCabPooling);
+
   const [states, setState] = useState({
     routes: [
       {
@@ -145,6 +152,7 @@ export default function CustomDrawerContent({
     logoutAlert: false,
     selectedDrawerItem: null,
     isLoading: false,
+    isLoadingB: false,
   });
   const {
     routes,
@@ -153,6 +161,7 @@ export default function CustomDrawerContent({
     isLoading,
     themeToggle,
     themeColor,
+    isLoadingB,
   } = states;
 
   // ZendeskChat.init(
@@ -304,7 +313,7 @@ export default function CustomDrawerContent({
 
   //Naviagtion to specific screen
   const moveToNewScreen = (screenName, data) => () => {
-    navigation.navigate(screenName, {data});
+    navigation.navigate(screenName, { data });
   };
 
   //Update states
@@ -331,7 +340,7 @@ export default function CustomDrawerContent({
   };
 
   const logout = () => {
-    updateState({isLoading: true});
+    updateState({ isLoading: true });
     actions
       .logout({}, {client: clientInfo?.database_name})
       .then(res => {
@@ -362,27 +371,40 @@ export default function CustomDrawerContent({
     });
   };
 
-  const toggleSwitch = status => {
-    saveCabPoolingStatus(status);
-  };
+  const toggleSwitch = (status) => {
 
-  useEffect(() => {
-    const data = {
-      is_pooling_available: isCabPooling,
-    };
+    updateState({
+      isLoadingB:true
+    })
 
+
+    const data = {};
+    data["is_pooling_available"] = status;
     const header = {
       client: clientInfo?.database_name,
     };
+
     actions
       .updateCabPoolingStatus(data, header)
-      .then(res => {
-        console.log(res, 'resres-----');
+
+      .then((res) => {
+        updateState({
+          isLoadingB:false
+        })
+        if (res?.data?.is_pooling_available) {
+          setPoolingState(true);
+        } else {
+          setPoolingState(false);
+        }
       })
-      .catch(error => {
-        console.log(error, 'errororro');
+      .catch((error) => {
+        console.log(error, "errororro");
+        setPoolingState(false);
+        updateState({
+          isLoadingB:false
+        })
       });
-  }, [isCabPooling]);
+  };
 
   return (
     <>
@@ -392,21 +414,27 @@ export default function CustomDrawerContent({
             // height: height,
             marginTop: moderateScale(10),
           }}
-          colors={[colors.white, colors.white]}>
+          colors={[colors.white, colors.white]}
+        >
           {/* client logo */}
           <View
             style={{
               // height: height / 3,
-              justifyContent: 'center',
-              alignItems: 'center',
+              justifyContent: "center",
+              alignItems: "center",
               marginBottom: moderateScale(30),
               // backgroundColor:'red'
-            }}>
+            }}
+          >
             <ScaledImage
               width={width / 2}
               source={
                 clientInfo && (clientInfo?.logo || clientInfo?.dark_logo)
-                  ? {uri: isDarkMode ? clientInfo?.dark_logo : clientInfo?.logo}
+                  ? {
+                      uri: isDarkMode
+                        ? clientInfo?.dark_logo
+                        : clientInfo?.logo,
+                    }
                   : imagePath.logo
               }
             />
@@ -415,10 +443,11 @@ export default function CustomDrawerContent({
             <View
               style={{
                 marginHorizontal: moderateScale(10),
-                flexDirection: 'row',
-                justifyContent: 'space-around',
+                flexDirection: "row",
+                justifyContent: "space-around",
                 marginBottom: moderateScaleVertical(15),
-              }}>
+              }}
+            >
               <Text
                 style={{
                   // paddingLeft: moderateScale(5),
@@ -427,15 +456,30 @@ export default function CustomDrawerContent({
                   fontFamily: fontFamily?.regular,
                   ...props.labelStyle,
                   color: colors.black,
-                }}>
+                }}
+              >
                 {strings.AVAILABLEFORPOOLING}
               </Text>
-              <Switch
-                trackColor={{false: colors.backGround, true: colors.themeColor}}
-                thumbColor={colors.white}
-                onValueChange={status => toggleSwitch(status)}
-                value={isCabPooling}
-              />
+              {isLoadingB ? (
+              <View>
+                  <UIActivityIndicator
+                  color={colors.themeColor}
+                  size={24}
+                  style={{marginLeft:moderateScale(20)}}
+                />
+              </View>
+              ) : (
+                <Switch
+                  // disabled={poolingState}
+                  trackColor={{
+                    false: colors.backGround,
+                    true: colors.themeColor,
+                  }}
+                  thumbColor={colors.white}
+                  onValueChange={(status) => toggleSwitch(status)}
+                  value={poolingState}
+                />
+              )}
             </View>
           ) : null}
           {routes.map((route, index) => {
@@ -463,25 +507,26 @@ export default function CustomDrawerContent({
                 <TouchableOpacity
                   key={index}
                   accessibilityRole="button"
-                  accessibilityStates={isFocused ? ['selected'] : []}
+                  accessibilityStates={isFocused ? ["selected"] : []}
                   testID={JSON.stringify(route?.id)}
                   onPress={onPress}
                   // onLongPress={onLongPress}
                   style={{
                     margin: moderateScale(8),
                     // alignItems: 'center',
-                    flexDirection: 'row',
-                    alignItems: 'center',
+                    flexDirection: "row",
+                    alignItems: "center",
 
-                    justifyContent: 'center',
-                  }}>
+                    justifyContent: "center",
+                  }}
+                >
                   {/* {options.drawerIcon({focused: isFocused})} */}
 
-                  <View style={{flex: 0.15}}>
+                  <View style={{ flex: 0.15 }}>
                     <Image source={route?.image} />
                   </View>
 
-                  <View style={{flex: 0.85}}>
+                  <View style={{ flex: 0.85 }}>
                     <Text
                       style={{
                         // paddingLeft: moderateScale(5),
@@ -490,7 +535,8 @@ export default function CustomDrawerContent({
                         fontFamily: fontFamily?.regular,
                         ...props.labelStyle,
                         color: colors.black,
-                      }}>
+                      }}
+                    >
                       {label}
                     </Text>
                   </View>
@@ -523,3 +569,5 @@ export default function CustomDrawerContent({
     </>
   );
 }
+
+export default React.memo(CustomDrawerContent);

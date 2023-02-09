@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "284563304888",
+    "project_id": "zyno-driver",
+    "storage_bucket": "zyno-driver.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:284563304888:android:6290ffd3ad6350f1e75f4d",
+        "android_client_info": {
+          "package_name": "com.zyno.royodispatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "284563304888-c90pqutj57bh5m9sfk51t1v56g1ce8bc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSdCj240_IB5X1f20R4t4FdD5wADrE9zg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "284563304888-c90pqutj57bh5m9sfk51t1v56g1ce8bc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "284563304888-dub0ddv675b1heq3sdjddsesot5d0i0k.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.zyno.royodispatcher"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "980580827700",
+    "project_id": "earnapp-driver",
+    "storage_bucket": "earnapp-driver.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:980580827700:android:5149aabb7050805e678061",
+        "android_client_info": {
+          "package_name": "com.earnApp.royodisaptcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "980580827700-h4tdj74uoahqe3q7npv1ucpvbulluulb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3bblHlc0oKeeAdPduo6-HFSMTzZhsIso"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "980580827700-h4tdj74uoahqe3q7npv1ucpvbulluulb.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "980580827700-0645g4rof91isk34c4hbh29h9utbscgl.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.earnApp.royodisaptcher"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

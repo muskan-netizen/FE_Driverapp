@@ -172,8 +172,8 @@ export function randomString(len = 5) {
 
 
 export function saveCabPollingStatus(status){
-  status = JSON.stringify(status);
-return  AsyncStorage.setItem('cabPoolingStatus',status)
+ const poolingStatus = JSON.stringify(status);
+return  AsyncStorage.setItem('cabPoolingStatus',poolingStatus)
 }
 
 
