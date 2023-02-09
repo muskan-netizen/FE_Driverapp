@@ -5,12 +5,14 @@
 // export const API_BASE_URL = 'https://api.royodispatch.com/';
 // export const API_BASE_URL = 'https://dispatch.laundrozone.net/';
 // export const API_BASE_URL = 'https://sales.royodispatch.com/';
-// export const API_BASE_URL='http://192.168.101.140:9091/'
+// export const API_BASE_URL='http://192.168.100.122:8004/'
 
 // export const API_BASE_URL = 'https://dispatch.kaypee.app/';
 // export const API_BASE_URL = 'https://dispatch.jeevannapp.com/';
 //  export const API_BASE_URL='https://zuzucleans.royodispatch.com/'
 // export const API_BASE_URL='https://delivery.go912.app/'
+// export const API_BASE_URL='https://dispatch.heznitaxi.com/'
+// export const API_BASE_URL='https://dispatch.bendeta.biz/'
 // export const API_BASE_URL = 'https://dispatch.bendeta.biz/';
 // export const API_BASE_URL='https://despacho.speedy.com.do/'
 //export const API_BASE_URL   ='https://fcba-103-72-170-243.ngrok.io/'
@@ -65,7 +67,7 @@
 
 //export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
 // export const API_BASE_URL = 'http://192.168.97.160:9090/';
-export const API_BASE_URL = 'https://api.royodispatch.com/';
+// export const API_BASE_URL = 'https://api.royodispatch.com/';
 // export const API_BASE_URL='https://dispatch.shopcentral.shop/'
 //taquick
 //  export const API_BASE_URL = 'https://delivery.taquick.com/';

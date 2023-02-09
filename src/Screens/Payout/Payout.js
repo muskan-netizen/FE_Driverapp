@@ -1,8 +1,8 @@
-import BottomSheet, {BottomSheetScrollView} from '@gorhom/bottom-sheet';
-import {cloneDeep, isEmpty} from 'lodash';
-import {useFocusEffect} from '@react-navigation/native';
+import BottomSheet, { BottomSheetScrollView } from '@gorhom/bottom-sheet';
+import { cloneDeep, isEmpty } from 'lodash';
+import { useFocusEffect } from '@react-navigation/native';
 import moment from 'moment';
-import React, {useEffect, useMemo, useRef, useState, useCallback} from 'react';
+import React, { useEffect, useMemo, useRef, useState, useCallback } from 'react';
 import {
   FlatList,
   Image,
@@ -10,13 +10,14 @@ import {
   Text,
   TouchableOpacity,
   View,
+  KeyboardAvoidingView
 } from 'react-native';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import Modal from 'react-native-modal';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 import GradientButton from '../../Components/GradientButton';
 import Header from '../../Components/Header';
-import {loaderOne} from '../../Components/Loaders/AnimatedLoaderFiles';
+import { loaderOne } from '../../Components/Loaders/AnimatedLoaderFiles';
 import TextInputWithlabel from '../../Components/TextInputWithlabel';
 import WrapperContainer from '../../Components/WrapperContainer';
 import imagePath from '../../constants/imagePath';
@@ -31,16 +32,16 @@ import {
   moderateScaleVertical,
   textScale,
 } from '../../styles/responsiveSize';
-import {currencyNumberFormatter} from '../../utils/commonFunction';
-import {showError, showSuccess} from '../../utils/helperFunctions';
+import { currencyNumberFormatter } from '../../utils/commonFunction';
+import { showError, showSuccess } from '../../utils/helperFunctions';
 import {
   default as validations,
   default as validator,
 } from '../../utils/validations';
 import stylesFun from './styles';
-export default function AddMoney({navigation}) {
-  const {userData} = useSelector(state => state?.auth);
-  const {clientInfo} = useSelector(state => state?.initBoot);
+export default function AddMoney({ navigation }) {
+  const { userData } = useSelector(state => state?.auth);
+  const { clientInfo } = useSelector(state => state?.initBoot);
   console.log(clientInfo?.database_name, 'clientInfoclientInfo');
   const [state, setState] = useState({
     isPayoutModal: false,
@@ -99,13 +100,13 @@ export default function AddMoney({navigation}) {
     isLoadingB,
     razorPayConnectedOrNot,
   } = state;
-  const updateState = data => setState(state => ({...state, ...data}));
+  const updateState = data => setState(state => ({ ...state, ...data }));
 
   const bottomSheetRef = useRef(null);
   const snapPoints = useMemo(() => ['0%', '50%', '70%'], []);
   //Naviagtion to specific screen
   const moveToNewScreen = (screenName, data) => () => {
-    navigation.navigate(screenName, {data});
+    navigation.navigate(screenName, { data });
   };
   useFocusEffect(
     React.useCallback(() => {
@@ -257,7 +258,7 @@ export default function AddMoney({navigation}) {
     }
     console.log(data, 'selectedPayoutOption>>>DATA');
     console.log(selectedPayoutOption, 'selectedPayoutOption');
-    updateState({isRefreshing: true});
+    updateState({ isRefreshing: true });
 
     actions
       .agentPayoutCreate(`/${userData?.id}`, data, {
@@ -265,7 +266,7 @@ export default function AddMoney({navigation}) {
       })
       .then(res => {
         console.log(res, 'responseFromServer');
-        updateState({isPayoutModal: false, isRefreshing: false});
+        updateState({ isPayoutModal: false, isRefreshing: false });
         getBankDetails();
         getPayoutDetails();
         showSuccess(res?.message, 2000);
@@ -276,16 +277,16 @@ export default function AddMoney({navigation}) {
   };
 
   const errorMethod = error => {
-    updateState({isLoading: false, isRefreshing: false, isPayoutModal: false});
+    updateState({ isLoading: false, isRefreshing: false, isPayoutModal: false });
     setTimeout(() => {
       showError(error?.message || error?.error || error?.description, 2000);
     }, 500);
   };
 
-  const renderPayoutDetails = ({item, index}) => {
+  const renderPayoutDetails = ({ item, index }) => {
     return (
       <View style={styles.mainViewPayoutDetail}>
-        <View style={{flex: 0.2}}>
+        <View style={{ flex: 0.2 }}>
           <View
             style={[
               styles.circleView,
@@ -294,28 +295,28 @@ export default function AddMoney({navigation}) {
                   item?.status_id == '0'
                     ? colors.blueB
                     : item?.status_id == '1'
-                    ? colors.green
-                    : colors.redB,
+                      ? colors.green
+                      : colors.redB,
               },
             ]}>
             <Text style={styles.messageInitial}>
               {item?.status_id == '0'
                 ? 'P'
                 : item?.status_id == '1'
-                ? 'C'
-                : 'F'}
+                  ? 'C'
+                  : 'F'}
             </Text>
           </View>
         </View>
 
-        <View style={{flex: 0.6, justifyContent: 'center'}}>
+        <View style={{ flex: 0.6, justifyContent: 'center' }}>
           <Text style={styles.message}>
             {strings.PAYOUT_REQUEST}{' '}
             {item?.status_id == '0'
               ? strings.PENDING
               : item?.status_id == '1'
-              ? strings.CREATED
-              : strings.FAILD}
+                ? strings.CREATED
+                : strings.FAILD}
           </Text>
           <Text numberOfLines={1} style={styles.dateTime}>
             {moment(item?.created_at).format('lll')}
@@ -344,8 +345,8 @@ export default function AddMoney({navigation}) {
                 item?.status_id == '0'
                   ? colors.blueB
                   : item?.status_id == '1'
-                  ? colors.green
-                  : colors.redB,
+                    ? colors.green
+                    : colors.redB,
             }}>
             <Text
               style={[
@@ -362,7 +363,7 @@ export default function AddMoney({navigation}) {
     );
   };
   const handleRefresh = () => {
-    updateState({pageNo: 1, isRefreshing: true});
+    updateState({ pageNo: 1, isRefreshing: true });
   };
 
   const getBankForm = () => {
@@ -374,7 +375,7 @@ export default function AddMoney({navigation}) {
           mainStyle={{
             marginTop: moderateScale(10),
           }}
-          onChangeText={text => updateState({beneficiaryName: text})}
+          onChangeText={text => updateState({ beneficiaryName: text })}
           editable
         />
 
@@ -385,7 +386,7 @@ export default function AddMoney({navigation}) {
             marginTop: moderateScale(5),
           }}
           keyboardType="number-pad"
-          onChangeText={text => updateState({beneficiaryAcNum: text})}
+          onChangeText={text => updateState({ beneficiaryAcNum: text })}
           editable
         />
 
@@ -395,7 +396,7 @@ export default function AddMoney({navigation}) {
           mainStyle={{
             marginTop: moderateScale(5),
           }}
-          onChangeText={text => updateState({beneficiaryISFC: text})}
+          onChangeText={text => updateState({ beneficiaryISFC: text })}
           editable
         />
         <TextInputWithlabel
@@ -404,15 +405,15 @@ export default function AddMoney({navigation}) {
           mainStyle={{
             marginTop: moderateScale(5),
           }}
-          onChangeText={text => updateState({beneficiaryBankName: text})}
+          onChangeText={text => updateState({ beneficiaryBankName: text })}
           editable
         />
       </View>
     );
   };
 
-  const onEndReached = ({distanceFromEnd}) => {
-    updateState({pageNo: pageNo + 1});
+  const onEndReached = ({ distanceFromEnd }) => {
+    updateState({ pageNo: pageNo + 1 });
   };
 
   const _connectStipe = () => {
@@ -427,7 +428,7 @@ export default function AddMoney({navigation}) {
     } else {
       const data = {};
       data['aid'] = userData?.id;
-      updateState({isLoadingA: true});
+      updateState({ isLoadingA: true });
       actions
         ?.createContact(data, {
           client: clientInfo?.database_name,
@@ -466,11 +467,11 @@ export default function AddMoney({navigation}) {
               : strings?.RAZORPAYFUNDDETAIL
           }
           headerStyle={styles?.handleHeaderStyle}
-          leftIconStyle={{tintColor: colors.themeColor}}
+          leftIconStyle={{ tintColor: colors.themeColor }}
           onPressLeft={() => {
             connectWithBank
-              ? updateState({connectWithBank: false})
-              : updateState({razorPayConnect: false});
+              ? updateState({ connectWithBank: false })
+              : updateState({ razorPayConnect: false });
           }}
         />
       </View>
@@ -487,7 +488,7 @@ export default function AddMoney({navigation}) {
     data['ifsc'] = ifsc;
     data['acc_no'] = accountNumber;
     data['re_acc_no'] = reenterAccountNumber;
-    updateState({isLoadingB: true});
+    updateState({ isLoadingB: true });
     actions
       ?.createRazorpayFund(data, {
         client: clientInfo?.database_name,
@@ -523,9 +524,9 @@ export default function AddMoney({navigation}) {
           backgroundColor: colors.white,
           paddingHorizontal: moderateScale(10),
         }}
-        leftIconStyle={{tintColor: colors.themeColor}}
+        leftIconStyle={{ tintColor: colors.themeColor }}
         onPressLeft={() => {
-          updateState({pageNo: 1});
+          updateState({ pageNo: 1 });
           navigation.goBack();
         }}
       />
@@ -562,11 +563,11 @@ export default function AddMoney({navigation}) {
         {isEmpty(razorPayExistOrNot) ? null : (
           <View style={styles.mainViewStripe}>
             <TouchableOpacity
-              onPress={() => updateState({razorPayConnect: true})}
+              onPress={() => updateState({ razorPayConnect: true })}
               style={styles.stripeuttonLayout}>
               <Text style={styles.stipeText} numberOfLines={1}>
                 {payoutDetails?.agent?.razorpay_contact_json &&
-                payoutDetails?.agent?.razorpay_bank_json
+                  payoutDetails?.agent?.razorpay_bank_json
                   ? strings.RAZORPAYCONNECTED
                   : strings.CONNECTRAZORPAY}
               </Text>
@@ -576,7 +577,7 @@ export default function AddMoney({navigation}) {
         )}
       </View>
 
-      <View style={{flex: 1, marginHorizontal: moderateScale(15)}}>
+      <View style={{ flex: 1, marginHorizontal: moderateScale(15) }}>
         <View
           style={{
             marginVertical: moderateScale(10),
@@ -612,22 +613,23 @@ export default function AddMoney({navigation}) {
 
       <View style={styles.bottomButtonStyle}>
         <GradientButton
-          containerStyle={{marginTop: moderateScaleVertical(40)}}
-          onPress={() => updateState({isPayoutModal: true})}
-          textStyle={{color: colors.black}}
+          containerStyle={{ marginTop: moderateScaleVertical(40) }}
+          onPress={() => updateState({ isPayoutModal: true })}
+          textStyle={{ color: colors.black }}
           btnText={strings.PAYOUT}
           colorsArray={[colors.themeColor, colors.themeColor]}
         />
       </View>
 
       <Modal
+        avoidKeyboard
         isVisible={isPayoutModal}
         status
         style={{
           margin: 0,
-          justifyContent: Platform.OS === 'ios' ? 'center' : 'flex-end',
+          justifyContent: 'flex-end',
         }}
-        onBackdropPress={() => updateState({isPayoutModal: false})}>
+        onBackdropPress={() => updateState({ isPayoutModal: false })}>
         <View
           style={{
             backgroundColor: colors.white,
@@ -635,105 +637,100 @@ export default function AddMoney({navigation}) {
             paddingVertical: moderateScale(10),
             borderRadius: moderateScale(10),
             maxHeight: height - moderateScale(100),
-            paddingBottom:
-              Platform.OS === 'ios'
-                ? moderateScaleVertical(40)
-                : moderateScaleVertical(10),
+            // paddingBottom:
+            //   Platform.OS === 'ios'
+            //     ? moderateScaleVertical(40)
+            //     : moderateScaleVertical(10),
           }}>
-          <KeyboardAwareScrollView
-            keyboardShouldPersistTaps="handled"
-            showsVerticalScrollIndicator={false}
-            // extraScrollHeight="0"
-            // extraScrollHeight={Platform.OS == 'ios' ? '0' : '48'}
-          >
-            <Text
-              style={{
-                fontFamily: fontFamily.bold,
-                fontSize: textScale(18),
-              }}>
-              {strings.PAYOUT}
-            </Text>
+
+          <Text
+            style={{
+              fontFamily: fontFamily.bold,
+              fontSize: textScale(18),
+            }}>
+            {strings.PAYOUT}
+          </Text>
+          <TextInputWithlabel
+            label={strings.AMOUNT}
+            value={payoutAmount}
+            mainStyle={{
+              marginTop: moderateScale(10),
+            }}
+            keyboardType="number-pad"
+            onChangeText={text => updateState({ payoutAmount: text })}
+            editable
+          />
+
+          {!isLoading && !!payoutDetails?.available_funds ? (
             <TextInputWithlabel
-              label={strings.AMOUNT}
-              value={payoutAmount}
+              label={strings.AVAILABLE_FUNDS}
+              placeholder={Number(payoutDetails?.available_funds).toFixed(2)}
               mainStyle={{
-                marginTop: moderateScale(10),
+                marginTop: moderateScale(5),
               }}
-              keyboardType="number-pad"
-              onChangeText={text => updateState({payoutAmount: text})}
-              editable
             />
-
-            {!isLoading && !!payoutDetails?.available_funds ? (
-              <TextInputWithlabel
-                label={strings.AVAILABLE_FUNDS}
-                placeholder={Number(payoutDetails?.available_funds).toFixed(2)}
-                mainStyle={{
-                  marginTop: moderateScale(5),
-                }}
-              />
-            ) : (
-              <></>
-            )}
-            {!isLoading &&
-              !!payoutDetails.payout_options &&
-              payoutDetails.payout_options.map((item, index) => {
-                return (
-                  <TouchableOpacity
-                    key={index}
-                    onPress={() => updateState({selectedPayoutOption: item})}
-                    activeOpacity={0.8}
+          ) : (
+            <></>
+          )}
+          {!isLoading &&
+            !!payoutDetails.payout_options &&
+            payoutDetails.payout_options.map((item, index) => {
+              return (
+                <TouchableOpacity
+                  key={index}
+                  onPress={() => updateState({ selectedPayoutOption: item })}
+                  activeOpacity={0.8}
+                  style={{
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    marginTop: moderateScale(15),
+                  }}>
+                  <Image
+                    source={imagePath.icRadio}
                     style={{
-                      flexDirection: 'row',
-                      alignItems: 'center',
-                      marginTop: moderateScale(15),
+                      tintColor:
+                        selectedPayoutOption.id == item.id
+                          ? colors.blueB
+                          : colors.blackB,
+                    }}
+                  />
+                  <Text
+                    style={{
+                      fontFamily: fontFamily.regular,
+                      fontSize: textScale(13),
+                      marginLeft: moderateScale(10),
                     }}>
-                    <Image
-                      source={imagePath.icRadio}
-                      style={{
-                        tintColor:
-                          selectedPayoutOption.id == item.id
-                            ? colors.blueB
-                            : colors.blackB,
-                      }}
-                    />
-                    <Text
-                      style={{
-                        fontFamily: fontFamily.regular,
-                        fontSize: textScale(13),
-                        marginLeft: moderateScale(10),
-                      }}>
-                      {item.title}
-                    </Text>
-                  </TouchableOpacity>
-                );
-              })}
+                    {item.title}
+                  </Text>
+                </TouchableOpacity>
+              );
+            })}
 
-            {selectedPayoutOption.id == 4 ? getBankForm() : <></>}
+          {selectedPayoutOption.id == 4 ? getBankForm() : <></>}
 
-            <View
-              style={{
-                flexDirection: 'row',
-                width: '100%',
-                justifyContent: 'space-between',
-                marginTop: moderateScale(35),
-              }}>
-              <GradientButton
-                containerStyle={{width: '45%'}}
-                onPress={() => updateState({isPayoutModal: false})}
-                textStyle={{color: colors.black}}
-                btnText={strings.CANCEL}
-                colorsArray={[colors.themeColor, colors.themeColor]}
-              />
-              <GradientButton
-                containerStyle={{width: '45%'}}
-                onPress={_onContinuePayout}
-                textStyle={{color: colors.black}}
-                btnText={strings.CONTINUE}
-                colorsArray={[colors.themeColor, colors.themeColor]}
-              />
-            </View>
-          </KeyboardAwareScrollView>
+          <View
+            style={{
+              flexDirection: 'row',
+              width: '100%',
+              justifyContent: 'space-between',
+              marginTop: moderateScale(35),
+            }}>
+            <GradientButton
+              containerStyle={{ width: '45%' }}
+              onPress={() => updateState({ isPayoutModal: false })}
+              textStyle={{ color: colors.black }}
+              btnText={strings.CANCEL}
+              colorsArray={[colors.themeColor, colors.themeColor]}
+            />
+            <GradientButton
+              containerStyle={{ width: '45%' }}
+              onPress={_onContinuePayout}
+              textStyle={{ color: colors.black }}
+              btnText={strings.CONTINUE}
+              colorsArray={[colors.themeColor, colors.themeColor]}
+            />
+          </View>
+
         </View>
       </Modal>
 
@@ -758,11 +755,11 @@ export default function AddMoney({navigation}) {
             {!connectWithBank ? (
               <View>
                 <GradientButton
-                  containerStyle={{marginTop: moderateScaleVertical(30)}}
-                  textStyle={{color: colors.black}}
+                  containerStyle={{ marginTop: moderateScaleVertical(30) }}
+                  textStyle={{ color: colors.black }}
                   btnText={
                     createContactData ||
-                    payoutDetails?.agent?.razorpay_contact_json
+                      payoutDetails?.agent?.razorpay_contact_json
                       ? strings.CONTACTCREATED
                       : strings.CREATECONTACT
                   }
@@ -771,12 +768,12 @@ export default function AddMoney({navigation}) {
                   colorsArray={[colors.themeColor, colors.themeColor]}
                 />
                 <GradientButton
-                  containerStyle={{marginTop: moderateScaleVertical(30)}}
-                  textStyle={{color: colors.black}}
+                  containerStyle={{ marginTop: moderateScaleVertical(30) }}
+                  textStyle={{ color: colors.black }}
                   onPress={() =>
                     createContactData ||
-                    payoutDetails?.agent?.razorpay_contact_json
-                      ? updateState({connectWithBank: true})
+                      payoutDetails?.agent?.razorpay_contact_json
+                      ? updateState({ connectWithBank: true })
                       : alert(strings?.PLEASECREATECONTACT)
                   }
                   btnText={
@@ -789,23 +786,23 @@ export default function AddMoney({navigation}) {
               </View>
             ) : null}
             {connectWithBank ? (
-              <View style={{height: height}}>
+              <View style={{ height: height }}>
                 <TextInputWithlabel
                   editable={true}
                   label={strings?.NAME}
-                  labelStyle={{color: colors.black}}
-                  onChangeText={text => updateState({name: text})}
+                  labelStyle={{ color: colors.black }}
+                  onChangeText={text => updateState({ name: text })}
                 />
                 <TextInputWithlabel
                   editable={true}
                   label={strings?.IFSC}
-                  labelStyle={{color: colors.black}}
-                  onChangeText={text => updateState({ifsc: text})}
+                  labelStyle={{ color: colors.black }}
+                  onChangeText={text => updateState({ ifsc: text })}
                 />
                 <TextInputWithlabel
                   editable={true}
                   label={strings?.ACCOUNTNUMBER}
-                  labelStyle={{color: colors.black}}
+                  labelStyle={{ color: colors.black }}
                   value={accountNumber}
                   onChangeText={text =>
                     updateState({
@@ -817,7 +814,7 @@ export default function AddMoney({navigation}) {
                 <TextInputWithlabel
                   editable={true}
                   label={strings?.REENTERACCOUNTNUMBER}
-                  labelStyle={{color: colors.black}}
+                  labelStyle={{ color: colors.black }}
                   value={reenterAccountNumber}
                   onChangeText={text =>
                     updateState({
@@ -828,8 +825,8 @@ export default function AddMoney({navigation}) {
                 />
 
                 <GradientButton
-                  containerStyle={{marginTop: moderateScaleVertical(30)}}
-                  textStyle={{color: colors.black}}
+                  containerStyle={{ marginTop: moderateScaleVertical(30) }}
+                  textStyle={{ color: colors.black }}
                   onPress={_razorPayConnectSubmit}
                   indicator={isLoadingB}
                   btnText={strings.SUBMIT}

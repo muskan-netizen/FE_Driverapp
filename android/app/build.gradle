@@ -201,7 +201,6 @@ android {
     }
 
      flavorDimensions "appType"
-
     
     productFlavors {
         royodispatcher {
@@ -1716,15 +1715,6 @@ android {
              applicationId "com.ufood.royodispatcher"
             resValue "string", "app_name", "UFood Dispatch"
         }
-        ufood{
-            dimension "appType"
-            versionCode 2
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-             applicationId "com.ufood.royodispatcher"
-            resValue "string", "app_name", "UFood Dispatch"
-        }
         we_eat{
             dimension "appType"
             versionCode 2
@@ -1860,8 +1850,9 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.movingwheelsdelivery.driverapp'
+            applicationId 'com.MovingWheels.royodispatcher'
             resValue "string", "app_name", "Moving Wheels Delivery"
+           
         }
         safewalks{
             dimension "appType"
@@ -1974,13 +1965,13 @@ android {
         }
         bimol{
             dimension "appType"
-            versionCode 4
+            versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.bimol.driver'
-            resValue "string", "app_name", "Bimol Driver"
+            resValue "string", "app_name", "Bimol Dispatch"
            
         }
         tripTCI{
@@ -2547,7 +2538,15 @@ android {
             resValue "string", "app_name", "Yalary Dispatcher"
         }
          heyBuddy{
-
+            dimension "appType"
+            versionCode 2
+            versionName "1.1"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.HeyBuddy.royodispatcher'
+            resValue "string", "app_name", "Soy Buddy"
+        }
         petsChoice{
             dimension "appType"
             versionCode 1
@@ -3046,8 +3045,8 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.HandyPickup.driverapp'
-            resValue "string", "app_name", "HandyPickup Driver"
+            applicationId 'com.HandyPickup.royodispatcher'
+            resValue "string", "app_name", "HandyPickup Dispatcher"
         }
 
         orbitGroup{
@@ -3689,7 +3688,17 @@ android {
             resValue "string", "app_name", "Instaride driver"
            
         }
-
+        movingWheels{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.MovingWheels.royodispatcher'
+            resValue "string", "app_name", "Moving Wheels Delivery"
+           
+        }
         safewalks{
             dimension "appType"
             versionCode 1
@@ -5523,7 +5532,7 @@ android {
         }
          servern{
             dimension "appType"
-            versionCode 3
+            versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
@@ -5816,7 +5825,7 @@ android {
 
            laundroZone{
             dimension "appType"
-            versionCode 2
+            versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
@@ -5870,7 +5879,7 @@ android {
 
            mrVeloz{
             dimension "appType"
-            versionCode 2
+            versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
@@ -6048,7 +6057,7 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.kaypee.driverapp'
+            applicationId 'com.kaypee.royodispatcher'
             resValue "string", "app_name", "Kaypee Dispatcher"
         }
         hitaxi{
@@ -6744,16 +6753,6 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.otgWeeds.royodispatcher'
             resValue "string", "app_name", "Otg Weeds Dispatcher"
-        }
-     wetogether{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.weTogether.royodispatcher'
-            resValue "string", "app_name", "wetogether Dispatcher"
         }
 }
 }
