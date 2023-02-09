@@ -442,7 +442,7 @@ const shortCodes = {
   rentzy:'16ce83',
   bliss:'24a7bf',
   otgWeeds:'801707',
-
+  gokart:'86a0ca',
 };
 
 const appIds = {
@@ -2189,8 +2189,10 @@ const appIds = {
     ios: 'com.otgWeeds.royodispatcher',
     android: 'com.otgWeeds.royodispatcher',
   }),
-  
-  
+  gokart: Platform.select({
+    ios: 'com.gokart.royodispatcher',
+    android: 'com.gokart.royodispatcher',
+    }),
 };
 
 export {appIds, shortCodes};

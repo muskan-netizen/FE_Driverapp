@@ -54,9 +54,9 @@ export const API_BASE_URL='https://dispatch.uber-weeds.com/'
 // export const API_BASE_URL = 'https://dispatch.elog.group/';
 
 // export const API_BASE_URL = 'https://dispatch.knockknock.online/'
-//  export const API_BASE_URL = 'https://api.winhires.com/';
+ //export const API_BASE_URL = 'https://api.winhires.com/';
 //export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
-// export const API_BASE_URL = 'http://192.168.96.152:9091/';
+//export const API_BASE_URL = 'http://192.168.101.54:9091/';
 // export const API_BASE_URL = 'https://api.royodispatch.com/';
 // export const API_BASE_URL='https://dispatch.shophairrun.app/'
 //Staging
@@ -223,7 +223,7 @@ export const API_BASE_URL='https://dispatch.uber-weeds.com/'
 // export const API_BASE_URL = 'https://dispatch.order.veg-hub.com/';
 
 // orderfirst
-// export const API_BASE_URL = 'https://dispatch.orderfirst.store/';
+ //export const API_BASE_URL = 'https://dispatch.orderfirst.store/';
 
 //KongaFood
 // export const API_BASE_URL = 'https://food-dispatch.konga.com/';
@@ -375,7 +375,7 @@ export const API_BASE_URL='https://dispatch.uber-weeds.com/'
 // hairstonexpressgo
 //export const API_BASE_URL = 'https://dispatch.hairstonexpressgo.com/';
 
-//export const API_BASE_URL = 'http://192.168.96.20:8010/';
+//export const API_BASE_URL = 'http://192.168.101.104:9091/';
 // export const API_BASE_URL = 'http://192.168.103.73:8005';
 // export const API_BASE_URL = 'https://api.williamherrick.com/';
 // export const API_BASE_URL = 'http://192.168.99.101:8005/';
@@ -475,7 +475,7 @@ export const API_BASE_URL='https://dispatch.uber-weeds.com/'
 // export const API_BASE_URL = 'https://dispatch.quicklube.us/'
 
 // sxm2Go
-// export const API_BASE_URL = 'https://dispatch.sxm2go.com/';
+//  export const API_BASE_URL = 'https://dispatch.sxm2go.com/';
 
 // export const personaltoken = 'TMJdbQlNWkYl1JzMONzRgF4zQFuP8s';
 
@@ -563,8 +563,9 @@ export const GET_ALL_MESSAGES = '/api/chat';
 export const ALL_ROOM_USER = '/api/chat/getRoomUser';
 export const SEND_NOTIFCATION = getApiUrl('api/chat/sendNotification');
 export const CAB_POOLING_STATUS = getApiUrl('api/updateCabPoolingStatus');
-export const GET_CAB_POOLING_SUGGESTION = getApiUrl('api/agent/poolingTaskSuggession');
-
+export const GET_CAB_POOLING_SUGGESTION = getApiUrl(
+  'api/agent/poolingTaskSuggession',
+);
 
 //razorpay url end point'
 export const CREATERAZORPAYDETAIL = getApiUrl('api/create-razorpay-details');

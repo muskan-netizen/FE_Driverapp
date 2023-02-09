@@ -358,7 +358,7 @@ export default function Signup({ route, navigation }) {
   };
 
   const _onSignup = () => {
-    if (otpToShow.length !== 6) {
+    if (otpToShow?.length !== 6) {
       // showErrorOnModal(modalRef, strings.OTPNOTVALID);
       alert(strings.OTPNOTVALID);
       return;
@@ -372,9 +372,6 @@ export default function Signup({ route, navigation }) {
     formdata.append('name', fullName);
     formdata.append('phone_number', `+${callingCode}${phoneNumber}`);
     formdata.append('type', selectedEpmloyeetype?.typeName);
-    formdata.append('make_model', modelMake);
-    formdata.append('plate_number', vehiclePlateNumber);
-    formdata.append('color', vehicleColor);
     formdata.append('vehicle_type_id', selectedVehicleType?.id);
     formdata.append('team_id', !!selectedTeam ? selectedTeam?.id : '');
     formdata.append('tags', dummyTags ? dummyTags : '');
@@ -392,6 +389,14 @@ export default function Signup({ route, navigation }) {
       uri: userImage,
     });
 
+    if (!isEmpty(addtionalTextInputs)) {
+      addtionalTextInputs.map((i, inx) => {
+        console.log(i, 'addtionalTextInputsaddtionalTextInputs');
+        if (i?.contents != '' && !!i?.contents) {
+          formdata.append(`${i?.name}`, i?.contents);
+        }
+      });
+    }
     if (!isEmpty(additionalDateFields)) {
       additionalDateFields.map((i, inx) => {
         if (i?.contents != '' && !!i?.contents) {
@@ -444,7 +449,6 @@ export default function Signup({ route, navigation }) {
       });
     }
     console.log(formdata, 'formdaataaaaaa');
-   
     actions
       .signUp(formdata, {
         client: clientInfo?.database_name,
@@ -495,7 +499,7 @@ export default function Signup({ route, navigation }) {
       return;
     }
 
-    if (addtionalTextInputs.length) {
+    if (addtionalTextInputs?.length) {
       addtionalTextInputs.map((i, inx) => {
         if (!i?.contents && i?.is_required) {
           if (isRequired) {
@@ -507,7 +511,7 @@ export default function Signup({ route, navigation }) {
       });
     }
 
-    if (additionalDateFields.length) {
+    if (additionalDateFields?.length) {
       additionalDateFields.map((i, inx) => {
         if (!i?.contents && i?.is_required) {
           if (isRequired) {
@@ -521,7 +525,7 @@ export default function Signup({ route, navigation }) {
 
     let concatinatedArray = addtionalImages.concat(addtionalPdfs);
 
-    if (concatinatedArray.length) {
+    if (concatinatedArray?.length) {
       concatinatedArray.map((i, inx) => {
         if (!i?.value && i?.is_required) {
           if (isRequired) {
@@ -533,7 +537,7 @@ export default function Signup({ route, navigation }) {
       });
     }
 
-    if (concatinatedArray.length) {
+    if (concatinatedArray?.length) {
       concatinatedArray.map((i, inx) => {
         if (!i?.value && i?.is_required) {
           if (isRequired) {
@@ -1098,7 +1102,7 @@ export default function Signup({ route, navigation }) {
                     maxHeight: moderateScale(150),
                   }}>
                   <ScrollView>
-                    {driverTeams.length > 0 ? (
+                    {driverTeams?.length > 0 ? (
                       <View>
                         {driverTeams.map((itm, indx) => {
                           return (
@@ -1198,7 +1202,7 @@ export default function Signup({ route, navigation }) {
                         maxHeight: moderateScale(150),
                       }}>
                       <ScrollView>
-                        {customerType.length > 0 ? (
+                        {customerType?.length > 0 ? (
                           <View>
                             {customerType.map((itm, indx) => {
                               return (
@@ -1267,8 +1271,8 @@ export default function Signup({ route, navigation }) {
                   borderColor: colors.borderLight,
                 }}>
                 <View>
-                  {selectedTags.length > 0 && (
-                    <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
+                  {selectedTags?.length > 0 && (
+                    <View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
                       {selectedTags.map((item, index) => {
                         return (
                           <TouchableOpacity
@@ -1332,8 +1336,8 @@ export default function Signup({ route, navigation }) {
                     shadowOpacity: 0.1,
                     width: '100%',
                   }}>
-                  {driverTagsAry.length > 0 ? (
-                    <View style={{ flexWrap: 'wrap', flexDirection: 'row' }}>
+                  {driverTagsAry?.length > 0 ? (
+                    <View style={{flexWrap: 'wrap', flexDirection: 'row'}}>
                       {driverTagsAry.map((item, index) => {
                         return (
                           <TouchableOpacity
@@ -1426,33 +1430,7 @@ export default function Signup({ route, navigation }) {
             ) : null}
             {/* { getEmployeeViewBasedOnClient(savedShortCode)} */}
 
-            {/* <View style={{marginTop: moderateScaleVertical(10)}}>
-              <TextInputWithlabel
-                labelStyle={styles.textInputlabel}
-                editable={true}
-                label={strings.MODELMAKE}
-                value={modelMake}
-                onChangeText={text => updateState({modelMake: text})}
-              />
-
-              <TextInputWithlabel
-                labelStyle={styles.textInputlabel}
-                editable={true}
-                label={strings.COLOR}
-                value={vehicleColor}
-                onChangeText={text => updateState({vehicleColor: text})}
-              />
-
-              <TextInputWithlabel
-                labelStyle={styles.textInputlabel}
-                editable={true}
-                label={strings.PLATEORDER}
-                value={vehiclePlateNumber}
-                onChangeText={text => updateState({vehiclePlateNumber: text})}
-              />
-            </View> */}
-          
-            {!!(addtionalTextInputs && addtionalTextInputs.length) &&
+            {!!(addtionalTextInputs && addtionalTextInputs?.length) &&
               addtionalTextInputs.map((item, index) => {
               return getTextInputField(item, index);
               })}
@@ -1462,7 +1440,7 @@ export default function Signup({ route, navigation }) {
                 return getDateFields(item, index);
               })}
 
-            {!!(addtionalImages && addtionalImages.length) && (
+            {!!(addtionalImages && addtionalImages?.length) && (
               <View style={styles.viewStyleForUploadImage}>
                 {addtionalImages.map((item, index) => {
                   return getImageFieldView(item, index);
@@ -1470,7 +1448,7 @@ export default function Signup({ route, navigation }) {
               </View>
             )}
 
-            {!!(addtionalPdfs && addtionalPdfs.length) && (
+            {!!(addtionalPdfs && addtionalPdfs?.length) && (
               <View style={styles.viewStyleForUploadImage}>
                 {addtionalPdfs.map((item, index) => {
                   return getPdfView(item, index);

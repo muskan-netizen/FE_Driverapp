@@ -272,6 +272,7 @@ export default function AddMoney({navigation}) {
       })
       .catch(err => {
         console.log(err, 'err>>>');
+        alert(err.message);
       });
   };
 
@@ -559,6 +560,7 @@ export default function AddMoney({navigation}) {
             {/* payoutDetails.payout_options */}
           </View>
         )}
+        {console.log(razorPayExistOrNot)}
         {isEmpty(razorPayExistOrNot) ? null : (
           <View style={styles.mainViewStripe}>
             <TouchableOpacity
