@@ -145,7 +145,7 @@ const PoolingSuggestionCard = ({
             >
               <View style={{ flexDirection: "row" }}>
                 <Text style={{ fontFamily: fontFamily?.bold }}>
-                  Distance :{" "}
+                  Pick Location :{" "}
                 </Text>
                 <View
                   style={{

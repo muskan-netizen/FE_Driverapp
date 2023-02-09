@@ -14,6 +14,7 @@ import {
   ProductDetail,
   WebConnection,
   ChatScreen,
+  DriverTraking,
 } from '../Screens';
 import Cart from '../Screens/CustomerCart/Cart3';
 import OrderCancel from '../Screens/OrderCancel/OrderCancel';
@@ -105,6 +106,11 @@ export default function () {
       <Stack.Screen
         name={navigationStrings.CHAT_SCREEN}
         component={ChatScreen}
+        options={{headerShown: false}}
+      />
+        <Stack.Screen
+        name={navigationStrings.DRIVER_TRACING}
+        component={DriverTraking}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

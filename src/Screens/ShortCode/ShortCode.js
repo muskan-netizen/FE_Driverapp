@@ -2740,6 +2740,12 @@ export default function ShortCode({route, navigation}) {
             isShortcodePrefilled: true,
           });
           break;
+          case appIds.gokart:
+            updateState({
+              shortCode: shortCodes.gokart,
+              isShortcodePrefilled: true,
+            });
+            break;
       }
     })();
   }, [internetConnection]);
@@ -2761,6 +2767,7 @@ export default function ShortCode({route, navigation}) {
   useEffect(() => {
     if (shortCode && isShortcodePrefilled) {
       checkScreen();
+      
     }
   }, [shortCode, isShortcodePrefilled, internetConnection]);
 

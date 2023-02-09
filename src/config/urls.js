@@ -6,7 +6,7 @@
 // export const API_BASE_URL = 'https://sales.royodispatch.com/';
 // export const API_BASE_URL = 'http://192.168.103.164:9090/';
 // //Staging
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
+ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL='https://dispatch.nittosadai.com/'
 //  export const API_BASE_URL='https://zuzucleans.royodispatch.com/'
 // export const API_BASE_URL='https://delivery.go912.app/'
@@ -45,9 +45,9 @@
 // export const API_BASE_URL = 'https://dispatch.elog.group/';
 
 // export const API_BASE_URL = 'https://dispatch.knockknock.online/'
-//  export const API_BASE_URL = 'https://api.winhires.com/';
+ //export const API_BASE_URL = 'https://api.winhires.com/';
 //export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
-// export const API_BASE_URL = 'http://192.168.96.152:9091/';
+//export const API_BASE_URL = 'http://192.168.101.54:9091/';
 // export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
@@ -214,7 +214,7 @@
 // export const API_BASE_URL = 'https://dispatch.order.veg-hub.com/';
 
 // orderfirst
-// export const API_BASE_URL = 'https://dispatch.orderfirst.store/';
+ //export const API_BASE_URL = 'https://dispatch.orderfirst.store/';
 
 //KongaFood
 // export const API_BASE_URL = 'https://food-dispatch.konga.com/';
@@ -366,7 +366,7 @@
 // hairstonexpressgo
 //export const API_BASE_URL = 'https://dispatch.hairstonexpressgo.com/';
 
-//export const API_BASE_URL = 'http://192.168.96.20:8010/';
+//export const API_BASE_URL = 'http://192.168.101.104:9091/';
 // export const API_BASE_URL = 'http://192.168.103.73:8005';
 // export const API_BASE_URL = 'https://api.williamherrick.com/';
 // export const API_BASE_URL = 'http://192.168.99.101:8005/';
@@ -466,12 +466,16 @@
 // export const API_BASE_URL = 'https://dispatch.quicklube.us/'
 
 // sxm2Go
-// export const API_BASE_URL = 'https://dispatch.sxm2go.com/';
+//  export const API_BASE_URL = 'https://dispatch.sxm2go.com/';
 
 // export const personaltoken = 'TMJdbQlNWkYl1JzMONzRgF4zQFuP8s';
 
 // hiperabasto
 // export const API_BASE_URL = 'https://dispatch.hiperabasto.mx/';
+
+//Tdc app
+//  export const API_BASE_URL = 'https://dispatch.coop-move.net/';
+
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;
 
 export const SEND_OTP = getApiUrl('api/auth/login');

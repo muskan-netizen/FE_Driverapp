@@ -318,7 +318,7 @@ PODS:
   - React-jsinspector (0.65.3)
   - react-native-appearance (0.3.4):
     - React
-  - react-native-background-actions (2.6.7):
+  - react-native-background-actions (2.6.8):
     - React-Core
   - react-native-background-timer (2.4.1):
     - React-Core
@@ -847,7 +847,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: d7540b187f30f45281ece995f19dde143e3afff3
   React-jsinspector: 94bbad998be4efbdac7d6d152677bdd134c1c980
   react-native-appearance: 0f0e5fc2fcef70e03d48c8fe6b00b9158c2ba8aa
-  react-native-background-actions: 2c251c986f23347f9c1722f05fd296938f60edb1
+  react-native-background-actions: 6d0252f06aae114affbd75911bb9df36042ee862
   react-native-background-timer: 17ea5e06803401a379ebf1f20505b793ac44d0fe
   react-native-camera: 3eae183c1d111103963f3dd913b65d01aef8110f
   react-native-date-picker: 93e43b3084cea595b4d68b1405d6d99849663bd6
@@ -887,7 +887,11 @@ SPEC CHECKSUMS:
   RNCClipboard: 41d8d918092ae8e676f18adada19104fa3e68495
   RNCPushNotificationIOS: 87b8d16d3ede4532745e05b03c42cff33a36cc45
   RNDeviceInfo: aad3c663b25752a52bf8fce93f2354001dd185aa
+<<<<<<< HEAD
   RNFaceApi: b8166420173e93cb76ff97c9a0edeeae0891d4ea
+=======
+  RNFaceApi: 429d620c0f2e6f077ff085fb0ec0bcf5c0dee728
+>>>>>>> 6768b5e6e45411ae7959779c976ed780e15635da
   RNFastImage: 5c9c9fed9c076e521b3f509fe79e790418a544e8
   RNFBApp: 729c0666395b1953198dc4a1ec6deb8fbe1c302e
   RNFBMessaging: 8415ec196e5c1196caa26ec0742cdb48ed4d0f97
