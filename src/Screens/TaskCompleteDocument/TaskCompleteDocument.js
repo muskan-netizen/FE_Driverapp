@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from 'react';
-import {Platform} from 'react-native';
-import {Keyboard} from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { Platform } from 'react-native';
+import { Keyboard } from 'react-native';
 import {
   Dimensions,
   Image,
@@ -11,10 +11,10 @@ import {
   Alert,
 } from 'react-native';
 import RNFS from 'react-native-fs';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 import ButtonComponent from '../../Components/ButtonComponent';
 import Header from '../../Components/Header';
-import {loaderOne} from '../../Components/Loaders/AnimatedLoaderFiles';
+import { loaderOne } from '../../Components/Loaders/AnimatedLoaderFiles';
 import WrapperContainer from '../../Components/WrapperContainer';
 import imagePath from '../../constants/imagePath';
 import strings from '../../constants/lang';
@@ -22,7 +22,7 @@ import navigationStrings from '../../navigation/navigationStrings';
 import actions from '../../redux/actions';
 // import store from '../../redux/store';
 import colors from '../../styles/colors';
-import commonStylesFunc, {hitSlopProp} from '../../styles/commonStyles';
+import commonStylesFunc, { hitSlopProp } from '../../styles/commonStyles';
 import fontFamily from '../../styles/fontFamily';
 import {
   moderateScale,
@@ -30,8 +30,8 @@ import {
   textScale,
   width,
 } from '../../styles/responsiveSize';
-import {cameraHandler} from '../../utils/commonFunction';
-import {showError, showSuccess} from '../../utils/helperFunctions';
+import { cameraHandler } from '../../utils/commonFunction';
+import { showError, showSuccess } from '../../utils/helperFunctions';
 import {
   checkCameraPermission,
   chekLocationPermission,
@@ -47,14 +47,14 @@ import FaceSDK, {
   Image as FaceImage,
 } from '@regulaforensics/react-native-face-api-beta';
 import RNFetchBlob from 'rn-fetch-blob';
-import {showMessage} from 'react-native-flash-message';
-import {openCamera} from '../../utils/imagePicker';
-import {useFocusEffect} from '@react-navigation/native';
-import {isEmpty, update} from 'lodash';
-import {getDistance, getPreciseDistance} from 'geolib';
+import { showMessage } from 'react-native-flash-message';
+import { openCamera } from '../../utils/imagePicker';
+import { useFocusEffect } from '@react-navigation/native';
+import { isEmpty, update } from 'lodash';
+import { getDistance, getPreciseDistance } from 'geolib';
 import ModalView from '../../Components/Modal';
-import {getAllTravelDetails} from '../../utils/googlePlaceApi';
-import {appIds} from '../../utils/constants/DynamicAppKeys';
+import { getAllTravelDetails } from '../../utils/googlePlaceApi';
+import { appIds } from '../../utils/constants/DynamicAppKeys';
 import { getBundleId } from 'react-native-device-info';
 navigator.geolocation = require('react-native-geolocation-service');
 
@@ -64,7 +64,7 @@ var request = new MatchFacesRequest();
 
 const window = Dimensions.get('window');
 let pressedItem = {};
-export default function TaskCompleteDocument({route, navigation}) {
+export default function TaskCompleteDocument({ route, navigation }) {
   const userData = useSelector(state => state?.auth?.userData);
   const taskDetail = route?.params?.data?.taskDetail;
   const updatedProofArray = route?.params?.data?.updatedProofArray;
@@ -125,30 +125,30 @@ export default function TaskCompleteDocument({route, navigation}) {
     isShowQrCodeVendor,
     qrCodeVendorDetail,
   } = state;
-  const commonStyles = commonStylesFunc({fontFamily});
-  const updateState = data => setState(state => ({...state, ...data}));
+  const commonStyles = commonStylesFunc({ fontFamily });
+  const updateState = data => setState(state => ({ ...state, ...data }));
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
 
   const defaultLanguagae = useSelector(
     state => state?.initBoot?.defaultLanguage,
   );
 
-  const styles = stylesFunc({defaultLanguagae});
+  const styles = stylesFunc({ defaultLanguagae });
 
   //Naviagtion to specific screen
   const moveToNewScreen = (screenName, data) => () => {
-    navigation.navigate(screenName, {data});
+    navigation.navigate(screenName, { data });
   };
 
   useEffect(() => {
     (async () => {
       currentLocation();
       getAllMovingDetails([
-        {pickupAddress: taskDetail?.order?.task[0]?.location?.address},
-        {dropAddress: taskDetail?.order?.task[1]?.location?.address},
+        { pickupAddress: taskDetail?.order?.task[0]?.location?.address },
+        { dropAddress: taskDetail?.order?.task[1]?.location?.address },
       ]);
     })();
-    return () => {};
+    return () => { };
   }, []);
 
   const getAllMovingDetails = data => {
@@ -220,7 +220,7 @@ export default function TaskCompleteDocument({route, navigation}) {
 
   //Error handling in api
   const errorMethod = error => {
-    updateState({isLoading: false, isRefreshing: false, isLoading: false});
+    updateState({ isLoading: false, isRefreshing: false, isLoading: false });
     showError(error?.message || error?.error);
   };
 
@@ -279,7 +279,7 @@ export default function TaskCompleteDocument({route, navigation}) {
         barcode: taskDetail?.barcode,
       });
     } else {
-      updateState({barcode: null});
+      updateState({ barcode: null });
       showError(strings.QRCODENOTMATCHED);
     }
   };
@@ -297,7 +297,7 @@ export default function TaskCompleteDocument({route, navigation}) {
 
     //Signature upload
     if (i?.id == 1) {
-      updateState({showInputBox: false});
+      updateState({ showInputBox: false });
       // pickImage(false);
       moveToNewScreen(navigationStrings.ADDSIGNATURE, {
         updateSignature: data => {
@@ -313,10 +313,23 @@ export default function TaskCompleteDocument({route, navigation}) {
         '',
         [
           {
+            text: 'Use camera',
+            onPress: () => {
+              openCamera()
+                .then(res =>
+                  updateState({
+                    isLoading: false,
+                    image: res?.path || res?.path,
+                  }),
+                )
+                .catch(error => updateState({ isLoading: false }));
+            },
+          },
+          getBundleId() !== appIds.exprexpro && {
             text: 'Use gallery',
             onPress: () => {
               // options['includeBase64'] = true;
-              updateState({showInputBox: false});
+              updateState({ showInputBox: false });
               cameraHandler(1, {
                 cropping: false,
                 compressImageQuality: 0.1,
@@ -331,39 +344,27 @@ export default function TaskCompleteDocument({route, navigation}) {
                       image: res?.path || res?.path,
                     });
                   } else {
-                    updateState({isLoading: false});
+                    updateState({ isLoading: false });
                   }
                 })
                 .catch(err => {
-                  updateState({isLoading: false});
+                  updateState({ isLoading: false });
                 });
             },
           },
-          {
-            text: 'Use camera',
-            onPress: () => {
-              openCamera()
-                .then(res =>
-                  updateState({
-                    isLoading: false,
-                    image: res?.path || res?.path,
-                  }),
-                )
-                .catch(error => updateState({isLoading: false}));
-            },
-          },
+
         ],
-        {cancelable: true},
+        { cancelable: true },
       );
     }
 
     //Add note
     if (i?.id == 3) {
-      updateState({showInputBox: true});
+      updateState({ showInputBox: true });
     }
 
     if (i?.id == 4) {
-      updateState({showInputBox: false});
+      updateState({ showInputBox: false });
       checkCameraPermission()
         .then(result => {
           console.log(result, 'result');
@@ -380,12 +381,12 @@ export default function TaskCompleteDocument({route, navigation}) {
     }
 
     if (i?.id == 5) {
-      updateState({showInputBox: false});
+      updateState({ showInputBox: false });
       pickImage(false);
     }
 
     if (i?.id == 6) {
-      updateState({showInputBox: false});
+      updateState({ showInputBox: false });
       checkCameraPermission()
         .then(result => {
           console.log(result, 'result');
@@ -436,14 +437,14 @@ export default function TaskCompleteDocument({route, navigation}) {
     ) {
       showError(strings.SIGNATUREIMAGE);
     }
-     else if (
+    else if (
       findDataToCheck?.image &&
       findDataToCheck?.image_requried &&
       isEmpty(image)
     ) {
       showError(strings.PHOTOIMAGE);
     }
-     else if (
+    else if (
       findDataToCheck?.note &&
       findDataToCheck?.note_requried &&
       note == ''
@@ -462,19 +463,19 @@ export default function TaskCompleteDocument({route, navigation}) {
     ) {
       showError(strings.FACEIMAGEREQUIRED);
     }
-     else if (
+    else if (
       !!findDataToCheck?.qrcode &&
       !!findDataToCheck?.qrcode_requried &&
       !!isEmpty(qrCode)
     ) {
       showError('QR code scan is required!');
     }
-     else if (
+    else if (
       params?.data?.otpEnabled &&
       params?.data?.otpRequired &&
       otpField.trim() == ''
     ) {
-      updateState({otpField: ''});
+      updateState({ otpField: '' });
       showError(strings.OTPREQUIRED);
     } else if (
       params?.data?.otpEnabled &&
@@ -484,7 +485,7 @@ export default function TaskCompleteDocument({route, navigation}) {
     ) {
       showError(strings.OTPNOTVALID);
     } else {
-      updateState({isLoading: true, isModalVisible: false});
+      updateState({ isLoading: true, isModalVisible: false });
       updateTaskStatus();
     }
   };
@@ -532,7 +533,7 @@ export default function TaskCompleteDocument({route, navigation}) {
       formdata.append('otp', otpField);
     }
 
-    updateState({isLoading: true, isModalVisible: false});
+    updateState({ isLoading: true, isModalVisible: false });
     actions
       .updateTask(formdata, {
         client: clientInfo?.database_name,
@@ -544,7 +545,7 @@ export default function TaskCompleteDocument({route, navigation}) {
           showSuccess(res?.message);
           navigation.navigate(navigationStrings.DASHBOARD);
         }
-        updateState({isLoading: false, isModalVisible: false});
+        updateState({ isLoading: false, isModalVisible: false });
         if (res?.data) {
           updateState({
             isLoading: false,
@@ -552,30 +553,29 @@ export default function TaskCompleteDocument({route, navigation}) {
           if (signatureImage) {
             unlinkDirectory(signatureImage);
           }
-          if (taskDetail?.tasktype?.name == 'Drop' && getBundleId()==appIds.washvalley) {
+          if (taskDetail?.tasktype?.name == 'Drop' && getBundleId() == appIds.washvalley) {
             updateState({
               isShowQrCodeVendor: true,
               qrCodeVendorDetail: res?.data?.qrCodeVendor,
             });
             return;
           }
-          if(res?.data?.nextTask?.length==0  || res?.data?.nextTask==null)
-          {
+          if (res?.data?.nextTask?.length == 0 || res?.data?.nextTask == null) {
             navigation.navigate(navigationStrings.DASHBOARD);
           }
           else {
-            
-            moveToNewScreen(navigationStrings.TASKDETAIL,{item:res?.data?.nextTask[0]})()
-           
+
+            moveToNewScreen(navigationStrings.TASKDETAIL, { item: res?.data?.nextTask[0] })()
+
           }
-         
+
         }
       })
       .catch(errorMethod);
   };
 
   /******Face detection *********/
-  const faceDetection = () => {};
+  const faceDetection = () => { };
 
   const pickImage = first => {
     Alert.alert(
@@ -586,7 +586,7 @@ export default function TaskCompleteDocument({route, navigation}) {
           text: 'Use gallery',
           onPress: () => {
             // options['includeBase64'] = true;
-            ImagePicker.openPicker({includeBase64: true})
+            ImagePicker.openPicker({ includeBase64: true })
               .then(image => {
                 console.log(image, 'image');
                 console.log(
@@ -613,26 +613,26 @@ export default function TaskCompleteDocument({route, navigation}) {
                   Enum.ImageType.IMAGE_TYPE_LIVE,
                 );
               },
-              e => {},
+              e => { },
             ),
         },
       ],
-      {cancelable: true},
+      { cancelable: true },
     );
   };
 
   const setImage = (first, base64, type) => {
     if (base64 == null) return;
-    updateState({similarity: null});
+    updateState({ similarity: null });
     if (first) {
       image1.bitmap = base64;
       image1.imageType = type;
-      updateState({img1: {uri: 'data:image/png;base64,' + base64}});
+      updateState({ img1: { uri: 'data:image/png;base64,' + base64 } });
     } else {
       image2.bitmap = base64;
       image2.imageType = type;
       matchFaces();
-      updateState({img2: {uri: 'data:image/png;base64,' + base64}});
+      updateState({ img2: { uri: 'data:image/png;base64,' + base64 } });
     }
   };
 
@@ -648,7 +648,7 @@ export default function TaskCompleteDocument({route, navigation}) {
     )
       return;
     request.images = [image1, image2];
-    updateState({isLoading: true});
+    updateState({ isLoading: true });
     FaceSDK.matchFaces(
       JSON.stringify(request),
       response => {
@@ -657,9 +657,9 @@ export default function TaskCompleteDocument({route, navigation}) {
         if (response?.unmatchedFaces && response?.unmatchedFaces.length) {
           showError(
             response?.unmatchedFaces[0]?.exception?.message ||
-              strings.FACESNOTMATCHED,
+            strings.FACESNOTMATCHED,
           );
-          updateState({isLoading: false});
+          updateState({ isLoading: false });
         } else if (response?.matchedFaces && response?.matchedFaces.length) {
           let matchedFaces = response.matchedFaces;
           console.log(matchedFaces, 'matchedFaces');
@@ -674,7 +674,7 @@ export default function TaskCompleteDocument({route, navigation}) {
           console.log(similarValue, 'similarValue>>>UPDATED');
           if (similarValue && similarValue >= 90) {
             updateState({
-              faceImage: {uri: 'data:image/png;base64,' + image2.bitmap},
+              faceImage: { uri: 'data:image/png;base64,' + image2.bitmap },
             });
             showSuccess(strings.IMAGEMATCHED);
           } else if (similarValue && similarValue != null) {
@@ -688,7 +688,7 @@ export default function TaskCompleteDocument({route, navigation}) {
       },
       e => {
         console.log(e, 'error');
-        updateState({isLoading: false});
+        updateState({ isLoading: false });
         // this.setState({similarity: e});
       },
     );
@@ -741,7 +741,7 @@ export default function TaskCompleteDocument({route, navigation}) {
             paddingVertical: moderateScaleVertical(15),
           }}>
           <Image
-            source={{uri: qrCodeVendorDetail?.logo?.image_s3_url}}
+            source={{ uri: qrCodeVendorDetail?.logo?.image_s3_url }}
             style={{
               height: moderateScale(80),
               width: moderateScale(80),
@@ -805,7 +805,7 @@ export default function TaskCompleteDocument({route, navigation}) {
   const modalMainView = () => {
     return (
       <View style={styles.modalMainContainer}>
-        <View style={{flexDirection: 'row', justifyContent: 'space-around'}}>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
           <View>
             <Text style={styles.distanceTimeTitleTextStyle}>
               {strings.TOTALDISTANCE}
@@ -814,11 +814,11 @@ export default function TaskCompleteDocument({route, navigation}) {
               {taskDetail?.order?.actual_distance
                 ? taskDetail?.order?.actual_distance
                 : Number(
-                    totalTravelData?.distance?.text.substring(
-                      0,
-                      totalTravelData?.distance?.text.length - 2,
-                    ) * 1.609344,
-                  ).toFixed(2)}{' '}
+                  totalTravelData?.distance?.text.substring(
+                    0,
+                    totalTravelData?.distance?.text.length - 2,
+                  ) * 1.609344,
+                ).toFixed(2)}{' '}
               {appIds.weTogether == getBundleId() ? 'Miles' : ' KM'}
             </Text>
           </View>
@@ -860,8 +860,8 @@ export default function TaskCompleteDocument({route, navigation}) {
       isLoading={isLoading}
       source={loaderOne}>
       <Header
-        headerStyle={{backgroundColor: colors.white}}
-        leftIconStyle={{tintColor: colors.themeColor}}
+        headerStyle={{ backgroundColor: colors.white }}
+        leftIconStyle={{ tintColor: colors.themeColor }}
         customLeft={() => (
           <TouchableOpacity
             onPress={() => navigation.goBack()}
@@ -871,8 +871,8 @@ export default function TaskCompleteDocument({route, navigation}) {
           </TouchableOpacity>
         )}
       />
-      <View style={{...commonStyles.headerTopLine}} />
-      <View style={{flex: 0.8}}>
+      <View style={{ ...commonStyles.headerTopLine }} />
+      <View style={{ flex: 0.8 }}>
         {!!params?.data?.otpEnabled && (
           <View style={styles.otpContainer}>
             <Text style={styles.attachment}>{strings.OTP}</Text>
@@ -892,7 +892,7 @@ export default function TaskCompleteDocument({route, navigation}) {
                   paddingVertical: moderateScale(10),
                 },
               ]}
-              onChangeText={text => updateState({otpField: text})}
+              onChangeText={text => updateState({ otpField: text })}
               onSubmitEditing={() => Keyboard.dismiss()}
             />
           </View>
@@ -902,109 +902,109 @@ export default function TaskCompleteDocument({route, navigation}) {
           params?.data?.updatedProofArray &&
           params?.data?.updatedProofArray.length
         ) && (
-          <View>
-            {console.log(taskProofArray, 'taskProofArray>>>>taskProofArray')}
-            <View style={styles.documentContainer}>
-              <Text style={styles.attachment}>{strings.ATTACHMENTS}</Text>
-              <View style={styles.documentListContainer}>
-                {taskProofArray.map((i, inx) => {
-                  const {width, height} = Image.resolveAssetSource(
-                    i?.imagePath,
-                  );
+            <View>
+              {console.log(taskProofArray, 'taskProofArray>>>>taskProofArray')}
+              <View style={styles.documentContainer}>
+                <Text style={styles.attachment}>{strings.ATTACHMENTS}</Text>
+                <View style={styles.documentListContainer}>
+                  {taskProofArray.map((i, inx) => {
+                    const { width, height } = Image.resolveAssetSource(
+                      i?.imagePath,
+                    );
 
-                  return (
-                    <TouchableOpacity
-                      activeOpacity={1}
-                      onPress={() => onPressCategory(i)}
-                      style={styles.documentContainerView}>
-                      <Image
-                        source={getImage(i)}
-                        onLayout={onImageLayout}
-                        style={{
-                          width: width - 40,
-                          height: height - 40, //362 is actual height of image
-                          // alignSelf: 'center',
-                        }}
-                        resizeMode={'contain'}
-                      />
-                      <Text style={styles.titleStyle}>{i?.title}</Text>
-                    </TouchableOpacity>
-                  );
-                })}
+                    return (
+                      <TouchableOpacity
+                        activeOpacity={1}
+                        onPress={() => onPressCategory(i)}
+                        style={styles.documentContainerView}>
+                        <Image
+                          source={getImage(i)}
+                          onLayout={onImageLayout}
+                          style={{
+                            width: width - 40,
+                            height: height - 40, //362 is actual height of image
+                            // alignSelf: 'center',
+                          }}
+                          resizeMode={'contain'}
+                        />
+                        <Text style={styles.titleStyle}>{i?.title}</Text>
+                      </TouchableOpacity>
+                    );
+                  })}
+                </View>
               </View>
-            </View>
-            {showInputBox && (
-              <View>
-                <Text style={styles.reason}>{strings.NOTE}</Text>
-                <TextInput
-                  multiline={true}
-                  value={note}
-                  textAlignVertical={'top'}
-                  returnKeyType={'done'}
-                  style={styles.textInputStyle}
-                  onChangeText={text => updateState({note: text})}
-                  onSubmitEditing={() => Keyboard.dismiss()}
-                />
-              </View>
-            )}
-
-            <View
-              style={{
-                marginHorizontal: moderateScale(10),
-                marginTop: moderateScale(10),
-              }}>
-              {/* <Text style={styles.attachment}>{strings.REQUIREDDATA}</Text> */}
+              {showInputBox && (
+                <View>
+                  <Text style={styles.reason}>{strings.NOTE}</Text>
+                  <TextInput
+                    multiline={true}
+                    value={note}
+                    textAlignVertical={'top'}
+                    returnKeyType={'done'}
+                    style={styles.textInputStyle}
+                    onChangeText={text => updateState({ note: text })}
+                    onSubmitEditing={() => Keyboard.dismiss()}
+                  />
+                </View>
+              )}
 
               <View
                 style={{
-                  flexDirection: 'row',
-                  flexWrap: 'wrap',
+                  marginHorizontal: moderateScale(10),
+                  marginTop: moderateScale(10),
                 }}>
-                {/* signature image */}
-                {!!signatureImage && (
-                  <Image
-                    source={{
-                      uri: signatureImage,
-                    }}
-                    style={{
-                      width: width / 3.5,
-                      height: width / 3.5, //362 is actual height of image
-                    }}
-                  />
-                )}
+                {/* <Text style={styles.attachment}>{strings.REQUIREDDATA}</Text> */}
 
-                {/* image */}
-                {!!image && (
-                  <Image
-                    source={{
-                      uri: image,
-                    }}
-                    style={{
-                      width: width / 3.5,
-                      height: width / 3.5, //362 is actual height of image
-                    }}
-                  />
-                )}
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    flexWrap: 'wrap',
+                  }}>
+                  {/* signature image */}
+                  {!!signatureImage && (
+                    <Image
+                      source={{
+                        uri: signatureImage,
+                      }}
+                      style={{
+                        width: width / 3.5,
+                        height: width / 3.5, //362 is actual height of image
+                      }}
+                    />
+                  )}
 
-                {/* faceImage */}
-                {!!faceImage && (
-                  <Image
-                    source={{
-                      uri: faceImage.uri,
-                    }}
-                    style={{
-                      width: width / 3.5,
-                      height: width / 3.5, //362 is actual height of image
-                    }}
-                  />
-                )}
+                  {/* image */}
+                  {!!image && (
+                    <Image
+                      source={{
+                        uri: image,
+                      }}
+                      style={{
+                        width: width / 3.5,
+                        height: width / 3.5, //362 is actual height of image
+                      }}
+                    />
+                  )}
+
+                  {/* faceImage */}
+                  {!!faceImage && (
+                    <Image
+                      source={{
+                        uri: faceImage.uri,
+                      }}
+                      style={{
+                        width: width / 3.5,
+                        height: width / 3.5, //362 is actual height of image
+                      }}
+                    />
+                  )}
+                </View>
               </View>
             </View>
-          </View>
-        )}
+          )}
       </View>
 
-      <View style={{flex: 0.2, paddingVertical: moderateScale(20)}}>
+      <View style={{ flex: 0.2, paddingVertical: moderateScale(20) }}>
         <ButtonComponent buttonTitle={strings.DONE} onPress={completeAllTask} />
       </View>
       <ModalView isVisible={isModalVisible} modalMainContent={modalMainView} />

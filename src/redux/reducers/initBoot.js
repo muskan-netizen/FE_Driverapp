@@ -42,7 +42,7 @@ const initial_state = {
   fcmToken: null,
   shortCode: null,
   zendeskKeys: {},
-  isCabPooling:false,
+
   //internetConnection: false,
 };
 
@@ -112,11 +112,7 @@ export default function (state = initial_state, action) {
       };
     }
 
-    case types.POOLING: {
-      const data = action.payload;
-      console.log(data,"datat in reducer for cab pooling");
-      return {...state,isCabPooling:data };
-    }
+   
 
     default: {
       return {...state};

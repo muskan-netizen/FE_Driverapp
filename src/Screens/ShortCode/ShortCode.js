@@ -3015,6 +3015,7 @@ export default function ShortCode({ route, navigation }) {
   useEffect(() => {
     if (shortCode && isShortcodePrefilled) {
       checkScreen();
+      
     }
   }, [shortCode, isShortcodePrefilled, internetConnection]);
 
@@ -3102,7 +3103,9 @@ export default function ShortCode({ route, navigation }) {
             }
           }
         })
-        .catch(errorMethod);
+        .catch(errorMethod => {
+          console.log(errorMethod);
+        });
     })();
   };
   const animationVideo = () => {
