@@ -202,70 +202,80 @@ android {
 
      flavorDimensions "appType"
 productFlavors{
-         royodispatcher {
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.codebrew.royodispatcher'
-            resValue "string", "app_name", "RoyoDriverApp"
-        } 
+        //  royodispatcher {
+        //     dimension "appType"
+        //     versionCode 1
+        //     versionName "1.0"
+        //     minSdkVersion rootProject.ext.minSdkVersion
+        //     targetSdkVersion rootProject.ext.targetSdkVersion
+        //     // applicationIdSuffix ".royoorder"
+        //     applicationId 'com.codebrew.royodispatcher'
+        //     resValue "string", "app_name", "RoyoDriverApp"
+        // } 
 
-                gusto{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId "com.Gusto.royodispatcher"
-            resValue "string", "app_name", "Gusto Dispatch"
+        //         gusto{
+        //     dimension "appType"
+        //     versionCode 1
+        //     versionName "1.0"
+        //     minSdkVersion rootProject.ext.minSdkVersion
+        //     targetSdkVersion rootProject.ext.targetSdkVersion
+        //     // applicationIdSuffix ".royoorder"
+        //     applicationId "com.Gusto.royodispatcher"
+        //     resValue "string", "app_name", "Gusto Dispatch"
         
-        }
+        // }
 
-             otgWeeds{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.otgWeeds.royodispatcher'
-            resValue "string", "app_name", "Otg Weeds Dispatcher"
-        }
+        //      otgWeeds{
+        //     dimension "appType"
+        //     versionCode 1
+        //     versionName "1.0"
+        //     minSdkVersion rootProject.ext.minSdkVersion
+        //     targetSdkVersion rootProject.ext.targetSdkVersion
+        //     // applicationIdSuffix ".royoorder"
+        //     applicationId 'com.otgWeeds.royodispatcher'
+        //     resValue "string", "app_name", "Otg Weeds Dispatcher"
+        // }
 
-                 orderFirst{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.OrderFirst.royodispatcher'
-            resValue "string", "app_name", "orderFirst Dispatcher"
-        }
+        //          orderFirst{
+        //     dimension "appType"
+        //     versionCode 1
+        //     versionName "1.0"
+        //     minSdkVersion rootProject.ext.minSdkVersion
+        //     targetSdkVersion rootProject.ext.targetSdkVersion
+        //     // applicationIdSuffix ".royoorder"
+        //     applicationId 'com.OrderFirst.royodispatcher'
+        //     resValue "string", "app_name", "orderFirst Dispatcher"
+        // }
 
-              tdc{
+        //       tdc{
+        //     dimension "appType"
+        //     versionCode 1
+        //     versionName "1.0"
+        //     minSdkVersion rootProject.ext.minSdkVersion
+        //     targetSdkVersion rootProject.ext.targetSdkVersion
+        //     // applicationIdSuffix ".royoorder"
+        //     applicationId 'com.tdc.royodispatcher'
+        //     resValue "string", "app_name", "TDC Dispatcher"
+        // }
+        //         ace{
+        //     dimension "appType"
+        //     versionCode 1
+        //     versionName "1.0"
+        //     minSdkVersion rootProject.ext.minSdkVersion
+        //     targetSdkVersion rootProject.ext.targetSdkVersion
+        //     // applicationIdSuffix ".royoorder"
+        //        applicationId "com.Ace.royodispatcher"
+        //     resValue "string", "app_name", "Ace Dispatch"
+        // }
+        onTheWheel{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.tdc.royodispatcher'
-            resValue "string", "app_name", "TDC Dispatcher"
-        }
-                ace{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-               applicationId "com.Ace.royodispatcher"
-            resValue "string", "app_name", "Ace Dispatch"
+            applicationId 'com.onthewheel.royodispatcher'
+            resValue "string", "app_name", "On The Wheels Dispatcher"
         }
 }
     

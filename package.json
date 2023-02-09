@@ -720,7 +720,7 @@
     "hezniTaxidispatcher": "react-native run-android --variant=hezniTaxiDebug",
     "hezniTaxidispatcherRelease": "cd android && ./gradlew assemblehezniTaxiRelease",
     "onTheWheeldispatcher": "react-native run-android --variant=onTheWheelDebug",
-    "onTheWheeldispatcherRelease": "cd android && ./gradlew assembleperucabsRelease",
+    "onTheWheeldispatcherRelease": "cd android && ./gradlew assembleonTheWheelRelease",
     "perucabsdispatcher": "react-native run-android --variant=perucabsDebug",
     "perucabsdispatcherRelease": "cd android && ./gradlew assembleperucabsRelease",
     "hafizjwlrydispatcher": "react-native run-android --variant=hafizjwlryDebug",
