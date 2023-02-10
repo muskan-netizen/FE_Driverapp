@@ -203,7 +203,6 @@ android {
 
      flavorDimensions "appType"
 
-    
     productFlavors {
         royodispatcher {
             dimension "appType"
@@ -214,7 +213,7 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.codebrew.royodispatcher'
             resValue "string", "app_name", "RoyoDriverApp"
-        } 
+        }
          runrun {
             dimension "appType"
             versionCode 1
@@ -224,7 +223,7 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.Runrun.royodispatcher'
             resValue "string", "app_name", "Runrun Dispatch"
-        } 
+         }
          deliverstat {
             dimension "appType"
             versionCode 1
@@ -234,7 +233,7 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.Deliverstat.royodispatcher'
             resValue "string", "app_name", "Deliverstat"
-        } 
+         }
         africanVillageMarket {
             dimension "appType"
             versionCode 2
@@ -305,7 +304,7 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.BlipDelivery.royodispatcher'
             resValue "string", "app_name", "Blip Repartidor"
-        } 
+            }
         bottomsUp {
             dimension "appType"
             versionCode 1
@@ -454,9 +453,9 @@ android {
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
-                applicationId 'com.zuzuclean.royodispatcher'
+                // applicationId 'com.zuzuclean.royodispatcher'
             resValue "string", "app_name", "ZuzuClean Dispatch"
-        }
+         }
         careWorks {
             dimension "appType"
             versionCode 1
@@ -516,7 +515,7 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.wh.dispatcher'
             resValue "string", "app_name", "WH Delivery Dispatch"
-        }
+         }
 
         elcheregio {
             dimension "appType"
@@ -2632,6 +2631,7 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.BharatMove.royodispatcher'
             resValue "string", "app_name", "BharatMove Dispatch"
+        }
         
         blacNetwork{    
             dimension "appType"
@@ -2809,16 +2809,6 @@ android {
             applicationId "com.FlyingHorse.royodispatcher"
             resValue "string", "app_name", "Flying Horse Dispatch"
         }
-            servze{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-             applicationId "com.servze.royodispatcher"
-            resValue "string", "app_name", "Servze Dispatch"
-        }
         sponge{
             dimension "appType"
             versionCode 1
@@ -2988,7 +2978,8 @@ android {
             // applicationIdSuffix ".royoorder"
             applicationId 'com.TmgShops.Driver'
             resValue "string", "app_name", "Tmg Shops Driver"
-        }
+            }
+       
         gasGiant{
             dimension "appType"
             versionCode 1
@@ -3260,7 +3251,7 @@ android {
             applicationId 'com.TheHouse.royodispatcher'
             resValue "string", "app_name", "The House Dispatcher"
         }
-        uberCann{
+        uberCann {
             dimension "appType"
             versionCode 1
             versionName "1.0"
@@ -3270,7 +3261,7 @@ android {
             applicationId 'com.UberCann.Dispatch'
             resValue "string", "app_name", "UberCann Driver"
         }
-          launch{
+          launch {
             dimension "appType"
             versionCode 1
             versionName "1.0"
@@ -6348,7 +6339,7 @@ shipsmart{
             applicationId 'com.shipsmart.royodispatcher'
             resValue "string", "app_name", "Shipsmart Dispatcher"
         }
-}
+        }
 }
 
 
