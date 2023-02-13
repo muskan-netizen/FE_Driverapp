@@ -2993,6 +2993,18 @@ export default function ShortCode({ route, navigation }) {
                                 isShortcodePrefilled: true,
                               });
                               break;
+                              case appIds.weedLomo:
+                                updateState({
+                                  shortCode: shortCodes.weedLomo,
+                                  isShortcodePrefilled: true,
+                                });
+                                break;
+                                case appIds.nGoal:
+                                  updateState({
+                                    shortCode: shortCodes.nGoal,
+                                    isShortcodePrefilled: true,
+                                  });
+                                  break;
                       
       }
     })();

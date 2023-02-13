@@ -1,6 +1,7 @@
 // export const API_BASE_URL='https://dispatch.jeevannapp.com/'
 //export const API_BASE_URL = 'https://805c-103-72-170-243.ngrok.io/';
 // export const API_BASE_URL = 'https://dispatch.shelf.ae';
+// export const API_BASE_URL = 'https://dispatch.udkay.com/';
 
 // export const API_BASE_URL = 'https://dispatch.foodnests.com/';
 // export const API_BASE_URL = 'https://dispatch.tiimollc.com/';
@@ -23,6 +24,8 @@
 // //Staging
 // export const API_BASE_URL='https://dispatch.uber-weeds.com/'
 // export const API_BASE_URL='https://dispatch.vduonline.co.in/'
+//  export const API_BASE_URL = 'https://api.rdstaging.com/';
+//  export const API_BASE_URL = 'https://dispatch.destinationops.com/';
  export const API_BASE_URL = 'https://api.rdstaging.com/';
  // export const API_BASE_URL='https://dispatch.vduonline.co.in/'
 // export const API_BASE_URL='https://dispatch.nittosadai.com/'

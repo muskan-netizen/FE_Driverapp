@@ -20,7 +20,7 @@ const shortCodes = {
   cabdelivr: 'd8e244',
   drivree: 'ae5cfa',
   seaChangeVending: '9fa45f',
-  rxnow: 'c24fb0',
+  rxnow: '7163d4',
   ordercheckout: 'f775f5',
   noki: 'e0f607',
   ored: '86b79c',
@@ -482,7 +482,9 @@ const shortCodes = {
   nool:'5bd541',
   weemoov:'f98830',
   rally:'51ee69',
-  shipsmart:'a61d20'
+  shipsmart:'a61d20',
+  weedLomo:'659c2f',
+  nGoal:'f6e56e'
 };
 
 const appIds = {
@@ -2398,6 +2400,14 @@ const appIds = {
   shipsmart: Platform.select({
     ios: 'com.shipsmart.royodispatcher',
     android: 'com.shipsmart.royodispatcher',
+  }),
+  weedLomo: Platform.select({
+    ios: 'com.weedlomo.royodispatcher',
+    android: 'com.weedlomo.royodispatcher',
+  }),
+  nGoal: Platform.select({
+    ios: 'com.ngoal.royodispatcher',
+    android: 'com.ngoal.royodispatcher',
   }),
 };
 

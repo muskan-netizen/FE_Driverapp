@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    
     "royodispatcher": "react-native run-android --variant=royodispatcherDebug",
     "royodispatcherRelease": "cd android && ./gradlew assembleroyodispatcherRelease",
     "runrundispatcher": "react-native run-android --variant=runrunDebug",
@@ -50,7 +51,7 @@
     "oreddispatcher": "react-native run-android --variant=oredDebug",
     "oreddispatcherRelease": "cd android && ./gradlew assembleoredRelease",
     "yourLaundryAppdispatcher": "react-native run-android --variant=yourLaundryAppDebug",
-    "yourLaundryAppdispatcherRelease": "cd android && ./gradlew assembleyourLaundryAppRelease",
+    "yourLaundryAppdispatcherRelease": "cd android && ./gradlew assembleyourLaundryApp Release",
     "yummiidashdispatcher": "react-native run-android --variant=yummiidashDebug",
     "yummiidashdispatcherRelease": "cd android && ./gradlew assembleyummiidashRelease",
     "zuzucleandispatcher": "react-native run-android --variant=zuzucleanDebug",
@@ -957,6 +958,11 @@
     "rallydispatcherRelease": "cd android && ./gradlew assemblerallyRelease",
     "shipsmartdispatcher": "react-native run-android --variant=shipsmartDebug",
     "shipsmartdispatcherRelease": "cd android && ./gradlew assembleshipsmartRelease",
+    "weedlomodispatcher": "react-native run-android --variant=weedlomoDebug",
+    "weedlomodispatcherRelease": "cd android && ./gradlew assembleweedlomoRelease",
+    "nGoaldispatcher": "react-native run-android --variant=nGoalDebug",
+    "nGoaldispatcherRelease": "cd android && ./gradlew assemblenGoalRelease",
+    
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",

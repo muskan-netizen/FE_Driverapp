@@ -204,6 +204,27 @@ android {
      flavorDimensions "appType"
 
     productFlavors {
+
+        nGoal{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.ngoal.royodispatcher'
+            resValue "string", "app_name", "Ngoal Dispatcher"
+        }
+             udkay{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.udkay.royodispatcher'
+            resValue "string", "app_name", "Udkay Dispatcher"
+        }
         royodispatcher {
             dimension "appType"
             versionCode 1
@@ -6338,6 +6359,26 @@ shipsmart{
             // applicationIdSuffix ".royoorder"
             applicationId 'com.shipsmart.royodispatcher'
             resValue "string", "app_name", "Shipsmart Dispatcher"
+        }
+weedlomo{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.weedlomo.royodispatcher'
+            resValue "string", "app_name", "WeedLomo Dispatcher"
+        }
+nGoal{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.ngoal.royodispatcher'
+            resValue "string", "app_name", "Ngoal Dispatcher"
         }
         }
 }
