@@ -24,7 +24,7 @@
 // //Staging
 // export const API_BASE_URL='https://dispatch.uber-weeds.com/'
 // export const API_BASE_URL='https://dispatch.vduonline.co.in/'
-//  export const API_BASE_URL = 'https://api.rdstaging.com/';
+ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //  export const API_BASE_URL = 'https://dispatch.destinationops.com/';
 //  export const API_BASE_URL = 'https://api.rdstaging.com/';
  // export const API_BASE_URL='https://dispatch.vduonline.co.in/'
@@ -501,7 +501,7 @@
 // hiperabasto
 // export const API_BASE_URL = 'https://dispatch.hiperabasto.mx/';
 //parcelworksdelivery
-export const API_BASE_URL ='https://dispatch.parcelworksdelivery.com/';
+// export const API_BASE_URL ='https://dispatch.parcelworksdelivery.com/';
 // amwer 
 
 // export const API_BASE_URL='https://dispatch.awamerapp.com/'

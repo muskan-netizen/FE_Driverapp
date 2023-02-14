@@ -484,7 +484,8 @@ const shortCodes = {
   rally:'51ee69',
   shipsmart:'a61d20',
   weedLomo:'659c2f',
-  nGoal:'f6e56e'
+  nGoal:'f6e56e',
+  tkaff:'d6e780'
 };
 
 const appIds = {
@@ -2408,6 +2409,10 @@ const appIds = {
   nGoal: Platform.select({
     ios: 'com.ngoal.royodispatcher',
     android: 'com.ngoal.royodispatcher',
+  }),
+  tkaff: Platform.select({
+    ios: 'com.tkaff.royodispatcher',
+    android: 'com.tkaff.royodispatcher',
   }),
 };
 

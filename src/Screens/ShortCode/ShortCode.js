@@ -3005,6 +3005,12 @@ export default function ShortCode({ route, navigation }) {
                                     isShortcodePrefilled: true,
                                   });
                                   break;
+                                  case appIds.tkaff:
+                                  updateState({
+                                    shortCode: shortCodes.tkaff,
+                                    isShortcodePrefilled: true,
+                                  });
+                                  break;
                       
       }
     })();
