@@ -962,6 +962,8 @@
     "weedlomodispatcherRelease": "cd android && ./gradlew assembleweedlomoRelease",
     "nGoaldispatcher": "react-native run-android --variant=nGoalDebug",
     "nGoaldispatcherRelease": "cd android && ./gradlew assemblenGoalRelease",
+    "tkaffdispatcher": "react-native run-android --variant=tkaffDebug",
+    "tkaffdispatcherRelease": "cd android && ./gradlew assembletkaffRelease",
     
     "android": "react-native run-android",
     "ios": "react-native run-ios",
