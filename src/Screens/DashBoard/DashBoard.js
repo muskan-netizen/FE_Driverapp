@@ -64,7 +64,6 @@ var finaltodayTasks = [];
 
 export default function DashBoard({ route, navigation }) {
   const userData = useSelector((state) => state?.auth?.userData);
-  const { PictureInPicture } = NativeModules;
   const defaultLanguagae = useSelector(
     (state) => state?.initBoot?.defaultLanguage
   );
@@ -80,12 +79,6 @@ export default function DashBoard({ route, navigation }) {
   } = useSelector((state) => state?.initBoot);
   const { isCabPooling, initialValue } = useSelector((state) => state?.auth);
   const shortCode = useSelector((state) => state?.initBoot?.shortCode);
-  const [orderCallbackUrl, setOrderCallbackUrl] = useState('')
-  const [allCustomerBidsList, setAllCustomerBidsList] = useState([{
-    id: 1, driver_name: 'Pavan Sharma', bidAmount: 200, expireIn: 10, rating: 4.5, distance: "2km", address: 'CDCL Building Chandigrah'
-  },
-  { id: 2, driver_name: 'Pavan Sharma', bidAmount: 10, expireIn: 8, rating: 4.5, distance: "4km", address: 'CDCL Building Chandigrah' },
-  { id: 3, driver_name: 'Pavan Sharma', bidAmount: 2200, expireIn: 10, rating: 4.5, distance: "6km", address: 'CDCL Building Chandigrah' }])
 
 
   const ref = useRef(orderCallbackUrl);
@@ -153,6 +146,13 @@ export default function DashBoard({ route, navigation }) {
     allPoolingingSuggestions,
   } = state;
 
+
+
+  const [orderCallbackUrl, setOrderCallbackUrl] = useState('')
+  const [allCustomerBidsList, setAllCustomerBidsList] = useState([])
+  const [driverSelectedPriceForBide, setDriverSelectedPriceForBide] = useState({})
+  const [showBiddingView, setShowBiddingView] = useState(false)
+
   useEffect(() => {
     (async () => {
       currentLocation();
@@ -185,11 +185,6 @@ export default function DashBoard({ route, navigation }) {
     );
     return () => backHandler.remove();
   }, []);
-
-
-
-
-
 
 
   useEffect(() => {
@@ -235,7 +230,7 @@ export default function DashBoard({ route, navigation }) {
 
     BackgroundGeolocation.on("background", () => {
       console.log("[INFO] App is in background");
-     
+
     });
 
     BackgroundGeolocation.on("foreground", () => {
@@ -289,8 +284,6 @@ export default function DashBoard({ route, navigation }) {
       BackgroundGeolocation.removeAllListeners();
     };
   }, [orderCallbackUrl, setOrderCallbackUrl, ref]);
-
-
 
   useFocusEffect(
     React.useCallback(() => {
@@ -701,12 +694,8 @@ export default function DashBoard({ route, navigation }) {
   };
 
 
-  // useEffect(()=>{
-  //   actions.isModalVisibleForAcceptReject({
-  //     isModalVisibleForAcceptReject: true,
-  //     notificationData: {},
-  //   });
-  // },[])
+
+
 
 
 
@@ -716,7 +705,6 @@ export default function DashBoard({ route, navigation }) {
         <View style={{ paddingHorizontal: 10 }}>
           <Image source={imagePath.locationOff} />
         </View>
-
         <Switch
           trackColor={{ false: colors.backGround, true: colors.themeColor }}
           thumbColor={colors.white}
@@ -1077,14 +1065,116 @@ export default function DashBoard({ route, navigation }) {
 
 
   /*********************************Bid and Ride View *************************/
-  const _onChangeBidPrice = (data) => {
-    alert(data)
+
+
+  // recive bids with notification
+
+
+
+  useEffect(() => {
+
+    const bideNotificationType = notificationData?.notificationData?.data?.notificationType || notificationData?.notificationData?.data?.type
+    if (bideNotificationType == 'bid_ride_request') {
+      _onReciveBide()
+    }
+  }, [notificationData])
+
+
+  const _onReciveBide = (hideBidView=true) => {
+    const apiHeader = {
+      client: clientInfo?.database_name
+    }
+    actions.reciveBideRequests({}, apiHeader).then((res) => {
+      if (res?.data?.requestdata) {
+        const finalRequestData = res?.data?.requestdata.map(element => {
+          const generateRecommandedPriceForBideRide = (Number(element?.maximum_requested_price) - Number(element?.minimum_requested_price)) / 2 + Number(element?.minimum_requested_price)
+          const allPricesForRideSubmit = [
+            { id: 1, price: Number(element?.minimum_requested_price), selected: false },
+            { id: 2, price: Number(generateRecommandedPriceForBideRide.toFixed(2)), selected: false },
+            { id: 3, price: Number(element?.maximum_requested_price), selected: false }
+          ]
+          element['allPricesForRideSubmit'] = allPricesForRideSubmit
+          return element
+        });
+        setAllCustomerBidsList(finalRequestData)
+        setShowBiddingView(hideBidView)
+      }
+
+    }).catch((error) => {
+      showError(error?.message)
+      setShowBiddingView(false)
+    })
   }
+
+  const _onChangeBidPrice = (data, bidId, inx) => {
+    // setDriverSelectedPriceForBide(data)
+
+    const finalRequestData = allCustomerBidsList.map((element, index) => {
+      if (element.bid_id == bidId) {
+        element.allPricesForRideSubmit.map(itm => {
+          if (itm.id == data.id) {
+            itm['selected'] = true
+            itm['selectedPrice'] = itm.price
+          } else {
+            itm['selected'] = false
+            itm['selectedPrice'] = ''
+          }
+        })
+        if (element['allCustomerBidsList'] == String(data?.price)) {
+          element['allCustomerBidsList'] = ''
+        } else {
+          element['allCustomerBidsList'] = String(data?.price)
+        }
+        return element
+      }
+
+      return element
+    });
+    setAllCustomerBidsList(finalRequestData)
+  }
+
+
+
   const _onAcceptRideBid = (data) => {
-    alert("_onAcceptRideBid")
+    const apiUrl = data?.call_back_url;
+    const apiData = {
+      bid_price: data?.requested_price,
+      task_type: 'bid_ride_request',
+      driver_id: userData?.id,
+      driver_name: userData?.name,
+      driver_image: userData?.image_url,
+    }
+
+    const apiHeader = {}
+    actions.acceptBideRequest(apiUrl, apiData, apiHeader).then((res) => {
+      _onAcceptdeclineBideRequest(data?.id, 1)
+      showSuccess(res?.message)
+    }).catch((error) => {
+      showError(error?.message)
+    })
   }
   const _onDeclineBid = (data) => {
+    _onAcceptdeclineBideRequest(data, 0)
   }
+
+  const _onAcceptdeclineBideRequest = (data, type) => {
+    const apiData = {
+      id: data,
+      status: type
+    }
+    const apiHeader = {
+      client: clientInfo?.database_name
+    }
+    actions.acceptdeclineBideRequest(apiData, apiHeader).then((res) => {
+       const hideBidView = type ==1 ? false:true
+      _onReciveBide(hideBidView)
+      setDriverSelectedPriceForBide({})
+    }).catch((error) => {
+      showError(error?.message)
+    })
+  }
+
+
 
   const renderCustomerListCard = useCallback(({ item, index }) => {
     return (
@@ -1094,17 +1184,18 @@ export default function DashBoard({ route, navigation }) {
         _onDeclineBid={_onDeclineBid}
         _onAcceptRideBid={_onAcceptRideBid}
         _onChangeBidPrice={_onChangeBidPrice}
+        allPricesForRideSubmit={item.allPricesForRideSubmit}
+        driverSelectedPriceForBide={driverSelectedPriceForBide}
       />
     )
-  }, [allCustomerBidsList])
-
+  }, [allCustomerBidsList, driverSelectedPriceForBide])
   const renderBidingView = () => {
     return (
       <BottomSheet
         ref={bottomSheetRef}
         index={1}
         // key={isOpen}
-        snapPoints={['0%', true ? '90%' : '30%']}
+        snapPoints={['0%', true ? '100%' : '30%']}
         activeOffsetY={[-1, 1]}
         failOffsetX={[-5, 5]}
         animateOnMount={true}
@@ -1136,7 +1227,7 @@ export default function DashBoard({ route, navigation }) {
 
 
   return (
-    false ? renderBidingView() :
+    !isEmpty(allCustomerBidsList) && showBiddingView  ? renderBidingView() :
       <WrapperContainer
         statusBarColor={colors.white}
         bgColor={colors.backGround}

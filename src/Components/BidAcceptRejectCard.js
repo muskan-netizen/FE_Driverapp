@@ -11,11 +11,13 @@ import imagePath from '../constants/imagePath';
 import { FlatList } from 'react-native-gesture-handler';
 
 const BidAcceptRejectCard = ({
-  data = [],
+  data = {},
   bidExpiryDuration = {},
   _onDeclineBid = () => { },
   _onAcceptRideBid = () => { },
   _onChangeBidPrice = () => { },
+  allPricesForRideSubmit = [],
+  driverSelectedPriceForBide
 }) => {
   const [state, setState] = useState({
     options: [
@@ -29,6 +31,11 @@ const BidAcceptRejectCard = ({
     selectedOption,
   } = state;
 
+
+
+  const allBidLocations = data?.tasks.replace(/'/g, '"')
+
+
   const updateState = (data) => setState((state) => ({ ...state, ...data }));
 
   const renderDotContainer = () => {
@@ -41,7 +48,6 @@ const BidAcceptRejectCard = ({
             backgroundColor: colors.textGreyLight,
           }} />
         </View>
-
         <Image
           style={{
             tintColor: colors.redB,
@@ -51,7 +57,50 @@ const BidAcceptRejectCard = ({
       </>
     );
   };
-  //  const  allBidLocations = data?.tasks.replace(/'/g, '"') //replacing all ' with "
+
+
+  const onListAllAddress = (item) => {
+    if (item?.task_type_id == 2) {
+      return (
+        <View style={{ flexDirection: "row" }}>
+          <View style={{ marginHorizontal: moderateScale(10) }}>
+            {renderDotContainer()}
+          </View>
+          <View style={{ justifyContent: "center" }}>
+            <Text
+              numberOfLines={1}
+              style={
+                {
+                  marginTop: moderateScaleVertical(28),
+                  fontFamily: fontFamily.semiBold,
+                  fontSize: textScale(14),
+
+                }
+              }
+            >
+              {item?.address}
+            </Text>
+          </View>
+        </View>
+      );
+    } else {
+      return (
+        <View style={{ paddingHorizontal: moderateScale(30) }}>
+          <Text numberOfLines={1} style={{
+            fontFamily: fontFamily.semiBold,
+            fontSize: textScale(14)
+          }}>
+            {item?.address}
+          </Text>
+        </View>
+      );
+    }
+  };
+
+
+  console.log(data, "csfsaufgaksufgksfusafgasufio");
+
+
 
   return (
     <View style={{
@@ -68,13 +117,13 @@ const BidAcceptRejectCard = ({
       }} >
         <CountdownCircleTimer
           isPlaying
-          duration={bidExpiryDuration}
+          duration={Number(data?.expire_seconds)}
           colors={[colors.themeColor]}
           size={40}
           strokeWidth={5}
         >
           {({ remainingTime }) => {
-            remainingTime == 0 && _onDeclineBid(data?.id)
+            remainingTime == 1 && _onDeclineBid(data?.id)
             return (
               <Text>{remainingTime}</Text>
             )
@@ -90,60 +139,35 @@ const BidAcceptRejectCard = ({
             justifyContent: 'space-between',
             flex: 1
           }}>
-          <View style={{ flex: 0.5, }}>
+          <View style={{ flex: 0.25, }}>
             <Image
               style={{ height: moderateScaleVertical(50), width: moderateScale(50), borderRadius: moderateScale(25) }}
-              source={{ uri: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8&w=1000&q=80' }} />
-            <Text style={{ fontSize: textScale(13), fontFamily: fontFamily.bold }}>{data?.driver_name}</Text>
-
-            {/* {data.map((item,index)=>{
-              if(item?.task_type_id ==2){
-               return(
-                <View style={{flexDirection:'row',marginTop:moderateScaleVertical(4)}}>
-                  <Image source={imagePath.location1}/>
-                <Text numberOfLines={2} style={{marginLeft:moderateScale(5),fontFamily:fontFamily?.regular}}>{item?.address}</Text>
-                </View>
-               )
-              }else{
-                return null
-              }
-             
-            })} */}
-            <Text style={{ fontSize: textScale(15), color: colors.themeColor, fontFamily: fontFamily?.bold }}>${200}</Text>
+              source={{ uri: data?.customer_image }} />
+            <Text style={{ fontSize: textScale(13), fontFamily: fontFamily.bold }}>{data?.customer_name}</Text>
+            <Text style={{ fontSize: textScale(15), color: colors.themeColor, fontFamily: fontFamily?.bold }}> {Number(data?.requested_price).toFixed(2)}</Text>
           </View>
           {/* address location */}
-          <View style={{ flex: 0.7, }}>
-            <View style={{ flexDirection: 'row', marginVertical: moderateScaleVertical(4) }}>
-              <View style={{ marginHorizontal: moderateScale(10) }}>
-                <Image
-                  style={{
-                    tintColor: colors.greenA
-                  }}
-                  source={imagePath.grayDot}
-                />
-              </View>
-              <Text numberOfLines={2}
-                style={{ marginLeft: moderateScale(5), fontFamily: fontFamily?.regular, color: colors.black }}>
-                {data?.address}
-              </Text>
-            </View>
-            <View style={{ flexDirection: 'row', marginVertical: moderateScaleVertical(4) }}>
-              <View style={{ marginHorizontal: moderateScale(10) }}>
-                {renderDotContainer()}
-              </View>
-              <Text numberOfLines={2}
+          <View style={{ flexDirection: "row", flex: 0.75 }}>
+            <View>
+              <Image
                 style={{
-                  marginLeft: moderateScale(5),
-                  fontFamily: fontFamily?.regular, color: colors.black,
-                  marginTop: moderateScaleVertical(28),
-                }}>{data?.address}</Text>
+                  position: "absolute",
+                  marginHorizontal: moderateScale(11),
+                  top: 8,
+                  tintColor: colors.green
+                }}
+                source={imagePath.grayDot}
+              />
             </View>
-            <View
-              style={{ flexDirection: 'row', marginVertical: moderateScaleVertical(4), marginHorizontal: moderateScale(10) }}>
-              <Text>Distance : 17 Km</Text>
+            <View>
+              {JSON.parse(allBidLocations)?.map((item, index) => {
+                return (
+                  onListAllAddress(item)
+                )
+              })}
             </View>
+            {/* end */}
           </View>
-          {/* end */}
         </View>
       </View>
       {/* Accept button */}
@@ -155,8 +179,8 @@ const BidAcceptRejectCard = ({
             fontSize: textScale(13),
             color: colors.white,
           }}
-          onPress={() => _onAcceptRideBid(data?.id)}
-          btnText={`Accept $${data?.bidAmount}`}
+          onPress={() => _onAcceptRideBid({ ...data, finial_selected_price: !!data?.allCustomerBidsList ? data?.allCustomerBidsList : data?.requested_price })}
+          btnText={`Bid For ${!!data?.allCustomerBidsList ? data?.allCustomerBidsList : Number(data?.requested_price).toFixed(2)}`}
           btnStyle={{ width: moderateScale(width / 2.5) }}
         />
       </View>
@@ -169,18 +193,21 @@ const BidAcceptRejectCard = ({
           showsVerticalScrollIndicator={false}
           showsHorizontalScrollIndicator={false}
           horizontal
-          data={[...Array(5)]}
+          data={allPricesForRideSubmit}
           renderItem={({ item, index }) => {
             return (
               <GradientButton
-                colorsArray={[colors.white, colors.white]}
+                colorsArray={
+                  item?.selected && !!data?.allCustomerBidsList ?
+                    [colors.redB, colors.redB] :
+                    [colors.white, colors.white]}
                 textStyle={{
                   textTransform: 'none',
                   fontSize: textScale(13),
-                  color: colors?.redB,
+                  color: item?.selected && !!data?.allCustomerBidsList ? colors.white : colors?.redB,
                 }}
-                onPress={() => _onChangeBidPrice(index)}
-                btnText={`$ 200`}
+                onPress={() => _onChangeBidPrice(item, data?.bid_id, index)}
+                btnText={`${item?.price}`}
                 btnStyle={{ width: moderateScale(width / 4.6), borderWidth: moderateScale(1), borderColor: colors.redB }}
                 containerStyle={{ backgroundColor: colors.whiteSmokeColor, padding: moderateScale(6) }}
               />

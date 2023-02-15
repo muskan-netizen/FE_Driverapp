@@ -47,9 +47,9 @@
 // export const API_BASE_URL = 'https://dispatch.elog.group/';
 
 // export const API_BASE_URL = 'https://dispatch.knockknock.online/'
- export const API_BASE_URL = 'https://api.winhires.com/';
+ //export const API_BASE_URL = 'https://api.winhires.com/';
 //export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
-//export const API_BASE_URL = 'http://192.168.101.54:9091/';
+//export const API_BASE_URL = 'http://192.168.101.104:9091/';
 // export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
@@ -474,6 +474,12 @@
 
 // hiperabasto
 // export const API_BASE_URL = 'https://dispatch.hiperabasto.mx/';
+
+//zynoride
+export const API_BASE_URL = 'https://dispatch.zynoride.com/';
+
+
+
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;
 
 export const SEND_OTP = getApiUrl('api/auth/login');
@@ -557,3 +563,13 @@ export const GET_CAB_POOLING_SUGGESTION = getApiUrl('api/agent/poolingTaskSugges
 //razorpay url end point'
 export const CREATERAZORPAYDETAIL = getApiUrl('api/create-razorpay-details');
 export const CREATERAZORPAYADDFUND = getApiUrl('api/create-razorpay-add-funds');
+
+// bide requestes 
+export const BIDEREQUESTS = getApiUrl('api/bidRide/requests');
+export const DECLINEBIDEREQUESTS = getApiUrl('api/decline/bidRide/requests');
+export const ACCEPTDECLINEBIDEREQUESTS = getApiUrl('api/accept/decline/bidRide/requests');
+
+
+
+
+
