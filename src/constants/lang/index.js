@@ -21,12 +21,7 @@ import zh from './zh';
 
 
 const arbicFile = () => {
-  switch (DeviceInfo.getBundleId()) {
-    case appIds?.messiaa:
-      return heb;
-    default:
-      return ar;
-  }
+  return ar;
 };
 
 let strings = new LocalizedStrings({
@@ -44,6 +39,7 @@ let strings = new LocalizedStrings({
   vi: vi,
   ne: ne,
   swa: swa,
+  he: heb
 });
 export const changeLaguage = languageKey => {
   strings.setLanguage(languageKey);

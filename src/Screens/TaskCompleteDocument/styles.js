@@ -40,14 +40,14 @@ export default ({defaultLanguagae}) => {
       color: colors.lightGreyBg2,
       marginHorizontal: moderateScale(10),
       marginVertical: moderateScale(10),
-      textAlign: defaultLanguagae?.value === 'ar' ? 'right' : 'left',
+      textAlign: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'right' : 'left',
     },
     rowViewTaskCancel: {
       marginHorizontal: moderateScale(20),
       borderBottomColor: colors.iconGrey,
       borderBottomWidth: StyleSheet.hairlineWidth,
       paddingVertical: moderateScale(15),
-      flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
+      flexDirection: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'row-reverse' : 'row',
       justifyContent: 'space-between',
     },
     textInputStyle: {
@@ -57,7 +57,7 @@ export default ({defaultLanguagae}) => {
       fontSize: textScale(14),
       paddingHorizontal: 8,
       paddingVertical: 0,
-      textAlign: defaultLanguagae?.value === 'ar' ? 'right' : 'left',
+      textAlign: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'right' : 'left',
       marginHorizontal: moderateScale(20),
 
       backgroundColor: colors.backGround,
@@ -75,7 +75,7 @@ export default ({defaultLanguagae}) => {
       marginTop: moderateScale(5),
     },
     headerCustomleftView: {
-      flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
+      flexDirection: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'row-reverse' : 'row',
       alignItems: 'center',
     },
     arrowstyle: {
@@ -84,7 +84,7 @@ export default ({defaultLanguagae}) => {
     otpContainer: {
       marginHorizontal: moderateScale(10),
       marginTop: moderateScale(10),
-      alignItems: defaultLanguagae?.value === 'ar' ? 'flex-end' : 'flex-start',
+      alignItems: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'flex-end' : 'flex-start',
     },
     documentContainer: {
       marginHorizontal: moderateScale(10),
@@ -92,7 +92,7 @@ export default ({defaultLanguagae}) => {
     },
 
     documentListContainer: {
-      flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
+      flexDirection: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'row-reverse' : 'row',
       flexWrap: 'wrap',
       // justifyContent: 'center',
       marginHorizontal: moderateScale(10),

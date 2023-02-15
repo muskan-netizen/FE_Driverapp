@@ -32,7 +32,7 @@ export default function DrawerRoutes(props) {
         headerShown: false,
         swipeEnabled: true,
         gestureEnabled: true,
-        // drawerPosition: defaultLanguagae?.value === 'ar' ? 'right' : 'left',
+        // drawerPosition: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'right' : 'left',
         drawerPosition: 'left',
         drawerStyle: {
           paddingTop: moderateScaleVertical(width / 6),

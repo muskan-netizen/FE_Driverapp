@@ -23,7 +23,7 @@ import actions from '../../redux/actions';
 import { useFocusEffect } from "@react-navigation/native";
 import { Platform, TouchableOpacity } from "react-native";
 import DeviceInfo, { getBundleId } from "react-native-device-info";
-import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps"; // remove PROVIDER_GOOGLE import if not using Google Maps
+import MapView, { Marker, PROVIDER_GOOGLE, PROVIDER_DEFAULT } from "react-native-maps"; // remove PROVIDER_GOOGLE import if not using Google Maps
 import ListEmptyComponent from "../../Components/ListEmptyComponent";
 import TaskListCard from "../../Components/TaskListCard";
 import strings from "../../constants/lang";
@@ -977,7 +977,7 @@ export default function DashBoard({ route, navigation }) {
     return (
       <MapView
         ref={mapRef}
-        provider={PROVIDER_GOOGLE} // remove if not using Google Maps
+        provider={Platform.OS=='android'? PROVIDER_GOOGLE:PROVIDER_DEFAULT} // remove if not using Google Maps
         style={styles.map}
         // region={region}
        
@@ -1054,7 +1054,7 @@ export default function DashBoard({ route, navigation }) {
         source={loaderOne}
       >
         <Header
-          reverse={false}
+        
           headerStyle={{ backgroundColor: colors.white }}
           leftIcon={imagePath.menu}
           onPressLeft={() => navigation.toggleDrawer()}

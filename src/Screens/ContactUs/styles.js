@@ -31,20 +31,20 @@ export default ({defaultLanguagae}) => {
       width: 100,
     },
     cashCollectionContainer: {
-      flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
+      flexDirection: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'row-reverse' : 'row',
       justifyContent: 'space-between',
       padding: 10,
       backgroundColor: colors.white,
       //paddingRight: defaultLanguagae?.value === 'en' ? 0 : moderateScale(45),
     },
     cashTextView: {
-      flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
+      flexDirection: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'row-reverse' : 'row',
       flex: 0.5,
       alignItems: 'center',
     },
     clearViewStyle: {
       flex: 0.5,
-      flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
+      flexDirection: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'row-reverse' : 'row',
     },
     dateSelectView: {
       justifyContent: 'center',

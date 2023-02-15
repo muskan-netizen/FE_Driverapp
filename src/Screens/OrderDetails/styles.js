@@ -74,7 +74,7 @@ export function stylesFunc({defaultLanguagae}) {
       opacity: 0.4,
     },
     topLable: {
-      flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
+      flexDirection: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'row-reverse' : 'row',
       paddingHorizontal: moderateScale(16),
       backgroundColor: colors.white,
     },
@@ -91,7 +91,7 @@ export function stylesFunc({defaultLanguagae}) {
       alignItems: 'center',
     },
     vendorView: {
-      flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
+      flexDirection: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'row-reverse' : 'row',
       height: moderateScaleVertical(35),
       // backgroundColor: colors.white,
       alignItems: 'center',
@@ -151,7 +151,7 @@ export function stylesFunc({defaultLanguagae}) {
       color: colors.textGrey,
       fontFamily: fontFamily.bold,
       fontSize: textScale(14),
-      textAlign: defaultLanguagae?.value === 'ar' ? 'right' : 'left',
+      textAlign: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'right' : 'left',
     },
     priceItemLabel: {
       color: colors.textGreyB,
@@ -176,7 +176,7 @@ export function stylesFunc({defaultLanguagae}) {
       marginLeft: moderateScale(10),
     },
     paymentMainView: {
-      flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
+      flexDirection: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'row-reverse' : 'row',
       alignItems: 'center',
       paddingHorizontal: moderateScaleVertical(20),
       paddingVertical: moderateScaleVertical(10),
@@ -185,7 +185,7 @@ export function stylesFunc({defaultLanguagae}) {
 
     //   cart item design start from here
     cartItemMainContainer: {
-      flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
+      flexDirection: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'row-reverse' : 'row',
       paddingVertical: moderateScaleVertical(10),
       paddingHorizontal: moderateScale(10),
       backgroundColor: colors.white,
@@ -235,7 +235,7 @@ export function stylesFunc({defaultLanguagae}) {
       // paddingHorizontal: moderateScale(20),
       backgroundColor: colors.cartItemAddRemoveBtn,
       borderRadius: moderateScale(5),
-      flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
+      flexDirection: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'row-reverse' : 'row',
       justifyContent: 'space-evenly',
       paddingVertical: moderateScaleVertical(3),
     },
@@ -268,7 +268,7 @@ export function stylesFunc({defaultLanguagae}) {
     },
 
     itemPriceDiscountTaxView: {
-      flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
+      flexDirection: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'row-reverse' : 'row',
       justifyContent: 'space-between',
       marginVertical: moderateScaleVertical(5),
       marginHorizontal: moderateScale(10),
@@ -283,19 +283,19 @@ export function stylesFunc({defaultLanguagae}) {
       alignItems: 'center',
     },
     bottomTabLableValue: {
-      flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
+      flexDirection: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'row-reverse' : 'row',
       justifyContent: 'space-between',
       marginVertical: moderateScaleVertical(5),
     },
     amountPayable: {
-      flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
+      flexDirection: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'row-reverse' : 'row',
       justifyContent: 'space-between',
       marginVertical: moderateScaleVertical(10),
       borderTopWidth: 0.3,
       borderColor: colors.textGreyLight,
     },
     paymentView: {
-      flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
+      flexDirection: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'row-reverse' : 'row',
       alignItems: 'center',
       justifyContent: 'space-around',
       marginVertical: moderateScaleVertical(20),
@@ -320,7 +320,7 @@ export function stylesFunc({defaultLanguagae}) {
       fontFamily: fontFamily.medium,
       color: colors.lightGreyBgColor,
       fontSize: textScale(14),
-      marginRight: defaultLanguagae?.value === 'ar' ? moderateScale(5) : 0,
+      marginRight: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? moderateScale(5) : 0,
     },
     imageStyle: {
       height: width / 4.5,
