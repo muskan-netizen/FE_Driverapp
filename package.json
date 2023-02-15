@@ -964,6 +964,8 @@
     "nGoaldispatcherRelease": "cd android && ./gradlew assemblenGoalRelease",
     "tkaffdispatcher": "react-native run-android --variant=tkaffDebug",
     "tkaffdispatcherRelease": "cd android && ./gradlew assembletkaffRelease",
+    "livraizoodispatcher": "react-native run-android --variant=livraizooDebug",
+    "livraizoodispatcherRelease": "cd android && ./gradlew assemblelivraizooRelease",
     
     "android": "react-native run-android",
     "ios": "react-native run-ios",

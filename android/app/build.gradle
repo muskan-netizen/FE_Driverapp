@@ -203,15 +203,15 @@ android {
 
      flavorDimensions "appType"
      productFlavors{
-         tkaff{
+               livraizoo{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.tkaff.royodispatcher'
-            resValue "string", "app_name", "Tkaff Dispatcher"
+            applicationId 'com.livraizoo.royodispatcher'
+            resValue "string", "app_name", "Livraizoo Dispatcher"
         }
      }
 
@@ -6380,6 +6380,16 @@ android {
 //             // applicationIdSuffix ".royoorder"
 //             applicationId 'com.tkaff.royodispatcher'
 //             resValue "string", "app_name", "Tkaff Dispatcher"
+//         }
+//         livraizoo{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.livraizoo.royodispatcher'
+//             resValue "string", "app_name", "Livraizoo Dispatcher"
 //         }
 //         }
 }

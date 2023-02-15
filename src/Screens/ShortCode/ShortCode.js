@@ -3011,6 +3011,12 @@ export default function ShortCode({ route, navigation }) {
                                     isShortcodePrefilled: true,
                                   });
                                   break;
+                                  case appIds.livraizoo:
+                                    updateState({
+                                      shortCode: shortCodes.livraizoo,
+                                      isShortcodePrefilled: true,
+                                    });
+                                    break;
                       
       }
     })();
@@ -3084,6 +3090,7 @@ export default function ShortCode({ route, navigation }) {
       }
 
       let updatedShortCode = shortCode;
+      console.log(shortCode,"shortCodeshortCodeshortCode");
       //  let updatedShortCode = '75902f';
 
       actions

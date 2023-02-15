@@ -485,7 +485,8 @@ const shortCodes = {
   shipsmart:'a61d20',
   weedLomo:'659c2f',
   nGoal:'f6e56e',
-  tkaff:'d6e780'
+  tkaff:'d6e780',
+  livraizoo:'85faad'
 };
 
 const appIds = {
@@ -2413,6 +2414,10 @@ const appIds = {
   tkaff: Platform.select({
     ios: 'com.tkaff.royodispatcher',
     android: 'com.tkaff.royodispatcher',
+  }),
+  livraizoo: Platform.select({
+    ios: 'com.livraizoo.royodispatcher',
+    android: 'com.livraizoo.royodispatcher',
   }),
 };
 
