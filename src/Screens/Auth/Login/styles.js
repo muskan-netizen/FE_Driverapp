@@ -26,12 +26,12 @@ export default ({defaultLanguagae}) => {
       marginTop: moderateScaleVertical(15),
     },
     socialRow: {
-      flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
+      flexDirection: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'row-reverse' : 'row',
       alignItems: 'center',
       justifyContent: 'center',
     },
     socialRowBtn: {
-      flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
+      flexDirection: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'row-reverse' : 'row',
       justifyContent: 'space-between',
       marginTop: moderateScaleVertical(40),
       alignSelf: 'center',
@@ -69,9 +69,9 @@ export default ({defaultLanguagae}) => {
       fontSize: textScale(14),
     },
     forgotContainer: {
-      flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
+      flexDirection: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'row-reverse' : 'row',
       justifyContent:
-        defaultLanguagae?.value === 'ar' ? 'flex-start' : 'flex-end',
+        defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'flex-start' : 'flex-end',
       marginBottom: moderateScaleVertical(8),
     },
     headerContainer: {
@@ -114,14 +114,14 @@ export default ({defaultLanguagae}) => {
       fontSize: textScale(18),
       fontFamily: fontFamily.bold,
       color: colors.black,
-      textAlign: defaultLanguagae?.value === 'ar' ? 'right' : 'left',
+      textAlign: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'right' : 'left',
     },
     weneedCompany: {
       marginTop: moderateScaleVertical(20),
       fontSize: textScale(12),
       fontFamily: fontFamily.medium,
       color: colors.black,
-      textAlign: defaultLanguagae?.value === 'ar' ? 'right' : 'left',
+      textAlign: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'right' : 'left',
     },
     signUpView: {
       justifyContent: 'center',
@@ -135,7 +135,7 @@ export default ({defaultLanguagae}) => {
     },
     byContinueTextContainer: {
       marginTop: moderateScaleVertical(20),
-      flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
+      flexDirection: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'row-reverse' : 'row',
       justifyContent: 'center',
     },
     webLinkContainer: {

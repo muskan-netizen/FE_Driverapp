@@ -47,21 +47,21 @@ export default ({defaultLanguagae}) => {
       // marginTop: moderateScale(10),
       // borderRadius: moderateScale(10),
       justifyContent: 'center',
-      alignSelf: defaultLanguagae?.value === 'ar' ? 'flex-end' : 'flex-start',
+      alignSelf: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'flex-end' : 'flex-start',
     },
     address: {
       fontSize: textScale(14),
       fontFamily: fontFamily.medium,
       color: colors.blackShade2,
       paddingBottom: moderateScale(5),
-      textAlign: defaultLanguagae?.value === 'ar' ? 'right' : 'left',
+      textAlign: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'right' : 'left',
     },
     shortName: {
       fontSize: textScale(14),
       fontFamily: fontFamily.regular,
       color: colors.iconGrey,
       paddingBottom: moderateScale(5),
-      textAlign: defaultLanguagae?.value === 'ar' ? 'right' : 'left',
+      textAlign: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'right' : 'left',
     },
     taskDetailView: {
       fontSize: textScale(14),
@@ -70,7 +70,7 @@ export default ({defaultLanguagae}) => {
       // backgroundColor: colors.backGround,
       marginVertical: moderateScale(10),
       justifyContent: 'center',
-      alignItems: defaultLanguagae?.value === 'ar' ? 'flex-end' : 'flex-start',
+      alignItems: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'flex-end' : 'flex-start',
     },
     taskText: {
       fontSize: textScale(12),
@@ -83,7 +83,7 @@ export default ({defaultLanguagae}) => {
       fontSize: textScale(12),
       fontFamily: fontFamily.bold,
       // color: colors.iconGrey,
-      textAlign: defaultLanguagae?.value === 'ar' ? 'right' : 'left',
+      textAlign: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'right' : 'left',
       color: colors.textGreyOpcaity7,
       marginBottom:moderateScale(6)
       // paddingBottom: moderateScale(5),
@@ -92,11 +92,11 @@ export default ({defaultLanguagae}) => {
       fontSize: textScale(14),
       fontFamily: fontFamily.medium,
       color: colors.blackShade2,
-      textAlign: defaultLanguagae?.value === 'ar' ? 'right' : 'left',
+      textAlign: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'right' : 'left',
       // paddingBottom: moderateScale(5),
     },
     labelView: {
-      flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
+      flexDirection: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'row-reverse' : 'row',
       marginTop: moderateScale(20),
       alignItems: 'center',
     },
@@ -142,7 +142,7 @@ export default ({defaultLanguagae}) => {
       // paddingBottom: moderateScale(5),
     },
     addressContainer: {
-      flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
+      flexDirection: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'row-reverse' : 'row',
       justifyContent: 'space-between',
     },
     pathImageStyle: {
@@ -153,7 +153,7 @@ export default ({defaultLanguagae}) => {
     customerNameContainer: {
       marginLeft: moderateScale(7),
       justifyContent: 'space-between',
-      flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
+      flexDirection: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'row-reverse' : 'row',
     },
     callImageContainer: {
       flex: 0.3,
@@ -162,9 +162,9 @@ export default ({defaultLanguagae}) => {
     },
     taskTimingContainer: {
       marginLeft:
-        defaultLanguagae?.value === 'ar' ? moderateScale(0) : moderateScale(7),
+        defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? moderateScale(0) : moderateScale(7),
       marginRight:
-        defaultLanguagae?.value === 'ar' ? moderateScale(7) : moderateScale(0),
+        defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? moderateScale(7) : moderateScale(0),
     },
     emailAndPhone: {
       // textAlign: 'center',
