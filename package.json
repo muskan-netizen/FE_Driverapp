@@ -966,6 +966,8 @@
     "tkaffdispatcherRelease": "cd android && ./gradlew assembletkaffRelease",
     "livraizoodispatcher": "react-native run-android --variant=livraizooDebug",
     "livraizoodispatcherRelease": "cd android && ./gradlew assemblelivraizooRelease",
+    "boozeBrothersdispatcher": "react-native run-android --variant=boozeBrothersDebug",
+    "boozeBrothersdispatcherRelease": "cd android && ./gradlew assembleboozeBrothersRelease",
     
     "android": "react-native run-android",
     "ios": "react-native run-ios",

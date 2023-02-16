@@ -3017,6 +3017,12 @@ export default function ShortCode({ route, navigation }) {
                                       isShortcodePrefilled: true,
                                     });
                                     break;
+                                    case appIds.boozeBrothers:
+                                    updateState({
+                                      shortCode: shortCodes.boozeBrothers,
+                                      isShortcodePrefilled: true,
+                                    });
+                                    break;
                       
       }
     })();

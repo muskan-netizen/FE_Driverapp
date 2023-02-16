@@ -203,15 +203,15 @@ android {
 
      flavorDimensions "appType"
      productFlavors{
-               livraizoo{
+                ace{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.livraizoo.royodispatcher'
-            resValue "string", "app_name", "Livraizoo Dispatcher"
+               applicationId "com.Ace.royodispatcher"
+            resValue "string", "app_name", "Ace Dispatch"
         }
      }
 
@@ -6081,7 +6081,7 @@ android {
 //             applicationId 'com.shopcart.royodispatcher'
 //             resValue "string", "app_name", "Shopcart Dispatcher"
 //         }
-//       dot{
+//dot{
 //             dimension "appType"
 //             versionCode 1
 //             versionName "1.0"
@@ -6371,7 +6371,7 @@ android {
 //             applicationId 'com.ngoal.royodispatcher'
 //             resValue "string", "app_name", "Ngoal Dispatcher"
 //         }
-//         tkaff{
+//tkaff{
 //             dimension "appType"
 //             versionCode 1
 //             versionName "1.0"
@@ -6381,7 +6381,7 @@ android {
 //             applicationId 'com.tkaff.royodispatcher'
 //             resValue "string", "app_name", "Tkaff Dispatcher"
 //         }
-//         livraizoo{
+//livraizoo{
 //             dimension "appType"
 //             versionCode 1
 //             versionName "1.0"
@@ -6390,6 +6390,16 @@ android {
 //             // applicationIdSuffix ".royoorder"
 //             applicationId 'com.livraizoo.royodispatcher'
 //             resValue "string", "app_name", "Livraizoo Dispatcher"
+//         }
+//boozeBrothers{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.boozeBrothers.royodispatcher'
+//             resValue "string", "app_name", "BoozeBrothers Dispatcher"
 //         }
 //         }
 }

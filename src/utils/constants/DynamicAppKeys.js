@@ -486,7 +486,8 @@ const shortCodes = {
   weedLomo:'659c2f',
   nGoal:'f6e56e',
   tkaff:'d6e780',
-  livraizoo:'85faad'
+  livraizoo:'85faad',
+  boozeBrothers:'ae2454'
 };
 
 const appIds = {
@@ -2418,6 +2419,10 @@ const appIds = {
   livraizoo: Platform.select({
     ios: 'com.livraizoo.royodispatcher',
     android: 'com.livraizoo.royodispatcher',
+  }),
+  boozeBrothers: Platform.select({
+    ios: 'com.boozeBrothers.royodispatcher',
+    android: 'com.boozeBrothers.royodispatcher',
   }),
 };
 
