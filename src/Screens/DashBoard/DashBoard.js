@@ -1074,6 +1074,7 @@ export default function DashBoard({ route, navigation }) {
   useEffect(() => {
 
     const bideNotificationType = notificationData?.notificationData?.data?.notificationType || notificationData?.notificationData?.data?.type
+    console.log(bideNotificationType,"bideNotificationType>> in home");
     if (bideNotificationType == 'bid_ride_request') {
       _onReciveBide()
     }
@@ -1085,6 +1086,7 @@ export default function DashBoard({ route, navigation }) {
       client: clientInfo?.database_name
     }
     actions.reciveBideRequests({}, apiHeader).then((res) => {
+    
       if (res?.data?.requestdata) {
         const finalRequestData = res?.data?.requestdata.map(element => {
           const generateRecommandedPriceForBideRide = (Number(element?.maximum_requested_price) - Number(element?.minimum_requested_price)) / 2 + Number(element?.minimum_requested_price)
