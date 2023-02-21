@@ -153,6 +153,8 @@ export default function DashBoard({ route, navigation }) {
   const [driverSelectedPriceForBide, setDriverSelectedPriceForBide] = useState({})
   const [showBiddingView, setShowBiddingView] = useState(false)
 
+  console.log(driverSelectedPriceForBide,"driverSelectedPriceForBide");
+
   useEffect(() => {
     (async () => {
       currentLocation();
@@ -1117,9 +1119,11 @@ export default function DashBoard({ route, navigation }) {
           if (itm.id == data.id) {
             itm['selected'] = true
             itm['selectedPrice'] = itm.price
+            
           } else {
             itm['selected'] = false
             itm['selectedPrice'] = ''
+           
           }
         })
         if (element['allCustomerBidsList'] == String(data?.price)) {
@@ -1139,8 +1143,9 @@ export default function DashBoard({ route, navigation }) {
 
   const _onAcceptRideBid = (data) => {
     const apiUrl = data?.call_back_url;
+     console.log(data,"datadatadatadatadata for bid");
     const apiData = {
-      bid_price: data?.requested_price,
+      bid_price:data?.allCustomerBidsList|| data?.requested_price,
       task_type: 'bid_ride_request',
       driver_id: userData?.id,
       driver_name: userData?.name,

@@ -17,7 +17,7 @@ const BidAcceptRejectCard = ({
   _onAcceptRideBid = () => { },
   _onChangeBidPrice = () => { },
   allPricesForRideSubmit = [],
-  driverSelectedPriceForBide
+ 
 }) => {
   const [state, setState] = useState({
     options: [
@@ -98,7 +98,7 @@ const BidAcceptRejectCard = ({
   };
 
 
-  console.log(data, "csfsaufgaksufgksfusafgasufio");
+
 
 
 
