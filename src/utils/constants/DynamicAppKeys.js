@@ -487,7 +487,9 @@ const shortCodes = {
   nGoal:'f6e56e',
   tkaff:'d6e780',
   livraizoo:'85faad',
-  boozeBrothers:'ae2454'
+  boozeBrothers:'ae2454',
+  readyToRent:'45fe80',
+  theGenie:'193af0'
 };
 
 const appIds = {
@@ -2423,6 +2425,14 @@ const appIds = {
   boozeBrothers: Platform.select({
     ios: 'com.boozeBrothers.royodispatcher',
     android: 'com.boozeBrothers.royodispatcher',
+  }),
+  readyToRent: Platform.select({
+    ios: 'com.readyToRent.royodispatcher',
+    android: 'com.readyToRent.royodispatcher',
+  }),
+  theGenie: Platform.select({
+    ios: 'com.theGenie.royodispatcher',
+    android: 'com.theGenie.royodispatcher',
   }),
 };
 

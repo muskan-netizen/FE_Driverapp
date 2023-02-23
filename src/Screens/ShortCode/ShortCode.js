@@ -2897,133 +2897,145 @@ export default function ShortCode({ route, navigation }) {
             isShortcodePrefilled: true,
           });
           break;
-          case appIds.oaks:
-            updateState({
-              shortCode: shortCodes.oaks,
-              isShortcodePrefilled: true,
-            });
-            break;
-            case appIds.buzyStores:
-              updateState({
-                shortCode: shortCodes.buzyStores,
-                isShortcodePrefilled: true,
-              });
-              break;
-              case appIds.etiam:
-                updateState({
-                  shortCode: shortCodes.etiam,
-                  isShortcodePrefilled: true,
-                });
-                break;
-                case appIds.dotTaxi:
-                  updateState({
-                    shortCode: shortCodes.dotTaxi,
-                    isShortcodePrefilled: true,
-                  });
-                  break;
-                  case appIds.airvoltTaxi:
-                    updateState({
-                      shortCode: shortCodes.airvoltTaxi,
-                      isShortcodePrefilled: true,
-                    });
-                    break;
-                    case appIds.melak:
-                    updateState({
-                      shortCode: shortCodes.melak,
-                      isShortcodePrefilled: true,
-                    });
-                    break;
-                    case appIds.vialteran:
-                      updateState({
-                        shortCode: shortCodes.vialteran,
-                        isShortcodePrefilled: true,
-                      });
-                      break;
-                      case appIds.wiEnergi:
-                      updateState({
-                        shortCode: shortCodes.wiEnergi,
-                        isShortcodePrefilled: true,
-                      });
-                      break;
-                      case appIds.whatChaGotPckUp:
-                        updateState({
-                          shortCode: shortCodes.whatChaGotPckUp,
-                          isShortcodePrefilled: true,
-                        });
-                        break;
-                        case appIds.nannyAfrica:
-                        updateState({
-                          shortCode: shortCodes.nannyAfrica,
-                          isShortcodePrefilled: true,
-                        });
-                        break;
-                        case appIds.gokart:
-                        updateState({
-                          shortCode: shortCodes.gokart,
-                          isShortcodePrefilled: true,
-                        });
-                        break;
-                        case appIds.hqi:
-                        updateState({
-                          shortCode: shortCodes.hqi,
-                          isShortcodePrefilled: true,
-                        });
-                        break;
-                        case appIds.nool:
-                          updateState({
-                            shortCode: shortCodes.nool,
-                            isShortcodePrefilled: true,
-                          });
-                          break;
-                          case appIds.weemoov:
-                          updateState({
-                            shortCode: shortCodes.weemoov,
-                            isShortcodePrefilled: true,
-                          });
-                          break;
-                          case appIds.rally:
-                            updateState({
-                              shortCode: shortCodes.rally,
-                              isShortcodePrefilled: true,
-                            });
-                            break;
-                            case appIds.shipsmart:
-                              updateState({
-                                shortCode: shortCodes.shipsmart,
-                                isShortcodePrefilled: true,
-                              });
-                              break;
-                              case appIds.weedLomo:
-                                updateState({
-                                  shortCode: shortCodes.weedLomo,
-                                  isShortcodePrefilled: true,
-                                });
-                                break;
-                                case appIds.nGoal:
-                                  updateState({
-                                    shortCode: shortCodes.nGoal,
-                                    isShortcodePrefilled: true,
-                                  });
-                                  break;
-                                  case appIds.tkaff:
-                                  updateState({
-                                    shortCode: shortCodes.tkaff,
-                                    isShortcodePrefilled: true,
-                                  });
-                                  break;
-                                  case appIds.livraizoo:
-                                    updateState({
-                                      shortCode: shortCodes.livraizoo,
-                                      isShortcodePrefilled: true,
-                                    });
-                                    break;
-                                    case appIds.boozeBrothers:
-                                    updateState({
-                                      shortCode: shortCodes.boozeBrothers,
-                                      isShortcodePrefilled: true,
-                                    });
-                                    break;
-                      
+        case appIds.oaks:
+          updateState({
+            shortCode: shortCodes.oaks,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.buzyStores:
+          updateState({
+            shortCode: shortCodes.buzyStores,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.etiam:
+          updateState({
+            shortCode: shortCodes.etiam,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.dotTaxi:
+          updateState({
+            shortCode: shortCodes.dotTaxi,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.airvoltTaxi:
+          updateState({
+            shortCode: shortCodes.airvoltTaxi,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.melak:
+          updateState({
+            shortCode: shortCodes.melak,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.vialteran:
+          updateState({
+            shortCode: shortCodes.vialteran,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.wiEnergi:
+          updateState({
+            shortCode: shortCodes.wiEnergi,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.whatChaGotPckUp:
+          updateState({
+            shortCode: shortCodes.whatChaGotPckUp,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.nannyAfrica:
+          updateState({
+            shortCode: shortCodes.nannyAfrica,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.gokart:
+          updateState({
+            shortCode: shortCodes.gokart,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.hqi:
+          updateState({
+            shortCode: shortCodes.hqi,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.nool:
+          updateState({
+            shortCode: shortCodes.nool,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.weemoov:
+          updateState({
+            shortCode: shortCodes.weemoov,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.rally:
+          updateState({
+            shortCode: shortCodes.rally,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.shipsmart:
+          updateState({
+            shortCode: shortCodes.shipsmart,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.weedLomo:
+          updateState({
+            shortCode: shortCodes.weedLomo,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.nGoal:
+          updateState({
+            shortCode: shortCodes.nGoal,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.tkaff:
+          updateState({
+            shortCode: shortCodes.tkaff,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.livraizoo:
+          updateState({
+            shortCode: shortCodes.livraizoo,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.boozeBrothers:
+          updateState({
+            shortCode: shortCodes.boozeBrothers,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.readyToRent:
+          updateState({
+            shortCode: shortCodes.readyToRent,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.theGenie:
+          updateState({
+            shortCode: shortCodes.theGenie,
+            isShortcodePrefilled: true,
+          });
+          break;
+
       }
     })();
   }, [internetConnection]);
@@ -3045,7 +3057,7 @@ export default function ShortCode({ route, navigation }) {
   useEffect(() => {
     if (shortCode && isShortcodePrefilled) {
       checkScreen();
-      
+
     }
   }, [shortCode, isShortcodePrefilled, internetConnection]);
 
@@ -3096,7 +3108,7 @@ export default function ShortCode({ route, navigation }) {
       }
 
       let updatedShortCode = shortCode;
-      console.log(shortCode,"shortCodeshortCodeshortCode");
+      console.log(shortCode, "shortCodeshortCodeshortCode");
       //  let updatedShortCode = '75902f';
 
       actions

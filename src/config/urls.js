@@ -502,6 +502,10 @@
 // export const API_BASE_URL = 'https://dispatch.hiperabasto.mx/';
 //parcelworksdelivery
 // export const API_BASE_URL ='https://dispatch.parcelworksdelivery.com/';
+
+//ReadyToRent
+// export const API_BASE_URL ='https://readytorent.winhires.com/';
+
 // amwer 
 
 // export const API_BASE_URL='https://dispatch.awamerapp.com/'

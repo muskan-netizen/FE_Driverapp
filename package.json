@@ -968,6 +968,10 @@
     "livraizoodispatcherRelease": "cd android && ./gradlew assemblelivraizooRelease",
     "boozeBrothersdispatcher": "react-native run-android --variant=boozeBrothersDebug",
     "boozeBrothersdispatcherRelease": "cd android && ./gradlew assembleboozeBrothersRelease",
+    "readyToRentdispatcher": "react-native run-android --variant=readyToRentDebug",
+    "readyToRentdispatcherRelease": "cd android && ./gradlew assemblereadyToRentRelease",
+    "theGeniedispatcher": "react-native run-android --variant=theGenieDebug",
+    "theGeniedispatcherRelease": "cd android && ./gradlew assembletheGenieRelease",
     
     "android": "react-native run-android",
     "ios": "react-native run-ios",
