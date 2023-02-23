@@ -489,7 +489,8 @@ const shortCodes = {
   livraizoo:'85faad',
   boozeBrothers:'ae2454',
   readyToRent:'45fe80',
-  theGenie:'193af0'
+  theGenie:'193af0',
+  sultanCenter:'e3255c'
 };
 
 const appIds = {
@@ -2433,6 +2434,14 @@ const appIds = {
   theGenie: Platform.select({
     ios: 'com.theGenie.royodispatcher',
     android: 'com.theGenie.royodispatcher',
+  }),
+  theGenie: Platform.select({
+    ios: 'com.theGenie.royodispatcher',
+    android: 'com.theGenie.royodispatcher',
+  }),
+  sultanCenter: Platform.select({
+    ios: 'com.sultanCenter.driver',
+    android: 'com.sultanCenter.driver',
   }),
 };
 

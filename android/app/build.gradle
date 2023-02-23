@@ -213,6 +213,16 @@ android {
             applicationId 'com.weemoov.royodispatcher'
             resValue "string", "app_name", "Weemoov Dispatcher"
         }
+        sultanCenter{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.sultanCenter.driver'
+            resValue "string", "app_name", "Sultan Dispatcher"
+        }
      }
 
 //     productFlavors {
@@ -6421,8 +6431,20 @@ android {
 //             applicationId 'com.theGenie.royodispatcher'
 //             resValue "string", "app_name", "The Genie Dispatcher"
 //         }
+// sultanCenter{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.sultanCenter.driver'
+//             resValue "string", "app_name", "sultan dispatcher"
+//         }
 //         }
 }
+
+
 
 
 dependencies {

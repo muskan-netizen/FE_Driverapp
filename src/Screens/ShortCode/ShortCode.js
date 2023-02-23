@@ -3035,6 +3035,12 @@ export default function ShortCode({ route, navigation }) {
             isShortcodePrefilled: true,
           });
           break;
+          case appIds.sultanCenter:
+            updateState({
+              shortCode: shortCodes.sultanCenter,
+              isShortcodePrefilled: true,
+            });
+            break;
 
       }
     })();

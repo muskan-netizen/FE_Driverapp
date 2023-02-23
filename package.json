@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    
     "royodispatcher": "react-native run-android --variant=royodispatcherDebug",
     "royodispatcherRelease": "cd android && ./gradlew assembleroyodispatcherRelease",
     "runrundispatcher": "react-native run-android --variant=runrunDebug",
@@ -972,7 +971,8 @@
     "readyToRentdispatcherRelease": "cd android && ./gradlew assemblereadyToRentRelease",
     "theGeniedispatcher": "react-native run-android --variant=theGenieDebug",
     "theGeniedispatcherRelease": "cd android && ./gradlew assembletheGenieRelease",
-    
+    "sultanCenterdispatcher": "react-native run-android --variant=sultanCenterDebug",
+    "sultanCenterdispatcherRelease": "cd android && ./gradlew assemblesultanCenterRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
