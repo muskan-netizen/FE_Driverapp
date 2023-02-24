@@ -203,15 +203,15 @@ android {
 
      flavorDimensions "appType"
      productFlavors{
-   reedas{
+          mozmarcas{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.reedas.royodispatcher'
-            resValue "string", "app_name", "Reedas dispatcher"
+            applicationId 'com.Mozmarcas.royodispatcher'
+            resValue "string", "app_name", "Pakela Driver"
         }
         // sultanCenter{
         //     dimension "appType"
