@@ -8,7 +8,7 @@
 // export const API_BASE_URL = 'https://sales.royodispatch.com/';
 // export const API_BASE_URL='http://192.168.101.140:9091/'
 // //Staging
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL='https://dispatch.nittosadai.com/'
 //  export const API_BASE_URL='https://zuzucleans.royodispatch.com/'
 // export const API_BASE_URL='https://delivery.go912.app/'
@@ -235,7 +235,7 @@
 // export const API_BASE_URL = 'https://dispatch.onscart.com/';
 //Pickmeup
 // export const API_BASE_URL = 'https://pickmeup.royodispatch.com/';
-export const API_BASE_URL = 'https://artemis-dispatch.netsolutionindia.com/'; // preet local url
+// export const API_BASE_URL = 'https://artemis-dispatch.netsolutionindia.com/'; // preet local url
 // export const API_BASE_URL = 'http://192.168.102.23:8005/'; // Gourav.s local url
 // export const API_BASE_URL = 'http://192.168.97.104:8010/'; // Sujata.s local url
 // export const API_BASE_URL = 'http://192.168.101.187:8001/';

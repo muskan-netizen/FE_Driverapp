@@ -975,7 +975,6 @@ export default function DashBoard({ route, navigation }) {
     }
   };
 
-  console.log(latitude, longitude, "longitude");
 
   const mapView = () => {
     return (

@@ -202,15 +202,15 @@ android {
 
      flavorDimensions "appType"
 productFlavors{
-             smile{
+                   weTogether{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.Smile.royodispatcher'
-            resValue "string", "app_name", "Miist Dispatcher"
+            applicationId 'com.weTogether.royodispatcher'
+            resValue "string", "app_name", "WeTogether Dispatcher"
         }
 
 }
