@@ -3114,7 +3114,6 @@ export default function ShortCode({ route, navigation }) {
       }
 
       let updatedShortCode = shortCode;
-      console.log(shortCode, "shortCodeshortCodeshortCode");
       //  let updatedShortCode = '75902f';
 
       actions
