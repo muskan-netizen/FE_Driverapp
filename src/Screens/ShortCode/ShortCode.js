@@ -3035,12 +3035,24 @@ export default function ShortCode({ route, navigation }) {
             isShortcodePrefilled: true,
           });
           break;
-          case appIds.sultanCenter:
-            updateState({
-              shortCode: shortCodes.sultanCenter,
-              isShortcodePrefilled: true,
-            });
-            break;
+        case appIds.sultanCenter:
+          updateState({
+            shortCode: shortCodes.sultanCenter,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.reedas:
+          updateState({
+            shortCode: shortCodes.reedas,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.onebasket:
+          updateState({
+            shortCode: shortCodes.onebasket,
+            isShortcodePrefilled: true,
+          });
+          break;
 
       }
     })();
