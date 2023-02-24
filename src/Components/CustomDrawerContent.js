@@ -2,8 +2,8 @@ import React, { Fragment, useEffect, useState } from "react";
 import { Alert, ScrollView } from "react-native";
 import { Text, TouchableOpacity, View, Image, Switch } from "react-native";
 // import Animated from 'react-native-reanimated';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {useSelector} from 'react-redux';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useSelector } from 'react-redux';
 import imagePath from '../constants/imagePath';
 import strings from '../constants/lang';
 import navigationStrings from '../navigation/navigationStrings';
@@ -31,8 +31,11 @@ import { useDarkMode } from "react-native-dark-mode";
 import { getItem } from "../utils/utils";
 import { string } from "is_js";
 import { saveCabPoolingStatus } from "../redux/actions/init";
-import {UIActivityIndicator} from 'react-native-indicators';
+import { UIActivityIndicator } from 'react-native-indicators';
+import SvgUri from 'react-native-svg-uri';
 
+
+const logoRegex = /.(svg)$/i
 function CustomDrawerContent({
   state,
   descriptors,
@@ -111,21 +114,21 @@ function CustomDrawerContent({
       },
       appIds.transportSystem === DeviceInfo.getBundleId()
         ? {
-            id: 7,
-            label: strings.DAMAGEREPORT,
-            image: imagePath.damagereport,
-            key: navigationStrings.DAMAGEREPORT,
-            // subRoute:navigationStrings.MYPROFILE
-          }
+          id: 7,
+          label: strings.DAMAGEREPORT,
+          image: imagePath.damagereport,
+          key: navigationStrings.DAMAGEREPORT,
+          // subRoute:navigationStrings.MYPROFILE
+        }
         : {},
       appIds.transportSystem === DeviceInfo.getBundleId()
         ? {
-            id: 7,
-            label: strings.REIMBURSEMENT,
-            image: imagePath.reimbursement,
-            key: navigationStrings.REIMBURSEMENT,
-            // subRoute:navigationStrings.MYPROFILE
-          }
+          id: 7,
+          label: strings.REIMBURSEMENT,
+          image: imagePath.reimbursement,
+          key: navigationStrings.REIMBURSEMENT,
+          // subRoute:navigationStrings.MYPROFILE
+        }
         : {},
       {
         id: 9,
@@ -243,7 +246,7 @@ function CustomDrawerContent({
         subscription === undefined
           ? {}
           : subscription?.hide_subscription_module == 0
-          ? {
+            ? {
               id: 9,
               label: strings.SUBSCRIPTIONS,
               support: true,
@@ -251,7 +254,7 @@ function CustomDrawerContent({
               key: navigationStrings.SUBSCRIPTION_STACK,
               subRoute: navigationStrings.SUBSCRIPTION_STACK,
             }
-          : {},
+            : {},
 
         // {
         //   if(subscription != undefined ) {
@@ -268,31 +271,31 @@ function CustomDrawerContent({
         // },
         appIds.transportSystem === DeviceInfo.getBundleId()
           ? {
-              id: 7,
-              label: strings.DAMAGEREPORT,
-              image: imagePath.damagereport,
-              key: navigationStrings.DAMAGEREPORT,
-              // subRoute:navigationStrings.MYPROFILE
-            }
+            id: 7,
+            label: strings.DAMAGEREPORT,
+            image: imagePath.damagereport,
+            key: navigationStrings.DAMAGEREPORT,
+            // subRoute:navigationStrings.MYPROFILE
+          }
           : {},
         appIds.transportSystem === DeviceInfo.getBundleId()
           ? {
-              id: 7,
-              label: strings.REIMBURSEMENT,
-              image: imagePath.reimbursement,
-              key: navigationStrings.REIMBURSEMENT,
-              // subRoute:navigationStrings.MYPROFILE
-            }
+            id: 7,
+            label: strings.REIMBURSEMENT,
+            image: imagePath.reimbursement,
+            key: navigationStrings.REIMBURSEMENT,
+            // subRoute:navigationStrings.MYPROFILE
+          }
           : {},
 
         !!clientInfo?.socket_url
           ? {
-              id: 9,
-              label: strings.CHAT_ROOM,
-              image: imagePath.settingsIcon,
-              key: navigationStrings.CHAT_ROOM,
-              // subRoute:navigationStrings.MYPROFILE
-            }
+            id: 9,
+            label: strings.CHAT_ROOM,
+            image: imagePath.settingsIcon,
+            key: navigationStrings.CHAT_ROOM,
+            // subRoute:navigationStrings.MYPROFILE
+          }
           : {},
         {
           id: 10,
@@ -317,7 +320,7 @@ function CustomDrawerContent({
   };
 
   //Update states
-  const updateState = data => setState(state => ({...state, ...data}));
+  const updateState = data => setState(state => ({ ...state, ...data }));
 
   const onLogoutPress = () => {
     navigation.toggleDrawer();
@@ -342,10 +345,10 @@ function CustomDrawerContent({
   const logout = () => {
     updateState({ isLoading: true });
     actions
-      .logout({}, {client: clientInfo?.database_name})
+      .logout({}, { client: clientInfo?.database_name })
       .then(res => {
         console.log(res, 'login data');
-        updateState({isLoading: false});
+        updateState({ isLoading: false });
         showSuccess(res?.message ? res?.message : 'Logout successfully.');
         moveToNewScreen(navigationStrings.LOGIN)();
       })
@@ -354,7 +357,7 @@ function CustomDrawerContent({
 
   //Error handling in api
   const errorMethod = error => {
-    updateState({isLoading: false});
+    updateState({ isLoading: false });
     showError(error?.message || error?.error);
   };
 
@@ -374,7 +377,7 @@ function CustomDrawerContent({
   const toggleSwitch = (status) => {
 
     updateState({
-      isLoadingB:true
+      isLoadingB: true
     })
 
 
@@ -389,7 +392,7 @@ function CustomDrawerContent({
 
       .then((res) => {
         updateState({
-          isLoadingB:false
+          isLoadingB: false
         })
         if (res?.data?.is_pooling_available) {
           setPoolingState(true);
@@ -401,7 +404,7 @@ function CustomDrawerContent({
         console.log(error, "errororro");
         setPoolingState(false);
         updateState({
-          isLoadingB:false
+          isLoadingB: false
         })
       });
   };
@@ -426,18 +429,24 @@ function CustomDrawerContent({
               // backgroundColor:'red'
             }}
           >
-            <ScaledImage
-              width={width / 2}
-              source={
-                clientInfo && (clientInfo?.logo || clientInfo?.dark_logo)
-                  ? {
+            {(logoRegex.test(clientInfo?.logo) || logoRegex.test(clientInfo?.dark_logo)) ? <SvgUri
+              width={moderateScale(width / 2)}
+              height={moderateScale(width / 2)}
+              source={{ uri: clientInfo?.logo || clientInfo?.dark_logo }}
+            /> :
+              <ScaledImage
+                width={width / 2}
+                source={
+                  clientInfo && (clientInfo?.logo || clientInfo?.dark_logo)
+                    ? {
                       uri: isDarkMode
                         ? clientInfo?.dark_logo
                         : clientInfo?.logo,
                     }
-                  : imagePath.logo
-              }
-            />
+                    : imagePath.logo
+                }
+              />
+            }
           </View>
           {userData?.client_preference?.is_cab_pooling_toggle ? (
             <View
@@ -461,13 +470,13 @@ function CustomDrawerContent({
                 {strings.AVAILABLEFORPOOLING}
               </Text>
               {isLoadingB ? (
-              <View>
+                <View>
                   <UIActivityIndicator
-                  color={colors.themeColor}
-                  size={24}
-                  style={{marginLeft:moderateScale(20)}}
-                />
-              </View>
+                    color={colors.themeColor}
+                    size={24}
+                    style={{ marginLeft: moderateScale(20) }}
+                  />
+                </View>
               ) : (
                 <Switch
                   // disabled={poolingState}

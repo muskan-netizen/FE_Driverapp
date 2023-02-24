@@ -60,7 +60,7 @@ var finalAllTasks = [];
 var finaltodayTasks = [];
 
 export default function DashBoard({ route, navigation }) {
-  const userData = useSelector((state) => state?.auth?.userData);
+  const userData = useSelector((state) => state?.auth?.userData)||{};
   const defaultLanguagae = useSelector(
     state => state?.initBoot?.defaultLanguage,
   );
@@ -73,7 +73,7 @@ export default function DashBoard({ route, navigation }) {
     fcmToken,
     zendeskKeys,
   } = useSelector((state) => state?.initBoot);
-  const { isCabPooling, initialValue } = useSelector((state) => state?.auth);
+  const { isCabPooling, initialValue } = useSelector((state) => state?.auth)||{};
 
   const [state, setState] = useState({
     isLoading: false,
@@ -140,7 +140,6 @@ export default function DashBoard({ route, navigation }) {
 
 
 
-  const [pipMode,setPipMode] = useState(false)
 
   useEffect(() => {
     (async () => {
@@ -225,7 +224,7 @@ export default function DashBoard({ route, navigation }) {
 
     BackgroundGeolocation.on("foreground", () => {
       console.log("[INFO] App is in foreground");
-      setPipMode(false) 
+   
     });
 
     BackgroundGeolocation.on('abort_requested', () => {
@@ -1043,7 +1042,7 @@ export default function DashBoard({ route, navigation }) {
     updateState({enableMap: !enableMap});
   };
 
-  console.log(pipMode,"pipModepipMode");
+ 
 
 
     return (

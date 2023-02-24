@@ -482,8 +482,33 @@ PODS:
     - React-Core
   - RNReactNativeHapticFeedback (1.14.0):
     - React-Core
-  - RNReanimated (1.13.4):
+  - RNReanimated (2.10.0):
+    - DoubleConversion
+    - FBLazyVector
+    - FBReactNativeSpec
+    - glog
+    - RCT-Folly
+    - RCTRequired
+    - RCTTypeSafety
+    - React-callinvoker
     - React-Core
+    - React-Core/DevSupport
+    - React-Core/RCTWebSocket
+    - React-CoreModules
+    - React-cxxreact
+    - React-jsi
+    - React-jsiexecutor
+    - React-jsinspector
+    - React-RCTActionSheet
+    - React-RCTAnimation
+    - React-RCTBlob
+    - React-RCTImage
+    - React-RCTLinking
+    - React-RCTNetwork
+    - React-RCTSettings
+    - React-RCTText
+    - ReactCommon/turbomodule/core
+    - Yoga
   - RNScreens (3.20.0):
     - React-Core
     - React-RCTImage
@@ -897,7 +922,7 @@ SPEC CHECKSUMS:
   RNLocalize: ea02d6ee626a9239c9efe0b2b3f8a4660dff6df6
   RNPermissions: 79d0c889562fd792329821bea3155fe6eb54d359
   RNReactNativeHapticFeedback: 1e3efeca9628ff9876ee7cdd9edec1b336913f8c
-  RNReanimated: c1b56d030d1616239861534d9adb531f8cffab68
+  RNReanimated: 297665fc9f18101ff029e80d789d65ddd34bf44a
   RNScreens: 218801c16a2782546d30bd2026bb625c0302d70f
   RNSVG: c1e76b81c76cdcd34b4e1188852892dc280eb902
   RNZendeskChat: 5a73a4353497c0670f81e30f06d45e183d0137aa
@@ -917,6 +942,6 @@ SPEC CHECKSUMS:
   ZendeskMessagingSDK: 95d396c981dacfab83cc7b9736e8561d51a3052b
   ZendeskSDKConfigurationsSDK: ebced171fd1f4eb57760e8537d8cfa6a450122be
 
-PODFILE CHECKSUM: 060334c95650c27948a0ea04eb8877b7ec7bbbb5
+PODFILE CHECKSUM: 9afb8ceb65ae8fdc3a6d50ba552f8f9e116b9f04
 
 COCOAPODS: 1.11.3
