@@ -53,6 +53,7 @@ const App = () => {
   }, []);
 
   function codePushStatusDidChange(syncStatus) {
+    console.log(syncStatus,CHECKING_FOR_UPDATE,DOWNLOADING_PACKAGE,"syncStatus>>>>>>");
     switch (syncStatus) {
       case codePush.SyncStatus.CHECKING_FOR_UPDATE:
         console.log("status Checking for update");
