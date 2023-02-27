@@ -58,16 +58,11 @@ export default function ShortCode({ route, navigation }) {
   } = state;
   const updateState = data => setState(state => ({ ...state, ...data }));
 
-  //Naviagtion to specific screen
-  const moveToNewScreen = (screenName, data) => () => {
-    navigation.navigate(screenName, { data });
-  };
 
-  const { defaultLanguage, internetConnection } = useSelector(
-    state => state?.initBoot,
-  );
 
-  const { userData } = useSelector(state => state?.auth);
+  const { defaultLanguage, internetConnection } = useSelector(state => state?.initBoot)||{};
+
+  const { userData } = useSelector(state => state?.auth)||{};
   const videoRef = useRef();
   useEffect(() => {
     requestUserPermission();
@@ -3078,7 +3073,6 @@ export default function ShortCode({ route, navigation }) {
         isLoading: true,
         shortCode: code,
         changeInShortCode: true,
-        // isShortcodePrefilled: true,
       });
       //
     })();
@@ -3240,11 +3234,6 @@ export default function ShortCode({ route, navigation }) {
   const _redirectToLogin = async shortCodeDataInfo => {
     updateState({ isModalVisibleForShortCodeDetail: false });
     checkAsynStorageData();
-    // const userData = await getUserData();
-    // console.log(userData, 'userDataInShortcode');
-    // userData && userData?.access_token
-    //   ? navigation.push(navigationStrings.DRAWER_ROUTES)
-    //   : moveToNewScreen(navigationStrings.LOGIN, shortCodeDataInfo)();
   };
 
   //Modal main component
