@@ -19,7 +19,7 @@ const ShowNotificationForeground = props => {
           ? PushNotificationIOS.addNotificationRequest({
               id: messageId,
               body: data?.message || '',
-              title: notificationType || '',
+              title: data?.message || '',
               sound:
                 notification.sound == 'notification.mp3'
                   ? 'notification.mp3'
@@ -29,7 +29,7 @@ const ShowNotificationForeground = props => {
               channelId: notification.android.channelId,
               id: messageId,
               body: data?.message || '',
-              title: notificationType || '',
+              title: data?.message || '',
               soundName: notification.android.sound,
               vibrate: true,
               playSound: true,
