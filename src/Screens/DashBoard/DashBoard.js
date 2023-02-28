@@ -1,5 +1,5 @@
-import {debounce, get} from 'lodash';
-import React, {useEffect, useRef, useState} from 'react';
+import { debounce, get } from 'lodash';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   Alert,
   BackHandler,
@@ -12,9 +12,9 @@ import {
   Text,
   View,
 } from 'react-native';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 import Header from '../../Components/Header';
-import {loaderOne} from '../../Components/Loaders/AnimatedLoaderFiles';
+import { loaderOne } from '../../Components/Loaders/AnimatedLoaderFiles';
 import SwitchSelectorComponent from '../../Components/SwitchSelector';
 import WrapperContainer from '../../Components/WrapperContainer';
 import imagePath from '../../constants/imagePath';
@@ -41,7 +41,7 @@ import {
   showError,
   showSuccess,
 } from '../../utils/helperFunctions';
-import {requestUserPermission} from '../../utils/notificationServices';
+import { requestUserPermission } from '../../utils/notificationServices';
 
 import styles from './styles';
 navigator.geolocation = require('react-native-geolocation-service');
@@ -60,7 +60,7 @@ var finalAllTasks = [];
 var finaltodayTasks = [];
 
 export default function DashBoard({ route, navigation }) {
-  const userData = useSelector((state) => state?.auth?.userData);
+  const userData = useSelector((state) => state?.auth?.userData) || {};
   const defaultLanguagae = useSelector(
     state => state?.initBoot?.defaultLanguage,
   );
@@ -73,14 +73,14 @@ export default function DashBoard({ route, navigation }) {
     fcmToken,
     zendeskKeys,
   } = useSelector((state) => state?.initBoot);
-  const { isCabPooling, initialValue } = useSelector((state) => state?.auth);
+  const { isCabPooling, initialValue } = useSelector((state) => state?.auth) || {};
 
   const [state, setState] = useState({
     isLoading: false,
     isEnabled: userData && userData?.is_available ? true : false,
     options: [
-      {label: strings.TODAYSTASK, value: 0, testID: '1'},
-      {label: strings.ALLTASKS, value: 1, testID: '2'},
+      { label: strings.TODAYSTASK, value: 0, testID: '1' },
+      { label: strings.ALLTASKS, value: 1, testID: '2' },
     ],
     initial: 0,
     selectedOption: 0,
@@ -140,7 +140,6 @@ export default function DashBoard({ route, navigation }) {
 
 
 
-  const [pipMode,setPipMode] = useState(false)
 
   useEffect(() => {
     (async () => {
@@ -149,7 +148,7 @@ export default function DashBoard({ route, navigation }) {
         fcm_token: fcmToken,
       });
     })();
-    return () => {};
+    return () => { };
   }, []);
 
   useEffect(() => {
@@ -220,12 +219,12 @@ export default function DashBoard({ route, navigation }) {
 
     BackgroundGeolocation.on("background", () => {
       console.log("[INFO] App is in background");
-    
+
     });
 
     BackgroundGeolocation.on("foreground", () => {
       console.log("[INFO] App is in foreground");
-      setPipMode(false) 
+
     });
 
     BackgroundGeolocation.on('abort_requested', () => {
@@ -294,7 +293,7 @@ export default function DashBoard({ route, navigation }) {
             value: 1,
             testID: '2',
           },
-          {label: 'Pooling Suggestion', value: 2, testID: '3'},
+          { label: 'Pooling Suggestion', value: 2, testID: '3' },
         ];
         updateState({
           isLoading: true,
@@ -345,7 +344,7 @@ export default function DashBoard({ route, navigation }) {
 
       console.log(data, "data>data====");
       actions
-        .logsApi(data, {client: clientInfo?.database_name})
+        .logsApi(data, { client: clientInfo?.database_name })
         .then(res => {
           console.log(res, 'logs data');
           if (
@@ -355,10 +354,10 @@ export default function DashBoard({ route, navigation }) {
           ) {
             if (
               zendeskKeys?.keys?.account_key !=
-                res?.data?.user?.client_preference?.customer_support_key &&
+              res?.data?.user?.client_preference?.customer_support_key &&
               zendeskKeys?.keys?.application_id !=
-                res?.data?.user?.client_preference
-                  ?.customer_support_application_id
+              res?.data?.user?.client_preference
+                ?.customer_support_application_id
             )
               actions?.setZendeskKeys({
                 keys: {
@@ -378,9 +377,9 @@ export default function DashBoard({ route, navigation }) {
           }
 
           if (selectedOption == 1) {
-            updateState({allTasks: res?.data?.tasks});
+            updateState({ allTasks: res?.data?.tasks });
           } else {
-            updateState({todaysTasks: res?.data?.tasks});
+            updateState({ todaysTasks: res?.data?.tasks });
           }
         })
         .catch(errorMethod);
@@ -424,7 +423,7 @@ export default function DashBoard({ route, navigation }) {
         fcm_token: fcmToken,
       });
     })();
-    return () => {};
+    return () => { };
   }, []);
 
   const currentLocation = () => {
@@ -469,7 +468,7 @@ export default function DashBoard({ route, navigation }) {
       .getListOfTasks(
         `?all=${selectedOption}`,
         {},
-        {client: clientInfo?.database_name},
+        { client: clientInfo?.database_name },
       )
       .then(res => {
         actions.updateHomepage(false);
@@ -549,10 +548,10 @@ export default function DashBoard({ route, navigation }) {
     console.log(data, 'datadata');
 
     actions
-      .acceptRejectTask(data, {client: clientInfo?.database_name})
+      .acceptRejectTask(data, { client: clientInfo?.database_name })
       .then(res => {
         showSuccess(res?.message);
-        updateState({isLoading: false});
+        updateState({ isLoading: false });
         actions.updateHomepage(true);
       })
 
@@ -592,7 +591,7 @@ export default function DashBoard({ route, navigation }) {
         }
       }
 
-      finaltodayTasks = [...finaltodayTasks, {title: i, data: arr}];
+      finaltodayTasks = [...finaltodayTasks, { title: i, data: arr }];
     }
   };
   const data = (data, type) => {
@@ -608,17 +607,17 @@ export default function DashBoard({ route, navigation }) {
         }
       }
 
-      finalAllTasks = [...finalAllTasks, {title: i, data: arr}];
+      finalAllTasks = [...finalAllTasks, { title: i, data: arr }];
     }
   };
 
-  const updateState = data => setState(state => ({...state, ...data}));
+  const updateState = data => setState(state => ({ ...state, ...data }));
 
-  const commonStyles = commonStylesFunc({fontFamily});
+  const commonStyles = commonStylesFunc({ fontFamily });
 
   //Naviagtion to specific screen
   const moveToNewScreen = (screenName, data) => () => {
-    navigation.navigate(screenName, {data});
+    navigation.navigate(screenName, { data });
   };
 
   const onOffDuty = () => {
@@ -626,14 +625,14 @@ export default function DashBoard({ route, navigation }) {
       .onOffDuty(
         `?device_token=${fcm_token ? fcm_token : DeviceInfo.getDeviceToken()}`,
         {},
-        {client: clientInfo?.database_name},
+        { client: clientInfo?.database_name },
       )
       .then(res => {
         console.log(res, 'onOffDuty>res>res');
-        updateState({isLoadingSwitch: false});
+        updateState({ isLoadingSwitch: false });
         if (res?.data) {
-          updateState({statusChanged: false});
-          let updatedUserData = {...userData};
+          updateState({ statusChanged: false });
+          let updatedUserData = { ...userData };
           updatedUserData['is_available'] = res?.data?.is_available;
           actions.updataeUserData(updatedUserData);
         }
@@ -683,19 +682,19 @@ export default function DashBoard({ route, navigation }) {
 
   const customCenter = () => {
     return (
-      <View style={{flexDirection: 'row', alignItems: 'center'}}>
-        <View style={{paddingHorizontal: 10}}>
+      <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+        <View style={{ paddingHorizontal: 10 }}>
           <Image source={imagePath.locationOff} />
         </View>
 
         <Switch
-          trackColor={{false: colors.backGround, true: colors.themeColor}}
+          trackColor={{ false: colors.backGround, true: colors.themeColor }}
           thumbColor={colors.white}
           // ios_backgroundColor=#3e3e3e"
           onValueChange={toggleSwitch}
           value={isEnabled}
         />
-        <View style={{paddingHorizontal: 10}}>
+        <View style={{ paddingHorizontal: 10 }}>
           <Image source={imagePath.locationOn} />
         </View>
       </View>
@@ -703,8 +702,8 @@ export default function DashBoard({ route, navigation }) {
   };
 
   //pagination of data
-  const onEndReached = ({distanceFromEnd}) => {
-    updateState({pageNo: pageNo + 1});
+  const onEndReached = ({ distanceFromEnd }) => {
+    updateState({ pageNo: pageNo + 1 });
   };
 
   const onEndReachedDelayed = debounce(onEndReached, 1000, {
@@ -713,14 +712,14 @@ export default function DashBoard({ route, navigation }) {
   });
 
   const _onPressTask = item => {
-    moveToNewScreen(navigationStrings.TASKDETAIL, {item: item})();
+    moveToNewScreen(navigationStrings.TASKDETAIL, { item: item })();
   };
   const getDynamicUpdateOnValues = data => {
     var colorData = colorArray;
     return colorData[finalAllTasks.indexOf(data) % colorData.length];
   };
 
-  const renderTaskList = ({item, index}) => {
+  const renderTaskList = ({ item, index }) => {
     return (
       <TouchableOpacity
         onPress={() => _onPressTask(item?.data[0])}
@@ -745,7 +744,7 @@ export default function DashBoard({ route, navigation }) {
     );
   };
 
-  const renderPoolingSuggestions = ({item, index}) => {
+  const renderPoolingSuggestions = ({ item, index }) => {
     return (
       <TouchableOpacity
         // onPress={() => _onPressTask(item?.data[0])}
@@ -771,7 +770,7 @@ export default function DashBoard({ route, navigation }) {
             borderRadius: moderateScale(2),
           }}
           colorsArray={[colors.green, colors.green]}
-          containerStyle={{marginHorizontal: moderateScale(10)}}
+          containerStyle={{ marginHorizontal: moderateScale(10) }}
           onPress={() => aceptRejectPoolingSuggestions(item)}
         />
       </TouchableOpacity>
@@ -780,27 +779,27 @@ export default function DashBoard({ route, navigation }) {
 
   //Pull to refresh
   const handleRefresh = () => {
-    updateState({pageNo: 1, isRefreshing: true});
+    updateState({ pageNo: 1, isRefreshing: true });
   };
 
   const homeMainView = () => {
     return (
       <>
-        <View style={{flex: 1}}>
+        <View style={{ flex: 1 }}>
           {(
             selectedOption == 2
               ? allPoolingingSuggestions?.length
               : selectedOption
-              ? allTasks?.length
-              : todaysTasks?.length
+                ? allTasks?.length
+                : todaysTasks?.length
           ) ? (
             <FlatList
               data={
                 selectedOption == 2
                   ? allPoolingingSuggestions
                   : selectedOption
-                  ? finalAllTasks
-                  : finaltodayTasks
+                    ? finalAllTasks
+                    : finaltodayTasks
               }
               renderItem={
                 selectedOption != 2 ? renderTaskList : renderPoolingSuggestions
@@ -814,8 +813,8 @@ export default function DashBoard({ route, navigation }) {
                 backgroundColor: !!(selectedOption == 1 && !allTasks.length)
                   ? colors.backGround
                   : !!(selectedOption == 0 && !todaysTasks.length)
-                  ? colors.backGround
-                  : colors.white,
+                    ? colors.backGround
+                    : colors.white,
               }}
               contentContainerStyle={{
                 flexGrow: 1,
@@ -837,15 +836,15 @@ export default function DashBoard({ route, navigation }) {
                     selectedOption == 2
                       ? 'No Pooling Suggestions Yet'
                       : getBundleId() == appIds.tdc
-                      ? strings.NOTRIP
-                      : strings.NOTASK
+                        ? strings.NOTRIP
+                        : strings.NOTASK
                   }
                   subMessage={
                     selectedOption == 2
                       ? 'You have no pooling suggestions . We’ll notify you when new pooling suggestion arrive.'
                       : strings.NOTASKASSIGNED
                   }
-                  containerStyle={{backgroundColor: colors.backGround}}
+                  containerStyle={{ backgroundColor: colors.backGround }}
                 />
               )}
             />
@@ -856,15 +855,15 @@ export default function DashBoard({ route, navigation }) {
                 selectedOption == 2
                   ? 'No Pooling Suggestions Yet'
                   : getBundleId() == appIds.tdc
-                  ? strings.NOTRIP
-                  : strings.NOTASK
+                    ? strings.NOTRIP
+                    : strings.NOTASK
               }
               subMessage={
                 selectedOption == 2
                   ? 'You have no pooling suggestions . We’ll notify you when new pooling suggestion arrive.'
                   : strings.NOTASKASSIGNED
               }
-              containerStyle={{backgroundColor: colors.backGround}}
+              containerStyle={{ backgroundColor: colors.backGround }}
             />
           )}
         </View>
@@ -873,7 +872,7 @@ export default function DashBoard({ route, navigation }) {
   };
 
   const _onRegionChange = region => {
-    updateState({region: region});
+    updateState({ region: region });
     // _getAddressBasedOnCoordinates(region);
   };
 
@@ -935,14 +934,14 @@ export default function DashBoard({ route, navigation }) {
     Linking.openSettings();
   };
 
-  const toggleWarning = state => updateState({isWarningAlert: state});
+  const toggleWarning = state => updateState({ isWarningAlert: state });
   useEffect(() => {
     const interval = setInterval(() => {
       requestUserPermission(toggleWarning);
     }, 1000);
     if (!isWarningAlert && interval && (fcmToken || warningStatus))
       clearInterval(interval);
-    updateState({warningStatus: 1});
+    updateState({ warningStatus: 1 });
     return () => {
       if (interval) clearInterval(interval);
     };
@@ -950,12 +949,12 @@ export default function DashBoard({ route, navigation }) {
 
   const offDutyView = () => {
     return (
-      <View style={{flex: 1}}>
+      <View style={{ flex: 1 }}>
         <ListEmptyComponent
           isLoading={isLoadingSwitch}
           message={strings.OFFDUTY}
           subMessage={strings.OFFDUTYMESSAGE}
-          containerStyle={{backgroundColor: colors.backGround}}
+          containerStyle={{ backgroundColor: colors.backGround }}
           image={imagePath?.offDuty}
         />
       </View>
@@ -966,8 +965,8 @@ export default function DashBoard({ route, navigation }) {
 
   const fitPadding = newArray => {
     if (mapRef.current) {
-      mapRef.current.fitToCoordinates([{latitude, longitude}, ...newArray], {
-        edgePadding: {top: 80, right: 80, bottom: 80, left: 80},
+      mapRef.current.fitToCoordinates([{ latitude, longitude }, ...newArray], {
+        edgePadding: { top: 80, right: 80, bottom: 80, left: 80 },
         animated: true,
       });
     }
@@ -977,10 +976,10 @@ export default function DashBoard({ route, navigation }) {
     return (
       <MapView
         ref={mapRef}
-        provider={Platform.OS=='android'? PROVIDER_GOOGLE:PROVIDER_DEFAULT} // remove if not using Google Maps
+        provider={Platform.OS == 'android' ? PROVIDER_GOOGLE : PROVIDER_DEFAULT} // remove if not using Google Maps
         style={styles.map}
         // region={region}
-       
+
         zoomEnabled={true}
         initialRegion={{
           latitude: Number(latitude),
@@ -1040,112 +1039,112 @@ export default function DashBoard({ route, navigation }) {
   };
 
   const _onSwitchMapView = () => {
-    updateState({enableMap: !enableMap});
+    updateState({ enableMap: !enableMap });
   };
 
-  console.log(pipMode,"pipModepipMode");
 
 
-    return (
-      <WrapperContainer
-        statusBarColor={colors.white}
-        bgColor={colors.backGround}
-        isLoading={isLoading || isLoadingSwitch}
-        source={loaderOne}
-      >
-        <Header
-        
-          headerStyle={{ backgroundColor: colors.white }}
-          leftIcon={imagePath.menu}
-          onPressLeft={() => navigation.toggleDrawer()}
-          // hideRight={true}
-          customCenter={() => customCenter()}
-          rightIcon={!enableMap ? imagePath.map : imagePath.listMenu}
-          onPressRight={_onSwitchMapView}
-        />
-        <View style={{ ...commonStyles.headerTopLine }} />
-        {isWarningAlert && (
-          <View
-            style={{
-              backgroundColor: colors.lightRed,
-              flexDirection: "row",
-              justifyContent: "space-between",
-              paddingHorizontal: moderateScale(10),
-            }}
-          >
-            <View style={{ width: width / 2.2, justifyContent: "center" }}>
-              <Text
-                style={{ color: colors.white, fontFamily: fontFamily.regular }}
-              >
-                {strings.notificationAlert}
-              </Text>
-            </View>
-            <View
-              style={{
-                justifyContent: "space-between",
-                width: width / 2.5,
-                alignItems: "center",
-                flexDirection: "row",
-                marginVertical: moderateScaleVertical(5),
-                paddingVertical: moderateScaleVertical(10),
-              }}
-            >
-              <TouchableOpacity
-                style={{
-                  backgroundColor: colors.themeColor,
-                  alignItems: "center",
-                  marginVertical: moderateScaleVertical(10),
-                  paddingVertical: moderateScaleVertical(5),
-                  paddingHorizontal: moderateScale(10),
-                  borderRadius: 8,
-                }}
-                onPress={() => toggleWarning(false)}
-              >
-                <Text style={{ color: colors.white }}>{strings.CANCEL}</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={{
-                  backgroundColor: colors.themeColor,
-                  alignItems: "center",
-                  marginVertical: moderateScaleVertical(10),
-                  paddingVertical: moderateScaleVertical(5),
-                  paddingHorizontal: moderateScale(10),
-                  borderRadius: 8,
-                }}
-                onPress={() => _onOpenSettings()}
-              >
-                <Text style={{ color: colors.white }}>{strings.ENABLE}</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        )}
-  
+
+  return (
+    <WrapperContainer
+      statusBarColor={colors.white}
+      bgColor={colors.backGround}
+      isLoading={isLoading || isLoadingSwitch}
+      source={loaderOne}
+    >
+      <Header
+
+        headerStyle={{ backgroundColor: colors.white }}
+        leftIcon={imagePath.menu}
+        onPressLeft={() => navigation.toggleDrawer()}
+        // hideRight={true}
+        customCenter={() => customCenter()}
+        rightIcon={!enableMap ? imagePath.map : imagePath.listMenu}
+        onPressRight={_onSwitchMapView}
+      />
+      <View style={{ ...commonStyles.headerTopLine }} />
+      {isWarningAlert && (
         <View
           style={{
-            justifyContent: "center",
-            alignItems: "center",
-            marginTop: moderateScaleVertical(20),
-            paddingBottom: moderateScaleVertical(20),
-            borderBottomWidth: moderateScaleVertical(1),
-            borderBottomColor: colors.lightGreyBg,
+            backgroundColor: colors.lightRed,
+            flexDirection: "row",
+            justifyContent: "space-between",
+            paddingHorizontal: moderateScale(10),
           }}
         >
-          {isEnabled ? (
-            <SwitchSelectorComponent
-              key={selectedOption}
-              options={options}
-              initial={selectedOption}
-              onPress={(value) => updateContent(value)}
-              // textInputStyle={{ width: moderateScale(width - 40) }}
-            />
-          ) : (
-            <View style={{ height: 35 }} />
-          )}
+          <View style={{ width: width / 2.2, justifyContent: "center" }}>
+            <Text
+              style={{ color: colors.white, fontFamily: fontFamily.regular }}
+            >
+              {strings.notificationAlert}
+            </Text>
+          </View>
+          <View
+            style={{
+              justifyContent: "space-between",
+              width: width / 2.5,
+              alignItems: "center",
+              flexDirection: "row",
+              marginVertical: moderateScaleVertical(5),
+              paddingVertical: moderateScaleVertical(10),
+            }}
+          >
+            <TouchableOpacity
+              style={{
+                backgroundColor: colors.themeColor,
+                alignItems: "center",
+                marginVertical: moderateScaleVertical(10),
+                paddingVertical: moderateScaleVertical(5),
+                paddingHorizontal: moderateScale(10),
+                borderRadius: 8,
+              }}
+              onPress={() => toggleWarning(false)}
+            >
+              <Text style={{ color: colors.white }}>{strings.CANCEL}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={{
+                backgroundColor: colors.themeColor,
+                alignItems: "center",
+                marginVertical: moderateScaleVertical(10),
+                paddingVertical: moderateScaleVertical(5),
+                paddingHorizontal: moderateScale(10),
+                borderRadius: 8,
+              }}
+              onPress={() => _onOpenSettings()}
+            >
+              <Text style={{ color: colors.white }}>{strings.ENABLE}</Text>
+            </TouchableOpacity>
+          </View>
         </View>
-        <View style={{ flex: 1 }}>{renderComponents()}</View>
-      </WrapperContainer>
-    );
+      )}
+
+      <View
+        style={{
+          justifyContent: "center",
+          alignItems: "center",
+          marginTop: moderateScaleVertical(20),
+          paddingBottom: moderateScaleVertical(20),
+          borderBottomWidth: moderateScaleVertical(1),
+          borderBottomColor: colors.lightGreyBg,
+        }}
+      >
+        {isEnabled ? (
+          <SwitchSelectorComponent
+            key={selectedOption}
+            options={options}
+            initial={selectedOption}
+            onPress={(value) => updateContent(value)}
+          // textInputStyle={{ width: moderateScale(width - 40) }}
+          />
+        ) : (
+          <View style={{ height: 35 }} />
+        )}
+      </View>
+      <View style={{ flex: 1 }}>{renderComponents()}</View>
+    </WrapperContainer>
+  );
 
 
-  
+
 }

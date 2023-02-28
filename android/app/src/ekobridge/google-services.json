@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "37569856",
+    "project_id": "ekobridge-driver",
+    "storage_bucket": "ekobridge-driver.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:37569856:android:24226e2ea6fec7574666a5",
+        "android_client_info": {
+          "package_name": "com.ekobridge.dispatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "37569856-2rno3a1591bqrdqtjlgue5s532g4um9s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJQ8OKjjFu8UEgwbSjereNFq9Nm6u9qwk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "37569856-2rno3a1591bqrdqtjlgue5s532g4um9s.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "37569856-prjnsbb1fmoqhatuvr7mti0ntv3psdt9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ekobridge.dispatcher"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

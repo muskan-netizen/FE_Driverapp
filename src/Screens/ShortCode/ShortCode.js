@@ -3053,6 +3053,19 @@ export default function ShortCode({ route, navigation }) {
             isShortcodePrefilled: true,
           });
           break;
+        case appIds.zozozi:
+          updateState({
+            shortCode: shortCodes.zozozi,
+            isShortcodePrefilled: true,
+          });
+          break;
+        case appIds.ekobridge:
+          updateState({
+            shortCode: shortCodes.ekobridge,
+            isShortcodePrefilled: true,
+          });
+          break;
+
 
       }
     })();

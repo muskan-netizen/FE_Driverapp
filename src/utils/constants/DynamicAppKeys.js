@@ -492,7 +492,9 @@ const shortCodes = {
   theGenie: '193af0',
   sultanCenter: 'e3255c',
   reedas: '986325',
-  onebasket: '588482'
+  onebasket: '588482',
+  zozozi: 'a6e77a',
+  ekobridge: '8a98a0'
 };
 
 const appIds = {
@@ -2452,6 +2454,14 @@ const appIds = {
   onebasket: Platform.select({
     ios: 'com.onerbasket.royodispatcher',
     android: 'com.onerbasket.royodispatcher',
+  }),
+  zozozi: Platform.select({
+    ios: 'com.zozozi.dispatcher',
+    android: 'com.zozozi.dispatcher',
+  }),
+  ekobridge: Platform.select({
+    ios: 'com.ekobridge.dispatcher',
+    android: 'com.ekobridge.dispatcher',
   }),
 };
 

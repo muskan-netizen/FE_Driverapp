@@ -203,15 +203,15 @@ android {
 
      flavorDimensions "appType"
      productFlavors{
-          mozmarcas{
+           everywhere{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.Mozmarcas.royodispatcher'
-            resValue "string", "app_name", "Pakela Driver"
+            applicationId 'com.Everywhere.royodispatcher'
+            resValue "string", "app_name", "Everywhere Dispatcher"
         }
         // sultanCenter{
         //     dimension "appType"
@@ -6460,6 +6460,26 @@ android {
 //             // applicationIdSuffix ".royoorder"
 //             applicationId 'com.onerbasket.royodispatcher'
 //             resValue "string", "app_name", "OneBasket dispatcher"
+//         }
+// zozozi{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.zozozi.dispatcher'
+//             resValue "string", "app_name", "Zozozi dispatcher"
+//         }
+// ekobridge{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.ekobridge.dispatcher'
+//             resValue "string", "app_name", "Ekobridge dispatcher"
 //         }
 //         }
 }

@@ -286,7 +286,7 @@ export default function Login({ navigation, route }) {
   };
 
 
-console.log(logoRegex.test(clientInfo?.logo) ,"logoRegex.test(clientInfo?.logo) ");
+
 
 
   return (
