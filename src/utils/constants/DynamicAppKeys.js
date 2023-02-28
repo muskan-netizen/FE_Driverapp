@@ -494,7 +494,9 @@ const shortCodes = {
   reedas: '986325',
   onebasket: '588482',
   zozozi: 'a6e77a',
-  ekobridge: '8a98a0'
+  ekobridge: '8a98a0',
+  ambosSafariExpress: '9bc84f',
+  Zulbrand: '1788d6'
 };
 
 const appIds = {
@@ -2462,6 +2464,14 @@ const appIds = {
   ekobridge: Platform.select({
     ios: 'com.ekobridge.dispatcher',
     android: 'com.ekobridge.dispatcher',
+  }),
+  ambosSafariExpress: Platform.select({
+    ios: 'com.ambosSafariExpress.dispatcher',
+    android: 'com.ambosSafariExpress.dispatcher',
+  }),
+  zulbrand: Platform.select({
+    ios: 'com.zulbrand.dispatcher',
+    android: 'com.zulbrand.dispatcher',
   }),
 };
 

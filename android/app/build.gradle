@@ -203,15 +203,15 @@ android {
 
      flavorDimensions "appType"
      productFlavors{
-           everywhere{
+     zulbrand{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.Everywhere.royodispatcher'
-            resValue "string", "app_name", "Everywhere Dispatcher"
+            applicationId 'com.zulbrand.dispatcher'
+            resValue "string", "app_name", "Zulbrand dispatcher"
         }
         // sultanCenter{
         //     dimension "appType"
@@ -6480,6 +6480,26 @@ android {
 //             // applicationIdSuffix ".royoorder"
 //             applicationId 'com.ekobridge.dispatcher'
 //             resValue "string", "app_name", "Ekobridge dispatcher"
+//         }
+// ambosSafariExpress{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.ambosSafariExpress.dispatcher'
+//             resValue "string", "app_name", "Ambos Safari Express dispatcher"
+//         }
+// zulbrand{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.zulbrand.dispatcher'
+//             resValue "string", "app_name", "Zulbrand dispatcher"
 //         }
 //         }
 }
