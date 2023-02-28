@@ -8680,7 +8680,6 @@
 		18AC3A1F2966AB0B00CFB0B4 /* Ondgoo(Production).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Ondgoo(Production).xcconfig"; sourceTree = "<group>"; };
 		18AC3A212966AB9600CFB0B4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		18AD8C8B299CFEA600B5FB86 /* Livraizoo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Livraizoo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		18AD8C8C299CFEA900B5FB86 /* RoyoDriverApp copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "RoyoDriverApp copy-Info.plist"; path = "/Users/cbl-mac-059/Desktop/RoyoDispatch/ios/RoyoDriverApp copy-Info.plist"; sourceTree = "<absolute>"; };
 		18BF44A0D808B8F6F6C1507C /* libPods-available_pods-Weemov.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-available_pods-Weemov.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18CCA454DC3BE8DB46EA4A82 /* libPods-available_pods-Cabdelivr.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-available_pods-Cabdelivr.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18CE4FDC9A09399146450E3A /* Pods-available_pods-Weedlomo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-Weedlomo.debug.xcconfig"; path = "Target Support Files/Pods-available_pods-Weedlomo/Pods-available_pods-Weedlomo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -17845,7 +17844,6 @@
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				CF572E3A7184357FCBFC05E9 /* Pods */,
 				8437918E272ADA2B0020A606 /* Recovered References */,
-				18AD8C8C299CFEA900B5FB86 /* RoyoDriverApp copy-Info.plist */,
 			);
 			indentWidth = 0;
 			sourceTree = "<group>";
@@ -130879,8 +130877,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = RoyoDriverApp/RoyoDriverAppRelease.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
 				ENABLE_BITCODE = NO;
@@ -130909,7 +130907,7 @@
 				PROJECT_BUNDLE_ID = "$(PROJECT_BUNDLE_ID)";
 				PROJECT_NAME = "${PROJECT_NAME}";
 				PROJECT_PLIST = "$(PROJECT_PLIST)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "Vialteran Dispatcher";
 				SWIFT_OBJC_BRIDGING_HEADER = "RoyoDriverApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;

@@ -4,8 +4,9 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 platform :ios, '12.0'
 
 
-abstract_target t-native-permissions/ios'
-  rn_maps_path =kon '../node_modules/react-native-maps'
+abstract_target 'available_pods' do
+  permissions_path = '../node_modules/react-native-permissions/ios'
+  rn_maps_path = '../node_modules/react-native-maps'
   config = use_native_modules!
   use_react_native!(
     :path => config[:reactNativePath],
@@ -23,7 +24,6 @@ abstract_target t-native-permissions/ios'
 
 #RoyoDriverApp Target
 target 'RoyoDriverApp' do
-  
 end
 
 

@@ -37,7 +37,7 @@ export function drawer(Stack) {
 }
 
 export default function Routes() {
-  const userData = useSelector(state => state?.auth?.userData);
+  const userData = useSelector(state => state?.auth?.userData)||{};
 
   console.log("routes userData", userData)
   // const {shortCodeStatus, appStyle} = useSelector(state => state?.initBoot);
