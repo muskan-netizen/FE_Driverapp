@@ -985,6 +985,8 @@
     "ambosSafariExpressdispatcherRelease": "cd android && ./gradlew assembleambosSafariExpressRelease",
     "zulbranddispatcher": "react-native run-android --variant=zulbrandDebug",
     "zulbranddispatcherRelease": "cd android && ./gradlew assemblezulbrandRelease",
+    "emartdispatcher": "react-native run-android --variant=emartDebug",
+    "emartdispatcherRelease": "cd android && ./gradlew assembleemartRelease",
     "build_ios": "react-native bundle --entry-file='index.js' --bundle-output='./ios/main.jsbundle' --dev=false --platform='ios'",
     "android": "react-native run-android",
     "ios": "react-native run-ios",

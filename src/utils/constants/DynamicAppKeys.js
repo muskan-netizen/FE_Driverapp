@@ -496,7 +496,8 @@ const shortCodes = {
   zozozi: 'a6e77a',
   ekobridge: '8a98a0',
   ambosSafariExpress: '9bc84f',
-  Zulbrand: '1788d6'
+  Zulbrand: '1788d6',
+  emart: 'a68bb7'
 };
 
 const appIds = {
@@ -2472,6 +2473,10 @@ const appIds = {
   zulbrand: Platform.select({
     ios: 'com.zulbrand.dispatcher',
     android: 'com.zulbrand.dispatcher',
+  }),
+  emart: Platform.select({
+    ios: 'com.emart.dispatcher',
+    android: 'com.emart.dispatcher',
   }),
 };
 

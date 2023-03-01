@@ -203,15 +203,15 @@ android {
 
      flavorDimensions "appType"
      productFlavors{
-     zulbrand{
+   emart{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.zulbrand.dispatcher'
-            resValue "string", "app_name", "Zulbrand dispatcher"
+            applicationId 'com.emart.dispatcher'
+            resValue "string", "app_name", "Emart dispatcher"
         }
         // sultanCenter{
         //     dimension "appType"
@@ -6500,6 +6500,16 @@ android {
 //             // applicationIdSuffix ".royoorder"
 //             applicationId 'com.zulbrand.dispatcher'
 //             resValue "string", "app_name", "Zulbrand dispatcher"
+//         }
+// emart{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.emart.dispatcher'
+//             resValue "string", "app_name", "Emart dispatcher"
 //         }
 //         }
 }

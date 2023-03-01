@@ -510,7 +510,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // amwer 
 
- //export const API_BASE_URL='https://coretrack.mx/'
+//export const API_BASE_URL='https://coretrack.mx/'
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;
 
 export const SEND_OTP = getApiUrl('api/auth/login');
