@@ -203,15 +203,15 @@ android {
 
      flavorDimensions "appType"
      productFlavors{
-   emart{
+stargaze{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.emart.dispatcher'
-            resValue "string", "app_name", "Emart dispatcher"
+            applicationId 'com.stargaze.dispatcher'
+            resValue "string", "app_name", "Stargaze dispatcher"
         }
         // sultanCenter{
         //     dimension "appType"

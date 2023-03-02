@@ -1,0 +1,10 @@
+#include "Pods/Target Support Files/Pods-available_pods-Stargaze/Pods-available_pods-Stargaze.release.xcconfig"
+
+PROJECT_BUNDLE_ID = com.stargaze.dispatcher
+PROJECT_APP_VERSION = 1.0
+PROJECT_BUILD_NUMBER = 1
+PROJECT_APP_NAME =  Stargaze Dispatcher
+PROJECT_PLIST = StargazeInfo
+PROJECT_ENTITLEMENT=RoyoDriverAppRelease
+
+
