@@ -1,3 +1,5 @@
+
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL='https://dispatch.jeevannapp.com/'
 //export const API_BASE_URL = 'https://805c-103-72-170-243.ngrok.io/';
 // export const API_BASE_URL = 'https://dispatch.shelf.ae';
@@ -16,7 +18,7 @@
 // export const API_BASE_URL = 'https://dispatch.10dollahollla.com/';
 // export const API_BASE_URL='https://dispatch.movingwheelsdeliveryservices.com/'
 // export const API_BASE_URL='https://dispatch.kaypee.app/'
-//export const API_BASE_URL = 'https://api.royodispatch.com/';
+// export const API_BASE_URL = 'https://api.royodispatch.com/';
 // export const API_BASE_URL = 'https://dispatch.laundrozone.net/';
 // export const API_BASE_URL = 'https://sales.royodispatch.com/';
 // export const API_BASE_URL='http://192.168.101.140:9091/'
@@ -24,9 +26,10 @@
 // //Staging
 // export const API_BASE_URL='https://dispatch.uber-weeds.com/'
 // export const API_BASE_URL='https://dispatch.vduonline.co.in/'
- export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
 //  export const API_BASE_URL = 'https://dispatch.destinationops.com/';
- // export const API_BASE_URL='https://dispatch.vduonline.co.in/'
+//  export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL='https://dispatch.vduonline.co.in/'
 // export const API_BASE_URL='https://dispatch.nittosadai.com/'
 //  export const API_BASE_URL='https://zuzucleans.royodispatch.com/'
 // export const API_BASE_URL='https://delivery.go912.app/'
@@ -239,7 +242,7 @@
 // export const API_BASE_URL = 'https://dispatch.order.veg-hub.com/';
 
 // orderfirst
- //export const API_BASE_URL = 'https://dispatch.orderfirst.store/';
+//export const API_BASE_URL = 'https://dispatch.orderfirst.store/';
 
 //KongaFood
 // export const API_BASE_URL = 'https://food-dispatch.konga.com/';
@@ -507,7 +510,7 @@
 
 // amwer 
 
- //export const API_BASE_URL='https://coretrack.mx/'
+//export const API_BASE_URL='https://coretrack.mx/'
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;
 
 export const SEND_OTP = getApiUrl('api/auth/login');

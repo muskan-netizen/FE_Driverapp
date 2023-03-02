@@ -489,6 +489,13 @@ export const getAppCode = () => {
         case appIds.readyToRent: return shortCodes.readyToRent
         case appIds.theGenie: return shortCodes.theGenie
         case appIds.sultanCenter: return shortCodes.sultanCenter
+        case appIds.reedas: return shortCodes.reedas
+        case appIds.onebasket: return shortCodes.onebasket
+        case appIds.zozozi: return shortCodes.zozozi
+        case appIds.ekobridge: return shortCodes.ekobridge
+        case appIds.ambosSafariExpress: return shortCodes.ambosSafariExpress
+        case appIds.zulbrand: return shortCodes.Zulbrand
+        case appIds.emart: return shortCodes.emart
 
         default: return '1da2e9'
     }

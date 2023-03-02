@@ -203,37 +203,26 @@ android {
 
      flavorDimensions "appType"
      productFlavors{
-     weemoov{
+   emart{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.weemoov.royodispatcher'
-            resValue "string", "app_name", "Weemoov Dispatcher"
+            applicationId 'com.emart.dispatcher'
+            resValue "string", "app_name", "Emart dispatcher"
         }
-        sultanCenter{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.sultanCenter.driver'
-            resValue "string", "app_name", "Sultan Dispatcher"
-        }
-
-        vialteran{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.vialteran.royodispatcher'
-            resValue "string", "app_name", "Vialterna  Dispatcher"
-        }
+        // sultanCenter{
+        //     dimension "appType"
+        //     versionCode 1
+        //     versionName "1.0"
+        //     minSdkVersion rootProject.ext.minSdkVersion
+        //     targetSdkVersion rootProject.ext.targetSdkVersion
+        //     // applicationIdSuffix ".royoorder"
+        //     applicationId 'com.sultanCenter.driver'
+        //     resValue "string", "app_name", "Sultan Dispatcher"
+        // }
      }
 
 //     productFlavors {
@@ -6451,6 +6440,76 @@ android {
 //             // applicationIdSuffix ".royoorder"
 //             applicationId 'com.sultanCenter.driver'
 //             resValue "string", "app_name", "sultan dispatcher"
+//         }
+// reedas{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.reedas.royodispatcher'
+//             resValue "string", "app_name", "Reedas dispatcher"
+//         }
+// onebasket{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.onerbasket.royodispatcher'
+//             resValue "string", "app_name", "OneBasket dispatcher"
+//         }
+// zozozi{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.zozozi.dispatcher'
+//             resValue "string", "app_name", "Zozozi dispatcher"
+//         }
+// ekobridge{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.ekobridge.dispatcher'
+//             resValue "string", "app_name", "Ekobridge dispatcher"
+//         }
+// ambosSafariExpress{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.ambosSafariExpress.dispatcher'
+//             resValue "string", "app_name", "Ambos Safari Express dispatcher"
+//         }
+// zulbrand{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.zulbrand.dispatcher'
+//             resValue "string", "app_name", "Zulbrand dispatcher"
+//         }
+// emart{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.emart.dispatcher'
+//             resValue "string", "app_name", "Emart dispatcher"
 //         }
 //         }
 }
