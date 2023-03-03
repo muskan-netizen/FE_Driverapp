@@ -1,4 +1,4 @@
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, TouchableOpacity } from 'react-native'
 import React, { useCallback, useEffect, useState } from 'react'
 import { CountdownCircleTimer } from 'react-native-countdown-circle-timer'
 import fontFamily from '../styles/fontFamily';
@@ -8,35 +8,22 @@ import { moderateScale, moderateScaleVertical, textScale, width } from '../style
 import SwitchSelectorComponent from './SwitchSelector';
 import strings from '../constants/lang';
 import imagePath from '../constants/imagePath';
-import { FlatList } from 'react-native-gesture-handler';
+import TextInputWithUnderlineAndLabel from './TextInputWithUnderlineAndLabel';
 
 const BidAcceptRejectCard = ({
   data = {},
-  bidExpiryDuration = {},
-  _onDeclineBid = () => { },
   _onAcceptRideBid = () => { },
-  _onChangeBidPrice = () => { },
-  allPricesForRideSubmit = [],
- 
+  setBidRidePrice = () => { },
+  _onSetBidPrice = () => { }
 }) => {
-  const [state, setState] = useState({
-    options: [
-      { label: 'Bid Amount', value: 0, testID: "1" },
-      { label: 'Recommended Bid Amount', value: 1, testID: "2" },
-    ],
-    selectedOption: 0,
-  });
-  const {
-    options,
-    selectedOption,
-  } = state;
-
+  
+console.log(data,"data for bid");
 
 
   const allBidLocations = data?.tasks.replace(/'/g, '"')
 
 
-  const updateState = (data) => setState((state) => ({ ...state, ...data }));
+
 
   const renderDotContainer = () => {
     return (
@@ -123,7 +110,7 @@ const BidAcceptRejectCard = ({
           strokeWidth={5}
         >
           {({ remainingTime }) => {
-            remainingTime == 1 && _onDeclineBid(data?.id)
+            //remainingTime == 1 && _onDeclineBid(data?.id)
             return (
               <Text>{remainingTime}</Text>
             )
@@ -171,7 +158,7 @@ const BidAcceptRejectCard = ({
         </View>
       </View>
       {/* Accept button */}
-      <View style={{ marginVertical: moderateScaleVertical(10), width: '80%', alignSelf: 'center' }}>
+      {/* <View style={{ marginVertical: moderateScaleVertical(10), width: '80%', alignSelf: 'center' }}>
         <GradientButton
           colorsArray={[colors.themeColor, colors.themeColor]}
           textStyle={{
@@ -216,6 +203,52 @@ const BidAcceptRejectCard = ({
           keyExtractor={(item, index) => index.toString()}
         />
       </View>
+     */}
+
+      <View style={{ flexDirection: 'row', marginTop: moderateScaleVertical(20),paddingHorizontal:moderateScale(10) }}>
+        <TouchableOpacity style={{
+          backgroundColor: colors.themeColor,
+          flex: 0.15,
+          height: moderateScaleVertical(50),
+          justifyContent: 'center', alignItems: 'center', borderRadius: moderateScale(8)
+        }}
+          onPress={() => _onSetBidPrice('minus',data)}>
+          <Text style={{ color: colors.white, fontFamily: fontFamily?.bold }}>- 10</Text>
+        </TouchableOpacity>
+        <View style={{ flex: 0.7, marginHorizontal: moderateScale(10) }}>
+          <TextInputWithUnderlineAndLabel
+            txtInputStyle={{ textAlign: 'center' }}
+            isEditable={false}
+            placeholder={'Recommend fare,adjustable'}
+            onChangeText={(text) => setBidRidePrice(text)}
+            value={`${Number(data?.selectedPriceForBid||data?.requested_price).toFixed(2)}`} />
+        </View>
+        <TouchableOpacity style={{
+          backgroundColor: colors.themeColor,
+          flex: 0.15,
+          height: moderateScaleVertical(50),
+          justifyContent: 'center', alignItems: 'center', borderRadius: moderateScale(8)
+        }}
+          onPress={() => _onSetBidPrice('plus',data)}>
+          <Text style={{ color: colors.white, fontFamily: fontFamily?.bold }}>+ 10</Text>
+        </TouchableOpacity>
+      </View>
+
+      <View style={{ marginVertical: moderateScaleVertical(10), width: '80%', alignSelf: 'center' }}>
+        <GradientButton
+          colorsArray={[colors.themeColor, colors.themeColor]}
+          textStyle={{
+            textTransform: 'none',
+            fontSize: textScale(13),
+            color: colors.white,
+          }}
+          onPress={() => _onAcceptRideBid({ ...data, finial_selected_price: !!data?.selectedPriceForBid ?data?.selectedPriceForBid : data?.requested_price })}
+          btnText={`Bid For ${!!data?.selectedPriceForBid ? Number(data?.selectedPriceForBid).toFixed(2) : Number(data?.requested_price).toFixed(2)}`}
+          btnStyle={{ width: moderateScale(width / 2.5) }}
+        />
+      </View>
+
+
     </View>
   )
 }

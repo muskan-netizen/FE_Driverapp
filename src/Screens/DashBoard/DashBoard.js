@@ -152,8 +152,7 @@ export default function DashBoard({ route, navigation }) {
   const [allCustomerBidsList, setAllCustomerBidsList] = useState([])
   const [driverSelectedPriceForBide, setDriverSelectedPriceForBide] = useState({})
   const [showBiddingView, setShowBiddingView] = useState(false)
-
-  console.log(driverSelectedPriceForBide,"driverSelectedPriceForBide");
+  const [bidRidePrice, setBidRidePrice] = useState(0);
 
   useEffect(() => {
     (async () => {
@@ -1074,33 +1073,22 @@ export default function DashBoard({ route, navigation }) {
 
 
   useEffect(() => {
-
     const bideNotificationType = notificationData?.notificationData?.data?.notificationType || notificationData?.notificationData?.data?.type
-    console.log(bideNotificationType,"bideNotificationType>> in home");
+    console.log(bideNotificationType, "bideNotificationType>> in home");
     if (bideNotificationType == 'bid_ride_request') {
       _onReciveBide()
     }
   }, [notificationData])
 
 
-  const _onReciveBide = (hideBidView=true) => {
+  const _onReciveBide = (hideBidView = true) => {
     const apiHeader = {
       client: clientInfo?.database_name
     }
     actions.reciveBideRequests({}, apiHeader).then((res) => {
-    
+
       if (res?.data?.requestdata) {
-        const finalRequestData = res?.data?.requestdata.map(element => {
-          const generateRecommandedPriceForBideRide = (Number(element?.maximum_requested_price) - Number(element?.minimum_requested_price)) / 2 + Number(element?.minimum_requested_price)
-          const allPricesForRideSubmit = [
-            { id: 1, price: Number(element?.minimum_requested_price), selected: false },
-            { id: 2, price: Number(generateRecommandedPriceForBideRide.toFixed(2)), selected: false },
-            { id: 3, price: Number(element?.maximum_requested_price), selected: false }
-          ]
-          element['allPricesForRideSubmit'] = allPricesForRideSubmit
-          return element
-        });
-        setAllCustomerBidsList(finalRequestData)
+        setAllCustomerBidsList(res?.data?.requestdata)
         setShowBiddingView(hideBidView)
       }
 
@@ -1110,42 +1098,15 @@ export default function DashBoard({ route, navigation }) {
     })
   }
 
-  const _onChangeBidPrice = (data, bidId, inx) => {
-    // setDriverSelectedPriceForBide(data)
 
-    const finalRequestData = allCustomerBidsList.map((element, index) => {
-      if (element.bid_id == bidId) {
-        element.allPricesForRideSubmit.map(itm => {
-          if (itm.id == data.id) {
-            itm['selected'] = true
-            itm['selectedPrice'] = itm.price
-            
-          } else {
-            itm['selected'] = false
-            itm['selectedPrice'] = ''
-           
-          }
-        })
-        if (element['allCustomerBidsList'] == String(data?.price)) {
-          element['allCustomerBidsList'] = ''
-        } else {
-          element['allCustomerBidsList'] = String(data?.price)
-        }
-        return element
-      }
 
-      return element
-    });
-    setAllCustomerBidsList(finalRequestData)
-  }
 
 
 
   const _onAcceptRideBid = (data) => {
     const apiUrl = data?.call_back_url;
-     console.log(data,"datadatadatadatadata for bid");
     const apiData = {
-      bid_price:data?.allCustomerBidsList|| data?.requested_price,
+      bid_price: data?.selectedPriceForBid || data?.requested_price,
       task_type: 'bid_ride_request',
       driver_id: userData?.id,
       driver_name: userData?.name,
@@ -1173,12 +1134,41 @@ export default function DashBoard({ route, navigation }) {
       client: clientInfo?.database_name
     }
     actions.acceptdeclineBideRequest(apiData, apiHeader).then((res) => {
-       const hideBidView = type ==1 ? false:true
+      const hideBidView = type == 1 ? false : true
       _onReciveBide(hideBidView)
       setDriverSelectedPriceForBide({})
     }).catch((error) => {
       showError(error?.message)
     })
+  }
+
+
+  //Biding Rice Funcationality>>>>>>>>>>>>>>>>>>
+
+  const _onRidePriceIncerimentDecrimentPrice = (type, bidData) => {
+    if (type == 'minus') {
+      return Number(bidData?.selectedPriceForBid) - 10
+    } else {
+      return Number(bidData?.selectedPriceForBid) + 10
+    }
+
+  }
+  const _onSetBidPrice = (type, bidData) => {
+    const selectedBidPrice = _onRidePriceIncerimentDecrimentPrice(type, bidData)
+    const finalRequestData = allCustomerBidsList.map((element, index) => {
+      if (element.bid_id == bidData?.bid_id) {
+        if (selectedBidPrice < bidData?.minimum_requested_price) {
+          alert(`you can't select price below ${bidData?.minimum_requested_price}`)
+          setBidRidePrice(Number(bidData?.minimum_requested_price))
+          element['selectedPriceForBid'] = String(bidData?.minimum_requested_price)
+        } else {
+          element['selectedPriceForBid'] = String(selectedBidPrice || bidData?.requested_price)
+        }
+      }
+
+      return element
+    });
+    setAllCustomerBidsList(finalRequestData)
   }
 
 
@@ -1190,12 +1180,11 @@ export default function DashBoard({ route, navigation }) {
         bidExpiryDuration={20}
         _onDeclineBid={_onDeclineBid}
         _onAcceptRideBid={_onAcceptRideBid}
-        _onChangeBidPrice={_onChangeBidPrice}
-        allPricesForRideSubmit={item.allPricesForRideSubmit}
-        driverSelectedPriceForBide={driverSelectedPriceForBide}
+        _onSetBidPrice={_onSetBidPrice}
+        bidRidePrice={bidRidePrice}
       />
     )
-  }, [allCustomerBidsList, driverSelectedPriceForBide])
+  }, [allCustomerBidsList])
   const renderBidingView = () => {
     return (
       <BottomSheet
@@ -1234,7 +1223,7 @@ export default function DashBoard({ route, navigation }) {
 
 
   return (
-    !isEmpty(allCustomerBidsList) && showBiddingView  ? renderBidingView() :
+    !isEmpty(allCustomerBidsList) && showBiddingView ? renderBidingView() :
       <WrapperContainer
         statusBarColor={colors.white}
         bgColor={colors.backGround}
