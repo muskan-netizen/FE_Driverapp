@@ -58,14 +58,14 @@ export default function ShortCode({ route, navigation }) {
     initapiresponse,
   } = state;
   const updateState = data => setState(state => ({ ...state, ...data }));
-  const { defaultLanguage, internetConnection } = useSelector(state => state?.initBoot)||{};
+  const { defaultLanguage, internetConnection } = useSelector(state => state?.initBoot) || {};
 
   const videoRef = useRef();
   useEffect(() => {
     requestUserPermission();
   }, []);
 
-  const checkAsynStorageData =  async() => {
+  const checkAsynStorageData = async () => {
     const { dispatch } = store;
     const userData = await getUserData();
     const defaultLanguage = await getItem('defaultLanguage');
@@ -139,7 +139,7 @@ export default function ShortCode({ route, navigation }) {
       initApiHit();
     }
   }, [changeInShortCode]);
-  
+
 
   //On click login button
   const _onSubmitShortCode = () => {
@@ -147,16 +147,16 @@ export default function ShortCode({ route, navigation }) {
     initApiHit();
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     initApiHit()
-  },[])
+  }, [])
 
   //short code And init api hit
   const initApiHit = () => {
     (async () => {
       const saveShortCode = await getItem('saveShortCode');
       const appCode = !!saveShortCode ? saveShortCode : getAppCode()
-      console.log(appCode,"appCodeappCodeappCodeappCodeappCode");
+      console.log(appCode, "appCodeappCodeappCodeappCodeappCode");
 
       console.log(defaultLanguage?.value, 'Language in init screen');
       let header = {};
