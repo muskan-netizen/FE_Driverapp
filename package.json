@@ -989,6 +989,8 @@
     "emartdispatcherRelease": "cd android && ./gradlew assembleemartRelease",
     "stargazedispatcher": "react-native run-android --variant=stargazeDebug",
     "stargazedispatcherRelease": "cd android && ./gradlew assemblestargazeRelease",
+    "mealtimedispatcher": "react-native run-android --variant=mealtimeDebug",
+    "mealtimedispatcherRelease": "cd android && ./gradlew assemblemealtimeRelease",
     "build_ios": "react-native bundle --entry-file='index.js' --bundle-output='./ios/main.jsbundle' --dev=false --platform='ios'",
     "android": "react-native run-android",
     "ios": "react-native run-ios",

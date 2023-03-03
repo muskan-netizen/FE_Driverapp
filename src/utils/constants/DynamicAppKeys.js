@@ -499,6 +499,7 @@ const shortCodes = {
   Zulbrand: '1788d6',
   emart: 'f21fb6',
   stargaze: 'f4b3d2',
+  mealtime: 'd93dc0'
 };
 
 const appIds = {
@@ -2482,6 +2483,10 @@ const appIds = {
   stargaze: Platform.select({
     ios: 'com.stargaze.dispatcher',
     android: 'com.stargaze.dispatcher',
+  }),
+  mealtime: Platform.select({
+    ios: 'com.mealtime.dispatcher',
+    android: 'com.mealtime.dispatcher',
   }),
 };
 

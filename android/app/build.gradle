@@ -203,15 +203,15 @@ android {
 
      flavorDimensions "appType"
      productFlavors{  
-           stargaze{
+        mealtime{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.stargaze.dispatcher'
-            resValue "string", "app_name", "Stargaze dispatcher"
+            applicationId 'com.mealtime.dispatcher'
+            resValue "string", "app_name", "Meal Time dispatcher"
         }
         // sultanCenter{
         //     dimension "appType"
@@ -6511,15 +6511,15 @@ android {
 //             applicationId 'com.emart.dispatcher'
 //             resValue "string", "app_name", "Emart dispatcher"
 //         }
-// stargaze{
+// mealtime{
 //             dimension "appType"
 //             versionCode 1
 //             versionName "1.0"
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.stargaze.dispatcher'
-//             resValue "string", "app_name", "Stargaze dispatcher"
+//             applicationId 'com.mealtime.dispatcher'
+//             resValue "string", "app_name", "Meal Time dispatcher"
 //         }
 //         }
 }
