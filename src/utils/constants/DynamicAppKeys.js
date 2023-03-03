@@ -497,7 +497,9 @@ const shortCodes = {
   ekobridge: '8a98a0',
   ambosSafariExpress: '9bc84f',
   Zulbrand: '1788d6',
-  emart: 'a68bb7'
+  emart: 'f21fb6',
+  stargaze: 'f4b3d2',
+  mealtime: 'd93dc0'
 };
 
 const appIds = {
@@ -2477,6 +2479,14 @@ const appIds = {
   emart: Platform.select({
     ios: 'com.emart.dispatcher',
     android: 'com.emart.dispatcher',
+  }),
+  stargaze: Platform.select({
+    ios: 'com.stargaze.dispatcher',
+    android: 'com.stargaze.dispatcher',
+  }),
+  mealtime: Platform.select({
+    ios: 'com.mealtime.dispatcher',
+    android: 'com.mealtime.dispatcher',
   }),
 };
 

@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "880393908864",
+    "project_id": "stargaze-driver",
+    "storage_bucket": "stargaze-driver.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:880393908864:android:8bf0fec0983be7a49e6c65",
+        "android_client_info": {
+          "package_name": "com.stargaze.dispatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "880393908864-ma1fnpprajj00kj56846lbgk5cdvb80g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdbONmIy2hTb8EjGbNYx1ZnxZ2mUqxCLw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "880393908864-ma1fnpprajj00kj56846lbgk5cdvb80g.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "880393908864-ugf6v10qi82amk22jn50rjvv65buge7j.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.stargaze.dispatcher"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
