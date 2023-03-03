@@ -2317,7 +2317,7 @@ const appIds = {
     android: 'com.udkaydispatcher',
   }),
   hattaFoodHub: Platform.select({
-    ios: 'com.hattaFoodHub.royodispatcher',
+    ios: 'com.hattaFoodHub.driver',
     android: 'com.hattaFoodHub.royodispatcher',
   }),
   ondgoo: Platform.select({
@@ -2359,7 +2359,7 @@ const appIds = {
 
   etiam: Platform.select({
     ios: 'com.etiam.royodispatcher',
-    android: 'com.etiam.royodispatcher',
+    android: 'com.etiam.driverApp',
   }),
   dotTaxi: Platform.select({
     ios: 'com.dotTaxi.royodispatcher',

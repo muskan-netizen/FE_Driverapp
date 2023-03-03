@@ -1,5 +1,5 @@
 
-export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL='https://dispatch.jeevannapp.com/'
 //export const API_BASE_URL = 'https://805c-103-72-170-243.ngrok.io/';
 // export const API_BASE_URL = 'https://dispatch.shelf.ae';
@@ -201,8 +201,8 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //YogoFood
 //  export const API_BASE_URL = 'https://dispatcher.yogo.gd/';
 //export const API_BASE_URL='https://dispatch.rhondaisamazingtaxi.com/'
+export const API_BASE_URL='https://dispatch.ubierweeds.com/';
 //Dlvrd
-// export const API_BASE_URL = 'https://dlvrd-dispatch.netsolutionindia.com/';
 
 //Ored
 // export const API_BASE_URL= 'https://dispatch.ored.co/';
@@ -388,6 +388,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // orderchekout
 // export const API_BASE_URL = 'https://dispatch.orderchekout.com/';
 // export const API_BASE_URL='https://dispatch.etiamstore.com/'
+// export const API_BASE_URL='https://dispatch.hattafoodhub.com/'
 // export const API_BASE_URL='https://dispatch.kerotechnologies.com/'
 // carroi
 // export const API_BASE_URL = 'https://carroi.rdstaging.com/';

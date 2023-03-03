@@ -203,15 +203,25 @@ android {
 
      flavorDimensions "appType"
      productFlavors{
-   emart{
+  etiam{
+            dimension "appType"
+            versionCode 2
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.etiam.driverApp'
+            resValue "string", "app_name", "Etiam Driver"
+        }
+         laundroZone{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.emart.dispatcher'
-            resValue "string", "app_name", "Emart dispatcher"
+            applicationId 'com.LaundroZone.driver'
+            resValue "string", "app_name", "laundroZone Dispatcher"
         }
         // sultanCenter{
         //     dimension "appType"
@@ -6228,8 +6238,8 @@ android {
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.etiam.royodispatcher'
-//             resValue "string", "app_name", "Etiam Dispatcher"
+//             applicationId 'com.etiam.driver'
+//             resValue "string", "app_name", "Etiam Driver"
 //         }
 // dotTaxi{
 //             dimension "appType"
