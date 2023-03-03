@@ -201,7 +201,7 @@
 //YogoFood
 //  export const API_BASE_URL = 'https://dispatcher.yogo.gd/';
 //export const API_BASE_URL='https://dispatch.rhondaisamazingtaxi.com/'
-export const API_BASE_URL='https://dispatch.ubierweeds.com/';
+// export const API_BASE_URL='https://dispatch.ubierweeds.com/';
 //Dlvrd
 
 //Ored
