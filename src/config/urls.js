@@ -76,7 +76,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //  export const API_BASE_URL = 'https://api.royodispatch.com/';
 // export const API_BASE_URL='https://dispatch.shophairrun.app/'
 //Staging
-export const API_BASE_URL = 'https://api.rdstaging.com/';
+//export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.myevplus.com/';
 
 //Misst
