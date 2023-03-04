@@ -416,7 +416,7 @@
 // mobi
 //bimol
 // export const API_BASE_URL = 'https://dispatch.bimol.in/';
-//export const API_BASE_URL = 'https://dispatch.mobimarket.com.mx/';
+export const API_BASE_URL = 'https://dispatch.mobimarket.com.mx/';
 // grub and gusto
 
 //export const API_BASE_URL = 'https://punnet.royodispatch.com/'
@@ -513,7 +513,7 @@
 // export const API_BASE_URL = 'https://emart.royodispatch.com/';
 
 //MealTime
-export const API_BASE_URL = 'https://dispatch.mealtime.menu/';
+//export const API_BASE_URL = 'https://dispatch.mealtime.menu/';
 
 // amwer 
 
