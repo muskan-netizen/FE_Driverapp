@@ -14,7 +14,8 @@ const BidAcceptRejectCard = ({
   data = {},
   _onAcceptRideBid = () => { },
   setBidRidePrice = () => { },
-  _onSetBidPrice = () => { }
+  _onSetBidPrice = () => { },
+  _onDeclineBid=()=>{}
 }) => {
   
 console.log(data,"data for bid");
@@ -110,7 +111,7 @@ console.log(data,"data for bid");
           strokeWidth={5}
         >
           {({ remainingTime }) => {
-            //remainingTime == 1 && _onDeclineBid(data?.id)
+            remainingTime == 1 && _onDeclineBid(data?.id)
             return (
               <Text>{remainingTime}</Text>
             )
