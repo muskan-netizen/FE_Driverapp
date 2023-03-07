@@ -499,7 +499,8 @@ const shortCodes = {
   Zulbrand: '1788d6',
   emart: 'f21fb6',
   stargaze: 'f4b3d2',
-  mealtime: 'd93dc0'
+  mealtime: 'd93dc0',
+  OyeeRides:'01967e'
 };
 
 const appIds = {
@@ -2487,6 +2488,10 @@ const appIds = {
   mealtime: Platform.select({
     ios: 'com.mealtime.dispatcher',
     android: 'com.mealtime.dispatcher',
+  }),
+  OyeeRides: Platform.select({
+    ios: 'com.OyeeRides.dispatcher',
+    android: 'com.OyeeRides.dispatcher',
   }),
 };
 

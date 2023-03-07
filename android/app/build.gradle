@@ -203,17 +203,17 @@ android {
 
      flavorDimensions "appType"
      productFlavors{  
-                 mobi{
+           livraizoo{
             dimension "appType"
-            versionCode 2
+            versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-             applicationId "com.Mobi.dispatcher"
-            resValue "string", "app_name", "Mobi Conductor"
-            
+            applicationId 'com.livraizoo.royodispatcher'
+            resValue "string", "app_name", "Livraizoo Dispatcher"
         }
+
         // mealtime{
         //     dimension "appType"
         //     versionCode 1
@@ -6527,7 +6527,18 @@ android {
 //             applicationId 'com.mealtime.dispatcher'
 //             resValue "string", "app_name", "Meal Time dispatcher"
 //         }
+
+// OyeeRides{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.OyeeRides.dispatcher'
+//             resValue "string", "app_name", "OyeeRides dispatcher"
 //         }
+
 }
 }
 
