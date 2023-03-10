@@ -2135,7 +2135,7 @@ const appIds = {
     android: 'com.uberweeds.driver',
   }),
   stabex: Platform.select({
-    ios: 'com.royodispatcher.stabex',
+    ios: 'com.stabex.driver',
     android: 'com.stabex.royodispatcher',
   }),
   pointoneExpediteDelivery: Platform.select({

@@ -387,7 +387,7 @@
 
 // orderchekout
 // export const API_BASE_URL = 'https://dispatch.orderchekout.com/';
-// export const API_BASE_URL='https://dispatch.etiamstore.com/'
+export const API_BASE_URL='https://dispatch.etiamstore.com/'
 // export const API_BASE_URL='https://dispatch.hattafoodhub.com/'
 // export const API_BASE_URL='https://dispatch.kerotechnologies.com/'
 // carroi
@@ -416,7 +416,7 @@
 // mobi
 //bimol
 // export const API_BASE_URL = 'https://dispatch.bimol.in/';
-export const API_BASE_URL = 'https://dispatch.mobimarket.com.mx/';
+// export const API_BASE_URL = 'https://dispatch.mobimarket.com.mx/';
 // grub and gusto
 
 //export const API_BASE_URL = 'https://punnet.royodispatch.com/'
