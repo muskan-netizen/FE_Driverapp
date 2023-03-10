@@ -67,7 +67,7 @@ PODS:
     - GoogleMaps
   - Google-Maps-iOS-Utils/QuadTree (2.1.0):
     - GoogleMaps
-  - GoogleDataTransport (9.2.0):
+  - GoogleDataTransport (9.2.1):
     - GoogleUtilities/Environment (~> 7.7)
     - nanopb (< 2.30910.0, >= 2.30908.0)
     - PromisesObjC (< 3.0, >= 1.2)
@@ -113,13 +113,13 @@ PODS:
     - nanopb/encode (= 2.30908.0)
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
-  - Permission-Camera (3.6.1):
+  - Permission-Camera (3.7.3):
     - RNPermissions
-  - Permission-LocationAlways (3.6.1):
+  - Permission-LocationAlways (3.7.3):
     - RNPermissions
-  - Permission-LocationWhenInUse (3.6.1):
+  - Permission-LocationWhenInUse (3.7.3):
     - RNPermissions
-  - PromisesObjC (2.1.1)
+  - PromisesObjC (2.2.0)
   - razorpay-pod (1.3.0)
   - RCT-Folly (2021.04.26.00):
     - boost-for-react-native
@@ -318,7 +318,7 @@ PODS:
   - React-jsinspector (0.65.3)
   - react-native-appearance (0.3.4):
     - React
-  - react-native-background-actions (2.6.7):
+  - react-native-background-actions (2.6.9):
     - React-Core
   - react-native-background-timer (2.4.1):
     - React-Core
@@ -476,9 +476,9 @@ PODS:
     - React-Core
     - React-RCTImage
     - TOCropViewController
-  - RNLocalize (2.2.4):
+  - RNLocalize (2.2.5):
     - React-Core
-  - RNPermissions (3.6.1):
+  - RNPermissions (3.7.3):
     - React-Core
   - RNReactNativeHapticFeedback (1.14.0):
     - React-Core
@@ -847,7 +847,7 @@ SPEC CHECKSUMS:
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   glog: 5337263514dd6f09803962437687240c5dc39aa4
   Google-Maps-iOS-Utils: c32891ff472eaaa1fca032beedafa1a013af7875
-  GoogleDataTransport: 1c8145da7117bd68bbbed00cf304edb6a24de00f
+  GoogleDataTransport: ea169759df570f4e37bdee1623ec32a7e64e67c4
   GoogleMaps: 32ca02de09de357a10ac773f2c70f1986751392d
   GoogleUtilities: c2bdc4cf2ce786c4d2e6b3bcfd599a25ca78f06f
   JWT: ef71dfb03e1f842081e64dc42eef0e164f35d251
@@ -855,10 +855,10 @@ SPEC CHECKSUMS:
   lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
   lottie-react-native: b561920bba7ec727ec94a473b683cffba00faece
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
-  Permission-Camera: bf6791b17c7f614b6826019fcfdcc286d3a107f6
-  Permission-LocationAlways: 8d99b025c9f73c696e0cdb367e42525f2e9a26f2
-  Permission-LocationWhenInUse: 3ba99e45c852763f730eabecec2870c2382b7bd4
-  PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
+  Permission-Camera: c0ef0e1f3ff6796f89cdbc3628f405f1b7c381d5
+  Permission-LocationAlways: f686a41ffa8cbdf302a3160375e332fb448453ef
+  Permission-LocationWhenInUse: 65399f1f4b7f495ae3cdcf5a887ae9882edc1e80
+  PromisesObjC: 09985d6d70fbe7878040aa746d78236e6946d2ef
   razorpay-pod: ebc78907f756ace307e3fa4270ff684ebb9e291b
   RCT-Folly: 0dd9e1eb86348ecab5ba76f910b56f4b5fef3c46
   RCTRequired: 655e18b89b599c17ee55d288359f96d5600c9004
@@ -872,7 +872,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: d7540b187f30f45281ece995f19dde143e3afff3
   React-jsinspector: 94bbad998be4efbdac7d6d152677bdd134c1c980
   react-native-appearance: 0f0e5fc2fcef70e03d48c8fe6b00b9158c2ba8aa
-  react-native-background-actions: 2c251c986f23347f9c1722f05fd296938f60edb1
+  react-native-background-actions: bfb2b818ae96e752b42fb335b3427ab6b050d0f6
   react-native-background-timer: 17ea5e06803401a379ebf1f20505b793ac44d0fe
   react-native-camera: 3eae183c1d111103963f3dd913b65d01aef8110f
   react-native-date-picker: c063a8967058c58a02d7d0e1d655f0453576fb0d
@@ -919,8 +919,8 @@ SPEC CHECKSUMS:
   RNFS: 4ac0f0ea233904cb798630b3c077808c06931688
   RNGestureHandler: a479ebd5ed4221a810967000735517df0d2db211
   RNImageCropPicker: 73891a709e6fd8a47d32104d942757971f220aee
-  RNLocalize: 0df7970cfc60389f00eb62fd7c097dc75af3fb4f
-  RNPermissions: dcdb7b99796bbeda6975a6e79ad519c41b251b1c
+  RNLocalize: f0fbcea2a28981985dfe468129674f47847787b1
+  RNPermissions: 314155ed6ce65237e7bd9fb6239219cce83228d3
   RNReactNativeHapticFeedback: 1e3efeca9628ff9876ee7cdd9edec1b336913f8c
   RNReanimated: f922a38711f3cf08ccd83f6abf3d6714e1e9ccb9
   RNScreens: 218801c16a2782546d30bd2026bb625c0302d70f
@@ -942,6 +942,6 @@ SPEC CHECKSUMS:
   ZendeskMessagingSDK: 95d396c981dacfab83cc7b9736e8561d51a3052b
   ZendeskSDKConfigurationsSDK: ebced171fd1f4eb57760e8537d8cfa6a450122be
 
-PODFILE CHECKSUM: 0fc72d412b12644916dc1cf63a877a2615740ec2
+PODFILE CHECKSUM: 9c726ce7ec03dfd16ff2fb5e75e7a3f30f520e70
 
 COCOAPODS: 1.11.3

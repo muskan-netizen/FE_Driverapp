@@ -203,16 +203,17 @@ android {
 
      flavorDimensions "appType"
      productFlavors{  
-               etiam{
+         autobox{
             dimension "appType"
-            versionCode 4
+            versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.etiam.driverApp'
-            resValue "string", "app_name", "Etiam Partner - Pickup & Agent"
+            applicationId 'com.autobox.royodriver'
+            resValue "string", "app_name", "Autobox dispatcher"
         }
+
         // mealtime{
         //     dimension "appType"
         //     versionCode 1
@@ -6526,7 +6527,43 @@ android {
 //             applicationId 'com.mealtime.dispatcher'
 //             resValue "string", "app_name", "Meal Time dispatcher"
 //         }
+
+// OyeeRides{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.OyeeRides.dispatcher'
+//             resValue "string", "app_name", "OyeeRides dispatcher"
 //         }
+
+// royoRides{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.royoRides.driver'
+//             resValue "string", "app_name", "royoRides dispatcher"
+//         }
+
+// autobox{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.autobox.royodriver'
+//             resValue "string", "app_name", "Autobox dispatcher"
+//         }
+
+
+
+
 }
 }
 

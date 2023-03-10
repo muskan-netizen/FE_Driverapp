@@ -1,5 +1,5 @@
 
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL='https://dispatch.jeevannapp.com/'
 //export const API_BASE_URL = 'https://805c-103-72-170-243.ngrok.io/';
 // export const API_BASE_URL = 'https://dispatch.shelf.ae';
@@ -24,7 +24,7 @@
 // export const API_BASE_URL='http://192.168.101.140:9091/'
 // export const API_BASE_URL='https://dispatch.usemeow.com/'
 // //Staging
-// export const API_BASE_URL='https://dispatch.uber-weeds.com/'
+// export const API_BASE_URL='https://dispatch.ubierweeds.com/'
 // export const API_BASE_URL='https://dispatch.vduonline.co.in/'
 //export const API_BASE_URL = 'https://api.rdstaging.com/';
 //  export const API_BASE_URL = 'https://dispatch.destinationops.com/';
@@ -387,7 +387,7 @@
 
 // orderchekout
 // export const API_BASE_URL = 'https://dispatch.orderchekout.com/';
-export const API_BASE_URL='https://dispatch.etiamstore.com/'
+// export const API_BASE_URL='https://dispatch.etiamstore.com/'
 // export const API_BASE_URL='https://dispatch.hattafoodhub.com/'
 // export const API_BASE_URL='https://dispatch.kerotechnologies.com/'
 // carroi

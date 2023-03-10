@@ -492,14 +492,17 @@ const shortCodes = {
   theGenie: '193af0',
   sultanCenter: 'e3255c',
   reedas: '986325',
-  onebasket: '588482',
+  onebasket: '15bc85',
   zozozi: 'a6e77a',
   ekobridge: '8a98a0',
   ambosSafariExpress: '9bc84f',
   Zulbrand: '1788d6',
   emart: 'f21fb6',
   stargaze: 'f4b3d2',
-  mealtime: 'd93dc0'
+  mealtime: 'd93dc0',
+  OyeeRides:'01967e',
+  royoRides:'cc0e66',
+  autobox:'868a72',
 };
 
 const appIds = {
@@ -2488,6 +2491,19 @@ const appIds = {
     ios: 'com.mealtime.dispatcher',
     android: 'com.mealtime.dispatcher',
   }),
+  OyeeRides: Platform.select({
+    ios: 'com.OyeeRides.dispatcher',
+    android: 'com.OyeeRides.dispatcher',
+  }),
+  royoRides: Platform.select({
+    ios: 'com.royoRides.driver',
+    android: 'com.royoRides.driver',
+  }),
+  autobox: Platform.select({
+    ios: 'com.autobox.royodriver',
+    android: 'com.autobox.royodriver',
+  }),
+  
 };
 
 export { appIds, shortCodes };
