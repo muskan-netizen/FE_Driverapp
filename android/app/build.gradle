@@ -203,15 +203,15 @@ android {
 
      flavorDimensions "appType"
      productFlavors{  
-           livraizoo{
+          royoRides{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.livraizoo.royodispatcher'
-            resValue "string", "app_name", "Livraizoo Dispatcher"
+            applicationId 'com.royoRides.driver'
+            resValue "string", "app_name", "royoRides dispatcher"
         }
 
         // mealtime{
@@ -6538,6 +6538,22 @@ android {
 //             applicationId 'com.OyeeRides.dispatcher'
 //             resValue "string", "app_name", "OyeeRides dispatcher"
 //         }
+
+// royoRides{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.royoRides.driver'
+//             resValue "string", "app_name", "royoRides dispatcher"
+//         }
+
+
+
+
+
 
 }
 }

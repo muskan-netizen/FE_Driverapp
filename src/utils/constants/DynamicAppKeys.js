@@ -500,7 +500,8 @@ const shortCodes = {
   emart: 'f21fb6',
   stargaze: 'f4b3d2',
   mealtime: 'd93dc0',
-  OyeeRides:'01967e'
+  OyeeRides:'01967e',
+  royoRides:'cc0e66',
 };
 
 const appIds = {
@@ -2493,6 +2494,11 @@ const appIds = {
     ios: 'com.OyeeRides.dispatcher',
     android: 'com.OyeeRides.dispatcher',
   }),
+  royoRides: Platform.select({
+    ios: 'com.royoRides.driver',
+    android: 'com.royoRides.driver',
+  }),
+  
 };
 
 export { appIds, shortCodes };
