@@ -5,8 +5,6 @@ import fontFamily from '../styles/fontFamily';
 import colors from '../styles/colors';
 import GradientButton from './GradientButton';
 import { moderateScale, moderateScaleVertical, textScale, width } from '../styles/responsiveSize';
-import SwitchSelectorComponent from './SwitchSelector';
-import strings from '../constants/lang';
 import imagePath from '../constants/imagePath';
 import TextInputWithUnderlineAndLabel from './TextInputWithUnderlineAndLabel';
 
