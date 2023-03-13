@@ -500,7 +500,14 @@ const shortCodes = {
   emart: 'f21fb6',
   stargaze: 'f4b3d2',
   mealtime: 'd93dc0',
-  OyeeRides:'01967e'
+  OyeeRides:'01967e',
+  royoRides:'cc0e66',
+  autobox:'868a72',
+  tempcorner:'c7daac',
+  emiratesHomeNursing:'892b1d',
+  detailPros:'2dbd37',
+  zuluClutch:'bc3bdb',
+  ineeda:'5b606d'
 };
 
 const appIds = {
@@ -2136,7 +2143,7 @@ const appIds = {
     android: 'com.uberweeds.driver',
   }),
   stabex: Platform.select({
-    ios: 'com.royodispatcher.stabex',
+    ios: 'com.stabex.driver',
     android: 'com.stabex.royodispatcher',
   }),
   pointoneExpediteDelivery: Platform.select({
@@ -2493,6 +2500,35 @@ const appIds = {
     ios: 'com.OyeeRides.dispatcher',
     android: 'com.OyeeRides.dispatcher',
   }),
+  royoRides: Platform.select({
+    ios: 'com.royoRides.driver',
+    android: 'com.royoRides.driver',
+  }),
+  autobox: Platform.select({
+    ios: 'com.autobox.royodriver',
+    android: 'com.autobox.royodriver',
+  }),
+  tempcorner: Platform.select({
+    ios: 'com.tempcorner.royodriver',
+    android: 'com.tempcorner.royodriver',
+  }),
+  emiratesHomeNursing: Platform.select({
+    ios: 'com.emiratesHomeNursing.driver',
+    android: 'com.emiratesHomeNursing.driver',
+  }),
+  detailPros: Platform.select({
+    ios: 'com.detailPros.driver',
+    android: 'com.detailPros.driver',
+  }),
+  zuluClutch: Platform.select({
+    ios: 'com.zuluClutch.driver',
+    android: 'com.zuluClutch.driver',
+  }),
+  ineeda: Platform.select({
+    ios: 'com.ineeda.driver',
+    android: 'com.ineeda.driver',
+  }),
+  
 };
 
 export { appIds, shortCodes };

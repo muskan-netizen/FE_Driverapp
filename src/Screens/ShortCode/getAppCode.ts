@@ -499,7 +499,13 @@ export const getAppCode = () => {
         case appIds.stargaze: return shortCodes.stargaze
         case appIds.mealtime: return shortCodes.mealtime
         case appIds.OyeeRides: return shortCodes.OyeeRides
-
+        case appIds.royoRides: return shortCodes.royoRides
+        case appIds.autobox: return shortCodes.autobox
+        case appIds.tempcorner: return shortCodes.tempcorner
+        case appIds.emiratesHomeNursing: return shortCodes.emiratesHomeNursing
+        case appIds.detailPros: return shortCodes.detailPros
+        case appIds.zuluClutch: return shortCodes.zuluClutch
+        case appIds.ineeda: return shortCodes.ineeda
 
         default: return '1da2e9'
     }

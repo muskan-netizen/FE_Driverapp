@@ -991,8 +991,26 @@
     "stargazedispatcherRelease": "cd android && ./gradlew assemblestargazeRelease",
     "mealtimedispatcher": "react-native run-android --variant=mealtimeDebug",
     "mealtimedispatcherRelease": "cd android && ./gradlew assemblemealtimeRelease",
-    "OyeeRidesdispatcherRelease": "cd android && ./gradlew assembleOyeeRidesRelease",
     "OyeeRidesdispatcher": "react-native run-android --variant=OyeeRidesDebug",
+    "OyeeRidesdispatcherRelease": "cd android && ./gradlew assembleOyeeRidesRelease",
+    "royoRidesdispatcher": "react-native run-android --variant=royoRidesDebug",
+    "royoRidesdispatcherRelease": "cd android && ./gradlew assembleroyoRidesRelease",
+    "autoboxdispatcher": "react-native run-android --variant=autoboxDebug",
+    "autoboxdispatcherRelease": "cd android && ./gradlew assembleautoboxRelease",
+
+    "tempcornerdispatcher": "react-native run-android --variant=tempcornerDebug",
+    "tempcornerdispatcherRelease": "cd android && ./gradlew assembletempcornerRelease",
+    "emiratesHomeNursingdispatcher": "react-native run-android --variant=emiratesHomeNursingDebug",
+    "emiratesHomeNursingdispatcherRelease": "cd android && ./gradlew assembleemiratesHomeNursingRelease",
+    "detailProsdispatcher": "react-native run-android --variant=detailProsDebug",
+    "detailProsdispatcherRelease": "cd android && ./gradlew assembledetailProsRelease",
+    "zuluClutchdispatcher": "react-native run-android --variant=zuluClutchDebug",
+    "zuluClutchdispatcherRelease": "cd android && ./gradlew assemblezuluClutchRelease",
+    "ineedadispatcher": "react-native run-android --variant=ineedaDebug",
+    "ineedadispatcherRelease": "cd android && ./gradlew assembleineedaRelease",
+
+
+    
     "build_ios": "react-native bundle --entry-file='index.js' --bundle-output='./ios/main.jsbundle' --dev=false --platform='ios'",
     "android": "react-native run-android",
     "ios": "react-native run-ios",

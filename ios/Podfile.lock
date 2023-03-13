@@ -67,7 +67,7 @@ PODS:
     - GoogleMaps
   - Google-Maps-iOS-Utils/QuadTree (2.1.0):
     - GoogleMaps
-  - GoogleDataTransport (9.2.0):
+  - GoogleDataTransport (9.2.1):
     - GoogleUtilities/Environment (~> 7.7)
     - nanopb (< 2.30910.0, >= 2.30908.0)
     - PromisesObjC (< 3.0, >= 1.2)
@@ -119,7 +119,7 @@ PODS:
     - RNPermissions
   - Permission-LocationWhenInUse (3.7.3):
     - RNPermissions
-  - PromisesObjC (2.1.1)
+  - PromisesObjC (2.2.0)
   - razorpay-pod (1.3.0)
   - RCT-Folly (2021.04.26.00):
     - boost-for-react-native
@@ -847,7 +847,7 @@ SPEC CHECKSUMS:
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   glog: 5337263514dd6f09803962437687240c5dc39aa4
   Google-Maps-iOS-Utils: c32891ff472eaaa1fca032beedafa1a013af7875
-  GoogleDataTransport: 1c8145da7117bd68bbbed00cf304edb6a24de00f
+  GoogleDataTransport: ea169759df570f4e37bdee1623ec32a7e64e67c4
   GoogleMaps: 32ca02de09de357a10ac773f2c70f1986751392d
   GoogleUtilities: c2bdc4cf2ce786c4d2e6b3bcfd599a25ca78f06f
   JWT: ef71dfb03e1f842081e64dc42eef0e164f35d251
@@ -858,7 +858,7 @@ SPEC CHECKSUMS:
   Permission-Camera: c0ef0e1f3ff6796f89cdbc3628f405f1b7c381d5
   Permission-LocationAlways: f686a41ffa8cbdf302a3160375e332fb448453ef
   Permission-LocationWhenInUse: 65399f1f4b7f495ae3cdcf5a887ae9882edc1e80
-  PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
+  PromisesObjC: 09985d6d70fbe7878040aa746d78236e6946d2ef
   razorpay-pod: ebc78907f756ace307e3fa4270ff684ebb9e291b
   RCT-Folly: 0dd9e1eb86348ecab5ba76f910b56f4b5fef3c46
   RCTRequired: 655e18b89b599c17ee55d288359f96d5600c9004
@@ -942,6 +942,6 @@ SPEC CHECKSUMS:
   ZendeskMessagingSDK: 95d396c981dacfab83cc7b9736e8561d51a3052b
   ZendeskSDKConfigurationsSDK: ebced171fd1f4eb57760e8537d8cfa6a450122be
 
-PODFILE CHECKSUM: ce47292e6c3b4ef5834b4958e757d656fe6cb843
+PODFILE CHECKSUM: 28e2ecad15b503d290ad4568cb562606fda55faf
 
 COCOAPODS: 1.11.3

@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "466988872894",
+    "project_id": "autobox-driver",
+    "storage_bucket": "autobox-driver.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:466988872894:android:3fc1072041d95229625aef",
+        "android_client_info": {
+          "package_name": "com.autobox.royodriver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "466988872894-suripfeuthns7ei8hvh064cq75fi9nur.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdoPWYtxjRand0MqFO7KnluZbyYLuhn0U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "466988872894-suripfeuthns7ei8hvh064cq75fi9nur.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "466988872894-vmsh4aere2ftq9c21h5pl6h6cc375v76.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.autobox.royodriver"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

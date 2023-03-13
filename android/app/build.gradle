@@ -203,17 +203,36 @@ android {
 
      flavorDimensions "appType"
      productFlavors{  
-           livraizoo{
+        emiratesHomeNursing{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.livraizoo.royodispatcher'
-            resValue "string", "app_name", "Livraizoo Dispatcher"
+            applicationId 'com.emiratesHomeNursing.driver'
+            resValue "string", "app_name", "Emirates Home Nursing dispatcher"
         }
-
+    //   tempcorner{
+    //         dimension "appType"
+    //         versionCode 1
+    //         versionName "1.0"
+    //         minSdkVersion rootProject.ext.minSdkVersion
+    //         targetSdkVersion rootProject.ext.targetSdkVersion
+    //         // applicationIdSuffix ".royoorder"
+    //         applicationId 'com.tempcorner.royodriver'
+    //         resValue "string", "app_name", "tempcorner dispatcher"
+    //     }
+// autobox{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.autobox.royodriver'
+//             resValue "string", "app_name", "Autobox dispatcher"
+//         }
         // mealtime{
         //     dimension "appType"
         //     versionCode 1
@@ -4432,16 +4451,16 @@ android {
 //             applicationId 'com.medicab.royodispatcher'
 //             resValue "string", "app_name", "Medicab Dispatcher"
 //         }
-//         weTogether{
-//             dimension "appType"
-//             versionCode 1
-//             versionName "1.0"
-//             minSdkVersion rootProject.ext.minSdkVersion
-//             targetSdkVersion rootProject.ext.targetSdkVersion
-//             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.weTogether.royodispatcher'
-//             resValue "string", "app_name", "WeTogether Dispatcher"
-//         }
+        // weTogether{
+        //     dimension "appType"
+        //     versionCode 1
+        //     versionName "1.0"
+        //     minSdkVersion rootProject.ext.minSdkVersion
+        //     targetSdkVersion rootProject.ext.targetSdkVersion
+        //     // applicationIdSuffix ".royoorder"
+        //     applicationId 'com.weTogether.royodispatcher'
+        //     resValue "string", "app_name", "WeTogether Dispatcher"
+        // }
 //            jiffex{
 //             dimension "appType"
 //             versionCode 1
@@ -6538,6 +6557,80 @@ android {
 //             applicationId 'com.OyeeRides.dispatcher'
 //             resValue "string", "app_name", "OyeeRides dispatcher"
 //         }
+
+// royoRides{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.royoRides.driver'
+//             resValue "string", "app_name", "royoRides dispatcher"
+//         }
+
+// autobox{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.autobox.royodriver'
+//             resValue "string", "app_name", "Autobox dispatcher"
+//         }
+// tempcorner{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.tempcorner.royodriver'
+//             resValue "string", "app_name", "tempcorner dispatcher"
+//         }
+// emiratesHomeNursing{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.emiratesHomeNursing.driver'
+//             resValue "string", "app_name", "Emirates Home Nursing dispatcher"
+//         }
+// detailPros{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.detailPros.driver'
+//             resValue "string", "app_name", "Detail Pros dispatcher"
+//         }
+// zuluClutch{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.zuluClutch.driver'
+//             resValue "string", "app_name", "Zulu Clutch dispatcher"
+//         }
+// ineeda{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.ineeda.driver'
+//             resValue "string", "app_name", "Ineeda dispatcher"
+//         }
+
+
 
 }
 }
