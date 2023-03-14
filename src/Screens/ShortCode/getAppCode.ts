@@ -506,6 +506,11 @@ export const getAppCode = () => {
         case appIds.detailPros: return shortCodes.detailPros
         case appIds.zuluClutch: return shortCodes.zuluClutch
         case appIds.ineeda: return shortCodes.ineeda
+        case appIds.blink: return shortCodes.blink
+        case appIds.jds: return shortCodes.jds
+        case appIds.ping: return shortCodes.ping
+        case appIds.chutneyeah: return shortCodes.chutneyeah
+
 
         default: return '1da2e9'
     }

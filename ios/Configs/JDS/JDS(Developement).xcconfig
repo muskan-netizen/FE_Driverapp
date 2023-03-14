@@ -1,0 +1,8 @@
+#include "Pods/Target Support Files/Pods-available_pods-JDS/Pods-available_pods-JDS.debug.xcconfig"
+
+PROJECT_BUNDLE_ID = com.jds.driver
+PROJECT_APP_VERSION = 1.0
+PROJECT_BUILD_NUMBER = 1
+PROJECT_APP_NAME =  JDS On Demand Dispatcher
+PROJECT_PLIST = JDSInfo
+PROJECT_ENTITLEMENT=RoyoDriverAppRelease

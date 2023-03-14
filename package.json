@@ -1008,6 +1008,14 @@
     "zuluClutchdispatcherRelease": "cd android && ./gradlew assemblezuluClutchRelease",
     "ineedadispatcher": "react-native run-android --variant=ineedaDebug",
     "ineedadispatcherRelease": "cd android && ./gradlew assembleineedaRelease",
+    "blinkdispatcher": "react-native run-android --variant=blinkDebug",
+    "blinkdispatcherRelease": "cd android && ./gradlew assembleblinkRelease",
+    "jdsdispatcher": "react-native run-android --variant=jdsDebug",
+    "jdsdispatcherRelease": "cd android && ./gradlew assemblejdsRelease",
+    "pingdispatcher": "react-native run-android --variant=pingDebug",
+    "pingdispatcherRelease": "cd android && ./gradlew assemblepingRelease",
+    "chutneyeahdispatcher": "react-native run-android --variant=chutneyeahDebug",
+    "chutneyeahdispatcherRelease": "cd android && ./gradlew assemblechutneyeahRelease",
 
 
     

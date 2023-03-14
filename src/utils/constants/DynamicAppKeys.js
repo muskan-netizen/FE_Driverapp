@@ -443,7 +443,7 @@ const shortCodes = {
   otgWeeds: '801707',
   zyno: '2cdbe7',
   efectibo: '8c55a5',
-  hectoHomes: '',
+  hectoHomes: 'df0cfa',
   glamguide: 'c6cc57',
   sooq: '80d590',
   superpana: 'e0ac7c',
@@ -507,7 +507,11 @@ const shortCodes = {
   emiratesHomeNursing:'892b1d',
   detailPros:'2dbd37',
   zuluClutch:'bc3bdb',
-  ineeda:'5b606d'
+  ineeda:'5b606d',
+  blink:'216dab',
+  jds:'e7144c',
+  ping:'de2922',
+  chutneyeah:'ac41c1'
 };
 
 const appIds = {
@@ -2527,6 +2531,22 @@ const appIds = {
   ineeda: Platform.select({
     ios: 'com.ineeda.driver',
     android: 'com.ineeda.driver',
+  }),
+  blink: Platform.select({
+    ios: 'com.blink.dispatcher',
+    android: 'com.blink.dispatcher',
+  }),
+  jds: Platform.select({
+    ios: 'com.jds.driver',
+    android: 'com.jds.driver',
+  }),
+  ping: Platform.select({
+    ios: 'com.Ping.dispatcher',
+    android: 'com.Ping.dispatcher',
+  }),
+  chutneyeah: Platform.select({
+    ios: 'com.chutneyeah.driver',
+    android: 'com.chutneyeah.driver',
   }),
   
 };

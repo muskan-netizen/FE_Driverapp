@@ -203,17 +203,28 @@ android {
 
      flavorDimensions "appType"
      productFlavors{  
-        emiratesHomeNursing{
+chutneyeah{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.emiratesHomeNursing.driver'
-            resValue "string", "app_name", "Emirates Home Nursing dispatcher"
+            applicationId 'com.chutneyeah.driver'
+            resValue "string", "app_name", "Chutneyeah dispatcher"
         }
-    //   tempcorner{
+    //             stargaze{
+    //         dimension "appType"
+    //         versionCode 1
+    //         versionName "1.0"
+    //         minSdkVersion rootProject.ext.minSdkVersion
+    //         targetSdkVersion rootProject.ext.targetSdkVersion
+    //         // applicationIdSuffix ".royoorder"
+    //         applicationId 'com.stargaze.dispatcher'
+    //         resValue "string", "app_name", "stargaze driver"
+           
+    //     }
+    // //   tempcorner{
     //         dimension "appType"
     //         versionCode 1
     //         versionName "1.0"
@@ -6619,6 +6630,17 @@ android {
 //             applicationId 'com.zuluClutch.driver'
 //             resValue "string", "app_name", "Zulu Clutch dispatcher"
 //         }
+// stargaze{
+//     dimension "appType"
+//     versionCode 1
+//     versionName "1.0"
+//     minSdkVersion rootProject.ext.minSdkVersion
+//     targetSdkVersion rootProject.ext.targetSdkVersion
+//      applicationIdSuffix ".royoorder"
+//     applicationId 'com.stargaze.dispatcher'
+//     resValue "string", "app_name", "stargaze driver"
+        
+// }
 // ineeda{
 //             dimension "appType"
 //             versionCode 1
@@ -6628,6 +6650,46 @@ android {
 //             // applicationIdSuffix ".royoorder"
 //             applicationId 'com.ineeda.driver'
 //             resValue "string", "app_name", "Ineeda dispatcher"
+//         }
+// blink{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.blink.dispatcher'
+//             resValue "string", "app_name", "Blink dispatcher"
+//         }
+// jds{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.jds.driver'
+//             resValue "string", "app_name", "JDS On Demand  dispatcher"
+//         }
+// ping{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.Ping.dispatcher'
+//             resValue "string", "app_name", "Ping dispatcher"
+//         }
+// chutneyeah{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.chutneyeah.driver'
+//             resValue "string", "app_name", "Chutneyeah dispatcher"
 //         }
 
 
