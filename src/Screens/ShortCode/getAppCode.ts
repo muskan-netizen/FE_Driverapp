@@ -510,6 +510,7 @@ export const getAppCode = () => {
         case appIds.jds: return shortCodes.jds
         case appIds.ping: return shortCodes.ping
         case appIds.chutneyeah: return shortCodes.chutneyeah
+        case appIds.virgingate: return shortCodes.virgingate
 
 
         default: return '1da2e9'

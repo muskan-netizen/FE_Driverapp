@@ -1,5 +1,4 @@
-
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL='https://dispatch.jeevannapp.com/'
 //export const API_BASE_URL = 'https://805c-103-72-170-243.ngrok.io/';
 // export const API_BASE_URL = 'https://dispatch.shelf.ae';
@@ -515,10 +514,11 @@
 //MealTime
 //export const API_BASE_URL = 'https://dispatch.mealtime.menu/';
 
-//HectoHome
-export const API_BASE_URL = 'https://dispatch.goadeliv.com/';
+//autobox
+// export const API_BASE_URL = 'https://autobox.rdstaging.com/';
 
-// amwer 
+// qdelo 
+// export const API_BASE_URL='https://dispatcher.qdelo.com/'
 
 //export const API_BASE_URL='https://coretrack.mx/'
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;

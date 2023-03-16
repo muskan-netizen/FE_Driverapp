@@ -511,7 +511,8 @@ const shortCodes = {
   blink:'216dab',
   jds:'e7144c',
   ping:'de2922',
-  chutneyeah:'ac41c1'
+  chutneyeah:'ac41c1',
+  virgingate:'f5a75e'
 };
 
 const appIds = {
@@ -1795,8 +1796,8 @@ const appIds = {
     android: 'com.hairrun.driver',
   }),
   qdelo: Platform.select({
-    ios: 'com.qdelo.dispatcher',
-    android: 'com.qdelo.dispatcher',
+    ios: 'com.qdeloDriver',
+    android: 'com.qdeloDriver',
   }),
   zuriRide: Platform.select({
     ios: 'com.zuriRide.dispatcher',
@@ -2547,6 +2548,10 @@ const appIds = {
   chutneyeah: Platform.select({
     ios: 'com.chutneyeah.driver',
     android: 'com.chutneyeah.driver',
+  }),
+  virgingate: Platform.select({
+    ios: 'com.virgingate.driver',
+    android: 'com.virgingate.driver',
   }),
   
 };

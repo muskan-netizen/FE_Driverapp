@@ -203,17 +203,17 @@ android {
 
      flavorDimensions "appType"
      productFlavors{  
-chutneyeah{
+ mealtime{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.chutneyeah.driver'
-            resValue "string", "app_name", "Chutneyeah dispatcher"
+            applicationId 'com.mealtime.dispatcher'
+            resValue "string", "app_name", "Meal Time dispatcher"
         }
-    //             stargaze{
+                // stargaze{
     //         dimension "appType"
     //         versionCode 1
     //         versionName "1.0"
@@ -4810,7 +4810,7 @@ chutneyeah{
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.qdelo.dispatcher'
+//             applicationId 'com.qdeloDriver'
 //             resValue "string", "app_name", "Qdelo Dispatcher"
 //         }
 //          zuriRide{
@@ -6690,6 +6690,16 @@ chutneyeah{
 //             // applicationIdSuffix ".royoorder"
 //             applicationId 'com.chutneyeah.driver'
 //             resValue "string", "app_name", "Chutneyeah dispatcher"
+//         }
+// virgingate{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.virgingate.driver'
+//             resValue "string", "app_name", "Virgingate dispatcher"
 //         }
 
 

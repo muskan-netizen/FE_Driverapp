@@ -1016,6 +1016,8 @@
     "pingdispatcherRelease": "cd android && ./gradlew assemblepingRelease",
     "chutneyeahdispatcher": "react-native run-android --variant=chutneyeahDebug",
     "chutneyeahdispatcherRelease": "cd android && ./gradlew assemblechutneyeahRelease",
+    "virgingatedispatcher": "react-native run-android --variant=virgingateDebug",
+    "virgingatedispatcherRelease": "cd android && ./gradlew assemblevirgingateRelease",
 
 
     
