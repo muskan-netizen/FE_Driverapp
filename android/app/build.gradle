@@ -288,6 +288,28 @@ productFlavors{
             applicationId 'com.weTogether.royodispatcher'
             resValue "string", "app_name", "WeTogether Dispatcher"
         }
+                SXM2GO{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.SXM2GO.driverApp'
+            resValue "string", "app_name", "SXM2GO Driver"
+            
+        }
+                snabbhem{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Snabbhem.royodispatcher'
+            resValue "string", "app_name", "Snabbhem Dispatcher"
+        }
+       
 }
     
 //     productFlavors {

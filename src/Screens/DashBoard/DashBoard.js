@@ -80,6 +80,7 @@ export default function DashBoard({ route, navigation }) {
   const { isCabPooling, initialValue } = useSelector((state) => state?.auth);
   const shortCode = useSelector((state) => state?.initBoot?.shortCode);
 
+  console.log(isCabPooling,"isCabPoolingisCabPoolingisCabPooling");
 
   const ref = useRef(orderCallbackUrl);
   const bottomSheetRef = useRef(null);
@@ -739,6 +740,7 @@ export default function DashBoard({ route, navigation }) {
   };
 
   const renderTaskList = ({ item, index }) => {
+    
     return (
       <TouchableOpacity
         onPress={() => _onPressTask(item?.data[0])}
@@ -754,6 +756,7 @@ export default function DashBoard({ route, navigation }) {
         {item?.data?.map((obj) => {
           return (
             <TaskListCard
+             
               data={obj}
               index={index}
               _onPressTaskDetails={() => _onPressTaskDetails(item)}

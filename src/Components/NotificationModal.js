@@ -534,13 +534,9 @@ const NotificationModal = () => {
   const modalMainContent = () => {
     let data = notificationData?.notificationData?.data;
     let notificationType = data?.type ? data?.type : data?.notificationType;
-    console.log(orderData, "orderDataorderDataorderData");
     return (
       <View style={{ overflow: "hidden", borderRadius: moderateScale(10) }}>
-
-
         <View>{!!region && mapView()}</View>
-
         <View style={{ padding: 8 }}>
           <View style={styles.notificationModalMainHeaderStyle}>
             {notificationType == "CANCELLED" ? (
@@ -590,7 +586,18 @@ const NotificationModal = () => {
                 <Text style={styles.address}></Text>
               </View>
             )}
+            
           </View>
+          {orderData?.no_seats_for_pooling &&
+           <Text numberOfLines={1} style={{
+             marginVertical:moderateScaleVertical(10),
+             marginTop:moderateScaleVertical(-10),
+             fontSize: textScale(10),
+             color: colors.black,
+             fontFamily: fontFamily.regular,}}>
+           {`Booked Seats :-`} {orderData?.no_seats_for_pooling}
+         </Text>
+          }
           <View style={{ flexDirection: "row" }}>
             <View>
               <Image

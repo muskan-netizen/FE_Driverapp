@@ -1148,7 +1148,7 @@ export default function TaskDetail({ route, navigation }) {
               imagevalue={imagePath?.navigate}
               imageStyle={{ marginHorizontal: moderateScale(2) }}
             />
-            <ButtonComponent
+            {/* <ButtonComponent
               buttonStyle={{
                 flexDirection: "row",
                 justifyContent: "center",
@@ -1161,7 +1161,7 @@ export default function TaskDetail({ route, navigation }) {
               buttonTitle={strings.NAVIGATE}
               imagevalue={imagePath?.navigate}
               imageStyle={{ marginHorizontal: moderateScale(2) }}
-            />
+            /> */}
           </View>
           {checkCallBackUrlForShowOrderDeatils() && (
             <View style={{ marginVertical: moderateScale(10) }}>

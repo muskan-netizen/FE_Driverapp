@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import SwitchSelector from 'react-native-switch-selector';
 import colors from '../styles/colors';
 import {StyleSheet} from 'react-native';
@@ -19,6 +19,9 @@ import {colorArray} from '../utils/constants/ConstantValues';
 import {format} from 'date-fns';
 import {useSelector} from 'react-redux';
 import strings from '../constants/lang';
+import useInterval from '../utils/useInterval';
+import { appIds } from '../utils/constants/DynamicAppKeys';
+import { getBundleId } from 'react-native-device-info';
 const TaskListCard = ({
   data = {},
   allTasks = [],
@@ -28,7 +31,10 @@ const TaskListCard = ({
   previousData = null,
   isFromHistory = false,
 }) => {
-  console.log(data, 'dataisddddd');
+  const deadline = new Date(Date.parse(new Date(data?.order?.order_time)) + Number(data?.order?.order_pre_time) * 60 * 1000);
+  const [orderPerpationTime,setOrderPerpationTime] = useState({})
+  const [isOrderPrepartionTimeExpired,setIsOrderPrepartionTimeExpired] = useState(true)
+  
   //Get Date
   const defaultLanguagae = useSelector(
     state => state?.initBoot?.defaultLanguage,
@@ -108,6 +114,37 @@ const TaskListCard = ({
     }
   };
 
+  const  vendorOrderPerpationTime = (endtime)=> {
+    const total = Date.parse(endtime) - Date.parse(new Date());
+    const seconds = Math.floor((total / 1000) % 60);
+    const minutes = Math.floor((total / 1000 / 60) % 60);
+    const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
+    const days = Math.floor(total / (1000 * 60 * 60 * 24));
+    
+    return {
+      total,
+      days,
+      hours,
+      minutes,
+      seconds
+    };
+  }
+
+  // if(!isFromHistory&& data?.task_type_id ==1 && appIds.SXM2GO ==getBundleId()){
+    
+  // }
+  // useInterval(()=>{
+  //   const {total,days,hours,
+  //     minutes,
+  //     seconds} = vendorOrderPerpationTime(deadline)
+  //     const orderPerpationTime = {total,days,hours,
+  //       minutes,
+  //       seconds}
+  //     setOrderPerpationTime(orderPerpationTime)
+  //     setIsOrderPrepartionTimeExpired(deadline.getTime()>new Date().getTime())
+  // },1000)
+  
+
   return (
     <View
       activeOpacity={1}
@@ -116,6 +153,7 @@ const TaskListCard = ({
       style={{
         marginTop: isFromHistory ? getDynamicUpdateOnValues().marginTop : 0,
       }}>
+      
       {isFromHistory && data?.order_id != previousData?.order_id && (
         <View
           style={{
@@ -149,7 +187,6 @@ const TaskListCard = ({
           ) :<View />}
         </View>
       )}
-      {console.log(data?.order?.status,data?.order?.driver_cost,"data?.order?.status")}
       <View
         opacity={getDynamicUpdateOnValues().blur}
         style={{
@@ -187,8 +224,14 @@ const TaskListCard = ({
             },
           ]}
         /> */}
+      
 
         <View style={styles.mainContainer}>
+        {/* {!isFromHistory&& data?.task_type_id ==1 && appIds.SXM2GO !=getBundleId()&& <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',marginVertical:moderateScaleVertical(5)}}>
+        <Text style={{ fontFamily: fontFamily.bold, color: colors.textGreyOpcaity7,}}>Order Will Prepared In :</Text>
+        <Text style={{fontFamily:fontFamily?.bold,fontSize:textScale(16),color:isOrderPrepartionTimeExpired ?colors.green:colors.redB}}> {orderPerpationTime?.days}D:{orderPerpationTime?.hours}H:{orderPerpationTime?.minutes}M:{orderPerpationTime?.seconds}S</Text>
+        
+        </View>} */}
           <Text style={styles.address} numberOfLines={2}>
             {data?.location?.address}
           </Text>
