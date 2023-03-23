@@ -203,17 +203,28 @@ android {
 
      flavorDimensions "appType"
      productFlavors{  
- mealtime{
+bumprkar{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.mealtime.dispatcher'
-            resValue "string", "app_name", "Meal Time dispatcher"
+            applicationId 'com.bumprkar.driver'
+            resValue "string", "app_name", "Bumprkar dispatcher"
         }
-                // stargaze{
+
+        //  boozeBrothers{
+        //     dimension "appType"
+        //     versionCode 1
+        //     versionName "1.0"
+        //     minSdkVersion rootProject.ext.minSdkVersion
+        //     targetSdkVersion rootProject.ext.targetSdkVersion
+        //     // applicationIdSuffix ".royoorder"
+        //     applicationId 'com.boozeBrothers.royodispatcher'
+        //     resValue "string", "app_name", "BoozeBrothers Dispatcher"
+        // }
+            // stargaze{
     //         dimension "appType"
     //         versionCode 1
     //         versionName "1.0"
@@ -6701,6 +6712,58 @@ android {
 //             applicationId 'com.virgingate.driver'
 //             resValue "string", "app_name", "Virgingate dispatcher"
 //         }
+// staFood{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.staFood.driver'
+//             resValue "string", "app_name", "STA Food dispatcher"
+//         }
+// dropoff{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.dropoff.dispatcher'
+//             resValue "string", "app_name", "DROPOFF dispatcher"
+//         }
+// exlraet{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.exlraet.driver'
+//             resValue "string", "app_name", "Exlraet dispatcher"
+//         }
+// instaFits{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.instaFits.driver'
+//             resValue "string", "app_name", "INSTA-FITS dispatcher"
+//         }
+
+// bumprkar{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.bumprkar.driver'
+//             resValue "string", "app_name", "Bumprkar dispatcher"
+//         }
+
 
 
 

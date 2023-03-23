@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "473199769176",
+    "project_id": "bumprkar-driver",
+    "storage_bucket": "bumprkar-driver.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:473199769176:android:7f5077de600821b2603c2d",
+        "android_client_info": {
+          "package_name": "com.bumprkar.driver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "473199769176-8p0evo3svr3qp2li8a90afrfar1qip92.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtGavvpCGtCFRUff7hm5R2Weez_cBu6z4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "473199769176-8p0evo3svr3qp2li8a90afrfar1qip92.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "473199769176-sns30cv6rqd0r7i0c40prfeer24e7530.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.bumprkar.driver"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

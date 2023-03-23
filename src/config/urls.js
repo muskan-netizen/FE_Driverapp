@@ -512,13 +512,16 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://emart.royodispatch.com/';
 
 //MealTime
-//export const API_BASE_URL = 'https://dispatch.mealtime.menu/';
+// export const API_BASE_URL = 'https://dispatch.mealtime.menu/';
 
 //autobox
 // export const API_BASE_URL = 'https://autobox.rdstaging.com/';
 
+//boozebrothers
+// export const API_BASE_URL = 'https://autobox.rdstaging.com/';
+
 // qdelo 
-// export const API_BASE_URL='https://dispatcher.qdelo.com/'
+// export const API_BASE_URL='https://dispatch.westvirginiahub.com/'
 
 //export const API_BASE_URL='https://coretrack.mx/'
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;

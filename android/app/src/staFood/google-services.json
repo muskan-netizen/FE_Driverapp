@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "137987108168",
+    "project_id": "stafood-driver",
+    "storage_bucket": "stafood-driver.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:137987108168:android:5a52b212a195cec1b6177d",
+        "android_client_info": {
+          "package_name": "com.staFood.driver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "137987108168-a5ilvcf2905gisa6sl0f8cru8b1g491p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIVUU3vXMsKfOL3lQSo76RYSmyghANa-4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "137987108168-a5ilvcf2905gisa6sl0f8cru8b1g491p.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "137987108168-ji7ng0q8q4jirsm0r6g2uomf9buotc4e.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.staFood.driver"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

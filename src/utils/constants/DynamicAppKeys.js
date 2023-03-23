@@ -512,7 +512,13 @@ const shortCodes = {
   jds:'e7144c',
   ping:'de2922',
   chutneyeah:'ac41c1',
-  virgingate:'f5a75e'
+  virgingate:'f5a75e',
+  staFood:'6da07c',
+  dropoff:'595e36',
+  exlraet:'77dfe7',
+  instaFits:'5b787c',
+  bumprkar:'9ff535'
+
 };
 
 const appIds = {
@@ -2498,8 +2504,8 @@ const appIds = {
     android: 'com.stargaze.dispatcher',
   }),
   mealtime: Platform.select({
-    ios: 'com.mealtime.dispatcher',
-    android: 'com.mealtime.dispatcher',
+    ios: 'com.mealtime.driverapp',
+    android: 'com.mealtime.driverapp',
   }),
   OyeeRides: Platform.select({
     ios: 'com.OyeeRides.dispatcher',
@@ -2552,6 +2558,26 @@ const appIds = {
   virgingate: Platform.select({
     ios: 'com.virgingate.driver',
     android: 'com.virgingate.driver',
+  }),
+  staFood: Platform.select({
+    ios: 'com.staFood.driver',
+    android: 'com.staFood.driver',
+  }),
+  dropoff: Platform.select({
+    ios: 'com.dropoff.dispatcher',
+    android: 'com.dropoff.dispatcher',
+  }),
+  exlraet: Platform.select({
+    ios: 'com.exlraet.driver',
+    android: 'com.exlraet.driver',
+  }),
+  instaFits: Platform.select({
+    ios: 'com.instaFits.driver',
+    android: 'com.instaFits.driver',
+  }),
+  bumprkar: Platform.select({
+    ios: 'com.bumprkar.driver',
+    android: 'com.bumprkar.driver',
   }),
   
 };

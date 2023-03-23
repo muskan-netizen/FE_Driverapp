@@ -511,6 +511,11 @@ export const getAppCode = () => {
         case appIds.ping: return shortCodes.ping
         case appIds.chutneyeah: return shortCodes.chutneyeah
         case appIds.virgingate: return shortCodes.virgingate
+        case appIds.staFood: return shortCodes.staFood
+        case appIds.dropoff: return shortCodes.dropoff
+        case appIds.exlraet: return shortCodes.exlraet
+        case appIds.instaFits: return shortCodes.instaFits
+        case appIds.bumprkar: return shortCodes.bumprkar
 
 
         default: return '1da2e9'

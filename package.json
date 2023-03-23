@@ -1018,6 +1018,17 @@
     "chutneyeahdispatcherRelease": "cd android && ./gradlew assemblechutneyeahRelease",
     "virgingatedispatcher": "react-native run-android --variant=virgingateDebug",
     "virgingatedispatcherRelease": "cd android && ./gradlew assemblevirgingateRelease",
+    "staFooddispatcher": "react-native run-android --variant=staFoodDebug",
+    "staFooddispatcherRelease": "cd android && ./gradlew assemblestaFoodRelease",
+    "dropoffdispatcher": "react-native run-android --variant=dropoffDebug",
+    "dropoffdispatcherRelease": "cd android && ./gradlew assembledropoffRelease",
+    "exlraetdispatcher": "react-native run-android --variant=exlraetDebug",
+    "exlraetdispatcherRelease": "cd android && ./gradlew assembleexlraetRelease",
+    "instaFitsdispatcher": "react-native run-android --variant=instaFitsDebug",
+    "instaFitsdispatcherRelease": "cd android && ./gradlew assembleinstaFitsRelease",
+    "bumprkardispatcher": "react-native run-android --variant=bumprkarDebug",
+    "bumprkardispatcherRelease": "cd android && ./gradlew assemblebumprkarRelease",
+    
 
 
     
