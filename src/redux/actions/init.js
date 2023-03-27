@@ -105,18 +105,16 @@ export const userCurrentLocation = (data) => {
 //Logs api hitting after  some  frequent interval
 
 export function logsApi(data = {}, headers = {}) {
-console.log("rufybgvfgvhjfnvjfgvh");
   return new Promise((resolve, reject) => {
     apiPost(LOGSAPI, data, headers)
       .then((res) => {
-        console.log(res,'resresres..............');
         setUserData(res?.data?.user).then((suc) => {
           saveUserData(res?.data?.user);
           resolve(res);
         });
       })
       .catch((error) => {
-       console.log(error,"resresres..............resresres..............");
+        console.log(error)
       });
   });
 }
