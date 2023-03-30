@@ -347,5 +347,6 @@ export default {
   ACCOUNTCREATEDSUCESS: 'Account created successfully.',
   CONFIRMACCOUNTNUMBER: 'Confirm Account Number',
   TYPE_HERE: 'Type here...',
-  SELECT_VALUE: "Select value"
+  SELECT_VALUE: "Select value",
+  GO_TO_HOME: "Go To Home"
 };

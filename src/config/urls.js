@@ -1,5 +1,5 @@
 
-//export const API_BASE_URL = 'https://805c-103-72-170-243.ngrok.io/';
+export const API_BASE_URL = 'http://192.168.102.65:8001/';
 
 // export const API_BASE_URL = 'https://dispatch.10dollahollla.com/';
 
@@ -109,7 +109,7 @@
 // export const API_BASE_URL = 'https://dispatch.fairexglobal.com/';
 //dimavega
 // export const API_BASE_URL ='https://dispatch.dimahalal.com/'
-export const API_BASE_URL = 'https://dispatch.fijieats.com/';
+// export const API_BASE_URL = 'https://dispatch.fijieats.com/';
 
 //  jiffix
 // export const API_BASE_URL = 'https://dispatch.jiffex.in/'
@@ -556,4 +556,12 @@ export const GET_CAB_POOLING_SUGGESTION = getApiUrl('api/agent/poolingTaskSugges
 
 //razorpay url end point'
 export const CREATERAZORPAYDETAIL = getApiUrl('api/create-razorpay-details');
-export const CREATERAZORPAYADDFUND = getApiUrl('api/create-razorpay-add-funds');
+
+
+
+//Go to home
+
+export const UPDATE_GO_TO_HOME_STATUS = getApiUrl('api/agent/update-go-to-home-address-status');
+export const AGENT_HOME_ADDRESSES = getApiUrl('api/agent/home-address');
+export const ADD_AGENT_HOME_ADDRESS = getApiUrl('api/agent/add-home-address');
+

@@ -109,5 +109,7 @@ export default {
   icActiveRadio: require('../assets/images/ic_radio2.png'),
   icInActiveRadio: require('../assets/images/ic_radio1.png'),
   icImgPlaceholder: require('../assets/images/ic_placeholder.png'),
-  flank: require('../assets/Flank.mp4'),
+  icSearchedLoc: require('../assets/images/ic_saved.png'),
+  icSavedLocs: require('../assets/images/ic_star.png'),
+  flank: require('../assets/Flank.mp4')
 };

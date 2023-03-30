@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { Alert ,ScrollView} from "react-native";
+import { Alert, ScrollView } from "react-native";
 import { Text, TouchableOpacity, View, Image, Switch } from "react-native";
 // import Animated from 'react-native-reanimated';
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -40,15 +40,12 @@ export default function CustomDrawerContent({
   progress,
   ...props
 }) {
-  const { zendeskKeys, clientInfo, defaultLanguage,isCabPooling } = useSelector(
+  const { zendeskKeys, clientInfo, defaultLanguage, isCabPooling } = useSelector(
     (state) => state?.initBoot
   );
   const { userData } = useSelector((state) => state?.auth);
 
   const darkthemeusingDevice = useDarkMode();
-
-console.log(isCabPooling,"isCabPooling");
-
 
   const isDarkMode = themeToggle ? darkthemeusingDevice : themeColor;
   const [states, setState] = useState({
@@ -106,21 +103,21 @@ console.log(isCabPooling,"isCabPooling");
       },
       appIds.transportSystem === DeviceInfo.getBundleId()
         ? {
-            id: 7,
-            label: strings.DAMAGEREPORT,
-            image: imagePath.damagereport,
-            key: navigationStrings.DAMAGEREPORT,
-            // subRoute:navigationStrings.MYPROFILE
-          }
+          id: 7,
+          label: strings.DAMAGEREPORT,
+          image: imagePath.damagereport,
+          key: navigationStrings.DAMAGEREPORT,
+          // subRoute:navigationStrings.MYPROFILE
+        }
         : {},
       appIds.transportSystem === DeviceInfo.getBundleId()
         ? {
-            id: 7,
-            label: strings.REIMBURSEMENT,
-            image: imagePath.reimbursement,
-            key: navigationStrings.REIMBURSEMENT,
-            // subRoute:navigationStrings.MYPROFILE
-          }
+          id: 8,
+          label: strings.REIMBURSEMENT,
+          image: imagePath.reimbursement,
+          key: navigationStrings.REIMBURSEMENT,
+          // subRoute:navigationStrings.MYPROFILE
+        }
         : {},
       {
         id: 9,
@@ -137,7 +134,7 @@ console.log(isCabPooling,"isCabPooling");
         // subRoute:navigationStrings.MYPROFILE
       },
       {
-        id: 9,
+        id: 11,
         label: strings.SUBSCRIPTIONS,
         image: imagePath.icSubscription,
         key: navigationStrings.SUBSCRIPTION_STACK,
@@ -165,6 +162,8 @@ console.log(isCabPooling,"isCabPooling");
   const subscription = !!userData?.client_preference?.custom_mode
     ? JSON.parse(userData?.client_preference?.custom_mode)
     : undefined;
+
+  console.log(userData, "dlsafnlaskdf")
 
   // console.log(subscription?.hide_subscription_module, "daoisdhfa");
   useEffect(() => {
@@ -217,7 +216,7 @@ console.log(isCabPooling,"isCabPooling");
           // subRoute:navigationStrings.MYPROFILE
         },
         {
-          id: 5,
+          id: 6,
           label: strings.CONTACT,
           image: imagePath.contact2,
           key: navigationStrings.TASKSTACK,
@@ -226,7 +225,7 @@ console.log(isCabPooling,"isCabPooling");
           // subRoute:navigationStrings.MYPROFILE
         },
         {
-          id: 6,
+          id: 7,
           label: strings.SUPPORT,
           support: true,
           image: imagePath.support2,
@@ -236,15 +235,15 @@ console.log(isCabPooling,"isCabPooling");
         subscription === undefined
           ? {}
           : subscription?.hide_subscription_module == 0
-          ? {
-              id: 9,
+            ? {
+              id: 8,
               label: strings.SUBSCRIPTIONS,
               support: true,
               image: imagePath.icSubscription,
               key: navigationStrings.SUBSCRIPTION_STACK,
               subRoute: navigationStrings.SUBSCRIPTION_STACK,
             }
-          : {},
+            : {},
 
         // {
         //   if(subscription != undefined ) {
@@ -261,34 +260,41 @@ console.log(isCabPooling,"isCabPooling");
         // },
         appIds.transportSystem === DeviceInfo.getBundleId()
           ? {
-              id: 7,
-              label: strings.DAMAGEREPORT,
-              image: imagePath.damagereport,
-              key: navigationStrings.DAMAGEREPORT,
-              // subRoute:navigationStrings.MYPROFILE
-            }
+            id: 9,
+            label: strings.DAMAGEREPORT,
+            image: imagePath.damagereport,
+            key: navigationStrings.DAMAGEREPORT,
+            // subRoute:navigationStrings.MYPROFILE
+          }
           : {},
         appIds.transportSystem === DeviceInfo.getBundleId()
           ? {
-              id: 7,
-              label: strings.REIMBURSEMENT,
-              image: imagePath.reimbursement,
-              key: navigationStrings.REIMBURSEMENT,
-              // subRoute:navigationStrings.MYPROFILE
-            }
+            id: 10,
+            label: strings.REIMBURSEMENT,
+            image: imagePath.reimbursement,
+            key: navigationStrings.REIMBURSEMENT,
+            // subRoute:navigationStrings.MYPROFILE
+          }
           : {},
 
         !!clientInfo?.socket_url
           ? {
-              id: 9,
-              label: strings.CHAT_ROOM,
-              image: imagePath.settingsIcon,
-              key: navigationStrings.CHAT_ROOM,
-              // subRoute:navigationStrings.MYPROFILE
-            }
+            id: 11,
+            label: strings.CHAT_ROOM,
+            image: imagePath.settingsIcon,
+            key: navigationStrings.CHAT_ROOM,
+            // subRoute:navigationStrings.MYPROFILE
+          }
           : {},
+        !!userData?.client_preference?.is_go_to_home && {
+          id: 12,
+          label: strings.GO_TO_HOME,
+          image: imagePath.profileImage,
+          key: navigationStrings.GO_TO_HOME,
+          // subRoute:navigationStrings.MYPROFILE
+        },
         {
-          id: 10,
+          id: 13,
           label: strings.LOGOUT,
           image: imagePath.logout,
           // key: navigationStrings.PROFILESTACK,
@@ -311,7 +317,7 @@ console.log(isCabPooling,"isCabPooling");
 
   //Naviagtion to specific screen
   const moveToNewScreen = (screenName, data) => () => {
-    navigation.navigate(screenName, {data});
+    navigation.navigate(screenName, { data });
   };
 
   //Update states
@@ -338,7 +344,7 @@ console.log(isCabPooling,"isCabPooling");
   };
 
   const logout = () => {
-    updateState({isLoading: true});
+    updateState({ isLoading: true });
     actions
       .logout({}, { client: clientInfo?.database_name })
       .then((res) => {
@@ -377,153 +383,152 @@ console.log(isCabPooling,"isCabPooling");
 
 
 
-  useEffect(()=>{
+  useEffect(() => {
     const data = {
-       is_pooling_available: isCabPooling,
-     };
- 
-     const header = {
-       client: clientInfo?.database_name,
-     };
-     actions
-       .updateCabPoolingStatus(data, header)
-       .then((res) => {
-         console.log(res, "resres-----");
-       })
-       .catch((error) => {
-         console.log(error, "errororro");
-       });
-   },[isCabPooling])
+      is_pooling_available: isCabPooling,
+    };
+
+    const header = {
+      client: clientInfo?.database_name,
+    };
+    actions
+      .updateCabPoolingStatus(data, header)
+      .then((res) => {
+        console.log(res, "resres-----");
+      })
+      .catch((error) => {
+        console.log(error, "errororro");
+      });
+  }, [isCabPooling])
 
 
 
   return (
     <>
-    <ScrollView
-    showsVerticalScrollIndicator={false}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}>
 
-    
-      <View
-        style={{
-          // height: height,
-          marginTop: moderateScale(10),
-        }}
-        colors={[colors.white, colors.white]}
-      >
-        {/* client logo */}
+
         <View
           style={{
-            // height: height / 3,
-            justifyContent: "center",
-            alignItems: "center",
-            marginBottom: moderateScale(30),
-            // backgroundColor:'red'
+            // height: height,
+            marginTop: moderateScale(10),
           }}
+          colors={[colors.white, colors.white]}
         >
-          <ScaledImage
-            width={width / 2}
-            source={
-              clientInfo && (clientInfo?.logo || clientInfo?.dark_logo)
-                ? { uri: isDarkMode ? clientInfo?.dark_logo : clientInfo?.logo }
-                : imagePath.logo
-            }
-          />
-        </View>
-        {userData?.client_preference?.is_cab_pooling_toggle ? (
+          {/* client logo */}
           <View
             style={{
-              marginHorizontal: moderateScale(10),
-              flexDirection: "row",
-              justifyContent: "space-around",
-              marginBottom: moderateScaleVertical(15),
+              // height: height / 3,
+              justifyContent: "center",
+              alignItems: "center",
+              marginBottom: moderateScale(30),
+              // backgroundColor:'red'
             }}
           >
-            <Text
-              style={{
-                // paddingLeft: moderateScale(5),
-                paddingRight: 0,
-                fontSize: textScale(15),
-                fontFamily: fontFamily?.regular,
-                ...props.labelStyle,
-                color: colors.black,
-              }}
-            >
-              {strings.AVAILABLEFORPOOLING}
-            </Text>
-            <Switch
-              trackColor={{ false: colors.backGround, true: colors.themeColor }}
-              thumbColor={colors.white}
-              onValueChange={(status)=>toggleSwitch(status)}
-              value={isCabPooling}
-              
+            <ScaledImage
+              width={width / 2}
+              source={
+                clientInfo && (clientInfo?.logo || clientInfo?.dark_logo)
+                  ? { uri: isDarkMode ? clientInfo?.dark_logo : clientInfo?.logo }
+                  : imagePath.logo
+              }
             />
           </View>
-        ) : null}
-        {routes.map((route, index) => {
-          // const {options} = descriptors[route.key];
-          const isFocused = selectedDrawerItem?.index === index;
-          const label = route?.label;
-          const onPress = () => {
-            if (route?.key) {
-              if (route?.subRoute) {
-                navigation.navigate(route.key, {
-                  screen: route?.subRoute,
-                });
-              } else {
-                navigation.navigate(route.key);
-              }
-            } else if (route?.support) {
-              onStartSupportChat();
-            } else {
-              onLogoutPress();
-            }
-            // navigation.navigate(route.key, { screen: navigationStrings.subRoute });
-          };
-          return route?.id ? (
-            <Fragment key={route?.name}>
-              <TouchableOpacity
-                key={index}
-                accessibilityRole="button"
-                accessibilityStates={isFocused ? ["selected"] : []}
-                testID={JSON.stringify(route?.id)}
-                onPress={onPress}
-                // onLongPress={onLongPress}
+          {userData?.client_preference?.is_cab_pooling_toggle ? (
+            <View
+              style={{
+                marginHorizontal: moderateScale(10),
+                flexDirection: "row",
+                justifyContent: "space-around",
+                marginBottom: moderateScaleVertical(15),
+              }}
+            >
+              <Text
                 style={{
-                  margin: moderateScale(8),
-                  // alignItems: 'center',
-                  flexDirection: "row",
-                  alignItems: "center",
-
-                  justifyContent: "center",
+                  // paddingLeft: moderateScale(5),
+                  paddingRight: 0,
+                  fontSize: textScale(15),
+                  fontFamily: fontFamily?.regular,
+                  ...props.labelStyle,
+                  color: colors.black,
                 }}
               >
-                {/* {options.drawerIcon({focused: isFocused})} */}
+                {strings.AVAILABLEFORPOOLING}
+              </Text>
+              <Switch
+                trackColor={{ false: colors.backGround, true: colors.themeColor }}
+                thumbColor={colors.white}
+                onValueChange={(status) => toggleSwitch(status)}
+                value={isCabPooling}
+              />
+            </View>
+          ) : null}
+          {routes.map((route, index) => {
+            // const {options} = descriptors[route.key];
+            const isFocused = selectedDrawerItem?.index === index;
+            const label = route?.label;
+            const onPress = () => {
+              if (route?.key) {
+                if (route?.subRoute) {
+                  navigation.navigate(route.key, {
+                    screen: route?.subRoute,
+                  });
+                } else {
+                  navigation.navigate(route.key);
+                }
+              } else if (route?.support) {
+                onStartSupportChat();
+              } else {
+                onLogoutPress();
+              }
+              // navigation.navigate(route.key, { screen: navigationStrings.subRoute });
+            };
+            return route?.id ? (
+              <Fragment key={route?.name}>
+                <TouchableOpacity
+                  key={index}
+                  accessibilityRole="button"
+                  accessibilityStates={isFocused ? ["selected"] : []}
+                  testID={JSON.stringify(route?.id)}
+                  onPress={onPress}
+                  // onLongPress={onLongPress}
+                  style={{
+                    margin: moderateScale(8),
+                    // alignItems: 'center',
+                    flexDirection: "row",
+                    alignItems: "center",
 
-                  <View style={{flex: 0.15}}>
+                    justifyContent: "center",
+                  }}
+                >
+                  {/* {options.drawerIcon({focused: isFocused})} */}
+
+                  <View style={{ flex: 0.15 }}>
                     <Image source={route?.image} />
                   </View>
 
-                <View style={{ flex: 0.85 }}>
-                  <Text
-                    style={{
-                      // paddingLeft: moderateScale(5),
-                      paddingRight: 0,
-                      fontSize: textScale(15),
-                      fontFamily: fontFamily?.regular,
-                      ...props.labelStyle,
-                      color: colors.black,
-                    }}
-                  >
-                    {label}
-                  </Text>
-                </View>
-              </TouchableOpacity>
-            </Fragment>
-          ) : null
-        })}
-       
-      </View>
-      <View
+                  <View style={{ flex: 0.85 }}>
+                    <Text
+                      style={{
+                        // paddingLeft: moderateScale(5),
+                        paddingRight: 0,
+                        fontSize: textScale(15),
+                        fontFamily: fontFamily?.regular,
+                        ...props.labelStyle,
+                        color: colors.black,
+                      }}
+                    >
+                      {label}
+                    </Text>
+                  </View>
+                </TouchableOpacity>
+              </Fragment>
+            ) : null
+          })}
+
+        </View>
+        <View
           style={{
             alignItems: "center",
             position: "absolute",

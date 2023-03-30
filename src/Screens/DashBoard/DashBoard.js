@@ -57,9 +57,8 @@ import useInterval from "../../utils/useInterval";
 var finalAllTasks = [];
 var finaltodayTasks = [];
 export default function DashBoard({ route, navigation }) {
-  const userData = useSelector((state) => state?.auth?.userData);
-  const { attributeFormData } = useSelector(state => state?.initBoot);
-  console.log(attributeFormData, "attributeFormData...attributeFormData")
+  const { userData } = useSelector((state) => state?.auth || {});
+  const { attributeFormData } = useSelector(state => state?.initBoot || {});
   const defaultLanguagae = useSelector(
     (state) => state?.initBoot?.defaultLanguage
   );

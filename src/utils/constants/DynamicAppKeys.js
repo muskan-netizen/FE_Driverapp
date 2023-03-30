@@ -1,5 +1,5 @@
-import {Platform} from 'react-native';
-import {getBundleId} from 'react-native-device-info';
+import { Platform } from 'react-native';
+import { getBundleId } from 'react-native-device-info';
 
 const shortCodes = {
   sales: '745e3f',
@@ -65,7 +65,8 @@ const shortCodes = {
   agriOnline: '3ae391',
   clickeat: '954012',
   tranzet: 'b35edf',
-  grub: 'b68843',
+  // grub: 'b68843',
+  grub: '745e3f',
   punnet: '87444d',
   suel: 'b11cb2',
   shooraFresh: '845409',
@@ -405,42 +406,42 @@ const shortCodes = {
   nhazi: '064fd8',
   petverse: '1d5220',
   clickNDrop: 'd27ec3',
-  appi:'15ba2c',
-  lifeHomeFit:'af03e6',
-  dbairro_:'120a7d',
-  genee:'033b2e',
-  speedyDelivery:'9ddb59',
-  holla:'09f477',
-  icabPro:'ee50e0',
-  uberWeeds:'773548',
-  stabex:'76bf13',
-  pointoneExpediteDelivery:'43bdda',
-  saamanShop:'63f37f',
-  tdc :'a36786',
-  pik:'cf0372',
-  flyCommerce:'93ea40',
-  motina:'392731',
-  greenHippo:'6a6b8b',
-  hungry:'08aeee',
-  myMeddy:'ceb53d',
-  uRyd:'5d7b49',
-  happySingh:'8c6c20',
-  vital:'59dc15',
-  parcelWorks:'fd186b',
-  konectame:'cac8dc',
-  usVetsDeliver:'5087c1',
-  bigbayong:'2c614d',
-  locate:'c119ae',
-  todaysDeliverys:'9fc243',
-  georgiacollective:'834623',
-  lincshare:'84ee7c',
-  rumbella:'0233dd',
-  glavour:'430cb3',
-  shipmoe:'d3b17f',
-  skyline:'083e4d',
-  rentzy:'16ce83',
-  bliss:'24a7bf',
-  otgWeeds:'801707'
+  appi: '15ba2c',
+  lifeHomeFit: 'af03e6',
+  dbairro_: '120a7d',
+  genee: '033b2e',
+  speedyDelivery: '9ddb59',
+  holla: '09f477',
+  icabPro: 'ee50e0',
+  uberWeeds: '773548',
+  stabex: '76bf13',
+  pointoneExpediteDelivery: '43bdda',
+  saamanShop: '63f37f',
+  tdc: 'a36786',
+  pik: 'cf0372',
+  flyCommerce: '93ea40',
+  motina: '392731',
+  greenHippo: '6a6b8b',
+  hungry: '08aeee',
+  myMeddy: 'ceb53d',
+  uRyd: '5d7b49',
+  happySingh: '8c6c20',
+  vital: '59dc15',
+  parcelWorks: 'fd186b',
+  konectame: 'cac8dc',
+  usVetsDeliver: '5087c1',
+  bigbayong: '2c614d',
+  locate: 'c119ae',
+  todaysDeliverys: '9fc243',
+  georgiacollective: '834623',
+  lincshare: '84ee7c',
+  rumbella: '0233dd',
+  glavour: '430cb3',
+  shipmoe: 'd3b17f',
+  skyline: '083e4d',
+  rentzy: '16ce83',
+  bliss: '24a7bf',
+  otgWeeds: '801707'
 };
 
 const appIds = {
@@ -2150,7 +2151,7 @@ const appIds = {
   todaysDeliverys: Platform.select({
     ios: 'com.royodispatcher.todaysDeliverys',
     android: 'com.todaysDeliverys.royodispatcher',
-  }), 
+  }),
   georgiacollective: Platform.select({
     ios: 'com.royodispatcher.georgiacollective',
     android: 'com.georgiacollective.royodispatcher',
@@ -2189,4 +2190,4 @@ const appIds = {
   }),
 };
 
-export {appIds, shortCodes};
+export { appIds, shortCodes };

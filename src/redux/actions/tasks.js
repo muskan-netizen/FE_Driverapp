@@ -22,10 +22,13 @@ import {
   CREATECONTACT,
   CREATERAZORPAYADDFUND,
   CREATERAZORPAYDETAIL,
+  UPDATE_GO_TO_HOME_STATUS,
+  AGENT_HOME_ADDRESSES,
+  ADD_AGENT_HOME_ADDRESS,
 } from '../../config/urls';
-import {apiGet, apiPost} from '../../utils/utils';
+import { apiGet, apiPost } from '../../utils/utils';
 import store from '../store';
-const {dispatch} = store;
+const { dispatch } = store;
 
 //Get List of payment method
 export function getListOfTasks(url = '', data = {}, headers = {}) {
@@ -449,7 +452,7 @@ export function createRazorpayFund(data = {}, headers = {}) {
 //getAllPoolingSuggestions
 export function getAllPoolingSuggestions(data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
-    apiGet(GET_CAB_POOLING_SUGGESTION , data, headers)
+    apiGet(GET_CAB_POOLING_SUGGESTION, data, headers)
       .then(res => {
         resolve(res);
       })
@@ -457,4 +460,17 @@ export function getAllPoolingSuggestions(data = {}, headers = {}) {
         reject(error);
       });
   });
+}
+
+//Go To Home 
+export function updateGoToHomeStatus(data = {}, headers = {}) {
+  return apiPost(UPDATE_GO_TO_HOME_STATUS, data, headers)
+}
+
+export function getAgentHomeAddress(data = {}, headers = {}) {
+  return apiGet(AGENT_HOME_ADDRESSES, data, headers)
+}
+
+export function addAgentHomeAddress(data = {}, headers = {}) {
+  return apiPost(ADD_AGENT_HOME_ADDRESS, data, headers)
 }
