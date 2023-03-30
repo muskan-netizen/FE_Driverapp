@@ -6,9 +6,9 @@
 
 //export const API_BASE_URL = 'https://api.royodispatch.com/';
 // export const API_BASE_URL = 'https://sales.royodispatch.com/';
- //export const API_BASE_URL='http://192.168.102.143:8002/'
+//export const API_BASE_URL='http://192.168.102.143:8002/'
 // //Staging
- //export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL='https://dispatch.nittosadai.com/'
 //  export const API_BASE_URL='https://zuzucleans.royodispatch.com/'
 // export const API_BASE_URL='https://delivery.go912.app/'
@@ -53,7 +53,7 @@
 // export const API_BASE_URL = 'https://api.royodispatch.com/';
 
 //Staging
- export const API_BASE_URL = 'https://api.rdstaging.com/';
+//export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.myevplus.com/';
 
 //Misst
@@ -216,7 +216,7 @@
 // export const API_BASE_URL = 'https://dispatch.order.veg-hub.com/';
 
 // orderfirst
- //export const API_BASE_URL = 'https://dispatch.orderfirst.store/';
+//export const API_BASE_URL = 'https://dispatch.orderfirst.store/';
 
 //KongaFood
 // export const API_BASE_URL = 'https://food-dispatch.konga.com/';

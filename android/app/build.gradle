@@ -202,80 +202,15 @@ android {
 
      flavorDimensions "appType"
 productFlavors{
-         royodispatcher {
+               gokab{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.codebrew.royodispatcher'
-            resValue "string", "app_name", "RoyoDriverApp"
-        } 
-
-                gusto{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId "com.Gusto.royodispatcher"
-            resValue "string", "app_name", "Gusto Dispatch"
-        
-        }
-
-             otgWeeds{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.otgWeeds.royodispatcher'
-            resValue "string", "app_name", "Otg Weeds Dispatcher"
-        }
-
-                 orderFirst{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.OrderFirst.royodispatcher'
-            resValue "string", "app_name", "orderFirst Dispatcher"
-        }
-
-              tdc{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.tdc.royodispatcher'
-            resValue "string", "app_name", "TDC Dispatcher"
-        }
-                ace{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-               applicationId "com.Ace.royodispatcher"
-            resValue "string", "app_name", "Ace Dispatch"
-        }
-                zynoride{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.zynoride.royodispatcher'
-            resValue "string", "app_name", "Zynoride Dispatcher"
+              applicationId 'com.Gokab.royodispatcher'
+            resValue "string", "app_name", "Gokab Dispatch"
         }
 
                      weTogether{
