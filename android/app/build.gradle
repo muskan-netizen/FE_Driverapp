@@ -203,15 +203,15 @@ android {
 
      flavorDimensions "appType"
      productFlavors{  
-bumprkar{
+bakaramoh{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.bumprkar.driver'
-            resValue "string", "app_name", "Bumprkar dispatcher"
+            applicationId 'com.bakaramoh.driver'
+            resValue "string", "app_name", "Bakaramoh Dispatcher"
         }
 
         //  boozeBrothers{
@@ -6762,6 +6762,26 @@ bumprkar{
 //             // applicationIdSuffix ".royoorder"
 //             applicationId 'com.bumprkar.driver'
 //             resValue "string", "app_name", "Bumprkar dispatcher"
+//         }
+// bakaramoh{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.bakaramoh.driver'
+//             resValue "string", "app_name", "Bakaramoh Dispatcher"
+//         }
+// vamVam{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.VamVam.driver'
+//             resValue "string", "app_name", "Vam Vam Dispatcher"
 //         }
 
 

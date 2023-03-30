@@ -517,7 +517,9 @@ const shortCodes = {
   dropoff:'595e36',
   exlraet:'77dfe7',
   instaFits:'5b787c',
-  bumprkar:'9ff535'
+  bumprkar:'9ff535',
+  bakaramoh:'c82095',
+  vamVam:'3bed4d'
 
 };
 
@@ -2578,6 +2580,14 @@ const appIds = {
   bumprkar: Platform.select({
     ios: 'com.bumprkar.driver',
     android: 'com.bumprkar.driver',
+  }),
+  bakaramoh: Platform.select({
+    ios: 'com.bakaramoh.driver',
+    android: 'com.bakaramoh.driver',
+  }),
+  vamVam: Platform.select({
+    ios: 'com.VamVam.driver',
+    android: 'com.VamVam.driver',
   }),
   
 };

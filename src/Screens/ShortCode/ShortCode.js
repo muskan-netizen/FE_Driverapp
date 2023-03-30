@@ -28,6 +28,8 @@ import styles from './styles';
 import store from '../../redux/store';
 import types from '../../redux/types';
 import { getAppCode } from './getAppCode';
+import SplashScreen from 'react-native-splash-screen';
+import { isEmpty } from "lodash";
 
 export default function ShortCode({ route, navigation }) {
   const shortCodeParam = route?.params?.shortCodeParam;
@@ -151,6 +153,21 @@ export default function ShortCode({ route, navigation }) {
     initApiHit()
   }, [])
 
+useEffect(() => {
+
+if(!!shortCodeDataInfo&&  !isEmpty(shortCodeDataInfo) ){ if (getBundleId() == appIds?.flank) {
+setTimeout(() => {
+SplashScreen.hide();
+}, 100);
+} else {
+setTimeout(() => {
+SplashScreen.hide();
+}, 200);
+}}else{
+
+}
+
+}, [shortCodeDataInfo])
   //short code And init api hit
   const initApiHit = () => {
     (async () => {

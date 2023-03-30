@@ -1028,6 +1028,10 @@
     "instaFitsdispatcherRelease": "cd android && ./gradlew assembleinstaFitsRelease",
     "bumprkardispatcher": "react-native run-android --variant=bumprkarDebug",
     "bumprkardispatcherRelease": "cd android && ./gradlew assemblebumprkarRelease",
+    "bakaramohdispatcher": "react-native run-android --variant=bakaramohDebug",
+    "bakaramohdispatcherRelease": "cd android && ./gradlew assemblebakaramohRelease",
+    "vamVamdispatcher": "react-native run-android --variant=vamVamDebug",
+    "vamVamdispatcherRelease": "cd android && ./gradlew assemblevamVamRelease",
     
 
 
