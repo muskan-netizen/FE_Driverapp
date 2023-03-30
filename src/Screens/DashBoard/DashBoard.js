@@ -1089,12 +1089,10 @@ export default function DashBoard({ route, navigation }) {
       client: clientInfo?.database_name
     }
     actions.reciveBideRequests({}, apiHeader).then((res) => {
-
       if (res?.data?.requestdata) {
         setAllCustomerBidsList(res?.data?.requestdata)
         setShowBiddingView(hideBidView)
       }
-
     }).catch((error) => {
       showError(error?.message)
       setShowBiddingView(false)
@@ -1226,7 +1224,7 @@ export default function DashBoard({ route, navigation }) {
 
 
   return (
-    !isEmpty(allCustomerBidsList) && showBiddingView ? renderBidingView() :
+    (!isEmpty(allCustomerBidsList) && showBiddingView) ? renderBidingView() :
       <WrapperContainer
         statusBarColor={colors.white}
         bgColor={colors.backGround}

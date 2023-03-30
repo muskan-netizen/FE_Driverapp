@@ -171,10 +171,13 @@ function CustomDrawerContent({
 
   // console.log(subscription?.hide_subscription_module, "daoisdhfa");
   useEffect(() => {
-    ZendeskChat.init(
-      `${zendeskKeys?.keys?.account_key}`,
-      `${zendeskKeys?.keys?.application_id}`
-    );
+    if(zendeskKeys?.keys?.account_key && zendeskKeys?.keys?.application_id){
+      ZendeskChat.init(
+        `${zendeskKeys?.keys?.account_key}`,
+        `${zendeskKeys?.keys?.application_id}`
+      );
+    }
+   
     updateState({
       routes: [
         {

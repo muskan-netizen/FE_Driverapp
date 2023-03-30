@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import SwitchSelector from 'react-native-switch-selector';
 import colors from '../styles/colors';
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 import fontFamily from '../styles/fontFamily';
 import {
   height,
@@ -10,14 +10,14 @@ import {
   textScale,
   width,
 } from '../styles/responsiveSize';
-import {TouchableOpacity, View, Text, Image} from 'react-native';
+import { TouchableOpacity, View, Text, Image } from 'react-native';
 import imagePath from '../constants/imagePath';
 import moment from 'moment';
 import generateBoxShadowStyle from './generateBoxShadowStyle';
-import {getColorCodeWithOpactiyNumber} from '../utils/helperFunctions';
-import {colorArray} from '../utils/constants/ConstantValues';
-import {format} from 'date-fns';
-import {useSelector} from 'react-redux';
+import { getColorCodeWithOpactiyNumber } from '../utils/helperFunctions';
+import { colorArray } from '../utils/constants/ConstantValues';
+import { format } from 'date-fns';
+import { useSelector } from 'react-redux';
 import strings from '../constants/lang';
 import useInterval from '../utils/useInterval';
 import { appIds } from '../utils/constants/DynamicAppKeys';
@@ -26,20 +26,20 @@ const TaskListCard = ({
   data = {},
   allTasks = [],
   index = null,
-  _onPressTask = () => {},
+  _onPressTask = () => { },
   showCurrency = false,
   previousData = null,
   isFromHistory = false,
 }) => {
   const deadline = new Date(Date.parse(new Date(data?.order?.order_time)) + Number(data?.order?.order_pre_time) * 60 * 1000);
-  const [orderPerpationTime,setOrderPerpationTime] = useState({})
-  const [isOrderPrepartionTimeExpired,setIsOrderPrepartionTimeExpired] = useState(true)
-  
+  const [orderPerpationTime, setOrderPerpationTime] = useState({})
+  const [isOrderPrepartionTimeExpired, setIsOrderPrepartionTimeExpired] = useState(true)
+
   //Get Date
   const defaultLanguagae = useSelector(
     state => state?.initBoot?.defaultLanguage,
   );
-  const styles = stylesFunc({defaultLanguagae});
+  const styles = stylesFunc({ defaultLanguagae });
 
   const getDate = date => {
     const local = moment.utc(date).local().format('DD MMM YYYY hh:mm:a');
@@ -114,13 +114,15 @@ const TaskListCard = ({
     }
   };
 
-  const  vendorOrderPerpationTime = (endtime)=> {
+  const vendorOrderPerpationTime = (endtime) => {
     const total = Date.parse(endtime) - Date.parse(new Date());
-    const seconds = Math.floor((total / 1000) % 60);
-    const minutes = Math.floor((total / 1000 / 60) % 60);
-    const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
-    const days = Math.floor(total / (1000 * 60 * 60 * 24));
+    const seconds = Math.abs(Math.floor((total / 1000) % 60));
+    const minutes = Math.abs(Math.floor((total / 1000 / 60) % 60));
+    const hours = Math.abs(Math.floor((total / (1000 * 60 * 60)) % 24));
+    const days = Math.abs(Math.floor(total / (1000 * 60 * 60 * 24)))
+
     
+
     return {
       total,
       days,
@@ -130,20 +132,19 @@ const TaskListCard = ({
     };
   }
 
-  // if(!isFromHistory&& data?.task_type_id ==1 && appIds.SXM2GO ==getBundleId()){
-    
-  // }
-  // useInterval(()=>{
-  //   const {total,days,hours,
-  //     minutes,
-  //     seconds} = vendorOrderPerpationTime(deadline)
-  //     const orderPerpationTime = {total,days,hours,
-  //       minutes,
-  //       seconds}
-  //     setOrderPerpationTime(orderPerpationTime)
-  //     setIsOrderPrepartionTimeExpired(deadline.getTime()>new Date().getTime())
-  // },1000)
-  
+  useInterval(() => {
+    const { total, days, hours,
+      minutes,
+      seconds } = vendorOrderPerpationTime(deadline)
+    const orderPerpationTime = {
+      total, days, hours,
+      minutes,
+      seconds
+    }
+    setOrderPerpationTime(orderPerpationTime)
+    setIsOrderPrepartionTimeExpired(deadline.getTime() > new Date().getTime())
+  }, 1000)
+
 
   return (
     <View
@@ -153,7 +154,7 @@ const TaskListCard = ({
       style={{
         marginTop: isFromHistory ? getDynamicUpdateOnValues().marginTop : 0,
       }}>
-      
+
       {isFromHistory && data?.order_id != previousData?.order_id && (
         <View
           style={{
@@ -161,30 +162,30 @@ const TaskListCard = ({
             backgroundColor: colors?.white,
             flexDirection: 'row',
             justifyContent: 'space-between',
-            padding:moderateScale(8),
-            borderTopWidth:moderateScale(2),
-            borderTopRightRadius:moderateScale(8),
-            borderTopLeftRadius:moderateScale(8),
-            borderColor:colors?.themeColor
+            padding: moderateScale(8),
+            borderTopWidth: moderateScale(2),
+            borderTopRightRadius: moderateScale(8),
+            borderTopLeftRadius: moderateScale(8),
+            borderColor: colors?.themeColor
           }}>
-          {!!data?.order?.cash_to_be_collected ?(
-            <Text 
+          {!!data?.order?.cash_to_be_collected ? (
+            <Text
               style={{
-                fontFamily:fontFamily?.bold
+                fontFamily: fontFamily?.bold
               }}
             >
               {'Cash Collected :'} {data?.order?.cash_to_be_collected}{' '}
             </Text>
           ) : <View />}
           {!!data?.order?.driver_cost ? (
-            <Text 
-            style={{
-              fontFamily:fontFamily?.bold
-            }}
+            <Text
+              style={{
+                fontFamily: fontFamily?.bold
+              }}
             >
-              {'Earning :'} {data?.order?.status=='completed'?data?.order?.driver_cost:0}
+              {'Earning :'} {data?.order?.status == 'completed' ? data?.order?.driver_cost : 0}
             </Text>
-          ) :<View />}
+          ) : <View />}
         </View>
       )}
       <View
@@ -224,14 +225,14 @@ const TaskListCard = ({
             },
           ]}
         /> */}
-      
+
 
         <View style={styles.mainContainer}>
-        {/* {!isFromHistory&& data?.task_type_id ==1 && appIds.SXM2GO !=getBundleId()&& <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',marginVertical:moderateScaleVertical(5)}}>
-        <Text style={{ fontFamily: fontFamily.bold, color: colors.textGreyOpcaity7,}}>Order Will Prepared In :</Text>
-        <Text style={{fontFamily:fontFamily?.bold,fontSize:textScale(16),color:isOrderPrepartionTimeExpired ?colors.green:colors.redB}}> {orderPerpationTime?.days}D:{orderPerpationTime?.hours}H:{orderPerpationTime?.minutes}M:{orderPerpationTime?.seconds}S</Text>
-        
-        </View>} */}
+          {!isFromHistory && data?.task_type_id == 1 && appIds.SXM2GO != getBundleId() &&orderPerpationTime&& <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginVertical: moderateScaleVertical(5) }}>
+            <Text style={{ fontFamily: fontFamily.bold, color: colors.textGreyOpcaity7, }}>Order Will Prepared In :</Text>
+              <Text style={{ fontFamily: fontFamily?.bold, fontSize: textScale(16), color: isOrderPrepartionTimeExpired ? colors.green : colors.redB }}> {isOrderPrepartionTimeExpired ? Math.abs(orderPerpationTime?.days): orderPerpationTime?.days}D:{orderPerpationTime?.hours}H:{orderPerpationTime?.minutes}M:{orderPerpationTime?.seconds}S</Text>
+              {!isOrderPrepartionTimeExpired&& <Text style={{fontSize:textScale(10),marginHorizontal:moderateScale(5),color:colors.redB,fontFamily:fontFamily?.bold}}>Delayed</Text>}
+          </View>}
           <Text style={styles.address} numberOfLines={2}>
             {data?.location?.address}
           </Text>
@@ -301,13 +302,12 @@ const TaskListCard = ({
               style={[
                 styles.taskTypeName,
                 // {color: getTextColor(data?.tasktype?.name)},
-                {color: colors.black},
+                { color: colors.black },
               ]}>
-              {`${
-                (data?.tasktype?.name).toLowerCase() == 'drop'
+              {`${(data?.tasktype?.name).toLowerCase() == 'drop'
                   ? strings.DROP
                   : strings.PICKUP
-              }`}
+                }`}
             </Text>
           </View>
         </View>
@@ -316,12 +316,12 @@ const TaskListCard = ({
   );
 };
 
-export function stylesFunc({defaultLanguagae}) {
+export function stylesFunc({ defaultLanguagae }) {
   const styles = StyleSheet.create({
     textStyle: {
       fontFamily: fontFamily.semiBold,
     },
-    textInputStyle: {width: width / 1.8},
+    textInputStyle: { width: width / 1.8 },
     address: {
       fontFamily: fontFamily.semiBold,
       fontSize: textScale(14),

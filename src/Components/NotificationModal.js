@@ -588,7 +588,7 @@ const NotificationModal = () => {
             )}
             
           </View>
-          {orderData?.no_seats_for_pooling &&
+          {!!orderData?.no_seats_for_pooling &&
            <Text numberOfLines={1} style={{
              marginVertical:moderateScaleVertical(10),
              marginTop:moderateScaleVertical(-10),
@@ -666,7 +666,8 @@ const NotificationModal = () => {
                 }}
                 keyboardType={'phone-pad'}
               />
-              <Text style={{ marginTop: moderateScaleVertical(10), fontFamily: fontFamily?.bold }}>Drop Location</Text>
+              <Text style={{ marginTop: moderateScaleVertical(10),
+                 fontFamily: fontFamily?.bold }}>Drop Location</Text>
               <View
                 style={{
                   ...styles.locationTextInputView,
@@ -697,7 +698,10 @@ const NotificationModal = () => {
                 </TouchableOpacity>
               </View>
 
-              <View style={{ height: searchLocationData?.length >= 1 ? width / 3 : 0 }}>
+              <View 
+              
+              style={{ height: searchLocationData?.length > 1 ? width / 3 : 0 }}
+              >
                 <FlatList
                   showsVerticalScrollIndicator={false}
                   data={searchLocationData}
