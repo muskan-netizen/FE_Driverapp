@@ -1,13 +1,17 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { Alert, ScrollView } from "react-native";
-import { Text, TouchableOpacity, View, Image, Switch } from "react-native";
+import { Alert, Image, ScrollView, Switch, Text, TouchableOpacity, View } from "react-native";
 // import Animated from 'react-native-reanimated';
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import BackgroundGeolocation from "@darron1217/react-native-background-geolocation";
+import { useDarkMode } from "react-native-dark-mode";
+import DeviceInfo, { getBundleId } from "react-native-device-info";
+import ScaledImage from "react-native-scalable-image";
 import { useSelector } from "react-redux";
 import imagePath from "../constants/imagePath";
 import strings from "../constants/lang";
+import ZendeskChat from "../library/react-native-zendesk-chat";
 import navigationStrings from "../navigation/navigationStrings";
 import actions from "../redux/actions";
+import { saveCabPoolingStatus } from "../redux/actions/init";
 import colors from "../styles/colors";
 import fontFamily from "../styles/fontFamily";
 import {
@@ -15,22 +19,11 @@ import {
   moderateScale,
   moderateScaleVertical,
   textScale,
-  width,
+  width
 } from "../styles/responsiveSize";
+import { appIds } from "../utils/constants/DynamicAppKeys";
 import { showError, showSuccess } from "../utils/helperFunctions";
 import Loader from "./Loader";
-import { useFocusEffect } from "@react-navigation/native";
-import { cloneDeep } from "lodash";
-import ScaledImage from "react-native-scalable-image";
-import DeviceInfo, { getBundleId } from "react-native-device-info";
-import ZendeskChat from "../library/react-native-zendesk-chat";
-import { appIds } from "../utils/constants/DynamicAppKeys";
-import { Subscriptions } from "../Screens";
-import BackgroundGeolocation from "@darron1217/react-native-background-geolocation";
-import { useDarkMode } from "react-native-dark-mode";
-import { getItem } from "../utils/utils";
-import { string } from "is_js";
-import { saveCabPoolingStatus } from "../redux/actions/init";
 
 
 export default function CustomDrawerContent({
@@ -40,6 +33,7 @@ export default function CustomDrawerContent({
   progress,
   ...props
 }) {
+
   const { zendeskKeys, clientInfo, defaultLanguage, isCabPooling } = useSelector(
     (state) => state?.initBoot
   );
@@ -163,8 +157,6 @@ export default function CustomDrawerContent({
     ? JSON.parse(userData?.client_preference?.custom_mode)
     : undefined;
 
-  console.log(userData, "dlsafnlaskdf")
-
   // console.log(subscription?.hide_subscription_module, "daoisdhfa");
   useEffect(() => {
     ZendeskChat.init(
@@ -283,7 +275,6 @@ export default function CustomDrawerContent({
             // subRoute:navigationStrings.MYPROFILE
           }
           : {},
-
         !!clientInfo?.socket_url
           ? {
             id: 11,
@@ -297,8 +288,6 @@ export default function CustomDrawerContent({
           id: 13,
           label: strings.LOGOUT,
           image: imagePath.logout,
-          // key: navigationStrings.PROFILESTACK,
-          // subRoute:navigationStrings.MYPROFILE
         },
       ],
     });

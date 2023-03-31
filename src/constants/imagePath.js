@@ -113,5 +113,11 @@ export default {
   icSavedLocs: require('../assets/images/ic_star.png'),
   icCloseButton: require('../assets/images/ic_close.png'),
   icHomeBlack: require('../assets/images/ic_home_black4.png'),
+  workActive: require("../assets/images/ic_work_active.png"),
+  workInActive: require("../assets/images/ic_work_unactice.png"),
+  ic_pinIcon: require("../assets/images/ic_pinIcon.png"),
+  currentLocation: require("../assets/images/ic_current.png"),
+  icRedChecked: require("../assets/images/ic_checked.png"),
+
   flank: require('../assets/Flank.mp4')
 };

@@ -2,10 +2,12 @@ import { isEmpty } from 'lodash';
 import React, { useCallback, useEffect, useState } from 'react';
 import { FlatList, Image, StyleSheet, Switch, Text, TouchableOpacity, View } from 'react-native';
 import { useSelector } from 'react-redux';
+import AddressBottomSheet from '../../Components/AddressBottomSheet';
 import Header from '../../Components/Header';
 import SearchPlaces from '../../Components/SearchPlaces';
 import WrapperContainer from '../../Components/WrapperContainer';
 import imagePath from '../../constants/imagePath';
+import strings from '../../constants/lang';
 import actions from '../../redux/actions';
 import colors from '../../styles/colors';
 import fontFamily from '../../styles/fontFamily';
@@ -13,6 +15,7 @@ import { moderateScale, moderateScaleVertical, textScale } from '../../styles/re
 import { showError, showSuccess } from '../../utils/helperFunctions';
 import { chekLocationPermission } from "../../utils/permissions";
 navigator.geolocation = require("react-native-geolocation-service");
+
 
 
 export default function GoToHome({ navigation }) {
@@ -30,6 +33,10 @@ export default function GoToHome({ navigation }) {
     const [address, setAddress] = useState('')
     const [searchResult, setSearchResult] = useState([])
     const [isMapSelectLocation, setIsMapSelectLocation] = useState(false)
+    const [isVisible, setIsVisible] = useState(false)
+    const [updateData, setUpdateData] = useState({})
+    const [selectViaMap, setSelectViaMap] = useState(false)
+    const [indicator, setIndicator] = useState(false)
 
     useEffect(() => {
         getAgentsHomeAddress()
@@ -264,11 +271,43 @@ export default function GoToHome({ navigation }) {
                 hideRight={true}
                 customCenter={() => customCenter()}
             />
+
+
+
             <View style={{
                 marginHorizontal: moderateScale(20),
                 marginVertical: moderateScaleVertical(20)
             }}>
-                <SearchPlaces
+                <View
+                    style={{
+                        flexDirection: 'row',
+                        justifyContent: 'space-between',
+                    }}>
+                    <Text
+                        numberOfLines={1}
+                        style={{
+                            fontSize: textScale(16),
+                            fontFamily: fontFamily.medium,
+                            width: moderateScale(180),
+                            color: colors.blackOpacity86,
+                        }}>
+                        {"Saved Location"}
+                    </Text>
+                    <TouchableOpacity
+                        disabled={isLoading}
+                        onPress={() => setIsVisible(true)}
+                    >
+                        <Text
+                            style={{
+                                fontSize: textScale(12),
+                                fontFamily: fontFamily.medium,
+                                color: colors.black,
+                            }}>
+                            {"Add New Address"}
+                        </Text>
+                    </TouchableOpacity>
+                </View>
+                {/* <SearchPlaces
                     curLatLng={`${currentAgentLocation.latitude}-${currentAgentLocation.longitude}`}
                     autoFocus={true}
                     placeHolder={"Search Location"}
@@ -286,41 +325,19 @@ export default function GoToHome({ navigation }) {
                     addressDone={addressDone}
                     isMapSelectLocation={isMapSelectLocation}
                     currentLatLong={currentAgentLocation}
-                />
+                /> */}
             </View>
-            {!isEmpty(searchResult) && <View>
+            {/* {!isEmpty(searchResult) && <View>
                 <FlatList data={searchResult}
                     contentContainerStyle={{
                         paddingHorizontal: moderateScale(20),
 
                     }} renderItem={renderItem} />
-            </View>}
+            </View>} */}
 
             {
                 !isEmpty(agentAllAddresses) ? <View>
-                    <View style={{
-                        flexDirection: 'row',
-                        marginBottom: moderateScaleVertical(8),
-                        alignItems: 'center',
-                        marginTop: moderateScaleVertical(20)
-                    }}>
-                        <Image
-                            style={{ marginHorizontal: moderateScale(12) }}
-                            source={imagePath.icSavedLocs}
-                        />
-                        <Text
-                            numberOfLines={1}
-                            style={{
-                                fontSize: textScale(12),
-                                color: colors.black,
-                                fontFamily: fontFamily.medium,
-                                marginLeft: moderateScale(6),
-                                color: colors.black,
-                            }}
-                        >
-                            {"Saved Locations"}
-                        </Text>
-                    </View>
+
                     <FlatList data={agentAllAddresses} contentContainerStyle={{
                         paddingHorizontal: moderateScale(20),
                     }} renderItem={renderAllAddressItem} />
@@ -332,6 +349,25 @@ export default function GoToHome({ navigation }) {
                         <Text>No home address found!</Text>
                     </View>
             }
+
+            {isVisible ? (
+                <AddressBottomSheet
+                    navigation={navigation}
+                    updateData={updateData}
+                    indicator={indicator}
+                    type={"addAddress"}
+                    passLocation={data => {
+                        console.log(data, "fasdkjfhaksdf")
+                    }}
+                    openCloseMapAddress={(type) => setSelectViaMap(type == 1 ? true : false)}
+                    selectViaMap={selectViaMap}
+                    onCloseSheet={() => {
+                        setSelectViaMap(false)
+                        setIsVisible(false)
+                    }}
+                    currentAgentLocation={currentAgentLocation}
+                />
+            ) : null}
         </WrapperContainer>
     )
 }
