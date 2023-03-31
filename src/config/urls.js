@@ -1,5 +1,5 @@
 
-export const API_BASE_URL = 'http://192.168.102.65:8001/';
+// export const API_BASE_URL = 'http://192.168.102.65:8001/';
 
 // export const API_BASE_URL = 'https://dispatch.10dollahollla.com/';
 
@@ -8,7 +8,7 @@ export const API_BASE_URL = 'http://192.168.102.65:8001/';
 // export const API_BASE_URL = 'https://sales.royodispatch.com/';
 // export const API_BASE_URL='http://192.168.101.140:9091/'
 // //Staging
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL='https://dispatch.nittosadai.com/'
 //  export const API_BASE_URL='https://zuzucleans.royodispatch.com/'
 // export const API_BASE_URL='https://delivery.go912.app/'
@@ -564,4 +564,6 @@ export const CREATERAZORPAYDETAIL = getApiUrl('api/create-razorpay-details');
 export const UPDATE_GO_TO_HOME_STATUS = getApiUrl('api/agent/update-go-to-home-address-status');
 export const AGENT_HOME_ADDRESSES = getApiUrl('api/agent/home-address');
 export const ADD_AGENT_HOME_ADDRESS = getApiUrl('api/agent/add-home-address');
+export const SET_AGENT_PRIMARY_ADDRESS = getApiUrl('api/agent/home-address-status');
+
 

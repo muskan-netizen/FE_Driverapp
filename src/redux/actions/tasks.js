@@ -25,6 +25,7 @@ import {
   UPDATE_GO_TO_HOME_STATUS,
   AGENT_HOME_ADDRESSES,
   ADD_AGENT_HOME_ADDRESS,
+  SET_AGENT_PRIMARY_ADDRESS,
 } from '../../config/urls';
 import { apiGet, apiPost } from '../../utils/utils';
 import store from '../store';
@@ -473,4 +474,8 @@ export function getAgentHomeAddress(data = {}, headers = {}) {
 
 export function addAgentHomeAddress(data = {}, headers = {}) {
   return apiPost(ADD_AGENT_HOME_ADDRESS, data, headers)
+}
+
+export function setAgentsPrimaryAddress(data = {}, headers = {}) {
+  return apiPost(SET_AGENT_PRIMARY_ADDRESS, data, headers)
 }

@@ -97,7 +97,7 @@ const SearchPlaces = ({
                 marginHorizontal: moderateScale(4),
               }}
               resizeMode="contain"
-              source={imagePath.closeButton}
+              source={imagePath.icCloseButton}
             />
           </TouchableOpacity>
         )}

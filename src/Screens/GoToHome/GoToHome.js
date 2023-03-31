@@ -6,21 +6,17 @@ import Header from '../../Components/Header';
 import SearchPlaces from '../../Components/SearchPlaces';
 import WrapperContainer from '../../Components/WrapperContainer';
 import imagePath from '../../constants/imagePath';
-import strings from '../../constants/lang';
 import actions from '../../redux/actions';
 import colors from '../../styles/colors';
 import fontFamily from '../../styles/fontFamily';
 import { moderateScale, moderateScaleVertical, textScale } from '../../styles/responsiveSize';
 import { showError, showSuccess } from '../../utils/helperFunctions';
 import { chekLocationPermission } from "../../utils/permissions";
-
 navigator.geolocation = require("react-native-geolocation-service");
 
 
 export default function GoToHome({ navigation }) {
     const { userData } = useSelector((state) => state?.auth || {});
-    const dataInit = useSelector((state) => state?.initBoot);
-    console.log(dataInit, "dataInit>>>>>>>dataInit")
     const { clientInfo, } = useSelector(
         (state) => state?.initBoot || {}
     );
@@ -75,7 +71,6 @@ export default function GoToHome({ navigation }) {
             setIsLoading(false)
             setAgentAllAddresses(res?.data || [])
             console.log(res, "<===res getAgentHomeAddress")
-
         }).catch(errorMethod)
     }
 
@@ -109,9 +104,21 @@ export default function GoToHome({ navigation }) {
     };
 
     const addressDone = (value) => {
-        console.log(value, "afslkdfjlkasdjf")
-        // setSearchResult(value)
+
     };
+
+    const onSetAddressAsPrimary = (item) => {
+        console.log(item, "item>>>>>>>>item")
+        setIsLoading(true)
+        actions.setAgentsPrimaryAddress({
+            address_id: item?.id
+        }, {
+            client: clientInfo?.database_name,
+        }).then((res) => {
+            showSuccess("Your primary address updated.")
+            getAgentsHomeAddress()
+        }).catch(errorMethod)
+    }
 
     const onPressAddress = (val) => {
         setIsLoading(true)
@@ -125,8 +132,9 @@ export default function GoToHome({ navigation }) {
         actions.addAgentHomeAddress(apiData, {
             client: clientInfo?.database_name,
         }).then((res) => {
-            setIsLoading(false)
+            // setIsLoading(false)
             showSuccess("Address added.")
+            getAgentsHomeAddress()
         }).catch(errorMethod)
 
     }
@@ -201,6 +209,7 @@ export default function GoToHome({ navigation }) {
     const renderAllAddressItem = useCallback(
         ({ item, index }) => {
             return <TouchableOpacity
+
                 style={{
                     flexDirection: 'row',
                     alignItems: 'center',
@@ -209,7 +218,7 @@ export default function GoToHome({ navigation }) {
                     marginBottom: moderateScaleVertical(4),
                     borderBottomColor: colors.lightGreyBg,
                 }}
-                onPress={() => onPressAddress(item)}
+                onPress={() => onSetAddressAsPrimary(item)}
             >
                 <View style={{ flex: 0.15 }}>
                     <Image source={imagePath.icSearchedLoc} />
@@ -236,6 +245,8 @@ export default function GoToHome({ navigation }) {
                         {item?.address}
                     </Text>
                 </View>
+
+                <Image source={!!item?.is_default ? imagePath.checkBox2Active : imagePath.checkBox2InActive} />
             </TouchableOpacity>
         },
         [agentAllAddresses],
@@ -277,36 +288,50 @@ export default function GoToHome({ navigation }) {
                     currentLatLong={currentAgentLocation}
                 />
             </View>
-            <FlatList data={searchResult} contentContainerStyle={{
-                paddingHorizontal: moderateScale(20),
-            }} renderItem={renderItem} />
+            {!isEmpty(searchResult) && <View>
+                <FlatList data={searchResult}
+                    contentContainerStyle={{
+                        paddingHorizontal: moderateScale(20),
 
-            <View style={{
-                flexDirection: 'row',
-                marginBottom: moderateScaleVertical(8),
-                alignItems: 'center',
-            }}>
-                <Image
-                    style={{ marginHorizontal: moderateScale(12) }}
-                    source={imagePath.icSavedLocs}
-                />
-                <Text
-                    numberOfLines={1}
-                    style={{
-                        fontSize: textScale(12),
-                        color: colors.black,
-                        fontFamily: fontFamily.medium,
-                        marginLeft: moderateScale(6),
-                        color: colors.black,
-                    }}
-                >
-                    {"Saved Locations"}
-                </Text>
-            </View>
+                    }} renderItem={renderItem} />
+            </View>}
 
-            <FlatList data={agentAllAddresses} contentContainerStyle={{
-                paddingHorizontal: moderateScale(20),
-            }} renderItem={renderAllAddressItem} />
+            {
+                !isEmpty(agentAllAddresses) ? <View>
+                    <View style={{
+                        flexDirection: 'row',
+                        marginBottom: moderateScaleVertical(8),
+                        alignItems: 'center',
+                        marginTop: moderateScaleVertical(20)
+                    }}>
+                        <Image
+                            style={{ marginHorizontal: moderateScale(12) }}
+                            source={imagePath.icSavedLocs}
+                        />
+                        <Text
+                            numberOfLines={1}
+                            style={{
+                                fontSize: textScale(12),
+                                color: colors.black,
+                                fontFamily: fontFamily.medium,
+                                marginLeft: moderateScale(6),
+                                color: colors.black,
+                            }}
+                        >
+                            {"Saved Locations"}
+                        </Text>
+                    </View>
+                    <FlatList data={agentAllAddresses} contentContainerStyle={{
+                        paddingHorizontal: moderateScale(20),
+                    }} renderItem={renderAllAddressItem} />
+                </View> :
+                    <View style={{
+                        alignItems: "center",
+                        marginTop: moderateScaleVertical(40)
+                    }}>
+                        <Text>No home address found!</Text>
+                    </View>
+            }
         </WrapperContainer>
     )
 }

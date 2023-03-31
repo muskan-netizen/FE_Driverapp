@@ -111,5 +111,7 @@ export default {
   icImgPlaceholder: require('../assets/images/ic_placeholder.png'),
   icSearchedLoc: require('../assets/images/ic_saved.png'),
   icSavedLocs: require('../assets/images/ic_star.png'),
+  icCloseButton: require('../assets/images/ic_close.png'),
+  icHomeBlack: require('../assets/images/ic_home_black4.png'),
   flank: require('../assets/Flank.mp4')
 };

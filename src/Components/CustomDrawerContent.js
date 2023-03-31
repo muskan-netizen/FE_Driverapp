@@ -173,6 +173,13 @@ export default function CustomDrawerContent({
     );
     updateState({
       routes: [
+        !!userData?.client_preference?.is_go_to_home && {
+          id: 12,
+          label: strings.GO_TO_HOME,
+          image: imagePath.icHomeBlack,
+          key: navigationStrings.GO_TO_HOME,
+          // subRoute:navigationStrings.MYPROFILE
+        },
         {
           id: 1,
           label:
@@ -286,13 +293,6 @@ export default function CustomDrawerContent({
             // subRoute:navigationStrings.MYPROFILE
           }
           : {},
-        !!userData?.client_preference?.is_go_to_home && {
-          id: 12,
-          label: strings.GO_TO_HOME,
-          image: imagePath.profileImage,
-          key: navigationStrings.GO_TO_HOME,
-          // subRoute:navigationStrings.MYPROFILE
-        },
         {
           id: 13,
           label: strings.LOGOUT,
