@@ -105,5 +105,6 @@ export default {
   greenLight: '#80b34d',
   textGreyOpcaity6: 'rgba(30,36,40,.6)',
   blackOpacity5: 'rgba(0,0,0,0.0.5)',
+  blackOpacity20: 'rgba(0,0,0,0.2)',
 
 };

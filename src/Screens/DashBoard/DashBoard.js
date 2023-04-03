@@ -171,7 +171,6 @@ export default function DashBoard({ route, navigation }) {
 
   useInterval(
     () => {
-      console.log(latitude, longitude, heading, "printing states....")
       fetchgentLogs(latitude, longitude, heading);
     },
     5000,
@@ -323,6 +322,8 @@ export default function DashBoard({ route, navigation }) {
   );
 
   const fetchgentLogs = async (lat, lng, heading_) => {
+
+    return
     if (userData?.access_token) {
       let data = {};
       data["device_type"] = Platform.OS;

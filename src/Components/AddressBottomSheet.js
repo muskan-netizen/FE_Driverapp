@@ -91,7 +91,7 @@ const AddressBottomSheet = ({
       { id: 2, lable: "Work", icon: imagePath.workInActive },
       { id: 3, lable: "Others", icon: imagePath.workInActive },
     ],
-    address_type: updateData?.type ? updateData?.type : 1,
+    address_type: 1,
     country_code: '',
     viewHeight: 0,
     region: {
@@ -113,30 +113,30 @@ const AddressBottomSheet = ({
 
 
   //To update the states
-  useEffect(() => {
+  // useEffect(() => {
 
-    return
-    updateState({
-      address: updateData?.address ? updateData?.address : '',
-      showDialogBox: false,
-      isLoading: false,
-      street: updateData?.street ? updateData?.street : '',
-      city: updateData?.city ? updateData?.city : '',
-      pincode: updateData?.pincode ? updateData?.pincode : '',
-      states: updateData?.state ? updateData?.state : '',
-      country: updateData?.country ? updateData?.country : '',
-      latitude: updateData?.latitude ? updateData?.latitude : '',
-      longitude: updateData?.longitude ? updateData?.longitude : '',
-      phonecode: updateData?.phonecode ? updateData?.phonecode : '',
-      country_code: updateData?.country_code ? updateData?.country_code : '',
-      is_primary: updateData?.is_primary ? updateData?.is_primary : '',
-      address_type: updateData?.type,
-      houseNo: updateData?.house_number ? updateData?.house_number : '',
-      extra_instruction: updateData?.extra_instruction
-        ? updateData?.extra_instruction
-        : '',
-    });
-  }, [updateData]);
+
+  //   updateState({
+  //     address: updateData?.address ? updateData?.address : '',
+  //     showDialogBox: false,
+  //     isLoading: false,
+  //     street: updateData?.street ? updateData?.street : '',
+  //     city: updateData?.city ? updateData?.city : '',
+  //     pincode: updateData?.pincode ? updateData?.pincode : '',
+  //     states: updateData?.state ? updateData?.state : '',
+  //     country: updateData?.country ? updateData?.country : '',
+  //     latitude: updateData?.latitude ? updateData?.latitude : '',
+  //     longitude: updateData?.longitude ? updateData?.longitude : '',
+  //     phonecode: updateData?.phonecode ? updateData?.phonecode : '',
+  //     country_code: updateData?.country_code ? updateData?.country_code : '',
+  //     is_primary: updateData?.is_primary ? updateData?.is_primary : '',
+  //     address_type: updateData?.type,
+  //     houseNo: updateData?.house_number ? updateData?.house_number : '',
+  //     extra_instruction: updateData?.extra_instruction
+  //       ? updateData?.extra_instruction
+  //       : '',
+  //   });
+  // }, [updateData]);
 
   const {
     address,
@@ -171,7 +171,7 @@ const AddressBottomSheet = ({
   const updateState = (data) => setState((state) => ({ ...state, ...data }));
 
   useEffect(() => {
-    return
+
     Geocoder.init(userData?.client_preference?.map_key_1, { language: 'en' }); // set the language
   }, []);
 
@@ -307,27 +307,13 @@ const AddressBottomSheet = ({
       house_number: houseNo,
       extra_instruction: extra_instruction,
     };
-    if (type == 'Home1') {
-      navigation.navigate(navigationStrings.HOME, {
-        details,
-      });
-    } else if (type == 'addAddress') {
-      onClose();
-      clearState();
 
-      passLocation(data);
-      // clearState();
-    } else if (type == 'updateAddress') {
-      let update = 'update';
-      onClose();
-      clearState();
-      passLocation(data);
-      // clearState();
-    } else {
-      onClose();
-      clearState();
-      passLocation(data);
-    }
+    onCloseSheet()
+    clearState();
+
+    passLocation(data);
+
+
   };
   const currentLocation = () => {
     chekLocationPermission()
@@ -513,14 +499,9 @@ const AddressBottomSheet = ({
         <Image style={{ tintColor: colors.white }} source={imagePath.icCloseButton} />
       </TouchableOpacity>
 
-      <View style={{
-        height: 200,
-        backgroundColor: colors.white
-      }}>
-        <Text>;lkhfsadjhgf</Text>
-      </View>
 
-      {/* {selectViaMap ? (
+
+      {selectViaMap ? (
         <View style={{ flex: 1 }}>
           <SelctFromMap
             doneBtnStyle={{
@@ -809,16 +790,6 @@ const AddressBottomSheet = ({
                 </View>
               </View>
 
-              <BorderTextInputWithLable
-                onChangeText={_onChangeText('extra_instruction')}
-                placeholder={strings.EXTRA_INSTRUCTION}
-                textInputStyle={getTextInputStyle(states)}
-                value={extra_instruction}
-                borderWidth={0}
-                marginBottomTxt={0}
-                containerStyle={{ borderBottomWidth: 1 }}
-                returnKeyType={'next'}
-              />
 
               <Text
                 style={{
@@ -894,7 +865,7 @@ const AddressBottomSheet = ({
             />
           </View>
         </KeyboardAwareScrollView>
-      )} */}
+      )}
     </BottomSheetModal>
   );
 };

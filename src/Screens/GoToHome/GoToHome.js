@@ -14,11 +14,13 @@ import fontFamily from '../../styles/fontFamily';
 import { moderateScale, moderateScaleVertical, textScale } from '../../styles/responsiveSize';
 import { showError, showSuccess } from '../../utils/helperFunctions';
 import { chekLocationPermission } from "../../utils/permissions";
+import { gestureHandlerRootHOC } from "react-native-gesture-handler";
+
 navigator.geolocation = require("react-native-geolocation-service");
 
 
 
-export default function GoToHome({ navigation }) {
+const GoToHome = ({ navigation }) => {
     const { userData } = useSelector((state) => state?.auth || {});
     const { clientInfo, } = useSelector(
         (state) => state?.initBoot || {}
@@ -130,10 +132,10 @@ export default function GoToHome({ navigation }) {
     const onPressAddress = (val) => {
         setIsLoading(true)
         let apiData = {
-            latitude: val?.geometry?.location?.lat,
-            longitude: val?.geometry?.location?.lng,
-            short_name: 'Home',
-            address: val?.formatted_address,
+            latitude: val?.latitude,
+            longitude: val?.longitude,
+            short_name: val?.address_type == 1 ? 'Home' : "Work",
+            address: val?.address,
             // post_code:,
         }
         actions.addAgentHomeAddress(apiData, {
@@ -282,6 +284,7 @@ export default function GoToHome({ navigation }) {
                     style={{
                         flexDirection: 'row',
                         justifyContent: 'space-between',
+                        alignItems: "center"
                     }}>
                     <Text
                         numberOfLines={1}
@@ -291,7 +294,7 @@ export default function GoToHome({ navigation }) {
                             width: moderateScale(180),
                             color: colors.blackOpacity86,
                         }}>
-                        {"Saved Location"}
+                        {"Saved Locations"}
                     </Text>
                     <TouchableOpacity
                         disabled={isLoading}
@@ -301,9 +304,9 @@ export default function GoToHome({ navigation }) {
                             style={{
                                 fontSize: textScale(12),
                                 fontFamily: fontFamily.medium,
-                                color: colors.black,
+                                color: colors.themeColor,
                             }}>
-                            {"Add New Address"}
+                            {" + Add New Address"}
                         </Text>
                     </TouchableOpacity>
                 </View>
@@ -350,15 +353,14 @@ export default function GoToHome({ navigation }) {
                     </View>
             }
 
+
             {isVisible ? (
                 <AddressBottomSheet
                     navigation={navigation}
                     updateData={updateData}
                     indicator={indicator}
                     type={"addAddress"}
-                    passLocation={data => {
-                        console.log(data, "fasdkjfhaksdf")
-                    }}
+                    passLocation={onPressAddress}
                     openCloseMapAddress={(type) => setSelectViaMap(type == 1 ? true : false)}
                     selectViaMap={selectViaMap}
                     onCloseSheet={() => {
@@ -371,6 +373,8 @@ export default function GoToHome({ navigation }) {
         </WrapperContainer>
     )
 }
+
+export default gestureHandlerRootHOC(GoToHome)
 
 const styles = StyleSheet.create({
     goToHome: {
