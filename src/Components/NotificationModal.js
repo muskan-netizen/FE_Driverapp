@@ -537,6 +537,9 @@ const NotificationModal = () => {
     return (
       <View style={{ overflow: "hidden", borderRadius: moderateScale(10) }}>
         <View>{!!region && mapView()}</View>
+        <View>
+       <Text style={{alignSelf:'center',marginTop:moderateScaleVertical(5),fontFamily: fontFamily.bold, color: colors.themeColor,}}>{orderData?.task_description}</Text>
+        </View>
         <View style={{ padding: 8 }}>
           <View style={styles.notificationModalMainHeaderStyle}>
             {notificationType == "CANCELLED" ? (

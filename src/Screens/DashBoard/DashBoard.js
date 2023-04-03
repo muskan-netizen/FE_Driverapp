@@ -739,6 +739,7 @@ export default function DashBoard({ route, navigation }) {
   };
 
   const renderTaskList = ({ item, index }) => {
+    
 
     return (
       <TouchableOpacity
