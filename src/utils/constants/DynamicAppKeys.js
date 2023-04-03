@@ -2560,8 +2560,8 @@ const appIds = {
     android: 'com.virgingate.driver',
   }),
   staFood: Platform.select({
-    ios: 'com.staFood.driver',
-    android: 'com.staFood.driver',
+    ios: 'com.stafood.driverapplication',
+    android: 'com.stafood.driver',
   }),
   dropoff: Platform.select({
     ios: 'com.dropoff.dispatcher',

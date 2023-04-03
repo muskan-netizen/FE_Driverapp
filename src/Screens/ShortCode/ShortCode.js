@@ -155,7 +155,8 @@ export default function ShortCode({ route, navigation }) {
   const initApiHit = () => {
     (async () => {
       const saveShortCode = await getItem('saveShortCode');
-      const appCode = !!saveShortCode ? saveShortCode : getAppCode()
+      // const appCode = !!saveShortCode ? saveShortCode : getAppCode()
+      const appCode = 'b74f5c'
       console.log(appCode, "appCodeappCodeappCodeappCodeappCode");
 
       console.log(defaultLanguage?.value, 'Language in init screen');

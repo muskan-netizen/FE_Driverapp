@@ -203,15 +203,15 @@ android {
 
      flavorDimensions "appType"
      productFlavors{  
-bumprkar{
+           mrVeloz{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.bumprkar.driver'
-            resValue "string", "app_name", "Bumprkar dispatcher"
+            applicationId 'com.mrVeloz.royodispatcher'
+            resValue "string", "app_name", "MrVeloz Dispatcher"
         }
 
         //  boozeBrothers{
@@ -6719,7 +6719,7 @@ bumprkar{
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.staFood.driver'
+//             applicationId 'com.stafood.driver'
 //             resValue "string", "app_name", "STA Food dispatcher"
 //         }
 // dropoff{
