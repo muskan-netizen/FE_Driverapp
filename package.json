@@ -997,7 +997,6 @@
     "royoRidesdispatcherRelease": "cd android && ./gradlew assembleroyoRidesRelease",
     "autoboxdispatcher": "react-native run-android --variant=autoboxDebug",
     "autoboxdispatcherRelease": "cd android && ./gradlew assembleautoboxRelease",
-
     "tempcornerdispatcher": "react-native run-android --variant=tempcornerDebug",
     "tempcornerdispatcherRelease": "cd android && ./gradlew assembletempcornerRelease",
     "emiratesHomeNursingdispatcher": "react-native run-android --variant=emiratesHomeNursingDebug",
@@ -1040,10 +1039,6 @@
     "karisdispatcherRelease": "cd android && ./gradlew assemblekarisRelease",
     "mammysKitchendispatcher": "react-native run-android --variant=mammysKitchenDebug",
     "mammysKitchendispatcherRelease": "cd android && ./gradlew assemblemammysKitchenRelease",
-    
-
-
-    
     "build_ios": "react-native bundle --entry-file='index.js' --bundle-output='./ios/main.jsbundle' --dev=false --platform='ios'",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
