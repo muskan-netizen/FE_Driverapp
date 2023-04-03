@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect, useRef } from "react";
+import React, {useState, useCallback, useEffect, useRef} from 'react';
 import {
   StyleSheet,
   Text,
@@ -7,42 +7,42 @@ import {
   Image,
   Platform,
   ImageBackground,
-} from "react-native";
-import { GiftedChat, InputToolbar, Send } from "react-native-gifted-chat";
-import socketServices from "../../utils/scoketService";
-import { useSelector } from "react-redux";
-import imagePath from "../../constants/imagePath";
-import Header from "../../Components/Header";
-import colors from "../../styles/colors";
-import WrapperContainer from "../../Components/WrapperContainer";
-import actions from "../../redux/actions";
-import { getImageUrl } from "../../utils/helperFunctions";
+} from 'react-native';
+import {GiftedChat, InputToolbar, Send} from 'react-native-gifted-chat';
+import socketServices from '../../utils/scoketService';
+import {useSelector} from 'react-redux';
+import imagePath from '../../constants/imagePath';
+import Header from '../../Components/Header';
+import colors from '../../styles/colors';
+import WrapperContainer from '../../Components/WrapperContainer';
+import actions from '../../redux/actions';
+import {getImageUrl} from '../../utils/helperFunctions';
 import {
   height,
   moderateScale,
   moderateScaleVertical,
   textScale,
   width,
-} from "../../styles/responsiveSize";
-import FastImage from "react-native-fast-image";
-import moment from "moment";
-import _ from "lodash";
-import CircularImages from "../../Components/CircularImages";
-import Modal from "react-native-modal";
-import { ScrollView } from "react-native-gesture-handler";
-import fontFamily from "../../styles/fontFamily";
-import { useFocusEffect } from "@react-navigation/native";
+} from '../../styles/responsiveSize';
+import FastImage from 'react-native-fast-image';
+import moment from 'moment';
+import _ from 'lodash';
+import CircularImages from '../../Components/CircularImages';
+import Modal from 'react-native-modal';
+import {ScrollView} from 'react-native-gesture-handler';
+import fontFamily from '../../styles/fontFamily';
+import {useFocusEffect} from '@react-navigation/native';
 
-export default function ChatScreen({ route }) {
+export default function ChatScreen({route}) {
   const paramData = route.params.data;
-  const clientInfo = useSelector((state) => state?.initBoot?.clientInfo);
+  const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
   const defaultLanguagae = useSelector(
-    (state) => state?.initBoot?.defaultLanguage
+    state => state?.initBoot?.defaultLanguage,
   );
 
-  const userData = useSelector((state) => state?.auth?.userData);
+  const userData = useSelector(state => state?.auth?.userData);
 
-  console.log("userDatauserData", userData);
+  console.log('paramDataparamData', paramData);
 
   const styles = stylesFun({});
 
@@ -63,31 +63,35 @@ export default function ChatScreen({ route }) {
     allAgentIds,
   } = state;
 
-  const updateState = (data) => setState((state) => ({ ...state, ...data }));
+  const updateState = data => setState(state => ({...state, ...data}));
 
   useEffect(() => {
-    socketServices.on("new-message", (data) => {
-      console.log(data, "data to be emitted in chat screen");
-      if (paramData?.room_id == data?.message?.roomData?.room_id) {
-        setMessages((previousMessages) =>
+    socketServices.on('new-message', data => {
+      console.log(data, 'data to be emitted in chat screen');
+      if (
+        paramData?.room_id == data?.message?.roomData?.room_id &&
+        paramData?.room_name == data?.message?.roomData?.room_name
+      ) {
+        setMessages(previousMessages =>
           GiftedChat.append(previousMessages, {
             ...data.message.chatData,
-            user: { _id: 0 },
-          })
+            user: {_id: 0},
+          }),
         );
       }
       // fetchAllMessages()
+      fetchAllRoomUser();
     });
     return () => {
-      socketServices.removeListener("new-message");
-      socketServices.removeListener("save-message");
+      socketServices.removeListener('new-message');
+      socketServices.removeListener('save-message');
     };
   }, []);
 
-  console.log("all messages", messages);
+  console.log('all messages', messages);
 
   useEffect(() => {
-    updateState({ isLoading: true });
+    updateState({isLoading: true});
     fetchAllRoomUser();
     fetchAllMessages();
   }, []);
@@ -96,14 +100,14 @@ export default function ChatScreen({ route }) {
     try {
       const apiData = `/${paramData?._id}`;
       const res = await actions.getAllMessages(apiData, {});
-      console.log("fetchAllMessages res", res);
-      updateState({ isLoading: false });
+      console.log('fetchAllMessages res', res);
+      updateState({isLoading: false});
       if (!!res) {
         setMessages(res.reverse());
       }
     } catch (error) {
-      console.log("error raised in fetchAllMessages api", error);
-      updateState({ isLoading: false });
+      console.log('error raised in fetchAllMessages api', error);
+      updateState({isLoading: false});
     }
   }, []);
 
@@ -115,15 +119,15 @@ export default function ChatScreen({ route }) {
         {},
         {
           client: clientInfo?.database_name,
-          language: defaultLanguagae?.value ? defaultLanguagae?.value : "en",
-        }
+          language: defaultLanguagae?.value ? defaultLanguagae?.value : 'en',
+        },
       );
-      console.log(res, "resresresres");
+      console.log(res, 'resresresres');
       if (!!res?.userData) {
-        const allRoomUsersAppartFromAgent  = res?.userData.filter(function (el) {
+        const allRoomUsersAppartFromAgent = res?.userData.filter(function (el) {
           return el.user_type != 'agent';
         });
-        const allAgentIds  = res?.userData.filter(function (el) {
+        const allAgentIds = res?.userData.filter(function (el) {
           return el.user_type == 'agent';
         });
 
@@ -134,7 +138,7 @@ export default function ChatScreen({ route }) {
         });
       }
     } catch (error) {
-      console.log("error raised in fetchAllRoomUser api", error);
+      console.log('error raised in fetchAllRoomUser api', error);
     }
   };
 
@@ -147,37 +151,40 @@ export default function ChatScreen({ route }) {
         const apiData = {
           room_id: paramData?._id,
           message: messages[0].text,
-          user_type: "agent",
-          to_message: "to_user",
-          from_message: "from_agent",
-          user_id: userData?.id || "",
-          email: userData?.email || "",
-          username: userData?.name || "",
+          user_type: 'agent',
+          to_message: 'to_user',
+          from_message: 'from_agent',
+          user_id: userData?.id || '',
+          email: userData?.email || '',
+          username: userData?.name || '',
           phone_num: `${userData.phone_number}`,
           display_image: userData?.image_url,
           // sub_domain: clientInfo?.custom_domain,
           //'room_name' =>$data->name,
-          chat_type: "agent_to_user",
+          chat_type: 'agent_to_user',
         };
-        console.log("sending api data", apiData);
+        console.log('sending api data', apiData);
         const res = await actions.sendMessage(apiData, {
           client: clientInfo?.database_name,
-          language: defaultLanguagae?.value ? defaultLanguagae?.value : "en",
+          language: defaultLanguagae?.value ? defaultLanguagae?.value : 'en',
         });
-        console.log("on send message res", res);
-        socketServices.emit("save-message", res);
+        console.log('on send message res', res);
+        socketServices.emit('save-message', res);
 
         await sendToUserNotification(paramData?._id, messages[0].text);
       } catch (error) {
-        console.log("error raised in sendMessage api", error);
+        console.log('error raised in sendMessage api', error);
       }
     },
-    [allRoomUsersAppartFromAgent, allAgentIds]
+    [allRoomUsersAppartFromAgent, allAgentIds],
   );
 
   const sendToUserNotification = async (id, text) => {
     let apiData = {
-      user_ids: allRoomUsersAppartFromAgent,
+      user_ids:
+        allRoomUsersAppartFromAgent.length == 0
+          ? [{auth_user_id: paramData?.order_user_id}]
+          : allRoomUsersAppartFromAgent,
       roomId: id,
       roomIdText: paramData?.room_id,
       text_message: text,
@@ -188,39 +195,45 @@ export default function ChatScreen({ route }) {
       username: userData?.name,
       vendor_id: paramData?.vendor_id,
       auth_id: userData?.id,
+      web: false,
+      from: 'from_dispatcher',
+      order_id: paramData?.order_id,
     };
-    console.log("sending api data>>>>>", apiData);
+    console.log(
+      allRoomUsersAppartFromAgent,
+      'sending api data>>>>> notification',
+      apiData,
+    );
 
     try {
       const res = await actions.sendNotification(apiData, {
         client: clientInfo?.database_name,
-        language: defaultLanguagae?.value ? defaultLanguagae?.value : "en",
+        language: defaultLanguagae?.value ? defaultLanguagae?.value : 'en',
       });
-      console.log("res sendNotification", res);
+      console.log('res sendNotification', res);
     } catch (error) {
-      console.log("error raised in sendToUserNotification api", error);
+      console.log('error raised in sendToUserNotification api', error);
     }
   };
 
   const showRoomUser = useCallback(
-    (props) => {
+    props => {
       if (_.isEmpty(roomUsers)) {
         return null;
       }
       return (
         <TouchableOpacity
           activeOpacity={0.7}
-          onPress={() => updateState({ showParticipant: true })}
-        >
+          onPress={() => updateState({showParticipant: true})}>
           <CircularImages size={25} data={roomUsers} />
         </TouchableOpacity>
       );
     },
-    [roomUsers]
+    [roomUsers],
   );
 
-  const renderMessage = useCallback((props) => {
-    const { currentMessage } = props;
+  const renderMessage = useCallback(props => {
+    const {currentMessage} = props;
     let isRight = currentMessage?.auth_user_id == userData?.id;
     if (isRight) {
       return (
@@ -228,37 +241,33 @@ export default function ChatScreen({ route }) {
           key={String(currentMessage._id)}
           style={{
             ...styles.chatStyle,
-            alignSelf: "flex-end",
-            backgroundColor: "#0084ff",
+            alignSelf: 'flex-end',
+            backgroundColor: '#0084ff',
             borderBottomRightRadius: 0,
-          }}
-        >
-          <View style={{ flexDirection: "row" }}>
-            <View style={{ marginHorizontal: 8, flexShrink: 1 }}>
+          }}>
+          <View style={{flexDirection: 'row'}}>
+            <View style={{marginHorizontal: 8, flexShrink: 1}}>
               <Text
                 style={{
                   fontSize: textScale(14),
                   fontFamily: fontFamily.regular,
-                  textTransform: "capitalize",
+                  textTransform: 'capitalize',
                   color: colors.white,
-                }}
-              >
+                }}>
                 {currentMessage?.username}
               </Text>
 
-              <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <View style={{flexDirection: 'row', alignItems: 'center'}}>
                 <Text
                   style={{
                     ...styles.descText,
                     color: colors.white,
-                  }}
-                >
+                  }}>
                   {currentMessage?.message}
                 </Text>
                 <Text
-                  style={{ ...styles.timeText, color: colors.whiteOpacity77 }}
-                >
-                  {moment(currentMessage?.created_date).format("LT")}
+                  style={{...styles.timeText, color: colors.whiteOpacity77}}>
+                  {moment(currentMessage?.created_date).format('LT')}
                 </Text>
               </View>
             </View>
@@ -267,7 +276,7 @@ export default function ChatScreen({ route }) {
       );
     }
     return (
-      <View style={{ flexDirection: "row" }}>
+      <View style={{flexDirection: 'row'}}>
         <FastImage
           source={{
             uri: currentMessage?.display_image,
@@ -280,21 +289,19 @@ export default function ChatScreen({ route }) {
           key={String(currentMessage._id)}
           style={{
             ...styles.chatStyle,
-            alignSelf: "flex-start",
+            alignSelf: 'flex-start',
             backgroundColor: colors.white,
             borderBottomLeftRadius: moderateScale(0),
             maxWidth: width / 1.2,
-          }}
-        >
-          <View style={{ marginHorizontal: 8, flexShrink: 1 }}>
+          }}>
+          <View style={{marginHorizontal: 8, flexShrink: 1}}>
             <Text
               style={{
                 fontSize: textScale(14),
                 fontFamily: fontFamily.regular,
-                textTransform: "capitalize",
+                textTransform: 'capitalize',
                 color: colors.black,
-              }}
-            >
+              }}>
               {currentMessage?.username}
             </Text>
 
@@ -302,12 +309,11 @@ export default function ChatScreen({ route }) {
               style={{
                 ...styles.descText,
                 color: colors.black,
-              }}
-            >
+              }}>
               {currentMessage?.message}
             </Text>
             <Text style={styles.timeText}>
-              {moment(currentMessage?.created_date).format("LT")}
+              {moment(currentMessage?.created_date).format('LT')}
             </Text>
           </View>
         </View>
@@ -320,12 +326,11 @@ export default function ChatScreen({ route }) {
       <View
         style={{
           marginHorizontal: 10,
-          alignSelf: "center",
-          height: "100%",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
+          alignSelf: 'center',
+          height: '100%',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
         <Image source={imagePath.send} />
       </View>
     );
@@ -335,46 +340,45 @@ export default function ChatScreen({ route }) {
     <WrapperContainer
       bgColor={colors.white}
       statusBarColor={colors.white}
-      isLoading={false}
-    >
+      isLoading={false}>
       <Header
         leftIcon={imagePath.backArrow}
-        centerTitle={`# ${paramData?.room_id || ""}`}
+        centerTitle={`# ${paramData?.room_id || ''}`}
         customRight={showRoomUser}
         // onPressLeft={onBack}
       />
 
-      <ImageBackground source={imagePath.icBgLight} style={{ flex: 1 }}>
+      <ImageBackground source={imagePath.icBgLight} style={{flex: 1}}>
         <GiftedChat
           messages={messages}
-          onSend={(messages) => onSend(messages)}
-          user={{ _id: userData?.id }}
+          onSend={messages => onSend(messages)}
+          user={{_id: userData?.id}}
           renderMessage={renderMessage}
           isKeyboardInternallyHandled={true}
-          renderInputToolbar={(props) => {
+          renderInputToolbar={props => {
             return (
               <InputToolbar
-                containerStyle={{ backgroundColor: "#f6f6f6", paddingTop: 0 }}
+                containerStyle={{backgroundColor: '#f6f6f6', paddingTop: 0}}
                 {...props}
               />
             );
           }}
           textInputStyle={{
-            backgroundColor: "#ffffff",
-            paddingTop: Platform.OS == "ios" ? 10 : undefined,
+            backgroundColor: '#ffffff',
+            paddingTop: Platform.OS == 'ios' ? 10 : undefined,
             borderRadius: 20,
             paddingHorizontal: 20,
             // marginVertical: 30,
-            textAlignVertical: "center",
+            textAlignVertical: 'center',
             fontFamily: fontFamily.regular,
-            alignSelf: "center",
+            alignSelf: 'center',
             color: colors.black,
           }}
-          renderSend={(props) => {
+          renderSend={props => {
             return (
               <Send
                 alwaysShowSend
-                containerStyle={{ backgroundColor: "red" }}
+                containerStyle={{backgroundColor: 'red'}}
                 children={<SendButton />}
                 {...props}
               />
@@ -387,30 +391,26 @@ export default function ChatScreen({ route }) {
         isVisible={showParticipant}
         style={{
           margin: 0,
-          justifyContent: "flex-end",
+          justifyContent: 'flex-end',
         }}
-        onBackdropPress={() => updateState({ showParticipant: false })}
-      >
+        onBackdropPress={() => updateState({showParticipant: false})}>
         <View
           style={{
             ...styles.modalStyle,
             backgroundColor: colors.white,
-          }}
-        >
+          }}>
           <Text
             style={{
               fontFamily: fontFamily?.bold,
               fontSize: textScale(16),
               color: colors.black,
-            }}
-          >
+            }}>
             {roomUsers.length} Participants
           </Text>
 
           <TouchableOpacity
             activeOpacity={0.7}
-            onPress={() => updateState({ showParticipant: false })}
-          >
+            onPress={() => updateState({showParticipant: false})}>
             <Image source={imagePath.closeButton} />
           </TouchableOpacity>
 
@@ -420,10 +420,9 @@ export default function ChatScreen({ route }) {
                 <View
                   style={{
                     marginVertical: moderateScaleVertical(8),
-                    flexDirection: "row",
-                    alignItems: "center",
-                  }}
-                >
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                  }}>
                   <FastImage
                     source={{
                       uri: val?.display_image,
@@ -435,10 +434,10 @@ export default function ChatScreen({ route }) {
                       backgroundColor: colors.blackOpacity43,
                     }}
                   />
-                  <View style={{ marginLeft: moderateScale(8) }}>
+                  <View style={{marginLeft: moderateScale(8)}}>
                     <Text>
                       {val?.auth_user_id == userData?.id
-                        ? "You"
+                        ? 'You'
                         : val?.username}
                     </Text>
                     {!!val?.phone_num ? <Text>{val?.phone_num}</Text> : null}
@@ -469,7 +468,7 @@ const stylesFun = ({}) => {
     userNameStyle: {
       fontSize: textScale(12),
       fontFamily: fontFamily.medium,
-      textTransform: "capitalize",
+      textTransform: 'capitalize',
     },
     cahtUserImage: {
       width: moderateScale(20),
@@ -481,23 +480,23 @@ const stylesFun = ({}) => {
     descText: {
       fontSize: textScale(12),
       fontFamily: fontFamily.regular,
-      textTransform: "capitalize",
+      textTransform: 'capitalize',
       lineHeight: moderateScale(18),
       marginTop: moderateScaleVertical(4),
     },
     timeText: {
       fontSize: textScale(10),
       fontFamily: fontFamily.regular,
-      textTransform: "uppercase",
+      textTransform: 'uppercase',
       color: colors.blackOpacity43,
       marginLeft: moderateScale(12),
       marginTop: moderateScaleVertical(6),
-      alignSelf: "flex-end",
+      alignSelf: 'flex-end',
     },
     flexView: {
-      flexDirection: "row",
-      alignItems: "center",
-      justifyContent: "space-between",
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
     },
     chatStyle: {
       paddingVertical: moderateScaleVertical(6),

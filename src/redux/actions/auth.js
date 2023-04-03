@@ -53,7 +53,19 @@ export function login(data = {}, headers = {}) {
       });
   });
 }
-
+export function deleteAccount(data = {}, headers = {}) {
+  console.log(data, headers, 'data>>>>>>');
+  return new Promise((resolve, reject) => {
+    apiPost(AGENT_DELETE, data, headers)
+      .then(async res => {
+        console.log(res, 'resresresresres>>>>>>');
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+}
 export function signUp(data = {}, headers = {}) {
   console.log(data, "login>data>data>data", headers);
   return new Promise((resolve, reject) => {
@@ -179,18 +191,7 @@ export function cancelSubscriptionPlan(query = "", data = {}, headers = {}) {
       });
   });
 }
-export function deleteAccount(data = {}, headers = {}) {
-  console.log(data, headers, "data>>>>>>");
-  return new Promise((resolve, reject) => {
-    apiPost(AGENT_DELETE, data, headers)
-      .then(async (res) => {
-        resolve(res);
-      })
-      .catch((error) => {
-        reject(error);
-      });
-  });
-}
+
 
 export function sendOtpOnSignup(data = {}, headers = {}) {
   return new Promise((resolve, reject) => {

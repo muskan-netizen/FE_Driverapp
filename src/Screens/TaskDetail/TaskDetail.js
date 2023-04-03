@@ -447,10 +447,10 @@ export default function TaskDetail({ route, navigation }) {
     switch (taskStatus) {
       case 1:
         return 2;
-        break;
+
       case 2:
         return 3;
-        break;
+
       case 3:
         return 4;
         break;
@@ -1148,20 +1148,24 @@ export default function TaskDetail({ route, navigation }) {
               imagevalue={imagePath?.navigate}
               imageStyle={{ marginHorizontal: moderateScale(2) }}
             />
-            {/* <ButtonComponent
-              buttonStyle={{
-                flexDirection: "row",
-                justifyContent: "center",
-                alignItems: "center",
-                padding: moderateScale(10),
-                borderRadius: moderateScale(5),
-                marginTop: moderateScale(20),
-              }}
-              onPress={_onDriverTracking}
-              buttonTitle={strings.NAVIGATE}
-              imagevalue={imagePath?.navigate}
-              imageStyle={{ marginHorizontal: moderateScale(2) }}
-            /> */}
+            {false &&
+            <ButtonComponent
+            buttonStyle={{
+              flexDirection: "row",
+              justifyContent: "center",
+              alignItems: "center",
+              padding: moderateScale(10),
+              borderRadius: moderateScale(5),
+              marginTop: moderateScale(20),
+              backgroundColor:colors.green
+            }}
+            onPress={_onDriverTracking}
+            buttonTitle={' IN APP MAP'}
+            imagevalue={imagePath?.navigate}
+            imageStyle={{ marginHorizontal: moderateScale(2) }}
+          />
+            }
+            
           </View>
           {checkCallBackUrlForShowOrderDeatils() && (
             <View style={{ marginVertical: moderateScale(10) }}>
@@ -1605,7 +1609,8 @@ export default function TaskDetail({ route, navigation }) {
   };
 
   const openGoogleMap = () => {
-    var url = `https://www.google.com/maps/dir/?api=1&travelmode=driving&dir_action=navigate&destination=${taskDetail?.location?.address}`;
+    var url = `https://www.google.com/maps/dir/?api=1&travelmode=driving&dir_action=navigate&destination=${taskDetail?.location?.latitude},${taskDetail?.location?.longitude}`;
+
     Linking.canOpenURL(url)
       .then((supported) => {
         console.log(supported, "supportedsupported");

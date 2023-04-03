@@ -12,11 +12,14 @@ import imagePath from "../../constants/imagePath";
 import WebView from "react-native-webview";
 import { useFocusEffect, useIsFocused } from "@react-navigation/native";
 import useInterval from "../../utils/useInterval";
+import { useSelector } from "react-redux";
 
 
 export default function DriverTraking(props) {
   const { navigation, route } = props;
   const paramsData = route?.params;
+
+  const userData = useSelector((state) => state?.auth?.userData);
 
   const [driverCurrentLatLong, setDriverCurrentLatLong] = useState({
     longitude: null,
@@ -39,12 +42,14 @@ export default function DriverTraking(props) {
 
 useEffect(()=>{
   const interval = setInterval(() => {
-    if (driverCurrentLatLong) {
+   
       currentLocation();
-    } 
+    
     }, 30000);
     return () => clearInterval(interval);
 },[])
+
+console.log(userData,"userDatauserData");
 
  
 
@@ -76,9 +81,7 @@ useEffect(()=>{
     );
   };
 
-  //   const _onRegionChange = (region) => {
-  //     setMapRegion(region);
-  //   };
+
 
   return (
     <WrapperContainer>
@@ -91,7 +94,7 @@ useEffect(()=>{
         centerTitle={`Tracking`}
       />
 
-      {!!taskLocations?.latitude && (
+      {!!taskLocations?.latitude && driverCurrentLatLong?.latitude && (
         <MapView
           ref={mapRef}
           //provider={PROVIDER_GOOGLE} // remove if not using Google Maps
@@ -110,11 +113,9 @@ useEffect(()=>{
             origin={{
               latitude: Number(driverCurrentLatLong?.latitude),
               longitude: Number(driverCurrentLatLong?.longitude),
-            }}
-           
+            }}  
             destination={taskLocations}
-            
-            apikey={"AIzaSyAtSK1KCEFwaGMV0F-QSokxBXcgs-G3-n8"}
+            apikey={userData?.client_preference?.map_key_1}
             strokeWidth={6}
             strokeColor={colors.black}
             optimizeWaypoints={true}

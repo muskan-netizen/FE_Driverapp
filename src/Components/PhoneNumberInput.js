@@ -75,7 +75,7 @@ export default function PhoneNumberInput({
       <View
         style={{
           flexDirection:
-            defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
+            defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'row-reverse' : 'row',
           borderBottomWidth: 1,
           borderRadius: 13,
           borderColor: borderColor ? borderColor : colors.white,
@@ -85,7 +85,7 @@ export default function PhoneNumberInput({
         <TouchableOpacity
           style={{
             flexDirection:
-              defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
+              defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'row-reverse' : 'row',
             justifyContent: 'center',
             alignItems: 'center',
             width: moderateScale(88),
@@ -122,9 +122,9 @@ export default function PhoneNumberInput({
               borderLeftColor: borderLeftColor
                 ? borderLeftColor
                 : colors?.themeColor,
-              textAlign: defaultLanguagae?.value === 'ar' ? 'right' : 'left',
-              borderRightWidth: defaultLanguagae?.value === 'ar' ? 1 : 0,
-              borderLeftWidth: defaultLanguagae?.value === 'ar' ? 0 : 1,
+              textAlign: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'right' : 'left',
+              borderRightWidth: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 1 : 0,
+              borderLeftWidth: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 0 : 1,
               borderRightColor: borderLeftColor
                 ? borderLeftColor
                 : colors?.themeColor,

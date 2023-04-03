@@ -1,9 +1,10 @@
 #include "Pods/Target Support Files/Pods-available_pods-MovingWheels/Pods-available_pods-MovingWheels.release.xcconfig"
 
 
-PROJECT_BUNDLE_ID = com.MovingWheels.Dispatch
+PROJECT_BUNDLE_ID = com.movingwheelsdelivery.driverapp
 PROJECT_APP_VERSION = 1.0
 PROJECT_BUILD_NUMBER = 1
-PROJECT_APP_NAME =Moving Wheels Delivery
+PROJECT_APP_NAME =Moving Wheels Driver
 PROJECT_PLIST =MovingWheelsInfo
 PROJECT_ENTITLEMENT=RoyoDriverAppRelease
+

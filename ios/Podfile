@@ -1,7 +1,7 @@
 require_relative '../node_modules/react-native/scripts/react_native_pods'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
-platform :ios, '11.0'
+platform :ios, '12.0'
 
 
 abstract_target 'available_pods' do
@@ -24,7 +24,6 @@ abstract_target 'available_pods' do
 
 #RoyoDriverApp Target
 target 'RoyoDriverApp' do
-  
 end
 
 
@@ -1460,6 +1459,7 @@ target 'Uven' do
 
 end 
 
+
 #PAS41
 target 'PAS41' do
 
@@ -2205,4 +2205,309 @@ end
 #OtgWeeds
 target 'OtgWeeds' do
 end
+#Sooq
+target 'Sooq' do
 end
+#Glamguide
+target 'Glamguide' do
+end
+#ZynoBidanRide
+target 'ZynoBidanRide' do
+end
+#HectoHomes
+target 'HectoHomes' do
+end
+#Efectibo
+target 'Efectibo' do
+end
+#Superpana
+target 'Superpana' do
+end
+#Solace
+target 'Solace' do
+end
+#Kero
+target 'Kero' do
+end
+#HousingSubsidies
+target 'HousingSubsidies' do
+end
+#Bocch
+target 'Bocch' do
+end
+#Potolo
+target 'Potolo' do
+end
+#EarnApp
+target 'EarnApp' do
+end
+#Aredoo
+target 'Aredoo' do
+end
+#Bukam
+target 'Bukam' do
+end
+#Dot
+target 'Dot' do
+end
+#Shopcart
+target 'Shopcart' do
+end
+#Wizsonic
+target 'Wizsonic' do
+end
+#Udkay
+target 'Udkay' do
+end
+#HattaFoodHub
+target 'HattaFoodHub' do
+end
+#Ondgoo
+target 'Ondgoo' do
+
+end
+#Junkerz
+target 'Junkerz' do
+
+end
+#ViralClean
+target 'ViralClean' do
+
+end
+#Nounou
+target 'Nounou' do
+
+end
+#Oaks
+target 'Oaks' do
+
+end
+#Etiam
+target 'Etiam' do
+
+end
+#BuzyStore
+target 'BuzyStore' do
+
+end
+#DotTaxi
+target 'DotTaxi' do
+
+end
+#AirVolt
+target 'AirVolt' do
+
+end
+#Messiaa
+target 'Messiaa' do
+
+end
+#Melak
+target 'Melak' do
+
+end
+#Laith
+target 'Laith' do
+
+end
+#SuperApp
+target 'SuperApp' do
+
+end
+#Vialteran
+target 'Vialteran' do
+
+end
+#WiEnergi
+target 'WiEnergi' do
+
+end
+#WhatchaGotPckUp
+target 'WhatchaGotPckUp' do
+end
+#NannyAfrica
+target 'NannyAfrica' do
+end
+#Hqi
+target 'Hqi' do
+end
+
+#Nool
+target 'Nool' do
+end
+
+#Weemov
+target 'Weemov' do
+end
+
+#Rally
+target 'Rally' do
+end
+
+#ShipSmart
+target 'ShipSmart' do
+end
+
+#NGoal
+target 'NGoal' do
+end
+
+#Weedlomo
+target 'Weedlomo' do
+end
+
+#Tkaff
+target 'Tkaff' do
+end
+
+#Livraizoo
+target 'Livraizoo' do
+end
+
+#BoozeBrothers
+target 'BoozeBrothers' do
+end
+
+#ReadyToRent
+target 'ReadyToRent' do
+end
+
+#TheGenie
+target 'TheGenie' do
+end
+
+#Reedas
+target 'Reedas' do
+end
+
+#OneBasket
+target 'OneBasket' do
+end
+
+#Zozozi
+target 'Zozozi' do
+end
+
+#Ekobridge
+target 'Ekobridge' do
+end
+
+#AmbosSafariExpress
+target 'AmbosSafariExpress' do
+end
+
+#Zulbrand
+target 'Zulbrand' do
+end
+
+#Emart
+target 'Emart' do
+end
+
+#Stargaze
+target 'Stargaze' do
+end
+
+#MealTime
+target 'MealTime' do
+end
+
+#OyeeRides
+target 'OyeeRides' do
+end
+
+
+#RoyoRides
+target 'RoyoRides' do
+end
+
+#Autobox
+target 'Autobox' do
+end
+
+#Tempcorner
+target 'Tempcorner' do
+end
+
+#EmiratesHomeNursing
+target 'EmiratesHomeNursing' do
+end
+
+#DetailPros
+target 'DetailPros' do
+end
+
+#ZuluClutch
+target 'ZuluClutch' do
+end
+
+#Ineeda
+target 'Ineeda' do
+end
+
+#Blink
+target 'Blink' do
+end
+
+#JDS
+target 'JDS' do
+end
+
+#Ping
+target 'Ping' do
+end
+
+#Chutneyeah
+target 'Chutneyeah' do
+end
+
+#Virgingate
+target 'Virgingate' do
+end
+
+#STAFood
+target 'STAFood' do
+end
+
+#DROPOFF
+target 'DROPOFF' do
+end
+
+#Exlraet
+target 'Exlraet' do
+end
+
+#InstaFits
+target 'InstaFits' do
+end
+
+#Bumprkar
+target 'Bumprkar' do
+end
+
+#Bakaramoh
+target 'Bakaramoh' do
+end
+
+#VamVam
+target 'VamVam' do
+end
+
+#Piolfix
+target 'Piolfix' do
+end
+
+#RBRiders
+target 'RBRiders' do
+end
+
+#Karis
+target 'Karis' do
+end
+
+#MammysKitchen
+target 'MammysKitchen' do
+end
+end
+
+

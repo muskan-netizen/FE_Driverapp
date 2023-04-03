@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1096978725477",
+    "project_id": "chutneyeah-driver",
+    "storage_bucket": "chutneyeah-driver.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1096978725477:android:a83109a30ba150b403a48c",
+        "android_client_info": {
+          "package_name": "com.chutneyeah.driver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1096978725477-ts32tsp6gca8cd28tamoronfvljihkcg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2iWVNztAm5r-_v9b1SrsL3cMRjMJ09sA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1096978725477-ts32tsp6gca8cd28tamoronfvljihkcg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1096978725477-jquqbcdakp0enseic074pmjgsg97jqlb.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.chutneyeah.driver"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

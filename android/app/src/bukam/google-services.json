@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1082260637711",
+    "project_id": "bukam-dispatcher",
+    "storage_bucket": "bukam-dispatcher.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1082260637711:android:1a4a5275138379cd943b7a",
+        "android_client_info": {
+          "package_name": "com.bukam.royodispatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1082260637711-ko22j9aerpfpq43889gucn9qastq23ae.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDB4RU67XboB6dn-zfVQWxDa-OoA8AAOMA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1082260637711-ko22j9aerpfpq43889gucn9qastq23ae.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1082260637711-cr6vgleq6codnvrljm5c0rjll9mm8j6s.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.bukam.royodispatcher"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

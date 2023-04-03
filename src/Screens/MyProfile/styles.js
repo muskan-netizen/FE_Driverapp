@@ -41,7 +41,7 @@ export default ({defaultLanguagae}) => {
       fontSize: textScale(14),
       fontFamily: fontFamily.semiBold,
       color: colors.black,
-      textAlign: defaultLanguagae?.value === 'ar' ? 'right' : 'left',
+      textAlign: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'right' : 'left',
     },
     rootContainer: {
       marginHorizontal: moderateScale(20),
@@ -54,7 +54,7 @@ export default ({defaultLanguagae}) => {
       height: moderateScaleVertical(60),
       marginHorizontal: moderateScale(-20),
       transform:
-        defaultLanguagae?.value === 'ar' ? [{scaleX: -1}] : [{scaleX: 1}],
+        defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? [{scaleX: -1}] : [{scaleX: 1}],
     },
     transportationImageStyle: {
       //backgroundColor: 'red',
@@ -68,7 +68,7 @@ export default ({defaultLanguagae}) => {
       marginTop: moderateScaleVertical(20),
     },
     textInputStyle: {
-      textAlign: defaultLanguagae?.value === 'ar' ? 'right' : 'left',
+      textAlign: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'right' : 'left',
     },
     label2: {
       marginBottom: moderateScaleVertical(5),

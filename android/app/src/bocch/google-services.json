@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "153535689518",
+    "project_id": "bocch-driver",
+    "storage_bucket": "bocch-driver.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:153535689518:android:9fb6f3cae05a86f8f140bf",
+        "android_client_info": {
+          "package_name": "com.bocch.royodispatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "153535689518-9s0ehn6lhhff764qd3pouiflavbs8176.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDby52JHlP9MUzsgWwZ4JesreN1r-dIcdY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "153535689518-9s0ehn6lhhff764qd3pouiflavbs8176.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "153535689518-mfnoncb04fjqqkmjajab874525t22u51.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.bocch.royodispatcher"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

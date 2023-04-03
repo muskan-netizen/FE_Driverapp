@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "601515135733",
+    "project_id": "viralclean-driver",
+    "storage_bucket": "viralclean-driver.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:601515135733:android:1ad71f1d6df138a024abbc",
+        "android_client_info": {
+          "package_name": "com.viralclean.royodriver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "601515135733-1785iobls2lbscedbg7riiaji8mhr7jp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3QvQ4q4fbcRCuc_iyNVz-nrDxOy7zODk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "601515135733-1785iobls2lbscedbg7riiaji8mhr7jp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "601515135733-4ductihnqkdi7cuequ12u6an7v7smugc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.viralclean.royoorder"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

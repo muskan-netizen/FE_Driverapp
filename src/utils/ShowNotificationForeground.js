@@ -9,19 +9,17 @@ import navigationStrings from '../navigation/navigationStrings';
 
 const ShowNotificationForeground = props => {
   useEffect(() => {
-   
     const unsubscribe = messaging().onMessage(async remoteMessage => {
-   
-      console.log('remote message foreground', JSON.stringify(remoteMessage));
+      console.log('remote message foreground', remoteMessage);
       const {data, messageId, notification} = remoteMessage;
       console.log(remoteMessage.data, notification, 'datadatadatadata');
-      let notificationType = data?.type || data?.notificationType;
+      let notificationType = data?.type || data?.notificationType || 'AR';
       {
         Platform.OS == 'ios'
           ? PushNotificationIOS.addNotificationRequest({
               id: messageId,
               body: data?.message || '',
-              title: notificationType || '',
+              title: data?.message || '',
               sound:
                 notification.sound == 'notification.mp3'
                   ? 'notification.mp3'
@@ -31,18 +29,26 @@ const ShowNotificationForeground = props => {
               channelId: notification.android.channelId,
               id: messageId,
               body: data?.message || '',
-              title: notificationType || '',
+              title: data?.message || '',
               soundName: notification.android.sound,
               vibrate: true,
               playSound: true,
             });
       }
+
+      if (data.data == 'chat_text') {
+        PushNotification.localNotification({
+          message: data?.body,
+        });
+      }
+
       if (
         Platform.OS == 'android' &&
         notification.android.sound == 'notification'
       ) {
         console.log('here>>2');
-        if (data && notificationType && notificationType != 'N' ) {
+        if (!!data && !!notificationType && notificationType != 'N') {
+          console.log(notificationType, 'notificationTypenotificationType');
           actions.isModalVisibleForAcceptReject({
             isModalVisibleForAcceptReject:notificationType =='bid_ride_request'?false: true,
             notificationData: remoteMessage,

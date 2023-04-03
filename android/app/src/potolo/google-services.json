@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "42258375824",
+    "project_id": "potolo-driver",
+    "storage_bucket": "potolo-driver.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:42258375824:android:a8cc57dee982f871b7a415",
+        "android_client_info": {
+          "package_name": "com.potolo.royodispatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "42258375824-skf8g8ar8qfa79j5seg4f0o58hh96ls4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuE_ZaLueaMoQTaXttFMyFpBC1tUleqNU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "42258375824-skf8g8ar8qfa79j5seg4f0o58hh96ls4.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "42258375824-h2fkd483nbn5noji3mea2onk9fs7pgp5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.potolo.royodispatcher"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

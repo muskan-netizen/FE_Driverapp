@@ -24,7 +24,7 @@ import {
 import store from "./src/redux/store";
 import colors from "./src/styles/colors";
 import fontFamily from "./src/styles/fontFamily";
-import { moderateScaleVertical, width } from "./src/styles/responsiveSize";
+import { moderateScale, moderateScaleVertical, textScale, width } from "./src/styles/responsiveSize";
 import { appIds } from "./src/utils/constants/DynamicAppKeys";
 import {
   notificationListener,
@@ -53,6 +53,7 @@ const App = () => {
   }, []);
 
   function codePushStatusDidChange(syncStatus) {
+    console.log(syncStatus, codePush.SyncStatus, "syncStatus>>>>>>");
     switch (syncStatus) {
       case codePush.SyncStatus.CHECKING_FOR_UPDATE:
         console.log("status Checking for update");
@@ -114,11 +115,10 @@ const App = () => {
       } else {
       }
     }); // Add some error handling, also you can simply do this.setState({fistLaunch: value == null})
- 
+
   }, []);
 
   const notificationConfig = () => {
-    console.log("sdlkfhsjadhf");
     requestUserPermission();
     notificationListener();
   };
@@ -126,28 +126,28 @@ const App = () => {
   useEffect(() => {
     checkExistChannel();
     notificationConfig();
-    if (getBundleId() == appIds?.flank) {
-      setTimeout(() => {
-        SplashScreen.hide();
-      }, 100);
-    } else {
-      setTimeout(() => {
-        SplashScreen.hide();
-      }, 1500);
-    }
+    // if (getBundleId() == appIds?.flank) {
+    //   setTimeout(() => {
+    //     SplashScreen.hide();
+    //   }, 100);
+    // } else {
+    //   setTimeout(() => {
+    //     SplashScreen.hide();
+    //   }, 1500);
+    // }
   }, []);
 
   //rest of code will be performing for iOS on background too
 
-  // BackgroundTimer.stopBackgroundTimer();
+  // // BackgroundTimer.stopBackgroundTimer();
 
   const checkExistChannel = () => {
     PushNotification.getChannels(function (channel_ids) {
-      console.log("exist channels", channel_ids); // ['channel_id_1']
+      // console.log("exist channels", channel_ids); // ['channel_id_1']
     });
   };
 
-  //Check internet connection
+  // //Check internet connection
   useEffect(() => {
     const removeNetInfoSubscription = NetInfo.addEventListener((state) => {
       const netStatus = state.isConnected;
@@ -233,11 +233,12 @@ const App = () => {
   };
   return (
     <SafeAreaProvider>
+    
       <Provider store={store}>
-        <ShowNotificationForeground />
+         <ShowNotificationForeground /> 
         {progress ? progressView() : null}
         <Routes />
-        <NotificationModal />
+        <NotificationModal /> 
       </Provider>
       <Container
         width={width - 20}
@@ -246,7 +247,7 @@ const App = () => {
         positionValue={moderateScaleVertical(20)}
       />
       <FlashMessage position="top" />
-      <NoInternetModal show={!internetConnection} />
+      <NoInternetModal show={!internetConnection} /> 
     </SafeAreaProvider>
   );
 };

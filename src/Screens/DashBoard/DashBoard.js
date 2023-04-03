@@ -11,20 +11,19 @@ import {
   Switch,
   Text,
   View,
-  NativeModules,
-} from "react-native";
-import { useSelector } from "react-redux";
-import Header from "../../Components/Header";
-import { loaderOne } from "../../Components/Loaders/AnimatedLoaderFiles";
-import SwitchSelectorComponent from "../../Components/SwitchSelector";
-import WrapperContainer from "../../Components/WrapperContainer";
-import imagePath from "../../constants/imagePath";
-import actions from "../../redux/actions";
+} from 'react-native';
+import { useSelector } from 'react-redux';
+import Header from '../../Components/Header';
+import { loaderOne } from '../../Components/Loaders/AnimatedLoaderFiles';
+import SwitchSelectorComponent from '../../Components/SwitchSelector';
+import WrapperContainer from '../../Components/WrapperContainer';
+import imagePath from '../../constants/imagePath';
+import actions from '../../redux/actions';
 // import store from '../../redux/store';
 import { useFocusEffect } from "@react-navigation/native";
 import { Platform, TouchableOpacity } from "react-native";
 import DeviceInfo, { getBundleId } from "react-native-device-info";
-import MapView, { Marker } from "react-native-maps"; // remove PROVIDER_GOOGLE import if not using Google Maps
+import MapView, { Marker, PROVIDER_GOOGLE, PROVIDER_DEFAULT } from "react-native-maps"; // remove PROVIDER_GOOGLE import if not using Google Maps
 import ListEmptyComponent from "../../Components/ListEmptyComponent";
 import TaskListCard from "../../Components/TaskListCard";
 import strings from "../../constants/lang";
@@ -36,18 +35,18 @@ import {
   moderateScale,
   moderateScaleVertical,
   width,
-} from "../../styles/responsiveSize";
+} from '../../styles/responsiveSize';
 import {
   getCurrentLocation,
   showError,
   showSuccess,
-} from "../../utils/helperFunctions";
-import { requestUserPermission } from "../../utils/notificationServices";
+} from '../../utils/helperFunctions';
+import { requestUserPermission } from '../../utils/notificationServices';
 
-import styles from "./styles";
-navigator.geolocation = require("react-native-geolocation-service");
+import styles from './styles';
+navigator.geolocation = require('react-native-geolocation-service');
 // import BackgroundService from 'react-native-background-actions';
-import socketServices from "../../utils/scoketService";
+import socketServices from '../../utils/scoketService';
 // import BackgroundTimer from 'react-native-background-timer';
 import BackgroundGeolocation from "@darron1217/react-native-background-geolocation";
 import { chekLocationPermission } from "../../utils/permissions";
@@ -63,9 +62,9 @@ var finalAllTasks = [];
 var finaltodayTasks = [];
 
 export default function DashBoard({ route, navigation }) {
-  const userData = useSelector((state) => state?.auth?.userData);
+  const userData = useSelector((state) => state?.auth?.userData) || {};
   const defaultLanguagae = useSelector(
-    (state) => state?.initBoot?.defaultLanguage
+    state => state?.initBoot?.defaultLanguage,
   );
 
   const {
@@ -77,10 +76,8 @@ export default function DashBoard({ route, navigation }) {
     zendeskKeys,
     notificationData
   } = useSelector((state) => state?.initBoot);
-  const { isCabPooling, initialValue } = useSelector((state) => state?.auth);
-  const shortCode = useSelector((state) => state?.initBoot?.shortCode);
-
-
+  const { isCabPooling, initialValue } = useSelector((state) => state?.auth) || {};
+ 
   const ref = useRef(orderCallbackUrl);
   const bottomSheetRef = useRef(null);
 
@@ -88,8 +85,8 @@ export default function DashBoard({ route, navigation }) {
     isLoading: false,
     isEnabled: userData && userData?.is_available ? true : false,
     options: [
-      { label: strings.TODAYSTASK, value: 0, testID: "1" },
-      { label: strings.ALLTASKS, value: 1, testID: "2" },
+      { label: strings.TODAYSTASK, value: 0, testID: '1' },
+      { label: strings.ALLTASKS, value: 1, testID: '2' },
     ],
     initial: 0,
     selectedOption: 0,
@@ -165,7 +162,7 @@ export default function DashBoard({ route, navigation }) {
   }, []);
 
   useEffect(() => {
-    console.log("clientInfoclientInfo", clientInfo);
+    console.log('clientInfoclientInfo', clientInfo);
     if (!!clientInfo?.socket_url) {
       socketServices.initializeSocket(clientInfo?.socket_url);
     }
@@ -189,42 +186,43 @@ export default function DashBoard({ route, navigation }) {
 
 
   useEffect(() => {
-    BackgroundGeolocation.on("location", (location) => {
+    BackgroundGeolocation.on('location', location => {
       let headingAngle = location?.bearing || 0.0;
       let lat = location?.latitude || 0;
       let long = location.longitude || 0;
       ref.current = orderCallbackUrl;
       fetchgentLogs(lat, long, headingAngle);
+      console.log(lat, long, headingAngle, 'at, long, headingAngle=>');
     });
 
-    BackgroundGeolocation.on("error", (error) => {
-      console.log("[ERROR] BackgroundGeolocation error:", error);
+    BackgroundGeolocation.on('error', error => {
+      console.log('[ERROR] BackgroundGeolocation error:', error);
     });
 
-    BackgroundGeolocation.on("authorization", (status) => {
+    BackgroundGeolocation.on('authorization', status => {
       console.log(
-        "[INFO] BackgroundGeolocation authorization status: " + status
+        '[INFO] BackgroundGeolocation authorization status: ' + status,
       );
       if (status !== BackgroundGeolocation.AUTHORIZED) {
         // we need to set delay or otherwise alert may not be shown
         setTimeout(
           () =>
             Alert.alert(
-              "App requires location tracking permission",
-              "Would you like to open app settings?",
+              'App requires location tracking permission',
+              'Would you like to open app settings?',
               [
                 {
-                  text: "Yes",
+                  text: 'Yes',
                   onPress: () => BackgroundGeolocation.showAppSettings(),
                 },
                 {
-                  text: "No",
-                  onPress: () => console.log("No Pressed"),
-                  style: "cancel",
+                  text: 'No',
+                  onPress: () => console.log('No Pressed'),
+                  style: 'cancel',
                 },
-              ]
+              ],
             ),
-          1000
+          1000,
         );
       }
     });
@@ -236,25 +234,26 @@ export default function DashBoard({ route, navigation }) {
 
     BackgroundGeolocation.on("foreground", () => {
       console.log("[INFO] App is in foreground");
+
     });
 
-    BackgroundGeolocation.on("abort_requested", () => {
-      console.log("[INFO] Server responded with 285 Updates Not Required");
+    BackgroundGeolocation.on('abort_requested', () => {
+      console.log('[INFO] Server responded with 285 Updates Not Required');
     });
 
-    BackgroundGeolocation.on("http_authorization", () => {
-      console.log("[INFO] App needs to authorize the http requests");
+    BackgroundGeolocation.on('http_authorization', () => {
+      console.log('[INFO] App needs to authorize the http requests');
     });
 
-    BackgroundGeolocation.checkStatus((status) => {
-      console.log(status, "status.isRunning");
+    BackgroundGeolocation.checkStatus(status => {
+      console.log(status, 'status.isRunning');
       if (!status.isRunning) {
         BackgroundGeolocation.start(); //triggers start on start event
       }
     });
 
     BackgroundGeolocation.configure({
-      activityType: "Fitness",
+      activityType: 'Fitness',
       desiredAccuracy: BackgroundGeolocation.HIGH_ACCURACY,
       stationaryRadius: 10,
       distanceFilter: 10,
@@ -269,15 +268,15 @@ export default function DashBoard({ route, navigation }) {
       activitiesInterval: 10000,
       stopOnStillActivity: false,
       pauseLocationUpdates: false,
-      url: "",
+      url: '',
       httpHeaders: {
-        "X-FOO": "bar",
+        'X-FOO': 'bar',
       },
       // customize post properties
       postTemplate: {
-        lat: "@latitude",
-        lon: "@longitude",
-        foo: "bar", // you can also add your own properties
+        lat: '@latitude',
+        lon: '@longitude',
+        foo: 'bar', // you can also add your own properties
       },
     });
 
@@ -296,15 +295,15 @@ export default function DashBoard({ route, navigation }) {
                 ? strings.TODAYTRIP
                 : strings.TODAYSTASK,
             value: 0,
-            testID: "1",
+            testID: '1',
           },
           {
             label:
               getBundleId() == appIds.tdc ? strings.ALLTRIP : strings.ALLTASKS,
             value: 1,
-            testID: "2",
+            testID: '2',
           },
-          { label: "Pooling Suggestion", value: 2, testID: "3" },
+          { label: 'Pooling Suggestion', value: 2, testID: '3' },
         ];
         updateState({
           isLoading: true,
@@ -322,7 +321,7 @@ export default function DashBoard({ route, navigation }) {
                   ? strings.TODAYTRIP
                   : strings.TODAYSTASK,
               value: 0,
-              testID: "1",
+              testID: '1',
             },
             {
               label:
@@ -330,23 +329,23 @@ export default function DashBoard({ route, navigation }) {
                   ? strings.ALLTRIP
                   : strings.ALLTASKS,
               value: 1,
-              testID: "2",
+              testID: '2',
             },
           ],
         });
       }
-    }, [isCabPooling])
+    }, [isCabPooling]),
   );
 
   const fetchgentLogs = async (lat, lng, heading_) => {
     if (userData?.access_token) {
       let data = {};
-      data["device_type"] = Platform.OS;
-      data["os_version"] = DeviceInfo.getSystemVersion();
-      data["app_version"] = DeviceInfo.getVersion();
-      data["on_route"] = "y";
-      data["battery_level"] = (await DeviceInfo.getBatteryLevel()) * 100;
-      data["all"] = selectedOption;
+      data['device_type'] = Platform.OS;
+      data['os_version'] = DeviceInfo.getSystemVersion();
+      data['app_version'] = DeviceInfo.getVersion();
+      data['on_route'] = 'y';
+      data['battery_level'] = (await DeviceInfo.getBatteryLevel()) * 100;
+      data['all'] = selectedOption;
       // data['current_speed'] = 'y';
       data["long"] = lng;
       data["lat"] = lat;
@@ -356,8 +355,8 @@ export default function DashBoard({ route, navigation }) {
       console.log(data, "data>data====");
       actions
         .logsApi(data, { client: clientInfo?.database_name })
-        .then((res) => {
-          console.log(res, "logs data");
+        .then(res => {
+          console.log(res, 'logs data');
           if (
             res?.data?.user?.client_preference
               ?.customer_support_application_id != null &&
@@ -404,7 +403,7 @@ export default function DashBoard({ route, navigation }) {
       } else {
         getAllPoolingSuggestions();
       }
-    }, [selectedOption])
+    }, [selectedOption]),
   );
 
   useEffect(() => {
@@ -439,18 +438,18 @@ export default function DashBoard({ route, navigation }) {
 
   const currentLocation = () => {
     chekLocationPermission()
-      .then((result) => {
-        if (result !== "goback") {
+      .then(result => {
+        if (result !== 'goback') {
           getCurrentPosition();
         }
       })
-      .catch((error) => console.log("error while accessing location ", error));
+      .catch(error => console.log('error while accessing location ', error));
   };
 
   const getCurrentPosition = () => {
     return navigator.geolocation.default.getCurrentPosition(
-      (position) => {
-        console.log(position, "position");
+      position => {
+        console.log(position, 'position');
         updateState({
           latitude: position.coords.latitude,
           longitude: position.coords.longitude,
@@ -467,11 +466,11 @@ export default function DashBoard({ route, navigation }) {
         //   .then((res) => alert(res))
         //   .catch((error) => console.log("error rasied", error));
       },
-      (error) => console.log(error.message),
+      error => console.log(error.message),
       {
         enableHighAccuracy: true,
         timeout: 20000,
-      }
+      },
     );
   };
 
@@ -481,9 +480,9 @@ export default function DashBoard({ route, navigation }) {
       .getListOfTasks(
         `?all=${selectedOption}`,
         {},
-        { client: clientInfo?.database_name }
+        { client: clientInfo?.database_name },
       )
-      .then((res) => {
+      .then(res => {
         actions.updateHomepage(false);
         // updateState({isRefreshing: false});
         if (selectedOption) {
@@ -530,8 +529,7 @@ export default function DashBoard({ route, navigation }) {
         const poolingSuggestionAccordingToDistance = res?.data?.order_suggession?.sort(
           function (a, b) {
             return a?.distance_pickup - b?.distance_pickup;
-          }
-        );
+          });
 
         updateState({
           isLoading: false,
@@ -539,8 +537,8 @@ export default function DashBoard({ route, navigation }) {
           allPoolingingSuggestions: poolingSuggestionAccordingToDistance,
         });
       })
-      .catch((error) => {
-        console.log(error, "error");
+      .catch(error => {
+        console.log(error, 'error');
         updateState({
           isLoading: false,
           isRefreshing: false,
@@ -548,22 +546,22 @@ export default function DashBoard({ route, navigation }) {
       });
   };
 
-  const aceptRejectPoolingSuggestions = (status) => {
+  const aceptRejectPoolingSuggestions = status => {
     updateState({
       isLoading: true,
     });
 
     let data = {};
-    data["order_id"] = status?.id;
-    data["driver_id"] = userData?.id;
-    data["status"] = 1;
-    data["type"] = "O";
+    data['order_id'] = status?.id;
+    data['driver_id'] = userData?.id;
+    data['status'] = 1;
+    data['type'] = 'O';
 
-    console.log(data, "datadata");
+    console.log(data, 'datadata');
 
     actions
       .acceptRejectTask(data, { client: clientInfo?.database_name })
-      .then((res) => {
+      .then(res => {
         showSuccess(res?.message);
         updateState({ isLoading: false });
         actions.updateHomepage(true);
@@ -573,7 +571,7 @@ export default function DashBoard({ route, navigation }) {
   };
 
   //Error handling in api
-  const errorMethod = (error) => {
+  const errorMethod = error => {
     showError(error?.message || error?.error);
     updateState({
       isLoading: false,
@@ -625,7 +623,7 @@ export default function DashBoard({ route, navigation }) {
     }
   };
 
-  const updateState = (data) => setState((state) => ({ ...state, ...data }));
+  const updateState = data => setState(state => ({ ...state, ...data }));
 
   const commonStyles = commonStylesFunc({ fontFamily });
 
@@ -639,15 +637,15 @@ export default function DashBoard({ route, navigation }) {
       .onOffDuty(
         `?device_token=${fcm_token ? fcm_token : DeviceInfo.getDeviceToken()}`,
         {},
-        { client: clientInfo?.database_name }
+        { client: clientInfo?.database_name },
       )
-      .then((res) => {
-        console.log(res, "onOffDuty>res>res");
+      .then(res => {
+        console.log(res, 'onOffDuty>res>res');
         updateState({ isLoadingSwitch: false });
         if (res?.data) {
           updateState({ statusChanged: false });
           let updatedUserData = { ...userData };
-          updatedUserData["is_available"] = res?.data?.is_available;
+          updatedUserData['is_available'] = res?.data?.is_available;
           actions.updataeUserData(updatedUserData);
         }
       })
@@ -679,7 +677,7 @@ export default function DashBoard({ route, navigation }) {
     }, 500);
   };
 
-  const updateContent = (value) => {
+  const updateContent = value => {
     if (isCabPooling) {
       updateState({
         selectedOption: value,
@@ -702,7 +700,7 @@ export default function DashBoard({ route, navigation }) {
 
   const customCenter = () => {
     return (
-      <View style={{ flexDirection: "row", alignItems: "center" }}>
+      <View style={{ flexDirection: 'row', alignItems: 'center' }}>
         <View style={{ paddingHorizontal: 10 }}>
           <Image source={imagePath.locationOff} />
         </View>
@@ -730,10 +728,10 @@ export default function DashBoard({ route, navigation }) {
     trailing: false,
   });
 
-  const _onPressTask = (item) => {
+  const _onPressTask = item => {
     moveToNewScreen(navigationStrings.TASKDETAIL, { item: item })();
   };
-  const getDynamicUpdateOnValues = (data) => {
+  const getDynamicUpdateOnValues = data => {
     var colorData = colorArray;
     return colorData[finalAllTasks.indexOf(data) % colorData.length];
   };
@@ -750,10 +748,9 @@ export default function DashBoard({ route, navigation }) {
           borderLeftColor: getDynamicUpdateOnValues(item),
           borderLeftWidth: 3,
           marginHorizontal: moderateScale(10),
-          ...generateBoxShadowStyle(-2, 0, "#171717", 0.2, 3, 3, "#171717"),
-        }}
-      >
-        {item?.data?.map((obj) => {
+          ...generateBoxShadowStyle(-2, 0, '#171717', 0.2, 3, 3, '#171717'),
+        }}>
+        {item?.data?.map(obj => {
           return (
             <TaskListCard
 
@@ -788,7 +785,7 @@ export default function DashBoard({ route, navigation }) {
         />
 
         <GradientButton
-          btnText={"Accept"}
+          btnText={'Accept'}
           btnStyle={{
             borderRadius: moderateScale(2),
           }}
@@ -857,14 +854,14 @@ export default function DashBoard({ route, navigation }) {
                   isLoading={isLoading}
                   message={
                     selectedOption == 2
-                      ? "No Pooling Suggestions Yet"
+                      ? 'No Pooling Suggestions Yet'
                       : getBundleId() == appIds.tdc
                         ? strings.NOTRIP
                         : strings.NOTASK
                   }
                   subMessage={
                     selectedOption == 2
-                      ? "You have no pooling suggestions . We’ll notify you when new pooling suggestion arrive."
+                      ? 'You have no pooling suggestions . We’ll notify you when new pooling suggestion arrive.'
                       : strings.NOTASKASSIGNED
                   }
                   containerStyle={{ backgroundColor: colors.backGround }}
@@ -876,14 +873,14 @@ export default function DashBoard({ route, navigation }) {
               isLoading={isLoading}
               message={
                 selectedOption == 2
-                  ? "No Pooling Suggestions Yet"
+                  ? 'No Pooling Suggestions Yet'
                   : getBundleId() == appIds.tdc
                     ? strings.NOTRIP
                     : strings.NOTASK
               }
               subMessage={
                 selectedOption == 2
-                  ? "You have no pooling suggestions . We’ll notify you when new pooling suggestion arrive."
+                  ? 'You have no pooling suggestions . We’ll notify you when new pooling suggestion arrive.'
                   : strings.NOTASKASSIGNED
               }
               containerStyle={{ backgroundColor: colors.backGround }}
@@ -894,7 +891,7 @@ export default function DashBoard({ route, navigation }) {
     );
   };
 
-  const _onRegionChange = (region) => {
+  const _onRegionChange = region => {
     updateState({ region: region });
     // _getAddressBasedOnCoordinates(region);
   };
@@ -918,7 +915,7 @@ export default function DashBoard({ route, navigation }) {
           ];
         }
       });
-      console.log(arr, "newArray");
+      console.log(arr, 'newArray');
       // animate(region);
       setTimeout(() => {
         // animate(region);
@@ -929,7 +926,7 @@ export default function DashBoard({ route, navigation }) {
 
   useEffect(() => {
     fitToMap();
-    console.log("fittomappppp");
+    console.log('fittomappppp');
   }, [markers]);
 
   useEffect(() => {
@@ -957,7 +954,7 @@ export default function DashBoard({ route, navigation }) {
     Linking.openSettings();
   };
 
-  const toggleWarning = (state) => updateState({ isWarningAlert: state });
+  const toggleWarning = state => updateState({ isWarningAlert: state });
   useEffect(() => {
     const interval = setInterval(() => {
       requestUserPermission(toggleWarning);
@@ -986,7 +983,7 @@ export default function DashBoard({ route, navigation }) {
 
   const mapRef = useRef();
 
-  const fitPadding = (newArray) => {
+  const fitPadding = newArray => {
     if (mapRef.current) {
       mapRef.current.fitToCoordinates([{ latitude, longitude }, ...newArray], {
         edgePadding: { top: 80, right: 80, bottom: 80, left: 80 },
@@ -999,9 +996,10 @@ export default function DashBoard({ route, navigation }) {
     return (
       <MapView
         ref={mapRef}
-        //provider={PROVIDER_GOOGLE} // remove if not using Google Maps
+        provider={Platform.OS == 'android' ? PROVIDER_GOOGLE : PROVIDER_DEFAULT} // remove if not using Google Maps
         style={styles.map}
         // region={region}
+
         zoomEnabled={true}
         initialRegion={{
           latitude: Number(latitude),
@@ -1013,8 +1011,7 @@ export default function DashBoard({ route, navigation }) {
         // showsMyLocationButton={true}
         onLayout={() => fitToMap()}
         //   customMapStyle={mapStyle}
-        onRegionChangeComplete={_onRegionChange}
-      >
+        onRegionChangeComplete={_onRegionChange}>
         {markers?.map(
           (coordinate, index) =>
             coordinate &&
@@ -1032,17 +1029,15 @@ export default function DashBoard({ route, navigation }) {
                 coordinate={{
                   latitude: Number(coordinate?.location?.latitude),
                   longitude: Number(coordinate?.location?.longitude),
-                }}
-              ></Marker>
-            )
+                }}></Marker>
+            ),
         )}
         <Marker
           image={imagePath.pinBlue}
           coordinate={{
             latitude: Number(latitude),
             longitude: Number(longitude),
-          }}
-        ></Marker>
+          }}></Marker>
       </MapView>
     );
   };
@@ -1326,5 +1321,8 @@ export default function DashBoard({ route, navigation }) {
         </View>
       </WrapperContainer>
   );
+
+
+
 }
 
