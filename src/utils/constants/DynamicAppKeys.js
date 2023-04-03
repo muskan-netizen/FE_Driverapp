@@ -517,7 +517,13 @@ const shortCodes = {
   dropoff:'595e36',
   exlraet:'77dfe7',
   instaFits:'5b787c',
-  bumprkar:'9ff535'
+  bumprkar:'9ff535',
+  bakaramoh:'c82095',
+  vamVam:'3bed4d',
+  piolfix:'d08532',
+  rBRiders:'41a39d',
+  karis:'aa8767',
+  mammysKitchen:'e4ab20'
 
 };
 
@@ -2578,6 +2584,30 @@ const appIds = {
   bumprkar: Platform.select({
     ios: 'com.bumprkar.driver',
     android: 'com.bumprkar.driver',
+  }),
+  bakaramoh: Platform.select({
+    ios: 'com.bakaramoh.driver',
+    android: 'com.bakaramoh.driver',
+  }),
+  vamVam: Platform.select({
+    ios: 'com.VamVam.driver',
+    android: 'com.VamVam.driver',
+  }),
+  piolfix: Platform.select({
+    ios: 'com.piolfix.driver',
+    android: 'com.piolfix.driver',
+  }),
+  rBRiders: Platform.select({
+    ios: 'com.rBRiders.driver',
+    android: 'com.rBRiders.driver',
+  }),
+  karis: Platform.select({
+    ios: 'com.karis.driver',
+    android: 'com.karis.driver',
+  }),
+  mammysKitchen: Platform.select({
+    ios: 'com.mammysKitchen.driver',
+    android: 'com.mammysKitchen.driver',
   }),
   
 };

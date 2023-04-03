@@ -1028,6 +1028,18 @@
     "instaFitsdispatcherRelease": "cd android && ./gradlew assembleinstaFitsRelease",
     "bumprkardispatcher": "react-native run-android --variant=bumprkarDebug",
     "bumprkardispatcherRelease": "cd android && ./gradlew assemblebumprkarRelease",
+    "bakaramohdispatcher": "react-native run-android --variant=bakaramohDebug",
+    "bakaramohdispatcherRelease": "cd android && ./gradlew assemblebakaramohRelease",
+    "vamVamdispatcher": "react-native run-android --variant=vamVamDebug",
+    "vamVamdispatcherRelease": "cd android && ./gradlew assemblevamVamRelease",
+    "piolfixdispatcher": "react-native run-android --variant=piolfixDebug",
+    "piolfixdispatcherRelease": "cd android && ./gradlew assemblepiolfixRelease",
+    "rBRidersdispatcher": "react-native run-android --variant=rBRidersDebug",
+    "rBRidersdispatcherRelease": "cd android && ./gradlew assemblerBRidersRelease",
+    "karisdispatcher": "react-native run-android --variant=karisDebug",
+    "karisdispatcherRelease": "cd android && ./gradlew assemblekarisRelease",
+    "mammysKitchendispatcher": "react-native run-android --variant=mammysKitchenDebug",
+    "mammysKitchendispatcherRelease": "cd android && ./gradlew assemblemammysKitchenRelease",
     
 
 

@@ -516,6 +516,13 @@ export const getAppCode = () => {
         case appIds.exlraet: return shortCodes.exlraet
         case appIds.instaFits: return shortCodes.instaFits
         case appIds.bumprkar: return shortCodes.bumprkar
+        case appIds.bakaramoh: return shortCodes.bakaramoh
+        case appIds.vamVam: return shortCodes.vamVam
+        case appIds.piolfix: return shortCodes.piolfix
+        case appIds.rBRiders: return shortCodes.rBRiders
+        case appIds.karis: return shortCodes.karis
+        case appIds.mammysKitchen: return shortCodes.mammysKitchen
+
 
 
         default: return '1da2e9'
