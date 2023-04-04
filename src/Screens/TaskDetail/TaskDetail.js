@@ -68,7 +68,7 @@ export default function TaskDetail({ route, navigation }) {
   const styles = stylesFunc({ defaultLanguage });
   const commonStyles = commonStylesFunc({ fontFamily });
 
-  console.log(taskDetail, "taskDetail...taskDetail");
+  console.log(taskDetail,taskDetail?.task_status, "taskDetail...taskDetail");
 
   const [state, setState] = useState({
     vendors: {},
@@ -196,9 +196,17 @@ export default function TaskDetail({ route, navigation }) {
     }
   }, [taskDetail, userData]);
 
+  useEffect(() => { updateState({ taskStatus: Number(taskDetail?.task_status) })
+   }, [taskDetail?.tasktype.name])
+
+
+
   useEffect(() => {
+   
     getStatusName(taskStatus);
   }, [taskStatus]);
+
+
 
   //Naviagtion to specific screen
   const moveToNewScreen = (screenName, data) => () => {
@@ -776,11 +784,10 @@ export default function TaskDetail({ route, navigation }) {
                   color: colors.black,
                 }}
               >
-                {`${
-                  (taskDetail?.tasktype?.name).toLowerCase() == "drop"
-                    ? strings.DROP
-                    : strings.PICKUP
-                }`}
+                {`${(taskDetail?.tasktype?.name).toLowerCase() == "drop"
+                  ? strings.DROP
+                  : strings.PICKUP
+                  }`}
               </Text>
             </View>
 
@@ -792,26 +799,26 @@ export default function TaskDetail({ route, navigation }) {
                   userData?.client_preference?.is_cancel_order_driver &&
                   checkCallBackUrlForShowOrderDeatils()
                 ) && (
-                  <TouchableOpacity
-                    onPress={cancelOrder}
-                    style={{
-                      ...styles.statusView,
-                      backgroundColor: colors.themeColor,
-                      borderRadius: moderateScale(5),
-                      // backgroundColor: getBackGroudColor(taskDetail?.tasktype?.name),
-                    }}
-                  >
-                    <Text
+                    <TouchableOpacity
+                      onPress={cancelOrder}
                       style={{
-                        ...styles.taskNameTextstyle,
-                        color: colors.white,
-                        opacity: 1,
+                        ...styles.statusView,
+                        backgroundColor: colors.themeColor,
+                        borderRadius: moderateScale(5),
+                        // backgroundColor: getBackGroudColor(taskDetail?.tasktype?.name),
                       }}
                     >
-                      {strings.CANCELORDER}
-                    </Text>
-                  </TouchableOpacity>
-                )}
+                      <Text
+                        style={{
+                          ...styles.taskNameTextstyle,
+                          color: colors.white,
+                          opacity: 1,
+                        }}
+                      >
+                        {strings.CANCELORDER}
+                      </Text>
+                    </TouchableOpacity>
+                  )}
 
                 {/* {taskDetail?.barcode && (
                   <View style={{justifyContent: 'center'}}>
@@ -826,25 +833,25 @@ export default function TaskDetail({ route, navigation }) {
                 userData?.client_preference?.is_cancel_order_driver &&
                 checkCallBackUrlForShowOrderDeatils()
               ) && (
-                <View>
-                  <Text
-                    style={{
-                      color: colors.black,
-                      fontFamily: fontFamily?.bold,
-                    }}
-                  >
-                    {cancelRequestExit && cancelRequestExit != ""
-                      ? `Status: ${cancelRequestExit.status}`
-                      : ""}
-                  </Text>
-                </View>
-              )}
+                  <View>
+                    <Text
+                      style={{
+                        color: colors.black,
+                        fontFamily: fontFamily?.bold,
+                      }}
+                    >
+                      {cancelRequestExit && cancelRequestExit != ""
+                        ? `Status: ${cancelRequestExit.status}`
+                        : ""}
+                    </Text>
+                  </View>
+                )}
             </View>
           </View>
           <Text style={styles.taskLable}>
             {strings.TASKDESCRIPTION.toUpperCase()}
           </Text>
-
+          {console.log(taskDetail, taskDetail?.order?.recipient_phone, taskDetail?.order?.Recipient_email, vendors, 'taskDetailtaskDetail')}
           {/* Phone and email view */}
           {(taskDetail?.tasktype?.name).toLowerCase() == "drop" ? (
             <View
@@ -857,62 +864,62 @@ export default function TaskDetail({ route, navigation }) {
                 taskDetail?.order?.Recipient_email ||
                 taskDetail?.order?.recipient_phone
               ) && (
-                <View
-                  style={{
-                    opacity: 0.5,
-                    flexDirection: "row",
-                    justifyContent: "space-between",
-                  }}
-                >
-                  {!!taskDetail?.order?.Recipient_email && (
-                    <TouchableOpacity
-                      onPress={() =>
-                        Linking.openURL(
-                          `mailto:${taskDetail?.order?.Recipient_email}`
-                        )
-                      }
-                      style={{
-                        flexDirection: "row",
-                        marginTop: moderateScale(10),
-                        alignItems: "center",
-                        flex: 0.65,
-                      }}
-                    >
-                      <Image
-                        source={imagePath.mail2}
-                        style={{ marginRight: moderateScale(5) }}
-                      />
-                      <Text style={styles.emailAndPhone}>
-                        {taskDetail?.order?.Recipient_email}
-                      </Text>
-                    </TouchableOpacity>
-                  )}
+                  <View
+                    style={{
+                      opacity: 0.5,
+                      flexDirection: "row",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    {!!taskDetail?.order?.Recipient_email && (
+                      <TouchableOpacity
+                        onPress={() =>
+                          Linking.openURL(
+                            `mailto:${taskDetail?.order?.Recipient_email}`
+                          )
+                        }
+                        style={{
+                          flexDirection: "row",
+                          marginTop: moderateScale(10),
+                          alignItems: "center",
+                          flex: 0.65,
+                        }}
+                      >
+                        <Image
+                          source={imagePath.mail2}
+                          style={{ marginRight: moderateScale(5) }}
+                        />
+                        <Text style={styles.emailAndPhone}>
+                          {taskDetail?.order?.Recipient_email}
+                        </Text>
+                      </TouchableOpacity>
+                    )}
 
-                  {!!taskDetail?.location?.phone_number && (
-                    <TouchableOpacity
-                      onPress={() =>
-                        Linking.openURL(
-                          `tel:${taskDetail?.order?.recipient_phone}`
-                        )
-                      }
-                      style={{
-                        flexDirection: "row",
-                        marginTop: moderateScale(10),
-                        alignItems: "center",
-                        flex: 0.35,
-                      }}
-                    >
-                      <Image
-                        source={imagePath.phone2}
-                        style={{ marginRight: moderateScale(5) }}
-                      />
-                      <Text style={styles.emailAndPhone}>
-                        {taskDetail?.location?.phone_number}
-                      </Text>
-                    </TouchableOpacity>
-                  )}
-                </View>
-              )}
+                    {!!taskDetail?.location?.phone_number && (
+                      <TouchableOpacity
+                        onPress={() =>
+                          Linking.openURL(
+                            `tel:${taskDetail?.order?.recipient_phone}`
+                          )
+                        }
+                        style={{
+                          flexDirection: "row",
+                          marginTop: moderateScale(10),
+                          alignItems: "center",
+                          flex: 0.35,
+                        }}
+                      >
+                        <Image
+                          source={imagePath.phone2}
+                          style={{ marginRight: moderateScale(5) }}
+                        />
+                        <Text style={styles.emailAndPhone}>
+                          {taskDetail?.location?.phone_number}
+                        </Text>
+                      </TouchableOpacity>
+                    )}
+                  </View>
+                )}
 
               {/* location and address */}
               {!!taskDetail?.location?.address && (
@@ -1020,80 +1027,118 @@ export default function TaskDetail({ route, navigation }) {
                   </View>
                 </View>
               )}
-              {!!(vendors?.email || vendors?.phone_no) && (
-                <View
-                  style={{
-                    // opacity: 0.5,
-                    flexDirection: "row",
-                    justifyContent: "space-between",
-                  }}
-                >
-                  {!!vendors?.email && (
-                    <TouchableOpacity
-                      onPress={() =>
-                        Linking.openURL(`mailto:${vendors?.email}`)
-                      }
-                      style={{
-                        flexDirection: "row",
-                        marginTop: moderateScale(10),
-                        alignItems: "center",
-                        flex: 0.7,
-                      }}
-                    >
-                      <Image
-                        source={imagePath.mail2}
-                        style={{ marginRight: moderateScale(5) }}
-                      />
-                      <Text style={styles.emailAndPhone}>{vendors?.email}</Text>
-                    </TouchableOpacity>
-                  )}
-                  {!!vendors?.phone_no && (
-                    <TouchableOpacity
-                      onPress={
-                        () => Linking.openURL(`tel:${vendors?.phone_no}`)
-                        // Communications.phonecall(
-                        //   vendors?.recipient_phone,
-                        //   true,
-                        // )
-                      }
-                      style={{
-                        flexDirection: "row",
-                        marginTop: moderateScale(10),
-                        alignItems: "center",
-                        flex: 0.3,
-                      }}
-                    >
-                      <Image
-                        source={imagePath.phone2}
-                        style={{ marginRight: moderateScale(5) }}
-                      />
-                      <Text style={styles.emailAndPhone}>
-                        {vendors?.phone_no}
-                      </Text>
-                    </TouchableOpacity>
-                  )}
-                </View>
-              )}
+              {!!(
+                taskDetail?.order?.Recipient_email ||
+                taskDetail?.order?.recipient_phone
+                // vendors?.email || vendors?.phone_no
+              ) && (
+                  <View
+                    style={{
+                      // opacity: 0.5,
+                      flexDirection: "row",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    {!!taskDetail?.order?.Recipient_email
+                      //  !! vendors?.email
+                      && (
+                        <TouchableOpacity
+                          onPress={() =>
+                            Linking.openURL(
+                              `mailto:${taskDetail?.order?.Recipient_email}`
+                            )
+                            // Linking.openURL(`mailto:${vendors?.email}`)
+
+                          }
+                          style={{
+                            flexDirection: "row",
+                            marginTop: moderateScale(10),
+                            alignItems: "center",
+                            flex: 0.7,
+                          }}
+                        >
+                          <Image
+                            source={imagePath.mail2}
+                            style={{ marginRight: moderateScale(5) }}
+                          />
+                          {!!taskDetail?.order?.task_description ?
+                            <Text style={styles.emailAndPhone}>
+                              {vendors?.email}
+                            </Text>
+                            :
+                            <Text style={styles.emailAndPhone}>
+                              {taskDetail?.order?.Recipient_email}
+                            </Text>}
+                        </TouchableOpacity>
+                      )}
+                    {!!taskDetail?.order?.recipient_phone
+                      // !!vendors?.phone_no
+
+                      && (
+                        <TouchableOpacity
+                          onPress={
+                            () =>
+                              Linking.openURL(
+                                `tel:${taskDetail?.order?.recipient_phone}`
+                              )
+                            //  Linking.openURL(`tel:${vendors?.phone_no}`)
+                            // Communications.phonecall(
+                            //   vendors?.recipient_phone,
+                            //   true,
+                            // )
+                          }
+                          style={{
+                            flexDirection: "row",
+                            marginTop: moderateScale(10),
+                            alignItems: "center",
+                            flex: 0.3,
+                          }}
+                        >
+                          <Image
+                            source={imagePath.phone2}
+                            style={{ marginRight: moderateScale(5) }}
+                          />
+                          {!!taskDetail?.order?.task_description ?
+                            <Text style={styles.emailAndPhone}>
+                              {vendors?.phone_no}
+                            </Text>
+                            :
+                            <Text style={styles.emailAndPhone}>
+                              {taskDetail?.order?.recipient_phone}
+                            </Text>}
+
+                        </TouchableOpacity>
+                      )}
+                  </View>
+                )}
 
               {/* location and address */}
-              {!!vendors?.address && (
-                <View
-                  style={{
-                    // opacity: 0.5,
-                    flexDirection: "row",
-                    marginTop: moderateScale(10),
-                    alignItems: "center",
-                  }}
-                >
-                  <Image
-                    source={imagePath?.location2}
-                    style={{ marginRight: moderateScale(5) }}
-                  />
-                  <Text numberOfLines={2} style={styles.emailAndPhone}>
-                    {vendors?.address}
-                  </Text>
-                </View>
-              )}
+              {!!taskDetail?.location?.address
+                // !!vendors?.address
+                && (
+                  <View
+                    style={{
+                      // opacity: 0.5,
+                      flexDirection: "row",
+                      marginTop: moderateScale(10),
+                      alignItems: "center",
+                    }}
+                  >
+                    <Image
+                      source={imagePath?.location2}
+                      style={{ marginRight: moderateScale(5) }}
+                    />
+                    {!!taskDetail?.order?.task_description ?
+                      <Text style={styles.emailAndPhone}>
+                        {vendors?.address}
+                      </Text>
+                      :
+                      <Text style={styles.emailAndPhone}>
+                        {taskDetail?.location?.address}
+                      </Text>}
+
+                  </View>
+                )}
             </View>
           )}
           {/* Quantity and post code */}
@@ -1158,23 +1203,23 @@ export default function TaskDetail({ route, navigation }) {
               imageStyle={{ marginHorizontal: moderateScale(2) }}
             />
             {false &&
-            <ButtonComponent
-            buttonStyle={{
-              flexDirection: "row",
-              justifyContent: "center",
-              alignItems: "center",
-              padding: moderateScale(10),
-              borderRadius: moderateScale(5),
-              marginTop: moderateScale(20),
-              backgroundColor:colors.green
-            }}
-            onPress={_onDriverTracking}
-            buttonTitle={' IN APP MAP'}
-            imagevalue={imagePath?.navigate}
-            imageStyle={{ marginHorizontal: moderateScale(2) }}
-          />
+              <ButtonComponent
+                buttonStyle={{
+                  flexDirection: "row",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  padding: moderateScale(10),
+                  borderRadius: moderateScale(5),
+                  marginTop: moderateScale(20),
+                  backgroundColor: colors.green
+                }}
+                onPress={_onDriverTracking}
+                buttonTitle={' IN APP MAP'}
+                imagevalue={imagePath?.navigate}
+                imageStyle={{ marginHorizontal: moderateScale(2) }}
+              />
             }
-            
+
           </View>
           {checkCallBackUrlForShowOrderDeatils() && (
             <View style={{ marginVertical: moderateScale(10) }}>
@@ -1236,95 +1281,94 @@ export default function TaskDetail({ route, navigation }) {
             taskDetail?.order?.customer?.email ||
             taskDetail?.order?.customer?.phone_number
           ) && (
-            <View
-              style={{ flexDirection: "row", justifyContent: "space-between" }}
-            >
-              {!!taskDetail?.order?.customer?.email && (
-                <TouchableOpacity
-                  onPress={() =>
-                    // Communications.email(
-                    //   [
-                    //     taskDetail?.order?.customer?.email,
-                    //     taskDetail?.order?.customer?.email,
-                    //   ],
-                    //   null,
-                    //   null,
-                    //   '',
-                    //   '',
-                    // )
-
-                    Linking.openURL(
-                      `mailto:${
-                        taskDetail?.order?.customer?.email
-                      }?subject=${""}&body=${""}`
-                    )
-                  }
-                  style={{
-                    flex: 0.5,
-                    flexDirection: "row",
-                    marginTop: moderateScale(10),
-                    alignItems: "center",
-                  }}
-                >
-                  <Image
-                    source={imagePath.mail2}
-                    style={{ marginRight: moderateScale(5) }}
-                  />
-                  <Text numberOfLines={1} style={styles.emailAndPhone}>
-                    {taskDetail?.order?.customer?.email}
-                  </Text>
-                </TouchableOpacity>
-              )}
-
-              {!!taskDetail?.order?.customer?.phone_number && (
-                <View
-                  style={{
-                    flex: 0.4,
-                    flexDirection: "row",
-                    marginTop: moderateScale(10),
-                    alignItems: "center",
-                    justifyContent: "space-around",
-                  }}
-                >
+              <View
+                style={{ flexDirection: "row", justifyContent: "space-between" }}
+              >
+                {!!taskDetail?.order?.customer?.email && (
                   <TouchableOpacity
-                    style={{
-                      paddingHorizontal: moderateScale(10),
-                    }}
-                    onPress={onWhatsapp}
-                  >
-                    <Image source={imagePath.whatsapp} />
-                  </TouchableOpacity>
-                  <TouchableOpacity
-                    style={{
-                      flexDirection: "row",
-                      alignItems: "center",
-                    }}
                     onPress={() =>
-                      Communications.phonecall(
-                        taskDetail?.order?.customer?.phone_number,
-                        true
+                      // Communications.email(
+                      //   [
+                      //     taskDetail?.order?.customer?.email,
+                      //     taskDetail?.order?.customer?.email,
+                      //   ],
+                      //   null,
+                      //   null,
+                      //   '',
+                      //   '',
+                      // )
+
+                      Linking.openURL(
+                        `mailto:${taskDetail?.order?.customer?.email
+                        }?subject=${""}&body=${""}`
                       )
                     }
+                    style={{
+                      flex: 0.5,
+                      flexDirection: "row",
+                      marginTop: moderateScale(10),
+                      alignItems: "center",
+                    }}
                   >
-                    <Image source={imagePath.phone2} />
+                    <Image
+                      source={imagePath.mail2}
+                      style={{ marginRight: moderateScale(5) }}
+                    />
+                    <Text numberOfLines={1} style={styles.emailAndPhone}>
+                      {taskDetail?.order?.customer?.email}
+                    </Text>
                   </TouchableOpacity>
+                )}
 
-                  {!!clientInfo?.socket_url ? (
+                {!!taskDetail?.order?.customer?.phone_number && (
+                  <View
+                    style={{
+                      flex: 0.4,
+                      flexDirection: "row",
+                      marginTop: moderateScale(10),
+                      alignItems: "center",
+                      justifyContent: "space-around",
+                    }}
+                  >
+                    <TouchableOpacity
+                      style={{
+                        paddingHorizontal: moderateScale(10),
+                      }}
+                      onPress={onWhatsapp}
+                    >
+                      <Image source={imagePath.whatsapp} />
+                    </TouchableOpacity>
                     <TouchableOpacity
                       style={{
                         flexDirection: "row",
                         alignItems: "center",
-                        marginLeft: moderateScale(5),
                       }}
-                      onPress={() => createRoom(taskDetail)}
+                      onPress={() =>
+                        Communications.phonecall(
+                          taskDetail?.order?.customer?.phone_number,
+                          true
+                        )
+                      }
                     >
-                      <Image source={imagePath.icStartChat} />
+                      <Image source={imagePath.phone2} />
                     </TouchableOpacity>
-                  ) : null}
-                </View>
-              )}
-            </View>
-          )}
+
+                    {!!clientInfo?.socket_url ? (
+                      <TouchableOpacity
+                        style={{
+                          flexDirection: "row",
+                          alignItems: "center",
+                          marginLeft: moderateScale(5),
+                        }}
+                        onPress={() => createRoom(taskDetail)}
+                      >
+                        <Image source={imagePath.icStartChat} />
+                      </TouchableOpacity>
+                    ) : null}
+                  </View>
+                )}
+              </View>
+            )}
 
           {/* seperator */}
           <View

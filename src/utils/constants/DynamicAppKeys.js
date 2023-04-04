@@ -1787,7 +1787,7 @@ const appIds = {
   }),
   qdelo: Platform.select({
     ios: 'com.qdelo.dispatcher',
-    android: 'com.qdelo.dispatcher',
+    android: 'com.qdeloDriver',
   }),
   zuriRide: Platform.select({
     ios: 'com.zuriRide.dispatcher',
