@@ -50,7 +50,7 @@ function CustomDrawerContent({
   const { isCabPooling, initialValue } = useSelector((state) => state?.auth);
   const { themeColors } = useSelector((state) => state?.initBoot);
 
-  console.log("initialValueinitialValueinitialValue", initialValue);
+  console.log("isCabPooling", isCabPooling);
 
   const { userData } = useSelector((state) => state?.auth);
 
@@ -167,10 +167,6 @@ function CustomDrawerContent({
     isLoadingB,
   } = states;
 
-  // ZendeskChat.init(
-  //   'kI9WjmYer9iy7gCYF2sne4gXUure2AK4',
-  //   'bdea936e4bdb8130bb3f74cf9be7001aeaf503fe61c1543c',
-  // );
 
   const subscription = !!userData?.client_preference?.custom_mode
     ? JSON.parse(userData?.client_preference?.custom_mode)
@@ -178,10 +174,13 @@ function CustomDrawerContent({
 
   // console.log(subscription?.hide_subscription_module, "daoisdhfa");
   useEffect(() => {
-    ZendeskChat.init(
-      `${zendeskKeys?.keys?.account_key}`,
-      `${zendeskKeys?.keys?.application_id}`,
-    );
+    if(zendeskKeys?.keys?.account_key && zendeskKeys?.keys?.application_id){
+      ZendeskChat.init(
+        `${zendeskKeys?.keys?.account_key}`,
+        `${zendeskKeys?.keys?.application_id}`
+      );
+    }
+   
     updateState({
       routes: [
         {
@@ -408,6 +407,8 @@ function CustomDrawerContent({
         })
       });
   };
+
+  console.log(poolingState,"poolingStatepoolingStatepoolingState");
 
   return (
     <>

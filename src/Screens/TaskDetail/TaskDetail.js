@@ -283,12 +283,7 @@ export default function TaskDetail({ route, navigation }) {
         "/dispatch-order-status-update/"
       )
     ) {
-      // const url = "https://www.example.com/blog?search=hello&world";
-      // let domain = (new URL(url));
-      // console.log(domain, 'domain');
-
-      console.log(getHostName(taskDetail?.order?.call_back_url), "domain2");
-
+  
       return (taskDetail?.order?.call_back_url).replace(
         "/dispatch-order-status-update/",
         "/dispatch-order-status-update-details/"

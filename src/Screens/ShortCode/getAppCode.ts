@@ -501,8 +501,27 @@ export const getAppCode = () => {
         case appIds.OyeeRides: return shortCodes.OyeeRides
         case appIds.royoRides: return shortCodes.royoRides
         case appIds.autobox: return shortCodes.autobox
-
-
+        case appIds.tempcorner: return shortCodes.tempcorner
+        case appIds.emiratesHomeNursing: return shortCodes.emiratesHomeNursing
+        case appIds.detailPros: return shortCodes.detailPros
+        case appIds.zuluClutch: return shortCodes.zuluClutch
+        case appIds.ineeda: return shortCodes.ineeda
+        case appIds.blink: return shortCodes.blink
+        case appIds.jds: return shortCodes.jds
+        case appIds.ping: return shortCodes.ping
+        case appIds.chutneyeah: return shortCodes.chutneyeah
+        case appIds.virgingate: return shortCodes.virgingate
+        case appIds.staFood: return shortCodes.staFood
+        case appIds.dropoff: return shortCodes.dropoff
+        case appIds.exlraet: return shortCodes.exlraet
+        case appIds.instaFits: return shortCodes.instaFits
+        case appIds.bumprkar: return shortCodes.bumprkar
+        case appIds.bakaramoh: return shortCodes.bakaramoh
+        case appIds.vamVam: return shortCodes.vamVam
+        case appIds.piolfix: return shortCodes.piolfix
+        case appIds.rBRiders: return shortCodes.rBRiders
+        case appIds.karis: return shortCodes.karis
+        case appIds.mammysKitchen: return shortCodes.mammysKitchen
         default: return '1da2e9'
     }
 }

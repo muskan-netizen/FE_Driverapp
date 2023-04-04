@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "999255327946",
+    "project_id": "zuluclutch-driver",
+    "storage_bucket": "zuluclutch-driver.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:999255327946:android:0b280a31545f579a186033",
+        "android_client_info": {
+          "package_name": "com.zuluClutch.driver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "999255327946-v6fm39629fu8l4ve8igj1ka72nii4nn9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANLqnxceBY5ymkMnjW9SwJQEeDi0ekDTs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "999255327946-v6fm39629fu8l4ve8igj1ka72nii4nn9.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "999255327946-mdfcjnpusfmdv0im00d5ltpmk1srusr9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.zuluClutch.driver"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,41 +1,34 @@
 {
   "project_info": {
-    "project_number": "598221017310",
-    "project_id": "meattime-driver",
-    "storage_bucket": "meattime-driver.appspot.com"
+    "project_number": "415900756545",
+    "project_id": "meal-time-dispatcher",
+    "storage_bucket": "meal-time-dispatcher.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:598221017310:android:98a105417d15a631f4b24f",
+        "mobilesdk_app_id": "1:415900756545:android:9073a05a688d2cc6f774c0",
         "android_client_info": {
-          "package_name": "com.mealtime.dispatcher"
+          "package_name": "com.mealtime.driverapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "598221017310-021bpcsbr7iv5d9999un11t01ql8ctjp.apps.googleusercontent.com",
+          "client_id": "415900756545-7evv8dqrhipcl31nb6p9or882o9681dg.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCiCLhereZuu3aRQ9lE3LRs-kkCHx6nBpc"
+          "current_key": "AIzaSyC_Xe747mGYnDBuzk6IuMjk8MYB15YFGrY"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "598221017310-021bpcsbr7iv5d9999un11t01ql8ctjp.apps.googleusercontent.com",
+              "client_id": "415900756545-7evv8dqrhipcl31nb6p9or882o9681dg.apps.googleusercontent.com",
               "client_type": 3
-            },
-            {
-              "client_id": "598221017310-ic2k5dcra487ufq7233vk36qvd7fqqie.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.mealtime.dispatcher"
-              }
             }
           ]
         }

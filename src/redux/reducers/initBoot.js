@@ -42,6 +42,7 @@ const initial_state = {
   fcmToken: null,
   shortCode: null,
   zendeskKeys: {},
+  currentLocation:{}
 
   //internetConnection: false,
 };
@@ -109,6 +110,13 @@ export default function (state = initial_state, action) {
       return {
         ...state,
         zendeskKeys: data,
+      };
+    }
+    case types.CURRENT_LOCATION: {
+      const data = action.payload;
+      return {
+        ...state,
+        currentLocation: data,
       };
     }
 

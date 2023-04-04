@@ -1,34 +1,41 @@
 {
   "project_info": {
-    "project_number": "247662417952",
-    "project_id": "aau-jaau-driver",
-    "storage_bucket": "aau-jaau-driver.appspot.com"
+    "project_number": "17344195398",
+    "project_id": "tempcorner-driver",
+    "storage_bucket": "tempcorner-driver.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:247662417952:android:d920a76f4027c51c4c4445",
+        "mobilesdk_app_id": "1:17344195398:android:e4aea4e142dcb686ba5347",
         "android_client_info": {
-          "package_name": "com.app.aaujaudriver"
+          "package_name": "com.tempcorner.royodriver"
         }
       },
       "oauth_client": [
         {
-          "client_id": "247662417952-ckivb3c5gioarh8s335ttblf3c2dvl39.apps.googleusercontent.com",
+          "client_id": "17344195398-67docp8jf65kbggajc9d95vuqjvg85ug.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDpklD884jIMX0F6Ziw3JjOL8ODRrzGbPI"
+          "current_key": "AIzaSyB6wHTGlYrJE5ErIjZC5vgn1TFNVrmIY8I"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "247662417952-ckivb3c5gioarh8s335ttblf3c2dvl39.apps.googleusercontent.com",
+              "client_id": "17344195398-67docp8jf65kbggajc9d95vuqjvg85ug.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "17344195398-d9khrrm3essc9bt4ps3n3nf8a0idcjrk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.tempcorner.royodriver"
+              }
             }
           ]
         }

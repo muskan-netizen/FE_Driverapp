@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "517881804588",
+    "project_id": "instafits-driver",
+    "storage_bucket": "instafits-driver.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:517881804588:android:b557650965eda9a2c9de89",
+        "android_client_info": {
+          "package_name": "com.instaFits.driver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "517881804588-2mcvp2414h1jq5ivcg1h7jgv5gh1lkdq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPZ3w1H1NSYyP4W2VVQ22vmdi0LGKfUpc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "517881804588-2mcvp2414h1jq5ivcg1h7jgv5gh1lkdq.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "517881804588-0df0o47259oq09h5t4og4nbdjqqnfmd6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.instaFits.driver"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

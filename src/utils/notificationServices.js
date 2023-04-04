@@ -108,7 +108,8 @@ export const notificationListener = async () => {
       'Notification caused app to open from background state bla bla:',
       JSON.stringify(remoteMessage),
     );
-    const {notification} = remoteMessage;
+    const {notification,data} = remoteMessage;
+    let notificationType = data?.type || data?.notificationType;
     if (
       notification?.sound == 'notification.mp3' ||
       notification?.android?.sound == 'notification'
@@ -125,8 +126,9 @@ export const notificationListener = async () => {
         });
       } else {
         console.log('here>>1');
+       
         actions.isModalVisibleForAcceptReject({
-          isModalVisibleForAcceptReject: true,
+          isModalVisibleForAcceptReject: notificationType =='bid_ride_request'?false: true,
           notificationData: remoteMessage,
         });
       }
@@ -163,6 +165,7 @@ export const notificationListener = async () => {
             });
           } else {
             console.log('here>>2');
+        
             actions.isModalVisibleForAcceptReject({
               isModalVisibleForAcceptReject: true,
               notificationData: remoteMessage,
