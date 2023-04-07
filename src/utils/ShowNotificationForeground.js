@@ -47,11 +47,10 @@ const ShowNotificationForeground = props => {
         notification.android.sound == 'notification'
       ) {
         console.log('here>>2');
-
         if (!!data && !!notificationType && notificationType != 'N') {
           console.log(notificationType, 'notificationTypenotificationType');
           actions.isModalVisibleForAcceptReject({
-            isModalVisibleForAcceptReject: true,
+            isModalVisibleForAcceptReject:notificationType =='bid_ride_request'?false: true,
             notificationData: remoteMessage,
           });
         }
@@ -65,7 +64,7 @@ const ShowNotificationForeground = props => {
         console.log('here>>3');
         if (data && notificationType && notificationType != 'N') {
           actions.isModalVisibleForAcceptReject({
-            isModalVisibleForAcceptReject: true,
+            isModalVisibleForAcceptReject:notificationType =='bid_ride_request' ?false : true,
             notificationData: remoteMessage,
           });
         }

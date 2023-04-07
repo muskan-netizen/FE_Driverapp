@@ -30,7 +30,7 @@ messaging().setBackgroundMessageHandler(async remoteMessage => {
       } else {
         console.log(' hey i am here');
         actions.isModalVisibleForAcceptReject({
-          isModalVisibleForAcceptReject: true,
+          isModalVisibleForAcceptReject: notificationType =='bid_ride_request' ?false : true,
           notificationData: remoteMessage,
         });
       }

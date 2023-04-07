@@ -368,7 +368,7 @@ const shortCodes = {
   perucabs: 'b0eeff',
   hafizjwlry: '9432be',
   jana: '489220',
-  myWayBill: 'a77856',
+  brilApp: 'a77856',
   cattch: '27087d',
   tezras: '2a2d25',
   eureka: '54bd72',
@@ -523,7 +523,8 @@ const shortCodes = {
   piolfix:'d08532',
   rBRiders:'41a39d',
   karis:'aa8767',
-  mammysKitchen:'e4ab20'
+  mammysKitchen:'e4ab20',
+  japaConnect:'a3d047'
 
 };
 
@@ -1979,9 +1980,9 @@ const appIds = {
     ios: 'com.jana.royodispatcher',
     android: 'com.jana.royodispatcher',
   }),
-  myWayBill: Platform.select({
+  brilApp: Platform.select({
     ios: 'com.mywaybill.royodispatcher',
-    android: 'com.mywaybill.royodispatcher',
+    android: 'com.brillApp.driver',
   }),
   cattch: Platform.select({
     ios: 'com.cattch.royodispatcher',
@@ -2566,8 +2567,8 @@ const appIds = {
     android: 'com.virgingate.driver',
   }),
   staFood: Platform.select({
-    ios: 'com.staFood.driver',
-    android: 'com.staFood.driver',
+    ios: 'com.stafood.driverapplication',
+    android: 'com.stafood.driver',
   }),
   dropoff: Platform.select({
     ios: 'com.dropoff.dispatcher',
@@ -2598,8 +2599,8 @@ const appIds = {
     android: 'com.piolfix.driver',
   }),
   rBRiders: Platform.select({
-    ios: 'com.rBRiders.driver',
-    android: 'com.rBRiders.driver',
+    ios: 'com.rbRiders.driver',
+    android: 'com.rbRiders.driver',
   }),
   karis: Platform.select({
     ios: 'com.karis.driver',
@@ -2608,6 +2609,10 @@ const appIds = {
   mammysKitchen: Platform.select({
     ios: 'com.mammysKitchen.driver',
     android: 'com.mammysKitchen.driver',
+  }),
+  japaConnect: Platform.select({
+    ios: 'com.japaConnect.driver',
+    android: 'com.japaConnect.driver',
   }),
   
 };

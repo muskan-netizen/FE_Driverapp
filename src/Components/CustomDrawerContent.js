@@ -33,6 +33,7 @@ import { string } from "is_js";
 import { saveCabPoolingStatus } from "../redux/actions/init";
 import { UIActivityIndicator } from 'react-native-indicators';
 import SvgUri from 'react-native-svg-uri';
+import { log } from "react-native-reanimated";
 
 
 const logoRegex = /.(svg)$/i
@@ -50,7 +51,7 @@ function CustomDrawerContent({
   const { isCabPooling, initialValue } = useSelector((state) => state?.auth);
   const { themeColors } = useSelector((state) => state?.initBoot);
 
-  console.log("initialValueinitialValueinitialValue", initialValue);
+  console.log("isCabPooling", isCabPooling);
 
   const { userData } = useSelector((state) => state?.auth);
 
@@ -109,7 +110,7 @@ function CustomDrawerContent({
         id: 6,
         label: strings.SUPPORT,
         image: imagePath.support2,
-        // key: navigationStrings.PROFILESTACK,
+        key: navigationStrings.PROFILESTACK,
         // subRoute:navigationStrings.MYPROFILE
       },
       appIds.transportSystem === DeviceInfo.getBundleId()
@@ -167,10 +168,6 @@ function CustomDrawerContent({
     isLoadingB,
   } = states;
 
-  // ZendeskChat.init(
-  //   'kI9WjmYer9iy7gCYF2sne4gXUure2AK4',
-  //   'bdea936e4bdb8130bb3f74cf9be7001aeaf503fe61c1543c',
-  // );
 
   const subscription = !!userData?.client_preference?.custom_mode
     ? JSON.parse(userData?.client_preference?.custom_mode)
@@ -178,10 +175,13 @@ function CustomDrawerContent({
 
   // console.log(subscription?.hide_subscription_module, "daoisdhfa");
   useEffect(() => {
-    ZendeskChat.init(
-      `${zendeskKeys?.keys?.account_key}`,
-      `${zendeskKeys?.keys?.application_id}`,
-    );
+    if(zendeskKeys?.keys?.account_key && zendeskKeys?.keys?.application_id){
+      ZendeskChat.init(
+        `${zendeskKeys?.keys?.account_key}`,
+        `${zendeskKeys?.keys?.application_id}`
+      );
+    }
+   
     updateState({
       routes: [
         {
@@ -360,8 +360,12 @@ function CustomDrawerContent({
     updateState({ isLoading: false });
     showError(error?.message || error?.error);
   };
-
+console.log( !zendeskKeys?.keys?.account_key && !zendeskKeys?.keys?.application_id,'havsdyuva');
   const onStartSupportChat = () => {
+    if( !zendeskKeys?.keys?.account_key && !zendeskKeys?.keys?.application_id){
+      showError('Zendesk not configured')
+      return
+    }
     ZendeskChat.setVisitorInfo({
       name: userData?.name,
       phone: userData?.phone_number ? userData?.phone_number : '',
@@ -408,6 +412,8 @@ function CustomDrawerContent({
         })
       });
   };
+
+  console.log(poolingState,"poolingStatepoolingStatepoolingState");
 
   return (
     <>
@@ -491,7 +497,7 @@ function CustomDrawerContent({
               )}
             </View>
           ) : null}
-          {routes.map((route, index) => {
+          {routes?.map((route, index) => {
             // const {options} = descriptors[route.key];
             const isFocused = selectedDrawerItem?.index === index;
             const label = route?.label;

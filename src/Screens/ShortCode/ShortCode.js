@@ -173,7 +173,7 @@ SplashScreen.hide();
     (async () => {
       const saveShortCode = await getItem('saveShortCode');
       const appCode = !!saveShortCode ? saveShortCode : getAppCode()
-      console.log(appCode, "appCodeappCodeappCodeappCodeappCode");
+      // console.log(appCode, "appCodeappCodeappCodeappCodeappCode");
 
       console.log(defaultLanguage?.value, 'Language in init screen');
       let header = {};
