@@ -10,68 +10,48 @@ import notifee, { AndroidColor, AndroidImportance } from '@notifee/react-native'
 
 const ShowNotificationForeground = props => {
   useEffect(() => {
-
     const unsubscribe = messaging().onMessage(async remoteMessage => {
       console.log('remote message foreground', remoteMessage);
-      const { data, messageId, notification } = remoteMessage;
-      let notificationType = data?.type || data?.notificationType;
-
-      const channelId = await notifee.createChannel({
-        id: 'default-channel-id',
-        name: 'Default Channel',
-        vibration: true,
-        lightColor: AndroidColor.YELLOW,
-        sound: 'default',
-        importance: AndroidImportance.HIGH,
-      });
-      const channelIdRoyo = await notifee.createChannel({
-        id: 'Royo-Delivery',
-        name: 'Royo Delivery',
-        vibration: true,
-        lightColor: AndroidColor.YELLOW,
-        sound: 'notification',
-        importance: AndroidImportance.HIGH,
-      });
-      let displayNotificationData = {}
-      if (Platform.OS == "ios") {
-        displayNotificationData = {
-          title: notificationType || notification?.title || '',
-          body: data?.message || notification?.body || '',
-          data: { ...data },
-        };
-
-      }
-      else {
-        displayNotificationData = {
-          title: notificationType || notification?.title || '',
-          body: data?.message || notification?.body || '',
-          android: {
-            sound: notification.sound == 'notification'
-              ? 'notification'
-              : 'default',
-            channelId: notification.android?.channelId || channelId,
-            pressAction: {
-              id: 'default',
-            },
-            importance: AndroidImportance.HIGH,
-
-          },
-          data: { ...data },
-        };
+      const {data, messageId, notification} = remoteMessage;
+      console.log(remoteMessage.data, notification, 'datadatadatadata');
+      let notificationType = data?.type || data?.notificationType || 'AR';
+      {
+        Platform.OS == 'ios'
+          ? PushNotificationIOS.addNotificationRequest({
+              id: messageId,
+              body: data?.message || '',
+              title: data?.message || '',
+              sound:
+                notification.sound == 'notification.mp3'
+                  ? 'notification.mp3'
+                  : 'default',
+            })
+          : PushNotification.localNotification({
+              channelId: notification.android.channelId,
+              id: messageId,
+              body: data?.message || '',
+              title: data?.message || '',
+              soundName: notification.android.sound,
+              vibrate: true,
+              playSound: true,
+            });
       }
 
-      console.log(displayNotificationData, "displayNotificationData.>>>>>")
-
-      await notifee.displayNotification(displayNotificationData);
+      if (data.data == 'chat_text') {
+        PushNotification.localNotification({
+          message: data?.body,
+        });
+      }
 
       if (
         Platform.OS == 'android' &&
         notification.android.sound == 'notification'
       ) {
         console.log('here>>2');
-        if (data && notificationType && notificationType != 'N') {
+        if (!!data && !!notificationType && notificationType != 'N') {
+          console.log(notificationType, 'notificationTypenotificationType');
           actions.isModalVisibleForAcceptReject({
-            isModalVisibleForAcceptReject: true,
+            isModalVisibleForAcceptReject:notificationType =='bid_ride_request'?false: true,
             notificationData: remoteMessage,
           });
         }
@@ -85,7 +65,7 @@ const ShowNotificationForeground = props => {
         console.log('here>>3');
         if (data && notificationType && notificationType != 'N') {
           actions.isModalVisibleForAcceptReject({
-            isModalVisibleForAcceptReject: true,
+            isModalVisibleForAcceptReject:notificationType =='bid_ride_request' ?false : true,
             notificationData: remoteMessage,
           });
         }

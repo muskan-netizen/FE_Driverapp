@@ -1,34 +1,41 @@
 {
   "project_info": {
-    "project_number": "718706384262",
-    "project_id": "severn-bfba0",
-    "storage_bucket": "severn-bfba0.appspot.com"
+    "project_number": "1010951562466",
+    "project_id": "serverndriver",
+    "storage_bucket": "serverndriver.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:718706384262:android:9e098f284ce15ee97fe007",
+        "mobilesdk_app_id": "1:1010951562466:android:126f82088931aa03742abb",
         "android_client_info": {
-          "package_name": "com.servern.dispatcher"
+          "package_name": "com.servern.driverapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "718706384262-vej2khhellhtgptgl8eugnq0pua5tplr.apps.googleusercontent.com",
+          "client_id": "1010951562466-lb303ejah1ttn575kiqvqan8arpshdvn.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBmpm6aIvTT33SuIZ9x-KOB0QJ8ydMTids"
+          "current_key": "AIzaSyCG959qXdgmrmr_rI-i6UAxyvHE4s6rrhQ"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "718706384262-vej2khhellhtgptgl8eugnq0pua5tplr.apps.googleusercontent.com",
+              "client_id": "1010951562466-lb303ejah1ttn575kiqvqan8arpshdvn.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "1010951562466-71c9kjb1m41nkkcvf7mklvfdnlru0ikh.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.servern.driverapp"
+              }
             }
           ]
         }

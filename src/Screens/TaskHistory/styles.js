@@ -36,19 +36,19 @@ export default ({defaultLanguagae}) => {
       width: 100,
     },
     cashCollectionContainer: {
-      flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
+      flexDirection: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'row-reverse' : 'row',
       justifyContent: 'space-between',
       paddingVertical: moderateScale(10),
       backgroundColor: colors.white,
       paddingHorizontal: moderateScale(20),
     },
     cashTextView: {
-      flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
+      flexDirection: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'row-reverse' : 'row',
 
       alignItems: 'center',
     },
     clearViewStyle: {
-      flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
+      flexDirection: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'row-reverse' : 'row',
     },
     dateSelectView: {
       justifyContent: 'center',

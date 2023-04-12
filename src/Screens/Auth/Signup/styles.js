@@ -44,7 +44,7 @@ export default ({defaultLanguagae}) => {
       fontFamily: fontFamily.semiBold,
       color: colors.black,
       // textAlign: 'center',
-      textAlign: defaultLanguagae?.value === 'ar' ? 'right' : 'left',
+      textAlign: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'right' : 'left',
     },
     shadowStyle: {
       flexDirection: 'row',
@@ -63,7 +63,7 @@ export default ({defaultLanguagae}) => {
       fontFamily: fontFamily.medium,
       color: colors.lightGreyBg2,
       marginVertical: moderateScaleVertical(10),
-      textAlign: defaultLanguagae?.value === 'ar' ? 'right' : 'left',
+      textAlign: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'right' : 'left',
     },
     label2: {
       marginBottom: moderateScaleVertical(10),
@@ -71,7 +71,7 @@ export default ({defaultLanguagae}) => {
       fontSize: textScale(12),
       fontFamily: fontFamily.medium,
       color: colors.lightGreyBg2,
-      textAlign: defaultLanguagae?.value === 'ar' ? 'right' : 'left',
+      textAlign: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'right' : 'left',
     },
     label3: {
       marginBottom: moderateScaleVertical(10),
@@ -96,7 +96,7 @@ export default ({defaultLanguagae}) => {
       fontFamily: fontFamily.medium,
     },
     textInputlabel: {
-      textAlign: defaultLanguagae?.value === 'ar' ? 'right' : 'left',
+      textAlign: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'right' : 'left',
     },
     transportationContainer: {
       // backgroundColor: 'red',
@@ -109,24 +109,24 @@ export default ({defaultLanguagae}) => {
       height: moderateScaleVertical(70),
       // marginHorizontal: moderateScale(-20),
       transform:
-        defaultLanguagae?.value === 'ar' ? [{scaleX: -1}] : [{scaleX: 1}],
+        defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? [{scaleX: -1}] : [{scaleX: 1}],
     },
     mainallEmployeeTypeStyle: {
       height: moderateScaleVertical(50),
       // marginHorizontal: moderateScale(-20),
-      flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
+      flexDirection: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'row-reverse' : 'row',
     },
     employeeInnerContainer: {
-      flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
+      flexDirection: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'row-reverse' : 'row',
     },
     employeeImageContainer: {
-      flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
+      flexDirection: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'row-reverse' : 'row',
       marginHorizontal: moderateScale(30),
       marginVertical: moderateScaleVertical(10),
       alignItems: 'center',
     },
     viewStyleForUploadImage: {
-      flexDirection: defaultLanguagae?.value === 'ar' ? 'row-reverse' : 'row',
+      flexDirection: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'row-reverse' : 'row',
       flexWrap: 'wrap',
       // justifyContent: 'space-between',
     },

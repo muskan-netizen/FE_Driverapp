@@ -119,5 +119,8 @@ export default {
   currentLocation: require("../assets/images/ic_current.png"),
   icRedChecked: require("../assets/images/ic_checked.png"),
 
-  flank: require('../assets/Flank.mp4')
+  //mp4 videos
+  flank: require('../assets/Flank.mp4'),
+  carMarker: require('../assets/images/ic_topviewcar.png'),
+
 };

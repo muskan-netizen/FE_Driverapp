@@ -1,0 +1,8 @@
+#include "Pods/Target Support Files/Pods-available_pods-Rally/Pods-available_pods-Rally.debug.xcconfig"
+
+PROJECT_BUNDLE_ID = com.rally.royodispatcher
+PROJECT_APP_VERSION = 1.0
+PROJECT_BUILD_NUMBER = 1
+PROJECT_APP_NAME = Rally Driver
+PROJECT_PLIST = RallyInfo
+PROJECT_ENTITLEMENT=RoyoDriverAppRelease

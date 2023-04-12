@@ -40,6 +40,8 @@ export default {
   SUBSCRIPTION_STACK: 'SubscriptionStack',
   CHAT_SCREEN: 'ChatScreen',
   CHAT_ROOM: "ChatRoom",
-  GO_TO_HOME: "goToHome"
+  GO_TO_HOME: "goToHome",
+  DRIVER_TRACING :"DriverTraking"
+
 
 };

@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "375984952052",
+    "project_id": "dropoff-driver-90e71",
+    "storage_bucket": "dropoff-driver-90e71.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:375984952052:android:153eaf21f6eebdefd384a1",
+        "android_client_info": {
+          "package_name": "com.dropoff.dispatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "375984952052-96925umtkqrnr58plikpee669hdqarfg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBA8nPHEz1OXfc5SQyAsrtGMp3Bj_mjx8U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "375984952052-96925umtkqrnr58plikpee669hdqarfg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "375984952052-rcopqt8ck91qurri5lp1f8njc1ais59f.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.dropoff.dispatcher"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

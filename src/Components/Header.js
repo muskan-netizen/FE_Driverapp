@@ -57,14 +57,14 @@ const Header = ({
           ...styles.headerStyle,
           ...headerStyle,
           flexDirection:
-            defaultLanguagae?.value === 'ar' && reverse ? 'row-reverse' : 'row',
+            defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' && reverse ? 'row-reverse' : 'row',
           alignItems: 'center',
           justifyContent: 'space-between',
         }}>
         <View
           style={{
             alignItems:
-              defaultLanguagae?.value === 'ar' && reverse
+              defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he'  && reverse
                 ? 'flex-end'
                 : 'flex-start',
             flex: 0.2,
@@ -91,7 +91,7 @@ const Header = ({
                     transform: [
                       {
                         scaleX:
-                          defaultLanguagae?.value === 'ar' && reverse ? -1 : 1,
+                          defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' && reverse ? -1 : 1,
                       },
                     ],
                     ...leftIconStyle,
@@ -137,7 +137,7 @@ const Header = ({
           style={{
             flex: 0.2,
             alignItems:
-              defaultLanguagae?.value === 'ar' && reverse
+              defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' && reverse
                 ? 'flex-start'
                 : 'flex-end',
           }}>

@@ -1,0 +1,8 @@
+#include "Pods/Target Support Files/Pods-available_pods-OyeeRides/Pods-available_pods-OyeeRides.release.xcconfig"
+
+PROJECT_BUNDLE_ID = com.OyeeRides.dispatcher
+PROJECT_APP_VERSION = 1.0
+PROJECT_BUILD_NUMBER = 2
+PROJECT_APP_NAME =  OyeeRides Dispatcher
+PROJECT_PLIST = OyeeRidesInfo
+PROJECT_ENTITLEMENT=RoyoDriverAppRelease

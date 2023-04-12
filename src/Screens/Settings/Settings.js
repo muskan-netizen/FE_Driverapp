@@ -112,6 +112,11 @@ export default function Settings({route, navigation}) {
               label: 'Swahili',
               value: 'swa',
             },
+            {
+              id: 12,
+              label: 'Hebrew',
+              value: 'he',
+            },
           ],
     selectedLangauge: defaultLanguage?.label
       ? defaultLanguage

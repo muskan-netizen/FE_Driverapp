@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "448553086625",
+    "project_id": "emart-driver",
+    "storage_bucket": "emart-driver.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:448553086625:android:cf97f3efdb809bbe8b8ae0",
+        "android_client_info": {
+          "package_name": "com.emart.dispatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "448553086625-e4m3bksdgorvl6ul0vd4lh6not9hg09q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYj_1VzRI0vDOVb6yvQuan8dG_7_rCjZ0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "448553086625-e4m3bksdgorvl6ul0vd4lh6not9hg09q.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "448553086625-uijbhnijidm78to76n2tk3p2r53rvrlo.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.emart.dispatcher"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

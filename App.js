@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import NetInfo from '@react-native-community/netinfo';
 import React, { useEffect, useState } from 'react';
 import FlashMessage from 'react-native-flash-message';
@@ -49,48 +50,49 @@ const App = () => {
         updateDialog: true,
       },
       codePushStatusDidChange,
-      codePushDownloadDidProgress,
+      codePushDownloadDidProgress
     );
   }, []);
 
   function codePushStatusDidChange(syncStatus) {
+    console.log(syncStatus, codePush.SyncStatus, "syncStatus>>>>>>");
     switch (syncStatus) {
       case codePush.SyncStatus.CHECKING_FOR_UPDATE:
-        console.log('status Checking for update');
+        console.log("status Checking for update");
         break;
       case codePush.SyncStatus.DOWNLOADING_PACKAGE:
-        console.log(' status Downloading package');
+        console.log(" status Downloading package");
         break;
       case codePush.SyncStatus.AWAITING_USER_ACTION:
-        console.log('codepush status Awaiting user action');
+        console.log("codepush status Awaiting user action");
         break;
       case codePush.SyncStatus.INSTALLING_UPDATE:
-        console.log('codepush status Installing update');
+        console.log("codepush status Installing update");
         setProgress(false);
         break;
       case codePush.SyncStatus.UP_TO_DATE:
-        console.log('codepush status App up to date');
+        console.log("codepush status App up to date");
         setProgress(false);
         break;
       case codePush.SyncStatus.UPDATE_IGNORED:
-        console.log('codepush status Update cancelled by user');
+        console.log("codepush status Update cancelled by user");
         setProgress(false);
         break;
       case codePush.SyncStatus.UPDATE_INSTALLED:
         console.log(
-          'codepush status Update installed and will be applied on restart',
+          "codepush status Update installed and will be applied on restart"
         );
         setProgress(false);
         break;
       case codePush.SyncStatus.UNKNOWN_ERROR:
-        console.log('codepush status An unknown error occurred.');
+        console.log("codepush status An unknown error occurred.");
         setProgress(false);
         break;
     }
   }
 
   function codePushDownloadDidProgress(progress) {
-    console.log('codepush status progress status', progress);
+    console.log("codepush status progress status", progress);
     setProgress(progress);
   }
 
@@ -98,15 +100,15 @@ const App = () => {
     if (appIds.bluebolt == DeviceInfo.getBundleId()) {
       setDefaultLanguage({
         id: 9,
-        label: 'Vietnamese',
-        value: 'vi',
+        label: "Vietnamese",
+        value: "vi",
       });
     }
   };
 
-  useEffect(() => {
-    AsyncStorage.getItem('alreadyLaunched').then(value => {
-      console.log(value, 'valuevaluevaluevalue');
+  useEffect(async () => {
+    await AsyncStorage.getItem("alreadyLaunched").then((value) => {
+      console.log(value, "valuevaluevaluevalue");
       // const data = true;
       if (value == null) {
         data = JSON.stringify({ data: true });
@@ -129,7 +131,6 @@ const App = () => {
   }, []);
 
   const notificationConfig = () => {
-    console.log('sdlkfhsjadhf');
     requestUserPermission();
     notificationListener();
   };
@@ -153,12 +154,12 @@ const App = () => {
 
   //rest of code will be performing for iOS on background too
 
-  // BackgroundTimer.stopBackgroundTimer();
+  // // BackgroundTimer.stopBackgroundTimer();
 
 
-  //Check internet connection
+  // //Check internet connection
   useEffect(() => {
-    const removeNetInfoSubscription = NetInfo.addEventListener(state => {
+    const removeNetInfoSubscription = NetInfo.addEventListener((state) => {
       const netStatus = state.isConnected;
       setInternet(netStatus);
       updateInternetConnection(netStatus);
@@ -176,25 +177,28 @@ const App = () => {
               backgroundColor: colors.white,
               borderRadius: moderateScale(8),
               padding: moderateScale(16),
-            }}>
+            }}
+          >
             <Text
               style={{
-                alignSelf: 'center',
+                alignSelf: "center",
                 fontFamily: fontFamily.medium,
                 color: colors.textGreyOpcaity7,
                 fontSize: textScale(14),
-              }}>
+              }}
+            >
               In Progress...
             </Text>
 
             <View
               style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                justifyContent: 'space-between',
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "space-between",
                 marginTop: moderateScaleVertical(12),
                 marginBottom: moderateScaleVertical(4),
-              }}>
+              }}
+            >
               <Text
                 style={{
                   fontFamily: fontFamily.medium,
@@ -211,7 +215,8 @@ const App = () => {
                   color: colors.black,
                   fontFamily: fontFamily.medium,
                   fontSize: textScale(12),
-                }}>
+                }}
+              >
                 {(
                   (Number(progress?.receivedBytes) /
                     Number(progress.totalBytes)) *
@@ -240,11 +245,12 @@ const App = () => {
 
   return (
     <SafeAreaProvider>
+    
       <Provider store={store}>
-        <ShowNotificationForeground />
+         <ShowNotificationForeground /> 
         {progress ? progressView() : null}
         <Routes />
-        <NotificationModal />
+        <NotificationModal /> 
       </Provider>
       <Container
         width={width - 20}
@@ -253,7 +259,7 @@ const App = () => {
         positionValue={moderateScaleVertical(20)}
       />
       <FlashMessage position="top" />
-      <NoInternetModal show={!internetConnection} />
+      <NoInternetModal show={!internetConnection} /> 
     </SafeAreaProvider>
   );
 };

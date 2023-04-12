@@ -49,7 +49,6 @@ import {
   chekLocationPermission
 } from '../../utils/permissions';
 import stylesFunc from './styles';
-
 navigator.geolocation = require('react-native-geolocation-service');
 
 var image1 = new FaceImage();
@@ -320,6 +319,19 @@ export default function TaskCompleteDocument({ route, navigation }) {
         '',
         [
           {
+            text: 'Use camera',
+            onPress: () => {
+              openCamera()
+                .then(res =>
+                  updateState({
+                    isLoading: false,
+                    image: res?.path || res?.path,
+                  }),
+                )
+                .catch(error => updateState({ isLoading: false }));
+            },
+          },
+          getBundleId() !== appIds.exprexpro && {
             text: 'Use gallery',
             onPress: () => {
               // options['includeBase64'] = true;
@@ -491,7 +503,7 @@ export default function TaskCompleteDocument({ route, navigation }) {
     ) {
       showError(strings.OTPNOTVALID);
     } else {
-      updateState({ isModalVisible: false });
+      updateState({ isLoading: true, isModalVisible: false });
       updateTaskStatus();
     }
   };
@@ -576,7 +588,6 @@ export default function TaskCompleteDocument({ route, navigation }) {
           navigation.navigate(navigationStrings.DASHBOARD);
         }
         updateState({ isLoading: false, isModalVisible: false });
-
         if (res?.data) {
           updateState({
             isLoading: false,
@@ -595,7 +606,9 @@ export default function TaskCompleteDocument({ route, navigation }) {
             navigation.navigate(navigationStrings.DASHBOARD);
           }
           else {
+
             moveToNewScreen(navigationStrings.TASKDETAIL, { item: res?.data?.nextTask[0] })()
+
           }
 
         }

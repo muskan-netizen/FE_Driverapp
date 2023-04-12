@@ -8,6 +8,7 @@ import actions from './src/redux/actions';
 import {Platform} from 'react-native';
 import {navigate} from './src/navigation/NavigationService';
 import navigationStrings from './src/navigation/navigationStrings';
+
 // Register background handler
 messaging().setBackgroundMessageHandler(async remoteMessage => {
   console.log('Message handled in the background!', remoteMessage);
@@ -28,7 +29,7 @@ messaging().setBackgroundMessageHandler(async remoteMessage => {
       } else {
         console.log(' hey i am here');
         actions.isModalVisibleForAcceptReject({
-          isModalVisibleForAcceptReject: true,
+          isModalVisibleForAcceptReject: notificationType =='bid_ride_request' ?false : true,
           notificationData: remoteMessage,
         });
       }

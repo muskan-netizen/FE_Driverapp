@@ -47,6 +47,7 @@ export default function PhoneVerification({navigation, route}) {
     otpToShow: '',
     otpPrefilled: false,
     otpTimer: 15,
+    
   });
 
   const {

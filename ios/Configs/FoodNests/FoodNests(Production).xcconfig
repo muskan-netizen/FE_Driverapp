@@ -1,9 +1,10 @@
 #include "Pods/Target Support Files/Pods-available_pods-FoodNests/Pods-available_pods-FoodNests.release.xcconfig"
 
 
-PROJECT_BUNDLE_ID = com.FoodNests.Dispatch
-PROJECT_APP_VERSION = 1.0
+PROJECT_BUNDLE_ID = com.FoodNests.driverapp
+PROJECT_APP_VERSION = 1.1
 PROJECT_BUILD_NUMBER = 1
 PROJECT_APP_NAME =FoodNests Dispatch
 PROJECT_PLIST =FoodNestsInfo
 PROJECT_ENTITLEMENT=RoyoDriverAppRelease
+

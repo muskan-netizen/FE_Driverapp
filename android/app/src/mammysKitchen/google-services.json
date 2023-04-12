@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "47861485941",
+    "project_id": "mammyskitchen-driver",
+    "storage_bucket": "mammyskitchen-driver.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:47861485941:android:2ee76173cf1a6e4b07433c",
+        "android_client_info": {
+          "package_name": "com.mammysKitchen.driver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "47861485941-csfu64jvpphjtg1jjc2nlj7pgo2c2sut.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHBIi_v5MUD7SC-FwzL4subthuVbrPnuo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "47861485941-csfu64jvpphjtg1jjc2nlj7pgo2c2sut.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "47861485941-7011htfhejbefc5lcjd52k54boon0n8h.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mammysKitchen.driver"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

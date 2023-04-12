@@ -42,8 +42,8 @@ const initial_state = {
   fcmToken: null,
   shortCode: null,
   zendeskKeys: {},
-  isCabPooling: false,
-  attributeFormData: []
+  attributeFormData: [],
+  currentLocation:{}
   //internetConnection: false,
 };
 
@@ -112,15 +112,16 @@ export default function (state = initial_state, action) {
         zendeskKeys: data,
       };
     }
-
-    case types.POOLING: {
+    case types.CURRENT_LOCATION: {
       const data = action.payload;
-      return { ...state, isCabPooling: data };
+      return { ...state, currentLocation: data };
     }
 
     case types.ATTRIBUTE_FORM_DATA: {
       return { ...state, attributeFormData: action.payload };
     }
+
+   
 
     default: {
       return { ...state };
