@@ -268,8 +268,8 @@ const GoToHome = ({ navigation }) => {
             <Header
                 reverse={false}
                 headerStyle={{ backgroundColor: colors.white }}
-                leftIcon={imagePath.menu}
-                onPressLeft={() => navigation.toggleDrawer()}
+                // leftIcon={imagePath.menu}
+                // onPressLeft={() => navigation.toggleDrawer()}
                 hideRight={true}
                 customCenter={() => customCenter()}
             />

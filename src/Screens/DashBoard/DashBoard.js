@@ -53,6 +53,7 @@ import BottomSheet, { BottomSheetScrollView } from '@gorhom/bottom-sheet';
 import BidAcceptRejectCard from "../../Components/BidAcceptRejectCard";
 import PoolingSuggestionCard from "../../Components/PoolingSuggestionCard";
 import { appIds } from "../../utils/constants/DynamicAppKeys";
+import { colorArray } from "../../utils/constants/ConstantValues";
 
 var finalAllTasks = [];
 var finaltodayTasks = [];
@@ -73,7 +74,7 @@ export default function DashBoard({ route, navigation }) {
     notificationData
   } = useSelector((state) => state?.initBoot);
   const { isCabPooling, initialValue } = useSelector((state) => state?.auth) || {};
- 
+
   const ref = useRef(orderCallbackUrl);
   const bottomSheetRef = useRef(null);
 
@@ -736,7 +737,7 @@ export default function DashBoard({ route, navigation }) {
   };
 
   const renderTaskList = ({ item, index }) => {
-    
+
 
     return (
       <TouchableOpacity
