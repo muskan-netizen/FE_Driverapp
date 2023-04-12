@@ -60,7 +60,7 @@ const ShowNotificationForeground = props => {
         };
       }
 
-      console.log(displayNotificationData, "displayNotificationData.>>>>>")
+    
 
       await notifee.displayNotification(displayNotificationData);
 
