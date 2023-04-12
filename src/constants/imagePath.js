@@ -118,6 +118,8 @@ export default {
   ic_pinIcon: require("../assets/images/ic_pinIcon.png"),
   currentLocation: require("../assets/images/ic_current.png"),
   icRedChecked: require("../assets/images/ic_checked.png"),
+  icLocationPin_: require("../assets/images/ic_location_.png"),
+
 
   //mp4 videos
   flank: require('../assets/Flank.mp4'),

@@ -136,7 +136,7 @@ const GoToHome = ({ navigation }) => {
             longitude: val?.longitude,
             short_name: val?.address_type == 1 ? 'Home' : "Work",
             address: val?.address,
-            // post_code:,
+
         }
         actions.addAgentHomeAddress(apiData, {
             client: clientInfo?.database_name,

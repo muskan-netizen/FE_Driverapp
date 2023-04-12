@@ -461,6 +461,7 @@ const AddressBottomSheet = ({
   };
 
   const addressDone = (data) => {
+    onCloseSheet()
     updateAddress_(data);
   };
 

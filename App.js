@@ -1,11 +1,10 @@
-import 'react-native-gesture-handler';
+// import 'react-native-gesture-handler';
 import NetInfo from '@react-native-community/netinfo';
 import React, { useEffect, useState } from 'react';
 import FlashMessage from 'react-native-flash-message';
 import SplashScreen from 'react-native-splash-screen';
 import { getBundleId } from 'react-native-device-info';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-// import SplashScreen from 'react-native-splash-screen';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Button, Text, View } from 'react-native';
 import codePush from 'react-native-code-push';
@@ -245,12 +244,12 @@ const App = () => {
 
   return (
     <SafeAreaProvider>
-    
+
       <Provider store={store}>
-         <ShowNotificationForeground /> 
+        <ShowNotificationForeground />
         {progress ? progressView() : null}
         <Routes />
-        <NotificationModal /> 
+        <NotificationModal />
       </Provider>
       <Container
         width={width - 20}
@@ -259,7 +258,7 @@ const App = () => {
         positionValue={moderateScaleVertical(20)}
       />
       <FlashMessage position="top" />
-      <NoInternetModal show={!internetConnection} /> 
+      <NoInternetModal show={!internetConnection} />
     </SafeAreaProvider>
   );
 };
