@@ -1330,8 +1330,8 @@ const appIds = {
     android: 'com.Go.royodispatcher',
   }),
   baubau: Platform.select({
-    ios: 'com.Baubau.Dispatch',
-    android: 'com.Baubau.royodispatcher',
+    ios: 'com.bauBau.driver',
+    android: 'com.baubau.driver',
   }),
   bookaryde: Platform.select({
     ios: 'com.Bookaryde.Dispatch',
@@ -2100,8 +2100,8 @@ const appIds = {
     android: 'com.verz.royodispatcher',
   }),
   tiimo: Platform.select({
-    ios: 'com.tiimo.royodispatcher',
-    android: 'com.tiimo.royodispatcher',
+    ios: 'com.tiimo.driverApp',
+    android: 'com.tiimo.driverApp',
   }),
   carryFood: Platform.select({
     ios: 'com.carryFood.royodispatcher',
@@ -2325,7 +2325,7 @@ const appIds = {
   }),
   bukam: Platform.select({
     ios: 'com.bukam.royodispatcher',
-    android: 'com.bukam.royodispatcher',
+    android: 'com.bukam.driver',
   }),
   shopcart: Platform.select({
     ios: 'com.shopcart.royodispatcher',
@@ -2446,8 +2446,8 @@ const appIds = {
     android: 'com.weedlomo.royodispatcher',
   }),
   nGoal: Platform.select({
-    ios: 'com.ngoal.royodispatcher',
-    android: 'com.ngoal.royodispatcher',
+    ios: 'com.nGoal.driver',
+    android: 'com.nGoal.driver',
   }),
   tkaff: Platform.select({
     ios: 'com.tkaff.royodispatcher',
@@ -2458,8 +2458,8 @@ const appIds = {
     android: 'com.livraizoo.royodispatcher',
   }),
   boozeBrothers: Platform.select({
-    ios: 'com.boozeBrothers.royodispatcher',
-    android: 'com.boozeBrothers.royodispatcher',
+    ios: 'com.boozeBrothers.driver',
+    android: 'com.boozeBrothers.driver',
   }),
   readyToRent: Platform.select({
     ios: 'com.readyToRent.royodispatcher',

@@ -187,7 +187,7 @@ SplashScreen.hide();
         };
       }
 
-      let updatedShortCode = "76bf13";
+      let updatedShortCode = "773548";
 
 
       actions
