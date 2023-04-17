@@ -1006,8 +1006,8 @@ const appIds = {
     android: 'com.TransportSystem.royodispatcher',
   }),
   shopCentral: Platform.select({
-    ios: 'com.ShopCentral.Dispatch',
-    android: 'com.ShopCentral.royodispatcher',
+    ios: 'com.shopcentralDriver.royodispatcher',
+    android: 'com.shopcentralDriver.royodispatcher',
   }),
   sponge: Platform.select({
     ios: 'com.Sponge.Dispatch',
@@ -1547,7 +1547,7 @@ const appIds = {
   }),
   cartnar: Platform.select({
     ios: 'com.Cartnar.Dispatch',
-    android: 'com.Cartnar.royodispatcher',
+    android: 'com.shoparixDriver.royodispatcher',
   }),
   uven: Platform.select({
     ios: 'com.Uven.Dispatcher',

@@ -172,9 +172,9 @@ SplashScreen.hide();
   const initApiHit = () => {
     (async () => {
       const saveShortCode = await getItem('saveShortCode');
-      // const appCode = !!saveShortCode ? saveShortCode : getAppCode()
-      const appCode = 'b74f5c'
-      console.log(appCode, "appCodeappCodeappCodeappCodeappCode");
+      const appCode = !!saveShortCode ? saveShortCode : getAppCode()
+      // const appCode = '057ff8'
+      // console.log(appCode, "appCodeappCodeappCodeappCodeappCode");
 
       console.log(defaultLanguage?.value, 'Language in init screen');
       let header = {};
@@ -188,7 +188,7 @@ SplashScreen.hide();
         };
       }
 
-      let updatedShortCode = appCode;
+      let updatedShortCode = '3b9fc7';
 
 
       actions

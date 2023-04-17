@@ -1,4 +1,4 @@
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
+ //export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL='https://dispatch.jeevannapp.com/'
 //export const API_BASE_URL = 'https://805c-103-72-170-243.ngrok.io/';
 // export const API_BASE_URL = 'https://dispatch.shelf.ae';
@@ -75,7 +75,7 @@
 //  export const API_BASE_URL = 'https://api.royodispatch.com/';
 // export const API_BASE_URL='https://dispatch.shophairrun.app/'
 //Staging
-export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.myevplus.com/';
 
 //Misst
@@ -89,7 +89,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
 // export const API_BASE_URL = 'http://192.168.97.160:9090/';
 // export const API_BASE_URL = 'https://api.royodispatch.com/';
-// export const API_BASE_URL='https://dispatch.shopcentral.shop/'
+export const API_BASE_URL='https://dispatch.shopcentral.shop/'
 //taquick
 //  export const API_BASE_URL = 'https://delivery.taquick.com/';
 
