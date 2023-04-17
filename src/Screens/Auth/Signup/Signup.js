@@ -85,6 +85,7 @@ DeviceCountry.getCountryCode()
 
 export default function Signup({ route, navigation }) {
   const modalRef = useRef(null);
+
   const { clientInfo, defaultLanguage } = useSelector(state => state?.initBoot);
   var dummyTags = '';
   const [state, setState] = useState({
@@ -409,15 +410,15 @@ export default function Signup({ route, navigation }) {
         }
       });
     }
-   
+
     if (!isEmpty(addtionalTextInputs)) {
       addtionalTextInputs.map((i, inx) => {
-        console.log(i,inx,'inxxxx')
+        console.log(i, inx, 'inxxxx')
         if (i?.contents != '' && !!i?.contents) {
           formdata.append(`files_text[${inx}][file_type]`, i?.file_type);
           formdata.append(`files_text[${inx}][id]`, i?.id);
           formdata.append(
-            `files_text[${inx}][contents]`,i?.contents,
+            `files_text[${inx}][contents]`, i?.contents,
           );
           formdata.append(`files_text[${inx}][label_name]`, i?.name);
         }
@@ -1018,9 +1019,12 @@ export default function Signup({ route, navigation }) {
                 editable={true}
                 label={strings.FULLNAME}
                 value={fullName}
+                // autoFocus={true}
                 onChangeText={text => updateState({ fullName: text })}
                 labelStyle={styles.textInputlabel}
+                
               />
+            
 
               <View>
                 <Text style={styles.label2}>{strings.PHONENUMBER}</Text>
@@ -1271,7 +1275,7 @@ export default function Signup({ route, navigation }) {
                 }}>
                 <View>
                   {selectedTags?.length > 0 && (
-                    <View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
+                    <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
                       {selectedTags.map((item, index) => {
                         return (
                           <TouchableOpacity
@@ -1336,7 +1340,7 @@ export default function Signup({ route, navigation }) {
                     width: '100%',
                   }}>
                   {driverTagsAry?.length > 0 ? (
-                    <View style={{flexWrap: 'wrap', flexDirection: 'row'}}>
+                    <View style={{ flexWrap: 'wrap', flexDirection: 'row' }}>
                       {driverTagsAry.map((item, index) => {
                         return (
                           <TouchableOpacity
@@ -1431,7 +1435,7 @@ export default function Signup({ route, navigation }) {
 
             {!!(addtionalTextInputs && addtionalTextInputs?.length) &&
               addtionalTextInputs.map((item, index) => {
-              return getTextInputField(item, index);
+                return getTextInputField(item, index);
               })}
 
             {!isEmpty(additionalDateFields) &&

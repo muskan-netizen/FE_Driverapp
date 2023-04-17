@@ -1,292 +1,40 @@
 {
   "project_info": {
-    "project_number": "321141463013",
-    "project_id": "royo-dispatch-2",
-    "storage_bucket": "royo-dispatch-2.appspot.com"
+    "project_number": "1096946996956",
+    "project_id": "shop-central-driver",
+    "storage_bucket": "shop-central-driver.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:321141463013:android:90f2a7a3c38b646263810c",
+        "mobilesdk_app_id": "1:1096946996956:android:8967d8311078dac8898619",
         "android_client_info": {
-          "package_name": "com.Enext.royodispatcher"
+          "package_name": "com.shopcentralDriver.royodispatcher"
         }
       },
       "oauth_client": [
         {
-          "client_id": "321141463013-che1tlbilkj4praif2rh0r2ll6d5mp92.apps.googleusercontent.com",
+          "client_id": "1096946996956-4mdvlaii4qudjh043fo012b817f5p844.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBAyY8wdIdhq4seaIG7pWsSVMH9UpyOe0g"
+          "current_key": "AIzaSyBi0LzSkwQzIclOvoF3icknm1tO3_f3mTw"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "321141463013-che1tlbilkj4praif2rh0r2ll6d5mp92.apps.googleusercontent.com",
+              "client_id": "1096946996956-4mdvlaii4qudjh043fo012b817f5p844.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "321141463013-0oeie1i89niqiseqq3hlgnnk1gn3kdtu.apps.googleusercontent.com",
+              "client_id": "1096946996956-fjt1dpberqoebn5hb2h6bc7tlv4etftd.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.SamakeeMart.Dispatch"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:321141463013:android:2a3889bf184d06bb63810c",
-        "android_client_info": {
-          "package_name": "com.FoodNests.royodispatcher"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "321141463013-che1tlbilkj4praif2rh0r2ll6d5mp92.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBAyY8wdIdhq4seaIG7pWsSVMH9UpyOe0g"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "321141463013-che1tlbilkj4praif2rh0r2ll6d5mp92.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "321141463013-0oeie1i89niqiseqq3hlgnnk1gn3kdtu.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.SamakeeMart.Dispatch"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:321141463013:android:c5042c8d1364758763810c",
-        "android_client_info": {
-          "package_name": "com.GoMeat.royodispatcher"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "321141463013-che1tlbilkj4praif2rh0r2ll6d5mp92.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBAyY8wdIdhq4seaIG7pWsSVMH9UpyOe0g"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "321141463013-che1tlbilkj4praif2rh0r2ll6d5mp92.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "321141463013-0oeie1i89niqiseqq3hlgnnk1gn3kdtu.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.SamakeeMart.Dispatch"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:321141463013:android:47bf23cc8a9beb2263810c",
-        "android_client_info": {
-          "package_name": "com.SamakeeMart.royodispatcher"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "321141463013-che1tlbilkj4praif2rh0r2ll6d5mp92.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBAyY8wdIdhq4seaIG7pWsSVMH9UpyOe0g"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "321141463013-che1tlbilkj4praif2rh0r2ll6d5mp92.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "321141463013-0oeie1i89niqiseqq3hlgnnk1gn3kdtu.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.SamakeeMart.Dispatch"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:321141463013:android:03cefaab76d2a43663810c",
-        "android_client_info": {
-          "package_name": "com.Seaeats.royodispatcher"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "321141463013-che1tlbilkj4praif2rh0r2ll6d5mp92.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBAyY8wdIdhq4seaIG7pWsSVMH9UpyOe0g"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "321141463013-che1tlbilkj4praif2rh0r2ll6d5mp92.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "321141463013-0oeie1i89niqiseqq3hlgnnk1gn3kdtu.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.SamakeeMart.Dispatch"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:321141463013:android:b50cf477eb5c607e63810c",
-        "android_client_info": {
-          "package_name": "com.ShopCentral.royodispatcher"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "321141463013-che1tlbilkj4praif2rh0r2ll6d5mp92.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBAyY8wdIdhq4seaIG7pWsSVMH9UpyOe0g"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "321141463013-che1tlbilkj4praif2rh0r2ll6d5mp92.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "321141463013-0oeie1i89niqiseqq3hlgnnk1gn3kdtu.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.SamakeeMart.Dispatch"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:321141463013:android:834ac81d65285efa63810c",
-        "android_client_info": {
-          "package_name": "com.Sponge.royodispatcher"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "321141463013-che1tlbilkj4praif2rh0r2ll6d5mp92.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBAyY8wdIdhq4seaIG7pWsSVMH9UpyOe0g"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "321141463013-che1tlbilkj4praif2rh0r2ll6d5mp92.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "321141463013-0oeie1i89niqiseqq3hlgnnk1gn3kdtu.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.SamakeeMart.Dispatch"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:321141463013:android:080a1dbd358c904663810c",
-        "android_client_info": {
-          "package_name": "com.TransportSystem.royodispatcher"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "321141463013-che1tlbilkj4praif2rh0r2ll6d5mp92.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBAyY8wdIdhq4seaIG7pWsSVMH9UpyOe0g"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "321141463013-che1tlbilkj4praif2rh0r2ll6d5mp92.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "321141463013-0oeie1i89niqiseqq3hlgnnk1gn3kdtu.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.SamakeeMart.Dispatch"
+                "bundle_id": "com.shopcentralDriver.royodispatcher"
               }
             }
           ]

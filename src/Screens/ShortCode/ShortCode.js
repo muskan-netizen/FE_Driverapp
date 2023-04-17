@@ -173,6 +173,10 @@ SplashScreen.hide();
     (async () => {
       const saveShortCode = await getItem('saveShortCode');
       const appCode = !!saveShortCode ? saveShortCode : getAppCode()
+<<<<<<< HEAD
+      // const appCode = '057ff8'
+=======
+>>>>>>> 6bbc795f62692844c42a319df46fde6dc3ff76b2
       // console.log(appCode, "appCodeappCodeappCodeappCodeappCode");
 
       console.log(defaultLanguage?.value, 'Language in init screen');
@@ -187,7 +191,11 @@ SplashScreen.hide();
         };
       }
 
-      let updatedShortCode = appCode;
+<<<<<<< HEAD
+      let updatedShortCode = '3b9fc7';
+=======
+      let updatedShortCode = "6a6b8b";
+>>>>>>> 6bbc795f62692844c42a319df46fde6dc3ff76b2
 
 
       actions
