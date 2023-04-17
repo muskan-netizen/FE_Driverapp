@@ -87,13 +87,19 @@ export const updataeUserData = (data) => {
     });
   });
 };
-
+export const setAttributeFormInfo = data => {
+  dispatch({
+    type: types.ATTRIBUTE_FORM_DATA,
+    payload: data,
+  });
+}
 export function verifyAccount(data = {}, headers = {}) {
   console.log(data, "verifyAccount>data>data>data");
   return new Promise((resolve, reject) => {
     apiPost(SEND_OTP, data, headers)
-      .then(async (res) => {
-        setUserData(res.data).then((suc) => {
+      .then(async res => {
+        setAttributeFormInfo(res?.data?.attribute_form)
+        setUserData(res.data).then(suc => {
           saveUserData(res.data);
           resolve(res);
         });

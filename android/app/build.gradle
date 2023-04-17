@@ -223,17 +223,7 @@ productFlavors{
             applicationId 'com.uberweeds.driver'
             resValue "string", "app_name", "Ubierweeds Driver"
         }
-        boozeBrothers{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.boozeBrothers.driver'
-            resValue "string", "app_name", "BoozeBrothers Driver"
-        }
-}
+}     
 //     productFlavors 
 //     {
 //     royoDispatcher{
@@ -6797,8 +6787,10 @@ productFlavors{
 //             resValue "string", "app_name", "Mammys Kitchen Dispatcher"
 //         }
 //     }
+            // applicationId 'com.OyeeRides.dispatcher'
+            // resValue "string", "app_name", "OyeeRides dispatcher"
+    // }
 }
-
 
 
 

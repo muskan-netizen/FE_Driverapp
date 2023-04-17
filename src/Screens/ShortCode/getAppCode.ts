@@ -366,7 +366,7 @@ export const getAppCode = () => {
         case appIds.perucabs: return shortCodes.perucabs
         case appIds.hafizjwlry: return shortCodes.hafizjwlry
         case appIds.jana: return shortCodes.jana
-        case appIds.myWayBill: return shortCodes.myWayBill
+        case appIds.brilApp: return shortCodes.brilApp
         case appIds.cattch: return shortCodes.cattch
         case appIds.tezras: return shortCodes.tezras
         case appIds.eureka: return shortCodes.eureka
@@ -522,6 +522,7 @@ export const getAppCode = () => {
         case appIds.rBRiders: return shortCodes.rBRiders
         case appIds.karis: return shortCodes.karis
         case appIds.mammysKitchen: return shortCodes.mammysKitchen
+        case appIds.japaConnect: return shortCodes.japaConnect
         default: return '1da2e9'
     }
 }

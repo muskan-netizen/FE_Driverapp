@@ -1,8 +1,9 @@
 //  export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL='https://dispatch.mygreenhippo.com/'
 //  export const API_BASE_URL='https://dispatch.westvirginiahub.com/'
 // export const API_BASE_URL ='https://dispatch.baubau.app/'
 // export const API_BASE_URL='https://dispatch.bukam.app/'
-export const API_BASE_URL='https://dispatch.ubierweeds.com/'
+// export const API_BASE_URL='https://dispatch.ubierweeds.com/'
 // export const API_BASE_URL='https://dispatch.ubierweeds.com/'
 // export const API_BASE_URL='https://dispatch.ngoalapp.com/'
 // export const API_BASE_URL='https://dispatch.jeevannapp.com/'
@@ -149,6 +150,9 @@ export const API_BASE_URL='https://dispatch.ubierweeds.com/'
 // halatalabat
 // export const API_BASE_URL = ' https://dispatch.halatalabat.com/'
 
+// brilApp
+// export const API_BASE_URL = 'https://dispatch.brilapp.com/'
+
 //amazingTaxi
 // export const API_BASE_URL = 'https://dispatch.rhondaisamazingtaxi.com/'
 
@@ -266,7 +270,7 @@ export const API_BASE_URL='https://dispatch.ubierweeds.com/'
 // export const API_BASE_URL = 'https://dispatch.onscart.com/';
 //Pickmeup
 // export const API_BASE_URL = 'https://pickmeup.royodispatch.com/';
-// export const API_BASE_URL = 'http://192.168.101.187:8001/'; // preet local url
+// export const API_BASE_URL = 'https://artemis-dispatch.netsolutionindia.com/'; // preet local url
 // export const API_BASE_URL = 'http://192.168.102.23:8005/'; // Gourav.s local url
 // export const API_BASE_URL = 'http://192.168.97.104:8010/'; // Sujata.s local url
 // export const API_BASE_URL = 'http://192.168.101.187:8001/';
@@ -613,6 +617,13 @@ export const GET_CAB_POOLING_SUGGESTION = getApiUrl(
 
 //razorpay url end point'
 export const CREATERAZORPAYDETAIL = getApiUrl('api/create-razorpay-details');
+
+//Go to home
+
+export const UPDATE_GO_TO_HOME_STATUS = getApiUrl('api/agent/update-go-to-home-address-status');
+export const AGENT_HOME_ADDRESSES = getApiUrl('api/agent/home-address');
+export const ADD_AGENT_HOME_ADDRESS = getApiUrl('api/agent/add-home-address');
+export const SET_AGENT_PRIMARY_ADDRESS = getApiUrl('api/agent/home-address-status');
 export const CREATERAZORPAYADDFUND = getApiUrl('api/create-razorpay-add-funds');
 
 // bide requestes 

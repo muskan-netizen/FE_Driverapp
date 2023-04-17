@@ -6,9 +6,7 @@ import {
   FlatList,
   Image,
   Linking,
-  RefreshControl,
-  SectionList,
-  Switch,
+  RefreshControl, Switch,
   Text,
   View,
 } from 'react-native';
@@ -20,7 +18,7 @@ import WrapperContainer from '../../Components/WrapperContainer';
 import imagePath from '../../constants/imagePath';
 import actions from '../../redux/actions';
 // import store from '../../redux/store';
-import { useFocusEffect } from "@react-navigation/native";
+import { useFocusEffect, useIsFocused } from "@react-navigation/native";
 import { Platform, TouchableOpacity } from "react-native";
 import DeviceInfo, { getBundleId } from "react-native-device-info";
 import MapView, { Marker, PROVIDER_GOOGLE, PROVIDER_DEFAULT } from "react-native-maps"; // remove PROVIDER_GOOGLE import if not using Google Maps
@@ -49,24 +47,23 @@ navigator.geolocation = require('react-native-geolocation-service');
 import socketServices from '../../utils/scoketService';
 // import BackgroundTimer from 'react-native-background-timer';
 import BackgroundGeolocation from "@darron1217/react-native-background-geolocation";
-import { chekLocationPermission } from "../../utils/permissions";
-import { colorArray } from "../../utils/constants/ConstantValues";
 import generateBoxShadowStyle from "../../Components/generateBoxShadowStyle";
-import { appIds } from "../../utils/constants/DynamicAppKeys";
-import PoolingSuggestionCard from "../../Components/PoolingSuggestionCard";
 import GradientButton from "../../Components/GradientButton";
 import BottomSheet, { BottomSheetScrollView } from '@gorhom/bottom-sheet';
 import BidAcceptRejectCard from "../../Components/BidAcceptRejectCard";
+import PoolingSuggestionCard from "../../Components/PoolingSuggestionCard";
+import { appIds } from "../../utils/constants/DynamicAppKeys";
+import { colorArray } from "../../utils/constants/ConstantValues";
 
 var finalAllTasks = [];
 var finaltodayTasks = [];
 
 export default function DashBoard({ route, navigation }) {
-  const userData = useSelector((state) => state?.auth?.userData) || {};
+  const { userData } = useSelector((state) => state?.auth || {});
+  const { attributeFormData } = useSelector(state => state?.initBoot || {});
   const defaultLanguagae = useSelector(
     state => state?.initBoot?.defaultLanguage,
   );
-
   const {
     clientInfo,
     sessionLogoutUser,
@@ -77,7 +74,7 @@ export default function DashBoard({ route, navigation }) {
     notificationData
   } = useSelector((state) => state?.initBoot);
   const { isCabPooling, initialValue } = useSelector((state) => state?.auth) || {};
- 
+
   const ref = useRef(orderCallbackUrl);
   const bottomSheetRef = useRef(null);
 
@@ -179,7 +176,9 @@ export default function DashBoard({ route, navigation }) {
 
 
   useEffect(() => {
-    const backHandler = BackHandler.addEventListener("hardwareBackPress", () => true
+    const backHandler = BackHandler.addEventListener(
+      "hardwareBackPress",
+      () => true
     );
     return () => backHandler.remove();
   }, []);
@@ -474,6 +473,7 @@ export default function DashBoard({ route, navigation }) {
     );
   };
 
+
   //get all tasks
   const getTasks = () => {
     actions
@@ -737,7 +737,7 @@ export default function DashBoard({ route, navigation }) {
   };
 
   const renderTaskList = ({ item, index }) => {
-    
+
 
     return (
       <TouchableOpacity

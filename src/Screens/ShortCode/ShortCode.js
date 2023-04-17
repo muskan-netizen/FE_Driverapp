@@ -187,15 +187,15 @@ SplashScreen.hide();
         };
       }
 
-      let updatedShortCode = "773548";
+      let updatedShortCode = "6a6b8b";
 
 
       actions
         .initApp({ shortCode: updatedShortCode }, header)
         .then(res => {
-          if (getBundleId() == appIds.royoorder && res?.data) {
-            actions.saveShortCode(updatedShortCode);
-          }
+          // if (getBundleId() == appIds.royoorder && res?.data) {
+          //   actions.saveShortCode(updatedShortCode);
+          // }
           actions.saveShortCode(updatedShortCode);
           console.log(res, 'res>res>resv');
           updateState({
