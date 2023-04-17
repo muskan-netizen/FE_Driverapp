@@ -1,4 +1,4 @@
- export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL='https://dispatch.jeevannapp.com/'
 //export const API_BASE_URL = 'https://805c-103-72-170-243.ngrok.io/';
 // export const API_BASE_URL = 'https://dispatch.shelf.ae';
@@ -415,6 +415,8 @@
 
 // Delivery
 // export const API_BASE_URL = 'https://gdotdelivery.com/'
+//medipick
+export const API_BASE_URL = 'https://medipick-dispatch.netsolutionindia.com/'
 // mobi
 //bimol
 // export const API_BASE_URL = 'https://dispatch.bimol.in/';
