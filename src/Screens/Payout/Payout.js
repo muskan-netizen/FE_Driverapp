@@ -741,7 +741,7 @@ export default function AddMoney({ navigation }) {
           ref={bottomSheetRef}
           index={1}
           // key={isOpen}
-          snapPoints={['0%', connectWithBank ? '100%' : '30%']}
+          snapPoints={['10%', connectWithBank ? '100%' : '30%']}
           activeOffsetY={[-1, 1]}
           failOffsetX={[-5, 5]}
           animateOnMount={true}

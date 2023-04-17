@@ -30,7 +30,7 @@ export default function (state = initial_state, action) {
 
 
     default: {
-      return {...state};
+      return { ...state };
     }
   }
 }

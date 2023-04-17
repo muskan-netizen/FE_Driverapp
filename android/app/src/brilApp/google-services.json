@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "358622964282",
+    "project_id": "brilapp-driver",
+    "storage_bucket": "brilapp-driver.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:358622964282:android:97e24b67530f75d293a303",
+        "android_client_info": {
+          "package_name": "com.brillApp.driver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "358622964282-0505675ev50u5jeb45t1j78rjsb4bipl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA723G06aiT87ZJw9Pzhog1QpRBo8IrxAQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "358622964282-0505675ev50u5jeb45t1j78rjsb4bipl.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "358622964282-3gqasbu09gqp3hmntkgekgh2f97gpqco.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.brillApp.driver"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

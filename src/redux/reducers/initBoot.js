@@ -1,4 +1,4 @@
-import {getColorCodeWithOpactiyNumber} from '../../utils/helperFunctions';
+import { getColorCodeWithOpactiyNumber } from '../../utils/helperFunctions';
 import types from '../types';
 
 const initial_state = {
@@ -42,7 +42,8 @@ const initial_state = {
   fcmToken: null,
   shortCode: null,
   zendeskKeys: {},
-
+  attributeFormData: [],
+  currentLocation:{}
   //internetConnection: false,
 };
 
@@ -57,7 +58,7 @@ export default function (state = initial_state, action) {
     }
     case types.NO_INTERNET: {
       const internetConnection = action.payload;
-      return {...state, internetConnection};
+      return { ...state, internetConnection };
     }
     case types.MODAL_VISIBLE_ACCEPT_REJECT: {
       const data = action.payload;
@@ -111,11 +112,19 @@ export default function (state = initial_state, action) {
         zendeskKeys: data,
       };
     }
+    case types.CURRENT_LOCATION: {
+      const data = action.payload;
+      return { ...state, currentLocation: data };
+    }
+
+    case types.ATTRIBUTE_FORM_DATA: {
+      return { ...state, attributeFormData: action.payload };
+    }
 
    
 
     default: {
-      return {...state};
+      return { ...state };
     }
   }
 }

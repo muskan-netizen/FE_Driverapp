@@ -202,32 +202,31 @@ android {
     }
 
      flavorDimensions "appType"
-
 productFlavors{
-        shopCentral{
+       baubau{
+            dimension "appType"
+            versionCode 2
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.baubau.driver'
+            resValue "string", "app_name", "Baubau Workers"
+        }
+         uberWeeds{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId "com.shopcentralDriver.royodispatcher"
-            resValue "string", "app_name", "Shop Central Dispatch"
+            applicationId 'com.uberweeds.driver'
+            resValue "string", "app_name", "Ubierweeds Driver"
         }
-                cartnar{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.shoparixDriver.royodispatcher'
-            resValue "string", "app_name", "Cartnar Dispatcher"
-        }
-}
+}     
 //     productFlavors 
 //     {
-//     {
+//     royoDispatcher{
 //             dimension "appType"
 //             versionCode 1
 //             versionName "1.0"
@@ -3484,13 +3483,13 @@ productFlavors{
 //         }
 //             baubau{
 //             dimension "appType"
-//             versionCode 1
+//             versionCode 2
 //             versionName "1.0"
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.Baubau.royodispatcher'
-//             resValue "string", "app_name", "BauBau Dispatcher"
+//             applicationId 'com.baubau.driver'
+//             resValue "string", "app_name", "Baubau Workers"
 //         }
 //          heyBuddy{
 //             dimension "appType"
@@ -5519,7 +5518,7 @@ productFlavors{
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.tiimo.royodispatcher'
+//             applicationId 'com.tiimo.driverApp'
 //             resValue "string", "app_name", "Tiimo Driver"
 //         }
 //          carryFood{
@@ -5669,7 +5668,7 @@ productFlavors{
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.uberWeeds.royodispatcher'
+//             applicationId 'com.uberweeds.driver'
 //             resValue "string", "app_name", "Uber Weeds Dispatcher"
 //         }
 //          stabex{
@@ -6089,8 +6088,8 @@ productFlavors{
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.bukam.royodispatcher'
-//             resValue "string", "app_name", "Bukam Dispatcher"
+//             applicationId 'com.bukam.driver'
+//             resValue "string", "app_name", "Bukam Driver"
 //         }
 //         shopcart{
 //             dimension "appType"
@@ -6389,8 +6388,8 @@ productFlavors{
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.ngoal.royodispatcher'
-//             resValue "string", "app_name", "Ngoal Dispatcher"
+//             applicationId 'com.nGoal.driver'
+//             resValue "string", "app_name", "NGoal Driver"
 //         }
 // tkaff{
 //             dimension "appType"
@@ -6419,8 +6418,8 @@ productFlavors{
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.boozeBrothers.royodispatcher'
-//             resValue "string", "app_name", "BoozeBrothers Dispatcher"
+//             applicationId 'com.boozeBrothers.driver'
+//             resValue "string", "app_name", "BoozeBrothers Driver"
 //         }
 // readyToRent{
 //             dimension "appType"
@@ -6785,11 +6784,13 @@ productFlavors{
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
 //             applicationId 'com.mammysKitchen.driver'
-//             resValue "string", "app_name", "Mammy's Kitchen Dispatcher"
+//             resValue "string", "app_name", "Mammys Kitchen Dispatcher"
 //         }
 //     }
+            // applicationId 'com.OyeeRides.dispatcher'
+            // resValue "string", "app_name", "OyeeRides dispatcher"
+    // }
 }
-
 
 
 

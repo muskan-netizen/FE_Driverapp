@@ -1,5 +1,4 @@
 import 'react-native-gesture-handler';
-import 'react-native-reanimated';
 import {AppRegistry} from 'react-native';
 import App from './App';
 import {name as appName} from './app.json';
@@ -30,7 +29,7 @@ messaging().setBackgroundMessageHandler(async remoteMessage => {
       } else {
         console.log(' hey i am here');
         actions.isModalVisibleForAcceptReject({
-          isModalVisibleForAcceptReject: true,
+          isModalVisibleForAcceptReject: notificationType =='bid_ride_request' ?false : true,
           notificationData: remoteMessage,
         });
       }

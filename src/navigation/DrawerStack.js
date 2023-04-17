@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import CustomDrawerContent from '../Components/CustomDrawerContent';
 import imagePath from '../constants/imagePath';
 import strings from '../constants/lang';
-import { ChatRoom, ContactUs, Settings } from '../Screens';
+import { ChatRoom, ContactUs, GoToHome, Settings } from '../Screens';
 import DamageReport from '../Screens/DamageReport/DamageReport';
 import Reimbursement from '../Screens/Reimbursement/Reimbursement';
 import colors from '../styles/colors';
@@ -32,17 +32,19 @@ export default function DrawerRoutes(props) {
         headerShown: false,
         swipeEnabled: true,
         gestureEnabled: true,
+        
         // drawerPosition: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'right' : 'left',
         drawerPosition: 'left',
         drawerStyle: {
           paddingTop: moderateScaleVertical(width / 6),
+        
         },
       }}
       // hideStatusBar={true}
-
+      
       drawerStyle={{ width: '75%', backgroundColor: colors.blueHeaderColor }}
       drawerContent={props => <CustomDrawerContent {...props} />}
-      >
+    >
       <Drawer.Screen
         component={TaskStack}
         name={navigationStrings.TASKSTACK}
@@ -155,7 +157,7 @@ export default function DrawerRoutes(props) {
         component={ContactUs}
         name={navigationStrings.CONTACTUS}
         options={{
-          
+
           drawerLabel: strings.SETTING,
           drawerIcon: ({ focused }) => (
             <Image
@@ -165,7 +167,7 @@ export default function DrawerRoutes(props) {
           ),
         }}
       />
-        <Drawer.Screen
+      <Drawer.Screen
         component={SubscriptionStack}
         name={navigationStrings.SUBSCRIPTION_STACK}
         options={{
@@ -179,7 +181,21 @@ export default function DrawerRoutes(props) {
         }}
       />
 
-      
+      <Drawer.Screen
+        component={GoToHome}
+        name={navigationStrings.GO_TO_HOME}
+        options={{
+
+          drawerLabel: strings.GO_TO_HOME,
+          drawerIcon: ({ focused }) => (
+            <Image
+              style={{ tintColor: focused ? colors.blackShade2 : colors.grey2 }}
+              source={imagePath.settingsIcon}
+            />
+          ),
+        }}
+      />
+
 
     </Drawer.Navigator>
   );
