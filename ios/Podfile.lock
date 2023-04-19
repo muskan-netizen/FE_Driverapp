@@ -1,5 +1,5 @@
 PODS:
-  - "@darron1217_react-native-background-geolocation (0.6.7)":
+  - "@darron1217_react-native-background-geolocation (0.6.6)":
     - React
   - Base64 (1.1.2)
   - boost-for-react-native (1.63.0)
@@ -122,7 +122,7 @@ PODS:
   - Permission-LocationWhenInUse (3.8.0):
     - RNPermissions
   - PromisesObjC (2.2.0)
-  - razorpay-pod (1.3.1)
+  - razorpay-pod (1.2.5)
   - RCT-Folly (2021.04.26.00):
     - boost-for-react-native
     - DoubleConversion
@@ -493,7 +493,7 @@ PODS:
     - React-Core
   - RNReactNativeHapticFeedback (1.14.0):
     - React-Core
-  - RNReanimated (2.15.0):
+  - RNReanimated (2.10.0):
     - DoubleConversion
     - FBLazyVector
     - FBReactNativeSpec
@@ -574,6 +574,7 @@ DEPENDENCIES:
   - Permission-Camera (from `../node_modules/react-native-permissions/ios/Camera`)
   - Permission-LocationAlways (from `../node_modules/react-native-permissions/ios/LocationAlways`)
   - Permission-LocationWhenInUse (from `../node_modules/react-native-permissions/ios/LocationWhenInUse`)
+  - razorpay-pod (= 1.2.5)
   - RCT-Folly (from `../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec`)
   - RCTRequired (from `../node_modules/react-native/Libraries/RCTRequired`)
   - RCTTypeSafety (from `../node_modules/react-native/Libraries/TypeSafety`)
@@ -848,7 +849,7 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
-  "@darron1217_react-native-background-geolocation": b3f6e99ce034b3c80bd4135f7914c8c5f3b660bb
+  "@darron1217_react-native-background-geolocation": e86cafdfc219f37c5399b782c2aad1b3723c8228
   Base64: cecfb41a004124895a7bcee567a89bae5a89d49b
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   BVLinearGradient: 34a999fda29036898a09c6a6b728b0b4189e1a44
@@ -878,7 +879,7 @@ SPEC CHECKSUMS:
   Permission-LocationAlways: 4fde3fdfcf79e085ad0bef4b87e0d245d11db397
   Permission-LocationWhenInUse: de86d090048cfc4234078eabb381529724d847dd
   PromisesObjC: 09985d6d70fbe7878040aa746d78236e6946d2ef
-  razorpay-pod: 1ca021af16022084c1b368be9f030a4931f1e5f8
+  razorpay-pod: aa2df076ea44baab6cc8296c1ccc715fe2ca818c
   RCT-Folly: 0dd9e1eb86348ecab5ba76f910b56f4b5fef3c46
   RCTRequired: 655e18b89b599c17ee55d288359f96d5600c9004
   RCTTypeSafety: 6eb5f6ebeac6a9e448d1c8a802a48a4e8ffce178
@@ -901,11 +902,7 @@ SPEC CHECKSUMS:
   react-native-geolocation: 205c5f619aea7bd54067b7b51e0781cae2f37151
   react-native-geolocation-service: 608e1da71a1ac31b4de64d9ef2815f697978c55b
   react-native-google-maps: 34517207071d54f3bc23c68752bbec0217bfc79e
-<<<<<<< HEAD
   react-native-google-places: 5eee94892d3dc8c9d07c4af35feb60ab5953933f
-=======
-  react-native-google-places: 23515e23ec6993dfbc56efdd11aff7f954e076cc
->>>>>>> 9810474802887f11edccccb8190d766853695330
   react-native-maps: a421fe6aeb74279597c4ea9598f25796108e2d89
   react-native-netinfo: 0981b7054d93cf88d3ce1e279c34423ae3db1182
   react-native-otp-verify: 7993f49574998816464a375569810c3529dac145
@@ -929,7 +926,6 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: 5ebf1c985947ea684140fe8431b5b4921c2960c1
   ReactCommon: 3a88b42affa0809e2524f978700a22841b04a421
   ReactNativeDarkMode: 0178ffca3b10f6a7c9f49d6f9810232b328fa949
-<<<<<<< HEAD
   ReactNativeLocalization: be60e3a0e6e8db88d9f8190719ffb75e1cdab22a
   RegulaCommon: 149b3792b364d5e8fd3b8cc1dfe3d232a495e3cd
   rn-fetch-blob: f065bb7ab7fb48dd002629f8bdcb0336602d3cba
@@ -938,33 +934,17 @@ SPEC CHECKSUMS:
   RNCPushNotificationIOS: 4a7aac5430e7a1e997b21f4fa4db224127606e5a
   RNDeviceInfo: af47a7d1a09d64c8cbb8b0c883db9bca422a9813
   RNFaceApi: b8338883281cb3042df21a14ac553c5257fef912
-=======
-  ReactNativeLocalization: 076497d7ca70341c751cd3b3e7c86187332a182d
-  RegulaCommon: 149b3792b364d5e8fd3b8cc1dfe3d232a495e3cd
-  rn-fetch-blob: f065bb7ab7fb48dd002629f8bdcb0336602d3cba
-  RNCAsyncStorage: b90b71f45b8b97be43bc4284e71a6af48ac9f547
-  RNCClipboard: 41d8d918092ae8e676f18adada19104fa3e68495
-  RNCPushNotificationIOS: 64218f3c776c03d7408284a819b2abfda1834bc8
-  RNDeviceInfo: aad3c663b25752a52bf8fce93f2354001dd185aa
-  RNFaceApi: 59179d39c5bcfc9f586a43facbc41d322ddb1826
->>>>>>> 9810474802887f11edccccb8190d766853695330
   RNFastImage: 5c9c9fed9c076e521b3f509fe79e790418a544e8
   RNFBApp: 729c0666395b1953198dc4a1ec6deb8fbe1c302e
   RNFBMessaging: 8415ec196e5c1196caa26ec0742cdb48ed4d0f97
   RNFS: 4ac0f0ea233904cb798630b3c077808c06931688
   RNGestureHandler: a479ebd5ed4221a810967000735517df0d2db211
   RNImageCropPicker: 73891a709e6fd8a47d32104d942757971f220aee
-<<<<<<< HEAD
   RNLocalize: 8748f9ecd059ee9b7baa5f58af3233165f1a3130
   RNNotifee: 5155e0a5e0a97d0c839030d8192783cd63053999
   RNPermissions: 320825772cceb2fba9ae9dfa3e010c7fea15f3ca
-=======
-  RNLocalize: d4b8af4e442d4bcca54e68fc687a2129b4d71a81
-  RNNotifee: 5155e0a5e0a97d0c839030d8192783cd63053999
-  RNPermissions: 215c54462104b3925b412b0fb3c9c497b21c358b
->>>>>>> 9810474802887f11edccccb8190d766853695330
   RNReactNativeHapticFeedback: 1e3efeca9628ff9876ee7cdd9edec1b336913f8c
-  RNReanimated: 4b04f9aae6a47574b0d06ade9ebf64c8ecebdded
+  RNReanimated: 297665fc9f18101ff029e80d789d65ddd34bf44a
   RNScreens: 218801c16a2782546d30bd2026bb625c0302d70f
   RNSVG: 53c661b76829783cdaf9b7a57258f3d3b4c28315
   RNZendeskChat: 5a73a4353497c0670f81e30f06d45e183d0137aa
@@ -984,6 +964,6 @@ SPEC CHECKSUMS:
   ZendeskMessagingSDK: 95d396c981dacfab83cc7b9736e8561d51a3052b
   ZendeskSDKConfigurationsSDK: ebced171fd1f4eb57760e8537d8cfa6a450122be
 
-PODFILE CHECKSUM: 6554aa81c49ab09ecd0872ae5e251f026032261e
+PODFILE CHECKSUM: 2641727da03d8996a68da249a49ac28074abdaef
 
 COCOAPODS: 1.11.3

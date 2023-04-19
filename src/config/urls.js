@@ -10,7 +10,7 @@
 
 
 // export const API_BASE_URL = 'https://dispatch.10dollahollla.com/';
-// export const API_BASE_URL='http://192.168.101.104:9091/'
+//  export const API_BASE_URL='http://192.168.102.30:8000/'
 // export const API_BASE_URL='https://dispatch.ullaz.co.ke/'
 // export const API_BASE_URL = 'https://dispatch.sta.ug/';
 // export const API_BASE_URL='http://192.168.102.169:8000/'
@@ -25,7 +25,7 @@
 // //Staging
 // export const API_BASE_URL='https://dispatch.ubierweeds.com/'
 // export const API_BASE_URL='https://dispatch.vduonline.co.in/'
-//export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 //  export const API_BASE_URL = 'https://dispatch.destinationops.com/';
 //  export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL='https://dispatch.vduonline.co.in/'
@@ -416,7 +416,7 @@
 // Delivery
 // export const API_BASE_URL = 'https://gdotdelivery.com/'
 //medipick
-export const API_BASE_URL = 'https://medipick-dispatch.netsolutionindia.com/'
+//export const API_BASE_URL = 'https://medipick-dispatch.netsolutionindia.com/'
 // mobi
 //bimol
 // export const API_BASE_URL = 'https://dispatch.bimol.in/';
