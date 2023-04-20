@@ -32,10 +32,14 @@ const TaskListCard = ({
   isFromHistory = false,
 }) => {
 
+
+
   const localTimeInTimeStamp = moment.utc(data?.order?.order_time, 'YYYY-MM-DD HH:mm:ss').unix()
+
+
   const localTimeOfOrder = new Date(localTimeInTimeStamp * 1000)
   var deadline = moment(localTimeOfOrder).add(data?.order?.order_pre_time > 0 ? data?.order?.order_pre_time : 30, 'm').toDate();
-
+  //console.log(deadline,data?.order,"localTimeOfOrderlocalTimeOfOrderlocalTimeOfOrder");
 
   const [orderPerpationTime, setOrderPerpationTime] = useState({})
   const [isOrderPrepartionTimeExpired, setIsOrderPrepartionTimeExpired] = useState(true)

@@ -1,22 +1,22 @@
-import {callingCountries} from 'country-data';
-import {Alert, Animated, Image, BackHandler} from 'react-native';
-import {showMessage} from 'react-native-flash-message';
+import { callingCountries } from 'country-data';
+import { Alert, Animated, Image, BackHandler } from 'react-native';
+import { showMessage } from 'react-native-flash-message';
 import Geocoder from 'react-native-geocoder';
 import Geolocation from 'react-native-geolocation-service';
 import imagePath from '../constants/imagePath';
-import {Toast} from '../library/toastify-react-native';
+import { Toast } from '../library/toastify-react-native';
 import * as NavigationService from '../navigation/NavigationService';
 import navigationStrings from '../navigation/navigationStrings';
 import store from '../redux/store';
 import types from '../redux/types';
 import colors from '../styles/colors';
 import fontFamily from '../styles/fontFamily';
-import {textScale} from '../styles/responsiveSize';
+import { textScale } from '../styles/responsiveSize';
 import actions from '../redux/actions';
 import strings from './../constants/lang/index';
-import {setUserData} from './utils';
+import { setUserData } from './utils';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
-import {API_BASE_URL} from '../config/urls';
+import { API_BASE_URL } from '../config/urls';
 
 const getCurrentLocation = type =>
   new Promise((resolve, reject) => {
@@ -45,20 +45,20 @@ const getCurrentLocation = type =>
       error => {
         reject(error.message);
       },
-      {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
+      { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 },
     );
   });
 
 const getLocation = async (lat, lng, type) => {
   if (type == 'home') {
     try {
-      let res = await Geocoder.geocodePosition({lat, lng});
+      let res = await Geocoder.geocodePosition({ lat, lng });
       let addr = res[0].formattedAddress;
       return addr;
-    } catch (err) {}
+    } catch (err) { }
   } else if (type == 'address') {
     try {
-      let res = await Geocoder.geocodePosition({lat, lng});
+      let res = await Geocoder.geocodePosition({ lat, lng });
 
       let addr = res[0].formattedAddress;
 
@@ -84,7 +84,7 @@ const getLocation = async (lat, lng, type) => {
       };
 
       return data;
-    } catch (err) {}
+    } catch (err) { }
   }
 };
 
@@ -213,7 +213,7 @@ const androidBackButtonHandler = () => {
       onPress: () => null,
       style: 'cancel',
     },
-    {text: strings.YES, onPress: () => BackHandler.exitApp()},
+    { text: strings.YES, onPress: () => BackHandler.exitApp() },
   ]);
   return true;
 };
@@ -328,7 +328,7 @@ export const getScaleTransformationStyle = (
     outputRange: [startSize, endSize],
   });
   return {
-    transform: [{scale: interpolation}],
+    transform: [{ scale: interpolation }],
   };
 };
 
@@ -445,6 +445,17 @@ const hapticEffects = {
 export const getSubDomain = url => {
   return url.split('/')[3];
 };
+export const showhideNotificationModal = (notificationType) => {
+
+  switch (notificationType) {
+    case 'bid_ride_request':
+      return false
+    case 'delay_time':
+      return false
+    default:
+      return true
+  }
+}
 
 export {
   hapticEffects,

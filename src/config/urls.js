@@ -25,7 +25,7 @@
 // //Staging
 // export const API_BASE_URL='https://dispatch.ubierweeds.com/'
 // export const API_BASE_URL='https://dispatch.vduonline.co.in/'
-export const API_BASE_URL = 'https://api.rdstaging.com/';
+//export const API_BASE_URL = 'https://api.rdstaging.com/';
 //  export const API_BASE_URL = 'https://dispatch.destinationops.com/';
 //  export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL='https://dispatch.vduonline.co.in/'
@@ -501,7 +501,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.quicklube.us/'
 
 // sxm2Go
-//  export const API_BASE_URL = 'https://dispatch.sxm2go.com/';
+  export const API_BASE_URL = 'https://dispatch.sxm2go.com/';
 
 // export const personaltoken = 'TMJdbQlNWkYl1JzMONzRgF4zQFuP8s';
 
