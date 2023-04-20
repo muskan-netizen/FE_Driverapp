@@ -35,7 +35,7 @@ import {
   initStripe,
   StripeProvider,
 } from '@stripe/stripe-react-native';
-import {useDarkMode} from 'react-native-dark-mode';
+import {useDarkMode} from 'react-native-dynamic';
 
 export default function AddMoney({navigation}) {
   const {clientInfo, themeColor, themeToggle} = useSelector(

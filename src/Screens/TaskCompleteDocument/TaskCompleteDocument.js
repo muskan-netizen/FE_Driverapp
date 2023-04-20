@@ -1,14 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { Platform } from 'react-native';
-import { Keyboard } from 'react-native';
+import React, { useCallback, useEffect, useState } from 'react';
 import {
-  Dimensions,
-  Image,
-  Text,
+  Alert, Dimensions, FlatList, Image, Keyboard, Platform, Text,
   TextInput,
   TouchableOpacity,
-  View,
-  Alert,
+  View
 } from 'react-native';
 import RNFS from 'react-native-fs';
 import { useSelector } from 'react-redux';
@@ -21,6 +16,20 @@ import strings from '../../constants/lang';
 import navigationStrings from '../../navigation/navigationStrings';
 import actions from '../../redux/actions';
 // import store from '../../redux/store';
+import FaceSDK, {
+  Enum,
+  FaceCaptureResponse, Image as FaceImage, MatchFacesRequest, MatchFacesResponse
+} from '@regulaforensics/react-native-face-api-beta';
+import { cloneDeep, isEmpty } from 'lodash';
+import moment from 'moment';
+import { getBundleId } from 'react-native-device-info';
+import { Dropdown } from 'react-native-element-dropdown';
+import FastImage from 'react-native-fast-image';
+import ImagePicker from 'react-native-image-crop-picker';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import RNFetchBlob from 'rn-fetch-blob';
+import DatePickerModal from '../../Components/DatePickerModal';
+import ModalView from '../../Components/Modal';
 import colors from '../../styles/colors';
 import commonStylesFunc, { hitSlopProp } from '../../styles/commonStyles';
 import fontFamily from '../../styles/fontFamily';
@@ -28,34 +37,18 @@ import {
   moderateScale,
   moderateScaleVertical,
   textScale,
-  width,
+  width
 } from '../../styles/responsiveSize';
-import { cameraHandler } from '../../utils/commonFunction';
+import { cameraHandler, checkValueExistInAry } from '../../utils/commonFunction';
+import { appIds } from '../../utils/constants/DynamicAppKeys';
+import { getAllTravelDetails } from '../../utils/googlePlaceApi';
 import { showError, showSuccess } from '../../utils/helperFunctions';
+import { openCamera } from '../../utils/imagePicker';
 import {
   checkCameraPermission,
-  chekLocationPermission,
+  chekLocationPermission
 } from '../../utils/permissions';
 import stylesFunc from './styles';
-import ImagePicker from 'react-native-image-crop-picker';
-import FaceSDK, {
-  Enum,
-  FaceCaptureResponse,
-  LivenessResponse,
-  MatchFacesResponse,
-  MatchFacesRequest,
-  Image as FaceImage,
-} from '@regulaforensics/react-native-face-api-beta';
-import RNFetchBlob from 'rn-fetch-blob';
-import { showMessage } from 'react-native-flash-message';
-import { openCamera } from '../../utils/imagePicker';
-import { useFocusEffect } from '@react-navigation/native';
-import { isEmpty, update } from 'lodash';
-import { getDistance, getPreciseDistance } from 'geolib';
-import ModalView from '../../Components/Modal';
-import { getAllTravelDetails } from '../../utils/googlePlaceApi';
-import { appIds } from '../../utils/constants/DynamicAppKeys';
-import { getBundleId } from 'react-native-device-info';
 navigator.geolocation = require('react-native-geolocation-service');
 
 var image1 = new FaceImage();
@@ -66,9 +59,10 @@ const window = Dimensions.get('window');
 let pressedItem = {};
 export default function TaskCompleteDocument({ route, navigation }) {
   const userData = useSelector(state => state?.auth?.userData);
+  const { clientInfo, attributeFormData } = useSelector(state => state?.initBoot);
+
   const taskDetail = route?.params?.data?.taskDetail;
   const updatedProofArray = route?.params?.data?.updatedProofArray;
-  console.log(taskDetail, 'taskDetailtaskDetailtaskDetail');
   const findDataToCheck = route?.params?.data?.findDataToCheck;
   const params = route?.params;
   const [state, setState] = useState({
@@ -125,9 +119,21 @@ export default function TaskCompleteDocument({ route, navigation }) {
     isShowQrCodeVendor,
     qrCodeVendorDetail,
   } = state;
+  const [isLoadingSubmitAttributes, setLoadingSubmitAttributes] = useState(false)
+  const [attributeInfo, setAttributeInfo] = useState([])
+  const [isDatePicker, setIsDatePicker] = useState(false)
+  const [selectedDateItem, setSelectedDateItem] = useState({})
+  const [selectedDate, setSelectedDate] = useState(new Date())
+
+
+  useEffect(() => {
+    const attributeFormDataNew = cloneDeep(attributeFormData)
+    setAttributeInfo(attributeFormDataNew)
+  }, [taskDetail?.tasktype?.name])
+
+
   const commonStyles = commonStylesFunc({ fontFamily });
   const updateState = data => setState(state => ({ ...state, ...data }));
-  const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
 
   const defaultLanguagae = useSelector(
     state => state?.initBoot?.defaultLanguage,
@@ -352,7 +358,19 @@ export default function TaskCompleteDocument({ route, navigation }) {
                 });
             },
           },
-
+          {
+            text: 'Use camera',
+            onPress: () => {
+              openCamera()
+                .then(res =>
+                  updateState({
+                    isLoading: false,
+                    image: res?.path || res?.path,
+                  }),
+                )
+                .catch(error => updateState({ isLoading: false }));
+            },
+          },
         ],
         { cancelable: true },
       );
@@ -491,9 +509,33 @@ export default function TaskCompleteDocument({ route, navigation }) {
   };
 
   const updateTaskStatus = (isClear = false) => {
-    let data = {};
     let formdata = new FormData();
+    if (userData?.client_preference?.is_show_attribute_form_toggle) {
+      let apiObj = {};
+      attributeInfo.map((item, index) => {
+        let optionData = [];
+        item?.option?.map((item, inx) => {
+          optionData[inx] = {
+            option_id: item?.id,
+            option_title: item?.title,
+          };
+        });
+        if (item?.values) {
+          apiObj[item?.id] = {
+            type: item?.type,
+            id: item?.id,
+            attribute_title: item?.title,
+            option: optionData,
+            value: item?.values,
+          };
+          if (item?.type == 6) {
+            formdata.append(`attribute_data_images_${item?.id}[]`, item?.values[0]);
+          }
+        }
 
+      });
+      formdata.append('attribute_data', JSON.stringify(apiObj));
+    }
     formdata.append('task_status', 4);
     formdata.append('clear_bag', isClear ? 1 : 0);
     formdata.append('task_id', taskDetail?.id);
@@ -540,7 +582,7 @@ export default function TaskCompleteDocument({ route, navigation }) {
         ContentType: 'multipart/form-data',
       })
       .then(res => {
-        console.log(res, 'updateTaskStatus>>>DATA');
+        // actions.setAttributeFormInfo([])
         if (isClear) {
           showSuccess(res?.message);
           navigation.navigate(navigationStrings.DASHBOARD);
@@ -574,8 +616,7 @@ export default function TaskCompleteDocument({ route, navigation }) {
       .catch(errorMethod);
   };
 
-  /******Face detection *********/
-  const faceDetection = () => { };
+
 
   const pickImage = first => {
     Alert.alert(
@@ -694,7 +735,6 @@ export default function TaskCompleteDocument({ route, navigation }) {
     );
   };
 
-  console.log(taskDetail, 'taskDetailtaskDetailtaskDetailtaskDetail');
 
   const completeAllTask = () => {
     if (
@@ -716,6 +756,283 @@ export default function TaskCompleteDocument({ route, navigation }) {
       isModalVisible: false,
     });
   };
+
+
+  const onChangeText = (text, item) => {
+    const attributeInfoData = [...attributeInfo];
+    let indexOfAttributeToUpdate = attributeInfoData.findIndex(
+      (itm) => itm?.id == item?.id,
+    );
+    attributeInfoData[indexOfAttributeToUpdate].values = [text];
+    setAttributeInfo(attributeInfoData);
+  };
+
+  const onChangeDropDownOption = (value, item) => {
+    const attributeInfoData = [...attributeInfo];
+    let indexOfAttributeToUpdate = attributeInfoData.findIndex(
+      (itm) => itm?.id == item?.id,
+    );
+    attributeInfoData[indexOfAttributeToUpdate].values = value;
+    setAttributeInfo(attributeInfoData);
+  };
+
+
+  const onPressRadioButton = (item) => {
+    const attributeInfoData = [...attributeInfo];
+    let indexOfAttributeToUpdate = attributeInfoData.findIndex(
+      (itm) => itm?.id == item?.attribute_id,
+    );
+    attributeInfoData[indexOfAttributeToUpdate].values = [item?.id];
+    setAttributeInfo(attributeInfoData);
+  };
+  const onPressCheckBoxes = (value, data) => {
+    const attributeInfoData = [...attributeInfo];
+    let indexOfAttributeToUpdate = attributeInfoData.findIndex(
+      (itm) => itm?.id == value?.attribute_id,
+    );
+    if (!isEmpty(data?.values)) {
+      let existingItmIndx = data?.values.findIndex((itm) => itm == value.id);
+      if (existingItmIndx == -1) {
+        attributeInfoData[indexOfAttributeToUpdate].values = [
+          ...data?.values,
+          value?.id,
+        ];
+      } else {
+        let index = attributeInfoData[indexOfAttributeToUpdate].values.indexOf(
+          value?.id,
+        );
+        if (index >= 0) {
+          attributeInfoData[indexOfAttributeToUpdate].values.splice(index, 1);
+        }
+      }
+    } else {
+      attributeInfoData[indexOfAttributeToUpdate].values = [value?.id];
+    }
+    setAttributeInfo(attributeInfoData);
+  };
+
+
+  const onImagePicker =
+    (item) => {
+      Alert.alert(
+        'Select option',
+        '',
+        [
+          {
+            text: 'Use gallery',
+            onPress: () => {
+              cameraHandler(1, {
+                cropping: false,
+                compressImageQuality: 0.1,
+                cropperCircleOverlay: false,
+                mediaType: 'photo',
+              })
+                .then((res) => setImageData(res, item))
+                .catch(err => {
+
+                });
+            },
+          },
+          {
+            text: 'Use camera',
+            onPress: () => {
+              openCamera()
+                .then((res) => setImageData(res, item))
+                .catch(error => {
+                });
+            },
+          },
+        ],
+        { cancelable: true },
+      )
+
+    }
+
+  const setImageData = (res, item) => {
+    const attributeInfoData = [...attributeInfo];
+    let indexOfAttributeToUpdate = attributeInfoData.findIndex(
+      (itm) => itm?.id == item?.id,
+    );
+
+    attributeInfoData[indexOfAttributeToUpdate].values = [{
+      type: res?.mime,
+      uri: res?.path,
+      image_id: Math.random(),
+      name: res?.filename ? res?.filename : 'unknown',
+    }];
+    setAttributeInfo(attributeInfoData);
+  }
+
+
+  const ImageForm = ({ data, index }) => {
+    return <TouchableOpacity onPress={() => onImagePicker(data, index)} style={{
+      paddingHorizontal: moderateScale(6)
+    }} >
+      <FastImage source={!isEmpty(data?.values) ? { uri: data?.values[0]?.uri, priority: FastImage.priority.high, } : imagePath.icImgPlaceholder} style={{
+        height: moderateScaleVertical(100),
+        width: "100%",
+      }} resizeMode={!isEmpty(data?.values) ? "cover" : "contain"} />
+      {
+        !isEmpty(data?.values) && <TouchableOpacity onPress={() => {
+          const attributeInfoData = [...attributeInfo];
+          attributeInfoData[index].values = []
+          setAttributeInfo(attributeInfoData)
+        }} hitSlop={hitSlopProp} style={{
+          position: "absolute",
+          zIndex: 1,
+          right: -5,
+          top: -10
+        }}>
+          <Image source={imagePath.ic_cross} style={{
+            tintColor: colors.redB
+          }} />
+        </TouchableOpacity>
+      }
+    </TouchableOpacity>
+  }
+
+  const DateView = ({ data, index }) => {
+    return <TouchableOpacity onPress={() => {
+      setIsDatePicker(true)
+      setSelectedDateItem(data)
+    }} style={{
+      height: moderateScaleVertical(40),
+      backgroundColor: colors.blackOpacity10,
+      borderRadius: moderateScale(6),
+      justifyContent: "center",
+      paddingHorizontal: moderateScale(10)
+    }}><Text style={{
+      fontFamily: fontFamily.regular,
+      fontSize: textScale(12)
+    }}>{!isEmpty(data?.values) ? moment(data?.values[0]).format("YYYY-MM-DD") : "Select Date"}</Text></TouchableOpacity>
+  }
+
+  const renderAttributeOptions = useCallback(
+    ({ item, index }) => {
+      return (
+        <View>
+          <Text
+            style={{
+              ...styles.attributeTitle,
+              marginBottom: moderateScaleVertical(6),
+            }}>
+            {item?.title}
+          </Text>
+          {item?.type == 1 ? (
+            <Dropdown
+              style={styles.multiSelect}
+              labelField="title"
+              valueField="id"
+              value={!isEmpty(item?.values) ? item?.values : []}
+              data={item?.option}
+              onChange={(value) => onChangeDropDownOption(value, item)}
+              placeholder={strings.SELECT_VALUE}
+              fontFamily={fontFamily.regular}
+              placeholderStyle={styles.multiSelectPlaceholder}
+            />
+          ) : item?.type == 3 ? (
+            <View style={styles.radioBtn}>
+              {item?.option?.map((itm, indx) =>
+                renderRadioBtns(itm, item, indx),
+              )}
+            </View>
+          ) : item?.type == 4 ? (
+            <TextInput
+              placeholder={strings.TYPE_HERE}
+              onChangeText={(text) => onChangeText(text, item)}
+              style={styles.textInput}
+            />
+          ) : item?.type == 6 ? <ImageForm data={item} index={index} /> : item?.type == 7 ? <DateView data={item} index={index} /> : (
+            <View style={styles.checkBox}>
+              {item?.option?.map((itm, index) =>
+                renderDatePicker(itm, item, index),
+              )}
+            </View>
+          )}
+        </View>
+      );
+    },
+    [attributeInfo],
+  );
+  const renderCheckBoxes = useCallback(
+    (item, data, index) => {
+      return (
+        <TouchableOpacity
+          key={String(index)}
+          onPress={() => onPressCheckBoxes(item, data)}
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            marginRight: moderateScale(20),
+            marginBottom: moderateScaleVertical(10),
+          }}>
+          <Image
+            source={
+              checkValueExistInAry(item, data?.values)
+                ? imagePath.checkBox2Active
+                : imagePath.checkBox2InActive
+            }
+            style={{
+              tintColor: checkValueExistInAry(item, data?.values)
+                ? colors.themeColor
+                : colors.blackOpacity43,
+            }}
+          />
+          <Text
+            style={{
+              fontFamily: fontFamily.regular,
+              fontSize: textScale(12),
+              marginLeft: moderateScale(6),
+            }}>
+            {item?.title}
+          </Text>
+        </TouchableOpacity>
+      );
+    },
+    [attributeInfo],
+  );
+
+  const renderRadioBtns = useCallback(
+    (item, data, index) => {
+      return (
+        <TouchableOpacity
+          key={String(index)}
+          onPress={() => onPressRadioButton(item)}
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            marginRight: moderateScale(20),
+          }}>
+          <Image
+            source={
+              !isEmpty(data?.values) && data?.values[0] == item?.id
+                ? imagePath.icActiveRadio
+                : imagePath.icInActiveRadio
+            }
+            style={{
+              tintColor:
+                !isEmpty(data?.values) && data?.values[0] == item?.id
+                  ? colors.themeColor
+                  : colors.blackOpacity43,
+            }}
+          />
+          <Text
+            style={{
+              fontFamily: fontFamily.regular,
+              fontSize: textScale(14),
+              marginLeft: moderateScale(6),
+            }}>
+            {item?.title}
+          </Text>
+        </TouchableOpacity>
+      );
+    },
+    [attributeInfo],
+  );
+
+  const renderDatePicker = (item, mainItem, index) => {
+
+  }
 
   const qrVendorModalView = () => {
     return (
@@ -853,6 +1170,25 @@ export default function TaskCompleteDocument({ route, navigation }) {
     );
   };
 
+
+  const _onCloseModal = () => {
+    setIsDatePicker(false)
+  }
+
+  const onDateChange = (value) => {
+    setSelectedDate(value)
+  }
+
+  const onDateSelectDone = () => {
+    const attributeInfoData = [...attributeInfo];
+    let indexOfAttributeToUpdate = attributeInfoData.findIndex(
+      (itm) => itm?.id == selectedDateItem?.id,
+    );
+    attributeInfoData[indexOfAttributeToUpdate].values = [selectedDate];
+    setAttributeInfo(attributeInfoData);
+    _onCloseModal()
+  }
+
   return (
     <WrapperContainer
       statusBarColor={colors.white}
@@ -872,141 +1208,174 @@ export default function TaskCompleteDocument({ route, navigation }) {
         )}
       />
       <View style={{ ...commonStyles.headerTopLine }} />
-      <View style={{ flex: 0.8 }}>
-        {!!params?.data?.otpEnabled && (
-          <View style={styles.otpContainer}>
-            <Text style={styles.attachment}>{strings.OTP}</Text>
-            <TextInput
-              multiline={true}
-              value={otpField}
-              textAlignVertical={'top'}
-              returnKeyType={'done'}
-              maxLength={6}
-              keyboardType={'numeric'}
-              style={[
-                styles.textInputStyle,
-                {
-                  width: width / 3.5,
-                  marginHorizontal: moderateScale(10),
-                  alignItems: 'center',
-                  paddingVertical: moderateScale(10),
-                },
-              ]}
-              onChangeText={text => updateState({ otpField: text })}
-              onSubmitEditing={() => Keyboard.dismiss()}
-            />
-          </View>
-        )}
+      <KeyboardAwareScrollView keyboardShouldPersistTaps={"handled"}>
+        <View style={{ flex: 0.8 }}>
+          {!!params?.data?.otpEnabled && (
+            <View style={styles.otpContainer}>
+              <Text style={styles.attachment}>{strings.OTP}</Text>
+              <TextInput
+                multiline={true}
+                value={otpField}
+                textAlignVertical={'top'}
+                returnKeyType={'done'}
+                maxLength={6}
+                keyboardType={'numeric'}
+                style={[
+                  styles.textInputStyle,
+                  {
+                    width: width / 3.5,
+                    marginHorizontal: moderateScale(10),
+                    alignItems: 'center',
+                    paddingVertical: moderateScale(10),
+                  },
+                ]}
+                onChangeText={text => updateState({ otpField: text })}
+                onSubmitEditing={() => Keyboard.dismiss()}
+              />
+            </View>
+          )}
 
-        {!!(
-          params?.data?.updatedProofArray &&
-          params?.data?.updatedProofArray.length
-        ) && (
-            <View>
-              {console.log(taskProofArray, 'taskProofArray>>>>taskProofArray')}
-              <View style={styles.documentContainer}>
-                <Text style={styles.attachment}>{strings.ATTACHMENTS}</Text>
-                <View style={styles.documentListContainer}>
-                  {taskProofArray.map((i, inx) => {
-                    const { width, height } = Image.resolveAssetSource(
-                      i?.imagePath,
-                    );
+          {!!(
+            params?.data?.updatedProofArray &&
+            params?.data?.updatedProofArray.length
+          ) && (
+              <View style={{
 
-                    return (
-                      <TouchableOpacity
-                        activeOpacity={1}
-                        onPress={() => onPressCategory(i)}
-                        style={styles.documentContainerView}>
-                        <Image
-                          source={getImage(i)}
-                          onLayout={onImageLayout}
-                          style={{
-                            width: width - 40,
-                            height: height - 40, //362 is actual height of image
-                            // alignSelf: 'center',
-                          }}
-                          resizeMode={'contain'}
-                        />
-                        <Text style={styles.titleStyle}>{i?.title}</Text>
-                      </TouchableOpacity>
-                    );
-                  })}
+              }}>
+                <View style={styles.documentContainer}>
+                  <Text style={styles.attachment}>{strings.ATTACHMENTS}</Text>
+                  <View style={styles.documentListContainer}>
+                    {taskProofArray.map((i, inx) => {
+                      const { width, height } = Image.resolveAssetSource(
+                        i?.imagePath,
+                      );
+
+                      return (
+                        <TouchableOpacity
+                          activeOpacity={1}
+                          onPress={() => onPressCategory(i)}
+                          style={styles.documentContainerView}>
+                          <Image
+                            source={getImage(i)}
+                            onLayout={onImageLayout}
+                            style={{
+                              width: width - 40,
+                              height: height - 40, //362 is actual height of image
+                              // alignSelf: 'center',
+                            }}
+                            resizeMode={'contain'}
+                          />
+                          <Text style={styles.titleStyle}>{i?.title}</Text>
+                        </TouchableOpacity>
+                      );
+                    })}
+                  </View>
                 </View>
-              </View>
-              {showInputBox && (
-                <View>
-                  <Text style={styles.reason}>{strings.NOTE}</Text>
-                  <TextInput
-                    multiline={true}
-                    value={note}
-                    textAlignVertical={'top'}
-                    returnKeyType={'done'}
-                    style={styles.textInputStyle}
-                    onChangeText={text => updateState({ note: text })}
-                    onSubmitEditing={() => Keyboard.dismiss()}
-                  />
-                </View>
-              )}
-
-              <View
-                style={{
-                  marginHorizontal: moderateScale(10),
-                  marginTop: moderateScale(10),
-                }}>
-                {/* <Text style={styles.attachment}>{strings.REQUIREDDATA}</Text> */}
+                {showInputBox && (
+                  <View>
+                    <Text style={styles.reason}>{strings.NOTE}</Text>
+                    <TextInput
+                      multiline={true}
+                      value={note}
+                      textAlignVertical={'top'}
+                      returnKeyType={'done'}
+                      style={styles.textInputStyle}
+                      onChangeText={text => updateState({ note: text })}
+                      onSubmitEditing={() => Keyboard.dismiss()}
+                    />
+                  </View>
+                )}
 
                 <View
                   style={{
-                    flexDirection: 'row',
-                    flexWrap: 'wrap',
+                    marginHorizontal: moderateScale(10),
+                    marginTop: moderateScale(10),
                   }}>
-                  {/* signature image */}
-                  {!!signatureImage && (
-                    <Image
-                      source={{
-                        uri: signatureImage,
-                      }}
-                      style={{
-                        width: width / 3.5,
-                        height: width / 3.5, //362 is actual height of image
-                      }}
-                    />
-                  )}
+                  {/* <Text style={styles.attachment}>{strings.REQUIREDDATA}</Text> */}
 
-                  {/* image */}
-                  {!!image && (
-                    <Image
-                      source={{
-                        uri: image,
-                      }}
-                      style={{
-                        width: width / 3.5,
-                        height: width / 3.5, //362 is actual height of image
-                      }}
-                    />
-                  )}
+                  <View
+                    style={{
+                      flexDirection: 'row',
+                      flexWrap: 'wrap',
+                    }}>
+                    {/* signature image */}
+                    {!!signatureImage && (
+                      <Image
+                        source={{
+                          uri: signatureImage,
+                        }}
+                        style={{
+                          width: width / 3.5,
+                          height: width / 3.5, //362 is actual height of image
+                        }}
+                      />
+                    )}
 
-                  {/* faceImage */}
-                  {!!faceImage && (
-                    <Image
-                      source={{
-                        uri: faceImage.uri,
-                      }}
-                      style={{
-                        width: width / 3.5,
-                        height: width / 3.5, //362 is actual height of image
-                      }}
-                    />
-                  )}
+                    {/* image */}
+                    {!!image && (
+                      <Image
+                        source={{
+                          uri: image,
+                        }}
+                        style={{
+                          width: width / 3.5,
+                          height: width / 3.5, //362 is actual height of image
+                        }}
+                      />
+                    )}
+
+                    {/* faceImage */}
+                    {!!faceImage && (
+                      <Image
+                        source={{
+                          uri: faceImage.uri,
+                        }}
+                        style={{
+                          width: width / 3.5,
+                          height: width / 3.5, //362 is actual height of image
+                        }}
+                      />
+                    )}
+                  </View>
                 </View>
               </View>
+            )}
+          {
+            !!userData?.client_preference?.is_show_attribute_form_toggle &&
+            <View style={styles.documentContainer}>
+              {!isEmpty(attributeInfo) && <Text style={styles.attachment}>Task Additional Documents</Text>}
+              <View
+                style={{
+                  marginTop: moderateScaleVertical(16),
+                  marginHorizontal: moderateScale(12)
+                }}>
+                <FlatList
+                  data={attributeInfo}
+                  keyboardShouldPersistTaps={'handled'}
+                  scrollEnabled={false}
+                  keyExtractor={(item, index) => String(index)}
+                  ItemSeparatorComponent={() => (
+                    <View
+                      style={{
+                        height: moderateScaleVertical(18),
+                      }}
+                    />
+                  )}
+                  renderItem={renderAttributeOptions}
+                />
+                <View style={{ height: moderateScaleVertical(65) }} />
+              </View>
             </View>
-          )}
-      </View>
+          }
+        </View>
+        <View style={{ flex: 0.2, paddingVertical: moderateScale(20) }}>
+          <ButtonComponent buttonTitle={strings.DONE} onPress={completeAllTask} />
+        </View>
+      </KeyboardAwareScrollView>
 
-      <View style={{ flex: 0.2, paddingVertical: moderateScale(20) }}>
-        <ButtonComponent buttonTitle={strings.DONE} onPress={completeAllTask} />
-      </View>
+
+
+
       <ModalView isVisible={isModalVisible} modalMainContent={modalMainView} />
       <ModalView
         isVisible={isShowQrCodeVendor}
@@ -1015,6 +1384,14 @@ export default function TaskCompleteDocument({ route, navigation }) {
           paddingTop: 0,
           flex: 0.45,
         }}
+      />
+      <DatePickerModal
+        isVisible={isDatePicker}
+        onclose={_onCloseModal}
+        onSelectDate={onDateSelectDone}
+        onDateChange={onDateChange}
+        date={selectedDate}
+        mode="date"
       />
     </WrapperContainer>
   );

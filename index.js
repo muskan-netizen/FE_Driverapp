@@ -1,5 +1,4 @@
 import 'react-native-gesture-handler';
-import 'react-native-reanimated';
 import {AppRegistry} from 'react-native';
 import App from './App';
 import {name as appName} from './app.json';
@@ -9,12 +8,13 @@ import actions from './src/redux/actions';
 import {Platform} from 'react-native';
 import {navigate} from './src/navigation/NavigationService';
 import navigationStrings from './src/navigation/navigationStrings';
+import { showhideNotificationModal } from './src/utils/helperFunctions';
 
 // Register background handler
 messaging().setBackgroundMessageHandler(async remoteMessage => {
   console.log('Message handled in the background!', remoteMessage);
   const {data, messageId, notification} = remoteMessage;
-  let notificationType = data?.type ? data?.type : data?.notificationType;
+  let notificationType = data?.type || data?.notificationType || 'AR';
   if (
     Platform.OS == 'android' &&
     notification?.android?.sound == 'notification'
@@ -30,7 +30,7 @@ messaging().setBackgroundMessageHandler(async remoteMessage => {
       } else {
         console.log(' hey i am here');
         actions.isModalVisibleForAcceptReject({
-          isModalVisibleForAcceptReject: notificationType =='bid_ride_request' ?false : true,
+          isModalVisibleForAcceptReject: showhideNotificationModal(notificationType),
           notificationData: remoteMessage,
         });
       }

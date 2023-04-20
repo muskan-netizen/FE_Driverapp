@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {useDarkMode} from 'react-native-dark-mode';
+import {useDarkMode} from 'react-native-dynamic';
 import {useSelector} from 'react-redux';
 import FooterLoader from '../../Components/FooterLoader';
 import {loaderOne} from '../../Components/Loaders/AnimatedLoaderFiles';

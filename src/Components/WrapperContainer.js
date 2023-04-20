@@ -6,7 +6,7 @@ import Loader from './Loader';
 import {defaultLoader} from '../Components/Loaders/AnimatedLoaderFiles';
 import {useSelector} from 'react-redux';
 import {moderateScale, moderateScaleVertical} from '../styles/responsiveSize';
-import {useDarkMode} from 'react-native-dark-mode';
+import {useDarkMode} from 'react-native-dynamic';
 import {MyDarkTheme} from '../styles/theme';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import strings from '../constants/lang';

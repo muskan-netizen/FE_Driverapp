@@ -16,13 +16,10 @@ const BidAcceptRejectCard = ({
   _onDeclineBid=()=>{}
 }) => {
   
-console.log(data,"data for bid");
-
-
-  const allBidLocations = data?.tasks.replace(/'/g, '"')
 
 
 
+const allBidLocations = data?.tasks.replace(/'/g, '"')
 
   const renderDotContainer = () => {
     return (

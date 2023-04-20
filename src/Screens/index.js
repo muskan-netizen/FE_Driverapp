@@ -25,5 +25,6 @@ export {default as Subscriptions } from './Subscriptions/Subscriptions';
 export {default as ChatScreen} from './ChatScreen/ChatScreen';
 export {default as ChatRoom} from './ChatRoom/ChatRoom';
 export {default as DriverTraking} from './DriverTraking/DriverTraking';
+export { default as GoToHome } from './GoToHome/GoToHome';
 
 

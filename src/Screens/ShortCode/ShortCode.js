@@ -172,9 +172,9 @@ SplashScreen.hide();
   const initApiHit = () => {
     (async () => {
       const saveShortCode = await getItem('saveShortCode');
-      // const appCode = !!saveShortCode ? saveShortCode : getAppCode()
-       const appCode = '745e3f'
-      console.log(appCode, "appCodeappCodeappCodeappCodeappCode");
+      const appCode = !!saveShortCode ? saveShortCode : getAppCode()
+    //  const appCode = '773548'
+      // console.log(appCode, "appCodeappCodeappCodeappCodeappCode");
 
       console.log(defaultLanguage?.value, 'Language in init screen');
       let header = {};
@@ -194,9 +194,9 @@ SplashScreen.hide();
       actions
         .initApp({ shortCode: updatedShortCode }, header)
         .then(res => {
-          if (getBundleId() == appIds.royoorder && res?.data) {
-            actions.saveShortCode(updatedShortCode);
-          }
+          // if (getBundleId() == appIds.royoorder && res?.data) {
+          //   actions.saveShortCode(updatedShortCode);
+          // }
           actions.saveShortCode(updatedShortCode);
           console.log(res, 'res>res>resv');
           updateState({

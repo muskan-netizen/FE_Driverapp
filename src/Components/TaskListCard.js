@@ -32,6 +32,8 @@ const TaskListCard = ({
   isFromHistory = false,
 }) => {
   const localTimeInTimeStamp = moment.utc(data?.order?.order_time, 'YYYY-MM-DD HH:mm:ss').unix()
+
+
   const localTimeOfOrder = new Date(localTimeInTimeStamp * 1000)
   const orderTimeWithBufferTime = data?.order?.order_pre_time > 0 
   ?  Number(data?.order?.order_pre_time)
@@ -134,7 +136,7 @@ const TaskListCard = ({
   }
 
 
-  if (getBundleId() != appIds.SXM2GO) {
+  if (getBundleId() == appIds.SXM2GO) {
     useInterval(() => {
       const { total, days, hours,
         minutes,
@@ -201,7 +203,7 @@ const TaskListCard = ({
         }}>
 
         <View style={styles.mainContainer}>
-          {!isFromHistory && data?.task_type_id == 1 && appIds.SXM2GO != getBundleId() && orderPerpationTime &&
+          {!isFromHistory && data?.task_type_id == 1 && appIds.SXM2GO == getBundleId() && orderPerpationTime &&
             <>
               <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', }}>
                 <View >
