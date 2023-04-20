@@ -193,6 +193,7 @@ android {
 
     // applicationVariants are e.g. debug, release
     applicationVariants.all { variant ->
+    variant.resValue "string", "mauron85_bgloc_account_type", "${variant.applicationId}.mauron85.bgloc.account"
         variant.resValue "string", "mauron85_bgloc_content_authority", "${variant.applicationId}.com.marianhello.app.mauron85.bgloc.provider.devbuild"
         variant.outputs.each { output ->
             // For each separate APK per architecture, set a unique version code as described here:
