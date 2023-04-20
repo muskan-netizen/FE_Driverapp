@@ -172,8 +172,8 @@ SplashScreen.hide();
   const initApiHit = () => {
     (async () => {
       const saveShortCode = await getItem('saveShortCode');
-     // const appCode = !!saveShortCode ? saveShortCode : getAppCode()
-      const appCode = '773548'
+      const appCode = !!saveShortCode ? saveShortCode : getAppCode()
+    //  const appCode = '773548'
       // console.log(appCode, "appCodeappCodeappCodeappCodeappCode");
 
       console.log(defaultLanguage?.value, 'Language in init screen');
