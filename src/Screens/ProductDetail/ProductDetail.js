@@ -10,7 +10,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {useDarkMode} from 'react-native-dark-mode';
+import {useDarkMode} from 'react-native-dynamic';
 import DeviceInfo from 'react-native-device-info';
 import HTMLView from 'react-native-htmlview';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';

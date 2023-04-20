@@ -6849,7 +6849,7 @@ dependencies {
   implementation "com.google.android.gms:play-services-base:16.0.1"
   
     implementation "com.google.android.gms:play-services-location:20.0.0"
-    compile project(':@darron1217_react-native-background-geolocation')
+    compile project(':@hariks789_react-native-background-geolocation')
 
     implementation fileTree(dir: "libs", include: ["*.jar"])
     //noinspection GradleDynamicVersion

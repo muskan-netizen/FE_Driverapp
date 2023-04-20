@@ -1,7 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
-import { AppearanceProvider } from 'react-native-appearance';
+// import { AppearanceProvider } from 'react-native-appearance';
 import { useSelector } from 'react-redux';
 import ShortCode from '../Screens/ShortCode/ShortCode';
 import { navigationRef } from './NavigationService';
@@ -43,7 +43,6 @@ export default function Routes() {
   // const {shortCodeStatus, appStyle} = useSelector(state => state?.initBoot);
 
   return (
-    <AppearanceProvider>
       <NavigationContainer
         // theme={scheme == 'dark' ? DarkTheme : DefaultTheme}
         ref={navigationRef}>
@@ -61,6 +60,5 @@ export default function Routes() {
 
         </Stack.Navigator>
       </NavigationContainer>
-    </AppearanceProvider>
   );
 }
