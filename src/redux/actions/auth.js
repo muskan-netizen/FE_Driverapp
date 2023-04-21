@@ -271,17 +271,17 @@ export function acceptBideRequest(URL, data = {}, headers = {}) {
       });
   });
 }
-export function declineBideRequest(data = {}, headers = {}) {
-  return new Promise((resolve, reject) => {
-    apiPost(DECLINEBIDEREQUESTS, data, headers)
-      .then(async (res) => {
-        resolve(res);
-      })
-      .catch((error) => {
-        reject(error);
-      });
-  });
-}
+// export function declineBideRequest(data = {}, headers = {}) {
+//   return new Promise((resolve, reject) => {
+//     apiPost(DECLINEBIDEREQUESTS, data, headers)
+//       .then(async (res) => {
+//         resolve(res);
+//       })
+//       .catch((error) => {
+//         reject(error);
+//       });
+//   });
+// }
 
 export function acceptdeclineBideRequest(data = {}, headers = {}) {
   return new Promise((resolve, reject) => {

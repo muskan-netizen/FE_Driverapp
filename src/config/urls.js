@@ -623,7 +623,7 @@ export const CREATERAZORPAYADDFUND = getApiUrl('api/create-razorpay-add-funds');
 
 // bide requestes 
 export const BIDEREQUESTS = getApiUrl('api/bidRide/requests');
-export const DECLINEBIDEREQUESTS = getApiUrl('api/decline/bidRide/requests');
+// export const DECLINEBIDEREQUESTS = getApiUrl('api/decline/bidRide/requests');
 export const ACCEPTDECLINEBIDEREQUESTS = getApiUrl('api/accept/decline/bidRide/requests');
 
 
