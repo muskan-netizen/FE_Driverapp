@@ -493,7 +493,7 @@ const shortCodes = {
   theGenie: '193af0',
   sultanCenter: 'e3255c',
   reedas: '986325',
-  onebasket: '15bc85',
+  onebasket: 'f5a75e',
   zozozi: 'a6e77a',
   ekobridge: '8a98a0',
   ambosSafariExpress: '9bc84f',
@@ -2483,8 +2483,8 @@ const appIds = {
     android: 'com.reedas.royodispatcher',
   }),
   onebasket: Platform.select({
-    ios: 'com.onerbasket.royodispatcher',
-    android: 'com.onerbasket.royodispatcher',
+    ios: 'com.onebasket.merchant',
+    android: 'com.onebasket.merchant',
   }),
   zozozi: Platform.select({
     ios: 'com.zozozi.dispatcher',

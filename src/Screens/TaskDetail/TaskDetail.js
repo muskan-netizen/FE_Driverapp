@@ -1219,27 +1219,22 @@ export default function TaskDetail({route, navigation}) {
           {taskDetail?.order?.customer?.name && (
             <View
               style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-              {!!taskDetail?.order?.customer?.name ? (
-                <View>
-                  <Text style={styles.taskLable}>
-                    {strings.CUSTOMER_NAME.toUpperCase()}
-                  </Text>
-                  <Text
-                    style={{
-                      ...styles.customerName,
-                      textTransform: 'capitalize',
-                      marginLeft: moderateScale(1),
-                    }}>
-                    {taskDetail?.order?.customer?.name}
-                  </Text>
-                </View>
-              ) : null}
-
               <Text style={{fontFamily: fontFamily.bold}}>
                 {strings.TRACKINGID}:-{taskDetail?.order?.unique_id}
               </Text>
             </View>
           )}
+           {!!taskDetail?.order?.usertask?.name ? (
+                <View style={{marginTop:moderateScaleVertical(7)}}>
+                  <Text
+                    style={{
+                      ...styles.customerName,
+                      textTransform: 'capitalize',
+                    }}>
+                  {taskDetail?.order?.usertask?.name}
+                  </Text>
+                </View>
+              ) : null }
 
           {/* Phone and email view customer*/}
           {!!(
@@ -1278,7 +1273,7 @@ export default function TaskDetail({route, navigation}) {
                     source={imagePath.mail2}
                     style={{marginRight: moderateScale(5)}}
                   />
-                  <Text numberOfLines={1} style={styles.emailAndPhone}>
+                  <Text numberOfLines={2} style={styles.emailAndPhone}>
                     {taskDetail?.order?.customer?.email}
                   </Text>
                 </TouchableOpacity>

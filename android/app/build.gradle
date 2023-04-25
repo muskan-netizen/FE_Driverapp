@@ -193,6 +193,7 @@ android {
 
     // applicationVariants are e.g. debug, release
     applicationVariants.all { variant ->
+    variant.resValue "string", "mauron85_bgloc_account_type", "${variant.applicationId}.mauron85.bgloc.account"
         variant.resValue "string", "mauron85_bgloc_content_authority", "${variant.applicationId}.com.marianhello.app.mauron85.bgloc.provider.devbuild"
         variant.outputs.each { output ->
             // For each separate APK per architecture, set a unique version code as described here:
@@ -212,12 +213,12 @@ productFlavors{
        onebasket{
             dimension "appType"
             versionCode 1
-            versionName "1.0"
+            versionName "1.0.2"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.onerbasket.royodispatcher'
-            resValue "string", "app_name", "OneBasket Dispatcher"
+            applicationId 'com.onebasket.merchant'
+            resValue "string", "app_name", "OneBasket Driver"
         }
          bumprkar{
             dimension "appType"
@@ -227,7 +228,7 @@ productFlavors{
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.bumprkar.driver'
-            resValue "string", "app_name", "Bumprkar Dispatcher"
+            resValue "string", "app_name", "Bumprkar Driver"
         }
          virgingate{
             dimension "appType"

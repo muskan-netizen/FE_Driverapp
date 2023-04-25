@@ -169,7 +169,7 @@ export default function ShortCode({route, navigation}) {
     (async () => {
       const saveShortCode = await getItem('saveShortCode');
       const appCode = !!saveShortCode ? saveShortCode : getAppCode();
-      // const appCode = '773548'
+      //const appCode = 'f5a75e'
 
       console.log(defaultLanguage?.value, 'Language in init screen');
       let header = {};

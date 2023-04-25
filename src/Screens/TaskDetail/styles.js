@@ -169,7 +169,7 @@ export default ({defaultLanguagae}) => {
     emailAndPhone: {
       // textAlign: 'center',
       fontFamily: fontFamily.bold,
-      fontSize: textScale(12),
+      fontSize: textScale(11),
       color: colors.black,
       // paddingBottom: moderateScale(5),
       marginRight: moderateScale(10),

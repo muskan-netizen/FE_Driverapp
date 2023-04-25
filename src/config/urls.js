@@ -1,4 +1,4 @@
-//export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL='https://dispatch.jeevannapp.com/'
 //export const API_BASE_URL = 'https://805c-103-72-170-243.ngrok.io/';
 // export const API_BASE_URL = 'https://dispatch.shelf.ae';
@@ -8,11 +8,14 @@
 // export const API_BASE_URL = 'https://dispatch.tiimollc.com/';
 // export const API_BASE_URL = 'https://dispatch.ihelp.app.br/';
 
-//virgingates
+//virgingates staging
 //export const API_BASE_URL = 'https://virgingates.rdstaging.com/signin';
 
 // bumprkar
-export const API_BASE_URL = 'https://dispatch.bumprkar.com/';
+//export const API_BASE_URL = 'https://dispatch.bumprkar.com/';
+
+//Virgingates
+//export const API_BASE_URL = 'https://virgingates-dispatch.netsolutionindia.com/';
 
 // oneBasket
 //export const API_BASE_URL = 'https://delivery.onebasket.rw/';

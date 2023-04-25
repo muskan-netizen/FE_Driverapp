@@ -105,11 +105,10 @@ const NotificationModal = () => {
   const _onRegionChange = region => {
     updateState({region: region});
   };
-  //${notificationData?.notificationData?.data?.order_id}
   const getCustomNotificationData = () => {
     console.log(notificationData, 'notificationData');
     actions
-      .getCustomNotificationPayload(`/319`, {}, {shortCode: shortCode})
+      .getCustomNotificationPayload(`/${notificationData?.notificationData?.data?.order_id}`, {}, {shortCode: shortCode})
       .then(res => {
         updateState({
           notificationDropLocationsData: res?.tasks,
@@ -500,7 +499,7 @@ const NotificationModal = () => {
           </Text>
         </View>
         <View style={{padding: 8}}>
-          {!!customerData?.name ? (
+          {!!orderData?.usertask?.name ? (
             <Text
               numberOfLines={1}
               style={{
@@ -508,7 +507,7 @@ const NotificationModal = () => {
                 textTransform: 'capitalize',
                 fontWeight: '500',
               }}>
-              {customerData?.name}
+              {orderData?.usertask?.name}
             </Text>
           ) : null}
 

@@ -254,11 +254,11 @@ const TaskListCard = ({
                 </Text>
               </>
             )}
-          {!!data?.order?.customer?.name ? (
+          {!!data?.order?.usertask?.name ? (
             <Text
               style={{...styles.address, textTransform: 'capitalize'}}
               numberOfLines={1}>
-              {data?.order?.customer?.name}
+              {data?.order?.usertask?.name}
             </Text>
           ) : null}
 
