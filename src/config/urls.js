@@ -1,5 +1,5 @@
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
-export const API_BASE_URL = 'https://dispatch.eathalalonly.com/';
+ export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL='https://dispatch.jeevannapp.com/'
 //export const API_BASE_URL = 'https://805c-103-72-170-243.ngrok.io/';
 // export const API_BASE_URL = 'https://dispatch.shelf.ae';
 // export const API_BASE_URL = 'https://dispatch.udkay.com/';
@@ -7,6 +7,9 @@ export const API_BASE_URL = 'https://dispatch.eathalalonly.com/';
 // export const API_BASE_URL = 'https://dispatch.foodnests.com/';
 // export const API_BASE_URL = 'https://dispatch.tiimollc.com/';
 // export const API_BASE_URL = 'https://dispatch.ihelp.app.br/';
+
+//EatHalal
+//export const API_BASE_URL = 'https://dispatch.eathalalonly.com/';
 
 // export const API_BASE_URL = 'https://dispatch.10dollahollla.com/';
 //  export const API_BASE_URL='http://192.168.102.30:8000/'
@@ -504,7 +507,7 @@ export const API_BASE_URL = 'https://dispatch.eathalalonly.com/';
 // export const API_BASE_URL = 'https://dispatch.quicklube.us/'
 
 // sxm2Go
-export const API_BASE_URL = 'https://dispatch.sxm2go.com/';
+  //export const API_BASE_URL = 'https://dispatch.sxm2go.com/';
 
 // export const personaltoken = 'TMJdbQlNWkYl1JzMONzRgF4zQFuP8s';
 
