@@ -118,19 +118,24 @@ const TaskListCard = ({
     } else {
       total = Date.parse(new Date()) - Date.parse(endtime);
     }
-
+    
+      
 
     const seconds = Number(Math.abs(Math.floor((total / 1000) % 60)))
-    const minutes = Number(Math.abs(Math.floor((total / 1000 / 60) % 60)))
     const hours = Number(Math.abs(Math.floor((total / (1000 * 60 * 60)) % 24)))
     const days = Number(Math.abs(Math.floor(total / (1000 * 60 * 60 * 24))))
+    const minutes = Number(Math.abs(Math.floor((total / 1000 / 60) % 60)))
+    const totalHours = Number(days*24)+hours
+    const totalMinutes = Number(Math.floor(totalHours * 60))+minutes
+
+    console.log(totalMinutes,"totalMinutestotalMinutes");
 
 
     return {
       total,
       days,
+      totalMinutes,
       hours,
-      minutes,
       seconds
     };
   }
@@ -138,12 +143,15 @@ const TaskListCard = ({
 
   if (getBundleId() == appIds.SXM2GO) {
     useInterval(() => {
-      const { total, days, hours,
-        minutes,
-        seconds } = vendorOrderPerpationTime(deadline)
+      const {
+        days,
+        totalMinutes,
+        hours,
+        seconds,
+        total } = vendorOrderPerpationTime(deadline)
       const orderPerpationTime = {
         total, days, hours,
-        minutes,
+        totalMinutes,
         seconds
       }
       setOrderPerpationTime(orderPerpationTime)
@@ -211,9 +219,10 @@ const TaskListCard = ({
                 </View>
                 <View >
                   <Text style={{ fontFamily: fontFamily?.bold, fontSize: textScale(16), color: isOrderPrepartionTimeExpired ? colors.green : colors.redB }}>
-                    {isOrderPrepartionTimeExpired ? Math.abs(orderPerpationTime?.days) :
+                    {/* {isOrderPrepartionTimeExpired ? Math.abs(orderPerpationTime?.days) :
                       orderPerpationTime?.days}D:{orderPerpationTime?.hours}H:
-                    {orderPerpationTime?.minutes}M
+                    {orderPerpationTime?.totalMinutes}M:{orderPerpationTime?.seconds}S */}
+                    {orderPerpationTime?.totalMinutes}M:{orderPerpationTime?.seconds}S
                   </Text>
                 </View>
               </View>
