@@ -22,10 +22,11 @@
 // export const API_BASE_URL = 'https://sales.royodispatch.com/';
 // export const API_BASE_URL='http://192.168.101.140:9091/'
 // export const API_BASE_URL='https://dispatch.usemeow.com/'
+export const API_BASE_URL='https://dispatch.weedlomo.com/'
 // //Staging
 // export const API_BASE_URL='https://dispatch.ubierweeds.com/'
 // export const API_BASE_URL='https://dispatch.vduonline.co.in/'
-export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
 //  export const API_BASE_URL = 'https://dispatch.destinationops.com/';
 //  export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL='https://dispatch.vduonline.co.in/'
@@ -79,6 +80,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.myevplus.com/';
 
 //Misst
+// export const API_BASE_URL='https://dispatch.fazeiteam.com/'
 // export const API_BASE_URL = 'https://miist-dispatch.netsolutionindia.com/';
 // export const API_BASE_URL='https://dispatcher.qdelo.com/'
 // export const API_BASE_URL = 'https://baggage-dispatch.netsolutionindia.com/';
