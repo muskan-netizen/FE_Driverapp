@@ -210,59 +210,17 @@ android {
 
      flavorDimensions "appType"
 productFlavors{
-       baubau{
-            dimension "appType"
-            versionCode 2
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.baubau.driver'
-            resValue "string", "app_name", "Baubau Workers"
-        }
-         uberWeeds{
+         eatHalal{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.uberweeds.driver'
-            resValue "string", "app_name", "Ubierweeds Driver"
+            applicationId 'com.eatHalal.royodispatcher'
+            resValue "string", "app_name", "EatHalal Dispatcher"
         }
-                SXM2GO{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.SXM2GO.driverApp'
-            resValue "string", "app_name", "SXM2GO Driver"
-            
-        }
-
-                smile{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.Smile.royodispatcher'
-            resValue "string", "app_name", "Miist Dispatcher"
-        }
-
-         instaFits{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.instaFits.driver'
-            resValue "string", "app_name", "INSTA-FITS dispatcher"
-        }
+       
 }     
 //     productFlavors 
 //     {

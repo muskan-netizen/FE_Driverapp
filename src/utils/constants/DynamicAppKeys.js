@@ -1,5 +1,5 @@
-import { Platform } from 'react-native';
-import { getBundleId } from 'react-native-device-info';
+import {Platform} from 'react-native';
+import {getBundleId} from 'react-native-device-info';
 
 const shortCodes = {
   sales: '745e3f',
@@ -469,14 +469,14 @@ const shortCodes = {
   nounou: '2e78fd',
   laith: '89e6b8',
   oaks: '5eab74',
-  buzyStores: "8c70ed",
-  etiam: "a10566",
+  buzyStores: '8c70ed',
+  etiam: 'a10566',
   dotTaxi: 'ca35c5',
   airvoltTaxi: '694d92',
   melak: '1a8ecf',
   vialteran: '0d943d',
-  wiEnergi: "d13d84",
-  whatChaGotPckUp: "644237",
+  wiEnergi: 'd13d84',
+  whatChaGotPckUp: '644237',
   nannyAfrica: 'bf57ac',
   gokart: '86a0ca',
   hqi: '453367',
@@ -501,32 +501,31 @@ const shortCodes = {
   emart: 'f21fb6',
   stargaze: 'f4b3d2',
   mealtime: 'd93dc0',
-  OyeeRides:'01967e',
-  royoRides:'cc0e66',
-  autobox:'868a72',
-  tempcorner:'c7daac',
-  emiratesHomeNursing:'892b1d',
-  detailPros:'2dbd37',
-  zuluClutch:'bc3bdb',
-  ineeda:'5b606d',
-  blink:'216dab',
-  jds:'e7144c',
-  ping:'de2922',
-  chutneyeah:'ac41c1',
-  virgingate:'f5a75e',
-  staFood:'6da07c',
-  dropoff:'595e36',
-  exlraet:'77dfe7',
-  instaFits:'5b787c',
-  bumprkar:'9ff535',
-  bakaramoh:'c82095',
-  vamVam:'3bed4d',
-  piolfix:'d08532',
-  rBRiders:'41a39d',
-  karis:'aa8767',
-  mammysKitchen:'e4ab20',
-  japaConnect:'a3d047'
-
+  OyeeRides: '01967e',
+  royoRides: 'cc0e66',
+  autobox: '868a72',
+  tempcorner: 'c7daac',
+  emiratesHomeNursing: '892b1d',
+  detailPros: '2dbd37',
+  zuluClutch: 'bc3bdb',
+  ineeda: '5b606d',
+  blink: '216dab',
+  jds: 'e7144c',
+  ping: 'de2922',
+  chutneyeah: 'ac41c1',
+  virgingate: 'f5a75e',
+  staFood: '6da07c',
+  dropoff: '595e36',
+  exlraet: '77dfe7',
+  instaFits: '5b787c',
+  bumprkar: '9ff535',
+  bakaramoh: 'c82095',
+  vamVam: '3bed4d',
+  piolfix: 'd08532',
+  rBRiders: '41a39d',
+  karis: 'aa8767',
+  mammysKitchen: 'e4ab20',
+  japaConnect: 'a3d047',
 };
 
 const appIds = {
@@ -2615,7 +2614,6 @@ const appIds = {
     ios: 'com.japaConnect.driver',
     android: 'com.japaConnect.driver',
   }),
-  
 };
 
-export { appIds, shortCodes };
+export {appIds, shortCodes};
