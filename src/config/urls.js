@@ -1,4 +1,6 @@
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL='https://dispatch.baubau.app/'
+export const API_BASE_URL='https://dispatch.dot-taxi.com/'
 // export const API_BASE_URL='https://dispatch.jeevannapp.com/'
 //export const API_BASE_URL = 'https://805c-103-72-170-243.ngrok.io/';
 // export const API_BASE_URL = 'https://dispatch.shelf.ae';
@@ -25,7 +27,7 @@
 // //Staging
 // export const API_BASE_URL='https://dispatch.ubierweeds.com/'
 // export const API_BASE_URL='https://dispatch.vduonline.co.in/'
-export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
 //  export const API_BASE_URL = 'https://dispatch.destinationops.com/';
 //  export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL='https://dispatch.vduonline.co.in/'
@@ -407,7 +409,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.blipdelivery.com/';
 // export const API_BASE_URL = 'https://dispatch.getfix.com.my/';
 
-//export const API_BASE_URL = 'https://dispatch.meltivers.com/';
+// export const API_BASE_URL = 'https://dispatch.meltivers.com/';
 //  butler delivery
 //  export const API_BASE_URL = 'https://dispatch.butlerdeliveryusa.com/';
 // bimolaa

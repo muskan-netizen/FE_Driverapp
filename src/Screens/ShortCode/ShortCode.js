@@ -188,7 +188,7 @@ SplashScreen.hide();
         };
       }
 
-      let updatedShortCode = appCode;
+      let updatedShortCode = "16b920";
 
 
       actions
