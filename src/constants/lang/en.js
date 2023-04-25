@@ -368,4 +368,5 @@ export default {
   SAVE_AS: 'Save as',
   ENETER_YOUR_ADDRESS: 'Enter your address',
   SAVE_ADDRESS: 'Save Address',
+  CUSTOMER_NAME:'Customer Name'
 };

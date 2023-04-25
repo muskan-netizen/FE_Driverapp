@@ -1,34 +1,39 @@
-import { debounce, get, isEmpty } from "lodash";
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import {debounce, get, isEmpty} from 'lodash';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {
   Alert,
   BackHandler,
   FlatList,
   Image,
   Linking,
-  RefreshControl, Switch,
+  RefreshControl,
+  Switch,
   Text,
   View,
 } from 'react-native';
-import { useSelector } from 'react-redux';
+import {useSelector} from 'react-redux';
 import Header from '../../Components/Header';
-import { loaderOne } from '../../Components/Loaders/AnimatedLoaderFiles';
+import {loaderOne} from '../../Components/Loaders/AnimatedLoaderFiles';
 import SwitchSelectorComponent from '../../Components/SwitchSelector';
 import WrapperContainer from '../../Components/WrapperContainer';
 import imagePath from '../../constants/imagePath';
 import actions from '../../redux/actions';
 // import store from '../../redux/store';
-import { useFocusEffect, useIsFocused } from "@react-navigation/native";
-import { Platform, TouchableOpacity } from "react-native";
-import DeviceInfo, { getBundleId } from "react-native-device-info";
-import MapView, { Marker, PROVIDER_GOOGLE, PROVIDER_DEFAULT } from "react-native-maps"; // remove PROVIDER_GOOGLE import if not using Google Maps
-import ListEmptyComponent from "../../Components/ListEmptyComponent";
-import TaskListCard from "../../Components/TaskListCard";
-import strings from "../../constants/lang";
-import navigationStrings from "../../navigation/navigationStrings";
-import colors from "../../styles/colors";
-import commonStylesFunc from "../../styles/commonStyles";
-import fontFamily from "../../styles/fontFamily";
+import {useFocusEffect, useIsFocused} from '@react-navigation/native';
+import {Platform, TouchableOpacity} from 'react-native';
+import DeviceInfo, {getBundleId} from 'react-native-device-info';
+import MapView, {
+  Marker,
+  PROVIDER_GOOGLE,
+  PROVIDER_DEFAULT,
+} from 'react-native-maps'; // remove PROVIDER_GOOGLE import if not using Google Maps
+import ListEmptyComponent from '../../Components/ListEmptyComponent';
+import TaskListCard from '../../Components/TaskListCard';
+import strings from '../../constants/lang';
+import navigationStrings from '../../navigation/navigationStrings';
+import colors from '../../styles/colors';
+import commonStylesFunc from '../../styles/commonStyles';
+import fontFamily from '../../styles/fontFamily';
 import {
   moderateScale,
   moderateScaleVertical,
@@ -39,7 +44,7 @@ import {
   showError,
   showSuccess,
 } from '../../utils/helperFunctions';
-import { requestUserPermission } from '../../utils/notificationServices';
+import {requestUserPermission} from '../../utils/notificationServices';
 
 import styles from './styles';
 navigator.geolocation = require('react-native-geolocation-service');
@@ -47,20 +52,20 @@ navigator.geolocation = require('react-native-geolocation-service');
 import socketServices from '../../utils/scoketService';
 // import BackgroundTimer from 'react-native-background-timer';
 import BackgroundGeolocation from '@hariks789/react-native-background-geolocation';
-import generateBoxShadowStyle from "../../Components/generateBoxShadowStyle";
-import GradientButton from "../../Components/GradientButton";
-import BottomSheet, { BottomSheetScrollView } from '@gorhom/bottom-sheet';
-import BidAcceptRejectCard from "../../Components/BidAcceptRejectCard";
-import PoolingSuggestionCard from "../../Components/PoolingSuggestionCard";
-import { appIds } from "../../utils/constants/DynamicAppKeys";
-import { colorArray } from "../../utils/constants/ConstantValues";
+import generateBoxShadowStyle from '../../Components/generateBoxShadowStyle';
+import GradientButton from '../../Components/GradientButton';
+import BottomSheet, {BottomSheetScrollView} from '@gorhom/bottom-sheet';
+import BidAcceptRejectCard from '../../Components/BidAcceptRejectCard';
+import PoolingSuggestionCard from '../../Components/PoolingSuggestionCard';
+import {appIds} from '../../utils/constants/DynamicAppKeys';
+import {colorArray} from '../../utils/constants/ConstantValues';
 
 var finalAllTasks = [];
 var finaltodayTasks = [];
 
-export default function DashBoard({ route, navigation }) {
-  const { userData } = useSelector((state) => state?.auth || {});
-  const { attributeFormData } = useSelector(state => state?.initBoot || {});
+export default function DashBoard({route, navigation}) {
+  const {userData} = useSelector(state => state?.auth || {});
+  const {attributeFormData} = useSelector(state => state?.initBoot || {});
   const defaultLanguagae = useSelector(
     state => state?.initBoot?.defaultLanguage,
   );
@@ -71,9 +76,9 @@ export default function DashBoard({ route, navigation }) {
     defaultLanguage,
     fcmToken,
     zendeskKeys,
-    notificationData
-  } = useSelector((state) => state?.initBoot);
-  const { isCabPooling, initialValue } = useSelector((state) => state?.auth) || {};
+    notificationData,
+  } = useSelector(state => state?.initBoot);
+  const {isCabPooling, initialValue} = useSelector(state => state?.auth) || {};
 
   const ref = useRef(orderCallbackUrl);
   const bottomSheetRef = useRef(null);
@@ -82,8 +87,8 @@ export default function DashBoard({ route, navigation }) {
     isLoading: false,
     isEnabled: userData && userData?.is_available ? true : false,
     options: [
-      { label: strings.TODAYSTASK, value: 0, testID: '1' },
-      { label: strings.ALLTASKS, value: 1, testID: '2' },
+      {label: strings.TODAYSTASK, value: 0, testID: '1'},
+      {label: strings.ALLTASKS, value: 1, testID: '2'},
     ],
     initial: 0,
     selectedOption: 0,
@@ -140,12 +145,12 @@ export default function DashBoard({ route, navigation }) {
     allPoolingingSuggestions,
   } = state;
 
-
-
-  const [orderCallbackUrl, setOrderCallbackUrl] = useState('')
-  const [allCustomerBidsList, setAllCustomerBidsList] = useState([])
-  const [driverSelectedPriceForBide, setDriverSelectedPriceForBide] = useState({})
-  const [showBiddingView, setShowBiddingView] = useState(false)
+  const [orderCallbackUrl, setOrderCallbackUrl] = useState('');
+  const [allCustomerBidsList, setAllCustomerBidsList] = useState([]);
+  const [driverSelectedPriceForBide, setDriverSelectedPriceForBide] = useState(
+    {},
+  );
+  const [showBiddingView, setShowBiddingView] = useState(false);
   const [bidRidePrice, setBidRidePrice] = useState(0);
 
   useEffect(() => {
@@ -155,7 +160,7 @@ export default function DashBoard({ route, navigation }) {
         fcm_token: fcmToken,
       });
     })();
-    return () => { };
+    return () => {};
   }, []);
 
   useEffect(() => {
@@ -173,19 +178,16 @@ export default function DashBoard({ route, navigation }) {
     }
   }, [refreshHomeData]);
 
-
-
   useEffect(() => {
     const backHandler = BackHandler.addEventListener(
-      "hardwareBackPress",
-      () => true
+      'hardwareBackPress',
+      () => true,
     );
     return () => backHandler.remove();
   }, []);
 
-
   useEffect(() => {
-    if(isEnabled){
+    if (isEnabled) {
       BackgroundGeolocation.on('location', location => {
         let headingAngle = location?.bearing || 0.0;
         let lat = location?.latitude || 0;
@@ -194,11 +196,11 @@ export default function DashBoard({ route, navigation }) {
         fetchgentLogs(lat, long, headingAngle);
         console.log(lat, long, headingAngle, 'at, long, headingAngle=>');
       });
-  
+
       BackgroundGeolocation.on('error', error => {
         console.log('[ERROR] BackgroundGeolocation error:', error);
       });
-  
+
       BackgroundGeolocation.on('authorization', status => {
         console.log(
           '[INFO] BackgroundGeolocation authorization status: ' + status,
@@ -226,32 +228,30 @@ export default function DashBoard({ route, navigation }) {
           );
         }
       });
-  
-      BackgroundGeolocation.on("background", () => {
-        console.log("[INFO] App is in background");
-  
+
+      BackgroundGeolocation.on('background', () => {
+        console.log('[INFO] App is in background');
       });
-  
-      BackgroundGeolocation.on("foreground", () => {
-        console.log("[INFO] App is in foreground");
-  
+
+      BackgroundGeolocation.on('foreground', () => {
+        console.log('[INFO] App is in foreground');
       });
-  
+
       BackgroundGeolocation.on('abort_requested', () => {
         console.log('[INFO] Server responded with 285 Updates Not Required');
       });
-  
+
       BackgroundGeolocation.on('http_authorization', () => {
         console.log('[INFO] App needs to authorize the http requests');
       });
-  
+
       BackgroundGeolocation.checkStatus(status => {
         console.log(status, 'status.isRunning');
         if (!status.isRunning) {
           BackgroundGeolocation.start(); //triggers start on start event
         }
       });
-  
+
       BackgroundGeolocation.configure({
         activityType: 'Fitness',
         desiredAccuracy: BackgroundGeolocation.HIGH_ACCURACY,
@@ -260,7 +260,7 @@ export default function DashBoard({ route, navigation }) {
         debug: false,
         startOnBoot: false,
         stopOnTerminate: true,
-        notificationTitle: "Location Tracking",
+        notificationTitle: 'Location Tracking',
         notificationText: `Tracking driver's location in background.`,
         locationProvider: BackgroundGeolocation.ACTIVITY_PROVIDER,
         interval: 10000,
@@ -279,15 +279,14 @@ export default function DashBoard({ route, navigation }) {
           foo: 'bar', // you can also add your own properties
         },
       });
-  
-    }else{
+    } else {
       BackgroundGeolocation.removeAllListeners();
     }
-  
+
     return () => {
       BackgroundGeolocation.removeAllListeners();
     };
-  }, [orderCallbackUrl, setOrderCallbackUrl, ref,isEnabled]);
+  }, [orderCallbackUrl, setOrderCallbackUrl, ref, isEnabled]);
 
   useFocusEffect(
     React.useCallback(() => {
@@ -307,7 +306,7 @@ export default function DashBoard({ route, navigation }) {
             value: 1,
             testID: '2',
           },
-          { label: 'Pooling Suggestion', value: 2, testID: '3' },
+          {label: 'Pooling Suggestion', value: 2, testID: '3'},
         ];
         updateState({
           isLoading: true,
@@ -351,14 +350,14 @@ export default function DashBoard({ route, navigation }) {
       data['battery_level'] = (await DeviceInfo.getBatteryLevel()) * 100;
       data['all'] = selectedOption;
       // data['current_speed'] = 'y';
-      data["long"] = lng;
-      data["lat"] = lat;
-      data["device_token"] = !!fcmToken ? fcmToken : "";
-      data["heading_angle"] = heading_;
+      data['long'] = lng;
+      data['lat'] = lat;
+      data['device_token'] = !!fcmToken ? fcmToken : '';
+      data['heading_angle'] = heading_;
 
-      console.log(data, "data>data====");
+      console.log(data, 'data>data====');
       actions
-        .logsApi(data, { client: clientInfo?.database_name })
+        .logsApi(data, {client: clientInfo?.database_name})
         .then(res => {
           console.log(res, 'logs data');
           if (
@@ -368,10 +367,10 @@ export default function DashBoard({ route, navigation }) {
           ) {
             if (
               zendeskKeys?.keys?.account_key !=
-              res?.data?.user?.client_preference?.customer_support_key &&
+                res?.data?.user?.client_preference?.customer_support_key &&
               zendeskKeys?.keys?.application_id !=
-              res?.data?.user?.client_preference
-                ?.customer_support_application_id
+                res?.data?.user?.client_preference
+                  ?.customer_support_application_id
             )
               actions?.setZendeskKeys({
                 keys: {
@@ -386,14 +385,14 @@ export default function DashBoard({ route, navigation }) {
 
           if (res?.data?.user?.is_pooling_available) {
             actions.savePoolingStatusForLifeCycle(
-              res?.data?.user?.is_pooling_available
+              res?.data?.user?.is_pooling_available,
             );
           }
 
           if (selectedOption == 1) {
-            updateState({ allTasks: res?.data?.tasks });
+            updateState({allTasks: res?.data?.tasks});
           } else {
-            updateState({ todaysTasks: res?.data?.tasks });
+            updateState({todaysTasks: res?.data?.tasks});
           }
         })
         .catch(errorMethod);
@@ -437,7 +436,7 @@ export default function DashBoard({ route, navigation }) {
         fcm_token: fcmToken,
       });
     })();
-    return () => { };
+    return () => {};
   }, []);
 
   const currentLocation = () => {
@@ -460,7 +459,7 @@ export default function DashBoard({ route, navigation }) {
           heading: position.coords.heading,
         });
 
-        actions.userCurrentLocation(position)
+        actions.userCurrentLocation(position);
 
         // getCurrentLocation(
         //   position.coords.latitude,
@@ -478,14 +477,13 @@ export default function DashBoard({ route, navigation }) {
     );
   };
 
-
   //get all tasks
   const getTasks = () => {
     actions
       .getListOfTasks(
         `?all=${selectedOption}`,
         {},
-        { client: clientInfo?.database_name },
+        {client: clientInfo?.database_name},
       )
       .then(res => {
         actions.updateHomepage(false);
@@ -529,10 +527,10 @@ export default function DashBoard({ route, navigation }) {
     };
     actions
       .getAllPoolingSuggestions({}, header)
-      .then((res) => {
-        console.log(res, "pooling");
-        const poolingSuggestionAccordingToDistance = res?.data?.order_suggession?.sort(
-          function (a, b) {
+      .then(res => {
+        console.log(res, 'pooling');
+        const poolingSuggestionAccordingToDistance =
+          res?.data?.order_suggession?.sort(function (a, b) {
             return a?.distance_pickup - b?.distance_pickup;
           });
 
@@ -565,10 +563,10 @@ export default function DashBoard({ route, navigation }) {
     console.log(data, 'datadata');
 
     actions
-      .acceptRejectTask(data, { client: clientInfo?.database_name })
+      .acceptRejectTask(data, {client: clientInfo?.database_name})
       .then(res => {
         showSuccess(res?.message);
-        updateState({ isLoading: false });
+        updateState({isLoading: false});
         actions.updateHomepage(true);
       })
 
@@ -608,7 +606,7 @@ export default function DashBoard({ route, navigation }) {
         }
       }
 
-      finaltodayTasks = [...finaltodayTasks, { title: i, data: arr }];
+      finaltodayTasks = [...finaltodayTasks, {title: i, data: arr}];
     }
   };
   const data = (data, type) => {
@@ -624,17 +622,17 @@ export default function DashBoard({ route, navigation }) {
         }
       }
 
-      finalAllTasks = [...finalAllTasks, { title: i, data: arr }];
+      finalAllTasks = [...finalAllTasks, {title: i, data: arr}];
     }
   };
 
-  const updateState = data => setState(state => ({ ...state, ...data }));
+  const updateState = data => setState(state => ({...state, ...data}));
 
-  const commonStyles = commonStylesFunc({ fontFamily });
+  const commonStyles = commonStylesFunc({fontFamily});
 
   //Naviagtion to specific screen
   const moveToNewScreen = (screenName, data) => () => {
-    navigation.navigate(screenName, { data });
+    navigation.navigate(screenName, {data});
   };
 
   const onOffDuty = () => {
@@ -642,14 +640,14 @@ export default function DashBoard({ route, navigation }) {
       .onOffDuty(
         `?device_token=${fcm_token ? fcm_token : DeviceInfo.getDeviceToken()}`,
         {},
-        { client: clientInfo?.database_name },
+        {client: clientInfo?.database_name},
       )
       .then(res => {
         console.log(res, 'onOffDuty>res>res');
-        updateState({ isLoadingSwitch: false });
+        updateState({isLoadingSwitch: false});
         if (res?.data) {
-          updateState({ statusChanged: false });
-          let updatedUserData = { ...userData };
+          updateState({statusChanged: false});
+          let updatedUserData = {...userData};
           updatedUserData['is_available'] = res?.data?.is_available;
           actions.updataeUserData(updatedUserData);
         }
@@ -697,26 +695,20 @@ export default function DashBoard({ route, navigation }) {
     }
   };
 
-
-
-
-
-
-
   const customCenter = () => {
     return (
-      <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-        <View style={{ paddingHorizontal: 10 }}>
+      <View style={{flexDirection: 'row', alignItems: 'center'}}>
+        <View style={{paddingHorizontal: 10}}>
           <Image source={imagePath.locationOff} />
         </View>
         <Switch
-          trackColor={{ false: colors.backGround, true: colors.themeColor }}
+          trackColor={{false: colors.backGround, true: colors.themeColor}}
           thumbColor={colors.white}
           // ios_backgroundColor=#3e3e3e"
           onValueChange={toggleSwitch}
           value={isEnabled}
         />
-        <View style={{ paddingHorizontal: 10 }}>
+        <View style={{paddingHorizontal: 10}}>
           <Image source={imagePath.locationOn} />
         </View>
       </View>
@@ -724,8 +716,8 @@ export default function DashBoard({ route, navigation }) {
   };
 
   //pagination of data
-  const onEndReached = ({ distanceFromEnd }) => {
-    updateState({ pageNo: pageNo + 1 });
+  const onEndReached = ({distanceFromEnd}) => {
+    updateState({pageNo: pageNo + 1});
   };
 
   const onEndReachedDelayed = debounce(onEndReached, 1000, {
@@ -734,16 +726,14 @@ export default function DashBoard({ route, navigation }) {
   });
 
   const _onPressTask = item => {
-    moveToNewScreen(navigationStrings.TASKDETAIL, { item: item })();
+    moveToNewScreen(navigationStrings.TASKDETAIL, {item: item})();
   };
   const getDynamicUpdateOnValues = data => {
     var colorData = colorArray;
     return colorData[finalAllTasks.indexOf(data) % colorData.length];
   };
 
-  const renderTaskList = ({ item, index }) => {
-
-
+  const renderTaskList = ({item, index}) => {
     return (
       <TouchableOpacity
         onPress={() => _onPressTask(item?.data[0])}
@@ -758,7 +748,6 @@ export default function DashBoard({ route, navigation }) {
         {item?.data?.map(obj => {
           return (
             <TaskListCard
-
               data={obj}
               index={index}
               _onPressTaskDetails={() => _onPressTaskDetails(item)}
@@ -769,7 +758,7 @@ export default function DashBoard({ route, navigation }) {
     );
   };
 
-  const renderPoolingSuggestions = ({ item, index }) => {
+  const renderPoolingSuggestions = ({item, index}) => {
     return (
       <TouchableOpacity
         // onPress={() => _onPressTask(item?.data[0])}
@@ -778,11 +767,10 @@ export default function DashBoard({ route, navigation }) {
           borderLeftColor: getDynamicUpdateOnValues(item),
           borderLeftWidth: 3,
           marginHorizontal: moderateScale(10),
-          ...generateBoxShadowStyle(-2, 0, "#171717", 0.2, 3, 3, "#171717"),
+          ...generateBoxShadowStyle(-2, 0, '#171717', 0.2, 3, 3, '#171717'),
           paddingBottom: moderateScaleVertical(10),
           marginBottom: moderateScaleVertical(20),
-        }}
-      >
+        }}>
         <PoolingSuggestionCard
           // data={obj}
           index={index}
@@ -795,7 +783,7 @@ export default function DashBoard({ route, navigation }) {
             borderRadius: moderateScale(2),
           }}
           colorsArray={[colors.green, colors.green]}
-          containerStyle={{ marginHorizontal: moderateScale(10) }}
+          containerStyle={{marginHorizontal: moderateScale(10)}}
           onPress={() => aceptRejectPoolingSuggestions(item)}
         />
       </TouchableOpacity>
@@ -804,27 +792,27 @@ export default function DashBoard({ route, navigation }) {
 
   //Pull to refresh
   const handleRefresh = () => {
-    updateState({ pageNo: 1, isRefreshing: true });
+    updateState({pageNo: 1, isRefreshing: true});
   };
 
   const homeMainView = () => {
     return (
       <>
-        <View style={{ flex: 1 }}>
+        <View style={{flex: 1}}>
           {(
             selectedOption == 2
               ? allPoolingingSuggestions?.length
               : selectedOption
-                ? allTasks?.length
-                : todaysTasks?.length
+              ? allTasks?.length
+              : todaysTasks?.length
           ) ? (
             <FlatList
               data={
                 selectedOption == 2
                   ? allPoolingingSuggestions
                   : selectedOption
-                    ? finalAllTasks
-                    : finaltodayTasks
+                  ? finalAllTasks
+                  : finaltodayTasks
               }
               renderItem={
                 selectedOption != 2 ? renderTaskList : renderPoolingSuggestions
@@ -838,8 +826,8 @@ export default function DashBoard({ route, navigation }) {
                 backgroundColor: !!(selectedOption == 1 && !allTasks.length)
                   ? colors.backGround
                   : !!(selectedOption == 0 && !todaysTasks.length)
-                    ? colors.backGround
-                    : colors.white,
+                  ? colors.backGround
+                  : colors.white,
               }}
               contentContainerStyle={{
                 flexGrow: 1,
@@ -861,15 +849,15 @@ export default function DashBoard({ route, navigation }) {
                     selectedOption == 2
                       ? 'No Pooling Suggestions Yet'
                       : getBundleId() == appIds.tdc
-                        ? strings.NOTRIP
-                        : strings.NOTASK
+                      ? strings.NOTRIP
+                      : strings.NOTASK
                   }
                   subMessage={
                     selectedOption == 2
                       ? 'You have no pooling suggestions . We’ll notify you when new pooling suggestion arrive.'
                       : strings.NOTASKASSIGNED
                   }
-                  containerStyle={{ backgroundColor: colors.backGround }}
+                  containerStyle={{backgroundColor: colors.backGround}}
                 />
               )}
             />
@@ -880,15 +868,15 @@ export default function DashBoard({ route, navigation }) {
                 selectedOption == 2
                   ? 'No Pooling Suggestions Yet'
                   : getBundleId() == appIds.tdc
-                    ? strings.NOTRIP
-                    : strings.NOTASK
+                  ? strings.NOTRIP
+                  : strings.NOTASK
               }
               subMessage={
                 selectedOption == 2
                   ? 'You have no pooling suggestions . We’ll notify you when new pooling suggestion arrive.'
                   : strings.NOTASKASSIGNED
               }
-              containerStyle={{ backgroundColor: colors.backGround }}
+              containerStyle={{backgroundColor: colors.backGround}}
             />
           )}
         </View>
@@ -897,7 +885,7 @@ export default function DashBoard({ route, navigation }) {
   };
 
   const _onRegionChange = region => {
-    updateState({ region: region });
+    updateState({region: region});
     // _getAddressBasedOnCoordinates(region);
   };
 
@@ -959,14 +947,14 @@ export default function DashBoard({ route, navigation }) {
     Linking.openSettings();
   };
 
-  const toggleWarning = state => updateState({ isWarningAlert: state });
+  const toggleWarning = state => updateState({isWarningAlert: state});
   useEffect(() => {
     const interval = setInterval(() => {
       requestUserPermission(toggleWarning);
     }, 1000);
     if (!isWarningAlert && interval && (fcmToken || warningStatus))
       clearInterval(interval);
-    updateState({ warningStatus: 1 });
+    updateState({warningStatus: 1});
     return () => {
       if (interval) clearInterval(interval);
     };
@@ -974,12 +962,12 @@ export default function DashBoard({ route, navigation }) {
 
   const offDutyView = () => {
     return (
-      <View style={{ flex: 1 }}>
+      <View style={{flex: 1}}>
         <ListEmptyComponent
           isLoading={isLoadingSwitch}
           message={strings.OFFDUTY}
           subMessage={strings.OFFDUTYMESSAGE}
-          containerStyle={{ backgroundColor: colors.backGround }}
+          containerStyle={{backgroundColor: colors.backGround}}
           image={imagePath?.offDuty}
         />
       </View>
@@ -990,8 +978,8 @@ export default function DashBoard({ route, navigation }) {
 
   const fitPadding = newArray => {
     if (mapRef.current) {
-      mapRef.current.fitToCoordinates([{ latitude, longitude }, ...newArray], {
-        edgePadding: { top: 80, right: 80, bottom: 80, left: 80 },
+      mapRef.current.fitToCoordinates([{latitude, longitude}, ...newArray], {
+        edgePadding: {top: 80, right: 80, bottom: 80, left: 80},
         animated: true,
       });
     }
@@ -1064,47 +1052,42 @@ export default function DashBoard({ route, navigation }) {
   };
 
   const _onSwitchMapView = () => {
-    updateState({ enableMap: !enableMap });
+    updateState({enableMap: !enableMap});
   };
-
 
   /*********************************Bid and Ride View *************************/
 
-
   // recive bids with notification
 
-
-
   useEffect(() => {
-    const bideNotificationType = notificationData?.notificationData?.data?.notificationType || notificationData?.notificationData?.data?.type
-    console.log(bideNotificationType, "bideNotificationType>> in home");
+    const bideNotificationType =
+      notificationData?.notificationData?.data?.notificationType ||
+      notificationData?.notificationData?.data?.type;
+    console.log(bideNotificationType, 'bideNotificationType>> in home');
     if (bideNotificationType == 'bid_ride_request') {
-      _onReciveBide()
+      _onReciveBide();
     }
-  }, [notificationData])
-
+  }, [notificationData]);
 
   const _onReciveBide = (hideBidView = true) => {
     const apiHeader = {
-      client: clientInfo?.database_name
-    }
-    actions.reciveBideRequests({}, apiHeader).then((res) => {
-      if (res?.data?.requestdata) {
-        setAllCustomerBidsList(res?.data?.requestdata)
-        setShowBiddingView(hideBidView)
-      }
-    }).catch((error) => {
-      showError(error?.message)
-      setShowBiddingView(false)
-    })
-  }
+      client: clientInfo?.database_name,
+    };
+    actions
+      .reciveBideRequests({}, apiHeader)
+      .then(res => {
+        if (res?.data?.requestdata) {
+          setAllCustomerBidsList(res?.data?.requestdata);
+          setShowBiddingView(hideBidView);
+        }
+      })
+      .catch(error => {
+        showError(error?.message);
+        setShowBiddingView(false);
+      });
+  };
 
-
-
-
-
-
-  const _onAcceptRideBid = (data) => {
+  const _onAcceptRideBid = data => {
     const apiUrl = data?.call_back_url;
     const apiData = {
       bid_price: data?.selectedPriceForBid || data?.requested_price,
@@ -1112,80 +1095,94 @@ export default function DashBoard({ route, navigation }) {
       driver_id: userData?.id,
       driver_name: userData?.name,
       driver_image: userData?.image_url,
-    }
+    };
 
-    const apiHeader = {}
-    actions.acceptBideRequest(apiUrl, apiData, apiHeader).then((res) => {
-      _onAcceptdeclineBideRequest(data?.id, 1)
-      showSuccess(res?.message)
-    }).catch((error) => {
-      showError(error?.message)
-    })
-  }
-  const _onDeclineBid = (data) => {
-    _onAcceptdeclineBideRequest(data, 0)
-  }
+    const apiHeader = {};
+    actions
+      .acceptBideRequest(apiUrl, apiData, apiHeader)
+      .then(res => {
+        _onAcceptdeclineBideRequest(data?.id, 1);
+        showSuccess(res?.message);
+      })
+      .catch(error => {
+        showError(error?.message);
+      });
+  };
+  const _onDeclineBid = data => {
+    _onAcceptdeclineBideRequest(data, 0);
+  };
 
   const _onAcceptdeclineBideRequest = (data, type) => {
     const apiData = {
       id: data,
-      status: type
-    }
+      status: type,
+    };
     const apiHeader = {
-      client: clientInfo?.database_name
-    }
-    actions.acceptdeclineBideRequest(apiData, apiHeader).then((res) => {
-      const hideBidView = type == 1 ? false : true
-      _onReciveBide(hideBidView)
-      setDriverSelectedPriceForBide({})
-    }).catch((error) => {
-      showError(error?.message)
-    })
-  }
-
+      client: clientInfo?.database_name,
+    };
+    actions
+      .acceptdeclineBideRequest(apiData, apiHeader)
+      .then(res => {
+        const hideBidView = type == 1 ? false : true;
+        _onReciveBide(hideBidView);
+        setDriverSelectedPriceForBide({});
+      })
+      .catch(error => {
+        showError(error?.message);
+      });
+  };
 
   //Biding Rice Funcationality>>>>>>>>>>>>>>>>>>
 
   const _onRidePriceIncerimentDecrimentPrice = (type, bidData) => {
     if (type == 'minus') {
-      return Number(bidData?.selectedPriceForBid) - 10
+      return Number(bidData?.selectedPriceForBid) - 10;
     } else {
-      return Number(bidData?.selectedPriceForBid) + 10
+      return Number(bidData?.selectedPriceForBid) + 10;
     }
-
-  }
+  };
   const _onSetBidPrice = (type, bidData) => {
-    const selectedBidPrice = _onRidePriceIncerimentDecrimentPrice(type, bidData)
+    const selectedBidPrice = _onRidePriceIncerimentDecrimentPrice(
+      type,
+      bidData,
+    );
     const finalRequestData = allCustomerBidsList.map((element, index) => {
       if (element.bid_id == bidData?.bid_id) {
         if (selectedBidPrice < bidData?.minimum_requested_price) {
-          alert(`you can't select price below ${bidData?.minimum_requested_price}`)
-          setBidRidePrice(Number(bidData?.minimum_requested_price))
-          element['selectedPriceForBid'] = String(bidData?.minimum_requested_price)
+          alert(
+            `you can't select price below ${bidData?.minimum_requested_price}`,
+          );
+          setBidRidePrice(Number(bidData?.minimum_requested_price));
+          element['selectedPriceForBid'] = String(
+            bidData?.minimum_requested_price,
+          );
         } else {
-          element['selectedPriceForBid'] = String(selectedBidPrice || bidData?.requested_price)
+          element['selectedPriceForBid'] = String(
+            selectedBidPrice || bidData?.requested_price,
+          );
         }
       }
 
-      return element
+      return element;
     });
-    setAllCustomerBidsList(finalRequestData)
-  }
+    setAllCustomerBidsList(finalRequestData);
+  };
 
-
-
-  const renderCustomerListCard = useCallback(({ item, index }) => {
-    return (
-      <BidAcceptRejectCard
-        data={item}
-        bidExpiryDuration={20}
-        _onDeclineBid={_onDeclineBid}
-        _onAcceptRideBid={_onAcceptRideBid}
-        _onSetBidPrice={_onSetBidPrice}
-        bidRidePrice={bidRidePrice}
-      />
-    )
-  }, [allCustomerBidsList])
+  const renderCustomerListCard = useCallback(
+    ({item, index}) => {
+      return (
+        <BidAcceptRejectCard
+          data={item}
+          bidExpiryDuration={20}
+          _onDeclineBid={_onDeclineBid}
+          _onAcceptRideBid={_onAcceptRideBid}
+          _onSetBidPrice={_onSetBidPrice}
+          bidRidePrice={bidRidePrice}
+        />
+      );
+    },
+    [allCustomerBidsList],
+  );
   const renderBidingView = () => {
     return (
       <BottomSheet
@@ -1199,135 +1196,122 @@ export default function DashBoard({ route, navigation }) {
         enablePanDownToClose={false}
         enableHandlePanningGesture={false}
         enableContentPanningGesture={false}
-      // onChange={_connectRajorPayBottomSheet}
-      // handleComponent={_handleComponent}
+        // onChange={_connectRajorPayBottomSheet}
+        // handleComponent={_handleComponent}
       >
-
         <FlatList
           showsVerticalScrollIndicator={false}
           data={allCustomerBidsList}
           renderItem={renderCustomerListCard}
           //keyExtractor={awesomeChildListKeyExtractor}
           ListFooterComponent={() => (
-            <View style={{
-              marginLeft: moderateScale(16),
-              marginBottom: moderateScaleVertical(20),
-            }} />
+            <View
+              style={{
+                marginLeft: moderateScale(16),
+                marginBottom: moderateScaleVertical(20),
+              }}
+            />
           )}
           ListHeaderComponent={() => (
-            <View style={{ marginRight: moderateScale(16) }} />
+            <View style={{marginRight: moderateScale(16)}} />
           )}
         />
       </BottomSheet>
-    )
-  }
+    );
+  };
 
-
-  return (
-    (!isEmpty(allCustomerBidsList) && showBiddingView) ? renderBidingView() :
-      <WrapperContainer
-        statusBarColor={colors.white}
-        bgColor={colors.backGround}
-        isLoading={isLoading || isLoadingSwitch}
-        source={loaderOne}
-      >
-        <Header
-          reverse={false}
-          headerStyle={{ backgroundColor: colors.white }}
-          leftIcon={imagePath.menu}
-          onPressLeft={() => navigation.toggleDrawer()}
-          // hideRight={true}
-          customCenter={() => customCenter()}
-          rightIcon={!enableMap ? imagePath.map : imagePath.listMenu}
-          onPressRight={_onSwitchMapView}
-        />
-        <View style={{ ...commonStyles.headerTopLine }} />
-        {isWarningAlert && (
-          <View
-            style={{
-              backgroundColor: colors.lightRed,
-              flexDirection: "row",
-              justifyContent: "space-between",
-              paddingHorizontal: moderateScale(10),
-            }}
-          >
-            <View style={{ width: width / 2.2, justifyContent: "center" }}>
-              <Text
-                style={{ color: colors.white, fontFamily: fontFamily.regular }}
-              >
-                {strings.notificationAlert}
-              </Text>
-            </View>
-            <View
-              style={{
-                justifyContent: "space-between",
-                width: width / 2.5,
-                alignItems: "center",
-                flexDirection: "row",
-                marginVertical: moderateScaleVertical(5),
-                paddingVertical: moderateScaleVertical(10),
-              }}
-            >
-              <TouchableOpacity
-                style={{
-                  backgroundColor: colors.themeColor,
-                  alignItems: "center",
-                  marginVertical: moderateScaleVertical(10),
-                  paddingVertical: moderateScaleVertical(5),
-                  paddingHorizontal: moderateScale(10),
-                  borderRadius: 8,
-                }}
-                onPress={() => toggleWarning(false)}
-              >
-                <Text style={{ color: colors.white }}>{strings.CANCEL}</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={{
-                  backgroundColor: colors.themeColor,
-                  alignItems: "center",
-                  marginVertical: moderateScaleVertical(10),
-                  paddingVertical: moderateScaleVertical(5),
-                  paddingHorizontal: moderateScale(10),
-                  borderRadius: 8,
-                }}
-                onPress={() => _onOpenSettings()}
-              >
-                <Text style={{ color: colors.white }}>{strings.ENABLE}</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        )}
-
+  return !isEmpty(allCustomerBidsList) && showBiddingView ? (
+    renderBidingView()
+  ) : (
+    <WrapperContainer
+      statusBarColor={colors.white}
+      bgColor={colors.backGround}
+      isLoading={isLoading || isLoadingSwitch}
+      source={loaderOne}>
+      <Header
+        reverse={false}
+        headerStyle={{backgroundColor: colors.white}}
+        leftIcon={imagePath.menu}
+        onPressLeft={() => navigation.toggleDrawer()}
+        // hideRight={true}
+        customCenter={() => customCenter()}
+        rightIcon={!enableMap ? imagePath.map : imagePath.listMenu}
+        onPressRight={_onSwitchMapView}
+      />
+      <View style={{...commonStyles.headerTopLine}} />
+      {isWarningAlert && (
         <View
           style={{
-            justifyContent: "center",
-            alignItems: "center",
-            marginTop: moderateScaleVertical(20),
-            paddingBottom: moderateScaleVertical(20),
-            borderBottomWidth: moderateScaleVertical(1),
-            borderBottomColor: colors.lightGreyBg,
-          }}
-        >
-          {isEnabled ? (
-            <SwitchSelectorComponent
-              key={selectedOption}
-              options={options}
-              initial={selectedOption}
-              onPress={(value) => updateContent(value)}
+            backgroundColor: colors.lightRed,
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            paddingHorizontal: moderateScale(10),
+          }}>
+          <View style={{width: width / 2.2, justifyContent: 'center'}}>
+            <Text style={{color: colors.white, fontFamily: fontFamily.regular}}>
+              {strings.notificationAlert}
+            </Text>
+          </View>
+          <View
+            style={{
+              justifyContent: 'space-between',
+              width: width / 2.5,
+              alignItems: 'center',
+              flexDirection: 'row',
+              marginVertical: moderateScaleVertical(5),
+              paddingVertical: moderateScaleVertical(10),
+            }}>
+            <TouchableOpacity
+              style={{
+                backgroundColor: colors.themeColor,
+                alignItems: 'center',
+                marginVertical: moderateScaleVertical(10),
+                paddingVertical: moderateScaleVertical(5),
+                paddingHorizontal: moderateScale(10),
+                borderRadius: 8,
+              }}
+              onPress={() => toggleWarning(false)}>
+              <Text style={{color: colors.white}}>{strings.CANCEL}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={{
+                backgroundColor: colors.themeColor,
+                alignItems: 'center',
+                marginVertical: moderateScaleVertical(10),
+                paddingVertical: moderateScaleVertical(5),
+                paddingHorizontal: moderateScale(10),
+                borderRadius: 8,
+              }}
+              onPress={() => _onOpenSettings()}>
+              <Text style={{color: colors.white}}>{strings.ENABLE}</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      )}
+
+      <View
+        style={{
+          justifyContent: 'center',
+          alignItems: 'center',
+          marginTop: moderateScaleVertical(20),
+          paddingBottom: moderateScaleVertical(20),
+          borderBottomWidth: moderateScaleVertical(1),
+          borderBottomColor: colors.lightGreyBg,
+        }}>
+        {isEnabled ? (
+          <SwitchSelectorComponent
+            key={selectedOption}
+            options={options}
+            initial={selectedOption}
+            onPress={value => updateContent(value)}
             // textInputStyle={{ width: moderateScale(width - 40) }}
-            />
-          ) : (
-            <View style={{ height: 35 }} />
-          )}
-        </View>
+          />
+        ) : (
+          <View style={{height: 35}} />
+        )}
+      </View>
 
-        <View style={{ flex: 1 }}>
-          {renderComponents()}
-        </View>
-      </WrapperContainer>
+      <View style={{flex: 1}}>{renderComponents()}</View>
+    </WrapperContainer>
   );
-
-
-
 }
-

@@ -209,47 +209,77 @@ android {
 
      flavorDimensions "appType"
 productFlavors{
-       dotTaxi{
+       onebasket{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.dotTaxi.driver'
-            resValue "string", "app_name", "Dot Driver"
+            applicationId 'com.onerbasket.royodispatcher'
+            resValue "string", "app_name", "OneBasket Dispatcher"
         }
-                    boozeBrothers{
+         bumprkar{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.boozeBrothers.driver'
-            resValue "string", "app_name", "BoozeBrothers Driver"
+            applicationId 'com.bumprkar.driver'
+            resValue "string", "app_name", "Bumprkar Dispatcher"
         }
-                smile{
+         virgingate{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.Smile.royodispatcher'
-            resValue "string", "app_name", "Miist Dispatcher"
+            applicationId 'com.virgingate.driver'
+            resValue "string", "app_name", "Virgingate dispatcher"
         }
+        ondgoo{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.ondgoo.royodispatcher'
+            resValue "string", "app_name", "Ondgoo Dispatcher"
+        }
+        //             boozeBrothers{
+        //     dimension "appType"
+        //     versionCode 1
+        //     versionName "1.0"
+        //     minSdkVersion rootProject.ext.minSdkVersion
+        //     targetSdkVersion rootProject.ext.targetSdkVersion
+        //     // applicationIdSuffix ".royoorder"
+        //     applicationId 'com.boozeBrothers.driver'
+        //     resValue "string", "app_name", "BoozeBrothers Driver"
+        // }
+        //         smile{
+        //     dimension "appType"
+        //     versionCode 1
+        //     versionName "1.0"
+        //     minSdkVersion rootProject.ext.minSdkVersion
+        //     targetSdkVersion rootProject.ext.targetSdkVersion
+        //     // applicationIdSuffix ".royoorder"
+        //     applicationId 'com.Smile.royodispatcher'
+        //     resValue "string", "app_name", "Miist Dispatcher"
+        // }
 
-         instaFits{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.instaFits.driver'
-            resValue "string", "app_name", "INSTA-FITS dispatcher"
-        }
+        //  instaFits{
+        //     dimension "appType"
+        //     versionCode 1
+        //     versionName "1.0"
+        //     minSdkVersion rootProject.ext.minSdkVersion
+        //     targetSdkVersion rootProject.ext.targetSdkVersion
+        //     // applicationIdSuffix ".royoorder"
+        //     applicationId 'com.instaFits.driver'
+        //     resValue "string", "app_name", "INSTA-FITS dispatcher"
+        // }
 }     
 //     productFlavors 
 //     {
