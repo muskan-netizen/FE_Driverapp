@@ -193,7 +193,6 @@ android {
 
     // applicationVariants are e.g. debug, release
     applicationVariants.all { variant ->
-    variant.resValue "string", "mauron85_bgloc_account_type", "${variant.applicationId}.mauron85.bgloc.account"
         variant.resValue "string", "mauron85_bgloc_content_authority", "${variant.applicationId}.com.marianhello.app.mauron85.bgloc.provider.devbuild"
         variant.outputs.each { output ->
             // For each separate APK per architecture, set a unique version code as described here:
@@ -210,17 +209,47 @@ android {
 
      flavorDimensions "appType"
 productFlavors{
-         eatHalal{
+       dotTaxi{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.eatHalal.royodispatcher'
-            resValue "string", "app_name", "EatHalal Dispatcher"
+            applicationId 'com.dotTaxi.driver'
+            resValue "string", "app_name", "Dot Driver"
         }
-       
+                    boozeBrothers{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.boozeBrothers.driver'
+            resValue "string", "app_name", "BoozeBrothers Driver"
+        }
+                smile{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.Smile.royodispatcher'
+            resValue "string", "app_name", "Miist Dispatcher"
+        }
+
+         instaFits{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.instaFits.driver'
+            resValue "string", "app_name", "INSTA-FITS dispatcher"
+        }
 }     
 //     productFlavors 
 //     {
@@ -6247,7 +6276,7 @@ productFlavors{
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
 //             applicationId 'com.dotTaxi.royodispatcher'
-//             resValue "string", "app_name", "Dot Taxi Dispatcher"
+//             resValue "string", "app_name", "Dot Driver"
 //         }
 // airvolt{
 //             dimension "appType"
@@ -6785,9 +6814,7 @@ productFlavors{
 //             resValue "string", "app_name", "Mammys Kitchen Dispatcher"
 //         }
 //     }
-            // applicationId 'com.OyeeRides.dispatcher'
-            // resValue "string", "app_name", "OyeeRides dispatcher"
-    // }
+           
 }
 
 
