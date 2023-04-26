@@ -333,7 +333,7 @@ export default function MyProfile({route, navigation}) {
                 <View style={{marginBottom: moderateScale(20)}}>
                   <View>
                     <Text style={[styles.label2, styles.textInputStyle]}>
-                      {strings.PLATEORDER}
+                      {(getBundleId() == appIds.mrVeloz && defaultLanguagae?.value == 'es') ? strings.PLATEORDER_MRVELOZ :strings.PLATEORDER}
                     </Text>
                   </View>
                   <Text

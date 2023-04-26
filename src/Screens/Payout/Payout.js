@@ -39,9 +39,11 @@ import {
   default as validator,
 } from '../../utils/validations';
 import stylesFun from './styles';
+import { getBundleId } from 'react-native-device-info';
+import { appIds } from '../../utils/constants/DynamicAppKeys';
 export default function AddMoney({ navigation }) {
   const { userData } = useSelector(state => state?.auth);
-  const { clientInfo } = useSelector(state => state?.initBoot);
+  const { clientInfo, defaultLanguage } = useSelector(state => state?.initBoot);
   console.log(clientInfo?.database_name, 'clientInfoclientInfo');
   const [state, setState] = useState({
     isPayoutModal: false,
@@ -520,7 +522,7 @@ export default function AddMoney({ navigation }) {
       source={loaderOne}>
       <Header
         leftIcon={imagePath.backArrow}
-        centerTitle={strings.PAYOUT}
+        centerTitle={(getBundleId() == appIds.mrVeloz && defaultLanguage?.value == 'es') ? strings.PAYOUT_MRVELOZ : strings.PAYOUT}
         headerStyle={{
           backgroundColor: colors.white,
           paddingHorizontal: moderateScale(10),
@@ -618,7 +620,7 @@ export default function AddMoney({ navigation }) {
           containerStyle={{ marginTop: moderateScaleVertical(40) }}
           onPress={() => updateState({ isPayoutModal: true })}
           textStyle={{ color: colors.black }}
-          btnText={strings.PAYOUT}
+          btnText={(getBundleId() == appIds.mrVeloz && defaultLanguage?.value == 'es') ? strings.PAYOUT_BUTTON_MRVELOZ : strings.PAYOUT}
           colorsArray={[colors.themeColor, colors.themeColor]}
         />
       </View>
@@ -650,7 +652,7 @@ export default function AddMoney({ navigation }) {
               fontFamily: fontFamily.bold,
               fontSize: textScale(18),
             }}>
-            {strings.PAYOUT}
+            {(getBundleId() == appIds.mrVeloz && defaultLanguage?.value == 'es') ? strings.PAYOUT_BUTTON_MRVELOZ:strings.PAYOUT}
           </Text>
           <TextInputWithlabel
             label={strings.AMOUNT}

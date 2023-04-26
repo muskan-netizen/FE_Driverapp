@@ -368,4 +368,9 @@ export default {
   SAVE_AS: 'Save as',
   ENETER_YOUR_ADDRESS: 'Enter your address',
   SAVE_ADDRESS: 'Save Address',
+  SELCET_OPTION:"Select Options",
+  USE_CAMERA:"USE CAMERA",
+  USE_GALLERY:"USE GALLERY",
+  CASH_COLLECTED:"Cash Collected",
+  EARNING:"Earning"
 };

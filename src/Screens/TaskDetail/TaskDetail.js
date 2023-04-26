@@ -53,6 +53,8 @@ import stylesFunc from './styles';
 import ButtonComponent from '../../Components/ButtonComponent';
 import { mapStyle } from '../../utils/constants/MapStyle';
 import { getAllTravelDetails } from '../../utils/googlePlaceApi';
+import { getBundleId } from 'react-native-device-info';
+import { appIds } from '../../utils/constants/DynamicAppKeys';
 
 var ACTION_TIMER = 1500;
 var COLORS = ["#8FEE90", "#27A468"];
@@ -66,7 +68,7 @@ export default function TaskDetail({ route, navigation }) {
   const styles = stylesFunc({ defaultLanguage });
   const commonStyles = commonStylesFunc({ fontFamily });
 
-
+  console.log(defaultLanguage, 'defaultLanguagedefaultLanguage')
   const [state, setState] = useState({
     vendors: {},
     isLoading: false,
@@ -193,13 +195,14 @@ export default function TaskDetail({ route, navigation }) {
     }
   }, [taskDetail, userData]);
 
-  useEffect(() => { updateState({ taskStatus: Number(taskDetail?.task_status) })
-   }, [taskDetail?.tasktype.name])
+  useEffect(() => {
+    updateState({ taskStatus: Number(taskDetail?.task_status) })
+  }, [taskDetail?.tasktype.name])
 
 
 
   useEffect(() => {
-   
+
     getStatusName(taskStatus);
   }, [taskStatus]);
 
@@ -280,7 +283,7 @@ export default function TaskDetail({ route, navigation }) {
         "/dispatch-order-status-update/"
       )
     ) {
-  
+
       return (taskDetail?.order?.call_back_url).replace(
         "/dispatch-order-status-update/",
         "/dispatch-order-status-update-details/"
@@ -335,7 +338,7 @@ export default function TaskDetail({ route, navigation }) {
         console.log(error, "error error error");
       });
   };
-
+  console.log(taskDetail, 'taskDetail>>>>>>>>>>>>>>>>>>')
   const _getproductUpdateDetails = () => {
     actions
       .getProductUpdateDetails(new_dispatch_traking_url(), {})
@@ -511,25 +514,25 @@ export default function TaskDetail({ route, navigation }) {
     console.log(taskStatus, "getStatusName");
     switch (taskStatus) {
       case 1:
-        updateState({ buttonText: strings.HOLDTOSTART });
+        updateState({ buttonText: (getBundleId() == appIds.mrVeloz && defaultLanguage?.value == 'es') ? strings.HOLDTOSTART_MRVELOZ : strings.HOLDTOSTART });
         break;
       case 2:
-        updateState({ buttonText: strings.HOLDTOARRIVE });
+        updateState({ buttonText: (getBundleId() == appIds.mrVeloz && defaultLanguage?.value == 'es') ? strings.HOLDTOARRIVE_MRVELOZ : strings.HOLDTOARRIVE });
         break;
       case 3:
         updateState({
           buttonText:
             taskDetail?.tasktype?.name == "Drop"
-              ? strings.HOLDTOCOMPLETE
-              : strings.HOLDTOPICK,
+              ? (getBundleId() == appIds.mrVeloz && defaultLanguage?.value == 'es') ? strings.HOLDTOCOMPLETE_MRVELOZ : strings.HOLDTOCOMPLETE
+              : (getBundleId() == appIds.mrVeloz && defaultLanguage?.value == 'es') ? strings.HOLDTOPICK_MRVELOZ : strings.HOLDTOPICK,
         });
         break;
       case 4:
         updateState({
           buttonText:
             taskDetail?.tasktype?.name == "Drop"
-              ? strings.HOLDTOCOMPLETE
-              : strings.HOLDTOPICK,
+              ? (getBundleId() == appIds.mrVeloz && defaultLanguage?.value == 'es') ? strings.HOLDTOCOMPLETE_MRVELOZ : strings.HOLDTOCOMPLETE
+              : (getBundleId() == appIds.mrVeloz && defaultLanguage?.value == 'es') ? strings.HOLDTOPICK_MRVELOZ : strings.HOLDTOPICK,
         });
         break;
       default:
@@ -834,7 +837,6 @@ export default function TaskDetail({ route, navigation }) {
           <Text style={styles.taskLable}>
             {strings.TASKDESCRIPTION.toUpperCase()}
           </Text>
-          {console.log(taskDetail, taskDetail?.order?.recipient_phone, taskDetail?.order?.Recipient_email, vendors, 'taskDetailtaskDetail')}
           {/* Phone and email view */}
           {(taskDetail?.tasktype?.name).toLowerCase() == "drop" ? (
             <View
@@ -1653,7 +1655,7 @@ export default function TaskDetail({ route, navigation }) {
       .catch((err) => console.error("An error occurred", err));
   };
 
- 
+
 
   /**** */
 
