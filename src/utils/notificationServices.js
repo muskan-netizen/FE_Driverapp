@@ -17,11 +17,37 @@ export async function requestUserPermission(callback = () => { }) {
     authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
     authStatus === messaging.AuthorizationStatus.PROVISIONAL;
 
-  if (enabled) {
-    console.log('Authorization status:', enabled);
-    getFcmToken();
-    callback(false);
-  } else callback(true);
+  if (Number(Platform.constants.Release) <= Number(12)) {
+    if (enabled) {
+      console.log('Authorization status:', enabled);
+      getFcmToken();
+      callback(false);
+    } else callback(true);
+  } else {
+    try {
+      const granted = await PermissionsAndroid.request(
+        PERMISSIONS.ANDROID.POST_NOTIFICATIONS,
+        {
+          title: 'Notification Permission',
+          message: 'Allow this app to post notifications?',
+          buttonNeutral: 'Ask Me Later',
+          buttonNegative: 'Cancel',
+          buttonPositive: 'OK',
+        },
+      );
+      console.log(granted, 'grantedgrantedgrantedgranted');
+      if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+        getFcmToken();
+        callback(false);
+      } else {
+        callback(true)
+      }
+    } catch (err) {
+      console.warn(err);
+    }
+  }
+
+
 }
 
 // const romoveToken = () => {
@@ -98,7 +124,7 @@ export const notificationListener = async () => {
       'Notification caused app to open from background state bla bla:',
       JSON.stringify(remoteMessage),
     );
-    const {notification,data} = remoteMessage;
+    const { notification, data } = remoteMessage;
     let notificationType = data?.type || data?.notificationType;
     if (
       notification?.sound == 'notification.mp3' ||
@@ -116,9 +142,9 @@ export const notificationListener = async () => {
         });
       } else {
         console.log('here>>1');
-       
+
         actions.isModalVisibleForAcceptReject({
-          isModalVisibleForAcceptReject: notificationType =='bid_ride_request'?false: true,
+          isModalVisibleForAcceptReject: notificationType == 'bid_ride_request' ? false : true,
           notificationData: remoteMessage,
         });
       }
@@ -155,7 +181,7 @@ export const notificationListener = async () => {
             });
           } else {
             console.log('here>>2');
-        
+
             actions.isModalVisibleForAcceptReject({
               isModalVisibleForAcceptReject: true,
               notificationData: remoteMessage,

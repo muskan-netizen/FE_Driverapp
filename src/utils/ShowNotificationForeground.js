@@ -38,7 +38,7 @@ const ShowNotificationForeground = props => {
       let displayNotificationData = {}
       if (Platform.OS == "ios") {
         displayNotificationData = {
-          title: notificationType || notification?.title || '',
+          title:  notification?.title || notificationType || '',
           body: data?.message || notification?.body || '',
           data: { ...data },
         };
@@ -46,7 +46,7 @@ const ShowNotificationForeground = props => {
       }
       else {
         displayNotificationData = {
-          title: notificationType || notification?.title || '',
+          title:  notification?.title || notificationType||'',
           body: data?.message || notification?.body || '',
           android: {
             sound: notification.sound == 'notification'
