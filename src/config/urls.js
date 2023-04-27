@@ -7,8 +7,6 @@
 // export const API_BASE_URL = 'https://dispatch.foodnests.com/';
 // export const API_BASE_URL = 'https://dispatch.tiimollc.com/';
 // export const API_BASE_URL = 'https://dispatch.ihelp.app.br/';
-
-
 // export const API_BASE_URL = 'https://dispatch.10dollahollla.com/';
  // export const API_BASE_URL='http://192.168.102.30:8000/'
 // export const API_BASE_URL='https://dispatch.ullaz.co.ke/'
