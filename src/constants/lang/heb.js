@@ -346,4 +346,6 @@ export default {
     PLEASECREATECONTACT: 'נא ליצור חשבון',
     ACCOUNTCREATEDSUCESS: 'החשבון נוצר בהצלחה.',
     CONFIRMACCOUNTNUMBER: '',
+    ORDER_DELAYED_BY:'Order Delayed By',
+  ORDER_WILL_PREPARED_IN  :'Order Will Prepared In'
 };

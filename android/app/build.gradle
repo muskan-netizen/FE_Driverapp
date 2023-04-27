@@ -209,8 +209,8 @@ android {
     }
 
      flavorDimensions "appType"
-    productFlavors 
-    {
+   
+    productFlavors  {
     royoDispatcher{
             dimension "appType"
             versionCode 1
@@ -4201,7 +4201,7 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.Cartnar.royodispatcher'
+            applicationId 'com.shoparixDriver.royodispatcher'
             resValue "string", "app_name", "Cartnar Dispatcher"
         }
 
@@ -6126,16 +6126,7 @@ hattaFoodHub{
             applicationId 'com.hattaFoodHub.royodispatcher'
             resValue "string", "app_name", "HattaFoodHub Dispatcher"
         }
-ondgoo{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.ondgoo.royodispatcher'
-            resValue "string", "app_name", "Ondgoo Dispatcher"
-        }
+
 junkerz{
             dimension "appType"
             versionCode 1
@@ -6234,7 +6225,7 @@ dotTaxi{
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
             applicationId 'com.dotTaxi.royodispatcher'
-            resValue "string", "app_name", "Dot Taxi Dispatcher"
+            resValue "string", "app_name", "Dot Driver"
         }
 airvolt{
             dimension "appType"
@@ -6395,16 +6386,6 @@ livraizoo{
             // applicationIdSuffix ".royoorder"
             applicationId 'com.livraizoo.royodispatcher'
             resValue "string", "app_name", "Livraizoo Dispatcher"
-        }
-boozeBrothers{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.boozeBrothers.driver'
-            resValue "string", "app_name", "BoozeBrothers Driver"
         }
 readyToRent{
             dimension "appType"
@@ -6771,8 +6752,8 @@ piolfix{
             applicationId 'com.mammysKitchen.driver'
             resValue "string", "app_name", "Mammys Kitchen Dispatcher"
         }
- 
     }
+           
 }
 
 
@@ -6781,6 +6762,7 @@ piolfix{
 
 dependencies {
      compile project(':react-native-video')
+     implementation "androidx.appcompat:appcompat:1.0.0"
     implementation 'androidx.work:work-runtime-ktx:2.7.0' // required to avoid crash on Android 12 API 31
     implementation 'com.android.support:multidex:2.0.1'
     implementation 'com.facebook.fresco:animated-gif:2.5.0'
