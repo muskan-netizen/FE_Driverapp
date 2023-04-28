@@ -1,10 +1,11 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import messaging from '@react-native-firebase/messaging';
-import { Platform } from 'react-native';
+import { PermissionsAndroid, Platform } from 'react-native';
 
 import { navigate } from '../navigation/NavigationService';
 import navigationStrings from '../navigation/navigationStrings';
 import actions from '../redux/actions';
+import { PERMISSIONS } from 'react-native-permissions';
 
 
 export async function requestUserPermission(callback = () => { }) {

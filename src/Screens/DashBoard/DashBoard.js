@@ -1190,7 +1190,8 @@ export default function DashBoard({route, navigation}) {
         ref={bottomSheetRef}
         index={1}
         // key={isOpen}
-        snapPoints={['0%', true ? '100%' : '30%']}
+        // snapPoints={['1%', true ? '100%' : '30%']}
+        snapPoints={['100%', '100%']}
         activeOffsetY={[-1, 1]}
         failOffsetX={[-5, 5]}
         animateOnMount={true}
