@@ -18,7 +18,7 @@
 //export const API_BASE_URL = 'https://virgingates-dispatch.netsolutionindia.com/';
 
 // oneBasket
-//export const API_BASE_URL = 'https://delivery.onebasket.rw/';
+export const API_BASE_URL = 'https://delivery.onebasket.rw/';
 
 //EatHalal
 //export const API_BASE_URL = 'https://dispatch.eathalalonly.com/';
@@ -74,7 +74,7 @@
 // export const API_BASE_URL='https://dispatch.kaypee.app/'
 // export const API_BASE_URL = 'https://dispatch.tmgsalesllc.com/';
 
- export const API_BASE_URL = 'https://dispatch.xborne.com/';
+ //export const API_BASE_URL = 'https://dispatch.xborne.com/';
 
 // export const API_BASE_URL = 'https://dispatch.abberides.com/';
 

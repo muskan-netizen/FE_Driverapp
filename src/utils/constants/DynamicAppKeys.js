@@ -493,7 +493,7 @@ const shortCodes = {
   theGenie: '193af0',
   sultanCenter: 'e3255c',
   reedas: '986325',
-  onebasket: 'f5a75e',
+  onebasket: '15bc85',
   zozozi: 'a6e77a',
   ekobridge: '8a98a0',
   ambosSafariExpress: '9bc84f',
