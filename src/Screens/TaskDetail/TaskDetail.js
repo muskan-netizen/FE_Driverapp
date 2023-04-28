@@ -59,6 +59,7 @@ var COLORS = ["#8FEE90", "#27A468"];
 var _value = 0;
 export default function TaskDetail({ route, navigation }) {
   let taskDetail = route?.params?.data?.item;
+  let paramData = route?.params?.data
   let fromHistory = route?.params?.data?.fromHistory;
   const mapRef = useRef();
   const { userData } = useSelector(state => state?.auth);
@@ -193,13 +194,14 @@ export default function TaskDetail({ route, navigation }) {
     }
   }, [taskDetail, userData]);
 
-  useEffect(() => { updateState({ taskStatus: Number(taskDetail?.task_status) })
-   }, [taskDetail?.tasktype.name])
+  useEffect(() => {
+    updateState({ taskStatus: Number(taskDetail?.task_status) })
+  }, [taskDetail?.tasktype.name])
 
 
 
   useEffect(() => {
-   
+
     getStatusName(taskStatus);
   }, [taskStatus]);
 
@@ -280,7 +282,7 @@ export default function TaskDetail({ route, navigation }) {
         "/dispatch-order-status-update/"
       )
     ) {
-  
+
       return (taskDetail?.order?.call_back_url).replace(
         "/dispatch-order-status-update/",
         "/dispatch-order-status-update-details/"
@@ -646,7 +648,7 @@ export default function TaskDetail({ route, navigation }) {
         </View>
       );
     }
-    return cancelRequestExit ? null : (
+    return (cancelRequestExit || paramData?.is_from_calendar) ? null : (
       // return (
       <View style={styles.container}>
         <TouchableWithoutFeedback
@@ -1653,7 +1655,7 @@ export default function TaskDetail({ route, navigation }) {
       .catch((err) => console.error("An error occurred", err));
   };
 
- 
+
 
   /**** */
 
@@ -1678,7 +1680,8 @@ export default function TaskDetail({ route, navigation }) {
       <Header
         headerStyle={{ backgroundColor: colors.white }}
         leftIconStyle={{ tintColor: colors.themeColor }}
-        onPressLeft={moveToNewScreen(navigationStrings?.DASHBOARD)}
+        onPressLeft={paramData?.is_from_calendar ? () => navigation?.goBack() : moveToNewScreen(navigationStrings?.DASHBOARD)}
+
         // hideRight={true}
         // onPressLeft={()=>navigation.goBack()}
         centerTitle={`${strings.TASK} #${taskDetail?.id}`}

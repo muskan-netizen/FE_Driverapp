@@ -153,27 +153,29 @@ export default function ShortCode({ route, navigation }) {
     initApiHit()
   }, [])
 
-useEffect(() => {
+  useEffect(() => {
 
-if(!!shortCodeDataInfo&&  !isEmpty(shortCodeDataInfo) ){ if (getBundleId() == appIds?.flank) {
-setTimeout(() => {
-SplashScreen.hide();
-}, 100);
-} else {
-setTimeout(() => {
-SplashScreen.hide();
-}, 200);
-}}else{
+    if (!!shortCodeDataInfo && !isEmpty(shortCodeDataInfo)) {
+      if (getBundleId() == appIds?.flank) {
+        setTimeout(() => {
+          SplashScreen.hide();
+        }, 100);
+      } else {
+        setTimeout(() => {
+          SplashScreen.hide();
+        }, 200);
+      }
+    } else {
 
-}
+    }
 
-}, [shortCodeDataInfo])
+  }, [shortCodeDataInfo])
   //short code And init api hit
   const initApiHit = () => {
     (async () => {
       const saveShortCode = await getItem('saveShortCode');
       const appCode = !!saveShortCode ? saveShortCode : getAppCode()
-    //  const appCode = '773548'
+      //  const appCode = '773548'
       // console.log(appCode, "appCodeappCodeappCodeappCodeappCode");
 
       console.log(defaultLanguage?.value, 'Language in init screen');

@@ -1131,6 +1131,7 @@ const BottomSheetForm = ({
 
 
   const onSubmitForm = () => {
+
     let servicesDataAry = _.cloneDeep(servicesData);
     var productPrices = [];
     let objToInsert = {};
@@ -1180,7 +1181,6 @@ const BottomSheetForm = ({
       showError(strings.PLEASE_SELECT_PRICE_FOR_PRODUCT);
       return;
     }
-
     setIsSubmitLoading(true);
     actions
       .onSaveProductWithVariants(

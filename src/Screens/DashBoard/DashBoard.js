@@ -54,6 +54,7 @@ import BidAcceptRejectCard from "../../Components/BidAcceptRejectCard";
 import PoolingSuggestionCard from "../../Components/PoolingSuggestionCard";
 import { appIds } from "../../utils/constants/DynamicAppKeys";
 import { colorArray } from "../../utils/constants/ConstantValues";
+import { chekLocationPermission } from "../../utils/permissions";
 
 var finalAllTasks = [];
 var finaltodayTasks = [];
@@ -141,6 +142,8 @@ export default function DashBoard({ route, navigation }) {
   } = state;
 
 
+  console.log(region, "region>>>>>>>region")
+
 
   const [orderCallbackUrl, setOrderCallbackUrl] = useState('')
   const [allCustomerBidsList, setAllCustomerBidsList] = useState([])
@@ -185,7 +188,7 @@ export default function DashBoard({ route, navigation }) {
 
 
   useEffect(() => {
-    if(isEnabled){
+    if (isEnabled) {
       BackgroundGeolocation.on('location', location => {
         let headingAngle = location?.bearing || 0.0;
         let lat = location?.latitude || 0;
@@ -194,11 +197,11 @@ export default function DashBoard({ route, navigation }) {
         fetchgentLogs(lat, long, headingAngle);
         console.log(lat, long, headingAngle, 'at, long, headingAngle=>');
       });
-  
+
       BackgroundGeolocation.on('error', error => {
         console.log('[ERROR] BackgroundGeolocation error:', error);
       });
-  
+
       BackgroundGeolocation.on('authorization', status => {
         console.log(
           '[INFO] BackgroundGeolocation authorization status: ' + status,
@@ -226,32 +229,32 @@ export default function DashBoard({ route, navigation }) {
           );
         }
       });
-  
+
       BackgroundGeolocation.on("background", () => {
         console.log("[INFO] App is in background");
-  
+
       });
-  
+
       BackgroundGeolocation.on("foreground", () => {
         console.log("[INFO] App is in foreground");
-  
+
       });
-  
+
       BackgroundGeolocation.on('abort_requested', () => {
         console.log('[INFO] Server responded with 285 Updates Not Required');
       });
-  
+
       BackgroundGeolocation.on('http_authorization', () => {
         console.log('[INFO] App needs to authorize the http requests');
       });
-  
+
       BackgroundGeolocation.checkStatus(status => {
         console.log(status, 'status.isRunning');
         if (!status.isRunning) {
           BackgroundGeolocation.start(); //triggers start on start event
         }
       });
-  
+
       BackgroundGeolocation.configure({
         activityType: 'Fitness',
         desiredAccuracy: BackgroundGeolocation.HIGH_ACCURACY,
@@ -279,15 +282,15 @@ export default function DashBoard({ route, navigation }) {
           foo: 'bar', // you can also add your own properties
         },
       });
-  
-    }else{
+
+    } else {
       BackgroundGeolocation.removeAllListeners();
     }
-  
+
     return () => {
       BackgroundGeolocation.removeAllListeners();
     };
-  }, [orderCallbackUrl, setOrderCallbackUrl, ref,isEnabled]);
+  }, [orderCallbackUrl, setOrderCallbackUrl, ref, isEnabled]);
 
   useFocusEffect(
     React.useCallback(() => {
@@ -931,7 +934,6 @@ export default function DashBoard({ route, navigation }) {
 
   useEffect(() => {
     fitToMap();
-    console.log('fittomappppp');
   }, [markers]);
 
   useEffect(() => {
@@ -1077,7 +1079,6 @@ export default function DashBoard({ route, navigation }) {
 
   useEffect(() => {
     const bideNotificationType = notificationData?.notificationData?.data?.notificationType || notificationData?.notificationData?.data?.type
-    console.log(bideNotificationType, "bideNotificationType>> in home");
     if (bideNotificationType == 'bid_ride_request') {
       _onReciveBide()
     }
@@ -1237,6 +1238,7 @@ export default function DashBoard({ route, navigation }) {
           leftIcon={imagePath.menu}
           onPressLeft={() => navigation.toggleDrawer()}
           // hideRight={true}
+          noLeftIcon={!!clientInfo?.is_freelancer}
           customCenter={() => customCenter()}
           rightIcon={!enableMap ? imagePath.map : imagePath.listMenu}
           onPressRight={_onSwitchMapView}

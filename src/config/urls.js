@@ -648,3 +648,10 @@ export const SAVE_PRODUCT_WITH_VARIANTS = getApiUrl(
 );
 
 export const SAVE_AGENT_SLOTS = getApiUrl('api/auth/agent/saveSlot');
+
+export const GET_FILTERED_TASK_LIST = getApiUrl(
+  'api/filter_task_list',
+);
+export const BLOCK_UNBLOCK_AGENT_DATES = getApiUrl(
+  'api/agent/add_delete_block_slot',
+);

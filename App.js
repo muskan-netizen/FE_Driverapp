@@ -32,6 +32,7 @@ import {
 import ShowNotificationForeground from './src/utils/ShowNotificationForeground';
 import types from './src/redux/types';
 import notifee, { AndroidImportance } from '@notifee/react-native';
+import { MenuProvider } from 'react-native-popup-menu';
 
 
 let CodePushOptions = { checkFrequency: codePush.CheckFrequency.MANUAL };
@@ -244,21 +245,22 @@ const App = () => {
 
   return (
     <SafeAreaProvider>
-
-      <Provider store={store}>
-        <ShowNotificationForeground />
-        {progress ? progressView() : null}
-        <Routes />
-        <NotificationModal />
-      </Provider>
-      <Container
-        width={width - 20}
-        position="top"
-        duration={2000}
-        positionValue={moderateScaleVertical(20)}
-      />
-      <FlashMessage position="top" />
-      <NoInternetModal show={!internetConnection} />
+      <MenuProvider>
+        <Provider store={store}>
+          <ShowNotificationForeground />
+          {progress ? progressView() : null}
+          <Routes />
+          <NotificationModal />
+        </Provider>
+        <Container
+          width={width - 20}
+          position="top"
+          duration={2000}
+          positionValue={moderateScaleVertical(20)}
+        />
+        <FlashMessage position="top" />
+        <NoInternetModal show={!internetConnection} />
+      </MenuProvider>
     </SafeAreaProvider>
   );
 };

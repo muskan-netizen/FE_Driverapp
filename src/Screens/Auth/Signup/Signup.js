@@ -893,6 +893,7 @@ export default function Signup({ route, navigation }) {
   };
 
 
+
   const onSignupDone = () => {
     updateState({ isWaitingModal: true });
     setTimeout(() => {
@@ -1501,7 +1502,7 @@ export default function Signup({ route, navigation }) {
         mode="date"
       />
       <Modal
-        isVisible={false}
+        isVisible={isWaitingModal}
         style={{ margin: 0, justifyContent: 'flex-end' }}>
         <View style={styles.modalMainView}>
           <Text style={styles.thanksMsgTxt}>{strings.THANKS_MSG}</Text>
