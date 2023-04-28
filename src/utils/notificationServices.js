@@ -19,13 +19,7 @@ export async function requestUserPermission(callback = () => { }) {
     authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
     authStatus === messaging.AuthorizationStatus.PROVISIONAL;
 
-  if (Number(Platform.constants.Release) <= Number(12)) {
-    if (enabled) {
-      console.log('Authorization status:', enabled);
-      getFcmToken();
-      callback(false);
-    } else callback(true);
-  } else {
+
     try {
       const granted = await PermissionsAndroid.request(
         PERMISSIONS.ANDROID.POST_NOTIFICATIONS,
@@ -47,7 +41,14 @@ export async function requestUserPermission(callback = () => { }) {
     } catch (err) {
       console.warn(err);
     }
-  }
+  
+
+  if (enabled) {
+    console.log('Authorization status:', enabled);
+    getFcmToken();
+    callback(false);
+  } else callback(true);
+
 
 
 }
