@@ -13,7 +13,7 @@
 //  export const API_BASE_URL='http://192.168.102.30:8000/'
 // export const API_BASE_URL='https://dispatch.ullaz.co.ke/'
 // export const API_BASE_URL = 'https://dispatch.sta.ug/';
- //export const API_BASE_URL='http://192.168.102.143:8002/'
+//export const API_BASE_URL='http://192.168.102.143:8002/'
 // export const API_BASE_URL = 'https://dispatch.10dollahollla.com/';
 // export const API_BASE_URL='https://dispatch.movingwheelsdeliveryservices.com/'
 // export const API_BASE_URL='https://dispatch.kaypee.app/'
@@ -69,7 +69,7 @@
 // export const API_BASE_URL = 'https://dispatch.elog.group/';
 
 // export const API_BASE_URL = 'https://dispatch.knockknock.online/'
-// export const API_BASE_URL = 'https://api.winhires.com/';
+export const API_BASE_URL = 'https://svctest.tempcorner.com/';
 //export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
 //export const API_BASE_URL = 'http://192.168.101.54:9091/';
 //  export const API_BASE_URL = 'https://api.royodispatch.com/';
@@ -501,7 +501,7 @@
 // export const API_BASE_URL = 'https://dispatch.quicklube.us/'
 
 // sxm2Go
-  export const API_BASE_URL = 'https://dispatch.sxm2go.com/';
+// export const API_BASE_URL = 'https://dispatch.sxm2go.com/';
 
 // export const personaltoken = 'TMJdbQlNWkYl1JzMONzRgF4zQFuP8s';
 
@@ -627,6 +627,24 @@ export const DECLINEBIDEREQUESTS = getApiUrl('api/decline/bidRide/requests');
 export const ACCEPTDECLINEBIDEREQUESTS = getApiUrl('api/accept/decline/bidRide/requests');
 
 
+// Agent Slot scheduling
+export const GET_GENERAL_SLOT = getApiUrl('api/auth/agent/general_slot');
+export const GET_CATEGORIES_OF_PRODUCT = getApiUrl(
+  'api/get/on_demand_services',
+);
 
+export const GET_AGENT_SLOTS = getApiUrl('api/agent/getslot');
 
+export const GET_PRODUCT_WITH_CATEGORY = getApiUrl(
+  'api/agent/category_with_product_with_price',
+);
 
+export const AGENT_CATEGORY_WITH_PRODUCT = getApiUrl(
+  'api/auth/agent/category_with_product',
+);
+
+export const SAVE_PRODUCT_WITH_VARIANTS = getApiUrl(
+  'api/auth/agent/save_product_variant_price',
+);
+
+export const SAVE_AGENT_SLOTS = getApiUrl('api/auth/agent/saveSlot');

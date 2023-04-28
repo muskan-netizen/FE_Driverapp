@@ -14,6 +14,13 @@ import {
   BIDEREQUESTS,
   DECLINEBIDEREQUESTS,
   ACCEPTDECLINEBIDEREQUESTS,
+  GET_GENERAL_SLOT,
+  GET_CATEGORIES_OF_PRODUCT,
+  GET_AGENT_SLOTS,
+  GET_PRODUCT_WITH_CATEGORY,
+  AGENT_CATEGORY_WITH_PRODUCT,
+  SAVE_PRODUCT_WITH_VARIANTS,
+  SAVE_AGENT_SLOTS,
 } from "../../config/urls";
 import {
   apiGet,
@@ -215,14 +222,14 @@ export function updateCabPoolingStatus(data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
     apiPost(CAB_POOLING_STATUS, data, headers)
       .then((res) => {
-        const isPooling = !!res?.data?.is_pooling_available? true : false;
+        const isPooling = !!res?.data?.is_pooling_available ? true : false;
         if (isPooling) {
           dispatch({
             type: types.POOLING,
             payload: true,
           });
         } else {
-      
+
           dispatch({
             type: types.POOLING,
             payload: false,
@@ -241,7 +248,7 @@ export function updateCabPoolingStatus(data = {}, headers = {}) {
 export function savePoolingStatusForLifeCycle(data = {}) {
   dispatch({
     type: types.POOLING,
-    payload:data?true: false,
+    payload: data ? true : false,
   });
 }
 
@@ -297,11 +304,38 @@ export function acceptdeclineBideRequest(data = {}, headers = {}) {
 
 
 
+//Get Time Slots
+export function getTimeSlotsData(data = {}, headers = {}) {
+  return apiGet(GET_GENERAL_SLOT, data, headers);
+}
+
+//Get Service Details
+export function getServiceDetails(data = {}, headers = {}) {
+  return apiGet(GET_CATEGORIES_OF_PRODUCT, data, headers);
+}
+
+
+export function getAgentSlots(data = {}, headers = {}) {
+  return apiGet(GET_AGENT_SLOTS, data, headers);
+}
+
+export function getProductDetailsWithCategory(data = {}, headers = {}) {
+  return apiGet(GET_PRODUCT_WITH_CATEGORY, data, headers);
+}
+
+export function getAgentProductsByCategory(data = {}, headers = {}) {
+  return apiGet(AGENT_CATEGORY_WITH_PRODUCT, data, headers);
+}
 
 
 
+export function onSaveProductWithVariants(data = {}, headers = {}) {
+  return apiPost(SAVE_PRODUCT_WITH_VARIANTS, data, headers);
+}
 
-
+export function saveAgentSlots(data = {}, headers = {}) {
+  return apiPost(SAVE_AGENT_SLOTS, data, headers);
+}
 
 
 
