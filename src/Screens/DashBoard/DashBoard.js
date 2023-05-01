@@ -141,10 +141,6 @@ export default function DashBoard({ route, navigation }) {
     allPoolingingSuggestions,
   } = state;
 
-
-  console.log(region, "region>>>>>>>region")
-
-
   const [orderCallbackUrl, setOrderCallbackUrl] = useState('')
   const [allCustomerBidsList, setAllCustomerBidsList] = useState([])
   const [driverSelectedPriceForBide, setDriverSelectedPriceForBide] = useState({})
