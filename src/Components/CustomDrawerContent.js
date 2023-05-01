@@ -73,6 +73,27 @@ function CustomDrawerContent({
         subRoute: navigationStrings.TASKHISTORY,
       },
       {
+        id: 14,
+        label: strings.DATE_TIME,
+        image: imagePath.time,
+        key: navigationStrings.SERVICE_SLOTS,
+        // subRoute:navigationStrings.MYPROFILE
+      },
+      {
+        id: 15,
+        label: strings.SERVICE_DETAILS,
+        image: imagePath.icPayout,
+        key: navigationStrings.PRODUCTS_PRICE,
+        // subRoute:navigationStrings.MYPROFILE
+      },
+      {
+        id: 16,
+        label: strings.CALENDAR,
+        image: imagePath.icCalendarInActive,
+        key: navigationStrings.CALENDAR_STACK,
+        // subRoute:navigationStrings.MYPROFILE
+      },
+      {
         id: 2,
         label: strings.PROFILE,
         image: imagePath.profileImage,
@@ -175,14 +196,13 @@ function CustomDrawerContent({
 
 
   useEffect(() => {
-     
-    if(zendeskKeys?.keys?.account_key && zendeskKeys?.keys?.application_id){
+    if (zendeskKeys?.keys?.account_key && zendeskKeys?.keys?.application_id) {
       ZendeskChat.init(
         `${zendeskKeys?.keys?.account_key}`,
         `${zendeskKeys?.keys?.application_id}`
       );
     }
-   
+
     updateState({
       routes: [
         !!userData?.client_preference?.is_go_to_home && {
@@ -201,6 +221,27 @@ function CustomDrawerContent({
           image: imagePath.taskHistory,
           key: navigationStrings.TASKSTACK,
           subRoute: navigationStrings.TASKHISTORY,
+        },
+        {
+          id: 14,
+          label: strings.DATE_TIME,
+          image: imagePath.time,
+          key: navigationStrings.SERVICE_SLOTS,
+          // subRoute:navigationStrings.MYPROFILE
+        },
+        {
+          id: 15,
+          label: strings.SERVICE_DETAILS,
+          image: imagePath.icPayout,
+          key: navigationStrings.PRODUCTS_PRICE,
+          // subRoute:navigationStrings.MYPROFILE
+        },
+        {
+          id: 16,
+          label: strings.CALENDAR,
+          image: imagePath.icCalendarInActive,
+          key: navigationStrings.CALENDAR_STACK,
+          // subRoute:navigationStrings.MYPROFILE
         },
         {
           id: 2,
@@ -264,19 +305,6 @@ function CustomDrawerContent({
             }
             : {},
 
-        // {
-        //   if(subscription != undefined ) {
-        //     subscription?.hide_subscription_module == 0 && subscription?.hide_subscription_module != undefined ?
-        //       {
-        //         id: 9,
-        //         label: strings.SUBSCRIPTIONS,
-        //         support: true,
-        //         image: imagePath.icSubscription,
-        //         key: navigationStrings.SUBSCRIPTION_STACK,
-        //         subRoute: navigationStrings.SUBSCRIPTION_STACK,
-        //       } : {}
-        // }
-        // },
         appIds.transportSystem === DeviceInfo.getBundleId()
           ? {
             id: 7,
@@ -367,9 +395,9 @@ function CustomDrawerContent({
     updateState({ isLoading: false });
     showError(error?.message || error?.error);
   };
-console.log( !zendeskKeys?.keys?.account_key && !zendeskKeys?.keys?.application_id,'havsdyuva');
+  console.log(!zendeskKeys?.keys?.account_key && !zendeskKeys?.keys?.application_id, 'havsdyuva');
   const onStartSupportChat = () => {
-    if( !zendeskKeys?.keys?.account_key && !zendeskKeys?.keys?.application_id){
+    if (!zendeskKeys?.keys?.account_key && !zendeskKeys?.keys?.application_id) {
       showError('Zendesk not configured')
       return
     }
@@ -420,7 +448,7 @@ console.log( !zendeskKeys?.keys?.account_key && !zendeskKeys?.keys?.application_
       });
   };
 
-  console.log(poolingState,"poolingStatepoolingStatepoolingState");
+  console.log(poolingState, "poolingStatepoolingStatepoolingState");
 
   return (
     <>
