@@ -191,6 +191,7 @@ export default function ShortCode({route, navigation}) {
           // if (getBundleId() == appIds.royoorder && res?.data) {
           //   actions.saveShortCode(updatedShortCode);
           // }
+       
           actions.saveShortCode(updatedShortCode);
           console.log(res, 'res>res>resv');
           updateState({

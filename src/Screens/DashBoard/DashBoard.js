@@ -361,18 +361,18 @@ export default function DashBoard({route, navigation}) {
         .logsApi(data, {client: clientInfo?.database_name})
         .then(res => {
           console.log(res, 'logs data');
-          if (
-            res?.data?.user?.client_preference
-              ?.customer_support_application_id != null &&
-            res?.data?.user?.client_preference?.customer_support_key != null
-          ) {
-            if (
-              zendeskKeys?.keys?.account_key !=
-                res?.data?.user?.client_preference?.customer_support_key &&
-              zendeskKeys?.keys?.application_id !=
-                res?.data?.user?.client_preference
-                  ?.customer_support_application_id
-            )
+          // if (
+          //   res?.data?.user?.client_preference
+          //     ?.customer_support_application_id != null &&
+          //   res?.data?.user?.client_preference?.customer_support_key != null
+          // ) {
+          //   if (
+          //     zendeskKeys?.keys?.account_key !=
+          //       res?.data?.user?.client_preference?.customer_support_key &&
+          //     zendeskKeys?.keys?.application_id !=
+          //       res?.data?.user?.client_preference
+          //         ?.customer_support_application_id
+          //   )
               actions?.setZendeskKeys({
                 keys: {
                   application_id:
@@ -382,7 +382,8 @@ export default function DashBoard({route, navigation}) {
                     res?.data?.user?.client_preference?.customer_support_key,
                 },
               });
-          }
+            
+          // }
 
           if (res?.data?.user?.is_pooling_available) {
             actions.savePoolingStatusForLifeCycle(

@@ -18,7 +18,7 @@
 //export const API_BASE_URL = 'https://virgingates-dispatch.netsolutionindia.com/';
 
 // oneBasket
-export const API_BASE_URL = 'https://delivery.onebasket.rw/';
+// export const API_BASE_URL = 'https://delivery.onebasket.rw/';
 
 //EatHalal
 //export const API_BASE_URL = 'https://dispatch.eathalalonly.com/';
@@ -518,7 +518,7 @@ export const API_BASE_URL = 'https://delivery.onebasket.rw/';
 // export const API_BASE_URL = 'https://dispatch.quicklube.us/'
 
 // sxm2Go
-//export const API_BASE_URL = 'https://dispatch.sxm2go.com/';
+export const API_BASE_URL = 'https://dispatch.sxm2go.com/';
 
 // export const personaltoken = 'TMJdbQlNWkYl1JzMONzRgF4zQFuP8s';
 

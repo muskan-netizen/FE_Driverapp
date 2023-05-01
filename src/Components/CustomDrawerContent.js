@@ -23,7 +23,7 @@ import { useFocusEffect } from "@react-navigation/native";
 import { cloneDeep } from "lodash";
 import ScaledImage from "react-native-scalable-image";
 import DeviceInfo, { getBundleId } from "react-native-device-info";
-import ZendeskChat from "../library/react-native-zendesk-chat";
+import ZendeskChat from "react-native-zendesk-chat";
 import { appIds } from "../utils/constants/DynamicAppKeys";
 import { Subscriptions } from "../Screens";
 import BackgroundGeolocation from '@hariks789/react-native-background-geolocation';
@@ -173,6 +173,8 @@ function CustomDrawerContent({
     ? JSON.parse(userData?.client_preference?.custom_mode)
     : undefined;
 
+
+    
 
   useEffect(() => {
      
