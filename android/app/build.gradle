@@ -6753,16 +6753,16 @@ android {
 //             resValue "string", "app_name", "Mammys Kitchen Dispatcher"
 //         }
 
-   SXM2GO{
+          grub{
             dimension "appType"
-            versionCode 3
+            versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.SXM2GO.driverApp'
-            resValue "string", "app_name", "SXM2GO Driver"
-            
+            applicationId "com.Grub.royodispatcher"
+            resValue "string", "app_name", "Grub Dispatch"
+        
         }
 
     }
