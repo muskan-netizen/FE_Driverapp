@@ -73,27 +73,6 @@ function CustomDrawerContent({
         subRoute: navigationStrings.TASKHISTORY,
       },
       {
-        id: 14,
-        label: strings.DATE_TIME,
-        image: imagePath.time,
-        key: navigationStrings.SERVICE_SLOTS,
-        // subRoute:navigationStrings.MYPROFILE
-      },
-      {
-        id: 15,
-        label: strings.SERVICE_DETAILS,
-        image: imagePath.icPayout,
-        key: navigationStrings.PRODUCTS_PRICE,
-        // subRoute:navigationStrings.MYPROFILE
-      },
-      {
-        id: 16,
-        label: strings.CALENDAR,
-        image: imagePath.icCalendarInActive,
-        key: navigationStrings.CALENDAR_STACK,
-        // subRoute:navigationStrings.MYPROFILE
-      },
-      {
         id: 2,
         label: strings.PROFILE,
         image: imagePath.profileImage,
@@ -222,27 +201,7 @@ function CustomDrawerContent({
           key: navigationStrings.TASKSTACK,
           subRoute: navigationStrings.TASKHISTORY,
         },
-        {
-          id: 14,
-          label: strings.DATE_TIME,
-          image: imagePath.time,
-          key: navigationStrings.SERVICE_SLOTS,
-          // subRoute:navigationStrings.MYPROFILE
-        },
-        {
-          id: 15,
-          label: strings.SERVICE_DETAILS,
-          image: imagePath.icPayout,
-          key: navigationStrings.PRODUCTS_PRICE,
-          // subRoute:navigationStrings.MYPROFILE
-        },
-        {
-          id: 16,
-          label: strings.CALENDAR,
-          image: imagePath.icCalendarInActive,
-          key: navigationStrings.CALENDAR_STACK,
-          // subRoute:navigationStrings.MYPROFILE
-        },
+
         {
           id: 2,
           label: strings.PROFILE,
