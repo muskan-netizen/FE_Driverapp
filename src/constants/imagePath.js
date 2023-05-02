@@ -119,10 +119,18 @@ export default {
   currentLocation: require("../assets/images/ic_current.png"),
   icRedChecked: require("../assets/images/ic_checked.png"),
   icLocationPin_: require("../assets/images/ic_location_.png"),
-
+  icHomeInActive: require('../assets/images/ic_home_black4.png'),
+  icHomeActive: require('../assets/images/ic_home4.png'),
+  icServiceInActive: require('../assets/images/ic_servicelined.png'),
+  icCalendarTab: require('../assets/images/ic_calendar_tab.png'),
+  icProfileInactive: require('../assets/images/ic_account3.png'),
+  icProfileActive: require('../assets/images/ic_account_red.png'),
+  icServiceStatus: require('../assets/images/ic_service.png'),
 
   //mp4 videos
   flank: require('../assets/Flank.mp4'),
   carMarker: require('../assets/images/ic_topviewcar.png'),
+  icCalendarInActive: require('../assets/images/ic_calendarlined.png'),
+
 
 };

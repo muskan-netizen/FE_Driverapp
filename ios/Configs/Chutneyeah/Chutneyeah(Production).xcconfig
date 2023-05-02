@@ -1,8 +1,8 @@
-#include "Pods/Target Support Files/Pods-available_pods-Chutneyeah/Pods-available_pods-Chutneyeah.debug.xcconfig"
+#include "Pods/Target Support Files/Pods-available_pods-Chutneyeah/Pods-available_pods-Chutneyeah.release.xcconfig"
 
 PROJECT_BUNDLE_ID = com.chutneyeah.driver
 PROJECT_APP_VERSION = 1.0
-PROJECT_BUILD_NUMBER = 1
+PROJECT_BUILD_NUMBER = 3
 PROJECT_APP_NAME =  Chutneyeah Dispatcher
 PROJECT_PLIST = ChutneyeahInfo
 PROJECT_ENTITLEMENT=RoyoDriverAppRelease

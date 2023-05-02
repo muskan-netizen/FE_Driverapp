@@ -26,6 +26,8 @@ import {
   AGENT_HOME_ADDRESSES,
   ADD_AGENT_HOME_ADDRESS,
   SET_AGENT_PRIMARY_ADDRESS,
+  BLOCK_UNBLOCK_AGENT_DATES,
+  GET_FILTERED_TASK_LIST,
 } from '../../config/urls';
 import { apiGet, apiPost } from '../../utils/utils';
 import store from '../store';
@@ -479,3 +481,12 @@ export function addAgentHomeAddress(data = {}, headers = {}) {
 export function setAgentsPrimaryAddress(data = {}, headers = {}) {
   return apiPost(SET_AGENT_PRIMARY_ADDRESS, data, headers)
 }
+
+export function getFilteredTasks(uri = '', data = {}, headers = {}) {
+  return apiPost(GET_FILTERED_TASK_LIST + uri, data, headers)
+}
+
+export function blockOrUnblockAgentTaskDates(data = {}, headers = {}) {
+  return apiPost(BLOCK_UNBLOCK_AGENT_DATES, data, headers)
+}
+
