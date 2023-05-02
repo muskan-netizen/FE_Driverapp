@@ -1,4 +1,4 @@
-export const API_BASE_URL = 'https://api.rdstaging.com/';
+//export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL='https://dispatch.jeevannapp.com/'
 //export const API_BASE_URL = 'https://805c-103-72-170-243.ngrok.io/';
 // export const API_BASE_URL = 'https://dispatch.shelf.ae';
@@ -27,11 +27,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //export const API_BASE_URL = 'https://virgingates-dispatch.netsolutionindia.com/';
 
 // oneBasket
-<<<<<<< HEAD
 //export const API_BASE_URL = 'https://delivery.onebasket.rw/';
-=======
-// export const API_BASE_URL = 'https://delivery.onebasket.rw/';
->>>>>>> d9ef7868412715ab4f828f38b1b5aa0785082903
 
 //EatHalal
 //export const API_BASE_URL = 'https://dispatch.eathalalonly.com/';
@@ -188,7 +184,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.myjazzybug.club/';
 
 //gdotdelivery
-// export const API_BASE_URL = 'https://dispatch.gdotdelivery.com/';
+ export const API_BASE_URL = 'https://dispatch.gdotdelivery.com/';
 // export const API_BASE_URL='https://dispatch.dot-taxi.com/'
 // yogolift
 // export const API_BASE_URL = 'https://dispatch.lift.gd/'

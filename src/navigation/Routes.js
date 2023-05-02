@@ -53,6 +53,9 @@ export default function Routes() {
               !clientInfo?.is_freelancer ? <Stack.Screen
                 name={navigationStrings.DRAWER_ROUTES}
                 component={DrawerRoutes}
+                options={{
+                  headerShown: false
+                }}
               /> : <Stack.Screen
                 name={navigationStrings.BOTTOM_STACK}
                 component={BottomStack}
