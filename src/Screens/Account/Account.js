@@ -130,6 +130,7 @@ export default function Account({
                     </View>
                 </TouchableOpacity>
                 <LeftImgRightTxt onPress={moveToNewScreen(navigationStrings.PROFILESTACK)} leftImgSrc={imagePath.profileImage} rightTxt={strings.PROFILE} />
+                <LeftImgRightTxt onPress={moveToNewScreen(navigationStrings.TASKHISTORY)} leftImgSrc={imagePath.taskHistory} rightTxt={strings.TASKHISTORY} />
                 <LeftImgRightTxt onPress={moveToNewScreen(navigationStrings.WALLETSTACK)} leftImgSrc={imagePath.wallet} rightTxt={strings.WALLET} />
                 <LeftImgRightTxt onPress={moveToNewScreen(navigationStrings.SERVICE_SLOTS)} leftImgSrc={imagePath.time} rightTxt={strings.DATE_TIME} />
                 <LeftImgRightTxt onPress={moveToNewScreen(navigationStrings.PRODUCTS_PRICE)} leftImgSrc={imagePath.icPayout} rightTxt={strings.SERVICE_DETAILS} />
