@@ -41,7 +41,15 @@ export default {
   CHAT_SCREEN: 'ChatScreen',
   CHAT_ROOM: "ChatRoom",
   GO_TO_HOME: "goToHome",
-  DRIVER_TRACING :"DriverTraking"
-
+  DRIVER_TRACING: "DriverTraking",
+  CALENDAR_STACK: "calendarStack",
+  CALENDAR_VIEW: "calendarView",
+  BOTTOM_STACK: "bottomStack",
+  ACCOUNT_STACK: "accountStack",
+  ACCOUNT: "account",
+  SERVICE_TASK_STACK: "serviceTaskStack",
+  SERVICE_TASK: "serviceTask",
+  SERVICE_SLOTS: "serviceSlots",
+  PRODUCTS_PRICE: "productsPrice"
 
 };

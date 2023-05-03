@@ -1,5 +1,4 @@
-//export const API_BASE_URL = 'https://api.rdstaging.com/';
-export const API_BASE_URL='https://poilfix.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL='https://dispatch.jeevannapp.com/'
 //export const API_BASE_URL = 'https://805c-103-72-170-243.ngrok.io/';
 // export const API_BASE_URL = 'https://dispatch.shelf.ae';
@@ -28,13 +27,17 @@ export const API_BASE_URL='https://poilfix.rdstaging.com/';
 //export const API_BASE_URL = 'https://virgingates-dispatch.netsolutionindia.com/';
 
 // oneBasket
+<<<<<<< HEAD
 //export const API_BASE_URL = 'https://delivery.onebasket.rw/';
+=======
+// export const API_BASE_URL = 'https://delivery.onebasket.rw/';
+>>>>>>> d9ef7868412715ab4f828f38b1b5aa0785082903
 
 //EatHalal
 //export const API_BASE_URL = 'https://dispatch.eathalalonly.com/';
 
 // export const API_BASE_URL = 'https://dispatch.10dollahollla.com/';
- // export const API_BASE_URL='http://192.168.102.30:8000/'
+// export const API_BASE_URL='http://192.168.102.30:8000/'
 // export const API_BASE_URL='https://dispatch.ullaz.co.ke/'
 // export const API_BASE_URL = 'https://dispatch.sta.ug/';
 //export const API_BASE_URL='http://192.168.102.143:8002/'
@@ -84,7 +87,7 @@ export const API_BASE_URL='https://poilfix.rdstaging.com/';
 // export const API_BASE_URL='https://dispatch.kaypee.app/'
 // export const API_BASE_URL = 'https://dispatch.tmgsalesllc.com/';
 
- //export const API_BASE_URL = 'https://dispatch.xborne.com/';
+//export const API_BASE_URL = 'https://dispatch.xborne.com/';
 
 // export const API_BASE_URL = 'https://dispatch.abberides.com/';
 
@@ -96,7 +99,7 @@ export const API_BASE_URL='https://poilfix.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.elog.group/';
 
 // export const API_BASE_URL = 'https://dispatch.knockknock.online/'
-// export const API_BASE_URL = 'https://api.winhires.com/';
+// export const API_BASE_URL = 'https://svctest.tempcorner.com/';
 //export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
 //export const API_BASE_URL = 'http://192.168.101.54:9091/';
 //  export const API_BASE_URL = 'https://api.royodispatch.com/';
@@ -658,6 +661,31 @@ export const BIDEREQUESTS = getApiUrl('api/bidRide/requests');
 export const ACCEPTDECLINEBIDEREQUESTS = getApiUrl('api/accept/decline/bidRide/requests');
 
 
+// Agent Slot scheduling
+export const GET_GENERAL_SLOT = getApiUrl('api/auth/agent/general_slot');
+export const GET_CATEGORIES_OF_PRODUCT = getApiUrl(
+  'api/get/on_demand_services',
+);
 
+export const GET_AGENT_SLOTS = getApiUrl('api/agent/getslot');
 
+export const GET_PRODUCT_WITH_CATEGORY = getApiUrl(
+  'api/agent/category_with_product_with_price',
+);
 
+export const AGENT_CATEGORY_WITH_PRODUCT = getApiUrl(
+  'api/auth/agent/category_with_product',
+);
+
+export const SAVE_PRODUCT_WITH_VARIANTS = getApiUrl(
+  'api/auth/agent/save_product_variant_price',
+);
+
+export const SAVE_AGENT_SLOTS = getApiUrl('api/auth/agent/saveSlot');
+
+export const GET_FILTERED_TASK_LIST = getApiUrl(
+  'api/filter_task_list',
+);
+export const BLOCK_UNBLOCK_AGENT_DATES = getApiUrl(
+  'api/agent/add_delete_block_slot',
+);

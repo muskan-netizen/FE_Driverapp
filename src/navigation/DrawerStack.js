@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import CustomDrawerContent from '../Components/CustomDrawerContent';
 import imagePath from '../constants/imagePath';
 import strings from '../constants/lang';
-import { ChatRoom, ContactUs, GoToHome, Settings } from '../Screens';
+import { ChatRoom, ContactUs, GoToHome, ProductsPrice, ServiceSlots, Settings } from '../Screens';
 import DamageReport from '../Screens/DamageReport/DamageReport';
 import Reimbursement from '../Screens/Reimbursement/Reimbursement';
 import colors from '../styles/colors';
@@ -16,6 +16,7 @@ import ProfileStack from './ProfileStack';
 import SubscriptionStack from './SubscriptionStack';
 import TaskStack from './TaskStack';
 import WalletStack from './WalletStack';
+import CalendarStack from './CalendarStack';
 
 const Drawer = createDrawerNavigator();
 export default function DrawerRoutes(props) {
@@ -32,16 +33,16 @@ export default function DrawerRoutes(props) {
         headerShown: false,
         swipeEnabled: true,
         gestureEnabled: true,
-        
+
         // drawerPosition: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'right' : 'left',
         drawerPosition: 'left',
         drawerStyle: {
           paddingTop: moderateScaleVertical(width / 6),
-        
+
         },
       }}
       // hideStatusBar={true}
-      
+
       drawerStyle={{ width: '75%', backgroundColor: colors.blueHeaderColor }}
       drawerContent={props => <CustomDrawerContent {...props} />}
     >
@@ -185,7 +186,6 @@ export default function DrawerRoutes(props) {
         component={GoToHome}
         name={navigationStrings.GO_TO_HOME}
         options={{
-
           drawerLabel: strings.GO_TO_HOME,
           drawerIcon: ({ focused }) => (
             <Image
@@ -195,6 +195,48 @@ export default function DrawerRoutes(props) {
           ),
         }}
       />
+
+      <Drawer.Screen
+        component={ServiceSlots}
+        name={navigationStrings.SERVICE_SLOTS}
+        options={{
+          drawerLabel: strings.DATE_TIME,
+          drawerIcon: ({ focused }) => (
+            <Image
+              style={{ tintColor: focused ? colors.blackShade2 : colors.grey2 }}
+              source={imagePath.time}
+            />
+          ),
+        }}
+      />
+
+      <Drawer.Screen
+        component={ProductsPrice}
+        name={navigationStrings.PRODUCTS_PRICE}
+        options={{
+          drawerLabel: strings.SERVICE_DETAILS,
+          drawerIcon: ({ focused }) => (
+            <Image
+              style={{ tintColor: focused ? colors.blackShade2 : colors.grey2 }}
+              source={imagePath.icPayout}
+            />
+          ),
+        }}
+      />
+      <Drawer.Screen
+        component={CalendarStack}
+        name={navigationStrings.CALENDAR_STACK}
+        options={{
+          drawerLabel: strings.CALENDAR,
+          drawerIcon: ({ focused }) => (
+            <Image
+              style={{ tintColor: focused ? colors.blackShade2 : colors.grey2 }}
+              source={imagePath.icCalendarInActive}
+            />
+          ),
+        }}
+      />
+
 
 
     </Drawer.Navigator>
