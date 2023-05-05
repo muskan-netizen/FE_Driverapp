@@ -2483,8 +2483,8 @@ const appIds = {
     android: 'com.reedas.royodispatcher',
   }),
   onebasket: Platform.select({
-    ios: 'com.onebasket.merchant',
-    android: 'com.onebasket.merchant',
+    ios: 'com.onebasket.dispatcher',
+    android: 'com.onebasket.dispatcher',
   }),
   zozozi: Platform.select({
     ios: 'com.zozozi.dispatcher',

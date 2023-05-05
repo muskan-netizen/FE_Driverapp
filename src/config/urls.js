@@ -1,4 +1,4 @@
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
+//export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL='https://dispatch.jeevannapp.com/'
 //export const API_BASE_URL = 'https://805c-103-72-170-243.ngrok.io/';
 // export const API_BASE_URL = 'https://dispatch.shelf.ae';
@@ -8,7 +8,8 @@
 // export const API_BASE_URL = 'https://dispatch.tiimollc.com/';
 // export const API_BASE_URL = 'https://dispatch.ihelp.app.br/';
 
-
+// nGoal
+export const API_BASE_URL = 'https://dispatch.ngoalapp.com/';
 
 // jds
 //export const API_BASE_URL = 'https://dispatch.jdsondemand.com/';
@@ -16,7 +17,7 @@
 // chutneyeah
 //export const API_BASE_URL = 'https://dispatch.chutneyeah.com/';
 //sordelivery
- export const API_BASE_URL = 'https://dispatch.sordelivery.com/';
+//export const API_BASE_URL = 'https://dispatch.sordelivery.com/';
 //virgingates staging
 //export const API_BASE_URL = 'https://virgingates.rdstaging.com/signin';
 
@@ -335,7 +336,7 @@
 //RXNOW
 // export const API_BASE_URL = 'https://dispatch.rxnowweb.com/';
 //GROUPY
-//  export const API_BASE_URL = 'https://dispatch.groupystore.com/';
+//export const API_BASE_URL = 'https://dispatch.groupystore.com/';
 
 //
 // export const API_BASE_URL = 'https://dispatch.samakeemart.com/';
@@ -654,8 +655,9 @@ export const CREATERAZORPAYADDFUND = getApiUrl('api/create-razorpay-add-funds');
 // bide requestes
 export const BIDEREQUESTS = getApiUrl('api/bidRide/requests');
 // export const DECLINEBIDEREQUESTS = getApiUrl('api/decline/bidRide/requests');
-export const ACCEPTDECLINEBIDEREQUESTS = getApiUrl('api/accept/decline/bidRide/requests');
-
+export const ACCEPTDECLINEBIDEREQUESTS = getApiUrl(
+  'api/accept/decline/bidRide/requests',
+);
 
 // Agent Slot scheduling
 export const GET_GENERAL_SLOT = getApiUrl('api/auth/agent/general_slot');
@@ -679,9 +681,7 @@ export const SAVE_PRODUCT_WITH_VARIANTS = getApiUrl(
 
 export const SAVE_AGENT_SLOTS = getApiUrl('api/auth/agent/saveSlot');
 
-export const GET_FILTERED_TASK_LIST = getApiUrl(
-  'api/filter_task_list',
-);
+export const GET_FILTERED_TASK_LIST = getApiUrl('api/filter_task_list');
 export const BLOCK_UNBLOCK_AGENT_DATES = getApiUrl(
   'api/agent/add_delete_block_slot',
 );
