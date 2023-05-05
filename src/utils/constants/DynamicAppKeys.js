@@ -2213,8 +2213,8 @@ const appIds = {
     android: 'com.vital.royodispatcher',
   }),
   parcelWorks: Platform.select({
-    ios: 'com.royodispatcher.parcelWorks',
-    android: 'com.parcelWorks.royodispatcher',
+    ios: 'com.parcelWorks.dispatcher',
+    android: 'com.parcelWorks.dispatcher',
   }),
   konectame: Platform.select({
     ios: 'com.royodispatcher.konectame',
