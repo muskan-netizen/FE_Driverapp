@@ -175,7 +175,7 @@ const TaskListCard = ({
                 fontFamily: fontFamily?.bold
               }}
             >
-              {'Cash Collected :'} {data?.order?.cash_to_be_collected}{' '}
+              {(getBundleId() == appIds.mrVeloz && defaultLanguagae?.value == 'es') ? strings.CASH_COLLECTED : 'Cash Collected :'} {data?.order?.cash_to_be_collected}{' '}
             </Text>
           ) : <View />}
           {!!data?.order?.driver_cost ? (
@@ -184,7 +184,7 @@ const TaskListCard = ({
                 fontFamily: fontFamily?.bold
               }}
             >
-              {'Earning :'} {data?.order?.status == 'completed' ? data?.order?.driver_cost : 0}
+              {(getBundleId() == appIds.mrVeloz && defaultLanguagae?.value == 'es') ? strings.EARNING:'Earning :'} {data?.order?.status == 'completed' ? data?.order?.driver_cost : 0}
             </Text>
           ) : <View />}
         </View>
@@ -288,7 +288,7 @@ const TaskListCard = ({
                 { color: colors.black },
               ]}>
               {`${(data?.tasktype?.name).toLowerCase() == 'drop'
-                ? strings.DROP
+                ? (getBundleId() == appIds.mrVeloz && defaultLanguagae?.value == 'es') ? strings.DROP_MRVELOZ : strings.DROP
                 : strings.PICKUP
                 }`}
             </Text>
