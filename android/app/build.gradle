@@ -394,16 +394,16 @@ android {
 //             applicationId 'com.seaChangeVending.royodispatcher'
 //             resValue "string", "app_name", "seaChangeVending Dispatch"
 //         } 
-        rxnow {
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.rxnow.royodispatcher'
-            resValue "string", "app_name", "RXNOW Dispatch"
-        } 
+//         rxnow {
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.rxnow.royodispatcher'
+//             resValue "string", "app_name", "RXNOW Dispatch"
+//         } 
 //         ordercheckout {
 //             dimension "appType"
 //             versionCode 2
@@ -2662,16 +2662,16 @@ android {
 //             resValue "string", "app_name", "Blac Network Dispatcher"
 //         }
 
-        groupy{
-            dimension "appType"
-            versionCode 2
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId "com.Groupy.royodispatcher"
-            resValue "string", "app_name", "Groupy Dispatcher"
-        }
+//         groupy{
+//             dimension "appType"
+//             versionCode 2
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId "com.Groupy.royodispatcher"
+//             resValue "string", "app_name", "Groupy Dispatcher"
+//         }
 //         paySic{
 //             dimension "appType"
 //             versionCode 1
@@ -3467,16 +3467,16 @@ android {
 //             applicationId 'com.Go.royodispatcher'
 //             resValue "string", "app_name", "Go Dispatcher"
 //         }
-//             baubau{
-//             dimension "appType"
-//             versionCode 2
-//             versionName "1.0"
-//             minSdkVersion rootProject.ext.minSdkVersion
-//             targetSdkVersion rootProject.ext.targetSdkVersion
-//             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.baubau.driver'
-//             resValue "string", "app_name", "Baubau Workers"
-//         }
+            baubau{
+            dimension "appType"
+            versionCode 2
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.baubau.driver'
+            resValue "string", "app_name", "Baubau Workers"
+        }
 //          heyBuddy{
 //             dimension "appType"
 //             versionCode 2
@@ -6358,16 +6358,16 @@ android {
 //             applicationId 'com.weedlomo.royodispatcher'
 //             resValue "string", "app_name", "WeedLomo Dispatcher"
 //         }
-nGoal{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.nGoal.driver'
-            resValue "string", "app_name", "NGoal Driver"
-        }
+// nGoal{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.nGoal.driver'
+//             resValue "string", "app_name", "NGoal Driver"
+//         }
 // tkaff{
 //             dimension "appType"
 //             versionCode 1

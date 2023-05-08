@@ -405,7 +405,7 @@
     "foodiesdispatcherRelease": "cd android && ./gradlew assembleFoodiesRelease",
     "godispatcher": "react-native run-android --variant=goebug",
     "godispatcherRelease": "cd android && ./gradlew assembleGoRelease",
-    "baubaudispatcher": "react-native run-android --variant=baubauebug",
+    "baubaudispatcher": "react-native run-android --variant=baubauDebug",
     "baubaudispatcherRelease": "cd android && ./gradlew assembleBaubauRelease",
     "bookarydedispatcher": "react-native run-android --variant=bookarydeDebug",
     "bookarydedispatcherRelease": "cd android && ./gradlew assembleBookarydeRelease",

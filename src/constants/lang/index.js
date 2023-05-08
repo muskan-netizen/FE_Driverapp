@@ -1,6 +1,6 @@
 import LocalizedStrings from 'react-native-localization';
-import { appIds } from '../../utils/constants/DynamicAppKeys';
-import DeviceInfo, { getBundleId } from "react-native-device-info";
+import {appIds} from '../../utils/constants/DynamicAppKeys';
+import DeviceInfo, {getBundleId} from 'react-native-device-info';
 
 import ar from './ar';
 import de from './de';
@@ -17,8 +17,7 @@ import swa from './swa';
 import tr from './tr';
 import vi from './vi';
 import zh from './zh';
-
-
+import ger from './ger';
 
 const arbicFile = () => {
   return ar;
@@ -39,7 +38,8 @@ let strings = new LocalizedStrings({
   vi: vi,
   ne: ne,
   swa: swa,
-  he: heb
+  he: heb,
+  ger: ger,
 });
 export const changeLaguage = languageKey => {
   strings.setLanguage(languageKey);
