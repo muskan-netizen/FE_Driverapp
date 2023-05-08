@@ -129,35 +129,29 @@ export const locationPermission = () =>
     }
   });
 
-export const chekLocationPermission = () =>
+  export const chekLocationPermission = (showAlert = true) =>
   new Promise(async (resolve, reject) => {
     try {
       check(
         Platform.OS === 'ios'
           ? PERMISSIONS.IOS.LOCATION_WHEN_IN_USE
-          : Platform.constants.Release <= String(9)
-            ? PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION &&
-            PERMISSIONS.ANDROID.ACCESS_COARSE_LOCATION
-            : PERMISSIONS.ANDROID.ACCESS_BACKGROUND_LOCATION,
+          : PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION,
       )
-        .then(result => {
+        .then((result) => {
           switch (result) {
             case RESULTS.UNAVAILABLE:
-              openAppSetting('LOCATION_SERVICES');
+              showError(strings.LOCATION_UNAVAILABLE);
               break;
             case RESULTS.DENIED:
               request(
                 Platform.OS === 'ios'
                   ? PERMISSIONS.IOS.LOCATION_WHEN_IN_USE
-                  : Platform.constants.Release <= String(9)
-                  ? PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION &&
-                    PERMISSIONS.ANDROID.ACCESS_COARSE_LOCATION
-                  : PERMISSIONS.ANDROID.ACCESS_BACKGROUND_LOCATION,
+                  : PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION,
               )
-                .then(result => {
+                .then((result) => {
                   return resolve(result);
                 })
-                .catch(error => {
+                .catch((error) => {
                   return reject(error);
                 });
 
@@ -167,32 +161,98 @@ export const chekLocationPermission = () =>
               break;
             case RESULTS.GRANTED:
               return resolve(result);
-              break;
             case RESULTS.BLOCKED:
-              Alert.alert('', strings.LOCATION_DISABLED_MSG, [
-                {
-                  text: 'Cancel',
-                  onPress: () => resolve('goback'),
-                },
-                {
-                  text: 'Confirm',
-                  onPress: () => {
-                    const locationPath = 'LOCATION_SERVICES';
-                    openAppSetting(locationPath);
+              if (showAlert) {
+                Alert.alert('', strings.LOCATION_DISABLED_MSG, [
+                  {
+                    text: strings.CANCEL,
+                    onPress: () => resolve('goback'),
                   },
-                },
-              ]);
-
-              break;
+                  {
+                    text: strings.CONFIRM,
+                    onPress: () => {
+                      const locationPath = 'LOCATION_SERVICES';
+                      openAppSetting(locationPath);
+                    },
+                  },
+                ]);
+              }
+              return resolve(result);
           }
         })
-        .catch(error => {
+        .catch((error) => {
+          console.log('errorrrrrrrrr', error);
           return reject(error);
         });
     } catch (error) {
       return reject(error);
     }
   });
+
+// export const chekLocationPermission = () =>
+//   new Promise(async (resolve, reject) => {
+//     try {
+//       check(
+//         Platform.OS === 'ios'
+//           ? PERMISSIONS.IOS.LOCATION_WHEN_IN_USE
+//           : Platform.constants.Release <= String(9)
+//             ? PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION &&
+//             PERMISSIONS.ANDROID.ACCESS_COARSE_LOCATION
+//             : PERMISSIONS.ANDROID.ACCESS_BACKGROUND_LOCATION,
+//       )
+//         .then(result => {
+//           switch (result) {
+//             case RESULTS.UNAVAILABLE:
+//               openAppSetting('LOCATION_SERVICES');
+//               break;
+//             case RESULTS.DENIED:
+//               request(
+//                 Platform.OS === 'ios'
+//                   ? PERMISSIONS.IOS.LOCATION_WHEN_IN_USE
+//                   : Platform.constants.Release <= String(9)
+//                   ? PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION &&
+//                     PERMISSIONS.ANDROID.ACCESS_COARSE_LOCATION
+//                   : PERMISSIONS.ANDROID.ACCESS_BACKGROUND_LOCATION,
+//               )
+//                 .then(result => {
+//                   return resolve(result);
+//                 })
+//                 .catch(error => {
+//                   return reject(error);
+//                 });
+
+//               break;
+//             case RESULTS.LIMITED:
+//               showError(strings.LOCATION_LIMITED);
+//               break;
+//             case RESULTS.GRANTED:
+//               return resolve(result);
+//               break;
+//             case RESULTS.BLOCKED:
+//               Alert.alert('', strings.LOCATION_DISABLED_MSG, [
+//                 {
+//                   text: 'Cancel',
+//                   onPress: () => resolve('goback'),
+//                 },
+//                 {
+//                   text: 'Confirm',
+//                   onPress: () => {
+//                     const locationPath = 'LOCATION_SERVICES';
+//                     openAppSetting(locationPath);
+//                   },
+//                 },
+//               ]);
+
+//               break;
+//           }
+//         })
+//         .catch(error => {
+//           return reject(error);
+//         });
+//     } catch (error) {
+//       return reject(error);
+//     }
+//   });
 
 //Check camera permission
 export const checkCameraPermission = () =>

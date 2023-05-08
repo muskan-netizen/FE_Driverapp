@@ -10,10 +10,10 @@
 
 
 // export const API_BASE_URL = 'https://dispatch.10dollahollla.com/';
-//  export const API_BASE_URL='http://192.168.102.30:8000/'
+//  export const API_BASE_URL='http://192.168.102.70:8008/'
 // export const API_BASE_URL='https://dispatch.ullaz.co.ke/'
 // export const API_BASE_URL = 'https://dispatch.sta.ug/';
-// export const API_BASE_URL='http://192.168.102.169:8000/'
+ //export const API_BASE_URL='http://192.168.102.143:8002/'
 // export const API_BASE_URL = 'https://dispatch.10dollahollla.com/';
 // export const API_BASE_URL='https://dispatch.movingwheelsdeliveryservices.com/'
 // export const API_BASE_URL='https://dispatch.kaypee.app/'
@@ -22,8 +22,8 @@
 // export const API_BASE_URL = 'https://sales.royodispatch.com/';
 // export const API_BASE_URL='http://192.168.101.140:9091/'
 // export const API_BASE_URL='https://dispatch.usemeow.com/'
-export const API_BASE_URL='https://dispatch.weedlomo.com/'
-// //Staging
+// export const API_BASE_URL='https://dispatch.weedlomo.com/'
+//Staging
 // export const API_BASE_URL='https://dispatch.ubierweeds.com/'
 // export const API_BASE_URL='https://dispatch.vduonline.co.in/'
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
@@ -91,7 +91,7 @@ export const API_BASE_URL='https://dispatch.weedlomo.com/'
 //export const API_BASE_URL = 'https://dispatch.carlitoo.com/';
 // export const API_BASE_URL = 'http://192.168.97.160:9090/';
 // export const API_BASE_URL = 'https://api.royodispatch.com/';
-//export const API_BASE_URL='https://dispatch.shopcentral.shop/'
+// export const API_BASE_URL='https://dispatch.shopcentral.shop/'
 //taquick
 //  export const API_BASE_URL = 'https://delivery.taquick.com/';
 
@@ -503,7 +503,7 @@ export const API_BASE_URL='https://dispatch.weedlomo.com/'
 // export const API_BASE_URL = 'https://dispatch.quicklube.us/'
 
 // sxm2Go
-//  export const API_BASE_URL = 'https://dispatch.sxm2go.com/';
+  export const API_BASE_URL = 'https://dispatch.sxm2go.com/';
 
 // export const personaltoken = 'TMJdbQlNWkYl1JzMONzRgF4zQFuP8s';
 

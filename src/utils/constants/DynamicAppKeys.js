@@ -2106,7 +2106,7 @@ const appIds = {
     android: 'com.tiimo.driverApp',
   }),
   carryFood: Platform.select({
-    ios: 'com.carryFood.royodispatcher',
+    ios: 'com.carryFood.dispatcher',
     android: 'com.carryFood.driver',
   }),
   ragioMigo: Platform.select({

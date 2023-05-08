@@ -1,5 +1,5 @@
 PODS:
-  - "@hariks789_react-native-background-geolocation (0.7.1)":
+  - "@hariks789_react-native-background-geolocation (0.7.2)":
     - React
   - Base64 (1.1.2)
   - boost (1.76.0)
@@ -333,7 +333,7 @@ PODS:
     - React-Core
   - react-native-camera/RN (4.2.1):
     - React-Core
-  - react-native-date-picker (4.2.12):
+  - react-native-date-picker (4.2.13):
     - React-Core
   - react-native-device-country (1.0.3):
     - React-Core
@@ -858,7 +858,7 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
-  "@hariks789_react-native-background-geolocation": 273dcea78c35bd4232a47565aa6fb437cc519006
+  "@hariks789_react-native-background-geolocation": 8bdddb12a785b66f7cbe07aa1104a559e11cc4a8
   Base64: cecfb41a004124895a7bcee567a89bae5a89d49b
   boost: a7c83b31436843459a1961bfd74b96033dc77234
   BVLinearGradient: 34a999fda29036898a09c6a6b728b0b4189e1a44
@@ -904,7 +904,7 @@ SPEC CHECKSUMS:
   react-native-background-actions: bfb2b818ae96e752b42fb335b3427ab6b050d0f6
   react-native-background-timer: 17ea5e06803401a379ebf1f20505b793ac44d0fe
   react-native-camera: 3eae183c1d111103963f3dd913b65d01aef8110f
-  react-native-date-picker: 7dd31ba967ad10fb18d50879e8553265732722c2
+  react-native-date-picker: 04e866ba4e7857f83abd504ad42e787f0f02ae00
   react-native-device-country: 575eaffc897a4775c20d36aa527e598c512afbb7
   react-native-document-picker: ec07866a30707f23660c0f3ae591d669d3e89096
   react-native-geocoder: 757427682892bb256f3b3745858cc90eba148a8e
@@ -974,6 +974,6 @@ SPEC CHECKSUMS:
   ZendeskMessagingSDK: 95d396c981dacfab83cc7b9736e8561d51a3052b
   ZendeskSDKConfigurationsSDK: ebced171fd1f4eb57760e8537d8cfa6a450122be
 
-PODFILE CHECKSUM: 369f54d7b760882278c89519a3694e52e733ad21
+PODFILE CHECKSUM: 9cf626b8efa0edb38dea790b7927bb8712571380
 
 COCOAPODS: 1.12.0

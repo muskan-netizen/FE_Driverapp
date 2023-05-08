@@ -54,6 +54,7 @@ import BidAcceptRejectCard from "../../Components/BidAcceptRejectCard";
 import PoolingSuggestionCard from "../../Components/PoolingSuggestionCard";
 import { appIds } from "../../utils/constants/DynamicAppKeys";
 import { colorArray } from "../../utils/constants/ConstantValues";
+import { chekLocationPermission } from "../../utils/permissions";
 
 var finalAllTasks = [];
 var finaltodayTasks = [];
@@ -64,6 +65,7 @@ export default function DashBoard({ route, navigation }) {
   const defaultLanguagae = useSelector(
     state => state?.initBoot?.defaultLanguage,
   );
+  console.log(attributeFormData,userData,"attributeFormDataattributeFormDataattributeFormDataattributeFormData");
   const {
     clientInfo,
     sessionLogoutUser,
@@ -443,17 +445,18 @@ export default function DashBoard({ route, navigation }) {
   const currentLocation = () => {
     chekLocationPermission()
       .then(result => {
+        console.log(result,"error while accessing locationerror while accessing locationerror while accessing location");
         if (result !== 'goback') {
           getCurrentPosition();
         }
       })
-      .catch(error => console.log('error while accessing location ', error));
+      .catch(error => console.log('error while accessing location', error));
   };
 
   const getCurrentPosition = () => {
     return navigator.geolocation.default.getCurrentPosition(
       position => {
-        console.log(position, 'position');
+        console.log(position, 'position......................');
         updateState({
           latitude: position.coords.latitude,
           longitude: position.coords.longitude,
