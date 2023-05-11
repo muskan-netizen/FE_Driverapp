@@ -2467,12 +2467,12 @@ const appIds = {
     android: 'com.readyToRent.royodispatcher',
   }),
   theGenie: Platform.select({
-    ios: 'com.theGenie.royodispatcher',
-    android: 'com.theGenie.royodispatcher',
+    ios: 'com.theGenie.dispatcher',
+    android: 'com.theGenie.dispatcher',
   }),
   theGenie: Platform.select({
-    ios: 'com.theGenie.royodispatcher',
-    android: 'com.theGenie.royodispatcher',
+    ios: 'com.theGenie.dispatcher',
+    android: 'com.theGenie.dispatcher',
   }),
   sultanCenter: Platform.select({
     ios: 'com.sultanCenter.driver',
