@@ -17,7 +17,7 @@ import swa from './swa';
 import tr from './tr';
 import vi from './vi';
 import zh from './zh';
-
+import ger from './ger';
 
 
 const arbicFile = () => {
@@ -39,7 +39,8 @@ let strings = new LocalizedStrings({
   vi: vi,
   ne: ne,
   swa: swa,
-  he: heb
+  he: heb,
+  ger:ger
 });
 export const changeLaguage = languageKey => {
   strings.setLanguage(languageKey);
