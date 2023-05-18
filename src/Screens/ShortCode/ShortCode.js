@@ -168,8 +168,8 @@ export default function ShortCode({ route, navigation }) {
   const initApiHit = () => {
     (async () => {
       const saveShortCode = await getItem('saveShortCode');
-      const appCode = !!saveShortCode ? saveShortCode : getAppCode();
-      //const appCode = 'f5a75e'
+      // const appCode = !!saveShortCode ? saveShortCode : getAppCode();
+      const appCode = '8c55a5'
 
       console.log(defaultLanguage?.value, 'Language in init screen');
       let header = {};
@@ -183,7 +183,7 @@ export default function ShortCode({ route, navigation }) {
         };
       }
 
-      let updatedShortCode = appCode;
+      let updatedShortCode = '6a6b8b';
 
       actions
         .initApp({ shortCode: updatedShortCode }, header)

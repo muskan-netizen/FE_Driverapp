@@ -1945,8 +1945,8 @@ const appIds = {
     android: 'com.getdress.royodispatcher',
   }),
   nuvoni: Platform.select({
-    ios: 'com.nuvoni.royodispatcher',
-    android: 'com.nuvoni.royodispatcher',
+    ios: 'com.nuvoni.dispatcher',
+    android: 'com.nuvoni.dispatcher',
   }),
   fairDeal: Platform.select({
     ios: 'com.fairdeal.royodispatcher',
@@ -1981,7 +1981,7 @@ const appIds = {
     android: 'com.jana.royodispatcher',
   }),
   brilApp: Platform.select({
-    ios: 'com.mywaybill.royodispatcher',
+    ios: 'com.brillApp.driver ',
     android: 'com.brillApp.driver',
   }),
   cattch: Platform.select({
@@ -2197,8 +2197,8 @@ const appIds = {
     android: 'com.myMeddy.royodispatcher',
   }),
   greenHippo: Platform.select({
-    ios: 'com.royodispatcher.greenHippo',
-    android: 'com.greenHippo.royodispatcher',
+    ios: 'com.greenHippo.driverApp',
+    android: 'com.greenHippo.driver',
   }),
   uRyd: Platform.select({
     ios: 'com.royodispatcher.uRyd',
@@ -2281,8 +2281,8 @@ const appIds = {
     android: 'com.glamguide.royodispatcher',
   }),
   efectibo: Platform.select({
-    ios: 'com.efectibo.royodispatcher',
-    android: 'com.efectibo.royodispatcher',
+    ios: 'com.efectibo.dispatcher',
+    android: 'com.efectibo.dispatcher',
   }),
   zyno: Platform.select({
     ios: 'com.zyno.royodispatcher',
@@ -2354,7 +2354,7 @@ const appIds = {
   }),
   junkerz: Platform.select({
     ios: 'com.junkerz.royodispatcher',
-    android: 'com.junkerz.royodispatcher',
+    android: 'com.junkerz.dispatcher',
   }),
   viralClean: Platform.select({
     ios: 'com.viralclean.royodriver',
@@ -2467,12 +2467,8 @@ const appIds = {
     android: 'com.readyToRent.royodispatcher',
   }),
   theGenie: Platform.select({
-    ios: 'com.theGenie.royodispatcher',
-    android: 'com.theGenie.royodispatcher',
-  }),
-  theGenie: Platform.select({
-    ios: 'com.theGenie.royodispatcher',
-    android: 'com.theGenie.royodispatcher',
+    ios: 'com.theGenie.dispatcher',
+    android: 'com.theGenie.dispatcher',
   }),
   sultanCenter: Platform.select({
     ios: 'com.sultanCenter.driver',
