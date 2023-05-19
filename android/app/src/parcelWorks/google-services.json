@@ -1,34 +1,41 @@
 {
   "project_info": {
-    "project_number": "83751874968",
-    "project_id": "parcel-works",
-    "storage_bucket": "parcel-works.appspot.com"
+    "project_number": "222982578764",
+    "project_id": "parcelworks-driver",
+    "storage_bucket": "parcelworks-driver.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:83751874968:android:e3b248fb6a71fc21a2bbed",
+        "mobilesdk_app_id": "1:222982578764:android:497a94bdc3d57d655a8ae9",
         "android_client_info": {
-          "package_name": "com.parcelWorks.royodispatcher"
+          "package_name": "com.parcelWorks.dispatcher"
         }
       },
       "oauth_client": [
         {
-          "client_id": "83751874968-qgacog30u9i34fai675rvae034aqa2ac.apps.googleusercontent.com",
+          "client_id": "222982578764-85ls61r1l1aov2fc1994opi5ndc72r9d.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBfeJnp4Bqn7e8Xo3sSmMeHrSDEllZTBlI"
+          "current_key": "AIzaSyBE8epmky6X8zre-f6UtHRXHdMfma5ZTEI"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "83751874968-qgacog30u9i34fai675rvae034aqa2ac.apps.googleusercontent.com",
+              "client_id": "222982578764-85ls61r1l1aov2fc1994opi5ndc72r9d.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "222982578764-ed8leubb5gocplenmmdbgv4v00kl2t6f.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.parcelWorks.dispatcher"
+              }
             }
           ]
         }

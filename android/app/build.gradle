@@ -5110,7 +5110,7 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.nuvoni.royodispatcher'
+            applicationId 'com.nuvoni.dispatcher'
             resValue "string", "app_name", "Nuvoni Dispatcher"
         }
         fairDeal{
@@ -5200,7 +5200,7 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.mywaybill.royodispatcher'
+            applicationId 'com.brillApp.driver '
             resValue "string", "app_name", "MyWaysRide Driver"
         }
         cattch{
@@ -5744,8 +5744,8 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.greenHippo.royodispatcher'
-            resValue "string", "app_name", "Green Hippo Dispatcher"
+            applicationId 'com.greenHippo.driver'
+            resValue "string", "app_name", "Green Hippo Driver"
         }
      myMeddy{
             dimension "appType"
@@ -5794,7 +5794,7 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.parcelWorks.royodispatcher'
+            applicationId 'com.parcelWorks.dispatcher'
             resValue "string", "app_name", "ParcelWorks Dispatcher"
         }
       konectame{
@@ -5964,7 +5964,7 @@ android {
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.efectibo.royodispatcher'
+            applicationId 'com.efectibo.dispatcher'
             resValue "string", "app_name", "Efectibo Dispatcher"
         }
         hectoHomes{
@@ -6135,7 +6135,7 @@ junkerz{
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.junkerz.royodispatcher'
+            applicationId 'com.junkerz.driver'
             resValue "string", "app_name", "Junkerz Dispatcher"
         }
 viralClean{
@@ -6400,7 +6400,7 @@ readyToRent{
         }
 theGenie{
             dimension "appType"
-            versionCode 1
+            versionCode 2
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
@@ -6435,8 +6435,8 @@ onebasket{
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.onebasket.merchant'
-            resValue "string", "app_name", "OneBasket dispatcher"
+            applicationId 'com.onebasket.dispatcher'
+            resValue "string", "app_name", "OneBasket Dispatcher"
         }
 zozozi{
             dimension "appType"

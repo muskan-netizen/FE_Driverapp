@@ -1,4 +1,4 @@
-//export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL='https://dispatch.jeevannapp.com/'
 //export const API_BASE_URL = 'https://805c-103-72-170-243.ngrok.io/';
 // export const API_BASE_URL = 'https://dispatch.shelf.ae';
@@ -8,7 +8,12 @@
 // export const API_BASE_URL = 'https://dispatch.tiimollc.com/';
 // export const API_BASE_URL = 'https://dispatch.ihelp.app.br/';
 
+// efectibo
+// export const API_BASE_URL = 'https://dispatch.efectibo.com/';
 
+
+// nGoal
+// export const API_BASE_URL = 'https://dispatch.ngoalapp.com/';
 
 // jds
 //export const API_BASE_URL = 'https://dispatch.jdsondemand.com/';
@@ -16,7 +21,7 @@
 // chutneyeah
 //export const API_BASE_URL = 'https://dispatch.chutneyeah.com/';
 //sordelivery
- //export const API_BASE_URL = 'https://dispatch.sordelivery.com/';
+//export const API_BASE_URL = 'https://dispatch.sordelivery.com/';
 //virgingates staging
 //export const API_BASE_URL = 'https://virgingates.rdstaging.com/signin';
 
@@ -40,7 +45,7 @@
 // export const API_BASE_URL = 'https://dispatch.10dollahollla.com/';
 // export const API_BASE_URL='https://dispatch.movingwheelsdeliveryservices.com/'
 // export const API_BASE_URL='https://dispatch.kaypee.app/'
-export const API_BASE_URL = 'https://api.royodispatch.com/';
+//export const API_BASE_URL = 'https://api.royodispatch.com/';
 // export const API_BASE_URL = 'https://dispatch.laundrozone.net/';
 // export const API_BASE_URL = 'https://sales.royodispatch.com/';
 // export const API_BASE_URL='http://192.168.101.140:9091/'
@@ -335,7 +340,7 @@ export const API_BASE_URL = 'https://api.royodispatch.com/';
 //RXNOW
 // export const API_BASE_URL = 'https://dispatch.rxnowweb.com/';
 //GROUPY
-//  export const API_BASE_URL = 'https://dispatch.groupystore.com/';
+//export const API_BASE_URL = 'https://dispatch.groupystore.com/';
 
 //
 // export const API_BASE_URL = 'https://dispatch.samakeemart.com/';
@@ -527,7 +532,7 @@ export const API_BASE_URL = 'https://api.royodispatch.com/';
 // export const API_BASE_URL = 'https://dispatch.quicklube.us/'
 
 // sxm2Go
-//export const API_BASE_URL = 'https://dispatch.sxm2go.com/';
+// export const API_BASE_URL = 'https://dispatch.sxm2go.com/';
 
 // export const personaltoken = 'TMJdbQlNWkYl1JzMONzRgF4zQFuP8s';
 
@@ -554,7 +559,28 @@ export const API_BASE_URL = 'https://api.royodispatch.com/';
 // qdelo
 // export const API_BASE_URL='https://dispatch.westvirginiahub.com/'
 
+// junkerz
+// export const API_BASE_URL='https://dispatch.junkerz.com/'
+
 //export const API_BASE_URL='https://coretrack.mx/'
+
+//thegenie
+// export const API_BASE_URL='https://delivery.thegenie.in/'
+
+// RBRiders
+// export const API_BASE_URL='https://dispatch.rbridersclub.com/'
+
+// DotNetwork
+// export const API_BASE_URL='https://dispatch.thedonetwork.org/'
+
+// GreenHippo
+//export const API_BASE_URL='https://dispatch.mygreenhippo.com/'
+
+// Nuvoni
+// export const API_BASE_URL='https://dispatch.nuvoni.com/'
+
+
+
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;
 
 export const SEND_OTP = getApiUrl('api/auth/login');
@@ -654,8 +680,9 @@ export const CREATERAZORPAYADDFUND = getApiUrl('api/create-razorpay-add-funds');
 // bide requestes
 export const BIDEREQUESTS = getApiUrl('api/bidRide/requests');
 // export const DECLINEBIDEREQUESTS = getApiUrl('api/decline/bidRide/requests');
-export const ACCEPTDECLINEBIDEREQUESTS = getApiUrl('api/accept/decline/bidRide/requests');
-
+export const ACCEPTDECLINEBIDEREQUESTS = getApiUrl(
+  'api/accept/decline/bidRide/requests',
+);
 
 // Agent Slot scheduling
 export const GET_GENERAL_SLOT = getApiUrl('api/auth/agent/general_slot');
@@ -679,9 +706,7 @@ export const SAVE_PRODUCT_WITH_VARIANTS = getApiUrl(
 
 export const SAVE_AGENT_SLOTS = getApiUrl('api/auth/agent/saveSlot');
 
-export const GET_FILTERED_TASK_LIST = getApiUrl(
-  'api/filter_task_list',
-);
+export const GET_FILTERED_TASK_LIST = getApiUrl('api/filter_task_list');
 export const BLOCK_UNBLOCK_AGENT_DATES = getApiUrl(
   'api/agent/add_delete_block_slot',
 );
