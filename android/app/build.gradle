@@ -193,6 +193,7 @@ android {
 
     // applicationVariants are e.g. debug, release
     applicationVariants.all { variant ->
+    variant.resValue "string", "mauron85_bgloc_account_type", "${variant.applicationId}.mauron85.bgloc.account"
         variant.resValue "string", "mauron85_bgloc_content_authority", "${variant.applicationId}.com.marianhello.app.mauron85.bgloc.provider.devbuild"
         variant.outputs.each { output ->
             // For each separate APK per architecture, set a unique version code as described here:
@@ -208,8 +209,9 @@ android {
     }
 
      flavorDimensions "appType"
-productFlavors{
-        royoDispatcher{
+
+     productFlavors {
+             royoDispatcher{
             dimension "appType"
             versionCode 1
             versionName "1.0"
@@ -219,91 +221,20 @@ productFlavors{
             applicationId 'com.codebrew.royodispatcher'
             resValue "string", "app_name", "RoyoDriverApp"
         }
-    chutneyeah{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.chutneyeah.driver'
-            resValue "string", "app_name", "Chutneyeah dispatcher"
-        }
-        jds{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.jds.driver'
-            resValue "string", "app_name", "JDS On Demand  dispatcher"
-        }
-           sorDelivery{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.sorDelivery.royodispatcher'
-            resValue "string", "app_name", "sorDelivery Dispatcher"
-        }
+     }
+   
 
-    //    dotTaxi{
-    //         dimension "appType"
-    //         versionCode 1
-    //         versionName "1.0"
-    //         minSdkVersion rootProject.ext.minSdkVersion
-    //         targetSdkVersion rootProject.ext.targetSdkVersion
-    //         // applicationIdSuffix ".royoorder"
-    //         applicationId 'com.dotTaxi.driver'
-    //         resValue "string", "app_name", "Dot Driver"
-    //     }
-    //                 boozeBrothers{
-    //         dimension "appType"
-    //         versionCode 1
-    //         versionName "1.0"
-    //         minSdkVersion rootProject.ext.minSdkVersion
-    //         targetSdkVersion rootProject.ext.targetSdkVersion
-    //         // applicationIdSuffix ".royoorder"
-    //         applicationId 'com.boozeBrothers.driver'
-    //         resValue "string", "app_name", "BoozeBrothers Driver"
-    //     }
-    //             smile{
-    //         dimension "appType"
-    //         versionCode 1
-    //         versionName "1.0"
-    //         minSdkVersion rootProject.ext.minSdkVersion
-    //         targetSdkVersion rootProject.ext.targetSdkVersion
-    //         // applicationIdSuffix ".royoorder"
-    //         applicationId 'com.Smile.royodispatcher'
-    //         resValue "string", "app_name", "Miist Dispatcher"
-    //     }
-
-    //      instaFits{
-    //         dimension "appType"
-    //         versionCode 1
-    //         versionName "1.0"
-    //         minSdkVersion rootProject.ext.minSdkVersion
-    //         targetSdkVersion rootProject.ext.targetSdkVersion
-    //         // applicationIdSuffix ".royoorder"
-    //         applicationId 'com.instaFits.driver'
-    //         resValue "string", "app_name", "INSTA-FITS dispatcher"
-    //     }
-}     
-//     productFlavors 
-    // {
-    // royoDispatcher{
-    //         dimension "appType"
-    //         versionCode 1
-    //         versionName "1.0"
-    //         minSdkVersion rootProject.ext.minSdkVersion
-    //         targetSdkVersion rootProject.ext.targetSdkVersion
-    //         // applicationIdSuffix ".royoorder"
-    //         applicationId 'com.codebrew.royodispatcher'
-    //         resValue "string", "app_name", "RoyoDriverApp"
-    //     }
+//     productFlavors  {
+//     royoDispatcher{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.codebrew.royodispatcher'
+//             resValue "string", "app_name", "RoyoDriverApp"
+//         }
 //          runrun {
 //             dimension "appType"
 //             versionCode 1
@@ -5192,7 +5123,7 @@ productFlavors{
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.nuvoni.royodispatcher'
+//             applicationId 'com.nuvoni.dispatcher'
 //             resValue "string", "app_name", "Nuvoni Dispatcher"
 //         }
 //         fairDeal{
@@ -5282,7 +5213,7 @@ productFlavors{
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.mywaybill.royodispatcher'
+//             applicationId 'com.brillApp.driver '
 //             resValue "string", "app_name", "MyWaysRide Driver"
 //         }
 //         cattch{
@@ -5826,8 +5757,8 @@ productFlavors{
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.greenHippo.royodispatcher'
-//             resValue "string", "app_name", "Green Hippo Dispatcher"
+//             applicationId 'com.greenHippo.driver'
+//             resValue "string", "app_name", "Green Hippo Driver"
 //         }
 //      myMeddy{
 //             dimension "appType"
@@ -5876,7 +5807,7 @@ productFlavors{
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.parcelWorks.royodispatcher'
+//             applicationId 'com.parcelWorks.dispatcher'
 //             resValue "string", "app_name", "ParcelWorks Dispatcher"
 //         }
 //       konectame{
@@ -6046,7 +5977,7 @@ productFlavors{
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.efectibo.royodispatcher'
+//             applicationId 'com.efectibo.dispatcher'
 //             resValue "string", "app_name", "Efectibo Dispatcher"
 //         }
 //         hectoHomes{
@@ -6209,16 +6140,7 @@ productFlavors{
 //             applicationId 'com.hattaFoodHub.royodispatcher'
 //             resValue "string", "app_name", "HattaFoodHub Dispatcher"
 //         }
-// ondgoo{
-//             dimension "appType"
-//             versionCode 1
-//             versionName "1.0"
-//             minSdkVersion rootProject.ext.minSdkVersion
-//             targetSdkVersion rootProject.ext.targetSdkVersion
-//             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.ondgoo.royodispatcher'
-//             resValue "string", "app_name", "Ondgoo Dispatcher"
-//         }
+
 // junkerz{
 //             dimension "appType"
 //             versionCode 1
@@ -6226,7 +6148,7 @@ productFlavors{
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.junkerz.royodispatcher'
+//             applicationId 'com.junkerz.driver'
 //             resValue "string", "app_name", "Junkerz Dispatcher"
 //         }
 // viralClean{
@@ -6479,16 +6401,6 @@ productFlavors{
 //             applicationId 'com.livraizoo.royodispatcher'
 //             resValue "string", "app_name", "Livraizoo Dispatcher"
 //         }
-// boozeBrothers{
-//             dimension "appType"
-//             versionCode 1
-//             versionName "1.0"
-//             minSdkVersion rootProject.ext.minSdkVersion
-//             targetSdkVersion rootProject.ext.targetSdkVersion
-//             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.boozeBrothers.driver'
-//             resValue "string", "app_name", "BoozeBrothers Driver"
-//         }
 // readyToRent{
 //             dimension "appType"
 //             versionCode 1
@@ -6501,7 +6413,7 @@ productFlavors{
 //         }
 // theGenie{
 //             dimension "appType"
-//             versionCode 1
+//             versionCode 2
 //             versionName "1.0"
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
@@ -6536,8 +6448,8 @@ productFlavors{
 //             minSdkVersion rootProject.ext.minSdkVersion
 //             targetSdkVersion rootProject.ext.targetSdkVersion
 //             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.onerbasket.royodispatcher'
-//             resValue "string", "app_name", "OneBasket dispatcher"
+//             applicationId 'com.onebasket.dispatcher'
+//             resValue "string", "app_name", "OneBasket Dispatcher"
 //         }
 // zozozi{
 //             dimension "appType"
@@ -6854,6 +6766,9 @@ productFlavors{
 //             applicationId 'com.mammysKitchen.driver'
 //             resValue "string", "app_name", "Mammys Kitchen Dispatcher"
 //         }
+
+
+
 //     }
            
 }
@@ -6863,13 +6778,7 @@ productFlavors{
 
 
 dependencies {
-    implementation ("androidx.appcompat:appcompat:1.3.1") {
-version {
-strictly '1.3.1'
-}
-}
      compile project(':react-native-video')
-     implementation "androidx.appcompat:appcompat:1.0.0"
     implementation 'androidx.work:work-runtime-ktx:2.7.0' // required to avoid crash on Android 12 API 31
     implementation 'com.android.support:multidex:2.0.1'
     implementation 'com.facebook.fresco:animated-gif:2.5.0'
@@ -6879,6 +6788,11 @@ strictly '1.3.1'
     // implementation 'com.facebook.android:facebook-android-sdk:[5,6)'
     implementation 'com.facebook.fresco:animated-base-support:1.3.0'
   implementation "com.google.android.gms:play-services-base:16.0.1"
+  implementation ("androidx.appcompat:appcompat:1.3.1") {
+    version {
+        strictly '1.3.1'
+    }
+}
   
     implementation "com.google.android.gms:play-services-location:20.0.0"
     compile project(':@hariks789_react-native-background-geolocation')
@@ -6888,11 +6802,7 @@ strictly '1.3.1'
     implementation "com.facebook.react:react-native:+"  // From node_modules
 
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
-implementation ("androidx.appcompat:appcompat:1.3.1") {
-version {
-strictly '1.3.1'
-}
-}
+
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
        exclude group:'com.facebook.fbjni'
     }

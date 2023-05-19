@@ -32,6 +32,7 @@ import {
 import ShowNotificationForeground from './src/utils/ShowNotificationForeground';
 import types from './src/redux/types';
 import notifee, { AndroidImportance } from '@notifee/react-native';
+import { MenuProvider } from 'react-native-popup-menu';
 
 
 let CodePushOptions = { checkFrequency: codePush.CheckFrequency.MANUAL };
@@ -105,28 +106,30 @@ const App = () => {
     }
   };
 
-  useEffect(async () => {
-    await AsyncStorage.getItem("alreadyLaunched").then((value) => {
-      console.log(value, "valuevaluevaluevalue");
-      // const data = true;
-      if (value == null) {
-        data = JSON.stringify({ data: true });
-        AsyncStorage.setItem('alreadyLaunched', data); // No need to wait for `setItem` to finish, although you might want to handle errors
-        setInitialLanguage();
-      } else {
-      }
-    }); // Add some error handling, also you can simply do this.setState({fistLaunch: value == null})
-    AsyncStorage.getItem('cabPoolingStatus').then(value => {
-      const poolingStatus = JSON.parse(value)
-      dispatch({
-        type: types.POOLING,
-        payload: poolingStatus,
-      });
-    }).catch((error) => {
-      console.log(error, 'error in getting poolstatus');
-    })// Add some error handling, also you can simply do this.setState({fistLaunch: value == null})
-
-
+  useEffect(() => {
+    (async () => {
+      await AsyncStorage.getItem("alreadyLaunched").then((value) => {
+        console.log(value, "valuevaluevaluevalue");
+        // const data = true;
+        if (value == null) {
+          data = JSON.stringify({ data: true });
+          AsyncStorage.setItem('alreadyLaunched', data); // No need to wait for `setItem` to finish, although you might want to handle errors
+          setInitialLanguage();
+        } else {
+        }
+      }); // Add some error handling, also you can simply do this.setState({fistLaunch: value == null})
+      await AsyncStorage.getItem('cabPoolingStatus').then(value => {
+        const poolingStatus = JSON.parse(value)
+        dispatch({
+          type: types.POOLING,
+          payload: poolingStatus,
+        });
+      }).catch((error) => {
+        console.log(error, 'error in getting poolstatus');
+      })// Add some error handling, also you can simply do this.setState({fistLaunch: value == null})
+    })().catch(err => {
+      console.error(err);
+    });
   }, []);
 
   const notificationConfig = () => {
@@ -244,21 +247,22 @@ const App = () => {
 
   return (
     <SafeAreaProvider>
-
-      <Provider store={store}>
-        <ShowNotificationForeground />
-        {progress ? progressView() : null}
-        <Routes />
-        <NotificationModal />
-      </Provider>
-      <Container
-        width={width - 20}
-        position="top"
-        duration={2000}
-        positionValue={moderateScaleVertical(20)}
-      />
-      <FlashMessage position="top" />
-      <NoInternetModal show={!internetConnection} />
+      <MenuProvider>
+        <Provider store={store}>
+          <ShowNotificationForeground />
+          {progress ? progressView() : null}
+          <Routes />
+          <NotificationModal />
+        </Provider>
+        <Container
+          width={width - 20}
+          position="top"
+          duration={2000}
+          positionValue={moderateScaleVertical(20)}
+        />
+        <FlashMessage position="top" />
+        <NoInternetModal show={!internetConnection} />
+      </MenuProvider>
     </SafeAreaProvider>
   );
 };

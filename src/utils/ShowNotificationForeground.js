@@ -8,6 +8,7 @@ import actions from '../redux/actions';
 import { navigate } from '../navigation/NavigationService';
 import navigationStrings from '../navigation/navigationStrings';
 import notifee, { AndroidColor, AndroidImportance } from '@notifee/react-native';
+import { showhideNotificationModal } from './helperFunctions';
 
 const ShowNotificationForeground = props => {
   useEffect(() => {
@@ -15,6 +16,8 @@ const ShowNotificationForeground = props => {
       console.log('remote message foreground', remoteMessage);
       const { data, messageId, notification } = remoteMessage;
       let notificationType = data?.type || data?.notificationType || 'AR';
+
+      console.log(notificationType,"notificationType");
 
       const channelId = await notifee.createChannel({
         id: 'default-channel-id',
@@ -35,7 +38,7 @@ const ShowNotificationForeground = props => {
       let displayNotificationData = {}
       if (Platform.OS == "ios") {
         displayNotificationData = {
-          title: notificationType || notification?.title || '',
+          title:  notification?.title || notificationType || '',
           body: data?.message || notification?.body || '',
           data: { ...data },
         };
@@ -43,7 +46,7 @@ const ShowNotificationForeground = props => {
       }
       else {
         displayNotificationData = {
-          title: notificationType || notification?.title || '',
+          title:  notification?.title || notificationType||'',
           body: data?.message || notification?.body || '',
           android: {
             sound: notification.sound == 'notification'
@@ -63,7 +66,6 @@ const ShowNotificationForeground = props => {
     
 
       await notifee.displayNotification(displayNotificationData);
-
       if (
         Platform.OS == 'android' &&
         notification.android.sound == 'notification'
@@ -71,7 +73,7 @@ const ShowNotificationForeground = props => {
         console.log('here>>2');
         if (data && notificationType && notificationType != 'N') {
           actions.isModalVisibleForAcceptReject({
-            isModalVisibleForAcceptReject:notificationType =='bid_ride_request'?false: true,
+            isModalVisibleForAcceptReject:showhideNotificationModal(notificationType),
             notificationData: remoteMessage,
           });
         }
@@ -85,7 +87,7 @@ const ShowNotificationForeground = props => {
         console.log('here>>3');
         if (data && notificationType && notificationType != 'N') {
           actions.isModalVisibleForAcceptReject({
-            isModalVisibleForAcceptReject:notificationType =='bid_ride_request' ?false : true,
+            isModalVisibleForAcceptReject:showhideNotificationModal(notificationType),
             notificationData: remoteMessage,
           });
         }
@@ -100,5 +102,8 @@ const ShowNotificationForeground = props => {
   }, []);
   return null;
 };
+
+
+
 
 export default ShowNotificationForeground;

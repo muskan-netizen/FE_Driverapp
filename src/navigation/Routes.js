@@ -9,6 +9,7 @@ import navigationStrings from './navigationStrings';
 import AuthStack from './AuthStack';
 import DrawerRoutes from './DrawerStack';
 import ProfileStack from './ProfileStack';
+import BottomStack from './BottomStack';
 
 const Stack = createNativeStackNavigator();
 
@@ -37,28 +38,38 @@ export function drawer(Stack) {
 }
 
 export default function Routes() {
-  const userData = useSelector(state => state?.auth?.userData) || {};
-
-  console.log("routes userData", userData)
-  // const {shortCodeStatus, appStyle} = useSelector(state => state?.initBoot);
+  const { userData } = useSelector(state => state?.auth || {});
+  const { clientInfo } = useSelector(state => state?.initBoot);
 
   return (
-      <NavigationContainer
-        // theme={scheme == 'dark' ? DarkTheme : DefaultTheme}
-        ref={navigationRef}>
+    <NavigationContainer
+      // theme={scheme == 'dark' ? DarkTheme : DefaultTheme}
+      ref={navigationRef}>
 
-        <Stack.Navigator>
-          {userData && userData?.access_token ? (
-            <Stack.Screen
-              name={navigationStrings.DRAWER_ROUTES}
-              component={DrawerRoutes}
-              options={{ headerShown: false, gestureEnabled: false }}
-            />
-          ) : (
+      <Stack.Navigator>
+        {userData && userData?.access_token ?
+          <React.Fragment>
+            {
+              !clientInfo?.is_freelancer ? <Stack.Screen
+                name={navigationStrings.DRAWER_ROUTES}
+                component={DrawerRoutes}
+                options={{
+                  headerShown: false
+                }}
+              /> : <Stack.Screen
+                name={navigationStrings.BOTTOM_STACK}
+                component={BottomStack}
+                options={{
+                  headerShown: false
+                }}
+              />
+            }
+          </React.Fragment>
+          : (
             AuthStack(Stack)
           )}
 
-        </Stack.Navigator>
-      </NavigationContainer>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }

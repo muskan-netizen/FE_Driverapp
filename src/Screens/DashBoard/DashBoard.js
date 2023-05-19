@@ -1,12 +1,13 @@
-import { debounce, get, isEmpty } from "lodash";
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import { debounce, get, isEmpty } from 'lodash';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import {
   Alert,
   BackHandler,
   FlatList,
   Image,
   Linking,
-  RefreshControl, Switch,
+  RefreshControl,
+  Switch,
   Text,
   View,
 } from 'react-native';
@@ -18,17 +19,21 @@ import WrapperContainer from '../../Components/WrapperContainer';
 import imagePath from '../../constants/imagePath';
 import actions from '../../redux/actions';
 // import store from '../../redux/store';
-import { useFocusEffect, useIsFocused } from "@react-navigation/native";
-import { Platform, TouchableOpacity } from "react-native";
-import DeviceInfo, { getBundleId } from "react-native-device-info";
-import MapView, { Marker, PROVIDER_GOOGLE, PROVIDER_DEFAULT } from "react-native-maps"; // remove PROVIDER_GOOGLE import if not using Google Maps
-import ListEmptyComponent from "../../Components/ListEmptyComponent";
-import TaskListCard from "../../Components/TaskListCard";
-import strings from "../../constants/lang";
-import navigationStrings from "../../navigation/navigationStrings";
-import colors from "../../styles/colors";
-import commonStylesFunc from "../../styles/commonStyles";
-import fontFamily from "../../styles/fontFamily";
+import { useFocusEffect, useIsFocused } from '@react-navigation/native';
+import { Platform, TouchableOpacity } from 'react-native';
+import DeviceInfo, { getBundleId } from 'react-native-device-info';
+import MapView, {
+  Marker,
+  PROVIDER_GOOGLE,
+  PROVIDER_DEFAULT,
+} from 'react-native-maps'; // remove PROVIDER_GOOGLE import if not using Google Maps
+import ListEmptyComponent from '../../Components/ListEmptyComponent';
+import TaskListCard from '../../Components/TaskListCard';
+import strings from '../../constants/lang';
+import navigationStrings from '../../navigation/navigationStrings';
+import colors from '../../styles/colors';
+import commonStylesFunc from '../../styles/commonStyles';
+import fontFamily from '../../styles/fontFamily';
 import {
   moderateScale,
   moderateScaleVertical,
@@ -47,20 +52,20 @@ navigator.geolocation = require('react-native-geolocation-service');
 import socketServices from '../../utils/scoketService';
 // import BackgroundTimer from 'react-native-background-timer';
 import BackgroundGeolocation from '@hariks789/react-native-background-geolocation';
-import generateBoxShadowStyle from "../../Components/generateBoxShadowStyle";
-import GradientButton from "../../Components/GradientButton";
+import generateBoxShadowStyle from '../../Components/generateBoxShadowStyle';
+import GradientButton from '../../Components/GradientButton';
 import BottomSheet, { BottomSheetScrollView } from '@gorhom/bottom-sheet';
-import BidAcceptRejectCard from "../../Components/BidAcceptRejectCard";
-import PoolingSuggestionCard from "../../Components/PoolingSuggestionCard";
-import { appIds } from "../../utils/constants/DynamicAppKeys";
-import { colorArray } from "../../utils/constants/ConstantValues";
-import { chekLocationPermission } from "../../utils/permissions";
+import BidAcceptRejectCard from '../../Components/BidAcceptRejectCard';
+import PoolingSuggestionCard from '../../Components/PoolingSuggestionCard';
+import { appIds } from '../../utils/constants/DynamicAppKeys';
+import { colorArray } from '../../utils/constants/ConstantValues';
+import { chekLocationPermission } from '../../utils/permissions';
 
 var finalAllTasks = [];
 var finaltodayTasks = [];
 
 export default function DashBoard({ route, navigation }) {
-  const { userData } = useSelector((state) => state?.auth || {});
+  const { userData } = useSelector(state => state?.auth || {});
   const { attributeFormData } = useSelector(state => state?.initBoot || {});
   const defaultLanguagae = useSelector(
     state => state?.initBoot?.defaultLanguage,
@@ -72,9 +77,9 @@ export default function DashBoard({ route, navigation }) {
     defaultLanguage,
     fcmToken,
     zendeskKeys,
-    notificationData
-  } = useSelector((state) => state?.initBoot);
-  const { isCabPooling, initialValue } = useSelector((state) => state?.auth) || {};
+    notificationData,
+  } = useSelector(state => state?.initBoot);
+  const { isCabPooling, initialValue } = useSelector(state => state?.auth) || {};
 
   const ref = useRef(orderCallbackUrl);
   const bottomSheetRef = useRef(null);
@@ -141,8 +146,6 @@ export default function DashBoard({ route, navigation }) {
     allPoolingingSuggestions,
   } = state;
 
-
-
   const [orderCallbackUrl, setOrderCallbackUrl] = useState('')
   const [allCustomerBidsList, setAllCustomerBidsList] = useState([])
   const [driverSelectedPriceForBide, setDriverSelectedPriceForBide] = useState({})
@@ -174,19 +177,16 @@ export default function DashBoard({ route, navigation }) {
     }
   }, [refreshHomeData]);
 
-
-
   useEffect(() => {
     const backHandler = BackHandler.addEventListener(
-      "hardwareBackPress",
-      () => true
+      'hardwareBackPress',
+      () => true,
     );
     return () => backHandler.remove();
   }, []);
 
-
   useEffect(() => {
-    if(isEnabled){
+    if (isEnabled) {
       BackgroundGeolocation.on('location', location => {
         let headingAngle = location?.bearing || 0.0;
         let lat = location?.latitude || 0;
@@ -195,11 +195,11 @@ export default function DashBoard({ route, navigation }) {
         fetchgentLogs(lat, long, headingAngle);
         console.log(lat, long, headingAngle, 'at, long, headingAngle=>');
       });
-  
+
       BackgroundGeolocation.on('error', error => {
         console.log('[ERROR] BackgroundGeolocation error:', error);
       });
-  
+
       BackgroundGeolocation.on('authorization', status => {
         console.log(
           '[INFO] BackgroundGeolocation authorization status: ' + status,
@@ -227,32 +227,30 @@ export default function DashBoard({ route, navigation }) {
           );
         }
       });
-  
-      BackgroundGeolocation.on("background", () => {
-        console.log("[INFO] App is in background");
-  
+
+      BackgroundGeolocation.on('background', () => {
+        console.log('[INFO] App is in background');
       });
-  
-      BackgroundGeolocation.on("foreground", () => {
-        console.log("[INFO] App is in foreground");
-  
+
+      BackgroundGeolocation.on('foreground', () => {
+        console.log('[INFO] App is in foreground');
       });
-  
+
       BackgroundGeolocation.on('abort_requested', () => {
         console.log('[INFO] Server responded with 285 Updates Not Required');
       });
-  
+
       BackgroundGeolocation.on('http_authorization', () => {
         console.log('[INFO] App needs to authorize the http requests');
       });
-  
+
       BackgroundGeolocation.checkStatus(status => {
         console.log(status, 'status.isRunning');
         if (!status.isRunning) {
           BackgroundGeolocation.start(); //triggers start on start event
         }
       });
-  
+
       BackgroundGeolocation.configure({
         activityType: 'Fitness',
         desiredAccuracy: BackgroundGeolocation.HIGH_ACCURACY,
@@ -261,7 +259,7 @@ export default function DashBoard({ route, navigation }) {
         debug: false,
         startOnBoot: false,
         stopOnTerminate: true,
-        notificationTitle: "Location Tracking",
+        notificationTitle: 'Location Tracking',
         notificationText: `Tracking driver's location in background.`,
         locationProvider: BackgroundGeolocation.ACTIVITY_PROVIDER,
         interval: 10000,
@@ -280,15 +278,14 @@ export default function DashBoard({ route, navigation }) {
           foo: 'bar', // you can also add your own properties
         },
       });
-  
-    }else{
+    } else {
       BackgroundGeolocation.removeAllListeners();
     }
-  
+
     return () => {
       BackgroundGeolocation.removeAllListeners();
     };
-  }, [orderCallbackUrl, setOrderCallbackUrl, ref,isEnabled]);
+  }, [orderCallbackUrl, setOrderCallbackUrl, ref, isEnabled]);
 
   useFocusEffect(
     React.useCallback(() => {
@@ -352,12 +349,12 @@ export default function DashBoard({ route, navigation }) {
       data['battery_level'] = (await DeviceInfo.getBatteryLevel()) * 100;
       data['all'] = selectedOption;
       // data['current_speed'] = 'y';
-      data["long"] = lng;
-      data["lat"] = lat;
-      data["device_token"] = !!fcmToken ? fcmToken : "";
-      data["heading_angle"] = heading_;
+      data['long'] = lng;
+      data['lat'] = lat;
+      data['device_token'] = !!fcmToken ? fcmToken : '';
+      data['heading_angle'] = heading_;
 
-      console.log(data, "data>data====");
+      console.log(data, 'data>data====');
       actions
         .logsApi(data, { client: clientInfo?.database_name })
         .then(res => {
@@ -387,7 +384,7 @@ export default function DashBoard({ route, navigation }) {
 
           if (res?.data?.user?.is_pooling_available) {
             actions.savePoolingStatusForLifeCycle(
-              res?.data?.user?.is_pooling_available
+              res?.data?.user?.is_pooling_available,
             );
           }
 
@@ -461,7 +458,7 @@ export default function DashBoard({ route, navigation }) {
           heading: position.coords.heading,
         });
 
-        actions.userCurrentLocation(position)
+        actions.userCurrentLocation(position);
 
         // getCurrentLocation(
         //   position.coords.latitude,
@@ -478,7 +475,6 @@ export default function DashBoard({ route, navigation }) {
       },
     );
   };
-
 
   //get all tasks
   const getTasks = () => {
@@ -530,10 +526,10 @@ export default function DashBoard({ route, navigation }) {
     };
     actions
       .getAllPoolingSuggestions({}, header)
-      .then((res) => {
-        console.log(res, "pooling");
-        const poolingSuggestionAccordingToDistance = res?.data?.order_suggession?.sort(
-          function (a, b) {
+      .then(res => {
+        console.log(res, 'pooling');
+        const poolingSuggestionAccordingToDistance =
+          res?.data?.order_suggession?.sort(function (a, b) {
             return a?.distance_pickup - b?.distance_pickup;
           });
 
@@ -698,12 +694,6 @@ export default function DashBoard({ route, navigation }) {
     }
   };
 
-
-
-
-
-
-
   const customCenter = () => {
     return (
       <View style={{ flexDirection: 'row', alignItems: 'center' }}>
@@ -743,8 +733,6 @@ export default function DashBoard({ route, navigation }) {
   };
 
   const renderTaskList = ({ item, index }) => {
-
-
     return (
       <TouchableOpacity
         onPress={() => _onPressTask(item?.data[0])}
@@ -759,7 +747,6 @@ export default function DashBoard({ route, navigation }) {
         {item?.data?.map(obj => {
           return (
             <TaskListCard
-
               data={obj}
               index={index}
               _onPressTaskDetails={() => _onPressTaskDetails(item)}
@@ -779,11 +766,10 @@ export default function DashBoard({ route, navigation }) {
           borderLeftColor: getDynamicUpdateOnValues(item),
           borderLeftWidth: 3,
           marginHorizontal: moderateScale(10),
-          ...generateBoxShadowStyle(-2, 0, "#171717", 0.2, 3, 3, "#171717"),
+          ...generateBoxShadowStyle(-2, 0, '#171717', 0.2, 3, 3, '#171717'),
           paddingBottom: moderateScaleVertical(10),
           marginBottom: moderateScaleVertical(20),
-        }}
-      >
+        }}>
         <PoolingSuggestionCard
           // data={obj}
           index={index}
@@ -932,7 +918,6 @@ export default function DashBoard({ route, navigation }) {
 
   useEffect(() => {
     fitToMap();
-    console.log('fittomappppp');
   }, [markers]);
 
   useEffect(() => {
@@ -1068,44 +1053,39 @@ export default function DashBoard({ route, navigation }) {
     updateState({ enableMap: !enableMap });
   };
 
-
   /*********************************Bid and Ride View *************************/
-
 
   // recive bids with notification
 
-
-
   useEffect(() => {
-    const bideNotificationType = notificationData?.notificationData?.data?.notificationType || notificationData?.notificationData?.data?.type
-    console.log(bideNotificationType, "bideNotificationType>> in home");
+    const bideNotificationType =
+      notificationData?.notificationData?.data?.notificationType ||
+      notificationData?.notificationData?.data?.type;
+    console.log(bideNotificationType, 'bideNotificationType>> in home');
     if (bideNotificationType == 'bid_ride_request') {
-      _onReciveBide()
+      _onReciveBide();
     }
-  }, [notificationData])
-
+  }, [notificationData]);
 
   const _onReciveBide = (hideBidView = true) => {
     const apiHeader = {
-      client: clientInfo?.database_name
-    }
-    actions.reciveBideRequests({}, apiHeader).then((res) => {
-      if (res?.data?.requestdata) {
-        setAllCustomerBidsList(res?.data?.requestdata)
-        setShowBiddingView(hideBidView)
-      }
-    }).catch((error) => {
-      showError(error?.message)
-      setShowBiddingView(false)
-    })
-  }
+      client: clientInfo?.database_name,
+    };
+    actions
+      .reciveBideRequests({}, apiHeader)
+      .then(res => {
+        if (res?.data?.requestdata) {
+          setAllCustomerBidsList(res?.data?.requestdata);
+          setShowBiddingView(hideBidView);
+        }
+      })
+      .catch(error => {
+        showError(error?.message);
+        setShowBiddingView(false);
+      });
+  };
 
-
-
-
-
-
-  const _onAcceptRideBid = (data) => {
+  const _onAcceptRideBid = data => {
     const apiUrl = data?.call_back_url;
     const apiData = {
       bid_price: data?.selectedPriceForBid || data?.requested_price,
@@ -1113,87 +1093,102 @@ export default function DashBoard({ route, navigation }) {
       driver_id: userData?.id,
       driver_name: userData?.name,
       driver_image: userData?.image_url,
-    }
+    };
 
-    const apiHeader = {}
-    actions.acceptBideRequest(apiUrl, apiData, apiHeader).then((res) => {
-      _onAcceptdeclineBideRequest(data?.id, 1)
-      showSuccess(res?.message)
-    }).catch((error) => {
-      showError(error?.message)
-    })
-  }
-  const _onDeclineBid = (data) => {
-    _onAcceptdeclineBideRequest(data, 0)
-  }
+    const apiHeader = {};
+    actions
+      .acceptBideRequest(apiUrl, apiData, apiHeader)
+      .then(res => {
+        _onAcceptdeclineBideRequest(data?.id, 1);
+        showSuccess(res?.message);
+      })
+      .catch(error => {
+        showError(error?.message);
+      });
+  };
+  const _onDeclineBid = data => {
+    _onAcceptdeclineBideRequest(data, 0);
+  };
 
   const _onAcceptdeclineBideRequest = (data, type) => {
     const apiData = {
       id: data,
-      status: type
-    }
+      status: type,
+    };
     const apiHeader = {
-      client: clientInfo?.database_name
-    }
-    actions.acceptdeclineBideRequest(apiData, apiHeader).then((res) => {
-      const hideBidView = type == 1 ? false : true
-      _onReciveBide(hideBidView)
-      setDriverSelectedPriceForBide({})
-    }).catch((error) => {
-      showError(error?.message)
-    })
-  }
-
+      client: clientInfo?.database_name,
+    };
+    actions
+      .acceptdeclineBideRequest(apiData, apiHeader)
+      .then(res => {
+        const hideBidView = type == 1 ? false : true;
+        _onReciveBide(hideBidView);
+        setDriverSelectedPriceForBide({});
+      })
+      .catch(error => {
+        showError(error?.message);
+      });
+  };
 
   //Biding Rice Funcationality>>>>>>>>>>>>>>>>>>
 
   const _onRidePriceIncerimentDecrimentPrice = (type, bidData) => {
     if (type == 'minus') {
-      return Number(bidData?.selectedPriceForBid) - 10
+      return Number(bidData?.selectedPriceForBid) - 10;
     } else {
-      return Number(bidData?.selectedPriceForBid) + 10
+      return Number(bidData?.selectedPriceForBid) + 10;
     }
-
-  }
+  };
   const _onSetBidPrice = (type, bidData) => {
-    const selectedBidPrice = _onRidePriceIncerimentDecrimentPrice(type, bidData)
+    const selectedBidPrice = _onRidePriceIncerimentDecrimentPrice(
+      type,
+      bidData,
+    );
     const finalRequestData = allCustomerBidsList.map((element, index) => {
       if (element.bid_id == bidData?.bid_id) {
         if (selectedBidPrice < bidData?.minimum_requested_price) {
-          alert(`you can't select price below ${bidData?.minimum_requested_price}`)
-          setBidRidePrice(Number(bidData?.minimum_requested_price))
-          element['selectedPriceForBid'] = String(bidData?.minimum_requested_price)
+          alert(
+            `you can't select price below ${bidData?.minimum_requested_price}`,
+          );
+          setBidRidePrice(Number(bidData?.minimum_requested_price));
+          element['selectedPriceForBid'] = String(
+            bidData?.minimum_requested_price,
+          );
         } else {
-          element['selectedPriceForBid'] = String(selectedBidPrice || bidData?.requested_price)
+          element['selectedPriceForBid'] = String(
+            selectedBidPrice || bidData?.requested_price,
+          );
         }
       }
 
-      return element
+      return element;
     });
-    setAllCustomerBidsList(finalRequestData)
-  }
+    setAllCustomerBidsList(finalRequestData);
+  };
 
-
-
-  const renderCustomerListCard = useCallback(({ item, index }) => {
-    return (
-      <BidAcceptRejectCard
-        data={item}
-        bidExpiryDuration={20}
-        _onDeclineBid={_onDeclineBid}
-        _onAcceptRideBid={_onAcceptRideBid}
-        _onSetBidPrice={_onSetBidPrice}
-        bidRidePrice={bidRidePrice}
-      />
-    )
-  }, [allCustomerBidsList])
+  const renderCustomerListCard = useCallback(
+    ({ item, index }) => {
+      return (
+        <BidAcceptRejectCard
+          data={item}
+          bidExpiryDuration={20}
+          _onDeclineBid={_onDeclineBid}
+          _onAcceptRideBid={_onAcceptRideBid}
+          _onSetBidPrice={_onSetBidPrice}
+          bidRidePrice={bidRidePrice}
+        />
+      );
+    },
+    [allCustomerBidsList],
+  );
   const renderBidingView = () => {
     return (
       <BottomSheet
         ref={bottomSheetRef}
         index={1}
         // key={isOpen}
-        snapPoints={['0%', true ? '100%' : '30%']}
+        // snapPoints={['1%', true ? '100%' : '30%']}
+        snapPoints={['100%', '100%']}
         activeOffsetY={[-1, 1]}
         failOffsetX={[-5, 5]}
         animateOnMount={true}
@@ -1203,132 +1198,120 @@ export default function DashBoard({ route, navigation }) {
       // onChange={_connectRajorPayBottomSheet}
       // handleComponent={_handleComponent}
       >
-
         <FlatList
           showsVerticalScrollIndicator={false}
           data={allCustomerBidsList}
           renderItem={renderCustomerListCard}
           //keyExtractor={awesomeChildListKeyExtractor}
           ListFooterComponent={() => (
-            <View style={{
-              marginLeft: moderateScale(16),
-              marginBottom: moderateScaleVertical(20),
-            }} />
+            <View
+              style={{
+                marginLeft: moderateScale(16),
+                marginBottom: moderateScaleVertical(20),
+              }}
+            />
           )}
           ListHeaderComponent={() => (
             <View style={{ marginRight: moderateScale(16) }} />
           )}
         />
       </BottomSheet>
-    )
-  }
+    );
+  };
 
-
-  return (
-    (!isEmpty(allCustomerBidsList) && showBiddingView) ? renderBidingView() :
-      <WrapperContainer
-        statusBarColor={colors.white}
-        bgColor={colors.backGround}
-        isLoading={isLoading || isLoadingSwitch}
-        source={loaderOne}
-      >
-        <Header
-          reverse={false}
-          headerStyle={{ backgroundColor: colors.white }}
-          leftIcon={imagePath.menu}
-          onPressLeft={() => navigation.toggleDrawer()}
-          // hideRight={true}
-          customCenter={() => customCenter()}
-          rightIcon={!enableMap ? imagePath.map : imagePath.listMenu}
-          onPressRight={_onSwitchMapView}
-        />
-        <View style={{ ...commonStyles.headerTopLine }} />
-        {isWarningAlert && (
-          <View
-            style={{
-              backgroundColor: colors.lightRed,
-              flexDirection: "row",
-              justifyContent: "space-between",
-              paddingHorizontal: moderateScale(10),
-            }}
-          >
-            <View style={{ width: width / 2.2, justifyContent: "center" }}>
-              <Text
-                style={{ color: colors.white, fontFamily: fontFamily.regular }}
-              >
-                {strings.notificationAlert}
-              </Text>
-            </View>
-            <View
-              style={{
-                justifyContent: "space-between",
-                width: width / 2.5,
-                alignItems: "center",
-                flexDirection: "row",
-                marginVertical: moderateScaleVertical(5),
-                paddingVertical: moderateScaleVertical(10),
-              }}
-            >
-              <TouchableOpacity
-                style={{
-                  backgroundColor: colors.themeColor,
-                  alignItems: "center",
-                  marginVertical: moderateScaleVertical(10),
-                  paddingVertical: moderateScaleVertical(5),
-                  paddingHorizontal: moderateScale(10),
-                  borderRadius: 8,
-                }}
-                onPress={() => toggleWarning(false)}
-              >
-                <Text style={{ color: colors.white }}>{strings.CANCEL}</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={{
-                  backgroundColor: colors.themeColor,
-                  alignItems: "center",
-                  marginVertical: moderateScaleVertical(10),
-                  paddingVertical: moderateScaleVertical(5),
-                  paddingHorizontal: moderateScale(10),
-                  borderRadius: 8,
-                }}
-                onPress={() => _onOpenSettings()}
-              >
-                <Text style={{ color: colors.white }}>{strings.ENABLE}</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        )}
-
+  return !isEmpty(allCustomerBidsList) && showBiddingView ? (
+    renderBidingView()
+  ) : (
+    <WrapperContainer
+      statusBarColor={colors.white}
+      bgColor={colors.backGround}
+      isLoading={isLoading || isLoadingSwitch}
+      source={loaderOne}>
+      <Header
+        reverse={false}
+        headerStyle={{ backgroundColor: colors.white }}
+        leftIcon={imagePath.menu}
+        onPressLeft={() => navigation.toggleDrawer()}
+        noLeftIcon={!!clientInfo?.is_freelancer}
+        // hideRight={true}
+        customCenter={() => customCenter()}
+        rightIcon={!enableMap ? imagePath.map : imagePath.listMenu}
+        onPressRight={_onSwitchMapView}
+      />
+      <View style={{ ...commonStyles.headerTopLine }} />
+      {isWarningAlert && (
         <View
           style={{
-            justifyContent: "center",
-            alignItems: "center",
-            marginTop: moderateScaleVertical(20),
-            paddingBottom: moderateScaleVertical(20),
-            borderBottomWidth: moderateScaleVertical(1),
-            borderBottomColor: colors.lightGreyBg,
-          }}
-        >
-          {isEnabled ? (
-            <SwitchSelectorComponent
-              key={selectedOption}
-              options={options}
-              initial={selectedOption}
-              onPress={(value) => updateContent(value)}
-            // textInputStyle={{ width: moderateScale(width - 40) }}
-            />
-          ) : (
-            <View style={{ height: 35 }} />
-          )}
+            backgroundColor: colors.lightRed,
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            paddingHorizontal: moderateScale(10),
+          }}>
+          <View style={{ width: width / 2.2, justifyContent: 'center' }}>
+            <Text style={{ color: colors.white, fontFamily: fontFamily.regular }}>
+              {strings.notificationAlert}
+            </Text>
+          </View>
+          <View
+            style={{
+              justifyContent: 'space-between',
+              width: width / 2.5,
+              alignItems: 'center',
+              flexDirection: 'row',
+              marginVertical: moderateScaleVertical(5),
+              paddingVertical: moderateScaleVertical(10),
+            }}>
+            <TouchableOpacity
+              style={{
+                backgroundColor: colors.themeColor,
+                alignItems: 'center',
+                marginVertical: moderateScaleVertical(10),
+                paddingVertical: moderateScaleVertical(5),
+                paddingHorizontal: moderateScale(10),
+                borderRadius: 8,
+              }}
+              onPress={() => toggleWarning(false)}>
+              <Text style={{ color: colors.white }}>{strings.CANCEL}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={{
+                backgroundColor: colors.themeColor,
+                alignItems: 'center',
+                marginVertical: moderateScaleVertical(10),
+                paddingVertical: moderateScaleVertical(5),
+                paddingHorizontal: moderateScale(10),
+                borderRadius: 8,
+              }}
+              onPress={() => _onOpenSettings()}>
+              <Text style={{ color: colors.white }}>{strings.ENABLE}</Text>
+            </TouchableOpacity>
+          </View>
         </View>
+      )}
 
-        <View style={{ flex: 1 }}>
-          {renderComponents()}
-        </View>
-      </WrapperContainer>
+      <View
+        style={{
+          justifyContent: 'center',
+          alignItems: 'center',
+          marginTop: moderateScaleVertical(20),
+          paddingBottom: moderateScaleVertical(20),
+          borderBottomWidth: moderateScaleVertical(1),
+          borderBottomColor: colors.lightGreyBg,
+        }}>
+        {isEnabled ? (
+          <SwitchSelectorComponent
+            key={selectedOption}
+            options={options}
+            initial={selectedOption}
+            onPress={value => updateContent(value)}
+          // textInputStyle={{ width: moderateScale(width - 40) }}
+          />
+        ) : (
+          <View style={{ height: 35 }} />
+        )}
+      </View>
+
+      <View style={{ flex: 1 }}>{renderComponents()}</View>
+    </WrapperContainer>
   );
-
-
-
 }
-

@@ -329,4 +329,6 @@ export default {
     'Je, una uhakika, unataka kufuta akaunti yako? Ukifuta akaunti inafutwa kimoja na itaondoa maudhui yote na mipangilio ya wasifu.',
   PICKERCANCLLED: 'Mbebaji Amebatilishwa',
   CHAT_ROOM: 'Chumba cha Mazungumzo',
+  ORDER_DELAYED_BY:'Order Delayed By',
+  ORDER_WILL_PREPARED_IN  :'Order Will Prepared In'
 };

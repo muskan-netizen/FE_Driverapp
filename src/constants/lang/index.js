@@ -1,6 +1,6 @@
 import LocalizedStrings from 'react-native-localization';
-import { appIds } from '../../utils/constants/DynamicAppKeys';
-import DeviceInfo, { getBundleId } from "react-native-device-info";
+import {appIds} from '../../utils/constants/DynamicAppKeys';
+import DeviceInfo, {getBundleId} from 'react-native-device-info';
 
 import ar from './ar';
 import de from './de';
@@ -18,7 +18,6 @@ import tr from './tr';
 import vi from './vi';
 import zh from './zh';
 import ger from './ger';
-
 
 const arbicFile = () => {
   return ar;

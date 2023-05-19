@@ -175,14 +175,13 @@ function CustomDrawerContent({
 
 
   useEffect(() => {
-     
-    if(zendeskKeys?.keys?.account_key && zendeskKeys?.keys?.application_id){
+    if (zendeskKeys?.keys?.account_key && zendeskKeys?.keys?.application_id) {
       ZendeskChat.init(
         `${zendeskKeys?.keys?.account_key}`,
         `${zendeskKeys?.keys?.application_id}`
       );
     }
-   
+
     updateState({
       routes: [
         !!userData?.client_preference?.is_go_to_home && {
@@ -202,6 +201,7 @@ function CustomDrawerContent({
           key: navigationStrings.TASKSTACK,
           subRoute: navigationStrings.TASKHISTORY,
         },
+
         {
           id: 2,
           label: strings.PROFILE,
@@ -264,19 +264,6 @@ function CustomDrawerContent({
             }
             : {},
 
-        // {
-        //   if(subscription != undefined ) {
-        //     subscription?.hide_subscription_module == 0 && subscription?.hide_subscription_module != undefined ?
-        //       {
-        //         id: 9,
-        //         label: strings.SUBSCRIPTIONS,
-        //         support: true,
-        //         image: imagePath.icSubscription,
-        //         key: navigationStrings.SUBSCRIPTION_STACK,
-        //         subRoute: navigationStrings.SUBSCRIPTION_STACK,
-        //       } : {}
-        // }
-        // },
         appIds.transportSystem === DeviceInfo.getBundleId()
           ? {
             id: 7,
@@ -367,9 +354,9 @@ function CustomDrawerContent({
     updateState({ isLoading: false });
     showError(error?.message || error?.error);
   };
-console.log( !zendeskKeys?.keys?.account_key && !zendeskKeys?.keys?.application_id,'havsdyuva');
+  console.log(!zendeskKeys?.keys?.account_key && !zendeskKeys?.keys?.application_id, 'havsdyuva');
   const onStartSupportChat = () => {
-    if( !zendeskKeys?.keys?.account_key && !zendeskKeys?.keys?.application_id){
+    if (!zendeskKeys?.keys?.account_key && !zendeskKeys?.keys?.application_id) {
       showError('Zendesk not configured')
       return
     }
@@ -420,7 +407,7 @@ console.log( !zendeskKeys?.keys?.account_key && !zendeskKeys?.keys?.application_
       });
   };
 
-  console.log(poolingState,"poolingStatepoolingStatepoolingState");
+  console.log(poolingState, "poolingStatepoolingStatepoolingState");
 
   return (
     <>
