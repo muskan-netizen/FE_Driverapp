@@ -2038,16 +2038,16 @@ android {
 //             resValue "string", "app_name", "Tumbak Dispatcher"
 //         }
 
-//          meatEasy{
-//             dimension "appType"
-//             versionCode 1
-//             versionName "1.0"
-//             minSdkVersion rootProject.ext.minSdkVersion
-//             targetSdkVersion rootProject.ext.targetSdkVersion
-//             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.MeatEasy.royodispatcher'
-//             resValue "string", "app_name", "MeatEasy Dispatcher"
-//         }
+         meatEasy{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.MeatEasy.royodispatcher'
+            resValue "string", "app_name", "MeatEasy Dispatcher"
+        }
 //            boltDelivery{
 //             dimension "appType"
 //             versionCode 1
@@ -5367,16 +5367,16 @@ android {
 //             applicationId 'com.sylomart.royodispatcher'
 //             resValue "string", "app_name", "Sylomart Dispatcher"
 //         }
-//         doober{
-//             dimension "appType"
-//             versionCode 1
-//             versionName "1.0"
-//             minSdkVersion rootProject.ext.minSdkVersion
-//             targetSdkVersion rootProject.ext.targetSdkVersion
-//             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.doober.royodispatcher'
-//             resValue "string", "app_name", "Doober Dispatcher"
-//         }
+        doober{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.doober.royodispatcher'
+            resValue "string", "app_name", "Doober Dispatcher"
+        }
 //         inmotion{
 //             dimension "appType"
 //             versionCode 1
@@ -6208,16 +6208,16 @@ android {
 //             applicationId 'com.buzyStores.royodispatcher'
 //             resValue "string", "app_name", "Buzy Stores Dispatcher"
 //         }
-// etiam{
-//             dimension "appType"
-//             versionCode 1
-//             versionName "1.0"
-//             minSdkVersion rootProject.ext.minSdkVersion
-//             targetSdkVersion rootProject.ext.targetSdkVersion
-//             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.etiam.driver'
-//             resValue "string", "app_name", "Etiam Driver"
-//         }
+etiam{
+            dimension "appType"
+            versionCode 5
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.etiam.driverApp'
+            resValue "string", "app_name", "Etiam Driver"
+        }
 // dotTaxi{
 //             dimension "appType"
 //             versionCode 1

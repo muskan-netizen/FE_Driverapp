@@ -9,7 +9,10 @@
 // export const API_BASE_URL = 'https://dispatch.ihelp.app.br/';
 
 // nGoal
-export const API_BASE_URL = 'https://dispatch.ngoalapp.com/';
+//export const API_BASE_URL = 'https://dispatch.ngoalapp.com/';
+
+// doober
+export const API_BASE_URL = 'https://dispatch.doobershop.com/';
 
 // jds
 //export const API_BASE_URL = 'https://dispatch.jdsondemand.com/';
