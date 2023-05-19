@@ -229,7 +229,7 @@ function CustomDrawerContent({
         },
         {
           id: 5,
-          label: strings.PAYOUT,
+          label: (getBundleId() == appIds.mrVeloz && defaultLanguage?.value == 'es') ? strings.PAYOUT_MRVELOZ:strings.PAYOUT,
           image: imagePath.icPayout,
           key: navigationStrings.PAYOUT_STACK,
           subRoute: navigationStrings.PAYOUT_STACK,

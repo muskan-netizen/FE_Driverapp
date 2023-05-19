@@ -318,7 +318,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://pinkydeli.rdstaging.com/';
 
 // export const API_BASE_URL = 'https://dispatch.pinkjettaxi.com/';
-// export const API_BASE_URL='https://dispatch.carryfood.org/'
+// export const API_BASE_URL = 'https://dispatch.carryfood.org/';
 // export const API_BASE_URL = 'https://dispatch.ineed.do/'
 // export const API_BASE_URL = 'https://dispatch.uvennow.com/';
 // export const API_BASE_URL='https://dispatch.uber-weeds.com/'
@@ -331,8 +331,8 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //DOORSTEP
 // export const API_BASE_URL = 'https://dispatch.doorstep.sd/';
 // export const API_BASE_URL = 'https://dispatch.ubercann.com/';
-// export const API_BASE_URL = 'https://api.winhires.com/';
-// export const API_BASE_URL = 'https://api.winhires.com/';
+ export const API_BASE_URL = 'https://api.winhires.com/';
+
 
 //Bezaliohub
 // export const API_BASE_URL = 'https://dispatch.bezaliohub.com/'
@@ -420,8 +420,8 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // orderchekout
 // export const API_BASE_URL = 'https://dispatch.orderchekout.com/';
-// export const API_BASE_URL='https://dispatch.etiamstore.com/'
-// export const API_BASE_URL='https://dispatch.hattafoodhub.com/'
+// export const API_BASE_URL = 'https://dispatch.etiamstore.com/';
+// export const API_BASE_URL = 'http://192.168.102.70:8008/';
 // export const API_BASE_URL='https://dispatch.kerotechnologies.com/'
 // carroi
 // export const API_BASE_URL = 'https://carroi.rdstaging.com/';
@@ -438,14 +438,14 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.blipdelivery.com/';
 // export const API_BASE_URL = 'https://dispatch.getfix.com.my/';
 
-//export const API_BASE_URL = 'https://dispatch.meltivers.com/';
+// export const API_BASE_URL = 'https://dispatch.meltivers.com/';
 //  butler delivery
 //  export const API_BASE_URL = 'https://dispatch.butlerdeliveryusa.com/';
 // bimolaa
 // export const API_BASE_URL = 'https://dispatch.bimol.in/'
 
 // Delivery
-// export const API_BASE_URL = 'https://gdotdelivery.com/'
+//export const API_BASE_URL = 'https://gdotdelivery.com/';
 //medipick
 //export const API_BASE_URL = 'https://medipick-dispatch.netsolutionindia.com/'
 // mobi

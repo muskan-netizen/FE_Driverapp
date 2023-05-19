@@ -39,7 +39,7 @@ let strings = new LocalizedStrings({
   ne: ne,
   swa: swa,
   he: heb,
-  ger: ger,
+  ger:ger
 });
 export const changeLaguage = languageKey => {
   strings.setLanguage(languageKey);

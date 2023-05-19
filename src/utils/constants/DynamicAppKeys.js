@@ -471,7 +471,7 @@ const shortCodes = {
   oaks: '5eab74',
   buzyStores: '8c70ed',
   etiam: 'a10566',
-  dotTaxi: 'ca35c5',
+  dotTaxi: '16b920',
   airvoltTaxi: '694d92',
   melak: '1a8ecf',
   vialteran: '0d943d',
@@ -2105,7 +2105,7 @@ const appIds = {
     android: 'com.tiimo.driverApp',
   }),
   carryFood: Platform.select({
-    ios: 'com.carryFood.royodispatcher',
+    ios: 'com.carryFood.dispatcher',
     android: 'com.carryFood.driver',
   }),
   ragioMigo: Platform.select({
@@ -2390,8 +2390,8 @@ const appIds = {
     android: 'com.etiam.driverApp',
   }),
   dotTaxi: Platform.select({
-    ios: 'com.dotTaxi.royodispatcher',
-    android: 'com.dotTaxi.royodispatcher',
+    ios: 'com.dotTaxi.driver',
+    android: 'com.dotTaxi.driver',
   }),
 
   airvoltTaxi: Platform.select({
