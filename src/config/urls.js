@@ -8,11 +8,12 @@
 // export const API_BASE_URL = 'https://dispatch.tiimollc.com/';
 // export const API_BASE_URL = 'https://dispatch.ihelp.app.br/';
 
-// nGoal
-//export const API_BASE_URL = 'https://dispatch.ngoalapp.com/';
+// efectibo
+// export const API_BASE_URL = 'https://dispatch.efectibo.com/';
 
-// doober
-export const API_BASE_URL = 'https://dispatch.doobershop.com/';
+
+// nGoal
+// export const API_BASE_URL = 'https://dispatch.ngoalapp.com/';
 
 // jds
 //export const API_BASE_URL = 'https://dispatch.jdsondemand.com/';
@@ -44,7 +45,8 @@ export const API_BASE_URL = 'https://dispatch.doobershop.com/';
 // export const API_BASE_URL = 'https://dispatch.10dollahollla.com/';
 // export const API_BASE_URL='https://dispatch.movingwheelsdeliveryservices.com/'
 // export const API_BASE_URL='https://dispatch.kaypee.app/'
-//export const API_BASE_URL = 'https://api.royodispatch.com/';
+// export const API_BASE_URL = 'https://api.royodispatch.com/';
+// export const API_BASE_URL = 'https://api.royodispatch.com/';
 // export const API_BASE_URL = 'https://dispatch.laundrozone.net/';
 // export const API_BASE_URL = 'https://sales.royodispatch.com/';
 // export const API_BASE_URL='http://192.168.101.140:9091/'
@@ -531,7 +533,7 @@ export const API_BASE_URL = 'https://dispatch.doobershop.com/';
 // export const API_BASE_URL = 'https://dispatch.quicklube.us/'
 
 // sxm2Go
-//export const API_BASE_URL = 'https://dispatch.sxm2go.com/';
+// export const API_BASE_URL = 'https://dispatch.sxm2go.com/';
 
 // export const personaltoken = 'TMJdbQlNWkYl1JzMONzRgF4zQFuP8s';
 
@@ -558,7 +560,28 @@ export const API_BASE_URL = 'https://dispatch.doobershop.com/';
 // qdelo
 // export const API_BASE_URL='https://dispatch.westvirginiahub.com/'
 
+// junkerz
+// export const API_BASE_URL='https://dispatch.junkerz.com/'
+
 //export const API_BASE_URL='https://coretrack.mx/'
+
+//thegenie
+// export const API_BASE_URL='https://delivery.thegenie.in/'
+
+// RBRiders
+// export const API_BASE_URL='https://dispatch.rbridersclub.com/'
+
+// DotNetwork
+// export const API_BASE_URL='https://dispatch.thedonetwork.org/'
+
+// GreenHippo
+export const API_BASE_URL='https://dispatch.mygreenhippo.com/'
+
+// Nuvoni
+// export const API_BASE_URL='https://dispatch.nuvoni.com/'
+
+
+
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;
 
 export const SEND_OTP = getApiUrl('api/auth/login');
