@@ -209,39 +209,101 @@ android {
 
      flavorDimensions "appType"
 productFlavors{
-         dotTaxi{
+        royoDispatcher{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.dotTaxi.driver'
-            resValue "string", "app_name", "Dot Driver"
+            applicationId 'com.codebrew.royodispatcher'
+            resValue "string", "app_name", "RoyoDriverApp"
         }
-            qdelo{
+    chutneyeah{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.qdeloDriver'
-            resValue "string", "app_name", "Qdelo Dispatcher"
+            applicationId 'com.chutneyeah.driver'
+            resValue "string", "app_name", "Chutneyeah dispatcher"
         }
+        jds{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.jds.driver'
+            resValue "string", "app_name", "JDS On Demand  dispatcher"
+        }
+           sorDelivery{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.sorDelivery.royodispatcher'
+            resValue "string", "app_name", "sorDelivery Dispatcher"
+        }
+
+    //    dotTaxi{
+    //         dimension "appType"
+    //         versionCode 1
+    //         versionName "1.0"
+    //         minSdkVersion rootProject.ext.minSdkVersion
+    //         targetSdkVersion rootProject.ext.targetSdkVersion
+    //         // applicationIdSuffix ".royoorder"
+    //         applicationId 'com.dotTaxi.driver'
+    //         resValue "string", "app_name", "Dot Driver"
+    //     }
+    //                 boozeBrothers{
+    //         dimension "appType"
+    //         versionCode 1
+    //         versionName "1.0"
+    //         minSdkVersion rootProject.ext.minSdkVersion
+    //         targetSdkVersion rootProject.ext.targetSdkVersion
+    //         // applicationIdSuffix ".royoorder"
+    //         applicationId 'com.boozeBrothers.driver'
+    //         resValue "string", "app_name", "BoozeBrothers Driver"
+    //     }
+    //             smile{
+    //         dimension "appType"
+    //         versionCode 1
+    //         versionName "1.0"
+    //         minSdkVersion rootProject.ext.minSdkVersion
+    //         targetSdkVersion rootProject.ext.targetSdkVersion
+    //         // applicationIdSuffix ".royoorder"
+    //         applicationId 'com.Smile.royodispatcher'
+    //         resValue "string", "app_name", "Miist Dispatcher"
+    //     }
+
+    //      instaFits{
+    //         dimension "appType"
+    //         versionCode 1
+    //         versionName "1.0"
+    //         minSdkVersion rootProject.ext.minSdkVersion
+    //         targetSdkVersion rootProject.ext.targetSdkVersion
+    //         // applicationIdSuffix ".royoorder"
+    //         applicationId 'com.instaFits.driver'
+    //         resValue "string", "app_name", "INSTA-FITS dispatcher"
+    //     }
 }     
 //     productFlavors 
-//     {
-//     royoDispatcher{
-//             dimension "appType"
-//             versionCode 1
-//             versionName "1.0"
-//             minSdkVersion rootProject.ext.minSdkVersion
-//             targetSdkVersion rootProject.ext.targetSdkVersion
-//             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.codebrew.royodispatcher'
-//             resValue "string", "app_name", "RoyoDriverApp"
-//         }
+    // {
+    // royoDispatcher{
+    //         dimension "appType"
+    //         versionCode 1
+    //         versionName "1.0"
+    //         minSdkVersion rootProject.ext.minSdkVersion
+    //         targetSdkVersion rootProject.ext.targetSdkVersion
+    //         // applicationIdSuffix ".royoorder"
+    //         applicationId 'com.codebrew.royodispatcher'
+    //         resValue "string", "app_name", "RoyoDriverApp"
+    //     }
 //          runrun {
 //             dimension "appType"
 //             versionCode 1
@@ -6801,6 +6863,11 @@ productFlavors{
 
 
 dependencies {
+    implementation ("androidx.appcompat:appcompat:1.3.1") {
+version {
+strictly '1.3.1'
+}
+}
      compile project(':react-native-video')
      implementation "androidx.appcompat:appcompat:1.0.0"
     implementation 'androidx.work:work-runtime-ktx:2.7.0' // required to avoid crash on Android 12 API 31
