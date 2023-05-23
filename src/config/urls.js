@@ -1,4 +1,4 @@
-export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL='https://dispatch.jeevannapp.com/'
 //export const API_BASE_URL = 'https://805c-103-72-170-243.ngrok.io/';
 // export const API_BASE_URL = 'https://dispatch.shelf.ae';
@@ -111,7 +111,10 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //Misst
 // export const API_BASE_URL = 'https://miist-dispatch.netsolutionindia.com/';
+
+//Qdelo
 // export const API_BASE_URL='https://dispatcher.qdelo.com/'
+
 // export const API_BASE_URL = 'https://baggage-dispatch.netsolutionindia.com/';
 
 // export const API_BASE_URL='https://d078-103-72-170-243.in.ngrok.io/'
@@ -331,7 +334,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //DOORSTEP
 // export const API_BASE_URL = 'https://dispatch.doorstep.sd/';
 // export const API_BASE_URL = 'https://dispatch.ubercann.com/';
- export const API_BASE_URL = 'https://api.winhires.com/';
+//  export const API_BASE_URL = 'https://api.winhires.com/';
 
 
 //Bezaliohub
@@ -556,7 +559,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //boozebrothers
 // export const API_BASE_URL = 'https://autobox.rdstaging.com/';
 
-// qdelo
+// westvirginiahub
 // export const API_BASE_URL='https://dispatch.westvirginiahub.com/'
 
 // junkerz
@@ -574,10 +577,16 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL='https://dispatch.thedonetwork.org/'
 
 // GreenHippo
-//export const API_BASE_URL='https://dispatch.mygreenhippo.com/'
+// export const API_BASE_URL='https://dispatch.mygreenhippo.com/'
 
 // Nuvoni
 // export const API_BASE_URL='https://dispatch.nuvoni.com/'
+
+// Blink
+// export const API_BASE_URL='https://dispatch.blinktheapp.com/'
+
+// Karis
+export const API_BASE_URL='https://dispatch.mykaris.com/'
 
 
 
