@@ -87,7 +87,7 @@ DeviceCountry.getCountryCode()
 export default function Signup({ route, navigation }) {
   const modalRef = useRef(null);
 
-  const { clientInfo, defaultLanguage } = useSelector(state => state?.initBoot);
+  const {appData,  clientInfo, defaultLanguage } = useSelector(state => state?.initBoot);
   var dummyTags = '';
   const [state, setState] = useState({
     isLoading: false,

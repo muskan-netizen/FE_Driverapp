@@ -23,7 +23,7 @@ import { useFocusEffect } from "@react-navigation/native";
 import { cloneDeep } from "lodash";
 import ScaledImage from "react-native-scalable-image";
 import DeviceInfo, { getBundleId } from "react-native-device-info";
-import ZendeskChat from "../library/react-native-zendesk-chat";
+import ZendeskChat from "react-native-zendesk-chat";
 import { appIds } from "../utils/constants/DynamicAppKeys";
 import { Subscriptions } from "../Screens";
 import BackgroundGeolocation from '@hariks789/react-native-background-geolocation';
@@ -174,6 +174,8 @@ function CustomDrawerContent({
     : undefined;
 
 
+    
+
   useEffect(() => {
     if (zendeskKeys?.keys?.account_key && zendeskKeys?.keys?.application_id) {
       ZendeskChat.init(
@@ -227,7 +229,7 @@ function CustomDrawerContent({
         },
         {
           id: 5,
-          label: strings.PAYOUT,
+          label: (getBundleId() == appIds.mrVeloz && defaultLanguage?.value == 'es') ? strings.PAYOUT_MRVELOZ:strings.PAYOUT,
           image: imagePath.icPayout,
           key: navigationStrings.PAYOUT_STACK,
           subRoute: navigationStrings.PAYOUT_STACK,

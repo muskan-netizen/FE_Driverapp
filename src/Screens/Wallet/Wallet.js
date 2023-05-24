@@ -37,6 +37,8 @@ import {
 import { colorArray } from "../../utils/constants/ConstantValues";
 import { showError } from "../../utils/helperFunctions";
 import stylesFunction from "./styles";
+import { getBundleId } from "react-native-device-info";
+import { appIds } from "../../utils/constants/DynamicAppKeys";
 
 export default function Wallet({ route, navigation }) {
   const userData = useSelector((state) => state?.auth?.userData);
@@ -145,9 +147,9 @@ export default function Wallet({ route, navigation }) {
           backgroundColor: colors.lightGreyBg3,
           marginBottom:
             allTaskInHistory[index - 1]?.order_id &&
-            item?.order_id != allTaskInHistory[index - 1]?.order_id &&
-            !!item?.task_type_id &&
-            item?.transaction_type == "task"
+              item?.order_id != allTaskInHistory[index - 1]?.order_id &&
+              !!item?.task_type_id &&
+              item?.transaction_type == "task"
               ? moderateScale(-20)
               : moderateScale(15),
           marginHorizontal: moderateScale(10),
@@ -175,12 +177,12 @@ export default function Wallet({ route, navigation }) {
                             ? colors.green
                             : colors.redB
                           : item?.transaction_type == "payment"
-                          ? item?.cr > 0
-                            ? colors.green
-                            : colors.redB
-                          : item?.transaction_type == "payout"
-                          ? colors.blueSolid
-                          : colors.blueB,
+                            ? item?.cr > 0
+                              ? colors.green
+                              : colors.redB
+                            : item?.transaction_type == "payout"
+                              ? colors.blueSolid
+                              : colors.blueB,
                     }}
                   >
                     <Text style={styles.messageInitial}>
@@ -189,12 +191,12 @@ export default function Wallet({ route, navigation }) {
                           ? "C"
                           : "D"
                         : item?.transaction_type == "payment"
-                        ? item?.cr > 0
-                          ? "C"
-                          : "D"
-                        : item?.transaction_type == "payout"
-                        ? "P"
-                        : "T"}
+                          ? item?.cr > 0
+                            ? "C"
+                            : "D"
+                          : item?.transaction_type == "payout"
+                            ? "P"
+                            : "T"}
                     </Text>
                   </View>
                 </View>
@@ -203,17 +205,17 @@ export default function Wallet({ route, navigation }) {
                   <Text numberOfLines={2} style={styles.message}>
                     {item?.transaction_type == "wallet"
                       ? item?.type == "deposit"
-                        ? strings.WALLET_CREDITED
+                        ?(getBundleId() == appIds.mrVeloz && defaultLanguagae?.value == 'es') ? strings.WALLET_CREDITED_MRVELOZ : strings.WALLET_CREDITED
                         : strings.WALLET_DEBITED
                       : item?.transaction_type == "payment"
-                      ? item?.cr > 0
-                        ? strings.PAYMENTCREDITED
-                        : strings.PAYMENTDEBITED
-                      : item?.transaction_type == "payout"
-                      ? "Payout credited"
-                      : item?.order?.cash_to_be_collected > 0
-                      ? strings.PAYMENTCREDITED
-                      : strings.PAYMENTDEBITED}
+                        ? item?.cr > 0
+                          ? (getBundleId() == appIds.mrVeloz && defaultLanguagae?.value == 'es') ? strings.PAYMENTCREDITED_MRVELOZ : strings.PAYMENTCREDITED
+                          : (getBundleId() == appIds.mrVeloz && defaultLanguagae?.value == 'es') ? strings.PAYMENTDEBITED_MRVELOZ:strings.PAYMENTDEBITED
+                        : item?.transaction_type == "payout"
+                          ? "Payout credited"
+                          : item?.order?.cash_to_be_collected > 0
+                            ? (getBundleId() == appIds.mrVeloz && defaultLanguagae?.value == 'es') ? strings.PAYMENTCREDITED_MRVELOZ : strings.PAYMENTCREDITED
+                            : (getBundleId() == appIds.mrVeloz && defaultLanguagae?.value == 'es') ? strings.PAYMENTDEBITED_MRVELOZ:strings.PAYMENTDEBITED}
                   </Text>
                   <Text numberOfLines={1} style={styles.dateTime}>
                     {moment(item?.created_at).format("DD/MM/YYYY, hh:mm A")}
@@ -235,42 +237,37 @@ export default function Wallet({ route, navigation }) {
                           item?.status > 0
                             ? colors.green
                             : item?.task_type_id
-                            ? colors.lightGreyBg2
-                            : colors.black,
+                              ? colors.lightGreyBg2
+                              : colors.black,
                       },
                     ]}
                   >
                     {item?.transaction_type == "wallet"
                       ? item?.type == "deposit"
-                        ? `+ ${
-                            userData?.client_preference?.currency?.symbol
-                          }${currencyNumberFormatter(
-                            Number(item?.amount).toFixed(2)
-                          )}`
-                        : `- ${
-                            userData?.client_preference?.currency?.symbol
-                          }${currencyNumberFormatter(
-                            Number(item?.amount.replace("-", "")).toFixed(2)
-                          )}`
-                      : item?.transaction_type == "payment"
-                      ? item?.cr
-                        ? `+ ${
-                            userData?.client_preference?.currency?.symbol
-                          }${currencyNumberFormatter(
-                            Number(item?.cr).toFixed(2)
-                          )}`
-                        : `- ${
-                            userData?.client_preference?.currency?.symbol
-                          }${currencyNumberFormatter(
-                            Number(item?.dr).toFixed(2)
-                          )}`
-                      : item?.transaction_type == "payout"
-                      ? `+ ${
-                          userData?.client_preference?.currency?.symbol
+                        ? `+ ${userData?.client_preference?.currency?.symbol
                         }${currencyNumberFormatter(
                           Number(item?.amount).toFixed(2)
                         )}`
-                      : item?.task_type_id && `${strings.ORDER} #${item?.id}`}
+                        : `- ${userData?.client_preference?.currency?.symbol
+                        }${currencyNumberFormatter(
+                          Number(item?.amount.replace("-", "")).toFixed(2)
+                        )}`
+                      : item?.transaction_type == "payment"
+                        ? item?.cr
+                          ? `+ ${userData?.client_preference?.currency?.symbol
+                          }${currencyNumberFormatter(
+                            Number(item?.cr).toFixed(2)
+                          )}`
+                          : `- ${userData?.client_preference?.currency?.symbol
+                          }${currencyNumberFormatter(
+                            Number(item?.dr).toFixed(2)
+                          )}`
+                        : item?.transaction_type == "payout"
+                          ? `+ ${userData?.client_preference?.currency?.symbol
+                          }${currencyNumberFormatter(
+                            Number(item?.amount).toFixed(2)
+                          )}`
+                          : item?.task_type_id && `${strings.ORDER} #${item?.id}`}
                   </Text>
                 </View>
               </View>
@@ -340,12 +337,12 @@ export default function Wallet({ route, navigation }) {
                         ? colors.green
                         : colors.redB
                       : item?.transaction_type == "payment"
-                      ? item?.cr > 0
-                        ? colors.green
-                        : colors.redB
-                      : item?.transaction_type == "payout"
-                      ? colors.blueSolid
-                      : colors.blueB,
+                        ? item?.cr > 0
+                          ? colors.green
+                          : colors.redB
+                        : item?.transaction_type == "payout"
+                          ? colors.blueSolid
+                          : colors.blueB,
                 }}
               >
                 <Text style={styles.messageInitial}>
@@ -354,12 +351,12 @@ export default function Wallet({ route, navigation }) {
                       ? "C"
                       : "D"
                     : item?.transaction_type == "payment"
-                    ? item?.cr > 0
-                      ? "C"
-                      : "D"
-                    : item?.transaction_type == "payout"
-                    ? "P"
-                    : "T"}
+                      ? item?.cr > 0
+                        ? "C"
+                        : "D"
+                      : item?.transaction_type == "payout"
+                        ? "P"
+                        : "T"}
                 </Text>
               </View>
             </View>
@@ -368,17 +365,17 @@ export default function Wallet({ route, navigation }) {
               <Text numberOfLines={2} style={styles.message}>
                 {item?.transaction_type == "wallet"
                   ? item?.type == "deposit"
-                    ? strings.WALLET_CREDITED
+                    ? (getBundleId() == appIds.mrVeloz && defaultLanguagae?.value == 'es') ? strings.WALLET_CREDITED_MRVELOZ:strings.WALLET_CREDITED
                     : strings.WALLET_DEBITED
                   : item?.transaction_type == "payment"
-                  ? item?.cr > 0
-                    ? strings.PAYMENTCREDITED
-                    : strings.PAYMENTDEBITED
-                  : item?.transaction_type == "payout"
-                  ? "Payout created"
-                  : item?.order?.cash_to_be_collected > 0
-                  ? strings.PAYMENTCREDITED
-                  : strings.PAYMENTDEBITED}
+                    ? item?.cr > 0
+                      ? (getBundleId() == appIds.mrVeloz && defaultLanguagae?.value == 'es') ? strings.PAYMENTCREDITED_MRVELOZ : strings.PAYMENTCREDITED
+                      : (getBundleId() == appIds.mrVeloz && defaultLanguagae?.value == 'es') ? strings.PAYMENTDEBITED_MRVELOZ :strings.PAYMENTDEBITED
+                    : item?.transaction_type == "payout"
+                      ? "Payout created"
+                      : item?.order?.cash_to_be_collected > 0
+                        ? (getBundleId() == appIds.mrVeloz && defaultLanguagae?.value == 'es') ? strings.PAYMENTCREDITED_MRVELOZ : strings.PAYMENTCREDITED
+                        : (getBundleId() == appIds.mrVeloz && defaultLanguagae?.value == 'es') ? strings.PAYMENTDEBITED_MRVELOZ:strings.PAYMENTDEBITED}
               </Text>
               <Text numberOfLines={1} style={styles.dateTime}>
                 {moment(item?.created_at).format("DD/MM/YYYY, hh:mm A")}
@@ -400,38 +397,33 @@ export default function Wallet({ route, navigation }) {
                       item?.status > 0
                         ? colors.green
                         : item?.task_type_id
-                        ? colors.lightGreyBg2
-                        : colors.black,
+                          ? colors.lightGreyBg2
+                          : colors.black,
                   },
                 ]}
               >
                 {item?.transaction_type == "wallet"
                   ? item?.type == "deposit"
-                    ? `+ ${
-                        userData?.client_preference?.currency?.symbol
-                      }${currencyNumberFormatter(
-                        Number(item?.amount).toFixed(2)
-                      )}`
-                    : `- ${
-                        userData?.client_preference?.currency?.symbol
-                      }${currencyNumberFormatter(
-                        Number(item?.amount.replace("-", "")).toFixed(2)
-                      )}`
-                  : item?.transaction_type == "payment"
-                  ? item?.cr
-                    ? `+ ${
-                        userData?.client_preference?.currency?.symbol
-                      }${currencyNumberFormatter(Number(item?.cr).toFixed(2))}`
-                    : `- ${
-                        userData?.client_preference?.currency?.symbol
-                      }${currencyNumberFormatter(Number(item?.dr).toFixed(2))}`
-                  : item?.transaction_type == "payout"
-                  ? `+ ${
-                      userData?.client_preference?.currency?.symbol
+                    ? `+ ${userData?.client_preference?.currency?.symbol
                     }${currencyNumberFormatter(
                       Number(item?.amount).toFixed(2)
                     )}`
-                  : item?.task_type_id && `${strings.ORDER} #${item?.id}`}
+                    : `- ${userData?.client_preference?.currency?.symbol
+                    }${currencyNumberFormatter(
+                      Number(item?.amount.replace("-", "")).toFixed(2)
+                    )}`
+                  : item?.transaction_type == "payment"
+                    ? item?.cr
+                      ? `+ ${userData?.client_preference?.currency?.symbol
+                      }${currencyNumberFormatter(Number(item?.cr).toFixed(2))}`
+                      : `- ${userData?.client_preference?.currency?.symbol
+                      }${currencyNumberFormatter(Number(item?.dr).toFixed(2))}`
+                    : item?.transaction_type == "payout"
+                      ? `+ ${userData?.client_preference?.currency?.symbol
+                      }${currencyNumberFormatter(
+                        Number(item?.amount).toFixed(2)
+                      )}`
+                      : item?.task_type_id && `${strings.ORDER} #${item?.id}`}
               </Text>
             </View>
           </View>
@@ -457,7 +449,7 @@ export default function Wallet({ route, navigation }) {
               </Text>
             </View>
             <Text
-              style={[styles.address, { marginLeft: moderateScale(10),width:moderateScale(width-100) }]}
+              style={[styles.address, { marginLeft: moderateScale(10), width: moderateScale(width - 100) }]}
               numberOfLines={2}
             >
               {item?.location ? item?.location?.address : ""}
@@ -513,7 +505,7 @@ export default function Wallet({ route, navigation }) {
             source={imagePath.lifeTimeEarn}
             style={{ marginBottom: moderateScale(10) }}
           />
-          <Text style={styles.totalRevenue}>{strings.LIFETIMEEARNING}</Text>
+          <Text style={styles.totalRevenue}>{(getBundleId() == appIds.mrVeloz && defaultLanguagae?.value == 'es') ? strings.LIFETIMEEARNING_MRVELOZ : strings.LIFETIMEEARNING}</Text>
 
           <Text style={styles.amountText}>
             {userData?.client_preference?.currency?.symbol}
@@ -614,7 +606,7 @@ export default function Wallet({ route, navigation }) {
               tintColor={colors.themeColor}
             />
           }
-          // onEndReachedThreshold={0.5}
+        // onEndReachedThreshold={0.5}
         />
       </View>
       <DatePickerModal

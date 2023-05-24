@@ -1,4 +1,4 @@
-//export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL='https://dispatch.jeevannapp.com/'
 //export const API_BASE_URL = 'https://805c-103-72-170-243.ngrok.io/';
 // export const API_BASE_URL = 'https://dispatch.shelf.ae';
@@ -44,8 +44,7 @@
 // export const API_BASE_URL = 'https://dispatch.10dollahollla.com/';
 // export const API_BASE_URL='https://dispatch.movingwheelsdeliveryservices.com/'
 // export const API_BASE_URL='https://dispatch.kaypee.app/'
-// export const API_BASE_URL = 'https://api.royodispatch.com/';
-// export const API_BASE_URL = 'https://api.royodispatch.com/';
+//export const API_BASE_URL = 'https://api.royodispatch.com/';
 // export const API_BASE_URL = 'https://dispatch.laundrozone.net/';
 // export const API_BASE_URL = 'https://sales.royodispatch.com/';
 // export const API_BASE_URL='http://192.168.101.140:9091/'
@@ -111,7 +110,10 @@
 
 //Misst
 // export const API_BASE_URL = 'https://miist-dispatch.netsolutionindia.com/';
+
+//Qdelo
 // export const API_BASE_URL='https://dispatcher.qdelo.com/'
+
 // export const API_BASE_URL = 'https://baggage-dispatch.netsolutionindia.com/';
 
 // export const API_BASE_URL='https://d078-103-72-170-243.in.ngrok.io/'
@@ -189,7 +191,7 @@
 // export const API_BASE_URL = 'https://dispatch.myjazzybug.club/';
 
 //gdotdelivery
-//  export const API_BASE_URL = 'https://dispatch.gdotdelivery.com/';
+//export const API_BASE_URL = 'https://dispatch.gdotdelivery.com/';
 // export const API_BASE_URL='https://dispatch.dot-taxi.com/'
 // yogolift
 // export const API_BASE_URL = 'https://dispatch.lift.gd/'
@@ -318,21 +320,20 @@
 // export const API_BASE_URL = 'https://pinkydeli.rdstaging.com/';
 
 // export const API_BASE_URL = 'https://dispatch.pinkjettaxi.com/';
-// export const API_BASE_URL='https://dispatch.carryfood.org/'
+// export const API_BASE_URL = 'https://dispatch.carryfood.org/';
 // export const API_BASE_URL = 'https://dispatch.ineed.do/'
 // export const API_BASE_URL = 'https://dispatch.uvennow.com/';
 // export const API_BASE_URL='https://dispatch.uber-weeds.com/'
 //hemptify
 // export const API_BASE_URL = 'https://dispatch.hemptify.com/';
-export const API_BASE_URL = 'https://dispatch.lincshare.org/';
+//export const API_BASE_URL = 'https://dispatch.lincshare.org/';
 // export const API_BASE_URL = ' https://dispatch.hiperabasto.mx/'
 //Express Delivery
 //  export const API_BASE_URL = 'https://dispatch.expresdeliverys.com/';
 //DOORSTEP
 // export const API_BASE_URL = 'https://dispatch.doorstep.sd/';
 // export const API_BASE_URL = 'https://dispatch.ubercann.com/';
-// export const API_BASE_URL = 'https://api.winhires.com/';
-// export const API_BASE_URL = 'https://api.winhires.com/';
+//  export const API_BASE_URL = 'https://api.winhires.com/';
 
 //Bezaliohub
 // export const API_BASE_URL = 'https://dispatch.bezaliohub.com/'
@@ -420,8 +421,8 @@ export const API_BASE_URL = 'https://dispatch.lincshare.org/';
 
 // orderchekout
 // export const API_BASE_URL = 'https://dispatch.orderchekout.com/';
-// export const API_BASE_URL='https://dispatch.etiamstore.com/'
-// export const API_BASE_URL='https://dispatch.hattafoodhub.com/'
+// export const API_BASE_URL = 'https://dispatch.etiamstore.com/';
+// export const API_BASE_URL = 'http://192.168.102.70:8008/';
 // export const API_BASE_URL='https://dispatch.kerotechnologies.com/'
 // carroi
 // export const API_BASE_URL = 'https://carroi.rdstaging.com/';
@@ -438,14 +439,14 @@ export const API_BASE_URL = 'https://dispatch.lincshare.org/';
 // export const API_BASE_URL = 'https://dispatch.blipdelivery.com/';
 // export const API_BASE_URL = 'https://dispatch.getfix.com.my/';
 
-//export const API_BASE_URL = 'https://dispatch.meltivers.com/';
+// export const API_BASE_URL = 'https://dispatch.meltivers.com/';
 //  butler delivery
 //  export const API_BASE_URL = 'https://dispatch.butlerdeliveryusa.com/';
 // bimolaa
 // export const API_BASE_URL = 'https://dispatch.bimol.in/'
 
 // Delivery
-// export const API_BASE_URL = 'https://gdotdelivery.com/'
+//export const API_BASE_URL = 'https://gdotdelivery.com/';
 //medipick
 //export const API_BASE_URL = 'https://medipick-dispatch.netsolutionindia.com/'
 // mobi
@@ -556,7 +557,7 @@ export const API_BASE_URL = 'https://dispatch.lincshare.org/';
 //boozebrothers
 // export const API_BASE_URL = 'https://autobox.rdstaging.com/';
 
-// qdelo
+// westvirginiahub
 // export const API_BASE_URL='https://dispatch.westvirginiahub.com/'
 
 // junkerz
@@ -574,10 +575,16 @@ export const API_BASE_URL = 'https://dispatch.lincshare.org/';
 // export const API_BASE_URL='https://dispatch.thedonetwork.org/'
 
 // GreenHippo
-//export const API_BASE_URL='https://dispatch.mygreenhippo.com/'
+// export const API_BASE_URL='https://dispatch.mygreenhippo.com/'
 
 // Nuvoni
 // export const API_BASE_URL='https://dispatch.nuvoni.com/'
+
+// Blink
+// export const API_BASE_URL='https://dispatch.blinktheapp.com/'
+
+// Karis
+//export const API_BASE_URL='https://dispatch.mykaris.com/'
 
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;
 

@@ -16,9 +16,6 @@ const ShowNotificationForeground = props => {
       console.log('remote message foreground', remoteMessage);
       const { data, messageId, notification } = remoteMessage;
       let notificationType = data?.type || data?.notificationType || 'AR';
-
-      console.log(notificationType,"notificationType");
-
       const channelId = await notifee.createChannel({
         id: 'default-channel-id',
         name: 'Default Channel',
