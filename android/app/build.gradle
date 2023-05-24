@@ -209,23 +209,10 @@ android {
     }
 
      flavorDimensions "appType"
-
-     productFlavors {
-             royoDispatcher{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.codebrew.royodispatcher'
-            resValue "string", "app_name", "RoyoDriverApp"
-        }
-     }
    
 
     productFlavors  {
-    royoDispatcher{
+        royoDispatcher{
             dimension "appType"
             versionCode 1
             versionName "1.0"
@@ -6100,14 +6087,14 @@ android {
             applicationId 'com.shopcart.royodispatcher'
             resValue "string", "app_name", "Shopcart Dispatcher"
         }
-dot{
+        dot{
             dimension "appType"
             versionCode 1
             versionName "1.0"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             // applicationIdSuffix ".royoorder"
-            applicationId 'com.dot.royodispatcher'
+            applicationId 'com.dot.driver'
             resValue "string", "app_name", "Dot Dispatcher"
         }
    wizsonic{
@@ -6726,7 +6713,7 @@ exlraet{
             applicationId 'com.VamVam.driver'
             resValue "string", "app_name", "Vam Vam Dispatcher"
         }
-piolfix{
+        piolfix{
             dimension "appType"
             versionCode 1
             versionName "1.0"

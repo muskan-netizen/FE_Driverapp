@@ -331,7 +331,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //DOORSTEP
 // export const API_BASE_URL = 'https://dispatch.doorstep.sd/';
 // export const API_BASE_URL = 'https://dispatch.ubercann.com/';
- export const API_BASE_URL = 'https://api.winhires.com/';
+//  export const API_BASE_URL = 'https://api.winhires.com/';
 
 
 //Bezaliohub

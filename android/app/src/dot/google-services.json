@@ -1,34 +1,41 @@
 {
   "project_info": {
-    "project_number": "1067217010092",
-    "project_id": "dot-driver-e1621",
-    "storage_bucket": "dot-driver-e1621.appspot.com"
+    "project_number": "550270547176",
+    "project_id": "donetwork-driver",
+    "storage_bucket": "donetwork-driver.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1067217010092:android:04e0be4fdc6ef9bd220e09",
+        "mobilesdk_app_id": "1:550270547176:android:6f3c1ea7b43fd32066455d",
         "android_client_info": {
-          "package_name": "com.dot.royodispatcher"
+          "package_name": "com.dot.driver"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1067217010092-ubti85j27h0s5aa9fis9bvmd4uq4he2e.apps.googleusercontent.com",
+          "client_id": "550270547176-vl11d9nrpp20c1er2rlvlhvidajlr1sg.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDg3GfOVHWNrQL2kZf-fGP4BiaLBPWgA8o"
+          "current_key": "AIzaSyBuO3CIawaxbBJQxjZXVasXYjfffnujP94"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1067217010092-ubti85j27h0s5aa9fis9bvmd4uq4he2e.apps.googleusercontent.com",
+              "client_id": "550270547176-vl11d9nrpp20c1er2rlvlhvidajlr1sg.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "550270547176-8475l9e11uj3nh313rap1b58jk02m330.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.dot.driver"
+              }
             }
           ]
         }

@@ -2333,8 +2333,8 @@ const appIds = {
     android: 'com.shopcart.royodispatcher',
   }),
   dot: Platform.select({
-    ios: 'com.dot.royodispatcher',
-    android: 'com.dot.royodispatcher',
+    ios: 'com.dot.driver',
+    android: 'com.dot.driver',
   }),
   wizsonic: Platform.select({
     ios: 'com.wizsonic.royodispatcher',
