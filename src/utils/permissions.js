@@ -88,7 +88,7 @@ export const locationPermission = () =>
      
 
 
-      if (Number(Platform.constants.Release) <= Number(9)) {
+      if (parseInt(Platform.constants.Release) <= Number(9)) {
         return PermissionsAndroid.request(
           PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION &&
           PERMISSIONS.ANDROID.ACCESS_COARSE_LOCATION
