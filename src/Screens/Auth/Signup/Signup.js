@@ -71,6 +71,7 @@ import SmoothPinCodeInput from 'react-native-smooth-pincode-input';
 import ButtonWithLoader from '../../../Components/ButtonWithLoader';
 import ModalComponent from '../../../Components/ModalComponent';
 import RNOtpVerify from 'react-native-otp-verify';
+import BottomSheetForm from '../../../Components/BottomSheetForm';
 
 var getPhonesCallingCodeAndCountryData = null;
 DeviceCountry.getCountryCode()
@@ -86,7 +87,7 @@ DeviceCountry.getCountryCode()
 export default function Signup({ route, navigation }) {
   const modalRef = useRef(null);
 
-  const { clientInfo, defaultLanguage } = useSelector(state => state?.initBoot);
+  const {appData,  clientInfo, defaultLanguage } = useSelector(state => state?.initBoot);
   var dummyTags = '';
   const [state, setState] = useState({
     isLoading: false,
@@ -99,16 +100,13 @@ export default function Signup({ route, navigation }) {
           '-',
           '',
         )
-        : getBundleId() == appIds.speedyDelivery ? "1" : appData?.profile?.country?.code
-          ? appData?.profile?.country?.phonecode
+        : getBundleId() == appIds.speedyDelivery ? "1"
           : '91',
     cca2:
       !isEmpty(getPhonesCallingCodeAndCountryData) &&
         (getBundleId() !== appIds.SXM2GO && getBundleId() !== appIds.speedyDelivery)
         ? getPhonesCallingCodeAndCountryData[0]?.isoCode2
-        : getBundleId() == appIds.speedyDelivery ? "DO" : appData?.profile?.country?.code
-          ? appData?.profile?.country?.code
-          : 'IN',
+        : getBundleId() == appIds.speedyDelivery ? "DO" : 'IN',
     allTransportation: transportationArray,
     allEmployeeTypes: employeetypeArray,
     selectedVehicleType: null,
@@ -147,6 +145,7 @@ export default function Signup({ route, navigation }) {
     selectedCustomerType: null,
     isCustomer: false,
     vehicleTypes: [],
+    isVisible: false
   });
 
   const {
@@ -189,12 +188,14 @@ export default function Signup({ route, navigation }) {
     selectedDateField,
     selectedDate,
     vehicleTypes,
+    isVisible,
   } = state;
   const [isOtpModal, setOtpModal] = useState(false);
   const [otpToShow, setOtpToShow] = useState('');
   const [isSendOtpLoading, setSendOtpLoading] = useState(false);
   const [isSignupLoading, setSignupLoading] = useState(false);
   const [appHashKey, setAppHashKey] = useState('');
+  const [userData, setUserData] = useState({})
   console.log(callingCode, 'mobilNomobilNo')
   const commonStyles = commonStylesFunc({ fontFamily });
 
@@ -348,6 +349,8 @@ export default function Signup({ route, navigation }) {
     }
   };
 
+  console.log(clientInfo?.is_freelancer, "fasdkjhfgkasdhlkfjhasdf")
+
   const isValidData = () => {
     const error = validator({ phoneNumber });
     if (error) {
@@ -457,16 +460,15 @@ export default function Signup({ route, navigation }) {
       })
       .then(res => {
         setOtpModal(false);
-        setTimeout(() => {
-          updateState({ isWaitingModal: true });
-        }, 500);
         setSignupLoading(false);
-        setTimeout(() => {
-          updateState({
-            isWaitingModal: false,
-          });
-          navigation.goBack();
-        }, 10000);
+        setUserData(res?.data);
+        if (clientInfo?.is_freelancer) {
+          setTimeout(() => {
+            updateState({ isVisible: true });
+          }, 500);
+        } else {
+          onSignupDone();
+        }
         setOtpToShow('');
       })
       .catch(errorMethod);
@@ -890,6 +892,16 @@ export default function Signup({ route, navigation }) {
     updateState({ isDatePicker: false, selectedDate: new Date() });
   };
 
+
+
+  const onSignupDone = () => {
+    updateState({ isWaitingModal: true });
+    setTimeout(() => {
+      updateState({ isWaitingModal: false });
+      navigation.goBack();
+    }, 5000);
+  };
+
   const modalMainContent = useCallback(() => {
     return (
       <KeyboardAwareScrollView
@@ -1022,9 +1034,9 @@ export default function Signup({ route, navigation }) {
                 // autoFocus={true}
                 onChangeText={text => updateState({ fullName: text })}
                 labelStyle={styles.textInputlabel}
-                
+
               />
-            
+
 
               <View>
                 <Text style={styles.label2}>{strings.PHONENUMBER}</Text>
@@ -1466,7 +1478,7 @@ export default function Signup({ route, navigation }) {
             marginTop={moderateScaleVertical(20)}
             marginBottom={moderateScaleVertical(40)}
             textStyle={{ color: colors.black }}
-            btnText={'Send OTP'}
+            btnText={strings.SEND_OTP}
             colorsArray={[colors.themeColor, colors.themeColor]}
           />
         </KeyboardAwareScrollView>
@@ -1514,6 +1526,16 @@ export default function Signup({ route, navigation }) {
           borderTopRightRadius: moderateScale(10),
         }}
       />
+
+      {
+        isVisible && (
+          <BottomSheetForm
+            onCloseSheet={() => updateState({ isVisible: false })}
+            onSignupDone={onSignupDone}
+            userDataSignup={userData}
+          />
+        )
+      }
     </WrapperContainer>
   );
 }

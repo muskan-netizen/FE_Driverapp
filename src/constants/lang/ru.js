@@ -307,5 +307,7 @@ export default {
   EXPIRY:'Expiry',
   UPCOMMING_BILLING_DATE:'upcomming billing date',
   ARE_YOU_SURE_YOU_WANT_TO_DELETE:'Are you sure, you want to delete your account? Deleting your account is permanent and will remove all content and profile settings.',
-  ORDER_CANCELLED_BY_CUSTOMER:'Order Cancelled By Customer'
+  ORDER_CANCELLED_BY_CUSTOMER:'Order Cancelled By Customer',
+  ORDER_DELAYED_BY:'Order Delayed By',
+  ORDER_WILL_PREPARED_IN  :'Order Will Prepared In'
 };

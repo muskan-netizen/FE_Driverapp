@@ -1,40 +1,40 @@
 {
   "project_info": {
-    "project_number": "150978249473",
-    "project_id": "onerbasket-driver",
-    "storage_bucket": "onerbasket-driver.appspot.com"
+    "project_number": "188475999871",
+    "project_id": "onebasket-dispatcher",
+    "storage_bucket": "onebasket-dispatcher.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:150978249473:android:72ede4b10687631cd71100",
+        "mobilesdk_app_id": "1:188475999871:android:a6a01aa3ba4e7e123b614a",
         "android_client_info": {
-          "package_name": "com.onerbasket.royodispatcher"
+          "package_name": "com.onebasket.dispatcher"
         }
       },
       "oauth_client": [
         {
-          "client_id": "150978249473-8hn5cikfhf0hmef74s31k5lav2io26si.apps.googleusercontent.com",
+          "client_id": "188475999871-sljh1trtiunihfg30endht4gd53tqjbl.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCF3rwR7uysFqM_B5ej0dtPPI6GxxyHLlg"
+          "current_key": "AIzaSyCuKwHkTIZMBsAeCOw6o5eKqymSrMq8UcY"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "150978249473-8hn5cikfhf0hmef74s31k5lav2io26si.apps.googleusercontent.com",
+              "client_id": "188475999871-sljh1trtiunihfg30endht4gd53tqjbl.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "150978249473-2un6ooqoom8l4j1fauv96ffg2qenvkp5.apps.googleusercontent.com",
+              "client_id": "188475999871-ahtku7brq4mq1t9ic5i5e7ojtjj4fume.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.onerbasket.royodispatcher"
+                "bundle_id": "com.onebasket.dispatcher"
               }
             }
           ]

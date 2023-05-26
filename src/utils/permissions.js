@@ -8,28 +8,47 @@ import {openAppSetting} from './openNativeApp';
 
 export const androidCameraPermission = () =>
   new Promise(async (resolve, reject) => {
+    console.log(Platform.Version,'');
     try {
-      if (Platform.OS === 'android' && Platform.Version > 22) {
-        const granted = await PermissionsAndroid.requestMultiple([
-          PermissionsAndroid.PERMISSIONS.CAMERA,
-          PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
-          PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
-        ]);
-        console.log(granted, 'the granted value');
-
+      if (Platform.OS === "android" && parseInt(Platform.constants.Release) <= Number(22)) {
+        if (parseInt(Platform.constants.Release) <= Number(33)) {
+          const granted = await PermissionsAndroid.requestMultiple([
+            PERMISSIONS.ANDROID.CAMERA,
+            PERMISSIONS.ANDROID.READ_MEDIA_IMAGES 
+          ]);
         if (
-          granted['android.permission.CAMERA'] !== 'granted' ||
-          granted['android.permission.WRITE_EXTERNAL_STORAGE'] !== 'granted' ||
-          granted['android.permission.READ_EXTERNAL_STORAGE'] !== 'granted'
+          granted["android.permission.CAMERA"] !== "granted" ||
+          granted["android.permission.READ_MEDIA_IMAGES"] !== "granted" 
         ) {
           Alert.alert(
-            'Alert',
+            "Alert",
             "Don't have permission to open camera",
-            [{text: 'Okay'}],
-            {cancelable: true},
+            [{ text: "Okay" }],
+            { cancelable: true }
           );
           return resolve(false);
           // alert(strings.DO_NOT_HAVE_PERMISSIONS_TO_SELECT_IMAGE);
+        }
+        } else {
+          const granted = await PermissionsAndroid.requestMultiple([
+            PermissionsAndroid.PERMISSIONS.CAMERA,
+            PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
+            PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
+          ]);
+           if (
+          granted["android.permission.CAMERA"] !== "granted" ||
+             granted["android.permission.WRITE_EXTERNAL_STORAGE"] !== "granted" ||
+             granted["android.permission.READ_EXTERNAL_STORAGE"] !== "granted"
+        ) {
+          Alert.alert(
+            "Alert",
+            "Don't have permission to open camera",
+            [{ text: "Okay" }],
+            { cancelable: true }
+          );
+          return resolve(false);
+          // alert(strings.DO_NOT_HAVE_PERMISSIONS_TO_SELECT_IMAGE);
+        }
         }
         return resolve(true);
       }
@@ -69,7 +88,7 @@ export const locationPermission = () =>
      
 
 
-      if (Number(Platform.constants.Release) <= Number(9)) {
+      if (parseInt(Platform.constants.Release) <= Number(9)) {
         return PermissionsAndroid.request(
           PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION &&
           PERMISSIONS.ANDROID.ACCESS_COARSE_LOCATION

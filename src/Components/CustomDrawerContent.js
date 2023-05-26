@@ -23,7 +23,7 @@ import { useFocusEffect } from "@react-navigation/native";
 import { cloneDeep } from "lodash";
 import ScaledImage from "react-native-scalable-image";
 import DeviceInfo, { getBundleId } from "react-native-device-info";
-import ZendeskChat from "../library/react-native-zendesk-chat";
+import ZendeskChat from "react-native-zendesk-chat";
 import { appIds } from "../utils/constants/DynamicAppKeys";
 import { Subscriptions } from "../Screens";
 import BackgroundGeolocation from '@hariks789/react-native-background-geolocation';
@@ -174,15 +174,16 @@ function CustomDrawerContent({
     : undefined;
 
 
+    
+
   useEffect(() => {
-     
-    if(zendeskKeys?.keys?.account_key && zendeskKeys?.keys?.application_id){
+    if (zendeskKeys?.keys?.account_key && zendeskKeys?.keys?.application_id) {
       ZendeskChat.init(
         `${zendeskKeys?.keys?.account_key}`,
         `${zendeskKeys?.keys?.application_id}`
       );
     }
-   
+
     updateState({
       routes: [
         !!userData?.client_preference?.is_go_to_home && {
@@ -202,6 +203,7 @@ function CustomDrawerContent({
           key: navigationStrings.TASKSTACK,
           subRoute: navigationStrings.TASKHISTORY,
         },
+
         {
           id: 2,
           label: strings.PROFILE,
@@ -227,7 +229,7 @@ function CustomDrawerContent({
         },
         {
           id: 5,
-          label: strings.PAYOUT,
+          label: (getBundleId() == appIds.mrVeloz && defaultLanguage?.value == 'es') ? strings.PAYOUT_MRVELOZ:strings.PAYOUT,
           image: imagePath.icPayout,
           key: navigationStrings.PAYOUT_STACK,
           subRoute: navigationStrings.PAYOUT_STACK,
@@ -264,19 +266,6 @@ function CustomDrawerContent({
             }
             : {},
 
-        // {
-        //   if(subscription != undefined ) {
-        //     subscription?.hide_subscription_module == 0 && subscription?.hide_subscription_module != undefined ?
-        //       {
-        //         id: 9,
-        //         label: strings.SUBSCRIPTIONS,
-        //         support: true,
-        //         image: imagePath.icSubscription,
-        //         key: navigationStrings.SUBSCRIPTION_STACK,
-        //         subRoute: navigationStrings.SUBSCRIPTION_STACK,
-        //       } : {}
-        // }
-        // },
         appIds.transportSystem === DeviceInfo.getBundleId()
           ? {
             id: 7,
@@ -367,9 +356,9 @@ function CustomDrawerContent({
     updateState({ isLoading: false });
     showError(error?.message || error?.error);
   };
-console.log( !zendeskKeys?.keys?.account_key && !zendeskKeys?.keys?.application_id,'havsdyuva');
+  console.log(!zendeskKeys?.keys?.account_key && !zendeskKeys?.keys?.application_id, 'havsdyuva');
   const onStartSupportChat = () => {
-    if( !zendeskKeys?.keys?.account_key && !zendeskKeys?.keys?.application_id){
+    if (!zendeskKeys?.keys?.account_key && !zendeskKeys?.keys?.application_id) {
       showError('Zendesk not configured')
       return
     }
@@ -420,7 +409,7 @@ console.log( !zendeskKeys?.keys?.account_key && !zendeskKeys?.keys?.application_
       });
   };
 
-  console.log(poolingState,"poolingStatepoolingStatepoolingState");
+  console.log(poolingState, "poolingStatepoolingStatepoolingState");
 
   return (
     <>

@@ -11,9 +11,9 @@ import {
   TouchableOpacity,
   TouchableWithoutFeedback,
   View,
-} from "react-native";
-import ActionSheet from "react-native-actionsheet";
-import Communications from "react-native-communications";
+} from 'react-native';
+import ActionSheet from 'react-native-actionsheet';
+import Communications from 'react-native-communications';
 import MapView, {
   AnimatedRegion,
   Marker,
@@ -29,18 +29,18 @@ import strings from '../../constants/lang';
 import navigationStrings from '../../navigation/navigationStrings';
 import actions from '../../redux/actions';
 // import store from '../../redux/store';
-import colors from "../../styles/colors";
-import commonStylesFunc from "../../styles/commonStyles";
-import fontFamily from "../../styles/fontFamily";
-navigator.geolocation = require("react-native-geolocation-service");
+import colors from '../../styles/colors';
+import commonStylesFunc from '../../styles/commonStyles';
+import fontFamily from '../../styles/fontFamily';
+navigator.geolocation = require('react-native-geolocation-service');
 
 import {
   moderateScale,
   moderateScaleVertical,
   textScale,
   width,
-} from "../../styles/responsiveSize";
-import moment from "moment";
+} from '../../styles/responsiveSize';
+import moment from 'moment';
 import {
   getColorCodeWithOpactiyNumber,
   getCurrentLocation,
@@ -53,19 +53,21 @@ import stylesFunc from './styles';
 import ButtonComponent from '../../Components/ButtonComponent';
 import { mapStyle } from '../../utils/constants/MapStyle';
 import { getAllTravelDetails } from '../../utils/googlePlaceApi';
+import { getBundleId } from 'react-native-device-info';
+import { appIds } from '../../utils/constants/DynamicAppKeys';
 
 var ACTION_TIMER = 1500;
-var COLORS = ["#8FEE90", "#27A468"];
+var COLORS = ['#8FEE90', '#27A468'];
 var _value = 0;
 export default function TaskDetail({ route, navigation }) {
   let taskDetail = route?.params?.data?.item;
+  let paramData = route?.params?.data
   let fromHistory = route?.params?.data?.fromHistory;
   const mapRef = useRef();
   const { userData } = useSelector(state => state?.auth);
   const { clientInfo, defaultLanguage } = useSelector(state => state?.initBoot);
   const styles = stylesFunc({ defaultLanguage });
   const commonStyles = commonStylesFunc({ fontFamily });
-
 
   const [state, setState] = useState({
     vendors: {},
@@ -82,55 +84,55 @@ export default function TaskDetail({ route, navigation }) {
       latitudeDelta: 0.015,
       longitudeDelta: 0.0121,
     },
-    textComplete: "",
+    textComplete: '',
     pressAction: new Animated.Value(0),
     buttonWidth: 0,
     buttonHeight: 0,
-    taskStatus: taskDetail?.task_status ? Number(taskDetail?.task_status) : "",
+    taskStatus: taskDetail?.task_status ? Number(taskDetail?.task_status) : '',
     buttonPressComplete: 0,
-    buttonText: "",
+    buttonText: '',
     taskProofArray: [
       {
         id: 1,
         title: strings.SIGNATURE,
         imagePath: imagePath.signature,
         imagePathActive: imagePath.signatureBlue,
-        type: "signature",
+        type: 'signature',
       },
       {
         id: 2,
         title: strings.PHOTO,
         imagePath: imagePath.photoInactive,
         imagePathActive: imagePath.photoBlue,
-        type: "photo",
+        type: 'photo',
       },
       {
         id: 3,
         title: strings.NOTES,
         imagePath: imagePath.notes,
         imagePathActive: imagePath.notesBlue,
-        type: "notes",
+        type: 'notes',
       },
       {
         id: 4,
         title: strings.QRCODE,
         imagePath: imagePath.codeInactive,
         imagePathActive: imagePath.codeActive,
-        type: "QR",
+        type: 'QR',
       },
       {
         id: 5,
         title: strings.FACEDETECTION,
         imagePath: imagePath.faceInactive,
         imagePathActive: imagePath.faceActive,
-        type: "face",
+        type: 'face',
       },
       {
         id: 6,
-        title: "QR Code",
+        title: 'QR Code',
         imagePath: imagePath.codeInactive,
         imagePathActive: imagePath.codeActive,
-        type: "qrCode",
+        type: 'qrCode',
       },
     ],
     updatedProofArray: [],
@@ -166,7 +168,7 @@ export default function TaskDetail({ route, navigation }) {
   useEffect(() => {
     if (userData?.task_proof) {
       const findDataToCheck = userData?.task_proof.find(
-        (x) => x?.id == taskDetail?.task_type_id
+        x => x?.id == taskDetail?.task_type_id,
       );
       updateState({
         findDataToCheck: findDataToCheck,
@@ -175,35 +177,31 @@ export default function TaskDetail({ route, navigation }) {
       if (findDataToCheck) {
         updateState({
           updatedProofArray: newArray
-            .map((i) => {
+            .map(i => {
               if (
-                (i?.type == "signature" && findDataToCheck?.signature) ||
-                (i?.type == "photo" && findDataToCheck?.image) ||
-                (i?.type == "notes" && findDataToCheck?.note) ||
-                (i?.type == "QR" && findDataToCheck?.barcode) ||
-                (i?.type == "face" && findDataToCheck?.face) ||
-                (i?.type == "qrCode" && findDataToCheck?.qrcode)
+                (i?.type == 'signature' && findDataToCheck?.signature) ||
+                (i?.type == 'photo' && findDataToCheck?.image) ||
+                (i?.type == 'notes' && findDataToCheck?.note) ||
+                (i?.type == 'QR' && findDataToCheck?.barcode) ||
+                (i?.type == 'face' && findDataToCheck?.face) ||
+                (i?.type == 'qrCode' && findDataToCheck?.qrcode)
               ) {
                 return i;
               }
             })
-            .filter((x) => x != null || x != undefined),
+            .filter(x => x != null || x != undefined),
         });
       }
     }
   }, [taskDetail, userData]);
 
-  useEffect(() => { updateState({ taskStatus: Number(taskDetail?.task_status) })
-   }, [taskDetail?.tasktype.name])
-
-
+  useEffect(() => {
+    updateState({ taskStatus: Number(taskDetail?.task_status) });
+  }, [taskDetail?.tasktype.name]);
 
   useEffect(() => {
-   
     getStatusName(taskStatus);
   }, [taskStatus]);
-
-
 
   //Naviagtion to specific screen
   const moveToNewScreen = (screenName, data) => () => {
@@ -223,7 +221,7 @@ export default function TaskDetail({ route, navigation }) {
   };
 
   useEffect(() => {
-    pressAction.addListener((v) => (_value = v.value));
+    pressAction.addListener(v => (_value = v.value));
   });
 
   const handlePressIn = () => {
@@ -252,7 +250,7 @@ export default function TaskDetail({ route, navigation }) {
   };
   const animationActionComplete = () => {
     // alert('1234');
-    var message = "";
+    var message = '';
     if (_value === 1) {
       updateState({ buttonPressComplete: 1 });
       message = 'You held it long enough to fire the action!';
@@ -261,7 +259,7 @@ export default function TaskDetail({ route, navigation }) {
     }
   };
 
-  const getButtonWidthLayout = (e) => {
+  const getButtonWidthLayout = e => {
     updateState({
       buttonWidth: e.nativeEvent.layout.width,
       buttonHeight: e.nativeEvent.layout.height,
@@ -277,27 +275,26 @@ export default function TaskDetail({ route, navigation }) {
   const new_dispatch_traking_url = () => {
     if (
       taskDetail?.order?.call_back_url?.includes(
-        "/dispatch-order-status-update/"
+        '/dispatch-order-status-update/',
       )
     ) {
-  
       return (taskDetail?.order?.call_back_url).replace(
-        "/dispatch-order-status-update/",
-        "/dispatch-order-status-update-details/"
+        '/dispatch-order-status-update/',
+        '/dispatch-order-status-update-details/',
       );
     } else if (
-      taskDetail?.order?.call_back_url?.includes("/dispatch-pickup-delivery/")
+      taskDetail?.order?.call_back_url?.includes('/dispatch-pickup-delivery/')
     ) {
       return (taskDetail?.order?.call_back_url).replace(
-        "/dispatch-pickup-delivery/",
-        "/dispatch-order-status-update-details/"
+        '/dispatch-pickup-delivery/',
+        '/dispatch-order-status-update-details/',
       );
     }
   };
 
   const checkCallBackUrlForShowOrderDeatils = () => {
     return taskDetail?.order?.call_back_url?.includes(
-      "/dispatch-order-status-update/"
+      '/dispatch-order-status-update/',
     );
   };
 
@@ -310,7 +307,7 @@ export default function TaskDetail({ route, navigation }) {
     }
     if (fromHistory) {
       if (
-        taskDetail?.tasktype?.name == "Drop" &&
+        taskDetail?.tasktype?.name == 'Drop' &&
         taskDetail?.order?.task?.length >= 1 &&
         taskDetail?.order?.task[0]?.location?.address &&
         taskDetail?.order?.task[1]?.location?.address
@@ -323,24 +320,24 @@ export default function TaskDetail({ route, navigation }) {
     }
   }, []);
 
-  const getAllMovingDetails = (data) => {
+  const getAllMovingDetails = data => {
     getAllTravelDetails(data)
-      .then((res) => {
-        console.log(res, "response +++++++++++");
+      .then(res => {
+        console.log(res, 'response +++++++++++');
         updateState({
           totalTravelData: res?.rows[0]?.elements[0],
         });
       })
-      .catch((error) => {
-        console.log(error, "error error error");
+      .catch(error => {
+        console.log(error, 'error error error');
       });
   };
-
+  console.log(taskDetail, 'taskDetail>>>>>>>>>>>>>>>>>>')
   const _getproductUpdateDetails = () => {
     actions
       .getProductUpdateDetails(new_dispatch_traking_url(), {})
-      .then((res) => {
-        console.log(res, "all response after hit order api");
+      .then(res => {
+        console.log(res, 'all response after hit order api');
         updateState({
           vendors: res?.data?.vendors[0]?.vendor,
           apiData: res.data,
@@ -358,14 +355,14 @@ export default function TaskDetail({ route, navigation }) {
           productAllInsrucations: JSON.parse(productAllInsrucations),
         });
       })
-      .catch((error) =>
+      .catch(error =>
         updateState({
           isLoading: false,
-        })
+        }),
       );
   };
 
-  const _onPressTaskDetails = (item) => {
+  const _onPressTaskDetails = item => {
     moveToNewScreen(navigationStrings.ORDERDETAIL, {
       item: taskDetail?.order?.call_back_url,
       taskDetail: taskDetail,
@@ -382,8 +379,7 @@ export default function TaskDetail({ route, navigation }) {
         region={region}
         initialRegion={region}
         customMapStyle={mapStyle}
-        onRegionChangeComplete={_onRegionChange}
-      >
+        onRegionChangeComplete={_onRegionChange}>
         <MapView.Marker
           tracksViewChanges={false}
           key={`coordinate_${taskDetail?.id}`}
@@ -391,22 +387,21 @@ export default function TaskDetail({ route, navigation }) {
           coordinate={{
             latitude: Number(taskDetail?.location?.latitude),
             longitude: Number(taskDetail?.location?.longitude),
-          }}
-        ></MapView.Marker>
+          }}></MapView.Marker>
       </MapView>
     );
   };
 
   //get BackGroundColor
-  const getBackGroudColor = (name) => {
+  const getBackGroudColor = name => {
     switch (name) {
-      case "Pickup":
+      case 'Pickup':
         return getColorCodeWithOpactiyNumber(colors.circularBlue.substr(1), 50);
         break;
-      case "Drop":
+      case 'Drop':
         return getColorCodeWithOpactiyNumber(
           colors.circularOrnage.substr(1),
-          50
+          50,
         );
         break;
       default:
@@ -416,12 +411,12 @@ export default function TaskDetail({ route, navigation }) {
   };
 
   //get Text color
-  const getTextColor = (name) => {
+  const getTextColor = name => {
     switch (name) {
-      case "Pickup":
+      case 'Pickup':
         return colors.circularBlue;
         break;
-      case "Drop":
+      case 'Drop':
         return colors.circularOrnage;
         break;
       default:
@@ -468,8 +463,8 @@ export default function TaskDetail({ route, navigation }) {
 
   const updateTaskStatus = () => {
     let data = {};
-    data["task_status"] = getUpdatedStatus();
-    data["task_id"] = taskDetail?.id;
+    data['task_status'] = getUpdatedStatus();
+    data['task_id'] = taskDetail?.id;
 
     console.log(data, '<==sending data updateTask');
 
@@ -477,7 +472,7 @@ export default function TaskDetail({ route, navigation }) {
     actions
       .updateTask(data, {
         client: clientInfo?.database_name,
-        language: defaultLanguage?.value ? defaultLanguage?.value : "en",
+        language: defaultLanguage?.value ? defaultLanguage?.value : 'en',
       })
       .then(res => {
         console.log(res, '<==res updateTask');
@@ -507,29 +502,29 @@ export default function TaskDetail({ route, navigation }) {
     showActionSheet();
   };
 
-  const getStatusName = (taskStatus) => {
-    console.log(taskStatus, "getStatusName");
+  const getStatusName = taskStatus => {
+    console.log(taskStatus, 'getStatusName');
     switch (taskStatus) {
       case 1:
-        updateState({ buttonText: strings.HOLDTOSTART });
+        updateState({ buttonText: (getBundleId() == appIds.mrVeloz && defaultLanguage?.value == 'es') ? strings.HOLDTOSTART_MRVELOZ : strings.HOLDTOSTART });
         break;
       case 2:
-        updateState({ buttonText: strings.HOLDTOARRIVE });
+        updateState({ buttonText: (getBundleId() == appIds.mrVeloz && defaultLanguage?.value == 'es') ? strings.HOLDTOARRIVE_MRVELOZ : strings.HOLDTOARRIVE });
         break;
       case 3:
         updateState({
           buttonText:
             taskDetail?.tasktype?.name == "Drop"
-              ? strings.HOLDTOCOMPLETE
-              : strings.HOLDTOPICK,
+              ? (getBundleId() == appIds.mrVeloz && defaultLanguage?.value == 'es') ? strings.HOLDTOCOMPLETE_MRVELOZ : strings.HOLDTOCOMPLETE
+              : (getBundleId() == appIds.mrVeloz && defaultLanguage?.value == 'es') ? strings.HOLDTOPICK_MRVELOZ : strings.HOLDTOPICK,
         });
         break;
       case 4:
         updateState({
           buttonText:
             taskDetail?.tasktype?.name == "Drop"
-              ? strings.HOLDTOCOMPLETE
-              : strings.HOLDTOPICK,
+              ? (getBundleId() == appIds.mrVeloz && defaultLanguage?.value == 'es') ? strings.HOLDTOCOMPLETE_MRVELOZ : strings.HOLDTOCOMPLETE
+              : (getBundleId() == appIds.mrVeloz && defaultLanguage?.value == 'es') ? strings.HOLDTOPICK_MRVELOZ : strings.HOLDTOPICK,
         });
         break;
       default:
@@ -556,14 +551,14 @@ export default function TaskDetail({ route, navigation }) {
       toValue: 1,
       useNativeDriver: false,
     }).start(() => {
-      var message = "";
+      var message = '';
       if (_value === 1) {
         updateState({ buttonPressComplete: 1 });
         message = 'You held it long enough to fire the action!';
         updateState({ isLoading: true });
         let data = {};
-        data["task_id"] = taskDetail?.id;
-        console.log(data, "data");
+        data['task_id'] = taskDetail?.id;
+        console.log(data, 'data');
         actions
           .sendOtpToDriver(data, {
             client: clientInfo?.database_name,
@@ -578,8 +573,8 @@ export default function TaskDetail({ route, navigation }) {
                   redirectNextScreen(res);
                 } else {
                   let formdata = new FormData();
-                  formdata.append("task_status", 4);
-                  formdata.append("task_id", taskDetail?.id);
+                  formdata.append('task_status', 4);
+                  formdata.append('task_id', taskDetail?.id);
                   completeTask(formdata);
                 }
               }
@@ -597,7 +592,7 @@ export default function TaskDetail({ route, navigation }) {
     actions
       .updateTask(formdata, {
         client: clientInfo?.database_name,
-        ContentType: "multipart/form-data",
+        ContentType: 'multipart/form-data',
       })
       .then(res => {
         console.log(res, '<===res updateTask');
@@ -632,12 +627,11 @@ export default function TaskDetail({ route, navigation }) {
                 styles.button,
                 {
                   backgroundColor:
-                    taskDetail?.task_status == "4" ? "#27A468" : colors.redB,
+                    taskDetail?.task_status == '4' ? '#27A468' : colors.redB,
                 },
-              ]}
-            >
+              ]}>
               <Text style={styles.text}>
-                {taskDetail?.task_status == "4"
+                {taskDetail?.task_status == '4'
                   ? strings.TASKCOMPLTED
                   : strings.TASKCANCEL}
               </Text>
@@ -646,13 +640,12 @@ export default function TaskDetail({ route, navigation }) {
         </View>
       );
     }
-    return cancelRequestExit ? null : (
+    return (cancelRequestExit || paramData?.is_from_calendar) ? null : (
       // return (
       <View style={styles.container}>
         <TouchableWithoutFeedback
           onPressIn={taskStatus == 3 ? redirectToDoneScreen : handlePressIn}
-          onPressOut={handlePressOut}
-        >
+          onPressOut={handlePressOut}>
           <View style={styles.button} onLayout={getButtonWidthLayout}>
             <Animated.View style={[styles.bgFill, getProgressStyles()]} />
             <Text style={styles.text}>{buttonText}</Text>
@@ -662,8 +655,8 @@ export default function TaskDetail({ route, navigation }) {
     );
   };
 
-  const getDate = (date) => {
-    const local = moment.utc(date).local().format("DD MMM YYYY hh:mm:a");
+  const getDate = date => {
+    const local = moment.utc(date).local().format('DD MMM YYYY hh:mm:a');
     return local;
   };
 
@@ -677,37 +670,37 @@ export default function TaskDetail({ route, navigation }) {
 
   const onWhatsapp = async () => {
     let url = `whatsapp://send?phone= ${taskDetail?.order?.customer?.dial_code}${taskDetail?.order?.customer?.phone_number}`;
-    console.log(url, "caddaibsdu");
+    console.log(url, 'caddaibsdu');
     Linking.openURL(url)
-      .then((data) => {
-        console.log("WhatsApp Opened successfully " + data); //<---Success
+      .then(data => {
+        console.log('WhatsApp Opened successfully ' + data); //<---Success
       })
       .catch(() => {
-        alert("Make sure WhatsApp installed on your device"); //<---Error
+        alert('Make sure WhatsApp installed on your device'); //<---Error
       });
     if (link) {
       Linking.canOpenURL(link)
-        .then((supported) => {
+        .then(supported => {
           if (!supported) {
-            Alert.alert("Please install Whatsapp to send direct message.");
+            Alert.alert('Please install Whatsapp to send direct message.');
           } else {
             return Linking.openURL(link);
           }
         })
-        .catch((err) => console.error("An error occurred", err));
+        .catch(err => console.error('An error occurred', err));
     } else {
-      console.log("sendWhatsAppMessage -----> ", "message link is undefined");
+      console.log('sendWhatsAppMessage -----> ', 'message link is undefined');
     }
   };
 
-  const createRoom = async (item) => {
+  const createRoom = async item => {
     try {
       const apiData = {
-        sub_domain: "192.168.101.88",
+        sub_domain: '192.168.101.88',
         client_id: String(clientInfo?.client_db_id),
         db_name: taskDetail?.order?.dbname,
         user_id: String(userData?.id),
-        type: "agent_to_user",
+        type: 'agent_to_user',
         vendor_order_id: String(item?.order?.order_vendor_id),
         vendor_id: String(item?.order?.vendor_id),
         order_id: String(item?.order?.sync_order_id),
@@ -716,12 +709,12 @@ export default function TaskDetail({ route, navigation }) {
         agent_id: String(item?.order?.driver_id),
         agent_db: clientInfo?.database_name,
       };
-      console.log("sending api data", apiData);
+      console.log('sending api data', apiData);
 
       updateState({ isLoading: true });
       const res = await actions.onStartChat(apiData, {
         client: clientInfo?.database_name,
-        language: defaultLanguage?.value ? defaultLanguage?.value : "en",
+        language: defaultLanguage?.value ? defaultLanguage?.value : 'en',
       });
       console.log('start chat res', res);
       updateState({ isLoading: false });
@@ -729,7 +722,7 @@ export default function TaskDetail({ route, navigation }) {
         onChat(res.roomData);
       }
     } catch (error) {
-      console.log("error raised in start chat api", error);
+      console.log('error raised in start chat api', error);
       showError(error?.message);
       updateState({ isLoading: false });
     }
@@ -753,26 +746,24 @@ export default function TaskDetail({ route, navigation }) {
         <View style={{}}>
           <View
             style={{
-              flexDirection: "row",
-              justifyContent: "space-between",
-              alignItems: "center",
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              alignItems: 'center',
               marginVertical: moderateScaleVertical(12),
-            }}
-          >
+            }}>
             <View
               style={{
                 ...styles.statusView,
                 backgroundColor: colors.greyLight3,
-              }}
-            >
+              }}>
               <Text
                 style={{
                   ...styles.taskNameTextstyle,
                   color: colors.black,
                 }}>
                 {`${(taskDetail?.tasktype?.name).toLowerCase() == 'drop'
-                  ? strings.DROP
-                  : strings.PICKUP
+                    ? strings.DROP
+                    : strings.PICKUP
                   }`}
               </Text>
             </View>
@@ -834,15 +825,13 @@ export default function TaskDetail({ route, navigation }) {
           <Text style={styles.taskLable}>
             {strings.TASKDESCRIPTION.toUpperCase()}
           </Text>
-          {console.log(taskDetail, taskDetail?.order?.recipient_phone, taskDetail?.order?.Recipient_email, vendors, 'taskDetailtaskDetail')}
           {/* Phone and email view */}
-          {(taskDetail?.tasktype?.name).toLowerCase() == "drop" ? (
+          {(taskDetail?.tasktype?.name).toLowerCase() == 'drop' ? (
             <View
               style={{
                 backgroundColor: colors.transactionHistoryBg,
                 padding: moderateScale(8),
-              }}
-            >
+              }}>
               {!!(
                 taskDetail?.order?.Recipient_email ||
                 taskDetail?.order?.recipient_phone
@@ -905,11 +894,10 @@ export default function TaskDetail({ route, navigation }) {
               {!!taskDetail?.location?.address && (
                 <View
                   style={{
-                    flexDirection: "row",
+                    flexDirection: 'row',
                     marginTop: moderateScale(10),
-                    alignItems: "center",
-                  }}
-                >
+                    alignItems: 'center',
+                  }}>
                   <Image
                     source={imagePath?.location2}
                     style={{ marginRight: moderateScale(5) }}
@@ -922,19 +910,17 @@ export default function TaskDetail({ route, navigation }) {
               {/* Quantity and post code */}
               <View
                 style={{
-                  flexDirection: "row",
+                  flexDirection: 'row',
                   marginTop: moderateScale(10),
-                  justifyContent: "space-between",
-                }}
-              >
+                  justifyContent: 'space-between',
+                }}>
                 {!!taskDetail?.quantity && (
                   <View
                     style={{
                       opacity: 0.5,
-                      flexDirection: "row",
-                      alignItems: "center",
-                    }}
-                  >
+                      flexDirection: 'row',
+                      alignItems: 'center',
+                    }}>
                     <Image
                       source={imagePath?.quantity}
                       style={{ marginRight: moderateScale(5) }}
@@ -948,11 +934,10 @@ export default function TaskDetail({ route, navigation }) {
                 {!!taskDetail?.location?.post_code && (
                   <View
                     style={{
-                      flexDirection: "row",
-                      alignItems: "center",
+                      flexDirection: 'row',
+                      alignItems: 'center',
                       opacity: 0.5,
-                    }}
-                  >
+                    }}>
                     <Image
                       source={imagePath?.postal}
                       style={{ marginRight: moderateScale(5) }}
@@ -969,8 +954,7 @@ export default function TaskDetail({ route, navigation }) {
               style={{
                 backgroundColor: colors.transactionHistoryBg,
                 padding: moderateScale(8),
-              }}
-            >
+              }}>
               {!!taskDetail?.order?.task_description && (
                 <View
                   style={{ flexDirection: 'row', marginTop: moderateScale(2) }}>
@@ -984,10 +968,9 @@ export default function TaskDetail({ route, navigation }) {
                       {!!taskDetail?.order?.task_description && (
                         <View
                           style={{
-                            flexDirection: "row",
+                            flexDirection: 'row',
                             marginTop: moderateScale(2),
-                          }}
-                        >
+                          }}>
                           <View>
                             <Text
                               numberOfLines={1}
@@ -1005,135 +988,122 @@ export default function TaskDetail({ route, navigation }) {
                 </View>
               )}
               {!!(
-                taskDetail?.order?.Recipient_email ||
-                taskDetail?.order?.recipient_phone
+                (
+                  taskDetail?.order?.Recipient_email ||
+                  taskDetail?.order?.recipient_phone
+                )
                 // vendors?.email || vendors?.phone_no
               ) && (
                   <View
                     style={{
                       // opacity: 0.5,
-                      flexDirection: "row",
-                      justifyContent: "space-between",
-                    }}
-                  >
-                    {!!taskDetail?.order?.Recipient_email
+                      flexDirection: 'row',
+                      justifyContent: 'space-between',
+                    }}>
+                    {!!taskDetail?.order?.Recipient_email && (
                       //  !! vendors?.email
-                      && (
-                        <TouchableOpacity
-                          onPress={() =>
+                      <TouchableOpacity
+                        onPress={
+                          () =>
                             Linking.openURL(
-                              `mailto:${taskDetail?.order?.Recipient_email}`
+                              `mailto:${taskDetail?.order?.Recipient_email}`,
                             )
-                            // Linking.openURL(`mailto:${vendors?.email}`)
-
-                          }
-                          style={{
-                            flexDirection: "row",
-                            marginTop: moderateScale(10),
-                            alignItems: "center",
-                            flex: 0.7,
-                          }}
-                        >
-                          <Image
-                            source={imagePath.mail2}
-                            style={{ marginRight: moderateScale(5) }}
-                          />
-                          {!!taskDetail?.order?.task_description ?
-                            <Text style={styles.emailAndPhone}>
-                              {vendors?.email}
-                            </Text>
-                            :
-                            <Text style={styles.emailAndPhone}>
-                              {taskDetail?.order?.Recipient_email}
-                            </Text>}
-                        </TouchableOpacity>
-                      )}
-                    {!!taskDetail?.order?.recipient_phone
+                          // Linking.openURL(`mailto:${vendors?.email}`)
+                        }
+                        style={{
+                          flexDirection: 'row',
+                          marginTop: moderateScale(10),
+                          alignItems: 'center',
+                          flex: 0.7,
+                        }}>
+                        <Image
+                          source={imagePath.mail2}
+                          style={{ marginRight: moderateScale(5) }}
+                        />
+                        {!!taskDetail?.order?.task_description ? (
+                          <Text style={styles.emailAndPhone}>
+                            {vendors?.email}
+                          </Text>
+                        ) : (
+                          <Text style={styles.emailAndPhone}>
+                            {taskDetail?.order?.Recipient_email}
+                          </Text>
+                        )}
+                      </TouchableOpacity>
+                    )}
+                    {!!taskDetail?.order?.recipient_phone && (
                       // !!vendors?.phone_no
 
-                      && (
-                        <TouchableOpacity
-                          onPress={
-                            () =>
-                              Linking.openURL(
-                                `tel:${taskDetail?.order?.recipient_phone}`
-                              )
-                            //  Linking.openURL(`tel:${vendors?.phone_no}`)
-                            // Communications.phonecall(
-                            //   vendors?.recipient_phone,
-                            //   true,
-                            // )
-                          }
-                          style={{
-                            flexDirection: "row",
-                            marginTop: moderateScale(10),
-                            alignItems: "center",
-                            flex: 0.3,
-                          }}
-                        >
-                          <Image
-                            source={imagePath.phone2}
-                            style={{ marginRight: moderateScale(5) }}
-                          />
-                          {!!taskDetail?.order?.task_description ?
-                            <Text style={styles.emailAndPhone}>
-                              {vendors?.phone_no}
-                            </Text>
-                            :
-                            <Text style={styles.emailAndPhone}>
-                              {taskDetail?.order?.recipient_phone}
-                            </Text>}
-
-                        </TouchableOpacity>
-                      )}
+                      <TouchableOpacity
+                        onPress={
+                          () =>
+                            Linking.openURL(
+                              `tel:${taskDetail?.order?.recipient_phone}`,
+                            )
+                        }
+                        style={{
+                          flexDirection: 'row',
+                          marginTop: moderateScale(10),
+                          alignItems: 'center',
+                          flex: 0.3,
+                        }}>
+                        <Image
+                          source={imagePath.phone2}
+                          style={{ marginRight: moderateScale(5) }}
+                        />
+                        {!!taskDetail?.order?.task_description ? (
+                          <Text style={styles.emailAndPhone}>
+                            {vendors?.phone_no}
+                          </Text>
+                        ) : (
+                          <Text style={styles.emailAndPhone}>
+                            {taskDetail?.order?.recipient_phone}
+                          </Text>
+                        )}
+                      </TouchableOpacity>
+                    )}
                   </View>
                 )}
 
               {/* location and address */}
-              {!!taskDetail?.location?.address
+              {!!taskDetail?.location?.address && (
                 // !!vendors?.address
-                && (
-                  <View
-                    style={{
-                      // opacity: 0.5,
-                      flexDirection: "row",
-                      marginTop: moderateScale(10),
-                      alignItems: "center",
-                    }}
-                  >
-                    <Image
-                      source={imagePath?.location2}
-                      style={{ marginRight: moderateScale(5) }}
-                    />
-                    {!!taskDetail?.order?.task_description ?
-                      <Text style={styles.emailAndPhone}>
-                        {vendors?.address}
-                      </Text>
-                      :
-                      <Text style={styles.emailAndPhone}>
-                        {taskDetail?.location?.address}
-                      </Text>}
-
-                  </View>
-                )}
+                <View
+                  style={{
+                    // opacity: 0.5,
+                    flexDirection: 'row',
+                    marginTop: moderateScale(10),
+                    alignItems: 'center',
+                  }}>
+                  <Image
+                    source={imagePath?.location2}
+                    style={{ marginRight: moderateScale(5) }}
+                  />
+                  {!!taskDetail?.order?.task_description ? (
+                    <Text style={styles.emailAndPhone}>{vendors?.address}</Text>
+                  ) : (
+                    <Text style={styles.emailAndPhone}>
+                      {taskDetail?.location?.address}
+                    </Text>
+                  )}
+                </View>
+              )}
             </View>
           )}
           {/* Quantity and post code */}
           <View
             style={{
-              flexDirection: "row",
+              flexDirection: 'row',
               marginTop: moderateScale(10),
-              justifyContent: "space-between",
-            }}
-          >
+              justifyContent: 'space-between',
+            }}>
             {!!taskDetail?.quantity && (
               <View
                 style={{
                   opacity: 0.5,
-                  flexDirection: "row",
-                  alignItems: "center",
-                }}
-              >
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                }}>
                 <Image
                   source={imagePath?.quantity}
                   style={{ marginRight: moderateScale(5) }}
@@ -1147,11 +1117,10 @@ export default function TaskDetail({ route, navigation }) {
             {!!taskDetail?.location?.post_code && (
               <View
                 style={{
-                  flexDirection: "row",
-                  alignItems: "center",
+                  flexDirection: 'row',
+                  alignItems: 'center',
                   opacity: 0.5,
-                }}
-              >
+                }}>
                 <Image
                   source={imagePath?.postal}
                   style={{ marginRight: moderateScale(5) }}
@@ -1167,44 +1136,43 @@ export default function TaskDetail({ route, navigation }) {
           <View style={{ marginVertical: moderateScale(10) }}>
             <ButtonComponent
               buttonStyle={{
-                flexDirection: "row",
-                justifyContent: "center",
-                alignItems: "center",
+                flexDirection: 'row',
+                justifyContent: 'center',
+                alignItems: 'center',
                 padding: moderateScale(10),
                 borderRadius: moderateScale(5),
                 marginTop: moderateScale(10),
               }}
-              onPress={Platform?.OS == "android" ? openGoogleMap : openMaps}
+              onPress={Platform?.OS == 'android' ? openGoogleMap : openMaps}
               buttonTitle={strings.NAVIGATE}
               imagevalue={imagePath?.navigate}
               imageStyle={{ marginHorizontal: moderateScale(2) }}
             />
-            {false &&
+            {false && (
               <ButtonComponent
                 buttonStyle={{
-                  flexDirection: "row",
-                  justifyContent: "center",
-                  alignItems: "center",
+                  flexDirection: 'row',
+                  justifyContent: 'center',
+                  alignItems: 'center',
                   padding: moderateScale(10),
                   borderRadius: moderateScale(5),
                   marginTop: moderateScale(20),
-                  backgroundColor: colors.green
+                  backgroundColor: colors.green,
                 }}
                 onPress={_onDriverTracking}
                 buttonTitle={' IN APP MAP'}
                 imagevalue={imagePath?.navigate}
                 imageStyle={{ marginHorizontal: moderateScale(2) }}
               />
-            }
-
+            )}
           </View>
           {checkCallBackUrlForShowOrderDeatils() && (
             <View style={{ marginVertical: moderateScale(10) }}>
               <ButtonComponent
                 buttonStyle={{
-                  flexDirection: "row",
-                  justifyContent: "center",
-                  alignItems: "center",
+                  flexDirection: 'row',
+                  justifyContent: 'center',
+                  alignItems: 'center',
                   padding: moderateScale(10),
                   borderRadius: moderateScale(5),
                   marginTop: moderateScale(10),
@@ -1223,10 +1191,9 @@ export default function TaskDetail({ route, navigation }) {
         <View
           style={{
             ...styles.taskDetailView,
-            flexDirection: "row",
-            justifyContent: "space-between",
-          }}
-        >
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+          }}>
           <Text style={styles.taskText}>
             {strings.TASKDETAIL.toUpperCase()}
           </Text>
@@ -1238,15 +1205,10 @@ export default function TaskDetail({ route, navigation }) {
           style={{
             padding: moderateScale(10),
             backgroundColor: colors.lightSkyE,
-          }}
-        >
+          }}>
           {taskDetail?.order?.customer?.name && (
             <View
-              style={{ flexDirection: "row", justifyContent: "space-between" }}
-            >
-              <Text style={styles.customerName}>
-                {taskDetail?.order?.customer?.name}
-              </Text>
+              style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
               <Text style={{ fontFamily: fontFamily.bold }}>
                 {strings.TRACKINGID}:-{taskDetail?.order?.unique_id}
               </Text>
@@ -1259,8 +1221,7 @@ export default function TaskDetail({ route, navigation }) {
             taskDetail?.order?.customer?.phone_number
           ) && (
               <View
-                style={{ flexDirection: "row", justifyContent: "space-between" }}
-              >
+                style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                 {!!taskDetail?.order?.customer?.email && (
                   <TouchableOpacity
                     onPress={() =>
@@ -1277,21 +1238,20 @@ export default function TaskDetail({ route, navigation }) {
 
                       Linking.openURL(
                         `mailto:${taskDetail?.order?.customer?.email
-                        }?subject=${""}&body=${""}`
+                        }?subject=${''}&body=${''}`,
                       )
                     }
                     style={{
                       flex: 0.5,
-                      flexDirection: "row",
+                      flexDirection: 'row',
                       marginTop: moderateScale(10),
-                      alignItems: "center",
-                    }}
-                  >
+                      alignItems: 'center',
+                    }}>
                     <Image
                       source={imagePath.mail2}
                       style={{ marginRight: moderateScale(5) }}
                     />
-                    <Text numberOfLines={1} style={styles.emailAndPhone}>
+                    <Text numberOfLines={2} style={styles.emailAndPhone}>
                       {taskDetail?.order?.customer?.email}
                     </Text>
                   </TouchableOpacity>
@@ -1301,44 +1261,40 @@ export default function TaskDetail({ route, navigation }) {
                   <View
                     style={{
                       flex: 0.4,
-                      flexDirection: "row",
+                      flexDirection: 'row',
                       marginTop: moderateScale(10),
-                      alignItems: "center",
-                      justifyContent: "space-around",
-                    }}
-                  >
+                      alignItems: 'center',
+                      justifyContent: 'space-around',
+                    }}>
                     <TouchableOpacity
                       style={{
                         paddingHorizontal: moderateScale(10),
                       }}
-                      onPress={onWhatsapp}
-                    >
+                      onPress={onWhatsapp}>
                       <Image source={imagePath.whatsapp} />
                     </TouchableOpacity>
                     <TouchableOpacity
                       style={{
-                        flexDirection: "row",
-                        alignItems: "center",
+                        flexDirection: 'row',
+                        alignItems: 'center',
                       }}
                       onPress={() =>
                         Communications.phonecall(
                           taskDetail?.order?.customer?.phone_number,
-                          true
+                          true,
                         )
-                      }
-                    >
+                      }>
                       <Image source={imagePath.phone2} />
                     </TouchableOpacity>
 
                     {!!clientInfo?.socket_url ? (
                       <TouchableOpacity
                         style={{
-                          flexDirection: "row",
-                          alignItems: "center",
+                          flexDirection: 'row',
+                          alignItems: 'center',
                           marginLeft: moderateScale(5),
                         }}
-                        onPress={() => createRoom(taskDetail)}
-                      >
+                        onPress={() => createRoom(taskDetail)}>
                         <Image source={imagePath.icStartChat} />
                       </TouchableOpacity>
                     ) : null}
@@ -1356,20 +1312,18 @@ export default function TaskDetail({ route, navigation }) {
           />
 
           {/* Time and cash to be collected */}
-          <View
-            style={{ flexDirection: "row", justifyContent: "space-between" }}
-          >
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
             <View style={{ flex: 0.6 }}>
               <Text style={styles.taskLable}>
                 {strings.TIMINGS.toUpperCase()}
               </Text>
               <Text
                 numberOfLines={1}
-                style={[styles.emailAndPhone, { marginTop: moderateScale(5) }]}
-              >
+                style={[styles.emailAndPhone, { marginTop: moderateScale(5) }]}>
                 {getDate(taskDetail?.order?.order_time)}
               </Text>
             </View>
+            <Text style={styles.taskLable}>{strings.NAME}</Text>
 
             {!!Number(taskDetail?.order?.cash_to_be_collected) > 0 && (
               <View style={{ flex: 0.4 }}>
@@ -1378,11 +1332,7 @@ export default function TaskDetail({ route, navigation }) {
                 </Text>
                 <Text
                   numberOfLines={1}
-                  style={[
-                    styles.emailAndPhone,
-                    { marginTop: moderateScale(5) },
-                  ]}
-                >
+                  style={[styles.emailAndPhone, { marginTop: moderateScale(5) }]}>
                   {Number(taskDetail?.order?.cash_to_be_collected).toFixed(2)}
                 </Text>
               </View>
@@ -1393,8 +1343,7 @@ export default function TaskDetail({ route, navigation }) {
           {!!taskDetail?.order?.task_images &&
             taskDetail?.order?.task_images.length >= 1 && (
               <View
-                style={{ flexDirection: "row", marginTop: moderateScale(15) }}
-              >
+                style={{ flexDirection: 'row', marginTop: moderateScale(15) }}>
                 <View>
                   {taskDetail?.order?.task_images.length >= 1 && (
                     <Text style={styles.taskLable}>
@@ -1404,11 +1353,10 @@ export default function TaskDetail({ route, navigation }) {
 
                   <View
                     style={{
-                      flexDirection: "row",
-                      flexWrap: "wrap",
+                      flexDirection: 'row',
+                      flexWrap: 'wrap',
                       marginTop: moderateScale(5),
-                    }}
-                  >
+                    }}>
                     {taskDetail?.order?.task_images.map((i, inx) => {
                       return (
                         <>
@@ -1434,7 +1382,7 @@ export default function TaskDetail({ route, navigation }) {
             productAllInsrucations?.map((item, index) => {
               return (
                 <View style={{ marginTop: moderateScaleVertical(10) }}>
-                  <View style={{ flexDirection: "row" }}>
+                  <View style={{ flexDirection: 'row' }}>
                     <Text
                       numberOfLines={2}
                       style={[
@@ -1443,8 +1391,7 @@ export default function TaskDetail({ route, navigation }) {
                           marginTop: moderateScale(5),
                           fontFamily: fontFamily.bold,
                         },
-                      ]}
-                    >
+                      ]}>
                       {`${strings.QUESTION} :`}
                     </Text>
                     <Text
@@ -1452,12 +1399,11 @@ export default function TaskDetail({ route, navigation }) {
                       style={[
                         styles.emailAndPhone,
                         { marginTop: moderateScale(5) },
-                      ]}
-                    >
+                      ]}>
                       {item?.question}
                     </Text>
                   </View>
-                  <View style={{ flexDirection: "row" }}>
+                  <View style={{ flexDirection: 'row' }}>
                     <Text
                       numberOfLines={2}
                       style={[
@@ -1466,8 +1412,7 @@ export default function TaskDetail({ route, navigation }) {
                           marginTop: moderateScale(5),
                           fontFamily: fontFamily.bold,
                         },
-                      ]}
-                    >
+                      ]}>
                       {`${strings.ANSWER} :`}
                     </Text>
                     <Text
@@ -1475,8 +1420,7 @@ export default function TaskDetail({ route, navigation }) {
                       style={[
                         styles.emailAndPhone,
                         { marginTop: moderateScale(5) },
-                      ]}
-                    >
+                      ]}>
                       {item?.answer}
                     </Text>
                   </View>
@@ -1485,20 +1429,14 @@ export default function TaskDetail({ route, navigation }) {
             })}
 
           {!!apiData && apiData?.comment_for_vendor ? (
-            <View
-              style={{ flexDirection: "row", marginTop: moderateScale(15) }}
-            >
+            <View style={{ flexDirection: 'row', marginTop: moderateScale(15) }}>
               <View>
                 <Text style={styles.taskLable}>
                   {strings.SPECIAL_INSTRUCTIONS.toUpperCase()}
                 </Text>
                 <Text
                   numberOfLines={1}
-                  style={[
-                    styles.emailAndPhone,
-                    { marginTop: moderateScale(5) },
-                  ]}
-                >
+                  style={[styles.emailAndPhone, { marginTop: moderateScale(5) }]}>
                   {apiData?.comment_for_vendor}
                 </Text>
               </View>
@@ -1507,11 +1445,10 @@ export default function TaskDetail({ route, navigation }) {
           {fromHistory && totalTravelData && (
             <View
               style={{
-                flexDirection: "row",
-                justifyContent: "space-between",
+                flexDirection: 'row',
+                justifyContent: 'space-between',
                 marginVertical: moderateScaleVertical(5),
-              }}
-            >
+              }}>
               <View>
                 <Text style={styles.distanceTimeTitleTextStyle}>
                   {strings.TOTALDISTANCE}
@@ -1520,9 +1457,9 @@ export default function TaskDetail({ route, navigation }) {
                   {Number(
                     totalTravelData?.distance?.text.substring(
                       0,
-                      totalTravelData?.distance?.text.length - 2
-                    ) * 1.609344
-                  ).toFixed(2)}{" "}
+                      totalTravelData?.distance?.text.length - 2,
+                    ) * 1.609344,
+                  ).toFixed(2)}{' '}
                   KM
                 </Text>
               </View>
@@ -1541,11 +1478,11 @@ export default function TaskDetail({ route, navigation }) {
     );
   };
   const cancelTask = () => {
-    Alert.alert("", strings.CANCELMESSAGE, [
+    Alert.alert('', strings.CANCELMESSAGE, [
       {
         text: strings.CANCEL,
-        onPress: () => console.log("Cancel Pressed"),
-        style: "cancel",
+        onPress: () => console.log('Cancel Pressed'),
+        style: 'cancel',
       },
       {
         text: strings.OK,
@@ -1557,14 +1494,14 @@ export default function TaskDetail({ route, navigation }) {
 
   const cancelOrder = () => {
     if (cancelRequestExit) {
-      showSuccess("Your cancle request already submitted.");
+      showSuccess('Your cancle request already submitted.');
       return;
     }
-    Alert.alert("", strings.CANCELORDERMESSAGE, [
+    Alert.alert('', strings.CANCELORDERMESSAGE, [
       {
         text: strings.CANCEL,
-        onPress: () => console.log("Cancel Pressed"),
-        style: "cancel",
+        onPress: () => console.log('Cancel Pressed'),
+        style: 'cancel',
       },
       {
         text: strings.OK,
@@ -1585,8 +1522,8 @@ export default function TaskDetail({ route, navigation }) {
     latitude: Number(taskDetail?.location?.latitude),
     longitude: Number(taskDetail?.location?.longitude),
     end: `${taskDetail?.location?.address}`,
-    start: "My Location",
-    provider: "apple",
+    start: 'My Location',
+    provider: 'apple',
     //travelType: 'drive',
   };
   // const openAppleMap = createOpenLink(appleCoordinate);
@@ -1594,12 +1531,12 @@ export default function TaskDetail({ route, navigation }) {
   const getCurrentPosition = () => {
     return new Promise((resolve, reject) => {
       navigator.geolocation.default.getCurrentPosition(
-        (position) => {
-          console.log(position, "position");
+        position => {
+          console.log(position, 'position');
           resolve(position);
         },
-        (error) => reject(error.message),
-        { enableHighAccuracy: true, timeout: 20000 }
+        error => reject(error.message),
+        { enableHighAccuracy: true, timeout: 20000 },
       );
     });
   };
@@ -1642,25 +1579,25 @@ export default function TaskDetail({ route, navigation }) {
     var url = `https://www.google.com/maps/dir/?api=1&travelmode=driving&dir_action=navigate&destination=${taskDetail?.location?.latitude},${taskDetail?.location?.longitude}`;
 
     Linking.canOpenURL(url)
-      .then((supported) => {
-        console.log(supported, "supportedsupported");
+      .then(supported => {
+        console.log(supported, 'supportedsupported');
         if (!supported) {
           console.log("Can't handle url: " + url);
         } else {
           return Linking.openURL(url);
         }
       })
-      .catch((err) => console.error("An error occurred", err));
+      .catch(err => console.error('An error occurred', err));
   };
 
- 
+
 
   /**** */
 
   // this funtion use for camera handle
-  const onPressMapChoice = (index) => {
+  const onPressMapChoice = index => {
     if (index == 0) {
-      const url = "maps:" + "?q=" + taskDetail?.location?.address;
+      const url = 'maps:' + '?q=' + taskDetail?.location?.address;
       Linking.openURL(url);
     }
     if (index == 1) {
@@ -1673,12 +1610,12 @@ export default function TaskDetail({ route, navigation }) {
       statusBarColor={colors.white}
       bgColor={colors.white}
       isLoading={isLoading}
-      source={loaderOne}
-    >
+      source={loaderOne}>
       <Header
         headerStyle={{ backgroundColor: colors.white }}
         leftIconStyle={{ tintColor: colors.themeColor }}
-        onPressLeft={moveToNewScreen(navigationStrings?.DASHBOARD)}
+        onPressLeft={paramData?.is_from_calendar ? () => navigation?.goBack() : moveToNewScreen(navigationStrings?.DASHBOARD)}
+
         // hideRight={true}
         // onPressLeft={()=>navigation.goBack()}
         centerTitle={`${strings.TASK} #${taskDetail?.id}`}
@@ -1694,8 +1631,7 @@ export default function TaskDetail({ route, navigation }) {
                   color: colors.textGrey,
                   fontFamily: fontFamily.regular,
                   fontSize: textScale(10),
-                }}
-              >
+                }}>
                 {strings.CANCEL}
               </Text>
             </TouchableOpacity>
@@ -1720,7 +1656,7 @@ export default function TaskDetail({ route, navigation }) {
         ]}
         cancelButtonIndex={2}
         destructiveButtonIndex={2}
-        onPress={(index) => onPressMapChoice(index)}
+        onPress={index => onPressMapChoice(index)}
       />
     </WrapperContainer>
   );

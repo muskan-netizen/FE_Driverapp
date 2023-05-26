@@ -16,9 +16,6 @@ const ShowNotificationForeground = props => {
       console.log('remote message foreground', remoteMessage);
       const { data, messageId, notification } = remoteMessage;
       let notificationType = data?.type || data?.notificationType || 'AR';
-
-      console.log(notificationType,"notificationType");
-
       const channelId = await notifee.createChannel({
         id: 'default-channel-id',
         name: 'Default Channel',
@@ -38,7 +35,7 @@ const ShowNotificationForeground = props => {
       let displayNotificationData = {}
       if (Platform.OS == "ios") {
         displayNotificationData = {
-          title: notificationType || notification?.title || '',
+          title:  notification?.title || notificationType || '',
           body: data?.message || notification?.body || '',
           data: { ...data },
         };
@@ -46,7 +43,7 @@ const ShowNotificationForeground = props => {
       }
       else {
         displayNotificationData = {
-          title: notificationType || notification?.title || '',
+          title:  notification?.title || notificationType||'',
           body: data?.message || notification?.body || '',
           android: {
             sound: notification.sound == 'notification'
