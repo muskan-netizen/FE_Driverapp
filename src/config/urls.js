@@ -1,4 +1,4 @@
-export const API_BASE_URL = 'https://api.rdstaging.com/';
+//export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL='https://dispatch.jeevannapp.com/'
 //export const API_BASE_URL = 'https://805c-103-72-170-243.ngrok.io/';
 // export const API_BASE_URL = 'https://dispatch.shelf.ae';
@@ -106,7 +106,9 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL='https://dispatch.shophairrun.app/'
 //Staging
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
-// export const API_BASE_URL = 'https://dispatch.myevplus.com/';
+
+//myevplus
+ export const API_BASE_URL = 'https://dispatch.myevplus.com/';
 
 //Misst
 // export const API_BASE_URL = 'https://miist-dispatch.netsolutionindia.com/';
@@ -585,6 +587,11 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 // Karis
 //export const API_BASE_URL='https://dispatch.mykaris.com/'
+
+//zulbrand
+//export const API_BASE_URL='https://dispatch.zulacart.com/'
+
+
 
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;
 
