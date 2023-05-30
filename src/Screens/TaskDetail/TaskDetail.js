@@ -53,6 +53,8 @@ import stylesFunc from './styles';
 import ButtonComponent from '../../Components/ButtonComponent';
 import { mapStyle } from '../../utils/constants/MapStyle';
 import { getAllTravelDetails } from '../../utils/googlePlaceApi';
+import { getBundleId } from 'react-native-device-info';
+import { appIds } from '../../utils/constants/DynamicAppKeys';
 
 var ACTION_TIMER = 1500;
 var COLORS = ['#8FEE90', '#27A468'];
@@ -330,7 +332,7 @@ export default function TaskDetail({ route, navigation }) {
         console.log(error, 'error error error');
       });
   };
-
+  console.log(taskDetail, 'taskDetail>>>>>>>>>>>>>>>>>>')
   const _getproductUpdateDetails = () => {
     actions
       .getProductUpdateDetails(new_dispatch_traking_url(), {})
@@ -504,25 +506,25 @@ export default function TaskDetail({ route, navigation }) {
     console.log(taskStatus, 'getStatusName');
     switch (taskStatus) {
       case 1:
-        updateState({ buttonText: strings.HOLDTOSTART });
+        updateState({ buttonText: (getBundleId() == appIds.mrVeloz && defaultLanguage?.value == 'es') ? strings.HOLDTOSTART_MRVELOZ : strings.HOLDTOSTART });
         break;
       case 2:
-        updateState({ buttonText: strings.HOLDTOARRIVE });
+        updateState({ buttonText: (getBundleId() == appIds.mrVeloz && defaultLanguage?.value == 'es') ? strings.HOLDTOARRIVE_MRVELOZ : strings.HOLDTOARRIVE });
         break;
       case 3:
         updateState({
           buttonText:
-            taskDetail?.tasktype?.name == 'Drop'
-              ? strings.HOLDTOCOMPLETE
-              : strings.HOLDTOPICK,
+            taskDetail?.tasktype?.name == "Drop"
+              ? (getBundleId() == appIds.mrVeloz && defaultLanguage?.value == 'es') ? strings.HOLDTOCOMPLETE_MRVELOZ : strings.HOLDTOCOMPLETE
+              : (getBundleId() == appIds.mrVeloz && defaultLanguage?.value == 'es') ? strings.HOLDTOPICK_MRVELOZ : strings.HOLDTOPICK,
         });
         break;
       case 4:
         updateState({
           buttonText:
-            taskDetail?.tasktype?.name == 'Drop'
-              ? strings.HOLDTOCOMPLETE
-              : strings.HOLDTOPICK,
+            taskDetail?.tasktype?.name == "Drop"
+              ? (getBundleId() == appIds.mrVeloz && defaultLanguage?.value == 'es') ? strings.HOLDTOCOMPLETE_MRVELOZ : strings.HOLDTOCOMPLETE
+              : (getBundleId() == appIds.mrVeloz && defaultLanguage?.value == 'es') ? strings.HOLDTOPICK_MRVELOZ : strings.HOLDTOPICK,
         });
         break;
       default:
@@ -823,7 +825,6 @@ export default function TaskDetail({ route, navigation }) {
           <Text style={styles.taskLable}>
             {strings.TASKDESCRIPTION.toUpperCase()}
           </Text>
-
           {/* Phone and email view */}
           {(taskDetail?.tasktype?.name).toLowerCase() == 'drop' ? (
             <View
@@ -1588,6 +1589,8 @@ export default function TaskDetail({ route, navigation }) {
       })
       .catch(err => console.error('An error occurred', err));
   };
+
+
 
   /**** */
 

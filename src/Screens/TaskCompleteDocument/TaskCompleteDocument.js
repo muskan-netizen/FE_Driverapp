@@ -815,11 +815,11 @@ export default function TaskCompleteDocument({ route, navigation }) {
   const onImagePicker =
     (item) => {
       Alert.alert(
-        'Select option',
+        (getBundleId() == appIds.mrVeloz && defaultLanguagae?.value == 'es') ? strings.SELCET_OPTION : 'Select option',
         '',
         [
           {
-            text: 'Use gallery',
+            text:(getBundleId() == appIds.mrVeloz && defaultLanguagae?.value == 'es') ? strings.USE_GALLERY : 'Use gallery',
             onPress: () => {
               cameraHandler(1, {
                 cropping: false,
@@ -834,7 +834,7 @@ export default function TaskCompleteDocument({ route, navigation }) {
             },
           },
           {
-            text: 'Use camera',
+            text:(getBundleId() == appIds.mrVeloz && defaultLanguagae?.value == 'es') ? strings.USE_CAMERA : 'Use camera',
             onPress: () => {
               openCamera()
                 .then((res) => setImageData(res, item))

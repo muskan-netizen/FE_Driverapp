@@ -209,19 +209,32 @@ android {
     }
 
      flavorDimensions "appType"
+
+     productFlavors {
+             royoDispatcher{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.codebrew.royodispatcher'
+            resValue "string", "app_name", "RoyoDriverApp"
+        }
+     }
    
 
     productFlavors  {
-    // royoDispatcher{
-    //         dimension "appType"
-    //         versionCode 1
-    //         versionName "1.0"
-    //         minSdkVersion rootProject.ext.minSdkVersion
-    //         targetSdkVersion rootProject.ext.targetSdkVersion
-    //         // applicationIdSuffix ".royoorder"
-    //         applicationId 'com.codebrew.royodispatcher'
-    //         resValue "string", "app_name", "RoyoDriverApp"
-    //     }
+//     royoDispatcher{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.codebrew.royodispatcher'
+//             resValue "string", "app_name", "RoyoDriverApp"
+//         }
 //          runrun {
 //             dimension "appType"
 //             versionCode 1
@@ -2807,16 +2820,16 @@ android {
 //             applicationId "com.tasmeem.royodispatcher"
 //             resValue "string", "app_name", "Tasmeem Dispatch"
 //         }
-//         destination_ops{
-//             dimension "appType"
-//             versionCode 3
-//             versionName "1.0"
-//             minSdkVersion rootProject.ext.minSdkVersion
-//             targetSdkVersion rootProject.ext.targetSdkVersion
-//             // applicationIdSuffix ".royoorder"
-//             applicationId "com.destinationOpsApp.royodispatcher"
-//             resValue "string", "app_name", "Destination Ops Driver"
-//         }
+        destination_ops{
+            dimension "appType"
+            versionCode 9
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId "com.destinationOpsApp.royodispatcher"
+            resValue "string", "app_name", "Destination Ops Driver"
+        }
 //         flying_horse{
 //             dimension "appType"
 //             versionCode 1
@@ -3394,16 +3407,16 @@ android {
 //             applicationId 'com.GamaDelivery.royodispatcher'
 //             resValue "string", "app_name", "Gama Delivery"
 //         }
-//         ambuTap{
-//             dimension "appType"
-//             versionCode 1
-//             versionName "1.0"
-//             minSdkVersion rootProject.ext.minSdkVersion
-//             targetSdkVersion rootProject.ext.targetSdkVersion
-//             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.AmbuTap.royodispatcher'
-//             resValue "string", "app_name", "AmbuTap Dispatcher"
-//         }
+        ambuTap{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.ambutap.driver'
+            resValue "string", "app_name", "AmbuTap Dispatcher"
+        }
 
 //            swiffyLLC{
 //             dimension "appType"
@@ -3467,16 +3480,16 @@ android {
 //             applicationId 'com.Go.royodispatcher'
 //             resValue "string", "app_name", "Go Dispatcher"
 //         }
-            baubau{
-            dimension "appType"
-            versionCode 2
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.baubau.driver'
-            resValue "string", "app_name", "Baubau Workers"
-        }
+//             baubau{
+//             dimension "appType"
+//             versionCode 2
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.baubau.driver'
+//             resValue "string", "app_name", "Baubau Workers"
+//         }
 //          heyBuddy{
 //             dimension "appType"
 //             versionCode 2
@@ -5103,16 +5116,16 @@ android {
 //             applicationId 'com.axxi.royodispatcher'
 //             resValue "string", "app_name", "AxxiOne Dispatcher"
 //         }
-        nuvoni{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.nuvoni.dispatcher'
-            resValue "string", "app_name", "Nuvoni Dispatcher"
-        }
+//         nuvoni{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.nuvoni.dispatcher'
+//             resValue "string", "app_name", "Nuvoni Dispatcher"
+//         }
 //         fairDeal{
 //             dimension "appType"
 //             versionCode 1
@@ -5387,16 +5400,16 @@ android {
 //             applicationId 'com.inmotion.royodispatcher'
 //             resValue "string", "app_name", "Inmotion Dispatcher"
 //         }
-//         eatHalal{
-//             dimension "appType"
-//             versionCode 1
-//             versionName "1.0"
-//             minSdkVersion rootProject.ext.minSdkVersion
-//             targetSdkVersion rootProject.ext.targetSdkVersion
-//             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.eatHalal.royodispatcher'
-//             resValue "string", "app_name", "EatHalal Dispatcher"
-//         }
+        eatHalal{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.eatHalal.royodispatcher'
+            resValue "string", "app_name", "EatHalal Dispatcher"
+        }
 //          jeevann{
 //             dimension "appType"
 //             versionCode 1
@@ -5737,16 +5750,16 @@ android {
 //             applicationId 'com.hungry.royodispatcher'
 //             resValue "string", "app_name", "Hungry Dispatcher"
 //         }
-         greenHippo{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.greenHippo.driver'
-            resValue "string", "app_name", "Green Hippo Driver"
-        }
+//          greenHippo{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.greenHippo.driver'
+//             resValue "string", "app_name", "Green Hippo Driver"
+//         }
 //      myMeddy{
 //             dimension "appType"
 //             versionCode 1
@@ -5787,16 +5800,16 @@ android {
 //             applicationId 'com.vital.royodispatcher'
 //             resValue "string", "app_name", "Vital Dispatcher"
 //         }
-     parcelWorks{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.parcelWorks.dispatcher'
-            resValue "string", "app_name", "ParcelWorks Dispatcher"
-        }
+//      parcelWorks{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.parcelWorks.dispatcher'
+//             resValue "string", "app_name", "ParcelWorks Dispatcher"
+//         }
 //       konectame{
 //             dimension "appType"
 //             versionCode 1
@@ -5857,16 +5870,16 @@ android {
 //             applicationId 'com.georgiacollective.royodispatcher'
 //             resValue "string", "app_name", "Georgiacollective Dispatcher"
 //         }
-//        lincshare{
-//             dimension "appType"
-//             versionCode 1
-//             versionName "1.0"
-//             minSdkVersion rootProject.ext.minSdkVersion
-//             targetSdkVersion rootProject.ext.targetSdkVersion
-//             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.lincshare.royodispatcher'
-//             resValue "string", "app_name", "Lincshare Dispatcher"
-//         }
+       lincshare{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.lincshare.royodispatcher'
+            resValue "string", "app_name", "Lincshare Dispatcher"
+        }
 //       rumbella{
 //             dimension "appType"
 //             versionCode 1
@@ -5957,16 +5970,16 @@ android {
 //             applicationId 'com.zyno.royodispatcher'
 //             resValue "string", "app_name", "Zyno Dispatcher"
 //         }
-        efectibo{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.efectibo.dispatcher'
-            resValue "string", "app_name", "Efectibo Dispatcher"
-        }
+//         efectibo{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.efectibo.dispatcher'
+//             resValue "string", "app_name", "Efectibo Dispatcher"
+//         }
 //         hectoHomes{
 //             dimension "appType"
 //             versionCode 1
@@ -6128,16 +6141,16 @@ android {
 //             resValue "string", "app_name", "HattaFoodHub Dispatcher"
 //         }
 
-junkerz{
-            dimension "appType"
-            versionCode 1
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.junkerz.driver'
-            resValue "string", "app_name", "Junkerz Dispatcher"
-        }
+// junkerz{
+//             dimension "appType"
+//             versionCode 1
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.junkerz.driver'
+//             resValue "string", "app_name", "Junkerz Dispatcher"
+//         }
 // viralClean{
 //             dimension "appType"
 //             versionCode 1
@@ -6398,16 +6411,16 @@ etiam{
 //             applicationId 'com.readyToRent.royodispatcher'
 //             resValue "string", "app_name", "Ready to rent Dispatcher"
 //         }
-theGenie{
-            dimension "appType"
-            versionCode 2
-            versionName "1.0"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            // applicationIdSuffix ".royoorder"
-            applicationId 'com.theGenie.dispatcher'
-            resValue "string", "app_name", "The Genie Dispatcher"
-        }
+// theGenie{
+//             dimension "appType"
+//             versionCode 2
+//             versionName "1.0"
+//             minSdkVersion rootProject.ext.minSdkVersion
+//             targetSdkVersion rootProject.ext.targetSdkVersion
+//             // applicationIdSuffix ".royoorder"
+//             applicationId 'com.theGenie.royodispatcher'
+//             resValue "string", "app_name", "The Genie Dispatcher"
+//         }
 // sultanCenter{
 //             dimension "appType"
 //             versionCode 1
@@ -6428,16 +6441,16 @@ theGenie{
 //             applicationId 'com.reedas.royodispatcher'
 //             resValue "string", "app_name", "Reedas dispatcher"
 //         }
-// onebasket{
-//             dimension "appType"
-//             versionCode 1
-//             versionName "1.0"
-//             minSdkVersion rootProject.ext.minSdkVersion
-//             targetSdkVersion rootProject.ext.targetSdkVersion
-//             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.onebasket.dispatcher'
-//             resValue "string", "app_name", "OneBasket Dispatcher"
-//         }
+onebasket{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.onebasket.dispatcher'
+            resValue "string", "app_name", "OneBasket Dispatcher"
+        }
 // zozozi{
 //             dimension "appType"
 //             versionCode 1
@@ -6592,16 +6605,16 @@ theGenie{
 //             applicationId 'com.ineeda.driver'
 //             resValue "string", "app_name", "Ineeda dispatcher"
 //         }
-// blink{
-//             dimension "appType"
-//             versionCode 1
-//             versionName "1.0"
-//             minSdkVersion rootProject.ext.minSdkVersion
-//             targetSdkVersion rootProject.ext.targetSdkVersion
-//             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.blink.dispatcher'
-//             resValue "string", "app_name", "Blink dispatcher"
-//         }
+blink{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.blink.dispatcher'
+            resValue "string", "app_name", "Blink dispatcher"
+        }
 // jds{
 //             dimension "appType"
 //             versionCode 1
@@ -6723,16 +6736,16 @@ theGenie{
 //             applicationId 'com.piolfix.driver'
 //             resValue "string", "app_name", "Piolfix Dispatcher"
 //         }
-//     rBRiders{
-//             dimension "appType"
-//             versionCode 1
-//             versionName "1.0"
-//             minSdkVersion rootProject.ext.minSdkVersion
-//             targetSdkVersion rootProject.ext.targetSdkVersion
-//             // applicationIdSuffix ".royoorder"
-//             applicationId 'com.rbRiders.driver'
-//             resValue "string", "app_name", "R&B Riders Dispatcher"
-//         }
+    rBRiders{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.rbRiders.driver'
+            resValue "string", "app_name", "R&B Riders Dispatcher"
+        }
 //      karis{
 //             dimension "appType"
 //             versionCode 1

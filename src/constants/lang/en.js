@@ -495,6 +495,10 @@ export default {
   ADDITIONAL_COMMENTS: "Additional comments",
   USER_RATING: "User Rating",
   SKIP: "Skip",
-  RATING_DONE: "Rating done"
-
+  RATING_DONE: "Rating done",
+  SELCET_OPTION:"Select Options",
+  USE_CAMERA:"USE CAMERA",
+  USE_GALLERY:"USE GALLERY",
+  CASH_COLLECTED:"Cash Collected",
+  EARNING:"Earning"
 };
