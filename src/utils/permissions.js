@@ -10,8 +10,8 @@ export const androidCameraPermission = () =>
   new Promise(async (resolve, reject) => {
     console.log(Platform.Version,'');
     try {
-      if (Platform.OS === "android" && Platform.Version > 22) {
-        if (Platform.Version >=33) {
+      if (Platform.OS === "android" && parseInt(Platform.constants.Release) <= Number(22)) {
+        if (parseInt(Platform.constants.Release) <= Number(33)) {
           const granted = await PermissionsAndroid.requestMultiple([
             PERMISSIONS.ANDROID.CAMERA,
             PERMISSIONS.ANDROID.READ_MEDIA_IMAGES 
