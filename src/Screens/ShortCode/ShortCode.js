@@ -59,8 +59,8 @@ export default function ShortCode({route, navigation}) {
     videoDurationEnded,
     initapiresponse,
   } = state;
-  const updateState = data => setState(state => ({ ...state, ...data }));
-  const { defaultLanguage, internetConnection } =
+  const updateState = data => setState(state => ({...state, ...data}));
+  const {defaultLanguage, internetConnection} =
     useSelector(state => state?.initBoot) || {};
 
   const videoRef = useRef();
@@ -168,8 +168,8 @@ export default function ShortCode({route, navigation}) {
   const initApiHit = () => {
     (async () => {
       const saveShortCode = await getItem('saveShortCode');
-       const appCode = !!saveShortCode ? saveShortCode : getAppCode();
-      //const appCode = '8c55a5'
+      const appCode = !!saveShortCode ? saveShortCode : getAppCode();
+      // const appCode = '7fd599';
 
       console.log(defaultLanguage?.value, 'Language in init screen');
       let header = {};
