@@ -2,6 +2,8 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL='https://dispatch.jeevannapp.com/'
 //export const API_BASE_URL = 'https://805c-103-72-170-243.ngrok.io/';
 // export const API_BASE_URL = 'https://dispatch.shelf.ae';
+
+// Udkay
 // export const API_BASE_URL = 'https://dispatch.udkay.com/';
 // export const API_BASE_URL='https://dispatch.youchillax.com/'
 // export const API_BASE_URL = 'https://dispatch.foodnests.com/';
@@ -16,7 +18,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = 'https://dispatch.ngoalapp.com/';
 
 // jds
-//export const API_BASE_URL = 'https://dispatch.jdsondemand.com/';
+// export const API_BASE_URL = 'https://dispatch.jdsondemand.com/';
 
 // chutneyeah
 //export const API_BASE_URL = 'https://dispatch.chutneyeah.com/';
@@ -52,7 +54,6 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL='https://dispatch.usemeow.com/'
 // //Staging
 // export const API_BASE_URL='https://dispatch.ubierweeds.com/'
-// export const API_BASE_URL='https://dispatch.vduonline.co.in/'
 
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
 
@@ -60,6 +61,8 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //  export const API_BASE_URL = 'https://dispatch.destinationops.com/';
 //  export const API_BASE_URL = 'https://api.rdstaging.com/';
+
+//VDU
 // export const API_BASE_URL='https://dispatch.vduonline.co.in/'
 // export const API_BASE_URL='https://dispatch.nittosadai.com/'
 //  export const API_BASE_URL='https://zuzucleans.royodispatch.com/'
@@ -175,7 +178,7 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL = ' https://dispatch.halatalabat.com/'
 
 // brilApp
-// export const API_BASE_URL = 'https://dispatch.brilapp.com/'
+//export const API_BASE_URL = 'https://dispatch.brilapp.com/'
 
 //amazingTaxi
 // export const API_BASE_URL = 'https://dispatch.rhondaisamazingtaxi.com/'
@@ -339,14 +342,13 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //RXNOW
 // export const API_BASE_URL = 'https://dispatch.rxnowweb.com/';
-//GROUPY
-//export const API_BASE_URL = 'https://dispatch.groupystore.com/';
 
-//
+//GROUPY
+// export const API_BASE_URL = 'https://dispatch.groupystore.com/';
+
 // export const API_BASE_URL = 'https://dispatch.samakeemart.com/';
 
 // blacnetwork
-
 // export const API_BASE_URL = 'https://driver.blacnetwork.com/';
 
 // mml
@@ -574,10 +576,19 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL='https://dispatch.thedonetwork.org/'
 
 // GreenHippo
-//export const API_BASE_URL='https://dispatch.mygreenhippo.com/'
+// export const API_BASE_URL='https://dispatch.mygreenhippo.com/'
 
 // Nuvoni
 // export const API_BASE_URL='https://dispatch.nuvoni.com/'
+
+// Karis
+// export const API_BASE_URL='https://dispatch.mykaris.com/'
+
+// Blink
+// export const API_BASE_URL='https://dispatch.blinktheapp.com/'
+
+// AmericanLuxury
+// export const API_BASE_URL='https://dispatch.americanluxuryservice.com/'
 
 
 
