@@ -104,6 +104,13 @@ const App = () => {
         value: "vi",
       });
     }
+    else if (appIds.mrVeloz == DeviceInfo.getBundleId()) {
+      setDefaultLanguage({
+        id: 2,
+        label: 'Spanish',
+        value: 'es',
+      });
+    }
   };
 
   useEffect(() => {
