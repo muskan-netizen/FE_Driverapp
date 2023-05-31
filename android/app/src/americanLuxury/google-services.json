@@ -1,34 +1,32 @@
 {
   "project_info": {
-    "project_number": "782104479880",
-    "project_id": "american-luxury-3a72e",
-    "storage_bucket": "american-luxury-3a72e.appspot.com"
+    "project_number": "1065192346953",
+    "project_id": "americanluxury-driver",
+    "storage_bucket": "americanluxury-driver.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:782104479880:android:55a0c0a68503cee770b73d",
+        "mobilesdk_app_id": "1:1065192346953:android:a89bbf8b62c4bcd49df698",
         "android_client_info": {
-          "package_name": "com.americanLuxury.dispatcher"
+          "package_name": "com.americanLuxury.driver"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "782104479880-hiukmmuf671mc9gt210b5hgio4ho93od.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyC7WidFqEnATw9qJro8tXWRXC09XV7N68U"
+          "current_key": "AIzaSyD1_vyqyv9LpE3KDzqnB-9FSU0_758PzMA"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "782104479880-hiukmmuf671mc9gt210b5hgio4ho93od.apps.googleusercontent.com",
-              "client_type": 3
+              "client_id": "1065192346953-f22qq7l3b64v0kb9f3089b2h4td48n67.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.americanLuxury.driver"
+              }
             }
           ]
         }

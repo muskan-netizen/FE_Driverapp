@@ -1817,8 +1817,8 @@ const appIds = {
     android: 'com.zuriRide.dispatcher',
   }),
   americanLuxury: Platform.select({
-    ios: 'com.americanLuxury.dispatcher',
-    android: 'com.americanLuxury.dispatcher',
+    ios: 'com.americanLuxury.driver',
+    android: 'com.americanLuxury.driver',
   }),
   smartMur: Platform.select({
     ios: 'com.smartMur.dispatcher',
@@ -1893,8 +1893,8 @@ const appIds = {
     android: 'com.sourceWith.dispatcher',
   }),
   vdu: Platform.select({
-    ios: 'com.vdu.dispatcher',
-    android: 'com.vdu.dispatcher',
+    ios: 'com.vdu.driverApp',
+    android: 'com.vdu.driverApp',
   }),
   taxiology: Platform.select({
     ios: 'com.taxiology.driverApp',
