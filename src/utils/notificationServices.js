@@ -8,50 +8,47 @@ import actions from '../redux/actions';
 import { PERMISSIONS } from 'react-native-permissions';
 
 
-export async function requestUserPermission(callback = () => { }) {
+export async function requestUserPermission(callback = () => {}) {
 
   if (Platform.OS === 'ios') {
-    await messaging().registerDeviceForRemoteMessages();
-    // await messaging().registerForRemoteNotifications()
+  await messaging().registerDeviceForRemoteMessages();
+  // await messaging().registerForRemoteNotifications()
   }
+  if (parseInt(Platform.constants.Release)>=Number(13)) {
+  try {
+  const granted = await PermissionsAndroid.request(
+  PERMISSIONS.ANDROID.POST_NOTIFICATIONS,
+  {
+  title: 'Notification Permission',
+  message: 'Allow this app to post notifications?',
+  buttonNeutral: 'Ask Me Later',
+  buttonNegative: 'Cancel',
+  buttonPositive: 'OK',
+  },
+  );
+  console.log(granted,'grantedgrantedgrantedgranted');
+  if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+  getFcmToken();
+  callback(false);
+  } else {
+  callback(true)
+  }
+  } catch (err) {
+  console.warn(err);
+  }
+  
+  } else {
   const authStatus = await messaging().requestPermission();
   const enabled =
-    authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
-    authStatus === messaging.AuthorizationStatus.PROVISIONAL;
-
-
-    try {
-      const granted = await PermissionsAndroid.request(
-        PERMISSIONS.ANDROID.POST_NOTIFICATIONS,
-        {
-          title: 'Notification Permission',
-          message: 'Allow this app to post notifications?',
-          buttonNeutral: 'Ask Me Later',
-          buttonNegative: 'Cancel',
-          buttonPositive: 'OK',
-        },
-      );
-      console.log(granted, 'grantedgrantedgrantedgranted');
-      if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-        getFcmToken();
-        callback(false);
-      } else {
-        callback(true)
-      }
-    } catch (err) {
-      console.warn(err);
-    }
-  
-
+  authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
+  authStatus === messaging.AuthorizationStatus.PROVISIONAL;
   if (enabled) {
-    console.log('Authorization status:', enabled);
-    getFcmToken();
-    callback(false);
+  getFcmToken();
+  callback(false);
   } else callback(true);
-
-
-
-}
+  }
+  }
+  
 
 // const romoveToken = () => {
 //  getMessaging()
