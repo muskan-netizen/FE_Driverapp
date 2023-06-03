@@ -112,7 +112,7 @@
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
 
 //myevplus
- export const API_BASE_URL = 'https://dispatch.myevplus.com/';
+ //export const API_BASE_URL = 'https://dispatch.myevplus.com/';
 
 //Misst
 // export const API_BASE_URL='https://dispatch.fazeiteam.com/'
@@ -597,6 +597,14 @@
 
 //zulbrand
 //export const API_BASE_URL='https://dispatch.zulacart.com/'
+
+//baly
+// export const API_BASE_URL='https://balydelivery.rdstaging.com/'
+
+//pawsee
+export const API_BASE_URL='https://dispatch.pawsee.ae/'
+
+
 
 
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;
