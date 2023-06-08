@@ -34,6 +34,7 @@ import navigationStrings from '../../navigation/navigationStrings';
 import {showError, showSuccess} from '../../utils/helperFunctions';
 import {removeItem} from '../../utils/utils';
 import {removerUserData} from '../../redux/actions/auth';
+import Clipboard from '@react-native-community/clipboard';
 
 export default function MyProfile({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
@@ -57,6 +58,7 @@ export default function MyProfile({route, navigation}) {
 
     type: userData?.type ? userData?.type : null,
     team: userData?.team ? userData?.team : null,
+    referCode: userData?.refferal_code ? userData?.refferal_code : ''
   });
 
   const {
@@ -72,6 +74,7 @@ export default function MyProfile({route, navigation}) {
     modelMake,
     vehicleColor,
     plateNumber,
+    referCode,
   } = state;
   const commonStyles = commonStylesFunc({fontFamily});
 
@@ -94,6 +97,7 @@ export default function MyProfile({route, navigation}) {
 
         type: userData?.type ? userData?.type : null,
         team: userData?.team ? userData?.team : null,
+        referCode: userData?.refferal_code ? userData?.refferal_code : ''
       });
     }
   }, [
@@ -142,6 +146,9 @@ export default function MyProfile({route, navigation}) {
       console.log('erro raised', error);
       showError(error?.message);
     }
+  };
+  const copyToClipboard = () => {
+    Clipboard.setString(referCode);
   };
 
   return (
@@ -220,25 +227,45 @@ export default function MyProfile({route, navigation}) {
                   </Text>
                 </View>
               </View>
-
-              {!!type && (
-                <View style={{marginBottom: moderateScale(20)}}>
-                  <View>
-                    <Text style={[styles.label2, styles.textInputStyle]}>
-                      {strings.JOBTYPE}
-                    </Text>
-                  </View>
-                  <Text
-                    style={{
-                      color: colors.black,
-                      fontFamily: fontFamily.semiBold,
-                      fontSize: textScale(12),
-                    }}>
-                    {type}
+              <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                {!!type && (
+                  <View style={{ flex: 0.5, marginBottom: moderateScale(20) }}>
+                <View>
+                  <Text style={[styles.label2, styles.textInputStyle]}>
+                    {strings.JOBTYPE}
                   </Text>
                 </View>
+                <Text
+                  style={{
+                    color: colors.black,
+                    fontFamily: fontFamily.semiBold,
+                    fontSize: textScale(12),
+                  }}>
+                  {type}
+                </Text>
+              </View>
+                )}
+              {!!referCode && (
+                <TouchableOpacity onPress={copyToClipboard} style={{ flex: 0.5, marginBottom: moderateScale(20) }}>
+                  <View>
+                    <Text style={[styles.label2, styles.textInputStyle]}>
+                      {strings.REFERRAL_CODE}
+                    </Text>
+                  </View>
+                    <View style={{ flexDirection: 'row', }}>
+                      <Text
+                        style={{
+                          color: colors.black,
+                          fontFamily: fontFamily.semiBold,
+                          fontSize: textScale(12),
+                        }}>
+                        {referCode}
+                      </Text>
+                      <Image style={{ marginLeft: moderateScale(20) }} source={imagePath.details} />
+                    </View>
+                </TouchableOpacity>
               )}
-
+            </View>
               {!!team && (
                 <View style={{marginBottom: moderateScale(20)}}>
                   <View>

@@ -500,5 +500,6 @@ export default {
   USE_CAMERA:"USE CAMERA",
   USE_GALLERY:"USE GALLERY",
   CASH_COLLECTED:"Cash Collected",
-  EARNING:"Earning"
+  EARNING:"Earning",
+  REFERRAL_CODE: "Referral Code",
 };
