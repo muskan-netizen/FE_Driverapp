@@ -469,7 +469,7 @@ const shortCodes = {
   nounou: '2e78fd',
   laith: '89e6b8',
   oaks: '5eab74',
-  buzyStores: '8c70ed',
+  buzyStores: 'ad4124',
   etiam: 'a10566',
   dotTaxi: '16b920',
   airvoltTaxi: '694d92',

@@ -1,4 +1,4 @@
-export const API_BASE_URL = 'https://api.rdstaging.com/';
+// export const API_BASE_URL = 'https://api.rdstaging.com/';
 // export const API_BASE_URL='https://dispatch.jeevannapp.com/'
 //export const API_BASE_URL = 'https://805c-103-72-170-243.ngrok.io/';
 // export const API_BASE_URL = 'https://dispatch.shelf.ae';
@@ -35,8 +35,8 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 // oneBasket
 // export const API_BASE_URL = 'https://delivery.onebasket.rw/';
 
-//EatHalal
-// export const API_BASE_URL = 'https://dispatch.destinationops.com/';
+//Destinationops
+export const API_BASE_URL = 'https://dispatch.destinationops.com/';
 
 // export const API_BASE_URL = 'https://dispatch.10dollahollla.com/';
 //  export const API_BASE_URL='http://192.168.102.70:8008/'
@@ -607,7 +607,11 @@ export const API_BASE_URL = 'https://api.rdstaging.com/';
 //myevplus
 // export const API_BASE_URL='https://dispatch.myevplus.com/'
 
+//buzzy
+// export const API_BASE_URL='https://dispatch.buzzystores.com/'
 
+//doober
+// export const API_BASE_URL='https://dispatch.doobershop.com/'
 
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;
 
