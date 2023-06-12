@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef, useCallback} from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import {
   Image,
   View,
@@ -7,10 +7,10 @@ import {
   Alert,
   TouchableOpacity,
 } from 'react-native';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-import {useSelector} from 'react-redux';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { useSelector } from 'react-redux';
 import Header from '../../Components/Header';
-import {loaderOne} from '../../Components/Loaders/AnimatedLoaderFiles';
+import { loaderOne } from '../../Components/Loaders/AnimatedLoaderFiles';
 import TextInputWithlabel from '../../Components/TextInputWithlabel';
 import WrapperContainer from '../../Components/WrapperContainer';
 import PhoneNumberInput from '../../Components/PhoneNumberInput';
@@ -27,16 +27,19 @@ import {
   width,
 } from '../../styles/responsiveSize';
 import imagePath from '../../constants/imagePath';
-import {transportationArray} from '../../utils/constants/ConstantValues';
+import { transportationArray } from '../../utils/constants/ConstantValues';
 import stylesFunction from './styles';
 import actions from '../../redux/actions';
 import navigationStrings from '../../navigation/navigationStrings';
-import {showError, showSuccess} from '../../utils/helperFunctions';
-import {removeItem} from '../../utils/utils';
-import {removerUserData} from '../../redux/actions/auth';
+import { showError, showSuccess } from '../../utils/helperFunctions';
+import { removeItem } from '../../utils/utils';
+import { removerUserData } from '../../redux/actions/auth';
+import { getBundleId } from 'react-native-device-info';
+import { appIds } from '../../utils/constants/DynamicAppKeys';
+import Share from 'react-native-share';
 import Clipboard from '@react-native-community/clipboard';
 
-export default function MyProfile({route, navigation}) {
+export default function MyProfile({ route, navigation }) {
   const userData = useSelector(state => state?.auth?.userData);
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
   const defaultLanguagae = useSelector(
@@ -58,7 +61,8 @@ export default function MyProfile({route, navigation}) {
 
     type: userData?.type ? userData?.type : null,
     team: userData?.team ? userData?.team : null,
-    referCode: userData?.refferal_code ? userData?.refferal_code : ''
+    referCode: userData?.refferal_code ? userData?.refferal_code : '',
+    DriverUniqueId: userData?.unique_id,
   });
 
   const {
@@ -74,11 +78,27 @@ export default function MyProfile({route, navigation}) {
     modelMake,
     vehicleColor,
     plateNumber,
+    DriverUniqueId,
     referCode,
   } = state;
-  const commonStyles = commonStylesFunc({fontFamily});
+  const commonStyles = commonStylesFunc({ fontFamily });
 
-  const updateState = data => setState(state => ({...state, ...data}));
+  const updateState = data => setState(state => ({ ...state, ...data }));
+  const onShare = () => {
+    let options = {
+      title: 'Driver id',
+      message: DriverUniqueId,
+    }
+    Share.open(options)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        err && console.log(err);
+      });
+
+  };
+
   useEffect(() => {
     if (Object.keys(userData).length > 0) {
       updateState({
@@ -97,7 +117,8 @@ export default function MyProfile({route, navigation}) {
 
         type: userData?.type ? userData?.type : null,
         team: userData?.team ? userData?.team : null,
-        referCode: userData?.refferal_code ? userData?.refferal_code : ''
+        referCode: userData?.refferal_code ? userData?.refferal_code : '',
+        DriverUniqueId: userData?.unique_id,
       });
     }
   }, [
@@ -108,11 +129,11 @@ export default function MyProfile({route, navigation}) {
     userData?.name,
   ]);
 
-  const styles = stylesFunction({defaultLanguagae});
+  const styles = stylesFunction({ defaultLanguagae });
 
   //Naviagtion to specific screen
   const moveToNewScreen = (screenName, data) => () => {
-    navigation.navigate(screenName, {data});
+    navigation.navigate(screenName, { data });
   };
 
   const onDeleteAccount = () => {
@@ -158,12 +179,12 @@ export default function MyProfile({route, navigation}) {
       isLoadingB={isLoading}
       source={loaderOne}>
       <Header
-        headerStyle={{backgroundColor: colors.white}}
+        headerStyle={{ backgroundColor: colors.white }}
         // hideRight={true}
         // onPressLeft={()=>navigation.goBack()}
         centerTitle={strings.PROFILE}
       />
-      <View style={{...commonStyles.headerTopLine}} />
+      <View style={{ ...commonStyles.headerTopLine }} />
       <View style={styles.rootContainer}>
         <KeyboardAwareScrollView
           showsVerticalScrollIndicator={false}
@@ -172,7 +193,7 @@ export default function MyProfile({route, navigation}) {
           <View style={styles.imageViewStyle}>
             {userData && userData?.image_url && (
               <Image
-                source={{uri: userData?.image_url}}
+                source={{ uri: userData?.image_url }}
                 style={styles.imageStyle}
               />
             )}
@@ -194,8 +215,8 @@ export default function MyProfile({route, navigation}) {
                 textInputStyle={styles.textInputStyle}
               /> */}
               <View
-                style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-                <View style={{flex: 0.5, marginBottom: moderateScale(20)}}>
+                style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                <View style={{ flex: 0.5, marginBottom: moderateScale(20) }}>
                   <View>
                     <Text style={[styles.label2, styles.textInputStyle]}>
                       {strings.FULLNAME}
@@ -211,7 +232,7 @@ export default function MyProfile({route, navigation}) {
                   </Text>
                 </View>
 
-                <View style={{flex: 0.5, marginBottom: moderateScale(20)}}>
+                <View style={{ flex: 0.5, marginBottom: moderateScale(20) }}>
                   <View>
                     <Text style={[styles.label2, styles.textInputStyle]}>
                       {strings.PHONENUMBER}
@@ -230,28 +251,28 @@ export default function MyProfile({route, navigation}) {
               <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                 {!!type && (
                   <View style={{ flex: 0.5, marginBottom: moderateScale(20) }}>
-                <View>
-                  <Text style={[styles.label2, styles.textInputStyle]}>
-                    {strings.JOBTYPE}
-                  </Text>
-                </View>
-                <Text
-                  style={{
-                    color: colors.black,
-                    fontFamily: fontFamily.semiBold,
-                    fontSize: textScale(12),
-                  }}>
-                  {type}
-                </Text>
-              </View>
-                )}
-              {!!referCode && (
-                <TouchableOpacity onPress={copyToClipboard} style={{ flex: 0.5, marginBottom: moderateScale(20) }}>
-                  <View>
-                    <Text style={[styles.label2, styles.textInputStyle]}>
-                      {strings.REFERRAL_CODE}
+                    <View>
+                      <Text style={[styles.label2, styles.textInputStyle]}>
+                        {strings.JOBTYPE}
+                      </Text>
+                    </View>
+                    <Text
+                      style={{
+                        color: colors.black,
+                        fontFamily: fontFamily.semiBold,
+                        fontSize: textScale(12),
+                      }}>
+                      {type}
                     </Text>
                   </View>
+                )}
+                {!!referCode && (
+                  <TouchableOpacity onPress={copyToClipboard} style={{ flex: 0.5, marginBottom: moderateScale(20) }}>
+                    <View>
+                      <Text style={[styles.label2, styles.textInputStyle]}>
+                        {strings.REFERRAL_CODE}
+                      </Text>
+                    </View>
                     <View style={{ flexDirection: 'row', }}>
                       <Text
                         style={{
@@ -263,11 +284,11 @@ export default function MyProfile({route, navigation}) {
                       </Text>
                       <Image style={{ marginLeft: moderateScale(20) }} source={imagePath.details} />
                     </View>
-                </TouchableOpacity>
-              )}
-            </View>
+                  </TouchableOpacity>
+                )}
+              </View>
               {!!team && (
-                <View style={{marginBottom: moderateScale(20)}}>
+                <View style={{ marginBottom: moderateScale(20) }}>
                   <View>
                     <Text style={[styles.label2, styles.textInputStyle]}>
                       {strings.ASSIGNEDTEAM}
@@ -280,6 +301,31 @@ export default function MyProfile({route, navigation}) {
                       fontSize: textScale(12),
                     }}>
                     {team?.name}
+                  </Text>
+                </View>
+              )}
+
+              {!!DriverUniqueId && (
+                <View style={{ marginBottom: moderateScale(20) }}>
+                  <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', }}>
+                    <Text style={[styles.label2, styles.textInputStyle]}>
+                      Driver id
+                    </Text>
+                    <TouchableOpacity
+                      onPress={onShare}
+                    >
+                      <Image
+                        source={imagePath.share}
+                      />
+                    </TouchableOpacity>
+                  </View>
+                  <Text
+                    style={{
+                      color: colors.black,
+                      fontFamily: fontFamily.semiBold,
+                      fontSize: textScale(12),
+                    }}>
+                    {DriverUniqueId}
                   </Text>
                 </View>
               )}
@@ -321,7 +367,7 @@ export default function MyProfile({route, navigation}) {
             )}
             <View style={styles.carInfoStyle}>
               {!!modelMake && (
-                <View style={{marginBottom: moderateScale(20)}}>
+                <View style={{ marginBottom: moderateScale(20) }}>
                   <View>
                     <Text style={[styles.label2, styles.textInputStyle]}>
                       {strings.MODELMAKE}
@@ -339,7 +385,7 @@ export default function MyProfile({route, navigation}) {
               )}
 
               {!!vehicleColor && (
-                <View style={{marginBottom: moderateScale(20)}}>
+                <View style={{ marginBottom: moderateScale(20) }}>
                   <View>
                     <Text style={[styles.label2, styles.textInputStyle]}>
                       {strings.COLOR}
@@ -357,10 +403,10 @@ export default function MyProfile({route, navigation}) {
               )}
 
               {!!plateNumber && (
-                <View style={{marginBottom: moderateScale(20)}}>
+                <View style={{ marginBottom: moderateScale(20) }}>
                   <View>
                     <Text style={[styles.label2, styles.textInputStyle]}>
-                      {(getBundleId() == appIds.mrVeloz && defaultLanguagae?.value == 'es') ? strings.PLATEORDER_MRVELOZ :strings.PLATEORDER}
+                      {(getBundleId() == appIds.mrVeloz && defaultLanguagae?.value == 'es') ? strings.PLATEORDER_MRVELOZ : strings.PLATEORDER}
                     </Text>
                   </View>
                   <Text

@@ -1,4 +1,4 @@
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
+export const API_BASE_URL = 'https://sales.rdstaging.com/';
 // export const API_BASE_URL='https://dispatch.jeevannapp.com/'
 //export const API_BASE_URL = 'https://805c-103-72-170-243.ngrok.io/';
 // export const API_BASE_URL = 'https://dispatch.shelf.ae';
@@ -36,7 +36,7 @@
 // export const API_BASE_URL = 'https://delivery.onebasket.rw/';
 
 //Destinationops
-export const API_BASE_URL = 'https://dispatch.destinationops.com/';
+// export const API_BASE_URL = 'https://dispatch.destinationops.com/';
 
 // export const API_BASE_URL = 'https://dispatch.10dollahollla.com/';
 //  export const API_BASE_URL='http://192.168.102.70:8008/'
