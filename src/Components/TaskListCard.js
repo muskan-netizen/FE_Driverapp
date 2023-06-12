@@ -56,7 +56,7 @@ const TaskListCard = ({
   const styles = stylesFunc({defaultLanguagae});
 
   const getDate = date => {
-    const local = moment.utc(date).local().format('DD MMM YYYY hh:mm:a');
+    const local = moment.utc(date).format('DD MMM YYYY hh:mm:a');
     return local;
   };
 
