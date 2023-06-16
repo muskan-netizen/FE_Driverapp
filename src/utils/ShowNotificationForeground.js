@@ -1,13 +1,12 @@
 
+import messaging from '@react-native-firebase/messaging';
 import { useEffect } from 'react';
 import { Platform } from 'react-native';
-import PushNotificationIOS from '@react-native-community/push-notification-ios';
-import messaging from '@react-native-firebase/messaging';
 // import PushNotification, { Importance } from 'react-native-push-notification';
-import actions from '../redux/actions';
+import notifee, { AndroidColor, AndroidImportance } from '@notifee/react-native';
 import { navigate } from '../navigation/NavigationService';
 import navigationStrings from '../navigation/navigationStrings';
-import notifee, { AndroidColor, AndroidImportance } from '@notifee/react-native';
+import actions from '../redux/actions';
 import { showhideNotificationModal } from './helperFunctions';
 
 const ShowNotificationForeground = props => {
@@ -16,26 +15,37 @@ const ShowNotificationForeground = props => {
       console.log('remote message foreground', remoteMessage);
       const { data, messageId, notification } = remoteMessage;
       let notificationType = data?.type || data?.notificationType || 'AR';
-      const channelId = await notifee.createChannel({
-        id: 'default-channel-id',
-        name: 'Default Channel',
-        vibration: true,
-        lightColor: AndroidColor.YELLOW,
-        sound: 'default',
-        importance: AndroidImportance.HIGH,
-      });
-      const channelIdRoyo = await notifee.createChannel({
-        id: 'Royo-Delivery',
-        name: 'Royo Delivery',
-        vibration: true,
-        lightColor: AndroidColor.YELLOW,
-        sound: 'notification',
-        importance: AndroidImportance.HIGH,
-      });
+
+
+      if (notification?.android?.sound == "default") {
+        var channelId = await notifee.createChannel({
+          id: 'default',
+          name: 'Default Channel',
+          vibration: true,
+          lightColor: AndroidColor.YELLOW,
+          sound: 'default',
+          importance: AndroidImportance.HIGH,
+        });
+      }
+
+      else {
+        var customSoundChannelId = await notifee.createChannel({
+          id: notification.android?.channelId,
+          name: 'Default Channel',
+          vibration: true,
+          lightColor: AndroidColor.YELLOW,
+          sound: notification?.android?.sound,
+          importance: AndroidImportance.HIGH,
+        });
+
+      }
+
+
+
       let displayNotificationData = {}
       if (Platform.OS == "ios") {
         displayNotificationData = {
-          title:  notification?.title || notificationType || '',
+          title: notification?.title || notificationType || '',
           body: data?.message || notification?.body || '',
           data: { ...data },
         };
@@ -43,13 +53,13 @@ const ShowNotificationForeground = props => {
       }
       else {
         displayNotificationData = {
-          title:  notification?.title || notificationType||'',
+          title: notification?.title || notificationType || '',
           body: data?.message || notification?.body || '',
           android: {
-            sound: notification.sound == 'notification'
+            sound: notification?.android?.sound == 'notification'
               ? 'notification'
               : 'default',
-            channelId: notification.android?.channelId || channelId,
+            channelId: notification?.android?.sound == "default" ? channelId : customSoundChannelId,
             pressAction: {
               id: 'default',
             },
@@ -60,7 +70,7 @@ const ShowNotificationForeground = props => {
         };
       }
 
-    
+
 
       await notifee.displayNotification(displayNotificationData);
       if (
@@ -70,7 +80,7 @@ const ShowNotificationForeground = props => {
         console.log('here>>2');
         if (data && notificationType && notificationType != 'N') {
           actions.isModalVisibleForAcceptReject({
-            isModalVisibleForAcceptReject:showhideNotificationModal(notificationType),
+            isModalVisibleForAcceptReject: showhideNotificationModal(notificationType),
             notificationData: remoteMessage,
           });
         }
@@ -84,7 +94,7 @@ const ShowNotificationForeground = props => {
         console.log('here>>3');
         if (data && notificationType && notificationType != 'N') {
           actions.isModalVisibleForAcceptReject({
-            isModalVisibleForAcceptReject:showhideNotificationModal(notificationType),
+            isModalVisibleForAcceptReject: showhideNotificationModal(notificationType),
             notificationData: remoteMessage,
           });
         }
