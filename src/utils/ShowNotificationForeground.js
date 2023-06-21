@@ -1,4 +1,3 @@
-
 import messaging from '@react-native-firebase/messaging';
 import { useEffect } from 'react';
 import { Platform } from 'react-native';
@@ -16,42 +15,43 @@ const ShowNotificationForeground = props => {
       const { data, messageId, notification } = remoteMessage;
       let notificationType = data?.type || data?.notificationType || 'AR';
 
-
-      if (notification?.android?.sound == "default") {
-        var channelId = await notifee.createChannel({
-          id: 'default',
-          name: 'Default Channel',
-          vibration: true,
-          lightColor: AndroidColor.YELLOW,
-          sound: 'default',
-          importance: AndroidImportance.HIGH,
-        });
-      }
-
-      else {
-        var customSoundChannelId = await notifee.createChannel({
-          id: notification.android?.channelId,
-          name: 'Default Channel',
-          vibration: true,
-          lightColor: AndroidColor.YELLOW,
-          sound: notification?.android?.sound,
-          importance: AndroidImportance.HIGH,
-        });
-
-      }
-
-
-
       let displayNotificationData = {}
+
       if (Platform.OS == "ios") {
         displayNotificationData = {
           title: notification?.title || notificationType || '',
           body: data?.message || notification?.body || '',
+          ios: {
+            sound: notification?.sound == 'notification.mp3'
+              ? 'notification.mp3'
+              : 'default',
+          },
           data: { ...data },
         };
-
       }
       else {
+        if (notification?.android?.sound == "notification") {
+
+          var customSoundChannelId = await notifee.createChannel({
+            id: notification?.android?.channelId || "Royo-Delivery",
+            name: 'Default Channel',
+            vibration: true,
+            lightColor: AndroidColor.YELLOW,
+            sound: notification?.android?.sound || "notification",
+            importance: AndroidImportance.HIGH,
+          });
+        }
+        else {
+          var channelId = await notifee.createChannel({
+            id: 'default',
+            name: 'Default Channel',
+            vibration: true,
+            lightColor: AndroidColor.YELLOW,
+            sound: 'default',
+            importance: AndroidImportance.HIGH,
+          });
+
+        }
         displayNotificationData = {
           title: notification?.title || notificationType || '',
           body: data?.message || notification?.body || '',
@@ -59,7 +59,7 @@ const ShowNotificationForeground = props => {
             sound: notification?.android?.sound == 'notification'
               ? 'notification'
               : 'default',
-            channelId: notification?.android?.sound == "default" ? channelId : customSoundChannelId,
+            channelId: notification?.android?.sound == "notification" ? customSoundChannelId : channelId,
             pressAction: {
               id: 'default',
             },
@@ -70,14 +70,11 @@ const ShowNotificationForeground = props => {
         };
       }
 
-
-
       await notifee.displayNotification(displayNotificationData);
       if (
         Platform.OS == 'android' &&
-        notification.android.sound == 'notification'
+        notification?.android?.sound == 'notification'
       ) {
-        console.log('here>>2');
         if (data && notificationType && notificationType != 'N') {
           actions.isModalVisibleForAcceptReject({
             isModalVisibleForAcceptReject: showhideNotificationModal(notificationType),
@@ -90,8 +87,8 @@ const ShowNotificationForeground = props => {
           });
         }
       }
-      if (Platform.OS == 'ios' && notification.sound == 'notification.mp3') {
-        console.log('here>>3');
+      if (Platform.OS == 'ios' && notification?.sound == 'notification.mp3') {
+
         if (data && notificationType && notificationType != 'N') {
           actions.isModalVisibleForAcceptReject({
             isModalVisibleForAcceptReject: showhideNotificationModal(notificationType),
@@ -109,8 +106,6 @@ const ShowNotificationForeground = props => {
   }, []);
   return null;
 };
-
-
 
 
 export default ShowNotificationForeground;

@@ -1,10 +1,9 @@
-import {Platform} from 'react-native';
-import {getBundleId} from 'react-native-device-info';
+import { Platform } from 'react-native';
 
 const shortCodes = {
   sales: '745e3f',
   runrun: 'cbec70',
-  royoDispatch: '1da2e9',
+  royoDispatch: '8e3eef',
   deliverstat: 'e6b31c',
   africanVillageMarket: '6c786d',
   africanize: 'a98da0',
@@ -529,7 +528,7 @@ const shortCodes = {
 };
 
 const appIds = {
-  royoorder: Platform.select({
+  royoDispatch: Platform.select({
     ios: 'com.CodeBrew.Royo.Driver',
     android: 'com.codebrew.royodispatcher',
   }),
@@ -2612,4 +2611,4 @@ const appIds = {
   }),
 };
 
-export {appIds, shortCodes};
+export { appIds, shortCodes };
