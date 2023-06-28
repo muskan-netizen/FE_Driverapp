@@ -12,6 +12,7 @@ const shortCodes = {
   voltaic: '0ff16f',
   elixir: 'cca668',
   zest: 'ddceeb',
+  emart: 'f21fb6',
 };
 
 const appIds = {
@@ -58,6 +59,10 @@ const appIds = {
   spa: Platform.select({
     ios: 'com.spa.Dispatch',
     android: 'com.spa.royodispatcher',
+  }),
+  emart: Platform.select({
+    ios: 'com.emart.dispatcher',
+    android: 'com.emart.dispatcher',
   }),
   
 };

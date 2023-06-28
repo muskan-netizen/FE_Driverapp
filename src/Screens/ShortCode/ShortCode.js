@@ -264,6 +264,7 @@ export default function ShortCode({route, navigation}) {
       </View>
     );
   };
+  
   const _renderSplash = () => {
     switch (getBundleId()) {
       case appIds.flank:
