@@ -12,7 +12,7 @@ const shortCodes = {
   voltaic: '0ff16f',
   elixir: 'cca668',
   zest: 'ddceeb',
-  emart: 'f21fb6',
+  emart: 'a68bb7',
 };
 
 const appIds = {

@@ -14,6 +14,7 @@ export const getAppCode = () => {
         case appIds.homeric: return shortCodes.homeric
         case appIds.gokab: return shortCodes.gokab
         case appIds.spa: return shortCodes.spa
+        case appIds.emart: return shortCodes.emart
 
         default: return '1da2e9'
     }

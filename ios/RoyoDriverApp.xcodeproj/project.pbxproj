@@ -770,6 +770,7 @@
 				840F4A57273FD214002ED470 /* Resources */,
 				02239024C5340DF8C21E49F9 /* [CP] Embed Pods Frameworks */,
 				DE1AAA95380F908E318B2318 /* [CP] Copy Pods Resources */,
+				FE0D8A252A69603A0085CB40 /* Bundle React Native code and images */,
 			);
 			buildRules = (
 			);
@@ -2330,6 +2331,24 @@
 			shellPath = /bin/sh;
 			shellScript = "";
 		};
+		FE0D8A252A69603A0085CB40 /* Bundle React Native code and images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Bundle React Native code and images";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
+		};
 		FF7169C9BD4384B98E401D6B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2735,6 +2754,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 6FXUMT5X23;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 6FXUMT5X23;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2756,6 +2776,7 @@
 				PROJECT_NAME = "${PROJECT_NAME}";
 				PROJECT_PLIST = "$(PROJECT_PLIST)";
 				PROVISIONING_PROFILE_SPECIFIER = "Grub Dispatch[App Store]";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Grub Dispatch";
 				SWIFT_OBJC_BRIDGING_HEADER = "RoyoDriverApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
