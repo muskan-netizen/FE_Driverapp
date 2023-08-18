@@ -1102,8 +1102,7 @@ export default function Signup({ route, navigation }) {
               </TouchableOpacity>
 
               {isTeams && (
-                <View
-                  style={{
+                  <ScrollView nestedScrollEnabled={true} style={{
                     borderWidth: 1,
                     borderColor: colors.borderColorB,
                     backgroundColor: colors.white,
@@ -1116,7 +1115,6 @@ export default function Signup({ route, navigation }) {
                     borderRadius: moderateScale(5),
                     maxHeight: moderateScale(150),
                   }}>
-                  <ScrollView>
                     {driverTeams?.length > 0 ? (
                       <View>
                         {driverTeams.map((itm, indx) => {
@@ -1153,7 +1151,6 @@ export default function Signup({ route, navigation }) {
                       </View>
                     )}
                   </ScrollView>
-                </View>
               )}
             </View>
 
