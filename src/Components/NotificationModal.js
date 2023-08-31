@@ -165,9 +165,9 @@ const NotificationModal = () => {
           <View style={{marginHorizontal: moderateScale(10)}}>
             {renderDotContainer()}
           </View>
-          <View style={{justifyContent: 'center'}}>
+          <View style={{justifyContent: 'center',width:width/1.2}}>
             <Text
-              numberOfLines={1}
+              numberOfLines={2}
               style={[
                 styles.address,
                 {
