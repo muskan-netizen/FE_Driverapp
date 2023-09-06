@@ -165,7 +165,7 @@ const NotificationModal = () => {
           <View style={{marginHorizontal: moderateScale(10)}}>
             {renderDotContainer()}
           </View>
-          <View style={{justifyContent: 'center',width:width/1.2}}>
+          <View style={{justifyContent: 'center',width:moderateScale(width/1.3)}}>
             <Text
               numberOfLines={2}
               style={[
@@ -181,8 +181,8 @@ const NotificationModal = () => {
       );
     } else {
       return (
-        <View style={{paddingHorizontal: moderateScale(30)}}>
-          <Text numberOfLines={1} style={[styles.address]}>
+        <View style={{paddingHorizontal: moderateScale(30),width:moderateScale(width/1.3)}}>
+          <Text numberOfLines={2} style={[styles.address]}>
             {item?.address}
           </Text>
         </View>
