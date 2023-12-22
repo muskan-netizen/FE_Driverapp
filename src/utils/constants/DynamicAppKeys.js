@@ -2,7 +2,7 @@ import { Platform } from 'react-native';
 
 const shortCodes = {
   ace: '3c58a1',
-  spa: '69dd33',
+  spa: '60b280',
   homeric: '66951f',
   gokab: '362d14', 
   grub: 'b68843',
