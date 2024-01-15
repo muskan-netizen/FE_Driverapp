@@ -1,43 +1,32 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState } from 'react';
 import {
   Image,
-  ScrollView,
-  Animated,
-  TouchableWithoutFeedback,
   Text,
-  TouchableOpacity,
-  View,
-  Alert,
-  StyleSheet,
   TextInput,
+  TouchableOpacity,
+  View
 } from 'react-native';
-import MapView from 'react-native-maps';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 import Header from '../../Components/Header';
-import {loaderOne} from '../../Components/Loaders/AnimatedLoaderFiles';
+import { loaderOne } from '../../Components/Loaders/AnimatedLoaderFiles';
 import WrapperContainer from '../../Components/WrapperContainer';
 import imagePath from '../../constants/imagePath';
 import strings from '../../constants/lang';
 // import store from '../../redux/store';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import ButtonComponent from '../../Components/ButtonComponent';
+import navigationStrings from '../../navigation/navigationStrings';
+import actions from '../../redux/actions';
 import colors from '../../styles/colors';
 import commonStylesFunc from '../../styles/commonStyles';
 import fontFamily from '../../styles/fontFamily';
 import {
-  moderateScale,
-  moderateScaleVertical,
-  textScale,
-  width,
+  moderateScale
 } from '../../styles/responsiveSize';
 import {
-  getColorCodeWithOpactiyNumber,
-  showError,
+  showError
 } from '../../utils/helperFunctions';
 import styles from './styles';
-import Communications from 'react-native-communications';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-import ButtonComponent from '../../Components/ButtonComponent';
-import actions from '../../redux/actions';
-import navigationStrings from '../../navigation/navigationStrings';
 
 var ACTION_TIMER = 1500;
 var COLORS = ['#8FEE90', '#27A468'];
@@ -184,7 +173,8 @@ export default function TaskCancel({route, navigation}) {
         )}
       </KeyboardAwareScrollView>
 
-      <ButtonComponent buttonTitle={strings.DONE} onPress={submitReason} />
+      <ButtonComponent  buttonTitle={strings.DONE} onPress={submitReason} />
+      {clientInfo?.is_freelancer&& <View style={{marginBottom:20}}/>}
     </WrapperContainer>
   );
 }
