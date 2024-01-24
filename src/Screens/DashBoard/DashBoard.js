@@ -66,11 +66,10 @@ var finaltodayTasks = [];
 
 export default function DashBoard({ route, navigation }) {
   const { userData } = useSelector(state => state?.auth || {});
-  const { attributeFormData } = useSelector(state => state?.initBoot || {});
+  const { attributeFormData, } = useSelector(state => state?.initBoot || {});
   const defaultLanguagae = useSelector(
     state => state?.initBoot?.defaultLanguage,
   );
-  console.log(attributeFormData,userData,"attributeFormDataattributeFormDataattributeFormDataattributeFormData");
   const {
     clientInfo,
     sessionLogoutUser,
@@ -80,6 +79,7 @@ export default function DashBoard({ route, navigation }) {
     zendeskKeys,
     notificationData,
   } = useSelector(state => state?.initBoot);
+  console.log(clientInfo,userData,"userDatauserData");
   const { isCabPooling, initialValue } = useSelector(state => state?.auth) || {};
 
   const ref = useRef(orderCallbackUrl);
@@ -255,14 +255,14 @@ export default function DashBoard({ route, navigation }) {
       BackgroundGeolocation.configure({
         activityType: 'Fitness',
         desiredAccuracy: BackgroundGeolocation.HIGH_ACCURACY,
-        stationaryRadius: 10,
-        distanceFilter: 10,
+        stationaryRadius: clientInfo?.distance_in_meter ? clientInfo?.distance_in_meter : 10,
+        distanceFilter: clientInfo?.distance_in_meter ? clientInfo?.distance_in_meter : 10,
         debug: false,
         startOnBoot: false,
         stopOnTerminate: true,
         notificationTitle: 'Location Tracking',
         notificationText: `Tracking driver's location in background.`,
-        locationProvider: BackgroundGeolocation.ACTIVITY_PROVIDER,
+        locationProvider: BackgroundGeolocation.DISTANCE_FILTER_PROVIDER,
         interval: 10000,
         fastestInterval: 10000,
         activitiesInterval: 10000,
