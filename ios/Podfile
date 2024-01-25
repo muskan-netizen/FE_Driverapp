@@ -85,6 +85,11 @@ target 'Voltaic' do
     
 end
 
+#KhaleejTimes Target
+target 'KhaleejTimes' do
+    
+end
+
 
 
 post_install do |installer|

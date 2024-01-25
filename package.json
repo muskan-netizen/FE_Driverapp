@@ -25,6 +25,8 @@
     "gokabdispatcherRelease": "cd android && ./gradlew assembleGokabRelease",
     "spadispatcher": "react-native run-android --variant=spaDebug",
     "spadispatcherRelease": "cd android && ./gradlew assembleSpaRelease",
+    "khaleejTimes": "react-native run-android --variant=khaleejTimesDebug",
+    "khaleejTimesRelease": "cd android && ./gradlew assemblekhaleejTimesRelease",
 
     "build_ios": "react-native bundle --entry-file='index.js' --bundle-output='./ios/main.jsbundle' --dev=false --platform='ios'",
     "android": "react-native run-android",

@@ -1,5 +1,5 @@
 // export const API_BASE_URL = 'https://api.rdstaging.com/';
-export const API_BASE_URL = 'https://api.royodispatch.com/';
+//export const API_BASE_URL = 'https://api.royodispatch.com/';
 //export const API_BASE_URL = 'https://805c-103-72-170-243.ngrok.io/';
 
 // export const API_BASE_URL = 'https://gokab.royodispatch.com/'
@@ -10,6 +10,7 @@ export const API_BASE_URL = 'https://api.royodispatch.com/';
 // export const API_BASE_URL = 'https://punnet.royodispatch.com/'
 
 // export const API_BASE_URL = 'https://grub.royodispatch.com/';
+export const API_BASE_URL = 'https://khaleejtimes.royodispatch.com/';
 
 
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;

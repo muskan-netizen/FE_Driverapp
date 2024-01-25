@@ -13,6 +13,7 @@ const shortCodes = {
   elixir: 'cca668',
   zest: 'ddceeb',
   emart: 'a68bb7',
+  khaleejTimes:'8ec6c2'
 };
 
 const appIds = {
@@ -63,6 +64,10 @@ const appIds = {
   emart: Platform.select({
     ios: 'com.emart.dispatcher',
     android: 'com.emart.dispatcher',
+  }),
+  khaleejTimes: Platform.select({
+    ios: 'com.khaleejTimes.dispatcher',
+    android: 'com.khaleejTimes.dispatcher',
   }),
   
 };
