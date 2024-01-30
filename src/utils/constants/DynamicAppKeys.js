@@ -67,7 +67,7 @@ const appIds = {
   }),
   khaleejTimes: Platform.select({
     ios: 'com.khaleejTimes.dispatcher',
-    android: 'com.khaleejTimes.dispatcher',
+    android: 'com.khaleejTimes.royodispatcher',
   }),
   
 };
