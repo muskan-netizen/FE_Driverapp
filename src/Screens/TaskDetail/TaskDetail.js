@@ -68,7 +68,7 @@ export default function TaskDetail({ route, navigation }) {
   const { clientInfo, defaultLanguage } = useSelector(state => state?.initBoot);
   const styles = stylesFunc({ defaultLanguage });
   const commonStyles = commonStylesFunc({ fontFamily });
-
+console.log(clientInfo,'clientInfoclientInfo');
   const [state, setState] = useState({
     vendors: {},
     isLoading: false,
@@ -762,8 +762,8 @@ export default function TaskDetail({ route, navigation }) {
                   color: colors.black,
                 }}>
                 {`${(taskDetail?.tasktype?.name).toLowerCase() == 'drop'
-                    ? strings.DROP
-                    : strings.PICKUP
+                    ? clientInfo?.getAdditionalPreference?.drop_type ? clientInfo?.getAdditionalPreference?.drop_type: strings.DROP
+                    : clientInfo?.getAdditionalPreference?.pickup_type ? clientInfo?.getAdditionalPreference?.pickup_type: strings.PICKUP
                   }`}
               </Text>
             </View>

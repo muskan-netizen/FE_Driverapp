@@ -125,7 +125,13 @@ def nativeArchitectures = project.getProperties().get("reactNativeDebugArchitect
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
-   
+    packagingOptions {
+        pickFirst '**/libc++_shared.so'
+        pickFirst "**/libarcore_sdk_c.so"
+        pickFirst '**/libfbjni.so'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/*'
+    }
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
