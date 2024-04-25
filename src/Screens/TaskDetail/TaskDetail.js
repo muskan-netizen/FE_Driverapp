@@ -506,25 +506,25 @@ console.log(clientInfo,'clientInfoclientInfo');
     console.log(taskStatus, 'getStatusName');
     switch (taskStatus) {
       case 1:
-        updateState({ buttonText: (getBundleId() == appIds.mrVeloz && defaultLanguage?.value == 'es') ? strings.HOLDTOSTART_MRVELOZ : strings.HOLDTOSTART });
+        updateState({ buttonText:  strings.HOLDTOSTART });
         break;
       case 2:
-        updateState({ buttonText: (getBundleId() == appIds.mrVeloz && defaultLanguage?.value == 'es') ? strings.HOLDTOARRIVE_MRVELOZ : strings.HOLDTOARRIVE });
+        updateState({ buttonText:  strings.HOLDTOARRIVE });
         break;
       case 3:
         updateState({
           buttonText:
             taskDetail?.tasktype?.name == "Drop"
-              ? (getBundleId() == appIds.mrVeloz && defaultLanguage?.value == 'es') ? strings.HOLDTOCOMPLETE_MRVELOZ : strings.HOLDTOCOMPLETE
-              : (getBundleId() == appIds.mrVeloz && defaultLanguage?.value == 'es') ? strings.HOLDTOPICK_MRVELOZ : strings.HOLDTOPICK,
+              ? strings.HOLDTOCOMPLETE
+              : strings.HOLDTOPICK,
         });
         break;
       case 4:
         updateState({
           buttonText:
             taskDetail?.tasktype?.name == "Drop"
-              ? (getBundleId() == appIds.mrVeloz && defaultLanguage?.value == 'es') ? strings.HOLDTOCOMPLETE_MRVELOZ : strings.HOLDTOCOMPLETE
-              : (getBundleId() == appIds.mrVeloz && defaultLanguage?.value == 'es') ? strings.HOLDTOPICK_MRVELOZ : strings.HOLDTOPICK,
+              ? strings.HOLDTOCOMPLETE
+              : strings.HOLDTOPICK,
         });
         break;
       default:
@@ -1323,7 +1323,7 @@ console.log(clientInfo,'clientInfoclientInfo');
                 {getDate(taskDetail?.order?.order_time)}
               </Text>
             </View>
-            <Text style={styles.taskLable}>{strings.NAME}</Text>
+            {/* <Text style={styles.taskLable}>{strings.NAME}</Text> */}
 
             {!!Number(taskDetail?.order?.cash_to_be_collected) > 0 && (
               <View style={{ flex: 0.4 }}>
