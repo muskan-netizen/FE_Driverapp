@@ -506,25 +506,25 @@ console.log(clientInfo,'clientInfoclientInfo');
     console.log(taskStatus, 'getStatusName');
     switch (taskStatus) {
       case 1:
-        updateState({ buttonText:  strings.HOLDTOSTART });
+        updateState({ buttonText: clientInfo?.getAdditionalPreference?.hold_to_start ? clientInfo?.getAdditionalPreference?.hold_to_start :  strings.HOLDTOSTART });
         break;
       case 2:
-        updateState({ buttonText:  strings.HOLDTOARRIVE });
+        updateState({ buttonText: clientInfo?.getAdditionalPreference?.hold_to_arrive ? clientInfo?.getAdditionalPreference?.hold_to_arrive :   strings.HOLDTOARRIVE });
         break;
       case 3:
         updateState({
           buttonText:
             taskDetail?.tasktype?.name == "Drop"
-              ? strings.HOLDTOCOMPLETE
-              : strings.HOLDTOPICK,
+              ? clientInfo?.getAdditionalPreference?.hold_to_complete ? clientInfo?.getAdditionalPreference?.hold_to_complete :  strings.HOLDTOCOMPLETE
+              : clientInfo?.getAdditionalPreference?.hold_to_pick ? clientInfo?.getAdditionalPreference?.hold_to_pick :  strings.HOLDTOPICK,
         });
         break;
       case 4:
         updateState({
           buttonText:
             taskDetail?.tasktype?.name == "Drop"
-              ? strings.HOLDTOCOMPLETE
-              : strings.HOLDTOPICK,
+            ? clientInfo?.getAdditionalPreference?.hold_to_complete ? clientInfo?.getAdditionalPreference?.hold_to_complete :  strings.HOLDTOCOMPLETE
+            : clientInfo?.getAdditionalPreference?.hold_to_pick ? clientInfo?.getAdditionalPreference?.hold_to_pick :  strings.HOLDTOPICK,
         });
         break;
       default:
