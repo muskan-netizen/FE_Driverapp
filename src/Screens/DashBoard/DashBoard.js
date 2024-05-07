@@ -355,23 +355,11 @@ export default function DashBoard({ route, navigation }) {
       data['device_token'] = !!fcmToken ? fcmToken : '';
       data['heading_angle'] = heading_;
 
-      console.log(data, 'data>data====');
+      console.log(data, 'logs data hittt');
       actions
         .logsApi(data, { client: clientInfo?.database_name })
         .then(res => {
-          console.log(res, 'logs data');
-          // if (
-          //   res?.data?.user?.client_preference
-          //     ?.customer_support_application_id != null &&
-          //   res?.data?.user?.client_preference?.customer_support_key != null
-          // ) {
-          //   if (
-          //     zendeskKeys?.keys?.account_key !=
-          //       res?.data?.user?.client_preference?.customer_support_key &&
-          //     zendeskKeys?.keys?.application_id !=
-          //       res?.data?.user?.client_preference
-          //         ?.customer_support_application_id
-          //   )
+          console.log(res, 'logs data',clientInfo?.distance_in_meter);
               actions?.setZendeskKeys({
                 keys: {
                   application_id:
@@ -381,19 +369,11 @@ export default function DashBoard({ route, navigation }) {
                     res?.data?.user?.client_preference?.customer_support_key,
                 },
               });
-            
-          // }
 
           if (res?.data?.user?.is_pooling_available) {
             actions.savePoolingStatusForLifeCycle(
               res?.data?.user?.is_pooling_available,
             );
-          }
-
-          if (selectedOption == 1) {
-            updateState({ allTasks: res?.data?.tasks });
-          } else {
-            updateState({ todaysTasks: res?.data?.tasks });
           }
         })
         .catch(errorMethod);
@@ -407,7 +387,7 @@ export default function DashBoard({ route, navigation }) {
       } else {
         getAllPoolingSuggestions();
       }
-    }, [selectedOption]),
+    }, [selectedOption,notificationData]),
   );
 
   useEffect(() => {
@@ -418,7 +398,7 @@ export default function DashBoard({ route, navigation }) {
         getAllPoolingSuggestions();
       }
     }
-  }, [isLoading, isRefreshing]);
+  }, [isLoading, isRefreshing,notificationData]);
 
   useEffect(() => {
     if (refreshHomeData) {
@@ -428,7 +408,7 @@ export default function DashBoard({ route, navigation }) {
         getAllPoolingSuggestions();
       }
     }
-  }, [refreshHomeData]);
+  }, [refreshHomeData,notificationData]);
 
   useEffect(() => {
     (async () => {
@@ -1001,7 +981,7 @@ export default function DashBoard({ route, navigation }) {
           latitudeDelta: 0.035,
           longitudeDelta: 0.0321,
         }}
-        // showsUserLocation={true}
+        showsUserLocation={true}
         // showsMyLocationButton={true}
         onLayout={() => fitToMap()}
         //   customMapStyle={mapStyle}
@@ -1026,12 +1006,6 @@ export default function DashBoard({ route, navigation }) {
                 }}></Marker>
             ),
         )}
-        <Marker
-          image={imagePath.pinBlue}
-          coordinate={{
-            latitude: Number(latitude),
-            longitude: Number(longitude),
-          }}></Marker>
       </MapView>
     );
   };
