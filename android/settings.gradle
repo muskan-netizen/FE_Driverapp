@@ -12,3 +12,4 @@ include ':@hariks789_react-native-background-geolocation'
 project(':@hariks789_react-native-background-geolocation').projectDir = new File(rootProject.projectDir, '../node_modules/@hariks789/react-native-background-geolocation/android/lib')
 include ':react-native-video'
 project(':react-native-video').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-video/android-exoplayer')
+includeBuild('../node_modules/@react-native/gradle-plugin')
