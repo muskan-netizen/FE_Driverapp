@@ -51,7 +51,7 @@ navigator.geolocation = require('react-native-geolocation-service');
 // import BackgroundService from 'react-native-background-actions';
 import socketServices from '../../utils/scoketService';
 // import BackgroundTimer from 'react-native-background-timer';
-import BackgroundGeolocation from '@hariks789/react-native-background-geolocation';
+// import BackgroundGeolocation from '@hariks789/react-native-background-geolocation';
 import generateBoxShadowStyle from '../../Components/generateBoxShadowStyle';
 import GradientButton from '../../Components/GradientButton';
 import BottomSheet, { BottomSheetScrollView } from '@gorhom/bottom-sheet';
@@ -186,107 +186,107 @@ export default function DashBoard({ route, navigation }) {
     return () => backHandler.remove();
   }, []);
 
-  useEffect(() => {
-    if (isEnabled) {
-      BackgroundGeolocation.on('location', location => {
-        let headingAngle = location?.bearing || 0.0;
-        let lat = location?.latitude || 0;
-        let long = location.longitude || 0;
-        ref.current = orderCallbackUrl;
-        fetchgentLogs(lat, long, headingAngle);
-        console.log(lat, long, headingAngle, 'at, long, headingAngle=>');
-      });
+  // useEffect(() => {
+  //   if (isEnabled) {
+  //     BackgroundGeolocation.on('location', location => {
+  //       let headingAngle = location?.bearing || 0.0;
+  //       let lat = location?.latitude || 0;
+  //       let long = location.longitude || 0;
+  //       ref.current = orderCallbackUrl;
+  //       fetchgentLogs(lat, long, headingAngle);
+  //       console.log(lat, long, headingAngle, 'at, long, headingAngle=>');
+  //     });
 
-      BackgroundGeolocation.on('error', error => {
-        console.log('[ERROR] BackgroundGeolocation error:', error);
-      });
+  //     BackgroundGeolocation.on('error', error => {
+  //       console.log('[ERROR] BackgroundGeolocation error:', error);
+  //     });
 
-      BackgroundGeolocation.on('authorization', status => {
-        console.log(
-          '[INFO] BackgroundGeolocation authorization status: ' + status,
-        );
-        if (status !== BackgroundGeolocation.AUTHORIZED) {
-          // we need to set delay or otherwise alert may not be shown
-          setTimeout(
-            () =>
-              Alert.alert(
-                'App requires location tracking permission',
-                'Would you like to open app settings?',
-                [
-                  {
-                    text: 'Yes',
-                    onPress: () => BackgroundGeolocation.showAppSettings(),
-                  },
-                  {
-                    text: 'No',
-                    onPress: () => console.log('No Pressed'),
-                    style: 'cancel',
-                  },
-                ],
-              ),
-            1000,
-          );
-        }
-      });
+  //     BackgroundGeolocation.on('authorization', status => {
+  //       console.log(
+  //         '[INFO] BackgroundGeolocation authorization status: ' + status,
+  //       );
+  //       if (status !== BackgroundGeolocation.AUTHORIZED) {
+  //         // we need to set delay or otherwise alert may not be shown
+  //         setTimeout(
+  //           () =>
+  //             Alert.alert(
+  //               'App requires location tracking permission',
+  //               'Would you like to open app settings?',
+  //               [
+  //                 {
+  //                   text: 'Yes',
+  //                   onPress: () => BackgroundGeolocation.showAppSettings(),
+  //                 },
+  //                 {
+  //                   text: 'No',
+  //                   onPress: () => console.log('No Pressed'),
+  //                   style: 'cancel',
+  //                 },
+  //               ],
+  //             ),
+  //           1000,
+  //         );
+  //       }
+  //     });
 
-      BackgroundGeolocation.on('background', () => {
-        console.log('[INFO] App is in background');
-      });
+  //     BackgroundGeolocation.on('background', () => {
+  //       console.log('[INFO] App is in background');
+  //     });
 
-      BackgroundGeolocation.on('foreground', () => {
-        console.log('[INFO] App is in foreground');
-      });
+  //     BackgroundGeolocation.on('foreground', () => {
+  //       console.log('[INFO] App is in foreground');
+  //     });
 
-      BackgroundGeolocation.on('abort_requested', () => {
-        console.log('[INFO] Server responded with 285 Updates Not Required');
-      });
+  //     BackgroundGeolocation.on('abort_requested', () => {
+  //       console.log('[INFO] Server responded with 285 Updates Not Required');
+  //     });
 
-      BackgroundGeolocation.on('http_authorization', () => {
-        console.log('[INFO] App needs to authorize the http requests');
-      });
+  //     BackgroundGeolocation.on('http_authorization', () => {
+  //       console.log('[INFO] App needs to authorize the http requests');
+  //     });
 
-      BackgroundGeolocation.checkStatus(status => {
-        console.log(status, 'status.isRunning');
-        if (!status.isRunning) {
-          BackgroundGeolocation.start(); //triggers start on start event
-        }
-      });
+  //     BackgroundGeolocation.checkStatus(status => {
+  //       console.log(status, 'status.isRunning');
+  //       if (!status.isRunning) {
+  //         BackgroundGeolocation.start(); //triggers start on start event
+  //       }
+  //     });
 
-      BackgroundGeolocation.configure({
-        activityType: 'Fitness',
-        desiredAccuracy: BackgroundGeolocation.HIGH_ACCURACY,
-        stationaryRadius: clientInfo?.distance_in_meter ? clientInfo?.distance_in_meter : 10,
-        distanceFilter: clientInfo?.distance_in_meter ? clientInfo?.distance_in_meter : 10,
-        debug: false,
-        startOnBoot: false,
-        stopOnTerminate: true,
-        notificationTitle: 'Location Tracking',
-        notificationText: `Tracking driver's location in background.`,
-        locationProvider: BackgroundGeolocation.DISTANCE_FILTER_PROVIDER,
-        interval: 10000,
-        fastestInterval: 10000,
-        activitiesInterval: 10000,
-        stopOnStillActivity: false,
-        pauseLocationUpdates: false,
-        url: '',
-        httpHeaders: {
-          'X-FOO': 'bar',
-        },
-        // customize post properties
-        postTemplate: {
-          lat: '@latitude',
-          lon: '@longitude',
-          foo: 'bar', // you can also add your own properties
-        },
-      });
-    } else {
-      BackgroundGeolocation.removeAllListeners();
-    }
+  //     BackgroundGeolocation.configure({
+  //       activityType: 'Fitness',
+  //       desiredAccuracy: BackgroundGeolocation.HIGH_ACCURACY,
+  //       stationaryRadius: clientInfo?.distance_in_meter ? clientInfo?.distance_in_meter : 10,
+  //       distanceFilter: clientInfo?.distance_in_meter ? clientInfo?.distance_in_meter : 10,
+  //       debug: false,
+  //       startOnBoot: false,
+  //       stopOnTerminate: true,
+  //       notificationTitle: 'Location Tracking',
+  //       notificationText: `Tracking driver's location in background.`,
+  //       locationProvider: BackgroundGeolocation.DISTANCE_FILTER_PROVIDER,
+  //       interval: 10000,
+  //       fastestInterval: 10000,
+  //       activitiesInterval: 10000,
+  //       stopOnStillActivity: false,
+  //       pauseLocationUpdates: false,
+  //       url: '',
+  //       httpHeaders: {
+  //         'X-FOO': 'bar',
+  //       },
+  //       // customize post properties
+  //       postTemplate: {
+  //         lat: '@latitude',
+  //         lon: '@longitude',
+  //         foo: 'bar', // you can also add your own properties
+  //       },
+  //     });
+  //   } else {
+  //     BackgroundGeolocation.removeAllListeners();
+  //   }
 
-    return () => {
-      BackgroundGeolocation.removeAllListeners();
-    };
-  }, [orderCallbackUrl, setOrderCallbackUrl, ref, isEnabled]);
+  //   return () => {
+  //     BackgroundGeolocation.removeAllListeners();
+  //   };
+  // }, [orderCallbackUrl, setOrderCallbackUrl, ref, isEnabled]);
 
   useFocusEffect(
     React.useCallback(() => {

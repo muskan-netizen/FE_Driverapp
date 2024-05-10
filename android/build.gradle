@@ -10,6 +10,7 @@ buildscript {
         playServicesVersion="17.0.0"
         ndkVersion = "26.1.10909125"
         kotlinVersion = "1.9.22"
+        playServicesLocationVersion = "21.0.1"
 
     }
     repositories {
@@ -20,7 +21,7 @@ buildscript {
        classpath("com.android.tools.build:gradle")
         classpath("com.facebook.react:react-native-gradle-plugin")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin")
-        classpath 'com.google.gms:google-services:4.3.10' 
+        classpath 'com.google.gms:google-services:4.3.14' 
     }
     allprojects {
     repositories {

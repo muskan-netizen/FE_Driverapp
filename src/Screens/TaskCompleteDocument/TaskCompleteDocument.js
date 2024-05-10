@@ -51,9 +51,9 @@ import {
 import stylesFunc from './styles';
 navigator.geolocation = require('react-native-geolocation-service');
 
-var image1 = new FaceImage();
-var image2 = new FaceImage();
-var request = new MatchFacesRequest();
+// var image1 = new FaceImage();
+// var image2 = new FaceImage();
+// var request = new MatchFacesRequest();
 
 const window = Dimensions.get('window');
 let pressedItem = {};
