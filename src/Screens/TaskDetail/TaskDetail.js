@@ -55,6 +55,7 @@ import { mapStyle } from '../../utils/constants/MapStyle';
 import { getAllTravelDetails } from '../../utils/googlePlaceApi';
 import { getBundleId } from 'react-native-device-info';
 import { appIds } from '../../utils/constants/DynamicAppKeys';
+import SlideToComplete from '../../Components/SlideToComplete';
 
 var ACTION_TIMER = 1500;
 var COLORS = ['#8FEE90', '#27A468'];
@@ -141,6 +142,7 @@ console.log(clientInfo,'clientInfoclientInfo');
     apiData: null,
     cancelRequestExit: null,
     totalTravelData: null,
+    isSlide:false
   });
 
   const {
@@ -162,6 +164,7 @@ console.log(clientInfo,'clientInfoclientInfo');
     productAllInsrucations,
     apiData,
     totalTravelData,
+    isSlide
   } = state;
   const updateState = data => setState(state => ({ ...state, ...data }));
 
@@ -643,14 +646,18 @@ console.log(clientInfo,'clientInfoclientInfo');
     return (cancelRequestExit || paramData?.is_from_calendar) ? null : (
       // return (
       <View style={styles.container}>
-        <TouchableWithoutFeedback
+        {isSlide ?
+          <SlideToComplete taskStatus={taskStatus} statusTitle={buttonText} onScrollComplete={(taskStatus)=>{taskStatus == 3 ? redirectToDoneScreen() : updateState({ buttonPressComplete: 1 })}} />
+          :
+          <TouchableWithoutFeedback
           onPressIn={taskStatus == 3 ? redirectToDoneScreen : handlePressIn}
           onPressOut={handlePressOut}>
           <View style={styles.button} onLayout={getButtonWidthLayout}>
             <Animated.View style={[styles.bgFill, getProgressStyles()]} />
             <Text style={styles.text}>{buttonText}</Text>
           </View>
-        </TouchableWithoutFeedback>
+        </TouchableWithoutFeedback>}
+        
       </View>
     );
   };
