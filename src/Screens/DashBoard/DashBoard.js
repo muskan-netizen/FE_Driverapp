@@ -442,14 +442,6 @@ export default function DashBoard({ route, navigation }) {
         });
 
         actions.userCurrentLocation(position);
-
-        // getCurrentLocation(
-        //   position.coords.latitude,
-        //   position.coords.longitude,
-        //   "address"
-        // )
-        //   .then((res) => alert(res))
-        //   .catch((error) => console.log("error rasied", error));
       },
       error => console.log(error.message),
       {
@@ -982,7 +974,7 @@ export default function DashBoard({ route, navigation }) {
           longitudeDelta: 0.0321,
         }}
         showsUserLocation={true}
-        // showsMyLocationButton={true}
+        showsMyLocationButton={true}
         onLayout={() => fitToMap()}
         //   customMapStyle={mapStyle}
         onRegionChangeComplete={_onRegionChange}>
@@ -1288,7 +1280,13 @@ export default function DashBoard({ route, navigation }) {
         )}
       </View>
 
-      <View style={{ flex: 1 }}>{renderComponents()}</View>
+      <View style={{ flex: 1 }}>
+        {renderComponents()}
+      {Platform.OS =="ios" && <TouchableOpacity onPress={currentLocation} style={{position:'absolute',top:moderateScale(10),right:moderateScale(20),backgroundColor:colors.blackOpacity10,padding:moderateScale(4),borderRadius:moderateScale(8)}}>
+        <Image style={{tintColor:colors.black,width:moderateScale(20),height:moderateScale(20)}} source={imagePath.currentLocation}/>
+        </TouchableOpacity>}
+      </View>
+      
     </WrapperContainer>
   );
 }
