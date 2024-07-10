@@ -232,23 +232,28 @@ export default function DashBoard({route, navigation}) {
     }, [isCabPooling]),
   );
   useEffect(() => {
-    const watchId = Geolocation.watchPosition(
-      position => {
-        const {latitude, longitude,heading} = position.coords;
-        updateState({latitude: latitude, longitude: longitude});
-        console.log(position.coords, 'position.coords in location');
-        fetchgentLogs(latitude, longitude, heading);
-      },
-      error => console.error(error,'error in location'),
-      {
-        enableHighAccuracy: true,
-        timeout: 20000,
-        maximumAge: 1000,
-        distanceFilter: clientInfo?.distance_in_meter||50,
-      },
-    );
 
-    return () => Geolocation.clearWatch(watchId);
+    chekLocationPermission()
+    .then(result => {
+      const watchId = Geolocation.watchPosition(
+        position => {
+          const {latitude, longitude,heading} = position.coords;
+          updateState({latitude: latitude, longitude: longitude});
+          console.log(position.coords, 'position.coords in location');
+          fetchgentLogs(latitude, longitude, heading);
+        },
+        error => console.error(error,'error in location'),
+        {
+          enableHighAccuracy: true,
+          timeout: 20000,
+          maximumAge: 1000,
+          distanceFilter: clientInfo?.distance_in_meter||50,
+        },
+      );
+  
+      return () => Geolocation.clearWatch(watchId);
+    })
+    .catch(error => console.log('error while accessing location', error));
   }, []);
 
   const fetchgentLogs = async (lat, lng, heading_) => {
