@@ -1215,7 +1215,11 @@ console.log(clientInfo,'clientInfoclientInfo');
           }}>
           {taskDetail?.order?.customer?.name && (
             <View
-              style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+              style={{ flexDirection: "row", justifyContent: "space-between" }}
+            >
+              <Text style={styles.customerName}>
+                {taskDetail?.order?.customer?.name}
+              </Text>
               <Text style={{ fontFamily: fontFamily.bold }}>
                 {strings.TRACKINGID}:-{taskDetail?.order?.unique_id}
               </Text>
