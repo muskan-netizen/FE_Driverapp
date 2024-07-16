@@ -185,7 +185,7 @@ const TaskListCard = ({
                 fontFamily: fontFamily?.bold
               }}
             >
-              {(getBundleId() == appIds.mrVeloz && defaultLanguagae?.value == 'es') ? strings.CASH_COLLECTED : 'Cash Collected :'} {data?.order?.cash_to_be_collected}{' '}
+              {(getBundleId() == appIds.mrVeloz && defaultLanguagae?.value == 'es') ? strings.CASH_COLLECTED : 'Cash Collected :'} {data?.order?.status == 'completed' ? data?.order?.cash_to_be_collected:0}{' '}
             </Text>
           ) : (
             <View />
