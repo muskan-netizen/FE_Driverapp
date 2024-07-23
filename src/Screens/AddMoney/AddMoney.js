@@ -347,7 +347,10 @@ export default function AddMoney({navigation}) {
                   navigation.navigate(navigationStrings.WALLET);
                 }
               })
-              .catch(err => console.log(err, 'errrStripe'));
+              .catch(err => {
+                errorMethod(err)
+                updateState({isLoading: false, isRefreshing: false});
+                console.log(err, 'errrStripe')});
           } else {
             updateState({isLoading: false});
           }
