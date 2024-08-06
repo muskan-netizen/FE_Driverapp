@@ -16,7 +16,8 @@ export const getAppCode = () => {
         case appIds.spa: return shortCodes.spa
         case appIds.emart: return shortCodes.emart
         case appIds.khaleejTimes: return shortCodes.khaleejTimes
+        case appIds.n2go: return shortCodes.n2go
 
-        default: return '1da2e9'
+        default: return '102ad2'
     }
 }

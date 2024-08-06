@@ -27,6 +27,8 @@
     "spadispatcherRelease": "cd android && ./gradlew assembleSpaRelease",
     "khaleejTimes": "react-native run-android --mode=khaleejTimesDebug",
     "khaleejTimesRelease": "cd android && ./gradlew assemblekhaleejTimesRelease",
+    "n2godispatcher": "react-native run-android --mode=n2goDebug",
+    "n2godispatcherRelease": "cd android && ./gradlew assemblen2goRelease",
     "build_ios": "react-native bundle --entry-file='index.js' --bundle-output='./ios/main.jsbundle' --dev=false --platform='ios'",
     "android": "react-native run-android",
     "ios": "react-native run-ios",

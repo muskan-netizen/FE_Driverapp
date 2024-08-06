@@ -283,6 +283,16 @@ android {
             "app_name",
             "khaleejTimes Dispatch"
         }
+          n2go{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion           
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            // applicationIdSuffix ".royoorder"
+            applicationId 'com.n2go.dispatcher'
+            resValue "string", "app_name", "N2go Dispatcher"
+        }
 
     }
 }

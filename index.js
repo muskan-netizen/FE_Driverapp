@@ -9,6 +9,9 @@ import { Platform } from 'react-native';
 import { navigate } from './src/navigation/NavigationService';
 import navigationStrings from './src/navigation/navigationStrings';
 import { showhideNotificationModal } from './src/utils/helperFunctions';
+// import NativeDevSettings from 'react-native/Libraries/NativeModules/specs/NativeDevSettings';
+
+// NativeDevSettings.setIsDebuggingRemotely(true);
 
 // Register background handler
 messaging().setBackgroundMessageHandler(async remoteMessage => {
