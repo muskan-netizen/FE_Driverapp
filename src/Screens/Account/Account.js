@@ -14,6 +14,8 @@ import ZendeskChat from '../../library/react-native-zendesk-chat';
 import strings from '../../constants/lang'
 import actions from '../../redux/actions'
 import { showError, showSuccess } from '../../utils/helperFunctions'
+import { removerUserData } from '../../redux/actions/auth'
+import { removeItem } from '../../utils/utils'
 
 export default function Account({
     navigation
@@ -80,12 +82,16 @@ export default function Account({
     const logout = () => {
         actions
             .logout({}, { client: clientInfo?.database_name })
-            .then(res => {
+            .then((res) => {
                 console.log(res, 'login data');
-
-                showSuccess(res?.message ? res?.message : 'Logout successfully.');
-                moveToNewScreen(navigationStrings.LOGIN)();
-            })
+                updateState({ isLoading: false });
+                setTimeout(() => {
+                   removeItem("userData").then(()=>{
+                     removerUserData()
+                     showSuccess(res?.message ? res?.message : 'Logout successfully.');
+                   })
+                }, 400);
+              })
             .catch(errorMethod);
     };
 
