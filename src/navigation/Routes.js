@@ -39,7 +39,7 @@ export function drawer(Stack) {
 
 export default function Routes() {
   const { userData } = useSelector(state => state?.auth || {});
-  const { clientInfo } = useSelector(state => state?.initBoot);
+  const { clientInfo } = useSelector(state => state?.initBoot || {});
 
   return (
     <NavigationContainer
@@ -47,7 +47,7 @@ export default function Routes() {
       ref={navigationRef}>
 
       <Stack.Navigator>
-        {userData && userData?.access_token ?
+        {!!userData && userData?.access_token ?
           <React.Fragment>
             {
               !clientInfo?.is_freelancer ? <Stack.Screen

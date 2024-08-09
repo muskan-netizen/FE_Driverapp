@@ -21,7 +21,7 @@ export default function (state = initial_state, action) {
 
     case types.USER_LOGOUT: {
       const data = action.payload;
-      return {...state, userData: undefined};
+      return {...state, userData: {}};
     }
     case types.POOLING: {
       const data = action.payload;

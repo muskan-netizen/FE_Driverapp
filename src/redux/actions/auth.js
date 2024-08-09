@@ -105,11 +105,7 @@ export function verifyAccount(data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
     apiPost(SEND_OTP, data, headers)
       .then(async res => {
-        setAttributeFormInfo(res?.data?.attribute_form)
-        setUserData(res.data).then(suc => {
-          saveUserData(res.data);
-          resolve(res);
-        });
+        resolve(res);
       })
       .catch((error) => {
         reject(error);
@@ -123,8 +119,6 @@ export function logout(data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
     apiGet(LOGOUT_API, data, headers)
       .then(async (res) => {
-        await removeItem("userData");
-        removerUserData();
         resolve(res);
       })
       .catch((error) => {

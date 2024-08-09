@@ -174,7 +174,7 @@ export default function TaskCancel({route, navigation}) {
       </KeyboardAwareScrollView>
 
       <ButtonComponent  buttonTitle={strings.DONE} onPress={submitReason} />
-      {clientInfo?.is_freelancer&& <View style={{marginBottom:20}}/>}
+      {clientInfo?.is_freelancer ? (<View style={{marginBottom:20}}/>):<></>}
     </WrapperContainer>
   );
 }

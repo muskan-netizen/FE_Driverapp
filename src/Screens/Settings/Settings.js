@@ -237,9 +237,15 @@ export default function Settings({route, navigation}) {
   const logout = () => {
     actions
       .logout({}, {client: clientInfo?.database_name})
-      .then(res => {
-        showSuccess(res?.message ? res?.message : 'Logout successfully.');
-        moveToNewScreen(navigationStrings.LOGIN)();
+      .then((res) => {
+        console.log(res, 'login data');
+        updateState({ isLoading: false });
+        setTimeout(() => {
+           removeItem("userData").then(()=>{
+             removerUserData()
+             showSuccess(res?.message ? res?.message : 'Logout successfully.');
+           })
+        }, 400);
       })
       .catch(errorMethod);
   };

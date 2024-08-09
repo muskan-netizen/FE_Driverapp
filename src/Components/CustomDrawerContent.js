@@ -27,12 +27,13 @@ import ZendeskChat from "react-native-zendesk-chat";
 import { appIds } from "../utils/constants/DynamicAppKeys";
 import { Subscriptions } from "../Screens";
 import { useDarkMode } from "react-native-dynamic";
-import { getItem } from "../utils/utils";
+import { getItem, removeItem } from "../utils/utils";
 import { string } from "is_js";
 import { saveCabPoolingStatus } from "../redux/actions/init";
 import { UIActivityIndicator } from 'react-native-indicators';
 import SvgUri from 'react-native-svg-uri';
 import { log } from "react-native-reanimated";
+import { removerUserData } from "../redux/actions/auth";
 
 
 const logoRegex = /.(svg)$/i
@@ -339,11 +340,15 @@ function CustomDrawerContent({
     updateState({ isLoading: true });
     actions
       .logout({}, { client: clientInfo?.database_name })
-      .then(res => {
+      .then((res) => {
         console.log(res, 'login data');
         updateState({ isLoading: false });
-        showSuccess(res?.message ? res?.message : 'Logout successfully.');
-        moveToNewScreen(navigationStrings.LOGIN)();
+        setTimeout(() => {
+           removeItem("userData").then(()=>{
+             removerUserData()
+             showSuccess(res?.message ? res?.message : 'Logout successfully.');
+           })
+        }, 400);
       })
       .catch(errorMethod);
   };

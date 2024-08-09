@@ -28,12 +28,13 @@ import PhoneNumberInput from '../../../Components/PhoneNumberInput';
 import Header from '../../../Components/Header';
 import SmoothPinCodeInput from 'react-native-smooth-pincode-input';
 import fontFamily from '../../../styles/fontFamily';
-import {getItem} from '../../../utils/utils';
+import {getItem, setUserData} from '../../../utils/utils';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {requestUserPermission} from '../../../utils/notificationServices';
 import RNOtpVerify from 'react-native-otp-verify';
 import useInterval from '../../../utils/useInterval';
 import {clockRunning} from 'react-native-reanimated';
+import { saveUserData, setAttributeFormInfo } from '../../../redux/actions/auth';
 
 export default function PhoneVerification({navigation, route}) {
   const paramData = route?.params?.data;
@@ -47,7 +48,6 @@ export default function PhoneVerification({navigation, route}) {
     otpToShow: '',
     otpPrefilled: false,
     otpTimer: 15,
-    
   });
 
   const {
@@ -183,12 +183,12 @@ export default function PhoneVerification({navigation, route}) {
       .then(res => {
         console.log(res, 'verifyAccountverifyAccount');
         updateState({isLoading: false});
-        // setTimeout(() => {
-        //   if (res?.data) {
-        // showSuccess(strings.ACCOUNTVERIFYSUCESS);
-        moveToNewScreen(navigationStrings.DRAWER_ROUTES)();
-        //   }
-        // }, 50);
+        setTimeout(() => {
+          setAttributeFormInfo(res?.data?.attribute_form);
+          setUserData(res.data).then(suc => {
+            saveUserData(res.data);
+          });
+        }, 400);
       })
       .catch(errorMethod);
   };

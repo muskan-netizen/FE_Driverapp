@@ -267,18 +267,18 @@ const TaskListCard = ({
             </Text>
           </View>
 
-          {!!showCurrency && (
+          {/* {!!showCurrency && (
             <View style={styles.currencyContainer}>
-              {/* <Image source={imagePath.dollor} /> */}
-              {/* <Text style={styles.dateTimeStyle}>
+              <Image source={imagePath.dollor} />
+              <Text style={styles.dateTimeStyle}>
                 {data?.order?.amount
                   ? Number(data?.order?.amount)
                       .toFixed(2)
                       .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
                   : Number(0).toFixed(2)}
-              </Text> */}
+              </Text>
             </View>
-          )}
+          )} */}
         </View>
 
         <View style={styles.dotViewStyle}>
