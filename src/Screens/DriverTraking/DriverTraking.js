@@ -49,7 +49,7 @@ useEffect(()=>{
     return () => clearInterval(interval);
 },[])
 
-console.log(userData,"userDatauserData");
+
 
  
 

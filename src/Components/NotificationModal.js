@@ -282,7 +282,6 @@ const NotificationModal = () => {
     }
   };
 
-  console.log(userData, 'userDatauserData');
 
   const _sendRequestToUser = () => {
     console.log(baseFare.length, !dropLocation?.formatted_address, 'baseFare');
@@ -751,9 +750,7 @@ const NotificationModal = () => {
       </View>
     );
   };
-  {
-    console.log(clientInfo?.database_name, 'clientInfo?.database_name');
-  }
+  
   const aceptRejectTask = status => {
     let notifData = notificationData?.notificationData?.data;
 

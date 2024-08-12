@@ -51,7 +51,7 @@ function CustomDrawerContent({
   const { isCabPooling, initialValue } = useSelector((state) => state?.auth);
   const { themeColors } = useSelector((state) => state?.initBoot);
 
-  console.log("isCabPooling", isCabPooling);
+
 
   const { userData } = useSelector((state) => state?.auth);
 
@@ -358,7 +358,6 @@ function CustomDrawerContent({
     updateState({ isLoading: false });
     showError(error?.message || error?.error);
   };
-  console.log(!zendeskKeys?.keys?.account_key && !zendeskKeys?.keys?.application_id, 'havsdyuva');
   const onStartSupportChat = () => {
     if (!zendeskKeys?.keys?.account_key && !zendeskKeys?.keys?.application_id) {
       showError('Zendesk not configured')
@@ -411,7 +410,6 @@ function CustomDrawerContent({
       });
   };
 
-  console.log(poolingState, "poolingStatepoolingStatepoolingState");
 
   return (
     <>
