@@ -84,7 +84,6 @@ export default function Account({
             .logout({}, { client: clientInfo?.database_name })
             .then((res) => {
                 console.log(res, 'login data');
-                updateState({ isLoading: false });
                 setTimeout(() => {
                    removeItem("userData").then(()=>{
                      removerUserData()
