@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "acedispatcher": "react-native run-android --mode=aceDebug",
-    "acedispatcherRelease": "cd android && ./gradlew assembleaceRelease",
+    "cladispatcher": "react-native run-android --mode=claDebug",
+    "cladispatcherRelease": "cd android && ./gradlew assembleclaRelease",
     "build_ios": "react-native bundle --entry-file='index.js' --bundle-output='./ios/main.jsbundle' --dev=false --platform='ios'",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
