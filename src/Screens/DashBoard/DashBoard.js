@@ -359,7 +359,11 @@ export default function DashBoard({route, navigation}) {
           longitude: position.coords.longitude,
           heading: position.coords.heading,
         });
-
+        fetchgentLogs(
+          position.coords.latitude,
+          position.coords.longitude,
+          position.coords.heading,
+        );
         actions.userCurrentLocation(position);
       },
       error => console.log(error.message),
