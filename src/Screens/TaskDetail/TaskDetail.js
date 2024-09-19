@@ -132,7 +132,8 @@ export default function TaskDetail({ route, navigation }) {
     apiData: null,
     cancelRequestExit: null,
     totalTravelData: null,
-    isSlide:false
+    isSlide:false,
+    isLoadingNextScreen:false,
   });
 
   const {
@@ -154,7 +155,8 @@ export default function TaskDetail({ route, navigation }) {
     productAllInsrucations,
     apiData,
     totalTravelData,
-    isSlide
+    isSlide,
+    isLoadingNextScreen
   } = state;
   const updateState = data => setState(state => ({ ...state, ...data }));
 
@@ -205,7 +207,7 @@ export default function TaskDetail({ route, navigation }) {
   };
   //Error handling in api
   const errorMethod = error => {
-    updateState({ isLoading: false, isRefreshing: false, isLoading: false });
+    updateState({ isLoading: false, isRefreshing: false, isLoading: false ,isLoadingNextScreen:false});
     showError(error?.message || error?.error);
   };
 
@@ -463,13 +465,13 @@ export default function TaskDetail({ route, navigation }) {
         language: defaultLanguage?.value ? defaultLanguage?.value : 'en',
       })
       .then(res => {
-        console.log(res, '<==res updateTask');
+        console.log(res, '<==res updateTask',taskStatus);
         updateState({ isLoading: false });
         if (res?.data) {
           ACTION_TIMER = 100;
           updateState({
             buttonPressComplete: 0,
-            taskStatus: Number(res?.data?.task_status),
+            taskStatus: Number(res?.data?.task_status)||taskStatus,
           });
           // getStatusName(taskStatus)
           setTimeout(async () => {
@@ -521,7 +523,7 @@ export default function TaskDetail({ route, navigation }) {
   };
 
   const redirectNextScreen = res => {
-    updateState({ isLoading: false });
+    updateState({ isLoading: false,isLoadingNextScreen:false });
     moveToNewScreen(navigationStrings.TASKCOMPLETEDOCUMENT, {
       taskDetail: taskDetail,
       updatedProofArray: updatedProofArray,
@@ -543,7 +545,7 @@ export default function TaskDetail({ route, navigation }) {
       if (_value === 1) {
         updateState({ buttonPressComplete: 1 });
         message = 'You held it long enough to fire the action!';
-        updateState({ isLoading: true });
+        updateState({ isLoading: true,isLoadingNextScreen:true });
         let data = {};
         data['task_id'] = taskDetail?.id;
         console.log(data, 'data');
@@ -635,6 +637,7 @@ export default function TaskDetail({ route, navigation }) {
           <SlideToComplete taskStatus={taskStatus} statusTitle={buttonText} onScrollComplete={(taskStatus)=>{taskStatus == 3 ? redirectToDoneScreen() : updateState({ buttonPressComplete: 1 })}} />
           :
           <TouchableWithoutFeedback
+          disabled={isLoadingNextScreen}
           onPressIn={taskStatus == 3 ? redirectToDoneScreen : handlePressIn}
           onPressOut={handlePressOut}>
           <View style={styles.button} onLayout={getButtonWidthLayout}>
@@ -1605,7 +1608,7 @@ export default function TaskDetail({ route, navigation }) {
     <WrapperContainer
       statusBarColor={colors.white}
       bgColor={colors.white}
-      isLoading={isLoading}
+      isLoading={isLoading||isLoadingNextScreen}
       source={loaderOne}>
       <Header
         headerStyle={{ backgroundColor: colors.white }}
