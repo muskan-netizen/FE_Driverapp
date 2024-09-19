@@ -1210,7 +1210,7 @@ export default function DashBoard({route, navigation}) {
 
       <View style={{flex: 1}}>
         {renderComponents()}
-        {Platform.OS == 'ios' && (
+        {Platform.OS == 'ios' && enableMap && (
           <TouchableOpacity
             onPress={currentLocation}
             style={{
