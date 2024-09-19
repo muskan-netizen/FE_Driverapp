@@ -39,7 +39,7 @@ import { appIds } from '../../utils/constants/DynamicAppKeys';
 export default function AddMoney({ navigation }) {
   const { userData } = useSelector(state => state?.auth);
   const { clientInfo, defaultLanguage } = useSelector(state => state?.initBoot);
-  console.log(clientInfo?.database_name, 'clientInfoclientInfo');
+
   const [state, setState] = useState({
     isPayoutModal: false,
     isLoading: true,

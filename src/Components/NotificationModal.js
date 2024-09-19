@@ -159,7 +159,6 @@ const NotificationModal = () => {
   };
 
   const onListAllAddress = ({ item, index }) => {
-    console.log(item, 'itemitem');
     if (item?.task_type_id == 2) {
       return (
         <View style={{ flexDirection: 'row' }}>
@@ -283,7 +282,7 @@ const NotificationModal = () => {
     }
   };
 
-  console.log(userData, 'userDatauserData');
+
 
   const _sendRequestToUser = () => {
     console.log(baseFare.length, !dropLocation?.formatted_address, 'baseFare');
@@ -754,9 +753,7 @@ const NotificationModal = () => {
       </View>
     );
   };
-  {
-    console.log(clientInfo?.database_name, 'clientInfo?.database_name');
-  }
+
   const aceptRejectTask = status => {
     if (status == 1) {
       updateState({ acceptLoader: true })
@@ -773,7 +770,7 @@ const NotificationModal = () => {
     data['status'] = status;
     data['type'] = !!notifData?.batch_no ? 'B' : 'O';
 
-    console.log(data, clientInfo?.database_name, 'data accept reject');
+
     actions
       .acceptRejectTask(data, { client: clientInfo?.database_name })
       .then(res => {

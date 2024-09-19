@@ -14,12 +14,7 @@ import {
 } from 'react-native';
 import ActionSheet from 'react-native-actionsheet';
 import Communications from 'react-native-communications';
-import MapView, {
-  AnimatedRegion,
-  Marker,
-  PROVIDER_GOOGLE,
-} from 'react-native-maps'; // import {createOpenLink} from '../../utils/CreateMapLinks';
-import { createMapLink, createOpenLink } from 'react-native-open-maps';
+import MapView from 'react-native-maps'; // import {createOpenLink} from '../../utils/CreateMapLinks';
 import { useSelector } from 'react-redux';
 import Header from '../../Components/Header';
 import { loaderOne } from '../../Components/Loaders/AnimatedLoaderFiles';
@@ -34,28 +29,23 @@ import commonStylesFunc from '../../styles/commonStyles';
 import fontFamily from '../../styles/fontFamily';
 navigator.geolocation = require('react-native-geolocation-service');
 
+import moment from 'moment';
+import ButtonComponent from '../../Components/ButtonComponent';
+import SlideToComplete from '../../Components/SlideToComplete';
 import {
   moderateScale,
   moderateScaleVertical,
   textScale,
   width,
 } from '../../styles/responsiveSize';
-import moment from 'moment';
-import {
-  getColorCodeWithOpactiyNumber,
-  getCurrentLocation,
-  getHostName,
-  showError,
-  showInfo,
-  showSuccess,
-} from '../../utils/helperFunctions';
-import stylesFunc from './styles';
-import ButtonComponent from '../../Components/ButtonComponent';
 import { mapStyle } from '../../utils/constants/MapStyle';
 import { getAllTravelDetails } from '../../utils/googlePlaceApi';
-import { getBundleId } from 'react-native-device-info';
-import { appIds } from '../../utils/constants/DynamicAppKeys';
-import SlideToComplete from '../../Components/SlideToComplete';
+import {
+  getColorCodeWithOpactiyNumber,
+  showError,
+  showSuccess
+} from '../../utils/helperFunctions';
+import stylesFunc from './styles';
 
 var ACTION_TIMER = 1500;
 var COLORS = ['#8FEE90', '#27A468'];
@@ -69,7 +59,7 @@ export default function TaskDetail({ route, navigation }) {
   const { clientInfo, defaultLanguage } = useSelector(state => state?.initBoot);
   const styles = stylesFunc({ defaultLanguage });
   const commonStyles = commonStylesFunc({ fontFamily });
-console.log(clientInfo,'clientInfoclientInfo');
+
   const [state, setState] = useState({
     vendors: {},
     isLoading: false,
@@ -219,9 +209,6 @@ console.log(clientInfo,'clientInfoclientInfo');
     showError(error?.message || error?.error);
   };
 
-  const _onRegionChange = region => {
-    updateState({ region: region });
-  };
 
   useEffect(() => {
     pressAction.addListener(v => (_value = v.value));
@@ -335,7 +322,6 @@ console.log(clientInfo,'clientInfoclientInfo');
         console.log(error, 'error error error');
       });
   };
-  console.log(taskDetail, 'taskDetail>>>>>>>>>>>>>>>>>>')
   const _getproductUpdateDetails = () => {
     actions
       .getProductUpdateDetails(new_dispatch_traking_url(), {})
@@ -381,8 +367,7 @@ console.log(clientInfo,'clientInfoclientInfo');
         style={styles.map}
         region={region}
         initialRegion={region}
-        customMapStyle={mapStyle}
-        onRegionChangeComplete={_onRegionChange}>
+        customMapStyle={mapStyle}>
         <MapView.Marker
           tracksViewChanges={false}
           key={`coordinate_${taskDetail?.id}`}

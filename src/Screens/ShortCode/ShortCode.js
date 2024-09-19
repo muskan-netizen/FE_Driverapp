@@ -88,7 +88,7 @@ export default function ShortCode({route, navigation}) {
       });
     }
     const getClientInfo = await getItem('clientInfo');
-    console.log('clientInfoclientInfo', getClientInfo);
+
     dispatch({
       type: types.APP_INIT,
       payload: getClientInfo,

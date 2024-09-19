@@ -72,7 +72,7 @@ export default function DashBoard({route, navigation}) {
     zendeskKeys,
     notificationData,
   } = useSelector(state => state?.initBoot);
-  console.log(clientInfo, userData, 'userDatauserData');
+
   const {isCabPooling, initialValue} = useSelector(state => state?.auth) || {};
 
   const ref = useRef(orderCallbackUrl);
