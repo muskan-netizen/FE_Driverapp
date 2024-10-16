@@ -358,7 +358,11 @@ export default function DashBoard({route, navigation}) {
           longitude: position.coords.longitude,
           heading: position.coords.heading,
         });
-
+        fetchgentLogs(
+          position.coords.latitude,
+          position.coords.longitude,
+          position.coords.heading,
+        );
         actions.userCurrentLocation(position);
       },
       error => console.log(error.message),
@@ -1205,7 +1209,7 @@ export default function DashBoard({route, navigation}) {
 
       <View style={{flex: 1}}>
         {renderComponents()}
-        {Platform.OS == 'ios' && (
+        {Platform.OS == 'ios' && enableMap && (
           <TouchableOpacity
             onPress={currentLocation}
             style={{

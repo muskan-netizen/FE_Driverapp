@@ -1,6 +1,6 @@
 //import liraries
-import {useNavigation} from '@react-navigation/native';
-import React, {useCallback, useEffect, useState} from 'react';
+import { useNavigation } from '@react-navigation/native';
+import React, { useCallback, useEffect, useState } from 'react';
 import {
   FlatList,
   Image,
@@ -12,10 +12,11 @@ import {
   TextInput,
   Keyboard,
   Linking,
+  ActivityIndicator,
 } from 'react-native';
 import MapView from 'react-native-maps';
 import Modal from 'react-native-modal';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 import imagePath from '../constants/imagePath';
 import strings from '../constants/lang';
 import actions from '../redux/actions';
@@ -28,14 +29,14 @@ import {
   textScale,
   width,
 } from '../styles/responsiveSize';
-import {showError, showSuccess} from '../utils/helperFunctions';
+import { showError, showSuccess } from '../utils/helperFunctions';
 import ModalView from './ShortCodeConfirmModal';
 import moment from 'moment';
-import {shortCodes} from '../utils/constants/DynamicAppKeys';
-import {navigate} from '../navigation/NavigationService';
+import { shortCodes } from '../utils/constants/DynamicAppKeys';
+import { navigate } from '../navigation/NavigationService';
 import navigationStrings from '../navigation/navigationStrings';
-import {isEmpty} from 'lodash';
-import {googlePlacesApi} from '../utils/googlePlaceApi';
+import { isEmpty } from 'lodash';
+import { googlePlacesApi } from '../utils/googlePlaceApi';
 import * as RNLocalize from 'react-native-localize';
 
 const NotificationModal = () => {
@@ -53,7 +54,7 @@ const NotificationModal = () => {
     orderData: {},
     customerData: {},
   });
-  const {notificationData, currentLocation} = useSelector(
+  const { notificationData, currentLocation } = useSelector(
     state => state?.initBoot,
   );
   const userData = useSelector(state => state?.auth?.userData);
@@ -100,15 +101,15 @@ const NotificationModal = () => {
   }, [notificationData?.notificationData?.data]);
 
   //update state
-  const updateState = data => setState(state => ({...state, ...data}));
+  const updateState = data => setState(state => ({ ...state, ...data }));
 
   const _onRegionChange = region => {
-    updateState({region: region});
+    updateState({ region: region });
   };
   const getCustomNotificationData = () => {
     console.log(notificationData, 'notificationData');
     actions
-      .getCustomNotificationPayload(`/${notificationData?.notificationData?.data?.order_id}`, {}, {shortCode: shortCode})
+      .getCustomNotificationPayload(`/${notificationData?.notificationData?.data?.order_id}`, {}, { shortCode: shortCode })
       .then(res => {
         updateState({
           notificationDropLocationsData: res?.tasks,
@@ -157,15 +158,14 @@ const NotificationModal = () => {
     return local;
   };
 
-  const onListAllAddress = ({item, index}) => {
-    console.log(item, 'itemitem');
+  const onListAllAddress = ({ item, index }) => {
     if (item?.task_type_id == 2) {
       return (
-        <View style={{flexDirection: 'row'}}>
-          <View style={{marginHorizontal: moderateScale(10)}}>
+        <View style={{ flexDirection: 'row' }}>
+          <View style={{ marginHorizontal: moderateScale(10) }}>
             {renderDotContainer()}
           </View>
-          <View style={{justifyContent: 'center',width:moderateScale(width/1.3)}}>
+          <View style={{ justifyContent: 'center', width: moderateScale(width / 1.3) }}>
             <Text
               numberOfLines={2}
               style={[
@@ -181,7 +181,7 @@ const NotificationModal = () => {
       );
     } else {
       return (
-        <View style={{paddingHorizontal: moderateScale(30),width:moderateScale(width/1.3)}}>
+        <View style={{ paddingHorizontal: moderateScale(30), width: moderateScale(width / 1.3) }}>
           <Text numberOfLines={2} style={[styles.address]}>
             {item?.address}
           </Text>
@@ -193,7 +193,7 @@ const NotificationModal = () => {
   const renderDotContainer = () => {
     return (
       <>
-        <View style={{height: 40, overflow: 'hidden', alignItems: 'center'}}>
+        <View style={{ height: 40, overflow: 'hidden', alignItems: 'center' }}>
           <View style={styles.dotContainerStyle} />
         </View>
 
@@ -350,14 +350,16 @@ const NotificationModal = () => {
               alignSelf: 'flex-end',
             }}>
             <TouchableOpacity
+              disabled={rejectLoader}
               onPress={() => aceptRejectTask(2)}
               style={styles.taskRejectButtonTextStyle}>
-              <Text style={styles.text}>{strings.REJECT}</Text>
+              {rejectLoader ? <ActivityIndicator color={colors.white} size={'small'} /> : <Text style={styles.text}>{strings.REJECT}</Text>}
             </TouchableOpacity>
             <TouchableOpacity
+              disabled={acceptLoader}
               onPress={() => aceptRejectTask(1)}
               style={styles.taskAcceptButtonTextStyle}>
-              <Text style={styles.text}>{strings.ACCEPT}</Text>
+              {acceptLoader ? <ActivityIndicator color={colors.white} size={'small'} /> : <Text style={styles.text}>{strings.ACCEPT}</Text>}
             </TouchableOpacity>
           </View>
         );
@@ -456,7 +458,7 @@ const NotificationModal = () => {
   };
 
   const onRenderLocations = useCallback(
-    ({item, index}) => {
+    ({ item, index }) => {
       return (
         <TouchableOpacity
           style={{
@@ -484,7 +486,7 @@ const NotificationModal = () => {
     let data = notificationData?.notificationData?.data;
     let notificationType = data?.type ? data?.type : data?.notificationType;
     return (
-      <View style={{overflow: 'hidden', borderRadius: moderateScale(10)}}>
+      <View style={{ overflow: 'hidden', borderRadius: moderateScale(10) }}>
         <View>{!!region && mapView()}</View>
         <View>
           <Text
@@ -497,7 +499,7 @@ const NotificationModal = () => {
             {orderData?.task_description}
           </Text>
         </View>
-        <View style={{padding: 8}}>
+        <View style={{ padding: 8 }}>
           {!!orderData?.usertask?.name ? (
             <Text
               numberOfLines={1}
@@ -548,7 +550,7 @@ const NotificationModal = () => {
             )}
 
             {orderData?.cash_to_be_collected > 0 && (
-              <View style={{alignItems: 'center'}}>
+              <View style={{ alignItems: 'center' }}>
                 <Text numberOfLines={1} style={styles.priceTitleTextStyle}>
                   {strings.PRICE}
                 </Text>
@@ -572,7 +574,7 @@ const NotificationModal = () => {
               {`Booked Seats :-`} {orderData?.no_seats_for_pooling}
             </Text>
           )}
-          <View style={{flexDirection: 'row'}}>
+          <View style={{ flexDirection: 'row' }}>
             <View>
               <Image
                 style={styles.grayDotImageStyle}
@@ -594,7 +596,7 @@ const NotificationModal = () => {
             </View>
           </View>
           {notificationType == 'Instant_Booking' && (
-            <View style={{paddingHorizontal: moderateScale(20)}}>
+            <View style={{ paddingHorizontal: moderateScale(20) }}>
               <View
                 style={{
                   flexDirection: 'row',
@@ -681,7 +683,7 @@ const NotificationModal = () => {
                   keyboardType={
                     Platform.OS === 'ios' ? 'ascii-capable' : 'visible-password'
                   }
-                  onKeyPress={({nativeEvent: {key: keyValue}}) =>
+                  onKeyPress={({ nativeEvent: { key: keyValue } }) =>
                     (keyValue = 'Backspace' && setDropLocation(''))
                   }
                 />
@@ -718,17 +720,17 @@ const NotificationModal = () => {
             }}>
             <View>
               <Text
-                style={[styles.dateTimeStyle, {marginTop: moderateScale(10)}]}>
+                style={[styles.dateTimeStyle, { marginTop: moderateScale(10) }]}>
                 {strings.TASKDATE}
               </Text>
               <Text style={styles.address}>{getDate(data?.created_at)}</Text>
             </View>
             {totalDistance && notificationType != 'Instant_Booking' && (
-              <View style={{alignItems: 'center'}}>
+              <View style={{ alignItems: 'center' }}>
                 <Text
                   style={[
                     styles.dateTimeStyle,
-                    {marginTop: moderateScale(10)},
+                    { marginTop: moderateScale(10) },
                   ]}>
                   {strings.TASKDISTANCE}
                 </Text>
@@ -750,8 +752,12 @@ const NotificationModal = () => {
       </View>
     );
   };
-  
   const aceptRejectTask = status => {
+    if (status == 1) {
+      updateState({ acceptLoader: true })
+    } else if (status == 2) {
+      updateState({ rejectLoader: true })
+    }
     let notifData = notificationData?.notificationData?.data;
 
     let data = {};
@@ -762,12 +768,12 @@ const NotificationModal = () => {
     data['status'] = status;
     data['type'] = !!notifData?.batch_no ? 'B' : 'O';
 
-    console.log(data, clientInfo?.database_name, 'data accept reject');
+
     actions
-      .acceptRejectTask(data, {client: clientInfo?.database_name})
+      .acceptRejectTask(data, { client: clientInfo?.database_name })
       .then(res => {
         console.log(res, 'submitReason>res>res');
-        updateState({isLoading: false});
+        updateState({ isLoading: false, acceptLoader: false, rejectLoader: false });
         actions.isModalVisibleForAcceptReject({
           isModalVisibleForAcceptReject: false,
           notificationData: null,
@@ -791,6 +797,8 @@ const NotificationModal = () => {
       isRefreshing: false,
       isLoading: false,
       isModalVisibleForAcceptReject: false,
+      acceptLoader: false,
+      rejectLoader: false
     });
     showError(error?.message || error?.error, 4000);
   };
@@ -802,9 +810,9 @@ const NotificationModal = () => {
       onClose={() =>
         !!orderData?.is_cab_pooling
           ? actions.isModalVisibleForAcceptReject({
-              isModalVisibleForAcceptReject: false,
-              notificationData: null,
-            })
+            isModalVisibleForAcceptReject: false,
+            notificationData: null,
+          })
           : {}
       }
       mainViewStyle={{

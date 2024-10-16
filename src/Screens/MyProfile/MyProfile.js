@@ -37,7 +37,7 @@ import { removerUserData } from '../../redux/actions/auth';
 import { getBundleId } from 'react-native-device-info';
 import { appIds } from '../../utils/constants/DynamicAppKeys';
 import Share from 'react-native-share';
-import Clipboard from '@react-native-community/clipboard';
+import Clipboard from '@react-native-clipboard/clipboard';
 
 export default function MyProfile({ route, navigation }) {
   const userData = useSelector(state => state?.auth?.userData);
