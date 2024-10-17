@@ -319,6 +319,10 @@ export default function TaskCompleteDocument({ route, navigation }) {
         '',
         [
           {
+            text: 'Cancel',
+            onPress: () => {},
+          },
+          {
             text: 'Use camera',
             onPress: () => {
               openCamera()
@@ -357,10 +361,6 @@ export default function TaskCompleteDocument({ route, navigation }) {
                   updateState({ isLoading: false });
                 });
             },
-          },
-          {
-            text: 'Cancel',
-            onPress: () => {},
           },
         ],
         { cancelable: true },
