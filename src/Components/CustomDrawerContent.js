@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { Alert, ScrollView } from "react-native";
+import { Alert, BackHandler, ScrollView } from "react-native";
 import { Text, TouchableOpacity, View, Image, Switch } from "react-native";
 // import Animated from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -51,7 +51,7 @@ function CustomDrawerContent({
   const { isCabPooling, initialValue } = useSelector((state) => state?.auth);
   const { themeColors } = useSelector((state) => state?.initBoot);
 
-  console.log("isCabPooling", isCabPooling);
+
 
   const { userData } = useSelector((state) => state?.auth);
 
@@ -173,7 +173,27 @@ function CustomDrawerContent({
     ? JSON.parse(userData?.client_preference?.custom_mode)
     : undefined;
 
-
+    useEffect(() => {
+      const backAction = () => {
+        if (navigation.canGoBack()) {
+          navigation.goBack();
+        }
+        else {
+          Alert.alert("Exit App", "Do you want to close the app?", [
+            { text: "No", onPress: () => null, style: "cancel" },
+            { text: "Yes", onPress: () => BackHandler.exitApp() },
+          ]);
+        }
+        return true;
+      };
+  
+      const backHandler = BackHandler.addEventListener(
+        'hardwareBackPress',
+        backAction
+      );
+  
+      return () => backHandler.remove();
+    }, [navigation]);
     
 
   useEffect(() => {
@@ -358,7 +378,6 @@ function CustomDrawerContent({
     updateState({ isLoading: false });
     showError(error?.message || error?.error);
   };
-
   const onStartSupportChat = () => {
     if (!zendeskKeys?.keys?.account_key && !zendeskKeys?.keys?.application_id) {
       showError('Zendesk not configured')

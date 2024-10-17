@@ -1,6 +1,8 @@
 import { cloneDeep, isEmpty } from 'lodash';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import {
+  Alert,
+  BackHandler,
   I18nManager,
   Image,
   Keyboard,
@@ -216,6 +218,27 @@ export default function Signup({ route, navigation }) {
       actionSheet.current.show();
     }, 500);
   };
+  useEffect(() => {
+    const backAction = () => {
+      if (navigation.canGoBack()) {
+        navigation.goBack();
+      }
+      else {
+        Alert.alert("Exit App", "Do you want to close the app?", [
+          { text: "No", onPress: () => null, style: "cancel" },
+          { text: "Yes", onPress: () => BackHandler.exitApp() },
+        ]);
+      }
+      return true;
+    };
+
+    const backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      backAction
+    );
+
+    return () => backHandler.remove();
+  }, [navigation]);
 
   useEffect(() => {
     (async () => {

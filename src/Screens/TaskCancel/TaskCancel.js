@@ -21,7 +21,8 @@ import colors from '../../styles/colors';
 import commonStylesFunc from '../../styles/commonStyles';
 import fontFamily from '../../styles/fontFamily';
 import {
-  moderateScale
+  moderateScale,
+  moderateScaleVertical
 } from '../../styles/responsiveSize';
 import {
   showError
@@ -165,15 +166,14 @@ export default function TaskCancel({route, navigation}) {
             multiline={true}
             value={inputReason}
             placeholder="Enter your reason here"
-            pla
             textAlignVertical={'top'}
             style={styles.textInputStyle}
             onChangeText={text => updateState({inputReason: text})}
           />
         )}
+      <ButtonComponent containerStyle={{marginHorizontal:moderateScale(18),marginBottom:moderateScaleVertical(24),marginTop:moderateScaleVertical(12)}} buttonTitle={strings.DONE} onPress={submitReason} />
       </KeyboardAwareScrollView>
 
-      <ButtonComponent  buttonTitle={strings.DONE} onPress={submitReason} />
       {clientInfo?.is_freelancer ? (<View style={{marginBottom:20}}/>):<></>}
     </WrapperContainer>
   );

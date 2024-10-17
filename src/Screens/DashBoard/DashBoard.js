@@ -1,6 +1,7 @@
 import {debounce, isEmpty} from 'lodash';
 import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {
+  Alert,
   BackHandler,
   FlatList,
   Image,
@@ -58,8 +59,9 @@ var finalAllTasks = [];
 var finaltodayTasks = [];
 
 export default function DashBoard({route, navigation}) {
+  console.log(route,'routeroute')
   const {userData} = useSelector(state => state?.auth || {});
-  const {attributeFormData} = useSelector(state => state?.initBoot || {});
+
   const defaultLanguagae = useSelector(
     state => state?.initBoot?.defaultLanguage,
   );
@@ -173,12 +175,30 @@ export default function DashBoard({route, navigation}) {
   }, [refreshHomeData]);
 
   useEffect(() => {
+    const backAction = () => {
+      if (navigation.canGoBack()) {
+        navigation.goBack();
+      }
+      if(!enableMap){
+        updateState({enableMap:!enableMap})
+        return true
+      }
+      else {
+        Alert.alert("Exit App", "Do you want to close the app?", [
+          { text: "No", onPress: () => null, style: "cancel" },
+          { text: "Yes", onPress: () => BackHandler.exitApp() },
+        ]);
+      }
+      return true;
+    };
+
     const backHandler = BackHandler.addEventListener(
       'hardwareBackPress',
-      () => true,
+      backAction
     );
+
     return () => backHandler.remove();
-  }, []);
+  }, [navigation,enableMap]);
 
   useFocusEffect(
     React.useCallback(() => {
@@ -232,7 +252,6 @@ export default function DashBoard({route, navigation}) {
     }, [isCabPooling]),
   );
   useEffect(() => {
-
     chekLocationPermission()
     .then(result => {
       const watchId = Geolocation.watchPosition(
