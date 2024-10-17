@@ -98,7 +98,23 @@ export default function Login({ navigation, route }) {
     locationPermissionStatus,
 
   } = state;
+  useEffect(() => {
+    const backAction = () => {
+        Alert.alert("Exit App", "Do you want to close the app?", [
+          { text: "No", onPress: () => null, style: "cancel" },
+          { text: "Yes", onPress: () => BackHandler.exitApp() },
+        ]);
+      return true;
+    };
 
+    const backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      backAction
+    );
+
+    return () => backHandler.remove();
+  }, [navigation]);
+  
   const checkLocationPermission = () => {
     locationPermission()
       .then(res => {
@@ -166,13 +182,6 @@ export default function Login({ navigation, route }) {
     }, []),
   );
 
-  useEffect(() => {
-    const backHandler = BackHandler.addEventListener(
-      'hardwareBackPress',
-      () => true,
-    );
-    return () => backHandler.remove();
-  }, []);
 
   const getColors = () => {
     switch (getBundleId()) {

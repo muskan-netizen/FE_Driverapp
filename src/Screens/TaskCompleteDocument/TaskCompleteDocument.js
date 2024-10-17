@@ -359,17 +359,8 @@ export default function TaskCompleteDocument({ route, navigation }) {
             },
           },
           {
-            text: 'Use camera',
-            onPress: () => {
-              openCamera()
-                .then(res =>
-                  updateState({
-                    isLoading: false,
-                    image: res?.path || res?.path,
-                  }),
-                )
-                .catch(error => updateState({ isLoading: false }));
-            },
+            text: 'Cancel',
+            onPress: () => {},
           },
         ],
         { cancelable: true },
