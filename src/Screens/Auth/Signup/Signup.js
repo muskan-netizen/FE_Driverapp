@@ -1,6 +1,8 @@
 import { cloneDeep, isEmpty } from 'lodash';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import {
+  Alert,
+  BackHandler,
   I18nManager,
   Image,
   Keyboard,
@@ -216,6 +218,27 @@ export default function Signup({ route, navigation }) {
       actionSheet.current.show();
     }, 500);
   };
+  useEffect(() => {
+    const backAction = () => {
+      if (navigation.canGoBack()) {
+        navigation.goBack();
+      }
+      else {
+        Alert.alert("Exit App", "Do you want to close the app?", [
+          { text: "No", onPress: () => null, style: "cancel" },
+          { text: "Yes", onPress: () => BackHandler.exitApp() },
+        ]);
+      }
+      return true;
+    };
+
+    const backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      backAction
+    );
+
+    return () => backHandler.remove();
+  }, [navigation]);
 
   useEffect(() => {
     (async () => {
@@ -368,7 +391,7 @@ export default function Signup({ route, navigation }) {
     }
     setSignupLoading(true);
     dummyTags = selectedTags.map(item => {
-      return item.name;
+      return item?.name;
     });
     dummyTags = dummyTags.join(',');
     let formdata = new FormData();
@@ -505,7 +528,7 @@ export default function Signup({ route, navigation }) {
       addtionalTextInputs.map((i, inx) => {
         if (!i?.contents && i?.is_required) {
           if (isRequired) {
-            showError(`${strings.PLEASE_ENTER} ${i.name.toLowerCase()}`);
+            showError(`${strings.PLEASE_ENTER} ${i?.name.toLowerCase()}`);
             isRequired = false;
             return;
           }
@@ -517,7 +540,7 @@ export default function Signup({ route, navigation }) {
       additionalDateFields.map((i, inx) => {
         if (!i?.contents && i?.is_required) {
           if (isRequired) {
-            showError(`${strings.PLEASE_SELECT} ${i.name.toLowerCase()}`);
+            showError(`${strings.PLEASE_SELECT} ${i?.name.toLowerCase()}`);
             isRequired = false;
             return;
           }
@@ -531,7 +554,7 @@ export default function Signup({ route, navigation }) {
       concatinatedArray.map((i, inx) => {
         if (!i?.value && i?.is_required) {
           if (isRequired) {
-            showError(`${strings.PLEASE_UPLOAD} ${i.name.toLowerCase()}`);
+            showError(`${strings.PLEASE_UPLOAD} ${i?.name.toLowerCase()}`);
             isRequired = false;
             return;
           }
@@ -543,7 +566,7 @@ export default function Signup({ route, navigation }) {
       concatinatedArray.map((i, inx) => {
         if (!i?.value && i?.is_required) {
           if (isRequired) {
-            showError(`${strings.PLEASE_UPLOAD} ${i.name.toLowerCase()}`);
+            showError(`${strings.PLEASE_UPLOAD} ${i?.name.toLowerCase()}`);
             isRequired = false;
             return;
           }
@@ -1130,7 +1153,7 @@ export default function Signup({ route, navigation }) {
                               style={{
                                 marginVertical: moderateScale(5),
                               }}>
-                              <Text>{itm.name}</Text>
+                              <Text>{itm?.name}</Text>
                             </TouchableOpacity>
                           );
                         })}
@@ -1229,7 +1252,7 @@ export default function Signup({ route, navigation }) {
                                   style={{
                                     marginVertical: moderateScale(5),
                                   }}>
-                                  <Text>{itm.name}</Text>
+                                  <Text>{itm?.name}</Text>
                                 </TouchableOpacity>
                               );
                             })}

@@ -14,12 +14,7 @@ import {
 } from 'react-native';
 import ActionSheet from 'react-native-actionsheet';
 import Communications from 'react-native-communications';
-import MapView, {
-  AnimatedRegion,
-  Marker,
-  PROVIDER_GOOGLE,
-} from 'react-native-maps'; // import {createOpenLink} from '../../utils/CreateMapLinks';
-import { createMapLink, createOpenLink } from 'react-native-open-maps';
+import MapView from 'react-native-maps'; // import {createOpenLink} from '../../utils/CreateMapLinks';
 import { useSelector } from 'react-redux';
 import Header from '../../Components/Header';
 import { loaderOne } from '../../Components/Loaders/AnimatedLoaderFiles';
@@ -34,28 +29,23 @@ import commonStylesFunc from '../../styles/commonStyles';
 import fontFamily from '../../styles/fontFamily';
 navigator.geolocation = require('react-native-geolocation-service');
 
+import moment from 'moment';
+import ButtonComponent from '../../Components/ButtonComponent';
+import SlideToComplete from '../../Components/SlideToComplete';
 import {
   moderateScale,
   moderateScaleVertical,
   textScale,
   width,
 } from '../../styles/responsiveSize';
-import moment from 'moment';
-import {
-  getColorCodeWithOpactiyNumber,
-  getCurrentLocation,
-  getHostName,
-  showError,
-  showInfo,
-  showSuccess,
-} from '../../utils/helperFunctions';
-import stylesFunc from './styles';
-import ButtonComponent from '../../Components/ButtonComponent';
 import { mapStyle } from '../../utils/constants/MapStyle';
 import { getAllTravelDetails } from '../../utils/googlePlaceApi';
-import { getBundleId } from 'react-native-device-info';
-import { appIds } from '../../utils/constants/DynamicAppKeys';
-import SlideToComplete from '../../Components/SlideToComplete';
+import {
+  getColorCodeWithOpactiyNumber,
+  showError,
+  showSuccess
+} from '../../utils/helperFunctions';
+import stylesFunc from './styles';
 
 var ACTION_TIMER = 1500;
 var COLORS = ['#8FEE90', '#27A468'];
@@ -69,7 +59,7 @@ export default function TaskDetail({ route, navigation }) {
   const { clientInfo, defaultLanguage } = useSelector(state => state?.initBoot);
   const styles = stylesFunc({ defaultLanguage });
   const commonStyles = commonStylesFunc({ fontFamily });
-console.log(clientInfo,'clientInfoclientInfo');
+
   const [state, setState] = useState({
     vendors: {},
     isLoading: false,
@@ -142,7 +132,8 @@ console.log(clientInfo,'clientInfoclientInfo');
     apiData: null,
     cancelRequestExit: null,
     totalTravelData: null,
-    isSlide:false
+    isSlide:false,
+    isLoadingNextScreen:false,
   });
 
   const {
@@ -164,7 +155,8 @@ console.log(clientInfo,'clientInfoclientInfo');
     productAllInsrucations,
     apiData,
     totalTravelData,
-    isSlide
+    isSlide,
+    isLoadingNextScreen
   } = state;
   const updateState = data => setState(state => ({ ...state, ...data }));
 
@@ -215,13 +207,10 @@ console.log(clientInfo,'clientInfoclientInfo');
   };
   //Error handling in api
   const errorMethod = error => {
-    updateState({ isLoading: false, isRefreshing: false, isLoading: false });
+    updateState({ isLoading: false, isRefreshing: false, isLoading: false ,isLoadingNextScreen:false});
     showError(error?.message || error?.error);
   };
 
-  const _onRegionChange = region => {
-    updateState({ region: region });
-  };
 
   useEffect(() => {
     pressAction.addListener(v => (_value = v.value));
@@ -335,7 +324,6 @@ console.log(clientInfo,'clientInfoclientInfo');
         console.log(error, 'error error error');
       });
   };
-  console.log(taskDetail, 'taskDetail>>>>>>>>>>>>>>>>>>')
   const _getproductUpdateDetails = () => {
     actions
       .getProductUpdateDetails(new_dispatch_traking_url(), {})
@@ -381,8 +369,7 @@ console.log(clientInfo,'clientInfoclientInfo');
         style={styles.map}
         region={region}
         initialRegion={region}
-        customMapStyle={mapStyle}
-        onRegionChangeComplete={_onRegionChange}>
+        customMapStyle={mapStyle}>
         <MapView.Marker
           tracksViewChanges={false}
           key={`coordinate_${taskDetail?.id}`}
@@ -478,13 +465,13 @@ console.log(clientInfo,'clientInfoclientInfo');
         language: defaultLanguage?.value ? defaultLanguage?.value : 'en',
       })
       .then(res => {
-        console.log(res, '<==res updateTask');
+        console.log(res, '<==res updateTask',taskStatus);
         updateState({ isLoading: false });
         if (res?.data) {
           ACTION_TIMER = 100;
           updateState({
             buttonPressComplete: 0,
-            taskStatus: Number(res?.data?.task_status),
+            taskStatus: Number(res?.data?.task_status)||taskStatus,
           });
           // getStatusName(taskStatus)
           setTimeout(async () => {
@@ -536,7 +523,7 @@ console.log(clientInfo,'clientInfoclientInfo');
   };
 
   const redirectNextScreen = res => {
-    updateState({ isLoading: false });
+    updateState({ isLoading: false,isLoadingNextScreen:false });
     moveToNewScreen(navigationStrings.TASKCOMPLETEDOCUMENT, {
       taskDetail: taskDetail,
       updatedProofArray: updatedProofArray,
@@ -558,7 +545,7 @@ console.log(clientInfo,'clientInfoclientInfo');
       if (_value === 1) {
         updateState({ buttonPressComplete: 1 });
         message = 'You held it long enough to fire the action!';
-        updateState({ isLoading: true });
+        updateState({ isLoading: true,isLoadingNextScreen:true });
         let data = {};
         data['task_id'] = taskDetail?.id;
         console.log(data, 'data');
@@ -650,6 +637,7 @@ console.log(clientInfo,'clientInfoclientInfo');
           <SlideToComplete taskStatus={taskStatus} statusTitle={buttonText} onScrollComplete={(taskStatus)=>{taskStatus == 3 ? redirectToDoneScreen() : updateState({ buttonPressComplete: 1 })}} />
           :
           <TouchableWithoutFeedback
+          disabled={isLoadingNextScreen}
           onPressIn={taskStatus == 3 ? redirectToDoneScreen : handlePressIn}
           onPressOut={handlePressOut}>
           <View style={styles.button} onLayout={getButtonWidthLayout}>
@@ -1620,7 +1608,7 @@ console.log(clientInfo,'clientInfoclientInfo');
     <WrapperContainer
       statusBarColor={colors.white}
       bgColor={colors.white}
-      isLoading={isLoading}
+      isLoading={isLoading||isLoadingNextScreen}
       source={loaderOne}>
       <Header
         headerStyle={{ backgroundColor: colors.white }}

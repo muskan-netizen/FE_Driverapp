@@ -102,7 +102,6 @@ const showErrorOnModal = (modalRef = null, message = '', duration = 2000) => {
     style: {
       alignItems: 'center',
       justifyContent: 'center',
-      height: 40,
     },
     duration: duration,
   });
