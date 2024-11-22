@@ -9,10 +9,10 @@ import { Platform } from 'react-native';
 import { navigate } from './src/navigation/NavigationService';
 import navigationStrings from './src/navigation/navigationStrings';
 import { showhideNotificationModal } from './src/utils/helperFunctions';
-// import NativeDevSettings from 'react-native/Libraries/NativeModules/specs/NativeDevSettings';
-
-// NativeDevSettings.setIsDebuggingRemotely(true);
-
+import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
+if (__DEV__) {
+  require("./ReactotronConfig");
+}
 // Register background handler
 messaging().setBackgroundMessageHandler(async remoteMessage => {
   console.log('Message handled in the background!', remoteMessage);
@@ -58,4 +58,4 @@ messaging().setBackgroundMessageHandler(async remoteMessage => {
     }
   }
 });
-AppRegistry.registerComponent(appName, () => App);
+AppRegistry.registerComponent(appName, () => gestureHandlerRootHOC(App));
