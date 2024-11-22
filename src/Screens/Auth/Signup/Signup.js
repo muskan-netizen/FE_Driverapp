@@ -147,7 +147,8 @@ export default function Signup({ route, navigation }) {
     selectedCustomerType: null,
     isCustomer: false,
     vehicleTypes: [],
-    isVisible: false
+    isVisible: false,
+    referalCode:''
   });
 
   const {
@@ -191,6 +192,7 @@ export default function Signup({ route, navigation }) {
     selectedDate,
     vehicleTypes,
     isVisible,
+    referalCode
   } = state;
   const [isOtpModal, setOtpModal] = useState(false);
   const [otpToShow, setOtpToShow] = useState('');
@@ -402,6 +404,7 @@ export default function Signup({ route, navigation }) {
     formdata.append('team_id', !!selectedTeam ? selectedTeam?.id : '');
     formdata.append('tags', dummyTags ? dummyTags : '');
     formdata.append('otp', otpToShow);
+    formdata.append('refferal_code', referalCode);
 
     if (getBundleId() == appIds?.trucxi && selectedCustomerType) {
       formdata.append('customer_type_id', selectedCustomerType?.id);
@@ -426,13 +429,13 @@ export default function Signup({ route, navigation }) {
     if (!isEmpty(additionalDateFields)) {
       additionalDateFields.map((i, inx) => {
         if (i?.contents != '' && !!i?.contents) {
-          formdata.append(`files_text[${inx}][file_type]`, i?.file_type);
-          formdata.append(`files_text[${inx}][id]`, i?.id);
+          formdata.append(`files_date[${inx}][file_type]`, i?.file_type);
+          formdata.append(`files_date[${inx}][id]`, i?.id);
           formdata.append(
-            `files_text[${inx}][contents]`,
+            `files_date[${inx}][contents]`,
             moment(i?.contents).format('YYYY-MM-DD'),
           );
-          formdata.append(`files_text[${inx}][label_name]`, i?.name);
+          formdata.append(`files_date[${inx}][label_name]`, i?.name);
         }
       });
     }
@@ -1463,6 +1466,15 @@ export default function Signup({ route, navigation }) {
                 </View>
               </>
             ) : null}
+          <TextInputWithlabel
+                editable={true}
+                label={strings.REFERRAL_CODE}
+                value={referalCode}
+                // autoFocus={true}
+                onChangeText={text => updateState({ referalCode: text })}
+                labelStyle={styles.textInputlabel}
+
+              />
             {/* { getEmployeeViewBasedOnClient(savedShortCode)} */}
 
             {!!(addtionalTextInputs && addtionalTextInputs?.length) &&
