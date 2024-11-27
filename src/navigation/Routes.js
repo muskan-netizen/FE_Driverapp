@@ -47,22 +47,24 @@ export default function Routes() {
       ref={navigationRef}>
 
       <Stack.Navigator>
-        {!!userData && userData?.access_token ?
+        {userData && userData?.access_token ?
           <React.Fragment>
             {
-              !clientInfo?.is_freelancer ? <Stack.Screen
-                name={navigationStrings.DRAWER_ROUTES}
-                component={DrawerRoutes}
-                options={{
-                  headerShown: false
-                }}
-              /> : <Stack.Screen
-                name={navigationStrings.BOTTOM_STACK}
-                component={BottomStack}
-                options={{
-                  headerShown: false
-                }}
-              />
+              clientInfo?.is_freelancer && userData?.type == 'Freelancer' ?
+                <Stack.Screen
+                  name={navigationStrings.BOTTOM_STACK}
+                  component={BottomStack}
+                  options={{
+                    headerShown: false
+                  }}
+                />
+                : <Stack.Screen
+                  name={navigationStrings.DRAWER_ROUTES}
+                  component={DrawerRoutes}
+                  options={{
+                    headerShown: false
+                  }}
+                />
             }
           </React.Fragment>
           : (

@@ -374,7 +374,7 @@ export default function Signup({ route, navigation }) {
     }
   };
 
-  console.log(clientInfo?.is_freelancer, "fasdkjhfgkasdhlkfjhasdf")
+
 
   const isValidData = () => {
     const error = validator({ phoneNumber });
@@ -488,7 +488,7 @@ export default function Signup({ route, navigation }) {
         setOtpModal(false);
         setSignupLoading(false);
         setUserData(res?.data);
-        if (clientInfo?.is_freelancer) {
+        if (clientInfo?.is_freelancer && res?.data?.type == 'Freelancer') {
           setTimeout(() => {
             updateState({ isVisible: true });
           }, 500);

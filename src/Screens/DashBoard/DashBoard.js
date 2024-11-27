@@ -1148,7 +1148,7 @@ export default function DashBoard({route, navigation}) {
         headerStyle={{backgroundColor: colors.white}}
         leftIcon={imagePath.menu}
         onPressLeft={() => navigation.toggleDrawer()}
-        noLeftIcon={!!clientInfo?.is_freelancer}
+        noLeftIcon={!!clientInfo?.is_freelancer && userData?.type == 'Freelancer'}
         // hideRight={true}
         customCenter={() => customCenter()}
         rightIcon={!enableMap ? imagePath.map : imagePath.listMenu}
