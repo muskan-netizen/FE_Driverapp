@@ -5,6 +5,8 @@
   "scripts": {
     "cladispatcher": "react-native run-android --mode=claDebug",
     "cladispatcherRelease": "cd android && ./gradlew assembleclaRelease",
+    "hubDrives": "react-native run-android --mode=hubDrivesDebug",
+    "hubDrivesRelease": "cd android && ./gradlew assemblehubDrivesRelease",
     "build_ios": "react-native bundle --entry-file='index.js' --bundle-output='./ios/main.jsbundle' --dev=false --platform='ios'",
     "android": "react-native run-android",
     "ios": "react-native run-ios",

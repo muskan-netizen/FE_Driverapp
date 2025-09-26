@@ -154,6 +154,17 @@ android {
             "app_name",
             "Cla Dispatch"
         }
+        hubDrives{
+            dimension "appType"
+            versionCode 1
+            versionName "1.0"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            applicationId "com.dispatch.hubdrives"
+            resValue "string",
+            "app_name",
+            "HubDrives Chauffeur"
+        }
     }
 }
 

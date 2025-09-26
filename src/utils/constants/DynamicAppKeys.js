@@ -2,13 +2,18 @@ import { Platform } from 'react-native';
 import { getBundleId } from 'react-native-device-info';
 
 const shortCodes = {
-  cla:'cf0b96'
+  cla:'cf0b96',
+  hubDrives:'cf0b96',
 };
 
 const appIds = {
   cla: Platform.select({
     ios: 'com.royodispatcher.cla',
     android: 'com.royodispatcher.cla',
+  }),
+  hubDrives: Platform.select({
+    ios: 'com.dispatch.hubdrives',
+    android: 'com.dispatch.hubdrives',
   }),
 };
 
