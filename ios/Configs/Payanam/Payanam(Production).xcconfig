@@ -1,0 +1,8 @@
+#include "Pods/Target Support Files/Pods-available_pods-Payanam/Pods-available_pods-Payanam.release.xcconfig"
+
+PROJECT_BUNDLE_ID = com.payanam.driver
+PROJECT_APP_VERSION = 1.1
+PROJECT_BUILD_NUMBER = 1
+PROJECT_APP_NAME = Payanam Driver
+PROJECT_PLIST = PayanamInfo
+PROJECT_ENTITLEMENT= Payanam.entitlement

@@ -1,27 +1,22 @@
-import { Platform } from 'react-native';
-import { getBundleId } from 'react-native-device-info';
+import { Platform } from "react-native";
+import { getBundleId } from "react-native-device-info";
 
 const shortCodes = {
-  cla:'cf0b96',
+  payanam:'7a6d0e',
   hubDrives:'cf0b96',
 };
 
 const appIds = {
-  cla: Platform.select({
-    ios: 'com.royodispatcher.cla',
-    android: 'com.royodispatcher.cla',
+
+  payanam: Platform.select({
+    ios: "com.payanam.driver",
+    android: "com.payanam.driver",
   }),
+
   hubDrives: Platform.select({
     ios: 'com.dispatch.hubdrives',
     android: 'com.dispatch.hubdrives',
   }),
 };
 
-const socialKeys = {
-  TWITTER_COMSUMER_KEY:
-    'R66DHARfuoYAPowApUxNxwbPi',
-  TWITTER_CONSUMER_SECRET:
-    'itcicJ7fUV3b73B8V05GEDBo4tzxGox2Si2q0BCk5pue327k15',
-};
-
-export { appIds, socialKeys, shortCodes };
+export { appIds, shortCodes };

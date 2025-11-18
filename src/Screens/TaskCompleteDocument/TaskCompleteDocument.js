@@ -1,15 +1,21 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {
-  Alert, Dimensions, FlatList, Image, Keyboard, Platform, Text,
+  Alert,
+  Dimensions,
+  FlatList,
+  Image,
+  Keyboard,
+  Platform,
+  Text,
   TextInput,
   TouchableOpacity,
-  View
+  View,
 } from 'react-native';
 import RNFS from 'react-native-fs';
-import { useSelector } from 'react-redux';
+import {useSelector} from 'react-redux';
 import ButtonComponent from '../../Components/ButtonComponent';
 import Header from '../../Components/Header';
-import { loaderOne } from '../../Components/Loaders/AnimatedLoaderFiles';
+import {loaderOne} from '../../Components/Loaders/AnimatedLoaderFiles';
 import WrapperContainer from '../../Components/WrapperContainer';
 import imagePath from '../../constants/imagePath';
 import strings from '../../constants/lang';
@@ -20,35 +26,37 @@ import actions from '../../redux/actions';
 //   Enum,
 //   FaceCaptureResponse, Image as FaceImage, MatchFacesRequest, MatchFacesResponse
 // } from '@regulaforensics/react-native-face-api-beta';
-import { cloneDeep, isEmpty } from 'lodash';
+import {cloneDeep, isEmpty} from 'lodash';
 import moment from 'moment';
-import { getBundleId } from 'react-native-device-info';
-import { Dropdown } from 'react-native-element-dropdown';
+import {getBundleId} from 'react-native-device-info';
+import {Dropdown} from 'react-native-element-dropdown';
 import FastImage from 'react-native-fast-image';
 import ImagePicker from 'react-native-image-crop-picker';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import RNFetchBlob from 'rn-fetch-blob';
 import DatePickerModal from '../../Components/DatePickerModal';
 import ModalView from '../../Components/Modal';
 import colors from '../../styles/colors';
-import commonStylesFunc, { hitSlopProp } from '../../styles/commonStyles';
+import commonStylesFunc, {hitSlopProp} from '../../styles/commonStyles';
 import fontFamily from '../../styles/fontFamily';
 import {
   moderateScale,
   moderateScaleVertical,
   textScale,
-  width
+  width,
 } from '../../styles/responsiveSize';
-import { cameraHandler, checkValueExistInAry } from '../../utils/commonFunction';
-import { appIds } from '../../utils/constants/DynamicAppKeys';
-import { getAllTravelDetails } from '../../utils/googlePlaceApi';
-import { showError, showSuccess } from '../../utils/helperFunctions';
-import { openCamera } from '../../utils/imagePicker';
+import {cameraHandler, checkValueExistInAry} from '../../utils/commonFunction';
+import {appIds} from '../../utils/constants/DynamicAppKeys';
+import {getAllTravelDetails} from '../../utils/googlePlaceApi';
+import {showError, showSuccess} from '../../utils/helperFunctions';
+import {openCamera} from '../../utils/imagePicker';
 import {
   checkCameraPermission,
-  chekLocationPermission
+  chekLocationPermission,
 } from '../../utils/permissions';
 import stylesFunc from './styles';
+import SmoothPinCodeInput from 'react-native-smooth-pincode-input';
+
 navigator.geolocation = require('react-native-geolocation-service');
 
 // var image1 = new FaceImage();
@@ -57,10 +65,10 @@ navigator.geolocation = require('react-native-geolocation-service');
 
 const window = Dimensions.get('window');
 let pressedItem = {};
-export default function TaskCompleteDocument({ route, navigation }) {
+export default function TaskCompleteDocument({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
-  const { clientInfo, attributeFormData } = useSelector(state => state?.initBoot);
-
+  const {clientInfo, attributeFormData} = useSelector(state => state?.initBoot);
+  console.log(clientInfo, 'clientInfoclientInfo');
   const taskDetail = route?.params?.data?.taskDetail;
   const updatedProofArray = route?.params?.data?.updatedProofArray;
   const findDataToCheck = route?.params?.data?.findDataToCheck;
@@ -119,42 +127,41 @@ export default function TaskCompleteDocument({ route, navigation }) {
     isShowQrCodeVendor,
     qrCodeVendorDetail,
   } = state;
-  const [isLoadingSubmitAttributes, setLoadingSubmitAttributes] = useState(false)
-  const [attributeInfo, setAttributeInfo] = useState([])
-  const [isDatePicker, setIsDatePicker] = useState(false)
-  const [selectedDateItem, setSelectedDateItem] = useState({})
-  const [selectedDate, setSelectedDate] = useState(new Date())
-
+  const [isLoadingSubmitAttributes, setLoadingSubmitAttributes] =
+    useState(false);
+  const [attributeInfo, setAttributeInfo] = useState([]);
+  const [isDatePicker, setIsDatePicker] = useState(false);
+  const [selectedDateItem, setSelectedDateItem] = useState({});
+  const [selectedDate, setSelectedDate] = useState(new Date());
 
   useEffect(() => {
-    const attributeFormDataNew = cloneDeep(attributeFormData)
-    setAttributeInfo(attributeFormDataNew)
-  }, [taskDetail?.tasktype?.name])
+    const attributeFormDataNew = cloneDeep(attributeFormData);
+    setAttributeInfo(attributeFormDataNew);
+  }, [taskDetail?.tasktype?.name]);
 
-
-  const commonStyles = commonStylesFunc({ fontFamily });
-  const updateState = data => setState(state => ({ ...state, ...data }));
+  const commonStyles = commonStylesFunc({fontFamily});
+  const updateState = data => setState(state => ({...state, ...data}));
 
   const defaultLanguagae = useSelector(
     state => state?.initBoot?.defaultLanguage,
   );
 
-  const styles = stylesFunc({ defaultLanguagae });
+  const styles = stylesFunc({defaultLanguagae});
 
   //Naviagtion to specific screen
   const moveToNewScreen = (screenName, data) => () => {
-    navigation.navigate(screenName, { data });
+    navigation.navigate(screenName, {data});
   };
 
   useEffect(() => {
     (async () => {
       currentLocation();
       getAllMovingDetails([
-        { pickupAddress: taskDetail?.order?.task[0]?.location?.address },
-        { dropAddress: taskDetail?.order?.task[1]?.location?.address },
+        {pickupAddress: taskDetail?.order?.task[0]?.location?.address},
+        {dropAddress: taskDetail?.order?.task[1]?.location?.address},
       ]);
     })();
-    return () => { };
+    return () => {};
   }, []);
 
   const getAllMovingDetails = data => {
@@ -226,7 +233,7 @@ export default function TaskCompleteDocument({ route, navigation }) {
 
   //Error handling in api
   const errorMethod = error => {
-    updateState({ isLoading: false, isRefreshing: false, isLoading: false });
+    updateState({isLoading: false, isRefreshing: false, isLoading: false});
     showError(error?.message || error?.error);
   };
 
@@ -285,7 +292,7 @@ export default function TaskCompleteDocument({ route, navigation }) {
         barcode: taskDetail?.barcode,
       });
     } else {
-      updateState({ barcode: null });
+      updateState({barcode: null});
       showError(strings.QRCODENOTMATCHED);
     }
   };
@@ -303,7 +310,7 @@ export default function TaskCompleteDocument({ route, navigation }) {
 
     //Signature upload
     if (i?.id == 1) {
-      updateState({ showInputBox: false });
+      updateState({showInputBox: false});
       // pickImage(false);
       moveToNewScreen(navigationStrings.ADDSIGNATURE, {
         updateSignature: data => {
@@ -319,10 +326,6 @@ export default function TaskCompleteDocument({ route, navigation }) {
         '',
         [
           {
-            text: 'Cancel',
-            onPress: () => {},
-          },
-          {
             text: 'Use camera',
             onPress: () => {
               openCamera()
@@ -332,14 +335,14 @@ export default function TaskCompleteDocument({ route, navigation }) {
                     image: res?.path || res?.path,
                   }),
                 )
-                .catch(error => updateState({ isLoading: false }));
+                .catch(error => updateState({isLoading: false}));
             },
           },
           getBundleId() !== appIds.exprexpro && {
             text: 'Use gallery',
             onPress: () => {
               // options['includeBase64'] = true;
-              updateState({ showInputBox: false });
+              updateState({showInputBox: false});
               cameraHandler(1, {
                 cropping: false,
                 compressImageQuality: 0.1,
@@ -354,26 +357,39 @@ export default function TaskCompleteDocument({ route, navigation }) {
                       image: res?.path || res?.path,
                     });
                   } else {
-                    updateState({ isLoading: false });
+                    updateState({isLoading: false});
                   }
                 })
                 .catch(err => {
-                  updateState({ isLoading: false });
+                  updateState({isLoading: false});
                 });
             },
           },
+          {
+            text: 'Use camera',
+            onPress: () => {
+              openCamera()
+                .then(res =>
+                  updateState({
+                    isLoading: false,
+                    image: res?.path || res?.path,
+                  }),
+                )
+                .catch(error => updateState({isLoading: false}));
+            },
+          },
         ],
-        { cancelable: true },
+        {cancelable: true},
       );
     }
 
     //Add note
     if (i?.id == 3) {
-      updateState({ showInputBox: true });
+      updateState({showInputBox: true});
     }
 
     if (i?.id == 4) {
-      updateState({ showInputBox: false });
+      updateState({showInputBox: false});
       checkCameraPermission()
         .then(result => {
           console.log(result, 'result');
@@ -390,12 +406,12 @@ export default function TaskCompleteDocument({ route, navigation }) {
     }
 
     if (i?.id == 5) {
-      updateState({ showInputBox: false });
+      updateState({showInputBox: false});
       pickImage(false);
     }
 
     if (i?.id == 6) {
-      updateState({ showInputBox: false });
+      updateState({showInputBox: false});
       checkCameraPermission()
         .then(result => {
           console.log(result, 'result');
@@ -445,15 +461,13 @@ export default function TaskCompleteDocument({ route, navigation }) {
       isEmpty(signatureImage)
     ) {
       showError(strings.SIGNATUREIMAGE);
-    }
-    else if (
+    } else if (
       findDataToCheck?.image &&
       findDataToCheck?.image_requried &&
       isEmpty(image)
     ) {
       showError(strings.PHOTOIMAGE);
-    }
-    else if (
+    } else if (
       findDataToCheck?.note &&
       findDataToCheck?.note_requried &&
       note == ''
@@ -471,30 +485,27 @@ export default function TaskCompleteDocument({ route, navigation }) {
       isEmpty(faceImage)
     ) {
       showError(strings.FACEIMAGEREQUIRED);
-    }
-    else if (
+    } else if (
       !!findDataToCheck?.qrcode &&
       !!findDataToCheck?.qrcode_requried &&
       !!isEmpty(qrCode)
     ) {
       showError('QR code scan is required!');
-    }
-    else if (
+    } else if (
       params?.data?.otpEnabled &&
       params?.data?.otpRequired &&
       otpField.trim() == ''
     ) {
-      updateState({ otpField: '' });
+      updateState({otpField: ''});
       showError(strings.OTPREQUIRED);
     } else if (
       params?.data?.otpEnabled &&
-      params?.data?.otpRequired &&
       otpField != '' &&
       JSON.parse(otpField) != params?.data?.otp
     ) {
       showError(strings.OTPNOTVALID);
     } else {
-      updateState({ isLoading: true, isModalVisible: false });
+      updateState({isLoading: true, isModalVisible: false});
       updateTaskStatus();
     }
   };
@@ -520,10 +531,12 @@ export default function TaskCompleteDocument({ route, navigation }) {
             value: item?.values,
           };
           if (item?.type == 6) {
-            formdata.append(`attribute_data_images_${item?.id}[]`, item?.values[0]);
+            formdata.append(
+              `attribute_data_images_${item?.id}[]`,
+              item?.values[0],
+            );
           }
         }
-
       });
       formdata.append('attribute_data', JSON.stringify(apiObj));
     }
@@ -566,7 +579,7 @@ export default function TaskCompleteDocument({ route, navigation }) {
       formdata.append('otp', otpField);
     }
 
-    updateState({ isLoading: true, isModalVisible: false });
+    updateState({isLoading: true, isModalVisible: false});
     actions
       .updateTask(formdata, {
         client: clientInfo?.database_name,
@@ -578,7 +591,7 @@ export default function TaskCompleteDocument({ route, navigation }) {
           showSuccess(res?.message);
           navigation.navigate(navigationStrings.DASHBOARD);
         }
-        updateState({ isLoading: false, isModalVisible: false });
+        updateState({isLoading: false, isModalVisible: false});
         if (res?.data) {
           updateState({
             isLoading: false,
@@ -586,7 +599,10 @@ export default function TaskCompleteDocument({ route, navigation }) {
           if (signatureImage) {
             unlinkDirectory(signatureImage);
           }
-          if (taskDetail?.tasktype?.name == 'Drop' && getBundleId() == appIds.washvalley) {
+          if (
+            taskDetail?.tasktype?.name == 'Drop' &&
+            getBundleId() == appIds.washvalley
+          ) {
             updateState({
               isShowQrCodeVendor: true,
               qrCodeVendorDetail: res?.data?.qrCodeVendor,
@@ -595,19 +611,15 @@ export default function TaskCompleteDocument({ route, navigation }) {
           }
           if (res?.data?.nextTask?.length == 0 || res?.data?.nextTask == null) {
             navigation.navigate(navigationStrings.DASHBOARD);
+          } else {
+            moveToNewScreen(navigationStrings.TASKDETAIL, {
+              item: res?.data?.nextTask[0],
+            })();
           }
-          else {
-
-            moveToNewScreen(navigationStrings.TASKDETAIL, { item: res?.data?.nextTask[0] })()
-
-          }
-
         }
       })
       .catch(errorMethod);
   };
-
-
 
   const pickImage = first => {
     Alert.alert(
@@ -618,7 +630,7 @@ export default function TaskCompleteDocument({ route, navigation }) {
           text: 'Use gallery',
           onPress: () => {
             // options['includeBase64'] = true;
-            ImagePicker.openPicker({ includeBase64: true })
+            ImagePicker.openPicker({includeBase64: true})
               .then(image => {
                 console.log(image, 'image');
                 console.log(
@@ -645,26 +657,26 @@ export default function TaskCompleteDocument({ route, navigation }) {
                   Enum.ImageType.IMAGE_TYPE_LIVE,
                 );
               },
-              e => { },
+              e => {},
             ),
         },
       ],
-      { cancelable: true },
+      {cancelable: true},
     );
   };
 
   const setImage = (first, base64, type) => {
     if (base64 == null) return;
-    updateState({ similarity: null });
+    updateState({similarity: null});
     if (first) {
       image1.bitmap = base64;
       image1.imageType = type;
-      updateState({ img1: { uri: 'data:image/png;base64,' + base64 } });
+      updateState({img1: {uri: 'data:image/png;base64,' + base64}});
     } else {
       image2.bitmap = base64;
       image2.imageType = type;
       matchFaces();
-      updateState({ img2: { uri: 'data:image/png;base64,' + base64 } });
+      updateState({img2: {uri: 'data:image/png;base64,' + base64}});
     }
   };
 
@@ -680,7 +692,7 @@ export default function TaskCompleteDocument({ route, navigation }) {
     )
       return;
     request.images = [image1, image2];
-    updateState({ isLoading: true });
+    updateState({isLoading: true});
     FaceSDK.matchFaces(
       JSON.stringify(request),
       response => {
@@ -689,9 +701,9 @@ export default function TaskCompleteDocument({ route, navigation }) {
         if (response?.unmatchedFaces && response?.unmatchedFaces.length) {
           showError(
             response?.unmatchedFaces[0]?.exception?.message ||
-            strings.FACESNOTMATCHED,
+              strings.FACESNOTMATCHED,
           );
-          updateState({ isLoading: false });
+          updateState({isLoading: false});
         } else if (response?.matchedFaces && response?.matchedFaces.length) {
           let matchedFaces = response.matchedFaces;
           console.log(matchedFaces, 'matchedFaces');
@@ -706,7 +718,7 @@ export default function TaskCompleteDocument({ route, navigation }) {
           console.log(similarValue, 'similarValue>>>UPDATED');
           if (similarValue && similarValue >= 90) {
             updateState({
-              faceImage: { uri: 'data:image/png;base64,' + image2.bitmap },
+              faceImage: {uri: 'data:image/png;base64,' + image2.bitmap},
             });
             showSuccess(strings.IMAGEMATCHED);
           } else if (similarValue && similarValue != null) {
@@ -720,12 +732,11 @@ export default function TaskCompleteDocument({ route, navigation }) {
       },
       e => {
         console.log(e, 'error');
-        updateState({ isLoading: false });
+        updateState({isLoading: false});
         // this.setState({similarity: e});
       },
     );
   };
-
 
   const completeAllTask = () => {
     if (
@@ -748,11 +759,10 @@ export default function TaskCompleteDocument({ route, navigation }) {
     });
   };
 
-
   const onChangeText = (text, item) => {
     const attributeInfoData = [...attributeInfo];
     let indexOfAttributeToUpdate = attributeInfoData.findIndex(
-      (itm) => itm?.id == item?.id,
+      itm => itm?.id == item?.id,
     );
     attributeInfoData[indexOfAttributeToUpdate].values = [text];
     setAttributeInfo(attributeInfoData);
@@ -761,17 +771,16 @@ export default function TaskCompleteDocument({ route, navigation }) {
   const onChangeDropDownOption = (value, item) => {
     const attributeInfoData = [...attributeInfo];
     let indexOfAttributeToUpdate = attributeInfoData.findIndex(
-      (itm) => itm?.id == item?.id,
+      itm => itm?.id == item?.id,
     );
     attributeInfoData[indexOfAttributeToUpdate].values = value;
     setAttributeInfo(attributeInfoData);
   };
 
-
-  const onPressRadioButton = (item) => {
+  const onPressRadioButton = item => {
     const attributeInfoData = [...attributeInfo];
     let indexOfAttributeToUpdate = attributeInfoData.findIndex(
-      (itm) => itm?.id == item?.attribute_id,
+      itm => itm?.id == item?.attribute_id,
     );
     attributeInfoData[indexOfAttributeToUpdate].values = [item?.id];
     setAttributeInfo(attributeInfoData);
@@ -779,10 +788,10 @@ export default function TaskCompleteDocument({ route, navigation }) {
   const onPressCheckBoxes = (value, data) => {
     const attributeInfoData = [...attributeInfo];
     let indexOfAttributeToUpdate = attributeInfoData.findIndex(
-      (itm) => itm?.id == value?.attribute_id,
+      itm => itm?.id == value?.attribute_id,
     );
     if (!isEmpty(data?.values)) {
-      let existingItmIndx = data?.values.findIndex((itm) => itm == value.id);
+      let existingItmIndx = data?.values.findIndex(itm => itm == value.id);
       if (existingItmIndx == -1) {
         attributeInfoData[indexOfAttributeToUpdate].values = [
           ...data?.values,
@@ -802,104 +811,136 @@ export default function TaskCompleteDocument({ route, navigation }) {
     setAttributeInfo(attributeInfoData);
   };
 
-
-  const onImagePicker =
-    (item) => {
-      Alert.alert(
-        (getBundleId() == appIds.mrVeloz && defaultLanguagae?.value == 'es') ? strings.SELCET_OPTION : 'Select option',
-        '',
-        [
-          {
-            text:(getBundleId() == appIds.mrVeloz && defaultLanguagae?.value == 'es') ? strings.USE_GALLERY : 'Use gallery',
-            onPress: () => {
-              cameraHandler(1, {
-                cropping: false,
-                compressImageQuality: 0.1,
-                cropperCircleOverlay: false,
-                mediaType: 'photo',
-              })
-                .then((res) => setImageData(res, item))
-                .catch(err => {
-
-                });
-            },
+  const onImagePicker = item => {
+    Alert.alert(
+      getBundleId() == appIds.mrVeloz && defaultLanguagae?.value == 'es'
+        ? strings.SELCET_OPTION
+        : 'Select option',
+      '',
+      [
+        {
+          text:
+            getBundleId() == appIds.mrVeloz && defaultLanguagae?.value == 'es'
+              ? strings.USE_GALLERY
+              : 'Use gallery',
+          onPress: () => {
+            cameraHandler(1, {
+              cropping: false,
+              compressImageQuality: 0.1,
+              cropperCircleOverlay: false,
+              mediaType: 'photo',
+            })
+              .then(res => setImageData(res, item))
+              .catch(err => {});
           },
-          {
-            text:(getBundleId() == appIds.mrVeloz && defaultLanguagae?.value == 'es') ? strings.USE_CAMERA : 'Use camera',
-            onPress: () => {
-              openCamera()
-                .then((res) => setImageData(res, item))
-                .catch(error => {
-                });
-            },
+        },
+        {
+          text:
+            getBundleId() == appIds.mrVeloz && defaultLanguagae?.value == 'es'
+              ? strings.USE_CAMERA
+              : 'Use camera',
+          onPress: () => {
+            openCamera()
+              .then(res => setImageData(res, item))
+              .catch(error => {});
           },
-        ],
-        { cancelable: true },
-      )
-
-    }
+        },
+      ],
+      {cancelable: true},
+    );
+  };
 
   const setImageData = (res, item) => {
     const attributeInfoData = [...attributeInfo];
     let indexOfAttributeToUpdate = attributeInfoData.findIndex(
-      (itm) => itm?.id == item?.id,
+      itm => itm?.id == item?.id,
     );
 
-    attributeInfoData[indexOfAttributeToUpdate].values = [{
-      type: res?.mime,
-      uri: res?.path,
-      image_id: Math.random(),
-      name: res?.filename ? res?.filename : 'unknown',
-    }];
-    setAttributeInfo(attributeInfoData);
-  }
-
-
-  const ImageForm = ({ data, index }) => {
-    return <TouchableOpacity onPress={() => onImagePicker(data, index)} style={{
-      paddingHorizontal: moderateScale(6)
-    }} >
-      <FastImage source={!isEmpty(data?.values) ? { uri: data?.values[0]?.uri, priority: FastImage.priority.high, } : imagePath.icImgPlaceholder} style={{
-        height: moderateScaleVertical(100),
-        width: "100%",
-      }} resizeMode={!isEmpty(data?.values) ? "cover" : "contain"} />
+    attributeInfoData[indexOfAttributeToUpdate].values = [
       {
-        !isEmpty(data?.values) && <TouchableOpacity onPress={() => {
-          const attributeInfoData = [...attributeInfo];
-          attributeInfoData[index].values = []
-          setAttributeInfo(attributeInfoData)
-        }} hitSlop={hitSlopProp} style={{
-          position: "absolute",
-          zIndex: 1,
-          right: -5,
-          top: -10
-        }}>
-          <Image source={imagePath.ic_cross} style={{
-            tintColor: colors.redB
-          }} />
-        </TouchableOpacity>
-      }
-    </TouchableOpacity>
-  }
+        type: res?.mime,
+        uri: res?.path,
+        image_id: Math.random(),
+        name: res?.filename ? res?.filename : 'unknown',
+      },
+    ];
+    setAttributeInfo(attributeInfoData);
+  };
 
-  const DateView = ({ data, index }) => {
-    return <TouchableOpacity onPress={() => {
-      setIsDatePicker(true)
-      setSelectedDateItem(data)
-    }} style={{
-      height: moderateScaleVertical(40),
-      backgroundColor: colors.blackOpacity10,
-      borderRadius: moderateScale(6),
-      justifyContent: "center",
-      paddingHorizontal: moderateScale(10)
-    }}><Text style={{
-      fontFamily: fontFamily.regular,
-      fontSize: textScale(12)
-    }}>{!isEmpty(data?.values) ? moment(data?.values[0]).format("YYYY-MM-DD") : "Select Date"}</Text></TouchableOpacity>
-  }
+  const ImageForm = ({data, index}) => {
+    return (
+      <TouchableOpacity
+        onPress={() => onImagePicker(data, index)}
+        style={{
+          paddingHorizontal: moderateScale(6),
+        }}>
+        <FastImage
+          source={
+            !isEmpty(data?.values)
+              ? {uri: data?.values[0]?.uri, priority: FastImage.priority.high}
+              : imagePath.icImgPlaceholder
+          }
+          style={{
+            height: moderateScaleVertical(100),
+            width: '100%',
+          }}
+          resizeMode={!isEmpty(data?.values) ? 'cover' : 'contain'}
+        />
+        {!isEmpty(data?.values) && (
+          <TouchableOpacity
+            onPress={() => {
+              const attributeInfoData = [...attributeInfo];
+              attributeInfoData[index].values = [];
+              setAttributeInfo(attributeInfoData);
+            }}
+            hitSlop={hitSlopProp}
+            style={{
+              position: 'absolute',
+              zIndex: 1,
+              right: -5,
+              top: -10,
+            }}>
+            <Image
+              source={imagePath.ic_cross}
+              style={{
+                tintColor: colors.redB,
+              }}
+            />
+          </TouchableOpacity>
+        )}
+      </TouchableOpacity>
+    );
+  };
+
+  const DateView = ({data, index}) => {
+    return (
+      <TouchableOpacity
+        onPress={() => {
+          setIsDatePicker(true);
+          setSelectedDateItem(data);
+        }}
+        style={{
+          height: moderateScaleVertical(40),
+          backgroundColor: colors.blackOpacity10,
+          borderRadius: moderateScale(6),
+          justifyContent: 'center',
+          paddingHorizontal: moderateScale(10),
+        }}>
+        <Text
+          style={{
+            fontFamily: fontFamily.regular,
+            fontSize: textScale(12),
+          }}>
+          {!isEmpty(data?.values)
+            ? moment(data?.values[0]).format('YYYY-MM-DD')
+            : 'Select Date'}
+        </Text>
+      </TouchableOpacity>
+    );
+  };
 
   const renderAttributeOptions = useCallback(
-    ({ item, index }) => {
+    ({item, index}) => {
       return (
         <View>
           <Text
@@ -916,7 +957,7 @@ export default function TaskCompleteDocument({ route, navigation }) {
               valueField="id"
               value={!isEmpty(item?.values) ? item?.values : []}
               data={item?.option}
-              onChange={(value) => onChangeDropDownOption(value, item)}
+              onChange={value => onChangeDropDownOption(value, item)}
               placeholder={strings.SELECT_VALUE}
               fontFamily={fontFamily.regular}
               placeholderStyle={styles.multiSelectPlaceholder}
@@ -930,10 +971,14 @@ export default function TaskCompleteDocument({ route, navigation }) {
           ) : item?.type == 4 ? (
             <TextInput
               placeholder={strings.TYPE_HERE}
-              onChangeText={(text) => onChangeText(text, item)}
+              onChangeText={text => onChangeText(text, item)}
               style={styles.textInput}
             />
-          ) : item?.type == 6 ? <ImageForm data={item} index={index} /> : item?.type == 7 ? <DateView data={item} index={index} /> : (
+          ) : item?.type == 6 ? (
+            <ImageForm data={item} index={index} />
+          ) : item?.type == 7 ? (
+            <DateView data={item} index={index} />
+          ) : (
             <View style={styles.checkBox}>
               {item?.option?.map((itm, index) =>
                 renderDatePicker(itm, item, index),
@@ -1021,9 +1066,7 @@ export default function TaskCompleteDocument({ route, navigation }) {
     [attributeInfo],
   );
 
-  const renderDatePicker = (item, mainItem, index) => {
-
-  }
+  const renderDatePicker = (item, mainItem, index) => {};
 
   const qrVendorModalView = () => {
     return (
@@ -1049,7 +1092,7 @@ export default function TaskCompleteDocument({ route, navigation }) {
             paddingVertical: moderateScaleVertical(15),
           }}>
           <Image
-            source={{ uri: qrCodeVendorDetail?.logo?.image_s3_url }}
+            source={{uri: qrCodeVendorDetail?.logo?.image_s3_url}}
             style={{
               height: moderateScale(80),
               width: moderateScale(80),
@@ -1113,21 +1156,27 @@ export default function TaskCompleteDocument({ route, navigation }) {
   const modalMainView = () => {
     return (
       <View style={styles.modalMainContainer}>
-        <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
+        <View style={{flexDirection: 'row', justifyContent: 'space-around'}}>
           <View>
             <Text style={styles.distanceTimeTitleTextStyle}>
               {strings.TOTALDISTANCE}
             </Text>
             <Text style={styles.distanceTimeTextStyle}>
               {taskDetail?.order?.actual_distance
-                ? taskDetail?.order?.actual_distance
+                ? clientInfo?.client_preference?.distance_unit == 'metric'
+                  ? Number(taskDetail?.order?.actual_distance)
+                  : Number(
+                      taskDetail?.order?.actual_distance * 0.621371,
+                    ).toFixed(2)
                 : Number(
-                  totalTravelData?.distance?.text.substring(
-                    0,
-                    totalTravelData?.distance?.text.length - 2,
-                  ) * 1.609344,
-                ).toFixed(2)}{' '}
-              {appIds.weTogether == getBundleId() ? 'Miles' : ' KM'}
+                    totalTravelData?.distance?.text.substring(
+                      0,
+                      totalTravelData?.distance?.text.length - 2,
+                    ) * 1.609344,
+                  ).toFixed(2)}{' '}
+              {clientInfo?.client_preference?.distance_unit == 'metric'
+                ? 'KM'
+                : 'miles'}
             </Text>
           </View>
           <View>
@@ -1161,24 +1210,23 @@ export default function TaskCompleteDocument({ route, navigation }) {
     );
   };
 
-
   const _onCloseModal = () => {
-    setIsDatePicker(false)
-  }
+    setIsDatePicker(false);
+  };
 
-  const onDateChange = (value) => {
-    setSelectedDate(value)
-  }
+  const onDateChange = value => {
+    setSelectedDate(value);
+  };
 
   const onDateSelectDone = () => {
     const attributeInfoData = [...attributeInfo];
     let indexOfAttributeToUpdate = attributeInfoData.findIndex(
-      (itm) => itm?.id == selectedDateItem?.id,
+      itm => itm?.id == selectedDateItem?.id,
     );
     attributeInfoData[indexOfAttributeToUpdate].values = [selectedDate];
     setAttributeInfo(attributeInfoData);
-    _onCloseModal()
-  }
+    _onCloseModal();
+  };
 
   return (
     <WrapperContainer
@@ -1187,8 +1235,8 @@ export default function TaskCompleteDocument({ route, navigation }) {
       isLoading={isLoading}
       source={loaderOne}>
       <Header
-        headerStyle={{ backgroundColor: colors.white }}
-        leftIconStyle={{ tintColor: colors.themeColor }}
+        headerStyle={{backgroundColor: colors.white}}
+        leftIconStyle={{tintColor: colors.themeColor}}
         customLeft={() => (
           <TouchableOpacity
             onPress={() => navigation.goBack()}
@@ -1198,13 +1246,15 @@ export default function TaskCompleteDocument({ route, navigation }) {
           </TouchableOpacity>
         )}
       />
-      <View style={{ ...commonStyles.headerTopLine }} />
-      <KeyboardAwareScrollView keyboardShouldPersistTaps={"handled"}>
-        <View style={{ flex: 0.8 }}>
+      <View style={{...commonStyles.headerTopLine}} />
+      <KeyboardAwareScrollView keyboardShouldPersistTaps={'handled'}>
+        <View style={{flex: 0.8}}>
           {!!params?.data?.otpEnabled && (
             <View style={styles.otpContainer}>
-              <Text style={styles.attachment}>{strings.OTP}</Text>
-              <TextInput
+              <Text style={[styles.attachment, {textTransform: 'uppercase'}]}>
+                {strings.OTP}
+              </Text>
+              {/* <TextInput
                 multiline={true}
                 value={otpField}
                 textAlignVertical={'top'}
@@ -1220,8 +1270,30 @@ export default function TaskCompleteDocument({ route, navigation }) {
                     paddingVertical: moderateScale(10),
                   },
                 ]}
-                onChangeText={text => updateState({ otpField: text })}
+                onChangeText={text => updateState({otpField: text})}
                 onSubmitEditing={() => Keyboard.dismiss()}
+              /> */}
+              <SmoothPinCodeInput
+                // containerStyle={{alignSelf: 'center'}}
+                password
+                autoFocus={true}
+                mask={<View style={styles.maskStyle} />}
+                cellSize={width / 8}
+                codeLength={5}
+                cellSpacing={10}
+                editable={true}
+                cellStyle={styles.cellStyle}
+                cellStyleFocused={styles.cellStyleFocused}
+                textStyle={styles.textStyleCodeInput}
+                textStyleFocused={styles.textStyleFocused}
+                inputProps={{
+                  autoCapitalize: 'none',
+                  autoFocus: true,
+                }}
+                value={otpField}
+                keyboardType={'numeric'}
+                onTextChange={otpToShow => updateState({otpField: otpToShow})}
+                // onFulfill={code => onOtpInput(code)}
               />
             </View>
           )}
@@ -1230,115 +1302,114 @@ export default function TaskCompleteDocument({ route, navigation }) {
             params?.data?.updatedProofArray &&
             params?.data?.updatedProofArray.length
           ) && (
-              <View style={{
+            <View style={{}}>
+              <View style={styles.documentContainer}>
+                <Text style={styles.attachment}>{strings.ATTACHMENTS}</Text>
+                <View style={styles.documentListContainer}>
+                  {taskProofArray.map((i, inx) => {
+                    const {width, height} = Image.resolveAssetSource(
+                      i?.imagePath,
+                    );
 
-              }}>
-                <View style={styles.documentContainer}>
-                  <Text style={styles.attachment}>{strings.ATTACHMENTS}</Text>
-                  <View style={styles.documentListContainer}>
-                    {taskProofArray.map((i, inx) => {
-                      const { width, height } = Image.resolveAssetSource(
-                        i?.imagePath,
-                      );
-
-                      return (
-                        <TouchableOpacity
-                          activeOpacity={1}
-                          onPress={() => onPressCategory(i)}
-                          style={styles.documentContainerView}>
-                          <Image
-                            source={getImage(i)}
-                            onLayout={onImageLayout}
-                            style={{
-                              width: width - 40,
-                              height: height - 40, //362 is actual height of image
-                              // alignSelf: 'center',
-                            }}
-                            resizeMode={'contain'}
-                          />
-                          <Text style={styles.titleStyle}>{i?.title}</Text>
-                        </TouchableOpacity>
-                      );
-                    })}
-                  </View>
+                    return (
+                      <TouchableOpacity
+                        activeOpacity={1}
+                        onPress={() => onPressCategory(i)}
+                        style={styles.documentContainerView}>
+                        <Image
+                          source={getImage(i)}
+                          onLayout={onImageLayout}
+                          style={{
+                            width: width - 40,
+                            height: height - 40, //362 is actual height of image
+                            // alignSelf: 'center',
+                          }}
+                          resizeMode={'contain'}
+                        />
+                        <Text style={styles.titleStyle}>{i?.title}</Text>
+                      </TouchableOpacity>
+                    );
+                  })}
                 </View>
-                {showInputBox && (
-                  <View>
-                    <Text style={styles.reason}>{strings.NOTE}</Text>
-                    <TextInput
-                      multiline={true}
-                      value={note}
-                      textAlignVertical={'top'}
-                      returnKeyType={'done'}
-                      style={styles.textInputStyle}
-                      onChangeText={text => updateState({ note: text })}
-                      onSubmitEditing={() => Keyboard.dismiss()}
-                    />
-                  </View>
-                )}
+              </View>
+              {showInputBox && (
+                <View>
+                  <Text style={styles.reason}>{strings.NOTE}</Text>
+                  <TextInput
+                    multiline={true}
+                    value={note}
+                    textAlignVertical={'top'}
+                    returnKeyType={'done'}
+                    style={styles.textInputStyle}
+                    onChangeText={text => updateState({note: text})}
+                    onSubmitEditing={() => Keyboard.dismiss()}
+                  />
+                </View>
+              )}
+
+              <View
+                style={{
+                  marginHorizontal: moderateScale(10),
+                  marginTop: moderateScale(10),
+                }}>
+                {/* <Text style={styles.attachment}>{strings.REQUIREDDATA}</Text> */}
 
                 <View
                   style={{
-                    marginHorizontal: moderateScale(10),
-                    marginTop: moderateScale(10),
+                    flexDirection: 'row',
+                    flexWrap: 'wrap',
                   }}>
-                  {/* <Text style={styles.attachment}>{strings.REQUIREDDATA}</Text> */}
+                  {/* signature image */}
+                  {!!signatureImage && (
+                    <Image
+                      source={{
+                        uri: signatureImage,
+                      }}
+                      style={{
+                        width: width / 3.5,
+                        height: width / 3.5, //362 is actual height of image
+                      }}
+                    />
+                  )}
 
-                  <View
-                    style={{
-                      flexDirection: 'row',
-                      flexWrap: 'wrap',
-                    }}>
-                    {/* signature image */}
-                    {!!signatureImage && (
-                      <Image
-                        source={{
-                          uri: signatureImage,
-                        }}
-                        style={{
-                          width: width / 3.5,
-                          height: width / 3.5, //362 is actual height of image
-                        }}
-                      />
-                    )}
+                  {/* image */}
+                  {!!image && (
+                    <Image
+                      source={{
+                        uri: image,
+                      }}
+                      style={{
+                        width: width / 3.5,
+                        height: width / 3.5, //362 is actual height of image
+                      }}
+                    />
+                  )}
 
-                    {/* image */}
-                    {!!image && (
-                      <Image
-                        source={{
-                          uri: image,
-                        }}
-                        style={{
-                          width: width / 3.5,
-                          height: width / 3.5, //362 is actual height of image
-                        }}
-                      />
-                    )}
-
-                    {/* faceImage */}
-                    {!!faceImage && (
-                      <Image
-                        source={{
-                          uri: faceImage.uri,
-                        }}
-                        style={{
-                          width: width / 3.5,
-                          height: width / 3.5, //362 is actual height of image
-                        }}
-                      />
-                    )}
-                  </View>
+                  {/* faceImage */}
+                  {!!faceImage && (
+                    <Image
+                      source={{
+                        uri: faceImage.uri,
+                      }}
+                      style={{
+                        width: width / 3.5,
+                        height: width / 3.5, //362 is actual height of image
+                      }}
+                    />
+                  )}
                 </View>
               </View>
-            )}
-          {
-            !!userData?.client_preference?.is_show_attribute_form_toggle &&
+            </View>
+          )}
+          {!!userData?.client_preference?.is_show_attribute_form_toggle && (
             <View style={styles.documentContainer}>
-              {!isEmpty(attributeInfo) && <Text style={styles.attachment}>Task Additional Documents</Text>}
+              {!isEmpty(attributeInfo) && (
+                <Text style={styles.attachment}>Task Additional Documents</Text>
+              )}
               <View
                 style={{
                   marginTop: moderateScaleVertical(16),
-                  marginHorizontal: moderateScale(12)
+                  marginHorizontal: moderateScale(12),
                 }}>
                 <FlatList
                   data={attributeInfo}
@@ -1354,18 +1425,18 @@ export default function TaskCompleteDocument({ route, navigation }) {
                   )}
                   renderItem={renderAttributeOptions}
                 />
-                <View style={{ height: moderateScaleVertical(65) }} />
+                <View style={{height: moderateScaleVertical(65)}} />
               </View>
             </View>
-          }
+          )}
         </View>
-        <View style={{ flex: 0.2, paddingVertical: moderateScale(20) }}>
-          <ButtonComponent buttonTitle={strings.DONE} onPress={completeAllTask} />
+        <View style={{flex: 0.2, paddingVertical: moderateScale(20)}}>
+          <ButtonComponent
+            buttonTitle={strings.DONE}
+            onPress={completeAllTask}
+          />
         </View>
       </KeyboardAwareScrollView>
-
-
-
 
       <ModalView isVisible={isModalVisible} modalMainContent={modalMainView} />
       <ModalView

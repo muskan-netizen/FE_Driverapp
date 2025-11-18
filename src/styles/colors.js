@@ -1,5 +1,5 @@
 export default {
-  themeColor: '#2C80FF',
+  themeColor: '#000000',
   lophtBlue: '#0056a4',
   btnABlue: '#61A0F2',
   btnBBlue: '#32A3E0',
@@ -106,5 +106,5 @@ export default {
   textGreyOpcaity6: 'rgba(30,36,40,.6)',
   blackOpacity5: 'rgba(0,0,0,0.0.5)',
   blackOpacity20: 'rgba(0,0,0,0.2)',
-
+  dropdawgPrimary: '#FF914D',
 };

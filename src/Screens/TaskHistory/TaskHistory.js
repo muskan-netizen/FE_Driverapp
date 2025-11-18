@@ -133,6 +133,7 @@ export default function TaskHistory({route, navigation}) {
         _onPressTask={() => _onPressTask(item)}
         isFromHistory={true}
         previousData={allTaskInHistory[index-1]}
+        clientInfo={clientInfo}
        
       />
       </>
@@ -188,7 +189,7 @@ export default function TaskHistory({route, navigation}) {
       <View style={styles.cashCollectionContainer}>
         <View style={styles.cashTextView}>
           <Text style={styles.cashCollected}>
-            {`${strings.CASHCOLLECTED} :- ${totalCashCollected}`}
+            {`${strings.CASHCOLLECTED} :- ${clientInfo?.currencyCode}${totalCashCollected}`}
           </Text>
         </View>
         <View

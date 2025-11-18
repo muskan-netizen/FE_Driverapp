@@ -1,6 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, Modal, Text} from 'react-native';
-import {ViewPropTypes} from 'deprecated-react-native-prop-types'
+import {StyleSheet, View, Modal, ViewPropTypes, Text} from 'react-native';
 import PropTypes from 'prop-types';
 import LottieAnimation from 'lottie-react-native';
 import {defaultLoader} from './Loaders/AnimatedLoaderFiles';
@@ -29,7 +28,7 @@ export default class CustomAnimatedLoader extends React.PureComponent {
     overlayColor: PropTypes.string,
     animationType: PropTypes.oneOf(['none', 'slide', 'fade']),
     source: PropTypes.object,
-    animationStyle: ViewPropTypes.style,
+    animationStyle: {},
     speed: PropTypes.number,
     loop: PropTypes.bool,
     colorFilters: PropTypes.array,

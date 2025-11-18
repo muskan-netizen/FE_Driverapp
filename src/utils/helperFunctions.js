@@ -11,7 +11,7 @@ import store from '../redux/store';
 import types from '../redux/types';
 import colors from '../styles/colors';
 import fontFamily from '../styles/fontFamily';
-import { textScale } from '../styles/responsiveSize';
+import { moderateScale, textScale } from '../styles/responsiveSize';
 import actions from '../redux/actions';
 import strings from './../constants/lang/index';
 import { setUserData } from './utils';
@@ -102,6 +102,7 @@ const showErrorOnModal = (modalRef = null, message = '', duration = 2000) => {
     style: {
       alignItems: 'center',
       justifyContent: 'center',
+      height: moderateScale(50),
     },
     duration: duration,
   });

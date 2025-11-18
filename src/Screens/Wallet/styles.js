@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 import colors from '../../styles/colors';
 import fontFamily from '../../styles/fontFamily';
-import {moderateScale, textScale, width} from '../../styles/responsiveSize';
+import {height, moderateScale, textScale, width} from '../../styles/responsiveSize';
 
 export default ({defaultLanguagae}) => {
   const styles = StyleSheet.create({
@@ -51,12 +51,12 @@ export default ({defaultLanguagae}) => {
       marginHorizontal: moderateScale(10),
     },
     gradientStyle: {
-      height: '100%',
+      // height: '100%',
       // alignItems: 'center',
       justifyContent: 'center',
       width: '45%',
       borderRadius: moderateScale(10),
-      height: moderateScale(120),
+      // height: height/5,
       padding: moderateScale(10),
     },
     transactionHistory: {
@@ -68,6 +68,7 @@ export default ({defaultLanguagae}) => {
       color: colors.white,
       fontFamily: fontFamily.medium,
       fontSize: textScale(20),
+      paddingBottom:moderateScale(10)
     },
     totalRevenue: {
       color: colors.white,

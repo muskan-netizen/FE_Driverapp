@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Alert, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import FastImage from 'react-native-fast-image'
 import { useSelector } from 'react-redux'
@@ -24,6 +24,7 @@ export default function Account({
     const { zendeskKeys, clientInfo, defaultLanguage } = useSelector(
         state => state?.initBoot,
     );
+    const [isLoading, setLoading] = useState(false)
     const commonStyles = commonStylesFun({
         fontFamily
     })
@@ -74,23 +75,24 @@ export default function Account({
                 onPress: () => {
                     console.log('progress');
                     logout();
+                    // navigation.toggleDrawer();
                 },
             },
         ]);
     };
 
     const logout = () => {
-        actions
-            .logout({}, { client: clientInfo?.database_name })
-            .then((res) => {
+        setLoading(true)
+        actions.logout({}, { client: clientInfo?.database_name })
+            .then(res => {
                 console.log(res, 'login data');
-                setTimeout(() => {
+                    setTimeout(() => {
                    removeItem("userData").then(()=>{
                      removerUserData()
                      showSuccess(res?.message ? res?.message : 'Logout successfully.');
                    })
                 }, 400);
-              })
+            })
             .catch(errorMethod);
     };
 
@@ -102,7 +104,10 @@ export default function Account({
 
 
     return (
-        <WrapperContainer>
+        <WrapperContainer
+        isLoadingB={isLoading}
+        source={loaderOne}
+        >
             <Header centerTitle={strings.MY_ACCOUNT} noLeftIcon />
             <View style={{
                 flex: 1,

@@ -15,7 +15,6 @@ import styles from './styles';
 import SignatureCapture from 'react-native-signature-capture';
 import {moderateScale, textScale} from '../../styles/responsiveSize';
 import navigationStrings from '../../navigation/navigationStrings';
-import { showError } from '../../utils/helperFunctions';
 
 var ACTION_TIMER = 1500;
 var COLORS = ['#8FEE90', '#27A468'];
@@ -26,10 +25,9 @@ export default function AddSignature({route, navigation}) {
   console.log(params, 'params>>>');
   const [state, setState] = useState({
     isLoading: false,
-    isReset:true
   });
 
-  const {isLoading,isReset} = state;
+  const {isLoading} = state;
   const commonStyles = commonStylesFunc({fontFamily});
   const updateState = data => setState(state => ({...state, ...data}));
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
@@ -44,16 +42,11 @@ export default function AddSignature({route, navigation}) {
   };
 
   const resetSign = () => {
-    updateState({isReset:true})
     signRef.current.resetImage();
   };
 
   const _onSaveEvent = result => {
     console.log(result, 'resultresultresultresultresult');
-    if(isReset){
-      showError("Please add signature")
-      return
-    }
     updateState({isLoading: true});
     if (params && params?.updateSignature) {
       params?.updateSignature(result);
@@ -65,7 +58,6 @@ export default function AddSignature({route, navigation}) {
   };
   const _onDragEvent = () => {
     // This callback will be called when the user enters signature
-    updateState({isReset:false})
     console.log('dragged');
   };
 

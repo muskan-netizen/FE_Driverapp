@@ -34,8 +34,8 @@ const WrapperContainer = ({
       }}>
       <StatusBar backgroundColor={statusBarColor} barStyle={barStyle} />
       <View style={{backgroundColor: bgColor, flex: 1}}>{children}</View>
-      <Loader isLoading={isLoading} withModal={withModal} />
-      <CustomAnimatedLoader
+      {!!isLoading?<Loader isLoading={isLoading} withModal={withModal} />:null}
+      {!!isLoadingB?<CustomAnimatedLoader
         source={source}
         loaderTitle={strings.LOADING}
         containerColor={colors.white}
@@ -48,7 +48,7 @@ const WrapperContainer = ({
           {...loaderHeightWidth},
         ]}
         visible={isLoadingB}
-      />
+      />:null}
     </SafeAreaView>
   );
 };

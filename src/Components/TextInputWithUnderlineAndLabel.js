@@ -21,6 +21,8 @@ import {useDarkMode} from 'react-native-dynamic';
 import {MyDarkTheme} from '../styles/theme';
 import imagePath from '../constants/imagePath';
 import fontFamily from '../styles/fontFamily';
+import { getBundleId } from 'react-native-device-info';
+import { appIds } from '../utils/constants/DynamicAppKeys';
 
 // import styles from '../Screens/Tracking/styles';
 
@@ -102,7 +104,7 @@ const TextInputWithUnderlineAndLabel = ({
         <TextInput
           autoFocus={autoFocus || false}
           selectionColor={ colors.black}
-          placeholder={placeholder}
+          placeholder={  placeholder}
           placeholderTextColor={
              placeholderTextColor
           }

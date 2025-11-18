@@ -1,60 +1,65 @@
-import { useFocusEffect } from '@react-navigation/native';
-import moment from 'moment';
-import React, { useEffect, useState } from 'react';
+import { useFocusEffect } from "@react-navigation/native";
+import moment from "moment";
+import React, { useEffect, useState } from "react";
 import {
   FlatList,
   Image,
   RefreshControl,
+  ScrollView,
   Text,
   TouchableOpacity,
   View,
-} from 'react-native';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import Modal from 'react-native-modal';
-import { useSelector } from 'react-redux';
-import GradientButton from '../../Components/GradientButton';
-import Header from '../../Components/Header';
-import { loaderOne } from '../../Components/Loaders/AnimatedLoaderFiles';
-import TextInputWithlabel from '../../Components/TextInputWithlabel';
-import WrapperContainer from '../../Components/WrapperContainer';
-import imagePath from '../../constants/imagePath';
-import strings from '../../constants/lang';
-import navigationStrings from '../../navigation/navigationStrings';
-import actions from '../../redux/actions';
-import colors from '../../styles/colors';
-import fontFamily from '../../styles/fontFamily';
+  Platform,
+} from "react-native";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import Modal from "react-native-modal";
+import { useSelector } from "react-redux";
+import GradientButton from "../../Components/GradientButton";
+import Header from "../../Components/Header";
+import { loaderOne } from "../../Components/Loaders/AnimatedLoaderFiles";
+import TextInputWithlabel from "../../Components/TextInputWithlabel";
+import WrapperContainer from "../../Components/WrapperContainer";
+import imagePath from "../../constants/imagePath";
+import strings from "../../constants/lang";
+import navigationStrings from "../../navigation/navigationStrings";
+import actions from "../../redux/actions";
+import colors from "../../styles/colors";
+import fontFamily from "../../styles/fontFamily";
 import {
   height,
   moderateScale,
   moderateScaleVertical,
   textScale,
   width,
-} from '../../styles/responsiveSize';
-import { currencyNumberFormatter } from '../../utils/commonFunction';
-import { showError, showSuccess } from '../../utils/helperFunctions';
-import validator from '../../utils/validations';
-import stylesFun from './styles';
-import { getBundleId } from 'react-native-device-info';
-import { appIds } from '../../utils/constants/DynamicAppKeys';
+} from "../../styles/responsiveSize";
+import { currencyNumberFormatter } from "../../utils/commonFunction";
+import { showError, showSuccess } from "../../utils/helperFunctions";
+import validator from "../../utils/validations";
+import stylesFun from "./styles";
+import { getBundleId } from "react-native-device-info";
+import { appIds } from "../../utils/constants/DynamicAppKeys";
 export default function AddMoney({ navigation }) {
-  const { userData } = useSelector(state => state?.auth);
-  const { clientInfo, defaultLanguage } = useSelector(state => state?.initBoot);
-
+  const { userData } = useSelector((state) => state?.auth);
+  const { clientInfo, defaultLanguage } = useSelector(
+    (state) => state?.initBoot
+  );
+  console.log(clientInfo?.database_name, "clientInfoclientInfo");
   const [state, setState] = useState({
     isPayoutModal: false,
     isLoading: true,
-    payoutAmount: '',
+    payoutAmount: "",
     payoutDetails: [],
     isRefreshing: false,
     selectedPayoutOption: {},
-    beneficiaryName: '',
-    beneficiaryAcNum: '',
-    beneficiaryISFC: '',
-    beneficiaryBankName: '',
+    beneficiaryName: "",
+    beneficiaryAcNum: "",
+    beneficiaryISFC: "",
+    beneficiaryBankName: "",
     agentPayoutList: [],
     pageNo: 1,
     limit: 10,
     stripeExistOrNot: false,
+    lastPage: 1,
   });
 
   const styles = stylesFun();
@@ -73,9 +78,10 @@ export default function AddMoney({ navigation }) {
     agentPayoutList,
     pageNo,
     limit,
+    lastPage,
   } = state;
 
-  const updateState = data => setState(state => ({ ...state, ...data }));
+  const updateState = (data) => setState((state) => ({ ...state, ...data }));
   //Naviagtion to specific screen
   const moveToNewScreen = (screenName, data) => () => {
     navigation.navigate(screenName, { data });
@@ -84,7 +90,7 @@ export default function AddMoney({ navigation }) {
     React.useCallback(() => {
       getPayoutDetails();
       getBankDetails();
-    }, [userData?.id]),
+    }, [userData?.id])
   );
 
   useEffect(() => {
@@ -99,23 +105,23 @@ export default function AddMoney({ navigation }) {
         {},
         {
           client: clientInfo?.database_name,
-        },
+        }
       )
-      .then(res => {
-        console.log(res, '>>> Bank Details res ');
+      .then((res) => {
+        console.log(res, ">>> Bank Details res ");
         updateState({
           beneficiaryName: !!res?.data?.agent_bank_details
             ? res?.data?.agent_bank_details?.beneficiary_name
-            : '',
+            : "",
           beneficiaryAcNum: !!res?.data?.agent_bank_details
             ? res?.data?.agent_bank_details?.beneficiary_account_number
-            : '',
+            : "",
           beneficiaryISFC: !!res?.data?.agent_bank_details
             ? res?.data?.agent_bank_details?.beneficiary_ifsc
-            : '',
+            : "",
           beneficiaryBankName: !!res?.data?.agent_bank_details
             ? res?.data?.agent_bank_details?.beneficiary_bank_name
-            : '',
+            : "",
         });
       })
       .catch(errorMethod);
@@ -128,15 +134,16 @@ export default function AddMoney({ navigation }) {
         {},
         {
           client: clientInfo?.database_name,
-        },
+        }
       )
-      .then(res => {
-        console.log(res, 'resFromServer');
+      .then((res) => {
+        console.log(res, "resFromServer");
         updateState({
           payoutDetails: res?.data,
           stripeExistOrNot: res?.data?.payout_options.find(
-            x => x?.code == 'stripe',
+            (x) => x?.code == "stripe"
           ),
+          lastPage: res?.data?.agent_payout_list?.last_page,
           agentPayoutList:
             pageNo === 1
               ? res?.data?.agent_payout_list?.data
@@ -148,19 +155,17 @@ export default function AddMoney({ navigation }) {
       .catch(errorMethod);
   };
 
-  const renderPayoutBox = (numberTxt = 0, descTitle = '') => {
-
+  const renderPayoutBox = (numberTxt = 0, descTitle = "") => {
     return (
       <View style={styles.payoutBlockSubView}>
         <Text style={styles.payoutNumbersTxt}>
-          {' '}
+          {" "}
           {userData?.client_preference?.currency?.symbol}
-
           {numberTxt}
         </Text>
         <Text style={styles.payoutTitlesTxt}>{descTitle}</Text>
       </View>
-    )
+    );
   };
 
   const isValidData = () => {
@@ -195,7 +200,7 @@ export default function AddMoney({ navigation }) {
       return;
     }
     if (selectedPayoutOption?.id == 2 && !selectedPayoutOption?.is_connected) {
-      alert(strings.STRIPENOTCONNECTED)
+      alert(strings.STRIPENOTCONNECTED);
       return;
     }
     const data = {};
@@ -204,27 +209,32 @@ export default function AddMoney({ navigation }) {
       if (!checkValid) {
         return;
       }
-      data['amount'] = payoutAmount;
-      data['beneficiary_name'] = beneficiaryName;
-      data['beneficiary_account_number'] = beneficiaryAcNum;
-      data['beneficiary_ifsc'] = beneficiaryISFC;
-      data['beneficiary_bank_name'] = beneficiaryBankName;
-      data['payout_option_id'] = selectedPayoutOption?.id;
+      data["amount"] = payoutAmount;
+      data["beneficiary_name"] = beneficiaryName;
+      data["beneficiary_account_number"] = beneficiaryAcNum;
+      data["beneficiary_ifsc"] = beneficiaryISFC;
+      data["beneficiary_bank_name"] = beneficiaryBankName;
+      data["payout_option_id"] = selectedPayoutOption?.id;
     } else {
-      data['amount'] = payoutAmount;
-      data['payout_option_id'] = selectedPayoutOption?.id;
+      data["amount"] = payoutAmount;
+      data["payout_option_id"] = selectedPayoutOption?.id;
     }
-    console.log(data, 'selectedPayoutOption>>>DATA');
-    console.log(selectedPayoutOption, 'selectedPayoutOption');
+    console.log(data, "selectedPayoutOption>>>DATA");
+    console.log(selectedPayoutOption, "selectedPayoutOption");
     updateState({ isRefreshing: true });
 
     actions
       .agentPayoutCreate(`/${userData?.id}`, data, {
         client: clientInfo?.database_name,
       })
-      .then(res => {
-        console.log(res, 'responseFromServer');
-        updateState({ isPayoutModal: false, isRefreshing: false });
+      .then((res) => {
+        console.log(res, "responseFromServer");
+        updateState({
+          payoutAmount: "",
+          selectedPayoutOption: {},
+          isPayoutModal: false,
+          isRefreshing: false,
+        });
         getBankDetails();
         getPayoutDetails();
         showSuccess(res?.message, 2000);
@@ -232,8 +242,12 @@ export default function AddMoney({ navigation }) {
       .catch(errorMethod);
   };
 
-  const errorMethod = error => {
-    updateState({ isLoading: false, isRefreshing: false, isPayoutModal: false });
+  const errorMethod = (error) => {
+    updateState({
+      isLoading: false,
+      isRefreshing: false,
+      isPayoutModal: false,
+    });
     setTimeout(() => {
       showError(error?.message || error?.error || error?.description, 2000);
     }, 500);
@@ -248,69 +262,74 @@ export default function AddMoney({ navigation }) {
               styles.circleView,
               {
                 backgroundColor:
-                  item?.status_id == '0'
+                  item?.status_id == "0"
                     ? colors.blueB
-                    : item?.status_id == '1'
-                      ? colors.green
-                      : colors.redB,
+                    : item?.status_id == "1"
+                    ? colors.green
+                    : colors.redB,
               },
-            ]}>
+            ]}
+          >
             <Text style={styles.messageInitial}>
-              {item?.status_id == '0'
-                ? 'P'
-                : item?.status_id == '1'
-                  ? 'C'
-                  : 'F'}
+              {item?.status_id == "0"
+                ? "P"
+                : item?.status_id == "1"
+                ? "C"
+                : "F"}
             </Text>
           </View>
         </View>
 
-        <View style={{ flex: 0.6, justifyContent: 'center' }}>
+        <View style={{ flex: 0.6, justifyContent: "center" }}>
           <Text style={styles.message}>
-            {strings.PAYOUT_REQUEST}{' '}
-            {item?.status_id == '0'
+            {strings.PAYOUT_REQUEST}{" "}
+            {item?.status_id == "0"
               ? strings.PENDING
-              : item?.status_id == '1'
-                ? strings.CREATED
-                : strings.FAILD}
+              : item?.status_id == "1"
+              ? strings.CREATED
+              : strings.FAILD}
           </Text>
           <Text numberOfLines={1} style={styles.dateTime}>
-            {moment(item?.created_at).format('lll')}
+            {moment(item?.created_at).format("lll")}
           </Text>
         </View>
 
         <View
           style={{
             flex: 0.2,
-            alignItems: 'center',
-          }}>
+            alignItems: "center",
+          }}
+        >
           <Text
             style={[
               styles.amount,
               {
                 color: colors.black,
               },
-            ]}>
-            {userData?.client_preference?.currency?.symbol}{' '}
+            ]}
+          >
+            {userData?.client_preference?.currency?.symbol}{" "}
             {currencyNumberFormatter(Number(item?.amount).toFixed(2))}
           </Text>
           <View
             style={{
               ...styles.statusView,
               backgroundColor:
-                item?.status_id == '0'
+                item?.status_id == "0"
                   ? colors.blueB
-                  : item?.status_id == '1'
-                    ? colors.green
-                    : colors.redB,
-            }}>
+                  : item?.status_id == "1"
+                  ? colors.green
+                  : colors.redB,
+            }}
+          >
             <Text
               style={[
                 styles.amount,
                 {
                   color: colors.white,
                 },
-              ]}>
+              ]}
+            >
               {item?.status}
             </Text>
           </View>
@@ -331,7 +350,7 @@ export default function AddMoney({ navigation }) {
           mainStyle={{
             marginTop: moderateScale(10),
           }}
-          onChangeText={text => updateState({ beneficiaryName: text })}
+          onChangeText={(text) => updateState({ beneficiaryName: text })}
           editable
         />
 
@@ -342,7 +361,7 @@ export default function AddMoney({ navigation }) {
             marginTop: moderateScale(5),
           }}
           keyboardType="number-pad"
-          onChangeText={text => updateState({ beneficiaryAcNum: text })}
+          onChangeText={(text) => updateState({ beneficiaryAcNum: text })}
           editable
         />
 
@@ -352,7 +371,7 @@ export default function AddMoney({ navigation }) {
           mainStyle={{
             marginTop: moderateScale(5),
           }}
-          onChangeText={text => updateState({ beneficiaryISFC: text })}
+          onChangeText={(text) => updateState({ beneficiaryISFC: text })}
           editable
         />
         <TextInputWithlabel
@@ -361,7 +380,7 @@ export default function AddMoney({ navigation }) {
           mainStyle={{
             marginTop: moderateScale(5),
           }}
-          onChangeText={text => updateState({ beneficiaryBankName: text })}
+          onChangeText={(text) => updateState({ beneficiaryBankName: text })}
           editable
         />
       </View>
@@ -369,25 +388,26 @@ export default function AddMoney({ navigation }) {
   };
 
   const onEndReached = ({ distanceFromEnd }) => {
-    updateState({ pageNo: pageNo + 1 });
+    if (lastPage > pageNo) {
+      updateState({ pageNo: pageNo + 1 });
+    }
   };
 
   const _connectStipe = () => {
-    console.log(stripeExistOrNot, 'stripeExistOrNot');
+    console.log(stripeExistOrNot, "stripeExistOrNot");
     moveToNewScreen(navigationStrings.WEBCONNECTIONS, stripeExistOrNot)();
   };
-
-
 
   return (
     <WrapperContainer
       bgColor={colors.white}
       statusBarColor={colors.white}
       isLoading={isLoading}
-      source={loaderOne}>
+      source={loaderOne}
+    >
       <Header
         leftIcon={imagePath.backArrow}
-        centerTitle={(getBundleId() == appIds.mrVeloz && defaultLanguage?.value == 'es') ? strings.PAYOUT_MRVELOZ : strings.PAYOUT}
+        centerTitle={strings.PAYOUT}
         headerStyle={{
           backgroundColor: colors.white,
           paddingHorizontal: moderateScale(10),
@@ -409,14 +429,15 @@ export default function AddMoney({ navigation }) {
         {renderPayoutBox(payoutDetails?.past_payout_value, strings.PAST_PAYOUT)}
         {renderPayoutBox(
           payoutDetails?.available_funds,
-          strings.AVAILABLE_FUNDS,
+          strings.AVAILABLE_FUNDS
         )}
       </View>
       {!!(stripeExistOrNot && !stripeExistOrNot?.is_connected) && (
         <View style={styles.mainViewStripe}>
           <TouchableOpacity
             onPress={_connectStipe}
-            style={styles.stripeuttonLayout}>
+            style={styles.stripeuttonLayout}
+          >
             <Text style={styles.stipeText}>{strings.CONNECTSTRIPE}</Text>
           </TouchableOpacity>
           {/* payoutDetails.payout_options */}
@@ -427,7 +448,8 @@ export default function AddMoney({ navigation }) {
         <View
           style={{
             marginVertical: moderateScale(10),
-          }}>
+          }}
+        >
           <Text style={styles.transactionHistory}>
             {strings.TRANSACTIONHISTORY}
           </Text>
@@ -461,8 +483,8 @@ export default function AddMoney({ navigation }) {
         <GradientButton
           containerStyle={{ marginTop: moderateScaleVertical(40) }}
           onPress={() => updateState({ isPayoutModal: true })}
-          textStyle={{ color: colors.black }}
-          btnText={(getBundleId() == appIds.mrVeloz && defaultLanguage?.value == 'es') ? strings.PAYOUT_BUTTON_MRVELOZ : strings.PAYOUT}
+          textStyle={{ color: colors.white }}
+          btnText={strings.PAYOUT}
           colorsArray={[colors.themeColor, colors.themeColor]}
         />
       </View>
@@ -470,8 +492,12 @@ export default function AddMoney({ navigation }) {
       <Modal
         isVisible={isPayoutModal}
         status
-        style={{ margin: 0, justifyContent: Platform.OS === 'ios' ? 'center' : 'flex-end' }}
-        onBackdropPress={() => updateState({ isPayoutModal: false })}>
+        style={{
+          margin: 0,
+          justifyContent: Platform.OS === "ios" ? "center" : "flex-end",
+        }}
+        onBackdropPress={() => updateState({ isPayoutModal: false })}
+      >
         <View
           style={{
             backgroundColor: colors.white,
@@ -479,37 +505,35 @@ export default function AddMoney({ navigation }) {
             paddingVertical: moderateScale(10),
             borderRadius: moderateScale(10),
             maxHeight: height - moderateScale(100),
-            paddingBottom: Platform.OS === 'ios' ? moderateScaleVertical(40) : moderateScaleVertical(10),
-          }}>
-          <KeyboardAwareScrollView
-            keyboardShouldPersistTaps="handled"
-            showsVerticalScrollIndicator={false}
-            extraScrollHeight='0'
-          // extraScrollHeight={ Platform.OS == 'ios' ? '0' : '48'}
-          >
-
-          <Text
-            style={{
-              fontFamily: fontFamily.bold,
-              fontSize: textScale(18),
-            }}>
-            {(getBundleId() == appIds.mrVeloz && defaultLanguage?.value == 'es') ? strings.PAYOUT_BUTTON_MRVELOZ:strings.PAYOUT}
-          </Text>
-          <TextInputWithlabel
-            label={strings.AMOUNT}
-            value={payoutAmount}
-            mainStyle={{
-              marginTop: moderateScale(10),
-            }}
-            keyboardType="number-pad"
-            onChangeText={text => updateState({ payoutAmount: text })}
-            editable
-          />
-
+            paddingBottom:
+              Platform.OS === "ios"
+                ? moderateScaleVertical(40)
+                : moderateScaleVertical(10),
+          }}
+        >
+          <View>
+            <Text
+              style={{
+                fontFamily: fontFamily.bold,
+                fontSize: textScale(18),
+              }}
+            >
+              {strings.PAYOUT}
+            </Text>
+            <TextInputWithlabel
+              label={strings.AMOUNT}
+              value={payoutAmount}
+              mainStyle={{
+                marginTop: moderateScale(10),
+              }}
+              keyboardType="number-pad"
+              onChangeText={(text) => updateState({ payoutAmount: text })}
+              editable
+            />
             {!isLoading && !!payoutDetails?.available_funds ? (
               <TextInputWithlabel
                 label={strings.AVAILABLE_FUNDS}
-                placeholder={Number(payoutDetails?.available_funds).toFixed(2)}
+                value={Number(payoutDetails?.available_funds?.replace(/,/g, '')).toFixed(2)}
                 mainStyle={{
                   marginTop: moderateScale(5),
                 }}
@@ -517,65 +541,77 @@ export default function AddMoney({ navigation }) {
             ) : (
               <></>
             )}
-            {!isLoading &&
-              !!payoutDetails.payout_options &&
-              payoutDetails.payout_options.map((item, index) => {
-                return (
-                  <TouchableOpacity
-                    key={index}
-                    onPress={() => updateState({ selectedPayoutOption: item })}
-                    activeOpacity={0.8}
-                    style={{
-                      flexDirection: 'row',
-                      alignItems: 'center',
-                      marginTop: moderateScale(15),
-                    }}>
-                    <Image
-                      source={imagePath.icRadio}
+            <ScrollView
+              keyboardShouldPersistTaps="handled"
+              showsVerticalScrollIndicator={false}
+              extraScrollHeight="0"
+              // extraScrollHeight={ Platform.OS == 'ios' ? '0' : '48'}
+            >
+              {!isLoading &&
+                !!payoutDetails.payout_options &&
+                payoutDetails.payout_options.map((item, index) => {
+                  return (
+                    <TouchableOpacity
+                      key={index}
+                      onPress={() =>
+                        updateState({ selectedPayoutOption: item })
+                      }
+                      activeOpacity={0.8}
                       style={{
-                        tintColor:
-                          selectedPayoutOption.id == item.id
-                            ? colors.blueB
-                            : colors.blackB,
+                        flexDirection: "row",
+                        alignItems: "center",
+                        marginTop: moderateScale(15),
                       }}
-                    />
-                    <Text
-                      style={{
-                        fontFamily: fontFamily.regular,
-                        fontSize: textScale(13),
-                        marginLeft: moderateScale(10),
-                      }}>
-                      {item.title}
-                    </Text>
-                  </TouchableOpacity>
-                );
-              })}
+                    >
+                      <Image
+                        source={imagePath.icRadio}
+                        style={{
+                          tintColor:
+                            selectedPayoutOption.id == item.id
+                              ? colors.blueB
+                              : colors.blackB,
+                        }}
+                      />
+                      <Text
+                        style={{
+                          fontFamily: fontFamily.regular,
+                          fontSize: textScale(13),
+                          marginLeft: moderateScale(10),
+                        }}
+                      >
+                        {item.title}
+                      </Text>
+                    </TouchableOpacity>
+                  );
+                })}
 
-            {selectedPayoutOption.id == 4 ? getBankForm() : <></>}
+              {selectedPayoutOption.id == 4 ? getBankForm() : <></>}
 
-            <View
-              style={{
-                flexDirection: 'row',
-                width: '100%',
-                justifyContent: 'space-between',
-                marginTop: moderateScale(35),
-              }}>
-              <GradientButton
-                containerStyle={{ width: '45%' }}
-                onPress={() => updateState({ isPayoutModal: false })}
-                textStyle={{ color: colors.black }}
-                btnText={strings.CANCEL}
-                colorsArray={[colors.themeColor, colors.themeColor]}
-              />
-              <GradientButton
-                containerStyle={{ width: '45%' }}
-                onPress={_onContinuePayout}
-                textStyle={{ color: colors.black }}
-                btnText={strings.CONTINUE}
-                colorsArray={[colors.themeColor, colors.themeColor]}
-              />
-            </View>
-          </KeyboardAwareScrollView>
+              <View
+                style={{
+                  flexDirection: "row",
+                  width: "100%",
+                  justifyContent: "space-between",
+                  marginTop: moderateScale(35),
+                }}
+              >
+                <GradientButton
+                  containerStyle={{ width: "45%" }}
+                  onPress={() => updateState({ isPayoutModal: false })}
+                  textStyle={{ color: colors.white }}
+                  btnText={strings.CANCEL}
+                  colorsArray={[colors.themeColor, colors.themeColor]}
+                />
+                <GradientButton
+                  containerStyle={{ width: "45%" }}
+                  onPress={_onContinuePayout}
+                  textStyle={{ color: colors.white }}
+                  btnText={strings.CONTINUE}
+                  colorsArray={[colors.themeColor, colors.themeColor]}
+                />
+              </View>
+            </ScrollView>
+          </View>
         </View>
       </Modal>
     </WrapperContainer>

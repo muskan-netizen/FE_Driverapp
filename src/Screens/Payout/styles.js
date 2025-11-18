@@ -124,6 +124,10 @@ export default () => {
       borderTopLeftRadius: moderateScale(15),
       borderTopRightRadius: moderateScale(15),
     },
+    overlay: {
+      flex: 1,
+      backgroundColor: "rgba(0,0,0,0.5)",
+    },
   });
   return styles;
 };

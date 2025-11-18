@@ -1,18 +1,5 @@
-// export const API_BASE_URL = 'https://api.rdstaging.com/';
-// export const API_BASE_URL = 'https://dispatch.n2gobeauty.com/';
-//export const API_BASE_URL = 'https://805c-103-72-170-243.ngrok.io/';
-
-export const API_BASE_URL = 'https://cla.rdstaging.com/'
-
-// export const API_BASE_URL = 'https://grub.rdstaging.com/';
-
-
-// export const API_BASE_URL = 'https://punnet.royodispatch.com/'
-
-// export const API_BASE_URL = 'https://grub.royodispatch.com/';
-// export const API_BASE_URL = 'https://khaleejtimes.royodispatch.com/';
-
-
+export const API_BASE_URL = 'https://hubdriver-dispatch.netsolutionindia.com/';
+// export const API_BASE_URL = 'http://192.168.102.219:8000/';
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;
 
 export const SEND_OTP = getApiUrl('api/auth/login');
@@ -141,4 +128,8 @@ export const SAVE_AGENT_SLOTS = getApiUrl('api/auth/agent/saveSlot');
 export const GET_FILTERED_TASK_LIST = getApiUrl('api/filter_task_list');
 export const BLOCK_UNBLOCK_AGENT_DATES = getApiUrl(
   'api/agent/add_delete_block_slot',
+);
+export const UPDATE_PROFILE = getApiUrl('api/update/profile');
+export const UPLOAD_FILE_S3 = getApiUrl(
+  'api/chat/s3-sign?filename=',
 );

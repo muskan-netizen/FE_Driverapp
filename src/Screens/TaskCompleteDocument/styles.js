@@ -1,4 +1,4 @@
-import { StyleSheet, I18nManager } from 'react-native';
+import {StyleSheet, I18nManager} from 'react-native';
 import colors from '../../styles/colors';
 import fontFamily from '../../styles/fontFamily';
 import {
@@ -9,7 +9,7 @@ import {
   width,
 } from '../../styles/responsiveSize';
 
-export default ({ defaultLanguagae }) => {
+export default ({defaultLanguagae}) => {
   const styles = StyleSheet.create({
     cashCollected: {
       fontSize: textScale(12),
@@ -40,14 +40,20 @@ export default ({ defaultLanguagae }) => {
       color: colors.lightGreyBg2,
       marginHorizontal: moderateScale(10),
       marginVertical: moderateScale(10),
-      textAlign: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'right' : 'left',
+      textAlign:
+        defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he'
+          ? 'right'
+          : 'left',
     },
     rowViewTaskCancel: {
       marginHorizontal: moderateScale(20),
       borderBottomColor: colors.iconGrey,
       borderBottomWidth: StyleSheet.hairlineWidth,
       paddingVertical: moderateScale(15),
-      flexDirection: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'row-reverse' : 'row',
+      flexDirection:
+        defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he'
+          ? 'row-reverse'
+          : 'row',
       justifyContent: 'space-between',
     },
     textInputStyle: {
@@ -57,7 +63,10 @@ export default ({ defaultLanguagae }) => {
       fontSize: textScale(14),
       paddingHorizontal: 8,
       paddingVertical: 0,
-      textAlign: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'right' : 'left',
+      textAlign:
+        defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he'
+          ? 'right'
+          : 'left',
       marginHorizontal: moderateScale(20),
 
       backgroundColor: colors.backGround,
@@ -75,16 +84,22 @@ export default ({ defaultLanguagae }) => {
       marginTop: moderateScale(5),
     },
     headerCustomleftView: {
-      flexDirection: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'row-reverse' : 'row',
+      flexDirection:
+        defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he'
+          ? 'row-reverse'
+          : 'row',
       alignItems: 'center',
     },
     arrowstyle: {
-      transform: [{ scaleX: defaultLanguagae?.value == 'ar' ? -1 : 1 }],
+      transform: [{scaleX: defaultLanguagae?.value == 'ar' ? -1 : 1}],
     },
     otpContainer: {
       marginHorizontal: moderateScale(10),
       marginTop: moderateScale(10),
-      alignItems: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'flex-end' : 'flex-start',
+      alignItems:
+        defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he'
+          ? 'flex-end'
+          : 'flex-start',
     },
     documentContainer: {
       marginHorizontal: moderateScale(10),
@@ -92,7 +107,10 @@ export default ({ defaultLanguagae }) => {
     },
 
     documentListContainer: {
-      flexDirection: defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he' ? 'row-reverse' : 'row',
+      flexDirection:
+        defaultLanguagae?.value === 'ar' || defaultLanguagae?.value === 'he'
+          ? 'row-reverse'
+          : 'row',
       flexWrap: 'wrap',
       // justifyContent: 'center',
       marginHorizontal: moderateScale(10),
@@ -146,7 +164,7 @@ export default ({ defaultLanguagae }) => {
       height: moderateScaleVertical(40),
       backgroundColor: colors.blackOpacity10,
       borderRadius: moderateScale(5),
-      padding: moderateScale(10)
+      padding: moderateScale(10),
     },
     multiSelectPlaceholder: {
       color: colors.black,
@@ -168,6 +186,32 @@ export default ({ defaultLanguagae }) => {
       marginBottom: moderateScaleVertical(20),
       backgroundColor: colors.themeColor,
       borderWidth: 0,
+    },
+    codesendto: {
+      fontFamily: fontFamily.regular,
+      fontSize: textScale(12),
+      color: colors.black,
+      marginTop: moderateScaleVertical(10),
+    },
+    cellStyle: {
+      borderBottomWidth: 1,
+      borderColor: colors.textGrey,
+    },
+    cellStyleFocused: {
+      borderColor: colors.textGrey,
+    },
+    textStyleCodeInput: {
+      fontSize: 24,
+      color: colors.textGrey,
+    },
+    textStyleFocused: {
+      color: colors.textGrey,
+    },
+    maskStyle: {
+      width: 10,
+      height: 10,
+      borderRadius: 25,
+      backgroundColor: colors.textGrey,
     },
   });
 

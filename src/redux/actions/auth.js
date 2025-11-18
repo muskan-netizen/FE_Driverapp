@@ -21,27 +21,32 @@ import {
   AGENT_CATEGORY_WITH_PRODUCT,
   SAVE_PRODUCT_WITH_VARIANTS,
   SAVE_AGENT_SLOTS,
-} from "../../config/urls";
+  UPDATE_PROFILE,
+} from '../../config/urls';
+import {sessionHandler} from '../../utils/helperFunctions';
 import {
   apiGet,
   apiPost,
+  createAxiosInstance,
   removeItem,
   saveCabPollingStatus,
   setItem,
   setUserData,
-} from "../../utils/utils";
-import store from "../store";
-import types from "../types";
-const { dispatch } = store;
+} from '../../utils/utils';
+import store from '../store';
+import types from '../types';
+const {dispatch} = store;
 
-export const saveUserData = (data) => {
+const {instance, cancel} = createAxiosInstance();
+
+export const saveUserData = data => {
   dispatch({
     type: types.LOGIN,
     payload: data,
   });
 };
 
-export const removerUserData = (data) => {
+export const removerUserData = data => {
   dispatch({
     type: types.USER_LOGOUT,
     payload: data,
@@ -49,17 +54,22 @@ export const removerUserData = (data) => {
 };
 
 export function login(data = {}, headers = {}) {
-  console.log(data, "login>data>data>data", headers);
+  console.log(data, 'login>data>data>data', headers);
   return new Promise((resolve, reject) => {
     apiPost(LOGIN_API, data, headers)
-      .then(async (res) => {
+      .then(async res => {
         resolve(res);
       })
-      .catch((error) => {
+      .catch(error => {
         reject(error);
       });
   });
 }
+
+export function cancelRequest(reason = 'Request canceled') {
+  cancel(reason);
+}
+
 export function deleteAccount(data = {}, headers = {}) {
   console.log(data, headers, 'data>>>>>>');
   return new Promise((resolve, reject) => {
@@ -74,20 +84,20 @@ export function deleteAccount(data = {}, headers = {}) {
   });
 }
 export function signUp(data = {}, headers = {}) {
-  console.log(data, "login>data>data>data", headers);
+  console.log(data, 'login>data>data>data', headers);
   return new Promise((resolve, reject) => {
     apiPost(SIGNUP_API, data, headers)
-      .then(async (res) => {
+      .then(async res => {
         resolve(res);
       })
-      .catch((error) => {
+      .catch(error => {
         reject(error);
       });
   });
 }
 
-export const updataeUserData = (data) => {
-  setUserData(data).then((suc) => {
+export const updataeUserData = data => {
+  setUserData(data).then(suc => {
     dispatch({
       type: types.UPDATEUSER,
       payload: data,
@@ -99,15 +109,24 @@ export const setAttributeFormInfo = data => {
     type: types.ATTRIBUTE_FORM_DATA,
     payload: data,
   });
-}
+};
 export function verifyAccount(data = {}, headers = {}) {
-  console.log(data, "verifyAccount>data>data>data");
+  console.log(data, 'verifyAccount>data>data>data');
   return new Promise((resolve, reject) => {
     apiPost(SEND_OTP, data, headers)
       .then(async res => {
-        resolve(res);
+        if (!!res?.data && !!res?.data?.attribute_form) {
+          setAttributeFormInfo(res?.data?.attribute_form || []);
+        }
+        setUserData(res.data)
+          .then(suc => {
+            resolve(res);
+          })
+          .catch(error => {
+            resolve(error);
+          });
       })
-      .catch((error) => {
+      .catch(error => {
         reject(error);
       });
   });
@@ -118,10 +137,11 @@ export function verifyAccount(data = {}, headers = {}) {
 export function logout(data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
     apiGet(LOGOUT_API, data, headers)
-      .then(async (res) => {
+      .then(async res => {
         resolve(res);
+        sessionHandler();
       })
-      .catch((error) => {
+      .catch(error => {
         reject(error);
       });
   });
@@ -132,10 +152,10 @@ export function logout(data = {}, headers = {}) {
 export function signupDoc(data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
     apiPost(SIGNUPDOC, data, headers)
-      .then(async (res) => {
+      .then(async res => {
         resolve(res);
       })
-      .catch((error) => {
+      .catch(error => {
         reject(error);
       });
   });
@@ -145,10 +165,10 @@ export function signupDoc(data = {}, headers = {}) {
 export function getAllSubscriptions(data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
     apiGet(GET_ALL_SUBSCRIPTION_PLANS, data, headers)
-      .then((res) => {
+      .then(res => {
         resolve(res);
       })
-      .catch((error) => {
+      .catch(error => {
         reject(error);
       });
   });
@@ -156,57 +176,56 @@ export function getAllSubscriptions(data = {}, headers = {}) {
 
 //Select specific subscription
 export function selectSpecificSubscriptionPlan(
-  query = "",
+  query = '',
   data = {},
-  headers = {}
+  headers = {},
 ) {
-  console.log(SELECT_SPECIFIC_PLAN + query, "apiIsThis ");
+  console.log(SELECT_SPECIFIC_PLAN + query, 'apiIsThis ');
   return new Promise((resolve, reject) => {
     apiGet(SELECT_SPECIFIC_PLAN + query, data, headers)
-      .then((res) => {
+      .then(res => {
         resolve(res);
       })
-      .catch((error) => {
-        console.log(error, "errrrrrSELECT_SPECIFIC_PLAN");
+      .catch(error => {
+        console.log(error, 'errrrrrSELECT_SPECIFIC_PLAN');
         reject(error);
       });
   });
 }
 
 //Purchase subscription plan
-export function purchaseSubscriptionPlan(query = "", data = {}, headers = {}) {
+export function purchaseSubscriptionPlan(query = '', data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
     apiPost(PURCHASE_SPECIFIC_PLAN + query, data, headers)
-      .then((res) => {
+      .then(res => {
         resolve(res);
       })
-      .catch((error) => {
+      .catch(error => {
         reject(error);
       });
   });
 }
 
 //Cancel subscription plan
-export function cancelSubscriptionPlan(query = "", data = {}, headers = {}) {
+export function cancelSubscriptionPlan(query = '', data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
     apiPost(CANCEL_SPECIFIC_PLAN + query, data, headers)
-      .then((res) => {
+      .then(res => {
         resolve(res);
       })
-      .catch((error) => {
+      .catch(error => {
         reject(error);
       });
   });
 }
 
-
 export function sendOtpOnSignup(data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
     apiPost(SIGNUP_SEND_OTP, data, headers)
-      .then(async (res) => {
+      .then(async res => {
         resolve(res);
       })
-      .catch((error) => {
+      .catch(error => {
         reject(error);
       });
   });
@@ -215,7 +234,7 @@ export function sendOtpOnSignup(data = {}, headers = {}) {
 export function updateCabPoolingStatus(data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
     apiPost(CAB_POOLING_STATUS, data, headers)
-      .then((res) => {
+      .then(res => {
         const isPooling = !!res?.data?.is_pooling_available ? true : false;
         if (isPooling) {
           dispatch({
@@ -223,7 +242,6 @@ export function updateCabPoolingStatus(data = {}, headers = {}) {
             payload: true,
           });
         } else {
-
           dispatch({
             type: types.POOLING,
             payload: false,
@@ -232,8 +250,7 @@ export function updateCabPoolingStatus(data = {}, headers = {}) {
 
         resolve(res);
       })
-      .catch((error) => {
-        alert("faild");
+      .catch(error => {
         reject(error);
       });
   });
@@ -246,16 +263,15 @@ export function savePoolingStatusForLifeCycle(data = {}) {
   });
 }
 
-
 /// bide and ride api starting here******************************
 
 export function reciveBideRequests(data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
     apiGet(BIDEREQUESTS, data, headers)
-      .then(async (res) => {
+      .then(async res => {
         resolve(res);
       })
-      .catch((error) => {
+      .catch(error => {
         reject(error);
       });
   });
@@ -264,10 +280,10 @@ export function reciveBideRequests(data = {}, headers = {}) {
 export function acceptBideRequest(URL, data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
     apiPost(URL, data, headers)
-      .then(async (res) => {
+      .then(async res => {
         resolve(res);
       })
-      .catch((error) => {
+      .catch(error => {
         reject(error);
       });
   });
@@ -287,16 +303,14 @@ export function acceptBideRequest(URL, data = {}, headers = {}) {
 export function acceptdeclineBideRequest(data = {}, headers = {}) {
   return new Promise((resolve, reject) => {
     apiPost(ACCEPTDECLINEBIDEREQUESTS, data, headers)
-      .then(async (res) => {
+      .then(async res => {
         resolve(res);
       })
-      .catch((error) => {
+      .catch(error => {
         reject(error);
       });
   });
 }
-
-
 
 //Get Time Slots
 export function getTimeSlotsData(data = {}, headers = {}) {
@@ -307,7 +321,6 @@ export function getTimeSlotsData(data = {}, headers = {}) {
 export function getServiceDetails(data = {}, headers = {}) {
   return apiGet(GET_CATEGORIES_OF_PRODUCT, data, headers);
 }
-
 
 export function getAgentSlots(data = {}, headers = {}) {
   return apiGet(GET_AGENT_SLOTS, data, headers);
@@ -321,8 +334,6 @@ export function getAgentProductsByCategory(data = {}, headers = {}) {
   return apiGet(AGENT_CATEGORY_WITH_PRODUCT, data, headers);
 }
 
-
-
 export function onSaveProductWithVariants(data = {}, headers = {}) {
   return apiPost(SAVE_PRODUCT_WITH_VARIANTS, data, headers);
 }
@@ -330,11 +341,6 @@ export function onSaveProductWithVariants(data = {}, headers = {}) {
 export function saveAgentSlots(data = {}, headers = {}) {
   return apiPost(SAVE_AGENT_SLOTS, data, headers);
 }
-
-
-
-
-
-
-
-
+export function updateProfile(data = {}, headers = {}) {
+  return apiPost(UPDATE_PROFILE, data, headers);
+}

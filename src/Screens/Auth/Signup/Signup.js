@@ -1,8 +1,6 @@
-import { cloneDeep, isEmpty } from 'lodash';
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { cloneDeep, isEmpty } from "lodash";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import {
-  Alert,
-  BackHandler,
   I18nManager,
   Image,
   Keyboard,
@@ -12,109 +10,103 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
+  TouchableWithoutFeedback,
   View,
-} from 'react-native';
-import ActionSheet from 'react-native-actionsheet';
-import DocumentPicker from 'react-native-document-picker';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import { useSelector } from 'react-redux';
-import GradientButton from '../../../Components/GradientButton';
-import Header from '../../../Components/Header';
-import { loaderOne } from '../../../Components/Loaders/AnimatedLoaderFiles';
-import PhoneNumberInput from '../../../Components/PhoneNumberInput';
-import TextInputWithlabel from '../../../Components/TextInputWithlabel';
-import WrapperContainer from '../../../Components/WrapperContainer';
-import imagePath from '../../../constants/imagePath';
-import strings from '../../../constants/lang';
-import actions from '../../../redux/actions';
+} from "react-native";
+import ActionSheet from "react-native-actionsheet";
+import DocumentPicker from "@react-native-documents/picker";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import { useSelector } from "react-redux";
+import GradientButton from "../../../Components/GradientButton";
+import Header from "../../../Components/Header";
+import { loaderOne } from "../../../Components/Loaders/AnimatedLoaderFiles";
+import PhoneNumberInput from "../../../Components/PhoneNumberInput";
+import TextInputWithlabel from "../../../Components/TextInputWithlabel";
+import WrapperContainer from "../../../Components/WrapperContainer";
+import imagePath from "../../../constants/imagePath";
+import strings from "../../../constants/lang";
+import actions from "../../../redux/actions";
 // import store from '../../../redux/store';
-import colors from '../../../styles/colors';
-import commonStylesFunc from '../../../styles/commonStyles';
-import fontFamily from '../../../styles/fontFamily';
+import colors from "../../../styles/colors";
+import commonStylesFunc from "../../../styles/commonStyles";
+import fontFamily from "../../../styles/fontFamily";
 import {
   height,
   moderateScale,
   moderateScaleVertical,
   textScale,
   width,
-} from '../../../styles/responsiveSize';
-import { cameraHandler } from '../../../utils/commonFunction';
+} from "../../../styles/responsiveSize";
+import { cameraHandler } from "../../../utils/commonFunction";
 import {
   employeetypeArray,
   transportationArray,
-} from '../../../utils/constants/ConstantValues';
-import { appIds, shortCodes } from '../../../utils/constants/DynamicAppKeys';
+} from "../../../utils/constants/ConstantValues";
+import { appIds, shortCodes } from "../../../utils/constants/DynamicAppKeys";
 import {
   showError,
   showErrorOnModal,
   showSuccess,
-} from '../../../utils/helperFunctions';
-import { androidCameraPermission } from '../../../utils/permissions';
-import { getItem } from '../../../utils/utils';
+} from "../../../utils/helperFunctions";
+import { androidCameraPermission } from "../../../utils/permissions";
+import { getItem } from "../../../utils/utils";
 import {
   default as validations,
   default as validator,
-} from '../../../utils/validations';
-import stylesFunction from './styles';
-import Modal from 'react-native-modal';
-import DatePicker from 'react-native-date-picker';
-import DatePickerModal from '../../../Components/DatePickerModal';
-import moment from 'moment';
-import { getBundleId } from 'react-native-device-info';
-import * as RNLocalize from 'react-native-localize';
-import codes from 'country-calling-code';
+} from "../../../utils/validations";
+import stylesFunction from "./styles";
+import Modal from "react-native-modal";
+import DatePicker from "react-native-date-picker";
+import DatePickerModal from "../../../Components/DatePickerModal";
+import moment from "moment";
+import { getBundleId } from "react-native-device-info";
+import * as RNLocalize from "react-native-localize";
+import codes from "country-calling-code";
 
 import DeviceCountry, {
   TYPE_ANY,
   TYPE_TELEPHONY,
   TYPE_CONFIGURATION,
-} from 'react-native-device-country';
-import SmoothPinCodeInput from 'react-native-smooth-pincode-input';
-import ButtonWithLoader from '../../../Components/ButtonWithLoader';
-import ModalComponent from '../../../Components/ModalComponent';
-import RNOtpVerify from 'react-native-otp-verify';
-import BottomSheetForm from '../../../Components/BottomSheetForm';
+} from "react-native-device-country";
+import SmoothPinCodeInput from "react-native-smooth-pincode-input";
+import ButtonWithLoader from "../../../Components/ButtonWithLoader";
+import ModalComponent from "../../../Components/ModalComponent";
+import RNOtpVerify from "react-native-otp-verify";
+import BottomSheetForm from "../../../Components/BottomSheetForm";
+import CustomDropDownWIthLabel from "../../../Components/CustomDropDownWIthLabel";
 
 var getPhonesCallingCodeAndCountryData = null;
 DeviceCountry.getCountryCode()
-  .then(result => {
+  .then((result) => {
     getPhonesCallingCodeAndCountryData = codes.filter(
-      x => x.isoCode2 == result.code.toUpperCase(),
+      (x) => x.isoCode2 == result.code.toUpperCase()
     );
   })
-  .catch(e => {
+  .catch((e) => {
     console.log(e);
   });
 
 export default function Signup({ route, navigation }) {
   const modalRef = useRef(null);
 
-  const {appData,  clientInfo, defaultLanguage } = useSelector(state => state?.initBoot);
-  var dummyTags = '';
+  const { appData, clientInfo, defaultLanguage } = useSelector(
+    (state) => state?.initBoot
+  );
+  const pinInputRef = useRef();
+  var dummyTags = "";
   const [state, setState] = useState({
     isLoading: false,
-    fullName: '',
-    phoneNumber: '',
-    callingCode:
-      !isEmpty(getPhonesCallingCodeAndCountryData) &&
-        (getBundleId() !== appIds.SXM2GO && getBundleId() !== appIds.speedyDelivery)
-        ? getPhonesCallingCodeAndCountryData[0]?.countryCodes[0]?.replace(
-          '-',
-          '',
-        )
-        : getBundleId() == appIds.speedyDelivery ? "1"
-          : '91',
-    cca2:
-      !isEmpty(getPhonesCallingCodeAndCountryData) &&
-        (getBundleId() !== appIds.SXM2GO && getBundleId() !== appIds.speedyDelivery)
-        ? getPhonesCallingCodeAndCountryData[0]?.isoCode2
-        : getBundleId() == appIds.speedyDelivery ? "DO" : 'IN',
+    fullName: "",
+    transportDetails: "",
+    phoneNumber: "",
+    callingCode: "1",
+    cca2: "US",
     allTransportation: transportationArray,
     allEmployeeTypes: employeetypeArray,
     selectedVehicleType: null,
-    modelMake: '',
-    vehicleColor: '',
-    vehiclePlateNumber: '',
+    modelMake: "",
+    vehicleColor: "",
+    vehiclePlateNumber: "",
     userImage: null,
     selectedEpmloyeetype: null,
     documentData: [],
@@ -128,27 +120,42 @@ export default function Signup({ route, navigation }) {
     savedShortCode: null,
     driverTags: [],
     driverTeams: [],
+    drivertype: [
+      {
+        id: 1,
+        name: "Employee",
+      },
+      {
+        id: 2,
+        name: "Freelancer",
+      },
+    ],
     selectedTags: [],
     isTagsShow: false,
     tagsViewHeight: moderateScale(44),
-    selectedTeam: '',
+    selectedTeam: "",
+    selectedType: "",
     isTeams: false,
     driverTagsAry: [],
     isWaitingModal: false,
     additionalDateFields: [],
+    additionalSelectors: [],
     isDatePicker: false,
     selectedDateField: {},
     selectedDate: new Date(),
     customerType: [
-      { id: 1, name: 'Individual' },
-      { id: 2, name: 'Retail Store' },
-      { id: 3, name: 'Distribution center' },
+      { id: 1, name: "Individual" },
+      { id: 2, name: "Retail Store" },
+      { id: 3, name: "Distribution center" },
     ],
     selectedCustomerType: null,
     isCustomer: false,
     vehicleTypes: [],
     isVisible: false,
-    referalCode:''
+    isSelectorModal: false,
+    additionalData: [],
+    uid: "",
+    isTypeSelect: false,
   });
 
   const {
@@ -157,8 +164,12 @@ export default function Signup({ route, navigation }) {
     customerType,
     userImage,
     vehiclePlateNumber,
+    transportDetails,
     isLoading,
     fullName,
+    uid,
+    licensePlate,
+    drivertype,
     phoneNumber,
     callingCode,
     cca2,
@@ -183,6 +194,7 @@ export default function Signup({ route, navigation }) {
     isTagsShow,
     tagsViewHeight,
     selectedTeam,
+    selectedType,
     isTeams,
     driverTagsAry,
     isWaitingModal,
@@ -192,59 +204,49 @@ export default function Signup({ route, navigation }) {
     selectedDate,
     vehicleTypes,
     isVisible,
-    referalCode
+    additionalSelectors,
+    isSelectorModal,
+    additionalData,
+    isTypeSelect,
   } = state;
   const [isOtpModal, setOtpModal] = useState(false);
-  const [otpToShow, setOtpToShow] = useState('');
+  const [otpToShow, setOtpToShow] = useState("");
   const [isSendOtpLoading, setSendOtpLoading] = useState(false);
   const [isSignupLoading, setSignupLoading] = useState(false);
-  const [appHashKey, setAppHashKey] = useState('');
-  const [userData, setUserData] = useState({})
-  console.log(callingCode, 'mobilNomobilNo')
+  const [appHashKey, setAppHashKey] = useState("");
+  const [userData, setUserData] = useState({});
+  console.log(callingCode, "mobilNomobilNo");
   const commonStyles = commonStylesFunc({ fontFamily });
 
-  const updateState = data => setState(state => ({ ...state, ...data }));
+  const updateState = (data) => setState((state) => ({ ...state, ...data }));
 
   const styles = stylesFunction({ defaultLanguage });
 
   //On country change
-  const _onCountryChange = data => {
+  const _onCountryChange = (data) => {
     updateState({ cca2: data.cca2, callingCode: data.callingCode[0] });
     return;
   };
   let actionSheet = useRef();
-  const showActionSheet = value => {
-    console.log(value, 'value>value');
+  let actionSheetProfile = useRef();
+  console.log(actionSheet.current, "actionSheetactionSheet123321332423432");
+  const showActionSheet = (value) => {
+    console.log(value, "value>value");
     updateState({ profilePic: value });
     setTimeout(() => {
       actionSheet.current.show();
     }, 500);
   };
-  useEffect(() => {
-    const backAction = () => {
-      if (navigation.canGoBack()) {
-        navigation.goBack();
-      }
-      else {
-        Alert.alert("Exit App", "Do you want to close the app?", [
-          { text: "No", onPress: () => null, style: "cancel" },
-          { text: "Yes", onPress: () => BackHandler.exitApp() },
-        ]);
-      }
-      return true;
-    };
-
-    const backHandler = BackHandler.addEventListener(
-      'hardwareBackPress',
-      backAction
-    );
-
-    return () => backHandler.remove();
-  }, [navigation]);
-
+  const showActionSheetProfile = (value) => {
+    console.log(value, "value>value");
+    updateState({ profilePic: value });
+    setTimeout(() => {
+      actionSheetProfile.current.show();
+    }, 500);
+  };
   useEffect(() => {
     (async () => {
-      const savedCode = await getItem('saveShortCode');
+      const savedCode = await getItem("saveShortCode");
       if (savedCode == shortCodes?.loopWhole) {
         updateState({ selectedEpmloyeetype: allEmployeeTypes[0] });
       }
@@ -257,27 +259,27 @@ export default function Signup({ route, navigation }) {
   }, []);
 
   useEffect(() => {
-    if (Platform.OS === 'android') {
+    if (Platform.OS === "android") {
       RNOtpVerify.getHash()
-        .then(res => {
+        .then((res) => {
           setAppHashKey(res[0]);
         })
         .catch();
       RNOtpVerify.getOtp()
-        .then(res => {
+        .then((res) => {
           RNOtpVerify.addListener(otpHandler);
         })
-        .catch(error => console.log(error, 'error>>>>'));
+        .catch((error) => console.log(error, "error>>>>"));
       return () => {
         RNOtpVerify.removeListener();
       };
     }
   }, []);
 
-  const otpHandler = message => {
-    console.log(message, 'complete msg>>>');
+  const otpHandler = (message) => {
+    console.log(message, "complete msg>>>");
     if (!!message) {
-      let msgOTP = message.replace(/[^0-9]/g, '');
+      let msgOTP = message.replace(/[^0-9]/g, "");
       let OTP = msgOTP.substring(0, 6);
       setOtpToShow(OTP);
     }
@@ -292,10 +294,10 @@ export default function Signup({ route, navigation }) {
           {},
           {
             client: clientInfo?.database_name,
-          },
+          }
         )
-        .then(res => {
-          console.log(res?.data?.documents, 'getRequiredDatas data');
+        .then((res) => {
+          console.log(res?.data?.documents, "getRequiredDatas data");
 
           updateState({
             driverTags: res?.data?.agent_tags,
@@ -306,21 +308,24 @@ export default function Signup({ route, navigation }) {
           if (res?.data) {
             updateState({
               addtionalTextInputs: res?.data?.documents.filter(
-                x => x?.file_type == 'Text',
+                (x) => x?.file_type == "Text"
               ),
               addtionalImages: res?.data?.documents.filter(
-                x => x?.file_type == 'Image',
+                (x) => x?.file_type == "Image"
               ),
               addtionalPdfs: res?.data?.documents.filter(
-                x => x?.file_type == 'Pdf',
+                (x) => x?.file_type == "Pdf"
               ),
               additionalDateFields: res?.data?.documents.filter(
-                x => x?.file_type == 'Date',
+                (x) => x?.file_type == "Date"
+              ),
+              additionalSelectors: res?.data?.documents.filter(
+                (x) => x?.file_type == "selector"
               ),
               dataToSet: res?.data?.documents.map((i, inx) => {
                 return {
                   type: i?.file_type,
-                  value: '',
+                  value: "",
                 };
               }),
             });
@@ -330,9 +335,16 @@ export default function Signup({ route, navigation }) {
         .catch(errorMethod);
     })();
   };
-
+  const handleBackgroundTap = () => {
+    // If keyboard is open, close it. If closed, focus the pin input.
+    if (Keyboard.isVisible()) {
+      Keyboard.dismiss();
+    } else {
+      pinInputRef.current?.focus();
+    }
+  };
   // this funtion use for camera handle
-  const cameraHandle = async index => {
+  const cameraHandle = async (index) => {
     // alert(addtionSelectedImageIndex);
     const permissionStatus = await androidCameraPermission();
     if (permissionStatus) {
@@ -342,10 +354,10 @@ export default function Signup({ route, navigation }) {
           height: 400,
           cropping: true,
           cropperCircleOverlay: true,
-          mediaType: 'photo',
+          mediaType: "photo",
         })
-          .then(res => {
-            console.log(res, 'resasfasdfsdf');
+          .then((res) => {
+            console.log(res, "resasfasdfsdf");
             if (res.path) {
               if (profilePic) {
                 updateState({ userImage: res?.sourceURL || res?.path });
@@ -359,7 +371,7 @@ export default function Signup({ route, navigation }) {
                   addtionSelectedImage?.file_type;
                 data[addtionSelectedImageIndex].id = addtionSelectedImage?.id;
                 data[addtionSelectedImageIndex].mime = res?.mime;
-                console.log(data, 'data>>>>');
+                console.log(data, "data>>>>");
 
                 updateState({ addtionalImages: data });
               }
@@ -367,14 +379,14 @@ export default function Signup({ route, navigation }) {
               showError(strings.PICKERCANCLLED);
             }
           })
-          .catch(err => {
-            console.log(err, 'error');
+          .catch((err) => {
+            console.log(err, "error");
           });
       }
     }
   };
 
-
+  console.log(clientInfo?.is_freelancer, "fasdkjhfgkasdhlkfjhasdf");
 
   const isValidData = () => {
     const error = validator({ phoneNumber });
@@ -392,63 +404,65 @@ export default function Signup({ route, navigation }) {
       return;
     }
     setSignupLoading(true);
-    dummyTags = selectedTags.map(item => {
-      return item?.name;
+    dummyTags = selectedTags.map((item) => {
+      return item.name;
     });
-    dummyTags = dummyTags.join(',');
+    dummyTags = dummyTags.join(",");
     let formdata = new FormData();
-    formdata.append('name', fullName);
-    formdata.append('phone_number', `+${callingCode}${phoneNumber}`);
-    formdata.append('type', selectedEpmloyeetype?.typeName);
-    formdata.append('vehicle_type_id', selectedVehicleType?.id);
-    formdata.append('team_id', !!selectedTeam ? selectedTeam?.id : '');
-    formdata.append('tags', dummyTags ? dummyTags : '');
-    formdata.append('otp', otpToShow);
-    formdata.append('refferal_code', referalCode);
+    formdata.append("name", fullName);
+    formdata.append("uid", uid);
+    formdata.append("plate_number", licensePlate);
+    formdata.append("color", vehicleColor);
+    formdata.append("make_model", transportDetails);
+    formdata.append("phone_number", `+${callingCode}${phoneNumber}`);
+    // formdata.append('type', selectedEpmloyeetype?.typeName);
+    formdata.append("vehicle_type_id", selectedVehicleType?.id);
+    formdata.append("team_id", !!selectedTeam ? selectedTeam?.id : "");
+    formdata.append("type", !!selectedType ? selectedType?.name : "Employee");
+    formdata.append("tags", dummyTags ? dummyTags : "");
+    formdata.append("otp", otpToShow);
 
     if (getBundleId() == appIds?.trucxi && selectedCustomerType) {
-      formdata.append('customer_type_id', selectedCustomerType?.id);
+      formdata.append("customer_type_id", selectedCustomerType?.id);
     }
-    formdata.append('profile_picture', {
-      type: 'image/jpeg',
+    formdata.append("profile_picture", {
+      type: "image/jpeg",
       name: `${Math.random()
         .toString(36)
-        .replace(/[^a-z]+/g, '')
+        .replace(/[^a-z]+/g, "")
         .substr(0, 5)}.jpg`,
       uri: userImage,
     });
 
     if (!isEmpty(addtionalTextInputs)) {
       addtionalTextInputs.map((i, inx) => {
-        console.log(i, 'addtionalTextInputsaddtionalTextInputs');
-        if (i?.contents != '' && !!i?.contents) {
+        console.log(i, "addtionalTextInputsaddtionalTextInputs");
+        if (i?.contents != "" && !!i?.contents) {
           formdata.append(`${i?.name}`, i?.contents);
         }
       });
     }
     if (!isEmpty(additionalDateFields)) {
       additionalDateFields.map((i, inx) => {
-        if (i?.contents != '' && !!i?.contents) {
-          formdata.append(`files_date[${inx}][file_type]`, i?.file_type);
-          formdata.append(`files_date[${inx}][id]`, i?.id);
+        if (i?.contents != "" && !!i?.contents) {
+          formdata.append(`files_text[${inx}][file_type]`, i?.file_type);
+          formdata.append(`files_text[${inx}][id]`, i?.id);
           formdata.append(
-            `files_date[${inx}][contents]`,
-            moment(i?.contents).format('YYYY-MM-DD'),
+            `files_text[${inx}][contents]`,
+            moment(i?.contents).format("YYYY-MM-DD")
           );
-          formdata.append(`files_date[${inx}][label_name]`, i?.name);
+          formdata.append(`files_text[${inx}][label_name]`, i?.name);
         }
       });
     }
 
     if (!isEmpty(addtionalTextInputs)) {
       addtionalTextInputs.map((i, inx) => {
-        console.log(i, inx, 'inxxxx')
-        if (i?.contents != '' && !!i?.contents) {
+        console.log(i, inx, "inxxxx");
+        if (i?.contents != "" && !!i?.contents) {
           formdata.append(`files_text[${inx}][file_type]`, i?.file_type);
           formdata.append(`files_text[${inx}][id]`, i?.id);
-          formdata.append(
-            `files_text[${inx}][contents]`, i?.contents,
-          );
+          formdata.append(`files_text[${inx}][contents]`, i?.contents);
           formdata.append(`files_text[${inx}][label_name]`, i?.name);
         }
       });
@@ -477,25 +491,36 @@ export default function Signup({ route, navigation }) {
         }
       });
     }
-    console.log(formdata, 'formdaataaaaaa');
+    if (!isEmpty(additionalSelectors)) {
+      additionalSelectors.map((i, inx) => {
+        i.driver_option.map((itm) => {
+          if (itm?.status == 1)
+            formdata.append(i?.name, itm?.driver_registartion_option_name);
+        });
+      });
+    }
+    console.log(formdata, "formdaataaaaaa");
     actions
       .signUp(formdata, {
         client: clientInfo?.database_name,
         language: 1,
-        'Content-Type': 'multipart/form-data',
+        "Content-Type": "multipart/form-data",
       })
-      .then(res => {
+      .then((res) => {
+        console.log(res, "resss");
         setOtpModal(false);
         setSignupLoading(false);
         setUserData(res?.data);
-        if (clientInfo?.is_freelancer && res?.data?.type == 'Freelancer') {
+        if (clientInfo?.is_freelancer) {
           setTimeout(() => {
             updateState({ isVisible: true });
           }, 500);
         } else {
-          onSignupDone();
+          setTimeout(() => {
+            onSignupDone();
+          }, 1000);
         }
-        setOtpToShow('');
+        setOtpToShow("");
       })
       .catch(errorMethod);
   };
@@ -517,10 +542,14 @@ export default function Signup({ route, navigation }) {
       return;
     }
 
-    if (selectedTeam == '' && !selectedTeam) {
+    if (selectedTeam == "" && !selectedTeam) {
       showError(`${strings.PLEASE_SELECT} ${strings.A_TEAM}`);
       return;
     }
+    // if (selectedType == '') {
+    //   showError(`${strings.PLEASE_SELECT} ${strings.EMPLOYEETYPE}`);
+    //   return;
+    // }
     if (getBundleId() == appIds?.trucxi && !selectedCustomerType) {
       alert(getBundleId() == appIds?.trucxi);
       showError(strings.PLEASESELECTCUSTOMERTYPE);
@@ -531,7 +560,7 @@ export default function Signup({ route, navigation }) {
       addtionalTextInputs.map((i, inx) => {
         if (!i?.contents && i?.is_required) {
           if (isRequired) {
-            showError(`${strings.PLEASE_ENTER} ${i?.name.toLowerCase()}`);
+            showError(`${strings.PLEASE_ENTER} ${i.name.toLowerCase()}`);
             isRequired = false;
             return;
           }
@@ -543,7 +572,7 @@ export default function Signup({ route, navigation }) {
       additionalDateFields.map((i, inx) => {
         if (!i?.contents && i?.is_required) {
           if (isRequired) {
-            showError(`${strings.PLEASE_SELECT} ${i?.name.toLowerCase()}`);
+            showError(`${strings.PLEASE_SELECT} ${i.name.toLowerCase()}`);
             isRequired = false;
             return;
           }
@@ -557,7 +586,7 @@ export default function Signup({ route, navigation }) {
       concatinatedArray.map((i, inx) => {
         if (!i?.value && i?.is_required) {
           if (isRequired) {
-            showError(`${strings.PLEASE_UPLOAD} ${i?.name.toLowerCase()}`);
+            showError(`${strings.PLEASE_UPLOAD} ${i.name.toLowerCase()}`);
             isRequired = false;
             return;
           }
@@ -569,7 +598,7 @@ export default function Signup({ route, navigation }) {
       concatinatedArray.map((i, inx) => {
         if (!i?.value && i?.is_required) {
           if (isRequired) {
-            showError(`${strings.PLEASE_UPLOAD} ${i?.name.toLowerCase()}`);
+            showError(`${strings.PLEASE_UPLOAD} ${i.name.toLowerCase()}`);
             isRequired = false;
             return;
           }
@@ -582,20 +611,23 @@ export default function Signup({ route, navigation }) {
     updateState({ isLoading: true });
     onSendOtpApi();
   };
+  const onBackdropPress = () => {
+    updateState({ isSelectorModal: false });
+  };
 
   const onSendOtpApi = () => {
-    setOtpToShow('');
+    setOtpToShow("");
     let data = {
       dial_code: callingCode,
       phone_number: phoneNumber,
     };
-    if (Platform.OS === 'android' && !!appHashKey) {
-      data['app_hash_key'] = appHashKey;
+    if (Platform.OS === "android" && !!appHashKey) {
+      data["app_hash_key"] = appHashKey;
     }
     actions
       .sendOtpOnSignup(data, { client: clientInfo?.database_name })
-      .then(res => {
-        console.log(res, 'login data');
+      .then((res) => {
+        console.log(res, "login data");
         if (res?.data) {
           updateState({ isLoading: false });
           setOtpModal(true);
@@ -606,8 +638,8 @@ export default function Signup({ route, navigation }) {
       .catch(errorMethod);
   };
 
-  const errorMethod = error => {
-    console.log(error, 'erorororororo');
+  const errorMethod = (error) => {
+    console.log(error, "erorororororo");
     updateState({ isLoading: false });
     setSendOtpLoading(false);
     setSignupLoading(false);
@@ -615,20 +647,46 @@ export default function Signup({ route, navigation }) {
       ? alert(error?.message || error?.error)
       : showError(error?.message || error?.error);
 
-    setOtpToShow('');
+    setOtpToShow("");
   };
 
-  const _selectedTransportation = i => {
+  const _selectedTransportation = (i) => {
     updateState({
       selectedVehicleType: i,
     });
   };
-  const _selectedEpmloyeetype = i => {
+  const _selectedEpmloyeetype = (i) => {
     updateState({
       selectedEpmloyeetype: i,
     });
   };
 
+  const _selectOption = (item, index) => {
+    let driver_option = additionalData.map((itemm, inx) => {
+      if (itemm?.id == item?.id) {
+        return {
+          ...itemm,
+          status: 1,
+        };
+      } else {
+        return { ...itemm, status: 0 };
+      }
+    });
+    let updatedData;
+    updatedData = additionalSelectors.map((itm, inx) => {
+      if (item?.driver_registration_document_id == itm?.id) {
+        return { ...itm, driver_option };
+      } else {
+        return { ...itm };
+      }
+    });
+
+    updateState({ additionalSelectors: updatedData });
+  };
+  console.log(
+    additionalSelectors,
+    "additionalSelectorsadditionalSelectorsadditionalSelectors"
+  );
   //Get TextInput
   const getTextInputField = (type, index) => {
     return (
@@ -636,9 +694,9 @@ export default function Signup({ route, navigation }) {
         onTouchStart={() => updateState({ isTagsShow: false })}
         labelStyle={styles.textInputlabel}
         editable={true}
-        label={`${type?.name}${type.is_required ? '*' : ''}`}
+        label={`${type?.name}${type.is_required ? "*" : ""}`}
         value={addtionalTextInputs[index]?.contents}
-        onChangeText={text => updateArray(text, index, type)}
+        onChangeText={(text) => updateArray(text, index, type)}
         mainStyle={{
           marginTop: 10,
         }}
@@ -653,20 +711,25 @@ export default function Signup({ route, navigation }) {
       <View
         style={{ marginVertical: moderateScaleVertical(10) }}
         key={String(index)}
-        onTouchStart={() => updateState({ isTagsShow: false })}>
+        onTouchStart={() => updateState({ isTagsShow: false })}
+      >
         <Text
           style={{
             fontSize: textScale(12),
             fontFamily: fontFamily.medium,
             color: colors.lightGreyBg2,
             marginBottom: moderateScale(10),
-          }}>
+          }}
+        >
           {type?.name}
-          {type?.is_required ? '*' : ''}
+          {type?.is_required ? "*" : ""}
         </Text>
         <TouchableOpacity
           onPress={() =>
-            updateState({ isDatePicker: !isDatePicker, selectedDateField: type })
+            updateState({
+              isDatePicker: !isDatePicker,
+              selectedDateField: type,
+            })
           }
           activeOpacity={0.7}
           style={{
@@ -674,23 +737,62 @@ export default function Signup({ route, navigation }) {
             borderWidth: 1,
             borderRadius: moderateScaleVertical(4),
             borderColor: colors.borderLight,
-            justifyContent: 'center',
+            justifyContent: "center",
             paddingHorizontal: moderateScale(10),
-          }}>
+          }}
+        >
           <Text
-            style={{ fontFamily: fontFamily.regular, fontSize: textScale(12) }}>
+            style={{ fontFamily: fontFamily.regular, fontSize: textScale(12) }}
+          >
             {!!type.contents
-              ? moment(type.contents).format('DD-MMMM-YYYY')
-              : ''}
+              ? moment(type.contents).format("DD-MMMM-YYYY")
+              : ""}
           </Text>
         </TouchableOpacity>
       </View>
     );
   };
+  const selctOption = (type, index) => {
+    updateState({
+      isSelectorModal: true,
+      additionalData: type?.driver_option,
+    });
+  };
+  const getSelectors = (type, index) => {
+    let selctedValue = type.driver_option.filter((itm) => {
+      if (itm.status == 1) {
+        return itm;
+      }
+    });
+    console.log(selctedValue, "selctedValueselctedValueselctedValue");
+    return (
+      <CustomDropDownWIthLabel
+        label={type?.name}
+        placeHolderText={
+          selctedValue[0]?.driver_registartion_option_name
+            ? selctedValue[0]?.driver_registartion_option_name
+            : type?.name
+        }
+        // placeHolderText={type?.name}
+        dropDownMainView={{
+          marginTop: moderateScale(8),
+          marginBottom: moderateScaleVertical(8),
+        }}
+        onPicker={() => selctOption(type, index)}
+        customPlaceHolderStyle={{
+          backgroundColor: colors.white,
+          borderWidth: 1,
+        }}
+      />
+    );
+  };
 
   //Update Images
   const updateImages = (type, index) => {
-    updateState({ addtionSelectedImage: type, addtionSelectedImageIndex: index });
+    updateState({
+      addtionSelectedImage: type,
+      addtionSelectedImageIndex: index,
+    });
     showActionSheet(false);
   };
 
@@ -703,13 +805,15 @@ export default function Signup({ route, navigation }) {
           marginRight: moderateScale(10),
           marginTop: moderateScale(10),
           width: moderateScale(110),
-        }}>
+        }}
+      >
         <TouchableOpacity
           onPress={() => updateImages(type, index)}
-          style={styles.imageUpload}>
+          style={styles.imageUpload}
+        >
           {addtionalImages[index].value != undefined &&
-            addtionalImages[index].value != null &&
-            addtionalImages[index].value != '' ? (
+          addtionalImages[index].value != null &&
+          addtionalImages[index].value != "" ? (
             <Image
               source={{ uri: addtionalImages[index].value }}
               style={styles.imageStyle2}
@@ -720,9 +824,10 @@ export default function Signup({ route, navigation }) {
         </TouchableOpacity>
         <Text
           numberOfLines={2}
-          style={{ ...styles.label3, minHeight: moderateScale(25) }}>
+          style={{ ...styles.label3, minHeight: moderateScale(25) }}
+        >
           {type?.name}
-          {type.is_required ? '*' : ''}
+          {type.is_required ? "*" : ""}
         </Text>
       </View>
     );
@@ -733,7 +838,7 @@ export default function Signup({ route, navigation }) {
       const res = await DocumentPicker.pick({
         type: [DocumentPicker.types.pdf],
       });
-      console.log(res, 'res>res');
+      console.log(res, "res>res");
       let data = cloneDeep(addtionalPdfs);
       if (res) {
         data[index].value = res[0].uri;
@@ -743,7 +848,7 @@ export default function Signup({ route, navigation }) {
         data[index].id = value?.id;
         data[index].mime = res[0].type;
 
-        console.log(data, 'addtionalPdfs>>>data');
+        console.log(data, "addtionalPdfs>>>data");
         updateState({ addtionalPdfs: data });
       }
 
@@ -768,7 +873,8 @@ export default function Signup({ route, navigation }) {
     return (
       <View
         onTouchStart={() => updateState({ isTagsShow: false })}
-        style={{ marginRight: moderateScale(20), marginTop: moderateScale(20) }}>
+        style={{ marginRight: moderateScale(20), marginTop: moderateScale(20) }}
+      >
         <TouchableOpacity
           onPress={() => getDoc(type, index)}
           style={{
@@ -778,18 +884,19 @@ export default function Signup({ route, navigation }) {
             borderRadius: moderateScale(4),
             borderWidth: 1,
             borderColor: colors.blue,
-          }}>
+          }}
+        >
           <Text style={styles.uploadStyle}>
             {addtionalPdfs[index].value != undefined &&
-              addtionalPdfs[index].value != null &&
-              addtionalPdfs[index].value != ''
+            addtionalPdfs[index].value != null &&
+            addtionalPdfs[index].value != ""
               ? `${addtionalPdfs[index].filename}`
               : `+ ${strings.UPLOAD}`}
           </Text>
         </TouchableOpacity>
         <Text style={[styles.label3]}>
           {type?.name}
-          {type.is_required ? '*' : ''}
+          {type.is_required ? "*" : ""}
         </Text>
       </View>
     );
@@ -804,11 +911,11 @@ export default function Signup({ route, navigation }) {
     data[index].id = type?.id;
     data[index].file_type = type?.file_type;
     data[index].label_name = type?.name;
-    console.log(data, 'data>>>data');
+    console.log(data, "data>>>data");
     updateState({ addtionalTextInputs: data });
   };
 
-  const getEmployeeViewBasedOnClient = code => {
+  const getEmployeeViewBasedOnClient = (code) => {
     switch (code) {
       case shortCodes.loopWhole:
         return null;
@@ -819,7 +926,8 @@ export default function Signup({ route, navigation }) {
             onTouchStart={() => {
               updateState({ isTagsShow: false });
             }}
-            style={{ marginTop: moderateScaleVertical(10) }}>
+            style={{ marginTop: moderateScaleVertical(10) }}
+          >
             <Text style={styles.employeetypeHeadingtext}>
               {strings.EMPLOYEETYPE}
             </Text>
@@ -827,14 +935,16 @@ export default function Signup({ route, navigation }) {
               horizontal
               alwaysBounceHorizontal={false}
               style={styles.mainallEmployeeTypeStyle}
-              containerStyle={styles.employeeInnerContainer}>
+              containerStyle={styles.employeeInnerContainer}
+            >
               {allEmployeeTypes.map((i, inx) => {
                 return (
                   <TouchableOpacity
                     onPress={() => {
                       _selectedEpmloyeetype(i);
                     }}
-                    style={styles.employeeImageContainer}>
+                    style={styles.employeeImageContainer}
+                  >
                     <Image
                       source={
                         selectedEpmloyeetype == i
@@ -851,7 +961,8 @@ export default function Signup({ route, navigation }) {
                           selectedEpmloyeetype == i
                             ? colors.themeColor
                             : colors.lightGreyBg2,
-                      }}>
+                      }}
+                    >
                       {i?.typeName}
                     </Text>
                   </TouchableOpacity>
@@ -871,7 +982,7 @@ export default function Signup({ route, navigation }) {
       });
     } else {
       const selectedTagsAry = [...selectedTags];
-      const ind = selectedTagsAry.findIndex(item => item.id === itm.id);
+      const ind = selectedTagsAry.findIndex((item) => item.id === itm.id);
       var result = selectedTagsAry.filter((item, idx) => idx !== ind);
       updateState({
         selectedTags: result,
@@ -881,7 +992,7 @@ export default function Signup({ route, navigation }) {
 
   const removeTag = (itm, indx) => {
     const selectedTagsAry = [...selectedTags];
-    const ind = selectedTagsAry.findIndex(item => item.id == itm.id);
+    const ind = selectedTagsAry.findIndex((item) => item.id == itm.id);
     var result = selectedTagsAry.filter((item, idx) => idx !== ind);
 
     updateState({
@@ -889,11 +1000,11 @@ export default function Signup({ route, navigation }) {
     });
   };
 
-  const onSearchTags = text => {
+  const onSearchTags = (text) => {
     const driverTagsNewAry = [...driverTags];
     let searchedAry;
     if (text) {
-      searchedAry = driverTagsNewAry.filter(item => {
+      searchedAry = driverTagsNewAry.filter((item) => {
         return item?.name.toLowerCase().includes(text.toLowerCase());
       });
       updateState({ driverTagsAry: searchedAry });
@@ -902,9 +1013,9 @@ export default function Signup({ route, navigation }) {
     }
   };
 
-  const onDateChange = value => {
+  const onDateChange = (value) => {
     const data = cloneDeep(additionalDateFields);
-    const ind = data.findIndex(item => item.id === selectedDateField?.id);
+    const ind = data.findIndex((item) => item.id === selectedDateField?.id);
     selectedDateField.contents = value;
     data[ind] = selectedDateField;
 
@@ -918,8 +1029,6 @@ export default function Signup({ route, navigation }) {
     updateState({ isDatePicker: false, selectedDate: new Date() });
   };
 
-
-
   const onSignupDone = () => {
     updateState({ isWaitingModal: true });
     setTimeout(() => {
@@ -930,92 +1039,115 @@ export default function Signup({ route, navigation }) {
 
   const modalMainContent = useCallback(() => {
     return (
-      <KeyboardAwareScrollView
-        keyboardShouldPersistTaps="handled"
-        showsVerticalScrollIndicator={false}
-        scrollEnabled={false}
-        enableOnAndroid={true}
-        contentContainerStyle={{
-          flexGrow: 1,
-        }}>
-        <View style={styles.modalMainViewOTP}>
-          <Text
-            style={{
-              fontFamily: fontFamily.bold,
-              fontSize: textScale(16),
-              color: colors.themeColor,
-            }}>
-            OTP Verification
-          </Text>
-          <Text
-            style={{
-              fontFamily: fontFamily.bold,
-              fontSize: textScale(13),
-              color: colors.blackOpacity43,
-              marginVertical: moderateScaleVertical(6),
-            }}>
-            Please enter 6-digit code sent to {`+${callingCode}${phoneNumber}`}
-          </Text>
-          <SmoothPinCodeInput
-            containerStyle={{ alignSelf: 'center' }}
-            password
-            autoFocus={true}
-            mask={<View style={styles.maskStyle} />}
-            cellSize={width / 8}
-            codeLength={6}
-            cellSpacing={10}
-            editable={true}
-            cellStyle={styles.cellStyle}
-            cellStyleFocused={styles.cellStyleFocused}
-            textStyle={styles.textStyleCodeInput}
-            textStyleFocused={styles.textStyleFocused}
-            inputProps={{
-              autoCapitalize: 'none',
-              autoFocus: true,
+      // <TouchableWithoutFeedback onPress={handleBackgroundTap}>
+      //   <View style={{ flex: 1, backgroundColor: colors.white }}>
+          <KeyboardAwareScrollView
+            keyboardShouldPersistTaps="always"
+            showsVerticalScrollIndicator={false}
+            enableOnAndroid={true}
+            enableAutomaticScroll={false}
+            enableResetScrollToCoords={false}
+            extraScrollHeight={0}
+            extraHeight={0}
+            // nestedScrollEnabled
+            contentContainerStyle={{
+              flexGrow: 1,
             }}
-            value={otpToShow}
-            keyboardType="number-pad"
-            onTextChange={otpToShow => setOtpToShow(otpToShow)}
-          />
+          >
+            <View style={styles.modalMainViewOTP}>
+              <Text
+                style={{
+                  fontFamily: fontFamily.bold,
+                  fontSize: textScale(16),
+                  color: colors.themeColor,
+                }}
+              >
+                OTP Verification
+              </Text>
+              <Text
+                style={{
+                  fontFamily: fontFamily.bold,
+                  fontSize: textScale(13),
+                  color: colors.blackOpacity43,
+                  marginVertical: moderateScaleVertical(6),
+                }}
+              >
+                Please enter 6-digit code sent to{" "}
+                {`+${callingCode}${phoneNumber}`}
+              </Text>
+              <SmoothPinCodeInput
+                containerStyle={{ alignSelf: "center" }}
+                password
+                ref={pinInputRef}
+                // autoFocus={true}
+                mask={<View style={styles.maskStyle} />}
+                cellSize={width / 8}
+                codeLength={6}
+                cellSpacing={10}
+                editable={true}
+                cellStyle={styles.cellStyle}
+                cellStyleFocused={styles.cellStyleFocused}
+                textStyle={styles.textStyleCodeInput}
+                textStyleFocused={styles.textStyleFocused}
+                inputProps={{
+                  autoCapitalize: "none",
+                  autoFocus: true,
+                  onFocus: () => {
+                    // ensure focus is handled without extra auto-scrolling
+                    pinInputRef.current?.focus?.();
+                  },
+                }}
+                value={otpToShow}
+                keyboardType="number-pad"
+                onTextChange={(otpToShow) => setOtpToShow(otpToShow)}
+              />
 
-          <ButtonWithLoader
-            onPress={() => {
-              setSendOtpLoading(true);
-              onSendOtpApi();
-            }}
-            btnText="RESEND OTP"
-            isLoading={isSendOtpLoading}
-            btnStyle={{
-              backgroundColor: colors.transparent,
-              borderWidth: 0,
-              width: moderateScale(100),
-              alignSelf: 'center',
-            }}
-            btnTextStyle={{
-              color: colors.themeColor,
-            }}
-            color={colors.themeColor}
-          />
-          <ButtonWithLoader
-            isLoading={isSignupLoading}
-            btnStyle={{
-              borderRadius: moderateScale(25),
-              marginBottom: moderateScaleVertical(20),
-            }}
-            onPress={_onSignup}
-            btnText={strings.SIGNUP}
-          />
-        </View>
-      </KeyboardAwareScrollView>
+              <ButtonWithLoader
+                onPress={() => {
+                  setSendOtpLoading(true);
+                  onSendOtpApi();
+                }}
+                btnText="RESEND OTP"
+                isLoading={isSendOtpLoading}
+                btnStyle={{
+                  backgroundColor: colors.transparent,
+                  borderWidth: 0,
+                  width: moderateScale(100),
+                  alignSelf: "center",
+                }}
+                btnTextStyle={{
+                  color: colors.themeColor,
+                }}
+                color={colors.themeColor}
+              />
+              <ButtonWithLoader
+                isLoading={isSignupLoading}
+                btnStyle={{
+                  borderRadius: moderateScale(25),
+                  marginBottom: moderateScaleVertical(20),
+                }}
+                onPress={_onSignup}
+                btnText={strings.SIGNUP}
+              />
+            </View>
+          </KeyboardAwareScrollView>
+      //   </View>
+      // </TouchableWithoutFeedback>
     );
   }, [otpToShow, phoneNumber, callingCode, isSendOtpLoading, isSignupLoading]);
-
+  const removeEmojis = (text) => {
+    return text.replace(
+      /([\u2700-\u27BF]|[\uE000-\uF8FF]|[\uD83C-\uDBFF\uDC00-\uDFFF]|[\u2011-\u26FF])/g,
+      ""
+    );
+  };
   return (
     <WrapperContainer
       statusBarColor={colors.white}
       bgColor={colors.white}
       isLoadingB={isLoading}
-      source={loaderOne}>
+      source={loaderOne}
+    >
       <Header
         headerStyle={{ backgroundColor: colors.white }}
         // hideRight={true}
@@ -1027,7 +1159,8 @@ export default function Signup({ route, navigation }) {
         style={{
           marginHorizontal: moderateScale(15),
           marginVertical: moderateScale(20),
-        }}>
+        }}
+      >
         <KeyboardAwareScrollView
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator={false}
@@ -1035,14 +1168,15 @@ export default function Signup({ route, navigation }) {
           enableOnAndroid={true}
           contentContainerStyle={{
             flexGrow: 1,
-          }}>
+          }}
+        >
           <View style={styles.imageViewStyle}>
             {userImage ? (
-              <TouchableOpacity onPress={() => showActionSheet(true)}>
+              <TouchableOpacity onPress={() => showActionSheetProfile(true)}>
                 <Image source={{ uri: userImage }} style={styles.imageStyle} />
               </TouchableOpacity>
             ) : (
-              <TouchableOpacity onPress={() => showActionSheet(true)}>
+              <TouchableOpacity onPress={() => showActionSheetProfile(true)}>
                 <Image
                   source={imagePath?.photoInactive}
                   style={styles.imageStyle}
@@ -1058,34 +1192,70 @@ export default function Signup({ route, navigation }) {
                 label={strings.FULLNAME}
                 value={fullName}
                 // autoFocus={true}
-                onChangeText={text => updateState({ fullName: text })}
+                onChangeText={(text) => {
+                  const filteredVal = removeEmojis(text);
+                  updateState({ fullName: filteredVal });
+                }}
                 labelStyle={styles.textInputlabel}
-
               />
-
-
               <View>
                 <Text style={styles.label2}>{strings.PHONENUMBER}</Text>
               </View>
               <PhoneNumberInput
                 onCountryChange={_onCountryChange}
-                onChangePhone={phoneNumber =>
-                  updateState({ phoneNumber: phoneNumber.replace(/[^0-9]/g, '') })
+                onChangePhone={(phoneNumber) =>
+                  updateState({
+                    phoneNumber: phoneNumber.replace(/[^0-9]/g, ""),
+                  })
                 }
                 cca2={cca2}
                 phoneNumber={phoneNumber}
                 callingCode={callingCode}
                 placeholder={strings.YOUR_PHONE_NUMBER}
-                keyboardType={'phone-pad'}
-                returnKeyType={'done'}
+                keyboardType={"phone-pad"}
+                returnKeyType={"done"}
                 color={colors.black}
                 borderColor={colors.themeColor}
                 containerStyle={{
                   borderWidth: 1,
                   borderRadius: 4,
                   borderColor: colors.borderLight,
+                  marginBottom: moderateScaleVertical(12),
                 }}
                 borderLeftColor={colors.borderLight}
+              />
+
+              <TextInputWithlabel
+                editable={true}
+                label={strings.TRANSPORT_DETAILS}
+                value={transportDetails}
+                // autoFocus={true}
+                onChangeText={(text) => updateState({ transportDetails: text })}
+                labelStyle={styles.textInputlabel}
+              />
+              <TextInputWithlabel
+                editable={true}
+                label={strings.UID}
+                value={uid}
+                // autoFocus={true}
+                onChangeText={(text) => updateState({ uid: text })}
+                labelStyle={styles.textInputlabel}
+              />
+              <TextInputWithlabel
+                editable={true}
+                label={strings.LICENCE_PLATE}
+                value={licensePlate}
+                // autoFocus={true}
+                onChangeText={(text) => updateState({ licensePlate: text })}
+                labelStyle={styles.textInputlabel}
+              />
+              <TextInputWithlabel
+                editable={true}
+                label={strings.COLOR}
+                value={vehicleColor}
+                // autoFocus={true}
+                onChangeText={(text) => updateState({ vehicleColor: text })}
+                labelStyle={styles.textInputlabel}
               />
             </View>
 
@@ -1093,10 +1263,114 @@ export default function Signup({ route, navigation }) {
               style={{
                 ...styles.labelTxt,
                 marginVertical: moderateScaleVertical(10),
-              }}>
+              }}
+            >
               {strings.TEAMS}
             </Text>
 
+            <View style={{ zIndex: 10 }}>
+              <TouchableOpacity
+                style={{
+                  borderRadius: 8,
+                  height: moderateScaleVertical(44),
+                  paddingHorizontal: moderateScale(5),
+                  borderWidth: 1,
+                  borderColor: colors.borderLight,
+                  flexDirection: "row",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                }}
+                activeOpacity={0.7}
+                onPress={() =>
+                  updateState({
+                    isTeams: !isTeams,
+                    isDriverType: false,
+                    isTagsShow: false,
+                  })
+                }
+              >
+                <Text
+                  style={{
+                    ...styles.labelTxt,
+                    marginBottom: 0,
+                  }}
+                >
+                  {!!selectedTeam ? selectedTeam?.name : strings.SELECT_TEAM}
+                </Text>
+                <Image source={imagePath.dropDownNew} />
+              </TouchableOpacity>
+
+              {isTeams && (
+                <View
+                  style={{
+                    borderWidth: 1,
+                    borderColor: colors.borderColorB,
+                    backgroundColor: colors.white,
+                    width: "100%",
+                    paddingHorizontal: moderateScale(10),
+                    paddingVertical: moderateScale(5),
+                    shadowOffset: { width: 0, height: 1 },
+                    shadowOpacity: 0.1,
+                    minHeight: moderateScale(50),
+                    borderRadius: moderateScale(5),
+                  }}
+                >
+                  <ScrollView
+                    nestedScrollEnabled
+                    overScrollMode="always"
+                    style={{
+                      maxHeight: 200,
+                    }}
+                  >
+                    {driverTeams?.length > 0 ? (
+                      <View>
+                        {driverTeams.map((itm, indx) => {
+                          return (
+                            <TouchableOpacity
+                              key={indx}
+                              onPress={() =>
+                                updateState({
+                                  selectedTeam: itm,
+                                  isTeams: false,
+                                })
+                              }
+                              style={{
+                                marginVertical: moderateScale(5),
+                              }}
+                            >
+                              <Text>{itm.name}</Text>
+                            </TouchableOpacity>
+                          );
+                        })}
+                      </View>
+                    ) : (
+                      <View
+                        style={{
+                          ...styles.noDataFound,
+                          backgroundColor: colors.white,
+                        }}
+                      >
+                        <Text
+                          style={{
+                            fontFamily: fontFamily.medium,
+                            fontSize: moderateScale(13),
+                          }}
+                        >
+                          {strings.NODATAFOUND}
+                        </Text>
+                      </View>
+                    )}
+                  </ScrollView>
+                </View>
+              )}
+            </View>
+            {/* <Text
+              style={{
+                ...styles.labelTxt,
+                marginVertical: moderateScaleVertical(10),
+              }}>
+              {strings.TYPE}
+            </Text>
             <View style={{ zIndex: 10 }}>
               <TouchableOpacity
                 style={{
@@ -1112,7 +1386,7 @@ export default function Signup({ route, navigation }) {
                 activeOpacity={0.7}
                 onPress={() =>
                   updateState({
-                    isTeams: !isTeams,
+                    isTypeSelect: !isTypeSelect,
                     isDriverType: false,
                     isTagsShow: false,
                   })
@@ -1122,13 +1396,14 @@ export default function Signup({ route, navigation }) {
                     ...styles.labelTxt,
                     marginBottom: 0,
                   }}>
-                  {!!selectedTeam ? selectedTeam?.name : strings.SELECT_TEAM}
+                  {!!selectedType ? selectedType?.name : strings.TYPE}
                 </Text>
                 <Image source={imagePath.dropDownNew} />
               </TouchableOpacity>
 
-              {isTeams && (
-                  <ScrollView nestedScrollEnabled={true} style={{
+              {isTypeSelect && (
+                <View
+                  style={{
                     borderWidth: 1,
                     borderColor: colors.borderColorB,
                     backgroundColor: colors.white,
@@ -1139,24 +1414,32 @@ export default function Signup({ route, navigation }) {
                     shadowOpacity: 0.1,
                     minHeight: moderateScale(50),
                     borderRadius: moderateScale(5),
-                    maxHeight: moderateScale(150),
+
                   }}>
-                    {driverTeams?.length > 0 ? (
+                  <ScrollView
+                    nestedScrollEnabled
+                    overScrollMode='always'
+                    style={{
+                      maxHeight: 200
+                    }}
+                  >
+                    {drivertype?.length > 0 ? (
                       <View>
-                        {driverTeams.map((itm, indx) => {
+                        {drivertype.map((itm, indx) => {
+                          console.log(itm,"jkhhkkjhjkhk");
                           return (
                             <TouchableOpacity
                               key={indx}
                               onPress={() =>
                                 updateState({
-                                  selectedTeam: itm,
-                                  isTeams: false,
+                                  selectedType: itm,
+                                  isTypeSelect: false,
                                 })
                               }
                               style={{
                                 marginVertical: moderateScale(5),
                               }}>
-                              <Text>{itm?.name}</Text>
+                              <Text>{itm.name}</Text>
                             </TouchableOpacity>
                           );
                         })}
@@ -1177,9 +1460,9 @@ export default function Signup({ route, navigation }) {
                       </View>
                     )}
                   </ScrollView>
+                </View>
               )}
-            </View>
-
+            </View> */}
             {/* Select Customer type */}
 
             {getBundleId() == appIds.trucxi && (
@@ -1188,7 +1471,8 @@ export default function Signup({ route, navigation }) {
                   style={{
                     ...styles.labelTxt,
                     marginVertical: moderateScaleVertical(10),
-                  }}>
+                  }}
+                >
                   {strings.CUSTOMERTYPE}
                 </Text>
 
@@ -1200,9 +1484,9 @@ export default function Signup({ route, navigation }) {
                       paddingHorizontal: moderateScale(5),
                       borderWidth: 1,
                       borderColor: colors.borderLight,
-                      flexDirection: 'row',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
+                      flexDirection: "row",
+                      alignItems: "center",
+                      justifyContent: "space-between",
                     }}
                     activeOpacity={0.7}
                     onPress={() =>
@@ -1211,12 +1495,14 @@ export default function Signup({ route, navigation }) {
                         isDriverType: false,
                         isTagsShow: false,
                       })
-                    }>
+                    }
+                  >
                     <Text
                       style={{
                         ...styles.labelTxt,
                         marginBottom: 0,
-                      }}>
+                      }}
+                    >
                       {!!selectedCustomerType
                         ? selectedCustomerType?.name
                         : strings.SELECT_TEAM}
@@ -1230,7 +1516,7 @@ export default function Signup({ route, navigation }) {
                         borderWidth: 1,
                         borderColor: colors.borderColorB,
                         backgroundColor: colors.white,
-                        width: '100%',
+                        width: "100%",
                         paddingHorizontal: moderateScale(10),
                         paddingVertical: moderateScale(5),
                         shadowOffset: { width: 0, height: 1 },
@@ -1238,7 +1524,8 @@ export default function Signup({ route, navigation }) {
                         minHeight: moderateScale(50),
                         borderRadius: moderateScale(5),
                         maxHeight: moderateScale(150),
-                      }}>
+                      }}
+                    >
                       <ScrollView>
                         {customerType?.length > 0 ? (
                           <View>
@@ -1254,8 +1541,9 @@ export default function Signup({ route, navigation }) {
                                   }
                                   style={{
                                     marginVertical: moderateScale(5),
-                                  }}>
-                                  <Text>{itm?.name}</Text>
+                                  }}
+                                >
+                                  <Text>{itm.name}</Text>
                                 </TouchableOpacity>
                               );
                             })}
@@ -1265,12 +1553,14 @@ export default function Signup({ route, navigation }) {
                             style={{
                               ...styles.noDataFound,
                               backgroundColor: colors.white,
-                            }}>
+                            }}
+                          >
                             <Text
                               style={{
                                 fontFamily: fontFamily.medium,
                                 fontSize: moderateScale(13),
-                              }}>
+                              }}
+                            >
                               {strings.NODATAFOUND}
                             </Text>
                           </View>
@@ -1287,13 +1577,14 @@ export default function Signup({ route, navigation }) {
                 fontSize: textScale(12),
                 fontFamily: fontFamily.medium,
                 color: colors.lightGreyBg2,
-              }}>
+              }}
+            >
               {strings.TAGS}
             </Text>
 
             <View style={{ zIndex: 2, marginBottom: moderateScale(10) }}>
               <View
-                onLayout={event => {
+                onLayout={(event) => {
                   updateState({
                     tagsViewHeight: event.nativeEvent.layout.height,
                   });
@@ -1305,12 +1596,13 @@ export default function Signup({ route, navigation }) {
                   borderRadius: 8,
                   paddingVertical: 3,
                   paddingHorizontal: 3,
-                  justifyContent: 'center',
+                  justifyContent: "center",
                   borderColor: colors.borderLight,
-                }}>
+                }}
+              >
                 <View>
                   {selectedTags?.length > 0 && (
-                    <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
+                    <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
                       {selectedTags.map((item, index) => {
                         return (
                           <TouchableOpacity
@@ -1319,16 +1611,18 @@ export default function Signup({ route, navigation }) {
                             style={{
                               borderWidth: 1,
                               borderColor: colors.borderColorB,
-                              alignItems: 'center',
+                              alignItems: "center",
                               backgroundColor: colors.borderColorB,
                               marginHorizontal: moderateScale(2),
-                              flexDirection: 'row',
+                              flexDirection: "row",
                               marginVertical: 3,
-                              width: (width - moderateScale(52)) / 3,
-                              justifyContent: 'space-around',
+                              // width: (width - moderateScale(52)) / 3,
+                              justifyContent: "space-around",
                               borderRadius: moderateScale(5),
                               paddingVertical: moderateScale(3),
-                            }}>
+                              paddingHorizontal: moderateScale(4),
+                            }}
+                          >
                             <Image
                               source={imagePath.ic_cross}
                               style={{
@@ -1342,7 +1636,8 @@ export default function Signup({ route, navigation }) {
                               style={{
                                 fontFamily: fontFamily.regular,
                                 marginLeft: 3,
-                              }}>
+                              }}
+                            >
                               {item?.name}
                             </Text>
                           </TouchableOpacity>
@@ -1357,11 +1652,11 @@ export default function Signup({ route, navigation }) {
                     onChangeText={onSearchTags}
                     style={{
                       opacity: 0.7,
-                      color: colors.textGreyOpcaity7,
+                      color: colors.textGreyB,
                       fontFamily: fontFamily.medium,
                       fontSize: textScale(14),
                       paddingHorizontal: 8,
-                      textAlign: I18nManager.isRTL ? 'right' : 'left',
+                      textAlign: I18nManager.isRTL ? "right" : "left",
                     }}
                   />
                 </View>
@@ -1372,10 +1667,11 @@ export default function Signup({ route, navigation }) {
                     backgroundColor: colors.white,
                     shadowOffset: { width: 0, height: 1 },
                     shadowOpacity: 0.1,
-                    width: '100%',
-                  }}>
+                    width: "100%",
+                  }}
+                >
                   {driverTagsAry?.length > 0 ? (
-                    <View style={{ flexWrap: 'wrap', flexDirection: 'row' }}>
+                    <View style={{ flexWrap: "wrap", flexDirection: "row" }}>
                       {driverTagsAry.map((item, index) => {
                         return (
                           <TouchableOpacity
@@ -1389,15 +1685,17 @@ export default function Signup({ route, navigation }) {
                               backgroundColor: selectedTags.includes(item)
                                 ? colors.themeColor
                                 : colors.borderColorB,
-                            }}>
+                            }}
+                          >
                             <Text
                               numberOfLines={2}
                               style={{
-                                textAlign: 'center',
+                                textAlign: "center",
                                 color: selectedTags.includes(item)
                                   ? colors.white
                                   : colors.black,
-                              }}>
+                              }}
+                            >
                               {item?.name}
                             </Text>
                           </TouchableOpacity>
@@ -1410,7 +1708,8 @@ export default function Signup({ route, navigation }) {
                         style={{
                           fontFamily: fontFamily.medium,
                           fontSize: moderateScale(13),
-                        }}>
+                        }}
+                      >
                         {strings.NODATAFOUND}
                       </Text>
                     </View>
@@ -1418,11 +1717,12 @@ export default function Signup({ route, navigation }) {
                 </View>
               )}
             </View>
-            {vehicleTypes !== '' && vehicleTypes ? (
+            {vehicleTypes !== "" && vehicleTypes ? (
               <>
                 <View
                   onTouchStart={() => updateState({ isTagsShow: false })}
-                  style={{ marginVertical: moderateScaleVertical(5) }}>
+                  style={{ marginVertical: moderateScaleVertical(5) }}
+                >
                   <Text style={styles.label}>{strings.TRASNPORTATION}</Text>
                 </View>
 
@@ -1430,7 +1730,8 @@ export default function Signup({ route, navigation }) {
                   <ScrollView
                     horizontal
                     alwaysBounceHorizontal={false}
-                    style={styles.transporationOuterContainer}>
+                    style={styles.transporationOuterContainer}
+                  >
                     {allTransportation?.map((i, inx) => {
                       if (savedShortCode === shortCodes.drus && inx == 0)
                         return;
@@ -1443,10 +1744,15 @@ export default function Signup({ route, navigation }) {
                             ]}
                             onPress={() => {
                               _selectedTransportation(i);
-                            }}>
+                            }}
+                          >
                             {selectedVehicleType == i ? (
                               <Image
-                                style={{ position: 'absolute', end: 5, top: 10 }}
+                                style={{
+                                  position: "absolute",
+                                  end: 5,
+                                  top: 10,
+                                }}
                                 source={imagePath.blue_tik}
                               />
                             ) : null}
@@ -1466,15 +1772,6 @@ export default function Signup({ route, navigation }) {
                 </View>
               </>
             ) : null}
-          <TextInputWithlabel
-                editable={true}
-                label={strings.REFERRAL_CODE}
-                value={referalCode}
-                // autoFocus={true}
-                onChangeText={text => updateState({ referalCode: text })}
-                labelStyle={styles.textInputlabel}
-
-              />
             {/* { getEmployeeViewBasedOnClient(savedShortCode)} */}
 
             {!!(addtionalTextInputs && addtionalTextInputs?.length) &&
@@ -1485,6 +1782,10 @@ export default function Signup({ route, navigation }) {
             {!isEmpty(additionalDateFields) &&
               additionalDateFields.map((item, index) => {
                 return getDateFields(item, index);
+              })}
+            {!isEmpty(additionalSelectors) &&
+              additionalSelectors.map((item, index) => {
+                return getSelectors(item, index);
               })}
 
             {!!(addtionalImages && addtionalImages?.length) && (
@@ -1509,7 +1810,7 @@ export default function Signup({ route, navigation }) {
             // onPress={_onLogin}
             marginTop={moderateScaleVertical(20)}
             marginBottom={moderateScaleVertical(40)}
-            textStyle={{ color: colors.black }}
+            textStyle={{ color: colors.white }}
             btnText={strings.SEND_OTP}
             colorsArray={[colors.themeColor, colors.themeColor]}
           />
@@ -1518,10 +1819,20 @@ export default function Signup({ route, navigation }) {
         <ActionSheet
           ref={actionSheet}
           // title={'Choose one option'}
-          options={[strings.CAMERA, strings.GALLERY, strings.CANCEL]}
+          options={[strings.CAMERA, "Gallery", strings.CANCEL]}
           cancelButtonIndex={2}
           destructiveButtonIndex={2}
-          onPress={index => cameraHandle(index)}
+          onPress={(index) => cameraHandle(index)}
+        />
+        <ActionSheet
+          ref={actionSheetProfile}
+          // title={'Choose one option'}
+          options={[strings.CAMERA, strings.CANCEL]}
+          cancelButtonIndex={1}
+          destructiveButtonIndex={1}
+          onPress={(index) => {
+            if (index == 0) cameraHandle(index);
+          }}
         />
       </View>
 
@@ -1535,7 +1846,14 @@ export default function Signup({ route, navigation }) {
       />
       <Modal
         isVisible={isWaitingModal}
-        style={{ margin: 0, justifyContent: 'flex-end' }}>
+        style={{
+          margin: 0,
+          justifyContent: "flex-end",
+          // backgroundColor: "red",
+        }}
+      >
+        {/* <View style={styles.overlay} /> */}
+
         <View style={styles.modalMainView}>
           <Text style={styles.thanksMsgTxt}>{strings.THANKS_MSG}</Text>
           <Text style={styles.signupDoneTxt}>
@@ -1549,7 +1867,7 @@ export default function Signup({ route, navigation }) {
         modalRef={modalRef}
         modalStyle={{
           margin: 0,
-          justifyContent: 'flex-end',
+          justifyContent: "flex-end",
           marginHorizontal: 0,
         }}
         modalMainContent={modalMainContent}
@@ -1559,15 +1877,90 @@ export default function Signup({ route, navigation }) {
         }}
       />
 
-      {
-        isVisible && (
-          <BottomSheetForm
-            onCloseSheet={() => updateState({ isVisible: false })}
-            onSignupDone={onSignupDone}
-            userDataSignup={userData}
-          />
-        )
-      }
+      {isVisible && (
+        <BottomSheetForm
+          onCloseSheet={() => updateState({ isVisible: false })}
+          onSignupDone={onSignupDone}
+          userDataSignup={userData}
+        />
+      )}
+      {isSelectorModal && (
+        <Modal
+          isVisible={isSelectorModal}
+          transparent={true}
+          style={{
+            justifyContent: "flex-end",
+            margin: 0,
+          }}
+          onBackdropPress={onBackdropPress}
+        >
+          {!isEmpty(additionalSelectors) &&
+            additionalSelectors.map((itm, inx) => {
+              console.log(itm, additionalData, "ithebrmtheb");
+              if (
+                additionalData[0]?.driver_registration_document_id == itm?.id
+              ) {
+                return (
+                  <View
+                    style={{
+                      backgroundColor: colors.white,
+                      paddingVertical: moderateScaleVertical(30),
+                    }}
+                  >
+                    {
+                      <Text
+                        style={{
+                          fontSize: textScale(18),
+                          fontFamily: fontFamily?.bold,
+                          marginHorizontal: moderateScale(18),
+                        }}
+                      >{`What’s your ${itm?.name} ?`}</Text>
+                    }
+                    {itm.driver_option.map((item) => {
+                      console.log(item, "kljkljkljlk");
+                      return (
+                        <TouchableOpacity
+                          style={{
+                            marginHorizontal: moderateScale(20),
+                            marginVertical: moderateScaleVertical(5),
+                            flexDirection: "row",
+                            justifyContent: "space-between",
+                            // backgroundColor:'red',
+                            alignItems: "center",
+                          }}
+                          onPress={() => _selectOption(item)}
+                        >
+                          <Text
+                            style={{
+                              fontFamily: fontFamily?.regular,
+                              fontSize: textScale(14),
+                            }}
+                          >
+                            {item?.driver_registartion_option_name}
+                          </Text>
+                          <Image
+                            source={
+                              item?.status == 1
+                                ? imagePath.radioActive
+                                : imagePath?.radioInactive
+                            }
+                          />
+                        </TouchableOpacity>
+                      );
+                    })}
+                    <GradientButton
+                      containerStyle={{
+                        marginHorizontal: moderateScale(20),
+                      }}
+                      btnText={strings?.SELECT}
+                      onPress={onBackdropPress}
+                    />
+                  </View>
+                );
+              }
+            })}
+        </Modal>
+      )}
     </WrapperContainer>
   );
 }

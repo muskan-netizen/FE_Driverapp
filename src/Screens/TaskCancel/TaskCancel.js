@@ -1,33 +1,43 @@
-import React, { useState } from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   Image,
+  ScrollView,
+  Animated,
+  TouchableWithoutFeedback,
   Text,
-  TextInput,
   TouchableOpacity,
-  View
+  View,
+  Alert,
+  StyleSheet,
+  TextInput,
 } from 'react-native';
-import { useSelector } from 'react-redux';
+import MapView from 'react-native-maps';
+import {useSelector} from 'react-redux';
 import Header from '../../Components/Header';
-import { loaderOne } from '../../Components/Loaders/AnimatedLoaderFiles';
+import {loaderOne} from '../../Components/Loaders/AnimatedLoaderFiles';
 import WrapperContainer from '../../Components/WrapperContainer';
 import imagePath from '../../constants/imagePath';
 import strings from '../../constants/lang';
 // import store from '../../redux/store';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import ButtonComponent from '../../Components/ButtonComponent';
-import navigationStrings from '../../navigation/navigationStrings';
-import actions from '../../redux/actions';
 import colors from '../../styles/colors';
 import commonStylesFunc from '../../styles/commonStyles';
 import fontFamily from '../../styles/fontFamily';
 import {
   moderateScale,
-  moderateScaleVertical
+  moderateScaleVertical,
+  textScale,
+  width,
 } from '../../styles/responsiveSize';
 import {
-  showError
+  getColorCodeWithOpactiyNumber,
+  showError,
 } from '../../utils/helperFunctions';
 import styles from './styles';
+import Communications from 'react-native-communications';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import ButtonComponent from '../../Components/ButtonComponent';
+import actions from '../../redux/actions';
+import navigationStrings from '../../navigation/navigationStrings';
 
 var ACTION_TIMER = 1500;
 var COLORS = ['#8FEE90', '#27A468'];
@@ -166,15 +176,15 @@ export default function TaskCancel({route, navigation}) {
             multiline={true}
             value={inputReason}
             placeholder="Enter your reason here"
+            pla
             textAlignVertical={'top'}
             style={styles.textInputStyle}
             onChangeText={text => updateState({inputReason: text})}
           />
         )}
-      <ButtonComponent containerStyle={{marginHorizontal:moderateScale(18),marginBottom:moderateScaleVertical(24),marginTop:moderateScaleVertical(12)}} buttonTitle={strings.DONE} onPress={submitReason} />
       </KeyboardAwareScrollView>
 
-      {clientInfo?.is_freelancer ? (<View style={{marginBottom:20}}/>):<></>}
+      <ButtonComponent buttonTitle={strings.DONE} onPress={submitReason} />
     </WrapperContainer>
   );
 }

@@ -1,42 +1,44 @@
-import React, { Fragment, useEffect, useState } from "react";
-import { Alert, BackHandler, ScrollView } from "react-native";
-import { Text, TouchableOpacity, View, Image, Switch } from "react-native";
+import React, {Fragment, useEffect, useRef, useState} from 'react';
+import {Alert, Linking, ScrollView} from 'react-native';
+import {Text, TouchableOpacity, View, Image, Switch} from 'react-native';
 // import Animated from 'react-native-reanimated';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useSelector } from 'react-redux';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {useSelector} from 'react-redux';
 import imagePath from '../constants/imagePath';
 import strings from '../constants/lang';
 import navigationStrings from '../navigation/navigationStrings';
 import actions from '../redux/actions';
 import colors from '../styles/colors';
 import fontFamily from '../styles/fontFamily';
+import ActionSheet from 'react-native-actionsheet';
 import {
   height,
   moderateScale,
   moderateScaleVertical,
   textScale,
-  width
-} from "../styles/responsiveSize";
-import { showError, showSuccess } from "../utils/helperFunctions";
-import Loader from "./Loader";
-import { useFocusEffect } from "@react-navigation/native";
-import { cloneDeep } from "lodash";
-import ScaledImage from "react-native-scalable-image";
-import DeviceInfo, { getBundleId } from "react-native-device-info";
-import ZendeskChat from "react-native-zendesk-chat";
-import { appIds } from "../utils/constants/DynamicAppKeys";
-import { Subscriptions } from "../Screens";
-import { useDarkMode } from "react-native-dynamic";
-import { getItem, removeItem } from "../utils/utils";
-import { string } from "is_js";
-import { saveCabPoolingStatus } from "../redux/actions/init";
-import { UIActivityIndicator } from 'react-native-indicators';
+  width,
+} from '../styles/responsiveSize';
+import {showError, showSuccess} from '../utils/helperFunctions';
+import Loader from './Loader';
+import {useFocusEffect} from '@react-navigation/native';
+import {cloneDeep} from 'lodash';
+import ScaledImage from 'react-native-scalable-image';
+import DeviceInfo, {getBundleId} from 'react-native-device-info';
+import ZendeskChat from 'react-native-zendesk-chat';
+import {appIds} from '../utils/constants/DynamicAppKeys';
+import {Subscriptions} from '../Screens';
+import {useDarkMode} from 'react-native-dynamic';
+import {getItem} from '../utils/utils';
+import {string} from 'is_js';
+import {saveCabPoolingStatus} from '../redux/actions/init';
+import {UIActivityIndicator} from 'react-native-indicators';
 import SvgUri from 'react-native-svg-uri';
-import { log } from "react-native-reanimated";
-import { removerUserData } from "../redux/actions/auth";
+import {log} from 'react-native-reanimated';
+import messaging from '@react-native-firebase/messaging';
+import RNRestart from 'react-native-restart';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-
-const logoRegex = /.(svg)$/i
+const logoRegex = /.(svg)$/i;
 function CustomDrawerContent({
   state,
   descriptors,
@@ -44,16 +46,16 @@ function CustomDrawerContent({
   progress,
   ...props
 }) {
-  const { zendeskKeys, clientInfo, defaultLanguage } = useSelector(
-    (state) => state?.initBoot
+  const {zendeskKeys, clientInfo, defaultLanguage} = useSelector(
+    state => state?.initBoot,
   );
 
-  const { isCabPooling, initialValue } = useSelector((state) => state?.auth);
-  const { themeColors } = useSelector((state) => state?.initBoot);
+  const {isCabPooling, initialValue} = useSelector(state => state?.auth);
+  const {themeColors} = useSelector(state => state?.initBoot);
 
+  console.log('isCabPooling', isCabPooling);
 
-
-  const { userData } = useSelector((state) => state?.auth);
+  const {userData} = useSelector(state => state?.auth);
 
   const darkthemeusingDevice = useDarkMode();
 
@@ -113,24 +115,6 @@ function CustomDrawerContent({
         key: navigationStrings.PROFILESTACK,
         // subRoute:navigationStrings.MYPROFILE
       },
-      appIds.transportSystem === DeviceInfo.getBundleId()
-        ? {
-          id: 7,
-          label: strings.DAMAGEREPORT,
-          image: imagePath.damagereport,
-          key: navigationStrings.DAMAGEREPORT,
-          // subRoute:navigationStrings.MYPROFILE
-        }
-        : {},
-      appIds.transportSystem === DeviceInfo.getBundleId()
-        ? {
-          id: 7,
-          label: strings.REIMBURSEMENT,
-          image: imagePath.reimbursement,
-          key: navigationStrings.REIMBURSEMENT,
-          // subRoute:navigationStrings.MYPROFILE
-        }
-        : {},
       {
         id: 9,
         label: strings.CHAT_ROOM,
@@ -144,6 +128,14 @@ function CustomDrawerContent({
         image: imagePath.logout,
         // key: navigationStrings.PROFILESTACK,
         // subRoute:navigationStrings.MYPROFILE
+      },
+      {
+        id: 14,
+        label: strings.SOS,
+        image: imagePath.icSubscription,
+        sos: true,
+        // key: navigationStrings.SUBSCRIPTION_STACK,
+        // subRoute: navigationStrings.SUBSCRIPTION_STACK,
       },
       {
         id: 11,
@@ -168,39 +160,20 @@ function CustomDrawerContent({
     isLoadingB,
   } = states;
 
-
   const subscription = !!userData?.client_preference?.custom_mode
     ? JSON.parse(userData?.client_preference?.custom_mode)
     : undefined;
 
-    useEffect(() => {
-      const backAction = () => {
-        if (navigation.canGoBack()) {
-          navigation.goBack();
-        }
-        else {
-          Alert.alert("Exit App", "Do you want to close the app?", [
-            { text: "No", onPress: () => null, style: "cancel" },
-            { text: "Yes", onPress: () => BackHandler.exitApp() },
-          ]);
-        }
-        return true;
-      };
-  
-      const backHandler = BackHandler.addEventListener(
-        'hardwareBackPress',
-        backAction
-      );
-  
-      return () => backHandler.remove();
-    }, [navigation]);
-    
+  console.log(
+    routes,
+    'subscriptionsubscriptionsubscriptionsubscriptionsubscription',
+  );
 
   useEffect(() => {
     if (zendeskKeys?.keys?.account_key && zendeskKeys?.keys?.application_id) {
       ZendeskChat.init(
         `${zendeskKeys?.keys?.account_key}`,
-        `${zendeskKeys?.keys?.application_id}`
+        `${zendeskKeys?.keys?.application_id}`,
       );
     }
 
@@ -211,6 +184,14 @@ function CustomDrawerContent({
           label: strings.GO_TO_HOME,
           image: imagePath.icHomeBlack,
           key: navigationStrings.GO_TO_HOME,
+          // subRoute:navigationStrings.MYPROFILE
+        },
+
+        {
+          id: 2,
+          label: strings.PROFILE,
+          image: imagePath.profileImage,
+          key: navigationStrings.PROFILESTACK,
           // subRoute:navigationStrings.MYPROFILE
         },
         {
@@ -224,20 +205,8 @@ function CustomDrawerContent({
           subRoute: navigationStrings.TASKHISTORY,
         },
 
-        {
-          id: 2,
-          label: strings.PROFILE,
-          image: imagePath.profileImage,
-          key: navigationStrings.PROFILESTACK,
-          // subRoute:navigationStrings.MYPROFILE
-        },
-        {
-          id: 3,
-          label: strings.SETTING,
-          image: imagePath.settingsIcon,
-          key: navigationStrings.SETTINGS,
-          // subRoute:navigationStrings.MYPROFILE
-        },
+       
+    
         {
           id: 4,
           label: strings.WALLET,
@@ -249,12 +218,82 @@ function CustomDrawerContent({
         },
         {
           id: 5,
-          label: (getBundleId() == appIds.mrVeloz && defaultLanguage?.value == 'es') ? strings.PAYOUT_MRVELOZ:strings.PAYOUT,
+          label:
+            getBundleId() == appIds.mrVeloz && defaultLanguage?.value == 'es'
+              ? strings.PAYOUT_MRVELOZ
+              : strings.PAYOUT,
           image: imagePath.icPayout,
           key: navigationStrings.PAYOUT_STACK,
           subRoute: navigationStrings.PAYOUT_STACK,
           // key: navigationStrings.WALLET,
           // subRoute:navigationStrings.MYPROFILE
+        },
+       
+        
+        // {
+        //   id: 3,
+        //   label: strings.SETTING,
+        //   image: imagePath.settingsIcon,
+        //   key: navigationStrings.SETTINGS,
+        //   // subRoute:navigationStrings.MYPROFILE
+        // },
+        zendeskKeys?.keys?.account_key && zendeskKeys?.keys?.application_id
+          ? {
+              id: 7,
+              label: strings.SUPPORT,
+              support: true,
+              image: imagePath.support2,
+              // key: navigationStrings.PROFILESTACK,
+              // subRoute:navigationStrings.MYPROFILE
+            }
+          : {},
+        subscription === undefined
+          ? {}
+          : subscription?.hide_subscription_module == 0
+          ? {
+              id: 9,
+              label: strings.SUBSCRIPTIONS,
+              support: true,
+              image: imagePath.icSubscription,
+              key: navigationStrings.SUBSCRIPTION_STACK,
+              subRoute: navigationStrings.SUBSCRIPTION_STACK,
+            }
+          : {},
+
+        appIds.transportSystem === DeviceInfo.getBundleId()
+          ? {
+              id: 7,
+              label: strings.DAMAGEREPORT,
+              image: imagePath.damagereport,
+              key: navigationStrings.DAMAGEREPORT,
+              // subRoute:navigationStrings.MYPROFILE
+            }
+          : {},
+        appIds.transportSystem === DeviceInfo.getBundleId()
+          ? {
+              id: 7,
+              label: strings.REIMBURSEMENT,
+              image: imagePath.reimbursement,
+              key: navigationStrings.REIMBURSEMENT,
+              // subRoute:navigationStrings.MYPROFILE
+            }
+          : {},
+        !!clientInfo?.socket_url
+          ? {
+              id: 9,
+              label: strings.CHAT_ROOM,
+              image: imagePath.settingsIcon,
+              key: navigationStrings.CHAT_ROOM,
+              // subRoute:navigationStrings.MYPROFILE
+            }
+          : {},
+        {
+          id: 14,
+          label:strings.SOS,
+          image: imagePath.ic_sos,
+          sos: true,
+          // key: navigationStrings.SUBSCRIPTION_STACK,
+          // subRoute: navigationStrings.SUBSCRIPTION_STACK,
         },
         {
           id: 6,
@@ -266,62 +305,12 @@ function CustomDrawerContent({
           // subRoute:navigationStrings.MYPROFILE
         },
         {
-          id: 7,
-          label: strings.SUPPORT,
-          support: true,
-          image: imagePath.support2,
-          // key: navigationStrings.PROFILESTACK,
-          // subRoute:navigationStrings.MYPROFILE
-        },
-        subscription === undefined
-          ? {}
-          : subscription?.hide_subscription_module == 0
-            ? {
-              id: 9,
-              label: strings.SUBSCRIPTIONS,
-              support: true,
-              image: imagePath.icSubscription,
-              key: navigationStrings.SUBSCRIPTION_STACK,
-              subRoute: navigationStrings.SUBSCRIPTION_STACK,
-            }
-            : {},
-
-        appIds.transportSystem === DeviceInfo.getBundleId()
-          ? {
-            id: 7,
-            label: strings.DAMAGEREPORT,
-            image: imagePath.damagereport,
-            key: navigationStrings.DAMAGEREPORT,
-            // subRoute:navigationStrings.MYPROFILE
-          }
-          : {},
-        appIds.transportSystem === DeviceInfo.getBundleId()
-          ? {
-            id: 7,
-            label: strings.REIMBURSEMENT,
-            image: imagePath.reimbursement,
-            key: navigationStrings.REIMBURSEMENT,
-            // subRoute:navigationStrings.MYPROFILE
-          }
-          : {},
-        !!clientInfo?.socket_url
-          ? {
-            id: 9,
-            label: strings.CHAT_ROOM,
-            image: imagePath.settingsIcon,
-            key: navigationStrings.CHAT_ROOM,
-            // subRoute:navigationStrings.MYPROFILE
-          }
-          : {},
-        {
           id: 13,
           label: strings.LOGOUT,
           image: imagePath.logout,
         },
       ],
     });
-
-
   }, [
     defaultLanguage,
     zendeskKeys?.keys?.account_key,
@@ -332,11 +321,29 @@ function CustomDrawerContent({
 
   //Naviagtion to specific screen
   const moveToNewScreen = (screenName, data) => () => {
-    navigation.navigate(screenName, { data });
+    navigation.navigate(screenName, {data});
   };
+  const onSosButton = index => {
+    console.log(index, 'index');
+    switch (index) {
+      case 0:
+        Linking.openURL(
+          `tel:${"+101"}`,
+        );
 
+        break;
+      case 1:
+        Linking.openURL(
+          `tel:${"100"}`,
+        );
+        break;
+
+      default:
+        break;
+    }
+  };
   //Update states
-  const updateState = data => setState(state => ({ ...state, ...data }));
+  const updateState = data => setState(state => ({...state, ...data}));
 
   const onLogoutPress = () => {
     navigation.toggleDrawer();
@@ -351,37 +358,61 @@ function CustomDrawerContent({
         onPress: () => {
           console.log('progress');
           logout();
+          // navigation.toggleDrawer();
         },
       },
     ]);
   };
+  let actionSheet = useRef();
+console.log(actionSheet,"actionSheetactionSheetactionSheetactionSheets");
+  // const showActionSheet = () => {
+  //   navigation.toggleDrawer();
+  //   setTimeout(() => {
+  //     actionSheet.current.show();
+  //   }, 500);
+  // };
+
+  const showActionSheet = () => {
+    navigation.toggleDrawer();
+    setTimeout(() => {
+      actionSheet.current.show();
+    }, 500);
+  };
+
 
   const logout = () => {
-    updateState({ isLoading: true });
+    updateState({isLoading: true});
     actions
-      .logout({}, { client: clientInfo?.database_name })
-      .then((res) => {
+      .logout({}, {client: clientInfo?.database_name})
+      .then(async res => {
         console.log(res, 'login data');
-        updateState({ isLoading: false });
-        setTimeout(() => {
-           removeItem("userData").then(()=>{
-             removerUserData()
-             showSuccess(res?.message ? res?.message : 'Logout successfully.');
-           })
-        }, 400);
+        updateState({isLoading: false});
+        actions.saveFcmToken(null);
+        await AsyncStorage.removeItem('fcmToken');
+        messaging()
+          .deleteToken(undefined, '*')
+          .then(() => {
+            // RNRestart.Restart();
+          });
+        showSuccess(res?.message ? res?.message : 'Logout successfully.');
+        moveToNewScreen(navigationStrings.LOGIN)();
       })
       .catch(errorMethod);
   };
 
   //Error handling in api
   const errorMethod = error => {
-    updateState({ isLoading: false });
+    updateState({isLoading: false});
     showError(error?.message || error?.error);
   };
+  console.log(
+    !zendeskKeys?.keys?.account_key && !zendeskKeys?.keys?.application_id,
+    'havsdyuva',
+  );
   const onStartSupportChat = () => {
     if (!zendeskKeys?.keys?.account_key && !zendeskKeys?.keys?.application_id) {
-      showError('Zendesk not configured')
-      return
+      showError('Zendesk not configured');
+      return;
     }
     ZendeskChat.setVisitorInfo({
       name: userData?.name,
@@ -395,15 +426,13 @@ function CustomDrawerContent({
     });
   };
 
-  const toggleSwitch = (status) => {
-
+  const toggleSwitch = status => {
     updateState({
-      isLoadingB: true
-    })
-
+      isLoadingB: true,
+    });
 
     const data = {};
-    data["is_pooling_available"] = status;
+    data['is_pooling_available'] = status;
     const header = {
       client: clientInfo?.database_name,
     };
@@ -411,25 +440,26 @@ function CustomDrawerContent({
     actions
       .updateCabPoolingStatus(data, header)
 
-      .then((res) => {
+      .then(res => {
         updateState({
-          isLoadingB: false
-        })
+          isLoadingB: false,
+        });
         if (res?.data?.is_pooling_available) {
           setPoolingState(true);
         } else {
           setPoolingState(false);
         }
       })
-      .catch((error) => {
-        console.log(error, "errororro");
+      .catch(error => {
+        console.log(error, 'errororro');
         setPoolingState(false);
         updateState({
-          isLoadingB: false
-        })
+          isLoadingB: false,
+        });
       });
   };
 
+  console.log(poolingState, 'poolingStatepoolingStatepoolingState');
 
   return (
     <>
@@ -439,46 +469,46 @@ function CustomDrawerContent({
             // height: height,
             marginTop: moderateScale(10),
           }}
-          colors={[colors.white, colors.white]}
-        >
+          colors={[colors.white, colors.white]}>
           {/* client logo */}
           <View
             style={{
               // height: height / 3,
-              justifyContent: "center",
-              alignItems: "center",
+              justifyContent: 'center',
+              alignItems: 'center',
               marginBottom: moderateScale(30),
               // backgroundColor:'red'
-            }}
-          >
-            {(logoRegex.test(clientInfo?.logo) || logoRegex.test(clientInfo?.dark_logo)) ? <SvgUri
-              width={moderateScale(width / 2)}
-              height={moderateScale(width / 2)}
-              source={{ uri: clientInfo?.logo || clientInfo?.dark_logo }}
-            /> :
+            }}>
+            {logoRegex.test(clientInfo?.logo) ||
+            logoRegex.test(clientInfo?.dark_logo) ? (
+              <SvgUri
+                width={moderateScale(width / 2)}
+                height={moderateScale(width / 2)}
+                source={{uri: clientInfo?.logo || clientInfo?.dark_logo}}
+              />
+            ) : (
               <ScaledImage
                 width={width / 2}
                 source={
                   clientInfo && (clientInfo?.logo || clientInfo?.dark_logo)
                     ? {
-                      uri: isDarkMode
-                        ? clientInfo?.dark_logo
-                        : clientInfo?.logo,
-                    }
+                        uri: isDarkMode
+                          ? clientInfo?.dark_logo
+                          : clientInfo?.logo,
+                      }
                     : imagePath.logo
                 }
               />
-            }
+            )}
           </View>
           {userData?.client_preference?.is_cab_pooling_toggle ? (
             <View
               style={{
                 marginHorizontal: moderateScale(10),
-                flexDirection: "row",
-                justifyContent: "space-around",
+                flexDirection: 'row',
+                justifyContent: 'space-around',
                 marginBottom: moderateScaleVertical(15),
-              }}
-            >
+              }}>
               <Text
                 style={{
                   // paddingLeft: moderateScale(5),
@@ -487,8 +517,7 @@ function CustomDrawerContent({
                   fontFamily: fontFamily?.regular,
                   ...props.labelStyle,
                   color: colors.black,
-                }}
-              >
+                }}>
                 {strings.AVAILABLEFORPOOLING}
               </Text>
               {isLoadingB ? (
@@ -496,7 +525,7 @@ function CustomDrawerContent({
                   <UIActivityIndicator
                     color={colors.themeColor}
                     size={24}
-                    style={{ marginLeft: moderateScale(20) }}
+                    style={{marginLeft: moderateScale(20)}}
                   />
                 </View>
               ) : (
@@ -507,7 +536,7 @@ function CustomDrawerContent({
                     true: colors.themeColor,
                   }}
                   thumbColor={colors.white}
-                  onValueChange={(status) => toggleSwitch(status)}
+                  onValueChange={status => toggleSwitch(status)}
                   value={poolingState}
                 />
               )}
@@ -515,6 +544,7 @@ function CustomDrawerContent({
           ) : null}
           {routes?.map((route, index) => {
             // const {options} = descriptors[route.key];
+            console.log(route?.support, 'routerouterouteroute121222112');
             const isFocused = selectedDrawerItem?.index === index;
             const label = route?.label;
             const onPress = () => {
@@ -528,6 +558,8 @@ function CustomDrawerContent({
                 }
               } else if (route?.support) {
                 onStartSupportChat();
+              } else if (route?.sos) {
+                showActionSheet();
               } else {
                 onLogoutPress();
               }
@@ -538,26 +570,25 @@ function CustomDrawerContent({
                 <TouchableOpacity
                   key={index}
                   accessibilityRole="button"
-                  accessibilityStates={isFocused ? ["selected"] : []}
+                  accessibilityStates={isFocused ? ['selected'] : []}
                   testID={JSON.stringify(route?.id)}
                   onPress={onPress}
                   // onLongPress={onLongPress}
                   style={{
                     margin: moderateScale(8),
                     // alignItems: 'center',
-                    flexDirection: "row",
-                    alignItems: "center",
+                    flexDirection: 'row',
+                    alignItems: 'center',
 
-                    justifyContent: "center",
-                  }}
-                >
+                    justifyContent: 'center',
+                  }}>
                   {/* {options.drawerIcon({focused: isFocused})} */}
 
-                  <View style={{ flex: 0.15 }}>
+                  <View style={{flex: 0.15}}>
                     <Image source={route?.image} />
                   </View>
 
-                  <View style={{ flex: 0.85 }}>
+                  <View style={{flex: 0.85}}>
                     <Text
                       style={{
                         // paddingLeft: moderateScale(5),
@@ -566,8 +597,7 @@ function CustomDrawerContent({
                         fontFamily: fontFamily?.regular,
                         ...props.labelStyle,
                         color: colors.black,
-                      }}
-                    >
+                      }}>
                       {label}
                     </Text>
                   </View>
@@ -596,6 +626,14 @@ function CustomDrawerContent({
           </Text>
         </View>
       </ScrollView>
+      <ActionSheet
+        ref={actionSheet}
+        // title={'Choose one option'}
+        options={["EMERGENCY", "POLICE", strings.CANCEL]}
+        cancelButtonIndex={2}
+        destructiveButtonIndex={2}
+        onPress={index => onSosButton(index)}
+      />
       <Loader isLoading={isLoading} withModal={true} />
     </>
   );

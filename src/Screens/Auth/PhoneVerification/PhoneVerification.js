@@ -1,50 +1,41 @@
-import React, {useState, useEffect} from 'react';
-import {Platform, View, Image, Text, Keyboard} from 'react-native';
-import DeviceInfo from 'react-native-device-info';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-import {useSelector} from 'react-redux';
-import GradientButton from '../../../Components/GradientButton';
-import {loaderOne} from '../../../Components/Loaders/AnimatedLoaderFiles';
+import React, { useEffect, useState } from 'react';
+import { Keyboard, Platform, Text, View } from 'react-native';
+import RNOtpVerify from 'react-native-otp-verify';
+import SmoothPinCodeInput from 'react-native-smooth-pincode-input';
+import { useSelector } from 'react-redux';
+import Header from '../../../Components/Header';
 import WrapperContainer from '../../../Components/WrapperContainer';
 import imagePath from '../../../constants/imagePath';
 import strings from '../../../constants/lang';
-import navigationStrings from '../../../navigation/navigationStrings';
 import actions from '../../../redux/actions';
 import colors from '../../../styles/colors';
+import fontFamily from '../../../styles/fontFamily';
 import {
-  height,
-  moderateScale,
   moderateScaleVertical,
-  width,
+  width
 } from '../../../styles/responsiveSize';
 import {
   otpTimerCounter,
+  saveUserData,
   showError,
   showSuccess,
 } from '../../../utils/helperFunctions';
-import validator from '../../../utils/validations';
 import stylesFunction from './styles';
-import PhoneNumberInput from '../../../Components/PhoneNumberInput';
-import Header from '../../../Components/Header';
-import SmoothPinCodeInput from 'react-native-smooth-pincode-input';
-import fontFamily from '../../../styles/fontFamily';
-import {getItem, setUserData} from '../../../utils/utils';
+import { loaderOne } from '../../../Components/Loaders/AnimatedLoaderFiles';
+import { getItem } from '../../../utils/utils';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {requestUserPermission} from '../../../utils/notificationServices';
-import RNOtpVerify from 'react-native-otp-verify';
-import useInterval from '../../../utils/useInterval';
-import {clockRunning} from 'react-native-reanimated';
-import { saveUserData, setAttributeFormInfo } from '../../../redux/actions/auth';
+
 
 export default function PhoneVerification({navigation, route}) {
   const paramData = route?.params?.data;
   console.log(paramData, 'paramData');
+
   const [state, setState] = useState({
     isLoading: false,
     callingCode: paramData?.callingCode ? paramData?.callingCode : '91',
     cca2: paramData?.cca2 ? paramData?.cca2 : 'IN',
     phoneNumber: paramData?.phoneNumber,
-    otp: '87124',
+    otp: '',
     otpToShow: '',
     otpPrefilled: false,
     otpTimer: 15,
@@ -52,18 +43,13 @@ export default function PhoneVerification({navigation, route}) {
 
   const {
     isLoading,
-    callingCode,
-    cca2,
-    phoneNumber,
     otp,
     otpToShow,
-    otpPrefilled,
     otpTimer,
   } = state;
-  //   const fontFamily = appStyle?.fontSizeData;
-  const {themeColors} = useSelector(state => state?.initBoot);
+
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
-  const fcmToken = useSelector(state => state?.initBoot?.fcmToken);
+  
 
   //Update states
   const updateState = data => setState(state => ({...state, ...data}));
@@ -74,26 +60,7 @@ export default function PhoneVerification({navigation, route}) {
 
   const styles = stylesFunction({defaultLanguagae});
   //all states used in this screen
-
-  //Naviagtion to specific screen
-  const moveToNewScreen = (screenName, data) => () => {
-    navigation.navigate(screenName, {data});
-  };
-  //On change textinput
-  const _onChangeText = key => val => {
-    updateState({[key]: val});
-  };
-
-  //Validate form
-  const isValidData = () => {
-    const error = validator({phoneNumber});
-    if (error) {
-      showError(error);
-      return;
-    }
-    return true;
-  };
-
+ 
   useEffect(() => {
     let timerId;
     if (otpTimer > 0) {
@@ -107,7 +74,6 @@ export default function PhoneVerification({navigation, route}) {
   }, [otpTimer]);
 
   const otpHandler = message => {
-    console.log(message, 'complete msg>>>');
     if (!!message) {
       let msgOTP = message.replace(/[^0-9]/g, '');
       let OTP = msgOTP.substring(0, 6);
@@ -138,12 +104,6 @@ export default function PhoneVerification({navigation, route}) {
     }
   }, []);
 
-  useEffect(() => {
-    if (otp && otpPrefilled) {
-      updateState({isLoading: false});
-    }
-  }, [otp, otpPrefilled]);
-
   //Opt input function
   const onOtpInput = code => {
     updateState({
@@ -151,19 +111,11 @@ export default function PhoneVerification({navigation, route}) {
       otp: code,
       otpPrefilled: true,
     });
-
-    // (() => {
-
-    // })();
-    // console.log(code,"123");
-    // if(code?.length == 6){
-    //   console.log(code,"1234");
-    //   verfifyAccount(code);
-    // }
   };
 
   // //Code input
   useEffect(() => {
+    console.log("otp.length",otp.length)
     if (otp.length === 6) {
       verfifyAccount();
     }
@@ -171,10 +123,13 @@ export default function PhoneVerification({navigation, route}) {
   // console.log(otp,'otpotp')
   //VerifyAccount
   const verfifyAccount = async () => {
+
+    const fcmToken = await AsyncStorage.getItem("fcmToken")
+
     let data = {};
     data['phone_number'] = `${paramData?.phone_number}`;
     data['otp'] = otp;
-    data['device_token'] = !!fcmToken ? fcmToken : '12345689';
+    data['device_token'] = !!fcmToken ? fcmToken : 'FCM_Token_not_generated';
     data['device_type'] = Platform.OS;
     console.log(data, 'data>>>data>data>data');
     updateState({isLoading: true});
@@ -183,12 +138,9 @@ export default function PhoneVerification({navigation, route}) {
       .then(res => {
         console.log(res, 'verifyAccountverifyAccount');
         updateState({isLoading: false});
-        setTimeout(() => {
-          setAttributeFormInfo(res?.data?.attribute_form);
-          setUserData(res.data).then(suc => {
-            saveUserData(res.data);
-          });
-        }, 400);
+        if(!!res?.data){
+          saveUserData(res.data);
+        }
       })
       .catch(errorMethod);
   };
@@ -213,8 +165,11 @@ export default function PhoneVerification({navigation, route}) {
 
   //Error handling in api
   const errorMethod = error => {
-    updateState({isLoading: false, otpToShow: ''});
-
+    updateState({
+      isLoading: false, 
+      otpToShow: '',
+      otp:''
+    });
     console.log(error, 'errorerror');
 
     showError(error?.message || error?.error);
@@ -222,7 +177,7 @@ export default function PhoneVerification({navigation, route}) {
 
   return (
     <WrapperContainer
-      isLoadingB={isLoading}
+    isLoadingB={isLoading}
       source={loaderOne}
       statusBarColor={colors.white}
       bgColor={colors.white}>

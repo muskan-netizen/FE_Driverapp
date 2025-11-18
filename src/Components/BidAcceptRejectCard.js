@@ -7,6 +7,8 @@ import GradientButton from './GradientButton';
 import { moderateScale, moderateScaleVertical, textScale, width } from '../styles/responsiveSize';
 import imagePath from '../constants/imagePath';
 import TextInputWithUnderlineAndLabel from './TextInputWithUnderlineAndLabel';
+import { getBundleId } from 'react-native-device-info';
+import { appIds } from '../utils/constants/DynamicAppKeys';
 
 const BidAcceptRejectCard = ({
   data = {},
@@ -202,7 +204,7 @@ const allBidLocations = data?.tasks.replace(/'/g, '"')
      */}
 
       <View style={{ flexDirection: 'row', marginTop: moderateScaleVertical(20),paddingHorizontal:moderateScale(10) }}>
-        <TouchableOpacity style={{
+       { getBundleId() != appIds?.goCabDelivery ?  <TouchableOpacity style={{
           backgroundColor: colors.themeColor,
           flex: 0.15,
           height: moderateScaleVertical(50),
@@ -210,16 +212,18 @@ const allBidLocations = data?.tasks.replace(/'/g, '"')
         }}
           onPress={() => _onSetBidPrice('minus',data)}>
           <Text style={{ color: colors.white, fontFamily: fontFamily?.bold }}>- 10</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> : <View style={{flex:0.15}}/>}
         <View style={{ flex: 0.7, marginHorizontal: moderateScale(10) }}>
           <TextInputWithUnderlineAndLabel
             txtInputStyle={{ textAlign: 'center' }}
-            isEditable={false}
-            placeholder={'Recommend fare,adjustable'}
-            onChangeText={(text) => setBidRidePrice(text)}
-            value={`${Number(data?.selectedPriceForBid||data?.requested_price).toFixed(2)}`} />
+            isEditable={getBundleId() == appIds.goCabDelivery? true: false}
+            placeholder={ getBundleId() == appIds?.goCabDelivery ? '' : 'Recommend fare,adjustable'}
+            onChangeText={(text) => _onSetBidPrice('custom',data,text)}
+            value={  getBundleId() == appIds?.goCabDelivery ? {} : `${Number(data?.selectedPriceForBid||data?.requested_price).toFixed(2)}`} 
+            
+            />
         </View>
-        <TouchableOpacity style={{
+        {getBundleId() != appIds?.goCabDelivery ?  <TouchableOpacity style={{
           backgroundColor: colors.themeColor,
           flex: 0.15,
           height: moderateScaleVertical(50),
@@ -227,7 +231,7 @@ const allBidLocations = data?.tasks.replace(/'/g, '"')
         }}
           onPress={() => _onSetBidPrice('plus',data)}>
           <Text style={{ color: colors.white, fontFamily: fontFamily?.bold }}>+ 10</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> :  <View style={{flex:0.15}}/>}
       </View>
 
       <View style={{ marginVertical: moderateScaleVertical(10), width: '80%', alignSelf: 'center' }}>

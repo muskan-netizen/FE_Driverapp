@@ -8,8 +8,8 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import { useDarkMode } from 'react-native-dynamic';
-import { useSelector } from 'react-redux';
+import {useDarkMode} from 'react-native-dynamic';
+import {useSelector} from 'react-redux';
 import imagePath from '../constants/imagePath';
 import strings from '../constants/lang';
 import colors from '../styles/colors';
@@ -20,8 +20,8 @@ import {
   textScale,
   width,
 } from '../styles/responsiveSize';
-import { MyDarkTheme } from '../styles/theme';
-import { currencyNumberFormatter } from '../utils/commonFunction';
+import {MyDarkTheme} from '../styles/theme';
+import {currencyNumberFormatter} from '../utils/commonFunction';
 import {
   getColorCodeWithOpactiyNumber,
   getImageUrl,
@@ -30,24 +30,25 @@ import GradientButton from './GradientButton';
 import fontFamily from '../styles/fontFamily';
 const SubscriptionComponent2 = ({
   data = {},
-  onPress = () => { },
+  onPress = () => {},
   cardWidth,
   cardStyle = {},
   onAddtoWishlist,
-  addToCart = () => { },
+  addToCart = () => {},
   activeOpacity = 1,
   bottomText = strings.BUY_NOW,
   clientCurrency = {},
   currentSubscription = false,
-  payNowUpcoming = () => { },
-  cancelSubscription = () => { },
+  payNowUpcoming = () => {},
+  cancelSubscription = () => {},
   subscriptionData,
   allSubscriptions = [],
-  isCancelBtn=false
+  isCancelBtn = false,
+  borderStyle = {},
 }) => {
-  const isDarkMode = false
-  const commonStyles = commonStylesFunc({ fontFamily });
-  const styles = stylesFunc({ fontFamily });
+  const isDarkMode = false;
+  const commonStyles = commonStylesFunc({fontFamily});
+  const styles = stylesFunc({fontFamily});
   const cardWidthNew = cardWidth ? cardWidth : width - 20;
   const productPrice = data?.price;
 
@@ -66,231 +67,146 @@ const SubscriptionComponent2 = ({
   const subscriptionEndTimeValue = new Date(
     subscriptionData?.end_date,
   ).getTime();
-
-
   return (
     <TouchableOpacity
       activeOpacity={activeOpacity}
-    // onPress={onPress}
-    >
-      <ImageBackground
-        source={!!data?.image ? { uri: data?.image } : ''}
-        style={{
-          ...styles.imageBackground,
-          // backgroundColor: MyDarkTheme.colors.lightDark,
-        }}
-        borderRadius={10}
-        resizeMode="cover">
-        <View style={styles.titleBagView}>
+      onPress={onPress}
+      style={{
+        borderWidth: 2,
+        borderRadius: moderateScale(12),
+        ...borderStyle,
+      }}>
+      {data?.type_of_sub && (
+        <View
+          style={{
+            paddingHorizontal: moderateScale(10),
+            marginVertical: moderateScaleVertical(10),
+          }}>
           <Text
             style={
               isDarkMode
-                ? [styles.title, { color: MyDarkTheme.colors.text }]
-                : styles.title
+                ? [styles.typeTextStyle, {color: MyDarkTheme.colors.text}]
+                : styles.typeTextStyle
             }>
-            {data?.title}
-          </Text>
-          <Image
-            source={imagePath.icBagA}
-            style={{ height: moderateScale(30), width: moderateScale(30) }}
-          />
-        </View>
-        <View style={styles.descriptionView}>
-          <Text
-            style={
-              isDarkMode
-                ? [styles.subtitle, { color: MyDarkTheme.colors.text }]
-                : [styles.subtitle]
-            }>
-            {(subscriptionData && subscriptionData?.plan?.description) ||
-              data?.description}
+            {data?.type_of_sub}
           </Text>
         </View>
+      )}
 
-        <View style={styles.subscriptionView}>
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-            {subscriptionData?.plan?.deleted_at == null && (
-              <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                <Text style={styles.title}>
-                  {!!(clientCurrency?.symbol) ? `${clientCurrency?.symbol}` : '$' }
-               
+      <View style={styles.titleBagView}>
+        <Text
+          style={
+            isDarkMode
+              ? [styles.title, {color: MyDarkTheme.colors.text}]
+              : styles.title
+          }>
+          {data?.title}
+        </Text>
+      
+          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            <Text style={styles.title}>
+              {!!clientCurrency?.symbol ? `${clientCurrency?.symbol}` : '$'}
+            </Text>
+            <Text style={styles.title}>
+             
+              {currencyNumberFormatter(
+                currentSubscription
+                  ? `${Number(subscriptionData?.subscription_amount)}`
+                  : `${Number(data?.price)}`,
+              )}
+            
+            </Text>
+            <Text style={styles.title}>{`/ ${data?.frequency}`}</Text>
+          </View>
+
+      </View>
+      <View style={styles.descriptionView}>
+        <Text
+          style={
+            isDarkMode
+              ? [styles.subtitle, {color: MyDarkTheme.colors.text}]
+              : [styles.subtitle]
+          }>
+           { data?.description}
+        </Text>
+      </View>
+
+      <View style={styles.subscriptionView}>
+
+        {currentSubscription && (
+          <View>
+            {subscriptionData?.cancelled_at ? (
+              <View
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                  marginTop: moderateScaleVertical(8),
+                }}>
+                <Text
+                  style={[
+                    styles.updateBilling,
+                    {color: colors.blackOpacity43, fontSize: textScale(12)},
+                  ]}>
+                  {currentDateValue == subscriptionDateValue ||
+                  currentTimeValue > subscriptionTimeValue
+                    ? strings.CANCELLED_AT
+                    : strings.CANCELS_AT}
                 </Text>
-                <Text style={styles.title}>
-                  {/* {currencyNumberFormatter(
-                    Number(data?.price),
-                    appData?.profile?.preferences?.digit_after_decimal,
-                  )} */}
-                  {/* {`${ Number(data?.price)}`} */}
-                  {currencyNumberFormatter(
-                  currentSubscription
-                    ? `${
-                        (Number(subscriptionData?.subscription_amount))
-                      }`
-                    : `${
-                        (Number(data?.price))
-                      }`,
-                )}
-                {/* { currentDateValue ? `${subscriptionData?.subscription_amount}` :  `${data?.price}` } */}
+                <Text style={styles.updateBilling}>
+                  {currentDateValue == subscriptionDateValue ||
+                  currentTimeValue > subscriptionTimeValue
+                    ? moment(subscriptionData?.end_date).format('LL')
+                    : moment(subscriptionData?.end_date).format('LL')}
+                </Text>
+              </View>
+            ) : currentDateValue !== subscriptionEndDateValue ||
+              currentTimeValue > subscriptionEndTimeValue ? (
+              <View
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                  marginTop: moderateScaleVertical(8),
+                }}>
+                <Text
+                  style={[
+                    styles.updateBilling,
+                    {color: colors.blackOpacity43, fontSize: textScale(12,)},
+                  ]}>
+                  {`${strings.EXPIRY}`}
+                </Text>
+                <Text style={styles.updateBilling}>
+                  {moment(subscriptionData?.end_date).format('LL')}
+                </Text>
+              </View>
+            ) : (
+              <View
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                  marginTop: moderateScaleVertical(8),
+                }}>
+                <Text style={[styles.updateBilling, {flex: 1}]}>
+                  {`${strings.UPCOMMING_BILLING_DATE}`}
+                </Text>
+                <Text style={styles.updateBilling}>
+                  {moment(subscriptionData?.end_date).format('LL')}
                 </Text>
               </View>
             )}
-            {currentSubscription ? (
-              !subscriptionData?.cancelled_at &&
-              subscriptionData?.plan?.deleted_at == null &&
-              allSubscriptions &&
-              !!allSubscriptions?.length && !isCancelBtn && (
-                <GradientButton
-                  colorsArray={[colors.white, colors.white]}
-                  textStyle={{
-                    fontFamily: fontFamily.medium,
-                    fontSize: textScale(10),
-                    color:colors.themeColor,
-                  }}
-                  onPress={() => onPress(data)}
-
-                  containerStyle={{
-                    height: moderateScaleVertical(29),
-                    backgroundColor: colors.white,
-                    paddingHorizontal: moderateScale(20),
-                    borderRadius: moderateScale(7),
-                  }}
-                  onPress={payNowUpcoming}
-                  btnText={
-                    currentDateValue == subscriptionDateValue ||
-                      currentTimeValue > subscriptionTimeValue
-                      ? `${strings.RENEW} (${clientCurrency?.symbol
-                      }${Number(data?.price).toFixed(2)})`
-                      : `${strings.PAY} (${clientCurrency?.symbol
-                      }${Number(data?.price).toFixed(2)})`
-                  }
-                />
-              )
-            ) : (
-              <GradientButton
-                colorsArray={[colors.white, colors.white]}
-                textStyle={{
-                  fontFamily: fontFamily.medium,
-                  fontSize: textScale(10),
-                  // color: themeColors.primary_color,
-                  color:colors.themeColor
-                }}
-                onPress={() => onPress(data)}
-                containerStyle={styles.subscribeBtn}
-                // btnText={strings.SUBSCRIBE}
-                btnText={strings.SUBSCRIBE}
-              />
-            )}
           </View>
+        )}
+      </View>
 
-          {currentSubscription && (
-            <View>
-              {subscriptionData?.cancelled_at ? (
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    justifyContent: 'space-between',
-                    marginTop: moderateScaleVertical(8),
-                  }}>
-                  <Text
-                    style={[
-                      styles.updateBilling,
-                      { color: colors.white, fontSize: textScale(12) },
-                    ]}>
-                    {currentDateValue == subscriptionDateValue ||
-                      currentTimeValue > subscriptionTimeValue
-                      ?strings.CANCELLED_AT
-                      :strings.CANCELS_AT}
-                  </Text>
-                  <Text style={styles.updateBilling}>
-                    {currentDateValue == subscriptionDateValue ||
-                      currentTimeValue > subscriptionTimeValue
-                      ? moment(subscriptionData?.end_date).format('LL')
-                      : moment(subscriptionData?.end_date).format('LL')}
-                  </Text>
-                </View>
-              ) : currentDateValue !== subscriptionEndDateValue ||
-                currentTimeValue > subscriptionEndTimeValue ? (
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    justifyContent: 'space-between',
-                    marginTop: moderateScaleVertical(8),
-                  }}>
-                  <Text
-                    style={[
-                      styles.updateBilling,
-                      { color: colors.white, fontSize: textScale(12) },
-                    ]}>
-                    {`${strings.EXPIRY}`}
-                  </Text>
-                  <Text style={styles.updateBilling}>
-                    {moment(subscriptionData?.end_date).format('LL')}
-                  </Text>
-                </View>
-              ) : (
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    justifyContent: 'space-between',
-                    marginTop: moderateScaleVertical(8),
-                  }}>
-                  <Text style={[styles.updateBilling, { flex: 1 }]}>
-                    {`${strings.UPCOMMING_BILLING_DATE}`}
-                  </Text>
-                  <Text style={styles.updateBilling}>
-                    {moment(subscriptionData?.end_date).format('LL')}
-                  </Text>
-                </View>
-              )}
-            </View>
-          )}
-        </View>
-      </ImageBackground>
-    
-      {/* {!! isCancelBtn &&
+      {!!isCancelBtn &&
         !!(
           subscriptionData?.plan?.deleted_at == null &&
-          subscriptionData?.subscription_id === data?.id && !!currentSubscription 
-        ) && (<View>
-            {currentSubscription && subscriptionData?.cancelled_at ||
-              currentDateValue == subscriptionEndDateValue ||
-              currentTimeValue > subscriptionEndTimeValue ? null : (
-          <GradientButton
-                  // colorsArray={[
-                  //   getColorCodeWithOpactiyNumber(
-                  //     themeColors?.primary_color.substr(1),
-                  //     20,
-                  //   ),
-                  //   getColorCodeWithOpactiyNumber(
-                  //     themeColors?.primary_color.substr(1),
-                  //     20,
-                  //   ),
-                  // ]}
-                  textStyle={styles.textStyle2}
-                  marginTop={moderateScaleVertical(10)}
-                  marginBottom={moderateScaleVertical(10)}
-                  borderRadius={moderateScale(5)}
-                  containerStyle={{
-                    marginHorizontal: moderateScale(10),
-                    width: width / 3,
-                    backgroundColor: 'white',
-                  }}
-                  onPress={cancelSubscription}
-                  btnText={`Cancel`}
-                />)
-                }
-        </View> 
-        )
-      } */}
-       
-      {!! isCancelBtn &&
-        !!(
-          subscriptionData?.plan?.deleted_at == null &&
-          subscriptionData?.subscription_id === data?.id && !!currentSubscription 
-        ) && (<View>
-            {currentSubscription && subscriptionData?.cancelled_at ||
-              currentDateValue == subscriptionEndDateValue ||
-              currentTimeValue > subscriptionEndTimeValue ? null : (
+          subscriptionData?.subscription_id === data?.id &&
+          !!currentSubscription
+        ) && (
+          <View>
+            {(currentSubscription && subscriptionData?.cancelled_at) ||
+            currentDateValue == subscriptionEndDateValue ||
+            currentTimeValue > subscriptionEndTimeValue ? null : (
               <View
                 style={{
                   marginTop: moderateScale(10),
@@ -310,20 +226,11 @@ const SubscriptionComponent2 = ({
                     width: width / 2,
                   }}
                   onPress={payNowUpcoming}
-                  btnText={`${strings.RENEW} (${clientCurrency?.symbol
-                    }${Number(data?.price).toFixed(2)})`}
+                  btnText={`${strings.RENEW} (${clientCurrency?.symbol}${Number(
+                    data?.price,
+                  ).toFixed(2)})`}
                 />
                 <GradientButton
-                  // colorsArray={[
-                  //   getColorCodeWithOpactiyNumber(
-                  //     themeColors?.primary_color.substr(1),
-                  //     20,
-                  //   ),
-                  //   getColorCodeWithOpactiyNumber(
-                  //     themeColors?.primary_color.substr(1),
-                  //     20,
-                  //   ),
-                  // ]}
                   textStyle={styles.textStyle2}
                   marginTop={moderateScaleVertical(10)}
                   marginBottom={moderateScaleVertical(10)}
@@ -344,19 +251,28 @@ const SubscriptionComponent2 = ({
   );
 };
 
-export function stylesFunc({ fontFamily }) {
+export function stylesFunc({fontFamily}) {
   const styles = StyleSheet.create({
     title: {
-      color: colors.white,
+      color: colors.blackLight,
       fontFamily: fontFamily.bold,
       fontSize: textScale(15),
       textAlign: 'left',
+      fontWeight:'900'
+    },
+    typeTextStyle: {
+      color: colors?.blackOpacity43,
+      fontSize: textScale(14),
+      fontWeight:'500',
+      // fontStyle:'italic'
     },
     subtitle: {
-      color: colors.white,
-      fontFamily: fontFamily.regular,
+      color: colors.blackOpacity43,
+      // fontFamily: fontFamily.regular,
       fontSize: textScale(13),
       textAlign: 'left',
+      fontStyle:'italic',
+      fontWeight:'900'
     },
     freeDelivery: {
       color: colors.black,
@@ -377,13 +293,13 @@ export function stylesFunc({ fontFamily }) {
     },
 
     textStyle2: {
-      // color: themeColors?.primary_color,
-      fontFamily: fontFamily.medium,
-      fontSize: textScale(12),
-      // opacity: 0.6,
+      fontSize: textScale(14),
+      color:colors.blackOpacity43,
+      fontStyle:'italic',
+      fontWeight:'600'
     },
     updateBilling: {
-      color: colors.white,
+      color: colors.blackOpacity43,
       fontFamily: fontFamily.regular,
       fontSize: textScale(12),
       textAlign: 'left',
@@ -394,11 +310,8 @@ export function stylesFunc({ fontFamily }) {
       borderRadius: moderateScale(15),
     },
     titleBagView: {
-      flexDirection: 'row',
       justifyContent: 'space-between',
       marginHorizontal: moderateScale(10),
-      alignItems: 'center',
-      marginTop: moderateScaleVertical(17),
     },
     descriptionView: {
       flexDirection: 'row',

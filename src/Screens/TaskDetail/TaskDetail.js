@@ -1,65 +1,81 @@
-import { cloneDeep } from 'lodash';
-import React, { useEffect, useRef, useState } from 'react';
+import { cloneDeep } from "lodash";
+import React, { useEffect, useRef, useState } from "react";
 import {
   Alert,
   Animated,
   Image,
   Linking,
+  Modal,
   Platform,
   ScrollView,
   Text,
   TouchableOpacity,
   TouchableWithoutFeedback,
   View,
-} from 'react-native';
-import ActionSheet from 'react-native-actionsheet';
-import Communications from 'react-native-communications';
-import MapView from 'react-native-maps'; // import {createOpenLink} from '../../utils/CreateMapLinks';
-import { useSelector } from 'react-redux';
-import Header from '../../Components/Header';
-import { loaderOne } from '../../Components/Loaders/AnimatedLoaderFiles';
-import WrapperContainer from '../../Components/WrapperContainer';
-import imagePath from '../../constants/imagePath';
-import strings from '../../constants/lang';
-import navigationStrings from '../../navigation/navigationStrings';
-import actions from '../../redux/actions';
+} from "react-native";
+import ActionSheet from "react-native-actionsheet";
+import Communications from "react-native-communications";
+import MapView, {
+  AnimatedRegion,
+  Marker,
+  PROVIDER_GOOGLE,
+} from "react-native-maps"; // import {createOpenLink} from '../../utils/CreateMapLinks';
+import { createMapLink, createOpenLink } from "react-native-open-maps";
+import { useSelector } from "react-redux";
+import Header from "../../Components/Header";
+import { loaderOne } from "../../Components/Loaders/AnimatedLoaderFiles";
+import WrapperContainer from "../../Components/WrapperContainer";
+import imagePath from "../../constants/imagePath";
+import strings from "../../constants/lang";
+import navigationStrings from "../../navigation/navigationStrings";
+import actions from "../../redux/actions";
 // import store from '../../redux/store';
-import colors from '../../styles/colors';
-import commonStylesFunc from '../../styles/commonStyles';
-import fontFamily from '../../styles/fontFamily';
-navigator.geolocation = require('react-native-geolocation-service');
+import colors from "../../styles/colors";
+import commonStylesFunc, { hitSlopProp } from "../../styles/commonStyles";
+import fontFamily from "../../styles/fontFamily";
+navigator.geolocation = require("react-native-geolocation-service");
 
-import moment from 'moment';
-import ButtonComponent from '../../Components/ButtonComponent';
-import SlideToComplete from '../../Components/SlideToComplete';
 import {
   moderateScale,
   moderateScaleVertical,
   textScale,
   width,
-} from '../../styles/responsiveSize';
-import { mapStyle } from '../../utils/constants/MapStyle';
-import { getAllTravelDetails } from '../../utils/googlePlaceApi';
+} from "../../styles/responsiveSize";
+import moment from "moment";
 import {
   getColorCodeWithOpactiyNumber,
+  getCurrentLocation,
+  getHostName,
   showError,
-  showSuccess
-} from '../../utils/helperFunctions';
-import stylesFunc from './styles';
+  showInfo,
+  showSuccess,
+} from "../../utils/helperFunctions";
+import stylesFunc from "./styles";
+import ButtonComponent from "../../Components/ButtonComponent";
+import { mapStyle } from "../../utils/constants/MapStyle";
+import { getAllTravelDetails } from "../../utils/googlePlaceApi";
+import { getBundleId } from "react-native-device-info";
+import { appIds } from "../../utils/constants/DynamicAppKeys";
+import FastImage from "react-native-fast-image";
+import GradientButton from "../../Components/GradientButton";
 
-var ACTION_TIMER = 1500;
-var COLORS = ['#8FEE90', '#27A468'];
+var ACTION_TIMER = 1;
+var COLORS = ["#8FEE90", "#27A468"];
 var _value = 0;
 export default function TaskDetail({ route, navigation }) {
   let taskDetail = route?.params?.data?.item;
-  let paramData = route?.params?.data
+  let paramData = route?.params?.data;
   let fromHistory = route?.params?.data?.fromHistory;
   const mapRef = useRef();
-  const { userData } = useSelector(state => state?.auth);
-  const { clientInfo, defaultLanguage } = useSelector(state => state?.initBoot);
+  const { userData } = useSelector((state) => state?.auth);
+  const { clientInfo, defaultLanguage } = useSelector(
+    (state) => state?.initBoot
+  );
+  console.log(Platform.OS,'Platform?.OSPlatform?.OS')
   const styles = stylesFunc({ defaultLanguage });
   const commonStyles = commonStylesFunc({ fontFamily });
-
+  const [isVisible, setIsVisible] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
   const [state, setState] = useState({
     vendors: {},
     isLoading: false,
@@ -75,55 +91,55 @@ export default function TaskDetail({ route, navigation }) {
       latitudeDelta: 0.015,
       longitudeDelta: 0.0121,
     },
-    textComplete: '',
+    textComplete: "",
     pressAction: new Animated.Value(0),
     buttonWidth: 0,
     buttonHeight: 0,
-    taskStatus: taskDetail?.task_status ? Number(taskDetail?.task_status) : '',
+    taskStatus: taskDetail?.task_status ? Number(taskDetail?.task_status) : "",
     buttonPressComplete: 0,
-    buttonText: '',
+    buttonText: "",
     taskProofArray: [
       {
         id: 1,
         title: strings.SIGNATURE,
         imagePath: imagePath.signature,
         imagePathActive: imagePath.signatureBlue,
-        type: 'signature',
+        type: "signature",
       },
       {
         id: 2,
         title: strings.PHOTO,
         imagePath: imagePath.photoInactive,
         imagePathActive: imagePath.photoBlue,
-        type: 'photo',
+        type: "photo",
       },
       {
         id: 3,
         title: strings.NOTES,
         imagePath: imagePath.notes,
         imagePathActive: imagePath.notesBlue,
-        type: 'notes',
+        type: "notes",
       },
       {
         id: 4,
         title: strings.QRCODE,
         imagePath: imagePath.codeInactive,
         imagePathActive: imagePath.codeActive,
-        type: 'QR',
+        type: "QR",
       },
       {
         id: 5,
         title: strings.FACEDETECTION,
         imagePath: imagePath.faceInactive,
         imagePathActive: imagePath.faceActive,
-        type: 'face',
+        type: "face",
       },
       {
         id: 6,
-        title: 'QR Code',
+        title: "QR Code",
         imagePath: imagePath.codeInactive,
         imagePathActive: imagePath.codeActive,
-        type: 'qrCode',
+        type: "qrCode",
       },
     ],
     updatedProofArray: [],
@@ -132,8 +148,6 @@ export default function TaskDetail({ route, navigation }) {
     apiData: null,
     cancelRequestExit: null,
     totalTravelData: null,
-    isSlide:false,
-    isLoadingNextScreen:false,
   });
 
   const {
@@ -155,15 +169,13 @@ export default function TaskDetail({ route, navigation }) {
     productAllInsrucations,
     apiData,
     totalTravelData,
-    isSlide,
-    isLoadingNextScreen
   } = state;
-  const updateState = data => setState(state => ({ ...state, ...data }));
+  const updateState = (data) => setState((state) => ({ ...state, ...data }));
 
   useEffect(() => {
     if (userData?.task_proof) {
       const findDataToCheck = userData?.task_proof.find(
-        x => x?.id == taskDetail?.task_type_id,
+        (x) => x?.id == taskDetail?.task_type_id
       );
       updateState({
         findDataToCheck: findDataToCheck,
@@ -172,19 +184,19 @@ export default function TaskDetail({ route, navigation }) {
       if (findDataToCheck) {
         updateState({
           updatedProofArray: newArray
-            .map(i => {
+            .map((i) => {
               if (
-                (i?.type == 'signature' && findDataToCheck?.signature) ||
-                (i?.type == 'photo' && findDataToCheck?.image) ||
-                (i?.type == 'notes' && findDataToCheck?.note) ||
-                (i?.type == 'QR' && findDataToCheck?.barcode) ||
-                (i?.type == 'face' && findDataToCheck?.face) ||
-                (i?.type == 'qrCode' && findDataToCheck?.qrcode)
+                (i?.type == "signature" && findDataToCheck?.signature) ||
+                (i?.type == "photo" && findDataToCheck?.image) ||
+                (i?.type == "notes" && findDataToCheck?.note) ||
+                (i?.type == "QR" && findDataToCheck?.barcode) ||
+                (i?.type == "face" && findDataToCheck?.face) ||
+                (i?.type == "qrCode" && findDataToCheck?.qrcode)
               ) {
                 return i;
               }
             })
-            .filter(x => x != null || x != undefined),
+            .filter((x) => x != null || x != undefined),
         });
       }
     }
@@ -206,18 +218,21 @@ export default function TaskDetail({ route, navigation }) {
     navigation.push(screenName, { data });
   };
   //Error handling in api
-  const errorMethod = error => {
-    updateState({ isLoading: false, isRefreshing: false, isLoading: false ,isLoadingNextScreen:false});
+  const errorMethod = (error) => {
+    updateState({ isLoading: false, isRefreshing: false, isLoading: false });
     showError(error?.message || error?.error);
   };
 
+  const _onRegionChange = (region) => {
+    updateState({ region: region });
+  };
 
   useEffect(() => {
-    pressAction.addListener(v => (_value = v.value));
+    pressAction.addListener((v) => (_value = v.value));
   });
 
   const handlePressIn = () => {
-    ACTION_TIMER = 1500;
+    ACTION_TIMER = 1;
     Animated.timing(pressAction, {
       duration: ACTION_TIMER,
       toValue: 1,
@@ -242,16 +257,16 @@ export default function TaskDetail({ route, navigation }) {
   };
   const animationActionComplete = () => {
     // alert('1234');
-    var message = '';
+    var message = "";
     if (_value === 1) {
       updateState({ buttonPressComplete: 1 });
-      message = 'You held it long enough to fire the action!';
+      message = "You held it long enough to fire the action!";
     } else {
       updateState({ buttonPressComplete: 0 });
     }
   };
 
-  const getButtonWidthLayout = e => {
+  const getButtonWidthLayout = (e) => {
     updateState({
       buttonWidth: e.nativeEvent.layout.width,
       buttonHeight: e.nativeEvent.layout.height,
@@ -267,26 +282,26 @@ export default function TaskDetail({ route, navigation }) {
   const new_dispatch_traking_url = () => {
     if (
       taskDetail?.order?.call_back_url?.includes(
-        '/dispatch-order-status-update/',
+        "/dispatch-order-status-update/"
       )
     ) {
       return (taskDetail?.order?.call_back_url).replace(
-        '/dispatch-order-status-update/',
-        '/dispatch-order-status-update-details/',
+        "/dispatch-order-status-update/",
+        "/dispatch-order-status-update-details/"
       );
     } else if (
-      taskDetail?.order?.call_back_url?.includes('/dispatch-pickup-delivery/')
+      taskDetail?.order?.call_back_url?.includes("/dispatch-pickup-delivery/")
     ) {
       return (taskDetail?.order?.call_back_url).replace(
-        '/dispatch-pickup-delivery/',
-        '/dispatch-order-status-update-details/',
+        "/dispatch-pickup-delivery/",
+        "/dispatch-order-status-update-details/"
       );
     }
   };
 
   const checkCallBackUrlForShowOrderDeatils = () => {
     return taskDetail?.order?.call_back_url?.includes(
-      '/dispatch-order-status-update/',
+      "/dispatch-order-status-update/"
     );
   };
 
@@ -299,7 +314,7 @@ export default function TaskDetail({ route, navigation }) {
     }
     if (fromHistory) {
       if (
-        taskDetail?.tasktype?.name == 'Drop' &&
+        taskDetail?.tasktype?.name == "Drop" &&
         taskDetail?.order?.task?.length >= 1 &&
         taskDetail?.order?.task[0]?.location?.address &&
         taskDetail?.order?.task[1]?.location?.address
@@ -312,23 +327,23 @@ export default function TaskDetail({ route, navigation }) {
     }
   }, []);
 
-  const getAllMovingDetails = data => {
+  const getAllMovingDetails = (data) => {
     getAllTravelDetails(data)
-      .then(res => {
-        console.log(res, 'response +++++++++++');
+      .then((res) => {
         updateState({
           totalTravelData: res?.rows[0]?.elements[0],
         });
       })
-      .catch(error => {
-        console.log(error, 'error error error');
+      .catch((error) => {
+        console.log(error, "error error error");
       });
   };
+
   const _getproductUpdateDetails = () => {
     actions
       .getProductUpdateDetails(new_dispatch_traking_url(), {})
-      .then(res => {
-        console.log(res, 'all response after hit order api');
+      .then((res) => {
+        console.log(res, "all response after hit order api");
         updateState({
           vendors: res?.data?.vendors[0]?.vendor,
           apiData: res.data,
@@ -346,14 +361,14 @@ export default function TaskDetail({ route, navigation }) {
           productAllInsrucations: JSON.parse(productAllInsrucations),
         });
       })
-      .catch(error =>
+      .catch((error) =>
         updateState({
           isLoading: false,
-        }),
+        })
       );
   };
 
-  const _onPressTaskDetails = item => {
+  const _onPressTaskDetails = (item) => {
     moveToNewScreen(navigationStrings.ORDERDETAIL, {
       item: taskDetail?.order?.call_back_url,
       taskDetail: taskDetail,
@@ -369,29 +384,32 @@ export default function TaskDetail({ route, navigation }) {
         style={styles.map}
         region={region}
         initialRegion={region}
-        customMapStyle={mapStyle}>
-        <MapView.Marker
+        customMapStyle={mapStyle}
+        onRegionChangeComplete={_onRegionChange}
+      >
+        <Marker
           tracksViewChanges={false}
           key={`coordinate_${taskDetail?.id}`}
           image={imagePath.pinRed}
           coordinate={{
             latitude: Number(taskDetail?.location?.latitude),
             longitude: Number(taskDetail?.location?.longitude),
-          }}></MapView.Marker>
+          }}
+        ></Marker>
       </MapView>
     );
   };
 
   //get BackGroundColor
-  const getBackGroudColor = name => {
+  const getBackGroudColor = (name) => {
     switch (name) {
-      case 'Pickup':
+      case "Pickup":
         return getColorCodeWithOpactiyNumber(colors.circularBlue.substr(1), 50);
         break;
-      case 'Drop':
+      case "Drop":
         return getColorCodeWithOpactiyNumber(
           colors.circularOrnage.substr(1),
-          50,
+          50
         );
         break;
       default:
@@ -401,12 +419,12 @@ export default function TaskDetail({ route, navigation }) {
   };
 
   //get Text color
-  const getTextColor = name => {
+  const getTextColor = (name) => {
     switch (name) {
-      case 'Pickup':
+      case "Pickup":
         return colors.circularBlue;
         break;
-      case 'Drop':
+      case "Drop":
         return colors.circularOrnage;
         break;
       default:
@@ -453,25 +471,25 @@ export default function TaskDetail({ route, navigation }) {
 
   const updateTaskStatus = () => {
     let data = {};
-    data['task_status'] = getUpdatedStatus();
-    data['task_id'] = taskDetail?.id;
+    data["task_status"] = getUpdatedStatus();
+    data["task_id"] = taskDetail?.id;
 
-    console.log(data, '<==sending data updateTask');
+    console.log(data, "<==sending data updateTask");
 
     updateState({ isLoading: true });
     actions
       .updateTask(data, {
         client: clientInfo?.database_name,
-        language: defaultLanguage?.value ? defaultLanguage?.value : 'en',
+        language: defaultLanguage?.value ? defaultLanguage?.value : "en",
       })
-      .then(res => {
-        console.log(res, '<==res updateTask',taskStatus);
+      .then((res) => {
+        console.log(res, "<==res updateTask");
         updateState({ isLoading: false });
         if (res?.data) {
-          ACTION_TIMER = 100;
+          ACTION_TIMER = 1;
           updateState({
             buttonPressComplete: 0,
-            taskStatus: Number(res?.data?.task_status)||taskStatus,
+            taskStatus: Number(res?.data?.task_status),
           });
           // getStatusName(taskStatus)
           setTimeout(async () => {
@@ -492,29 +510,51 @@ export default function TaskDetail({ route, navigation }) {
     showActionSheet();
   };
 
-  const getStatusName = taskStatus => {
-    console.log(taskStatus, 'getStatusName');
+  const getStatusName = (taskStatus) => {
+    console.log(taskStatus, "getStatusName");
     switch (taskStatus) {
       case 1:
-        updateState({ buttonText: clientInfo?.getAdditionalPreference?.hold_to_start ? clientInfo?.getAdditionalPreference?.hold_to_start :  strings.HOLDTOSTART });
+        updateState({
+          buttonText:
+            getBundleId() == appIds.mrVeloz && defaultLanguage?.value == "es"
+              ? strings.HOLDTOSTART_MRVELOZ
+              : strings.HOLDTOSTART,
+        });
         break;
       case 2:
-        updateState({ buttonText: clientInfo?.getAdditionalPreference?.hold_to_arrive ? clientInfo?.getAdditionalPreference?.hold_to_arrive :   strings.HOLDTOARRIVE });
+        updateState({
+          buttonText:
+            getBundleId() == appIds.mrVeloz && defaultLanguage?.value == "es"
+              ? strings.HOLDTOARRIVE_MRVELOZ
+              : strings.HOLDTOARRIVE,
+        });
         break;
       case 3:
         updateState({
           buttonText:
             taskDetail?.tasktype?.name == "Drop"
-              ? clientInfo?.getAdditionalPreference?.hold_to_complete ? clientInfo?.getAdditionalPreference?.hold_to_complete :  strings.HOLDTOCOMPLETE
-              : clientInfo?.getAdditionalPreference?.hold_to_pick ? clientInfo?.getAdditionalPreference?.hold_to_pick :  strings.HOLDTOPICK,
+              ? getBundleId() == appIds.mrVeloz &&
+                defaultLanguage?.value == "es"
+                ? strings.HOLDTOCOMPLETE_MRVELOZ
+                : strings.HOLDTOCOMPLETE
+              : getBundleId() == appIds.mrVeloz &&
+                defaultLanguage?.value == "es"
+              ? strings.HOLDTOPICK_MRVELOZ
+              : strings.HOLDTOPICK,
         });
         break;
       case 4:
         updateState({
           buttonText:
             taskDetail?.tasktype?.name == "Drop"
-            ? clientInfo?.getAdditionalPreference?.hold_to_complete ? clientInfo?.getAdditionalPreference?.hold_to_complete :  strings.HOLDTOCOMPLETE
-            : clientInfo?.getAdditionalPreference?.hold_to_pick ? clientInfo?.getAdditionalPreference?.hold_to_pick :  strings.HOLDTOPICK,
+              ? getBundleId() == appIds.mrVeloz &&
+                defaultLanguage?.value == "es"
+                ? strings.HOLDTOCOMPLETE_MRVELOZ
+                : strings.HOLDTOCOMPLETE
+              : getBundleId() == appIds.mrVeloz &&
+                defaultLanguage?.value == "es"
+              ? strings.HOLDTOPICK_MRVELOZ
+              : strings.HOLDTOPICK,
         });
         break;
       default:
@@ -522,8 +562,8 @@ export default function TaskDetail({ route, navigation }) {
     }
   };
 
-  const redirectNextScreen = res => {
-    updateState({ isLoading: false,isLoadingNextScreen:false });
+  const redirectNextScreen = (res) => {
+    updateState({ isLoading: false });
     moveToNewScreen(navigationStrings.TASKCOMPLETEDOCUMENT, {
       taskDetail: taskDetail,
       updatedProofArray: updatedProofArray,
@@ -535,26 +575,26 @@ export default function TaskDetail({ route, navigation }) {
   };
 
   const redirectToDoneScreen = () => {
-    ACTION_TIMER = 1500;
+    ACTION_TIMER = 1;
     Animated.timing(pressAction, {
       duration: ACTION_TIMER,
       toValue: 1,
       useNativeDriver: false,
     }).start(() => {
-      var message = '';
+      var message = "";
       if (_value === 1) {
         updateState({ buttonPressComplete: 1 });
-        message = 'You held it long enough to fire the action!';
-        updateState({ isLoading: true,isLoadingNextScreen:true });
+        message = "You held it long enough to fire the action!";
+        updateState({ isLoading: true });
         let data = {};
-        data['task_id'] = taskDetail?.id;
-        console.log(data, 'data');
+        data["task_id"] = taskDetail?.id;
+        console.log(data, "data");
         actions
           .sendOtpToDriver(data, {
             client: clientInfo?.database_name,
           })
-          .then(res => {
-            console.log(res, '<===res sendOtpToDriver ');
+          .then((res) => {
+            console.log(res, "<===res sendOtpToDriver ");
             if (res?.status == 200) {
               if (updatedProofArray.length) {
                 redirectNextScreen(res);
@@ -563,8 +603,8 @@ export default function TaskDetail({ route, navigation }) {
                   redirectNextScreen(res);
                 } else {
                   let formdata = new FormData();
-                  formdata.append('task_status', 4);
-                  formdata.append('task_id', taskDetail?.id);
+                  formdata.append("task_status", 4);
+                  formdata.append("task_id", taskDetail?.id);
                   completeTask(formdata);
                 }
               }
@@ -577,15 +617,15 @@ export default function TaskDetail({ route, navigation }) {
     });
   };
 
-  const completeTask = formdata => {
+  const completeTask = (formdata) => {
     updateState({ isLoading: true });
     actions
       .updateTask(formdata, {
         client: clientInfo?.database_name,
-        ContentType: 'multipart/form-data',
+        ContentType: "multipart/form-data",
       })
-      .then(res => {
-        console.log(res, '<===res updateTask');
+      .then((res) => {
+        console.log(res, "<===res updateTask");
         updateState({ isLoading: false });
         if (res?.data?.nextTask?.length == 0 || res?.data?.nextTask == null) {
           if (res?.data) {
@@ -617,11 +657,12 @@ export default function TaskDetail({ route, navigation }) {
                 styles.button,
                 {
                   backgroundColor:
-                    taskDetail?.task_status == '4' ? '#27A468' : colors.redB,
+                    taskDetail?.task_status == "4" ? "#27A468" : colors.redB,
                 },
-              ]}>
+              ]}
+            >
               <Text style={styles.text}>
-                {taskDetail?.task_status == '4'
+                {taskDetail?.task_status == "4"
                   ? strings.TASKCOMPLTED
                   : strings.TASKCANCEL}
               </Text>
@@ -630,28 +671,24 @@ export default function TaskDetail({ route, navigation }) {
         </View>
       );
     }
-    return (cancelRequestExit || paramData?.is_from_calendar) ? null : (
+    return cancelRequestExit || paramData?.is_from_calendar ? null : (
       // return (
       <View style={styles.container}>
-        {isSlide ?
-          <SlideToComplete taskStatus={taskStatus} statusTitle={buttonText} onScrollComplete={(taskStatus)=>{taskStatus == 3 ? redirectToDoneScreen() : updateState({ buttonPressComplete: 1 })}} />
-          :
-          <TouchableWithoutFeedback
-          disabled={isLoadingNextScreen}
+        <TouchableWithoutFeedback
           onPressIn={taskStatus == 3 ? redirectToDoneScreen : handlePressIn}
-          onPressOut={handlePressOut}>
+          onPressOut={handlePressOut}
+        >
           <View style={styles.button} onLayout={getButtonWidthLayout}>
             <Animated.View style={[styles.bgFill, getProgressStyles()]} />
             <Text style={styles.text}>{buttonText}</Text>
           </View>
-        </TouchableWithoutFeedback>}
-        
+        </TouchableWithoutFeedback>
       </View>
     );
   };
 
-  const getDate = date => {
-    const local = moment.utc(date).local().format('DD MMM YYYY hh:mm:a');
+  const getDate = (date) => {
+    const local = moment.utc(date).local().format("DD MMM YYYY hh:mm:a");
     return local;
   };
 
@@ -665,37 +702,61 @@ export default function TaskDetail({ route, navigation }) {
 
   const onWhatsapp = async () => {
     let url = `whatsapp://send?phone= ${taskDetail?.order?.customer?.dial_code}${taskDetail?.order?.customer?.phone_number}`;
-    console.log(url, 'caddaibsdu');
+    console.log(url, "caddaibsdu");
     Linking.openURL(url)
-      .then(data => {
-        console.log('WhatsApp Opened successfully ' + data); //<---Success
+      .then((data) => {
+        console.log("WhatsApp Opened successfully " + data); //<---Success
       })
       .catch(() => {
-        alert('Make sure WhatsApp installed on your device'); //<---Error
+        alert("Make sure WhatsApp installed on your device"); //<---Error
       });
     if (link) {
       Linking.canOpenURL(link)
-        .then(supported => {
+        .then((supported) => {
           if (!supported) {
-            Alert.alert('Please install Whatsapp to send direct message.');
+            Alert.alert("Please install Whatsapp to send direct message.");
           } else {
             return Linking.openURL(link);
           }
         })
-        .catch(err => console.error('An error occurred', err));
+        .catch((err) => console.error("An error occurred", err));
     } else {
-      console.log('sendWhatsAppMessage -----> ', 'message link is undefined');
+      console.log("sendWhatsAppMessage -----> ", "message link is undefined");
     }
   };
 
-  const createRoom = async item => {
+  const onStartCall = () => {
+    // console.log(taskDetail?.order?.customer?.phone_number, 'phone_numberphone_numberphone_number')
+    // Communications.phonecall(
+    //   taskDetail?.order?.customer?.phone_number,
+    //   true,
+    // )
+    let phoneNumber = "";
+    if (Platform.OS === "android") {
+      phoneNumber = `tel:${taskDetail?.order?.customer?.phone_number}`;
+    } else {
+      phoneNumber = `telprompt:${taskDetail?.order?.customer?.phone_number}`;
+    }
+    Linking.openURL(phoneNumber);
+    Linking.canOpenURL(phoneNumber)
+      .then((supported) => {
+        if (!supported) {
+          Alert.alert("Phone number is not available");
+        } else {
+          return Linking.openURL(phoneNumber);
+        }
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const createRoom = async (item) => {
     try {
       const apiData = {
-        sub_domain: '192.168.101.88',
+        sub_domain: "192.168.101.88",
         client_id: String(clientInfo?.client_db_id),
         db_name: taskDetail?.order?.dbname,
         user_id: String(userData?.id),
-        type: 'agent_to_user',
+        type: "agent_to_user",
         vendor_order_id: String(item?.order?.order_vendor_id),
         vendor_id: String(item?.order?.vendor_id),
         order_id: String(item?.order?.sync_order_id),
@@ -704,26 +765,26 @@ export default function TaskDetail({ route, navigation }) {
         agent_id: String(item?.order?.driver_id),
         agent_db: clientInfo?.database_name,
       };
-      console.log('sending api data', apiData);
+      console.log("sending api data", apiData);
 
       updateState({ isLoading: true });
       const res = await actions.onStartChat(apiData, {
         client: clientInfo?.database_name,
-        language: defaultLanguage?.value ? defaultLanguage?.value : 'en',
+        language: defaultLanguage?.value ? defaultLanguage?.value : "en",
       });
-      console.log('start chat res', res);
+      console.log("start chat res", res);
       updateState({ isLoading: false });
       if (!!res?.roomData) {
         onChat(res.roomData);
       }
     } catch (error) {
-      console.log('error raised in start chat api', error);
+      console.log("error raised in start chat api", error);
       showError(error?.message);
       updateState({ isLoading: false });
     }
   };
-  const onChat = item => {
-    console.log('item+++', item);
+  const onChat = (item) => {
+    console.log("item+++", item);
     navigation.navigate(navigationStrings.CHAT_SCREEN, { data: item });
   };
   const _onDriverTracking = () => {
@@ -736,36 +797,41 @@ export default function TaskDetail({ route, navigation }) {
     return (
       <ScrollView
         style={{ marginTop: moderateScale(10) }}
-        showsVerticalScrollIndicator={false}>
+        showsVerticalScrollIndicator={false}
+      >
         {/* User Detail  */}
         <View style={{}}>
           <View
             style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              alignItems: 'center',
+              flexDirection: "row",
+              justifyContent: "space-between",
+              alignItems: "center",
               marginVertical: moderateScaleVertical(12),
-            }}>
+            }}
+          >
             <View
               style={{
                 ...styles.statusView,
                 backgroundColor: colors.greyLight3,
-              }}>
+              }}
+            >
               <Text
                 style={{
                   ...styles.taskNameTextstyle,
                   color: colors.black,
-                }}>
-                {`${(taskDetail?.tasktype?.name).toLowerCase() == 'drop'
-                    ? clientInfo?.getAdditionalPreference?.drop_type ? clientInfo?.getAdditionalPreference?.drop_type: strings.DROP
-                    : clientInfo?.getAdditionalPreference?.pickup_type ? clientInfo?.getAdditionalPreference?.pickup_type: strings.PICKUP
-                  }`}
+                }}
+              >
+                {`${
+                  (taskDetail?.tasktype?.name).toLowerCase() == "drop"
+                    ? strings.DROP
+                    : strings.PICKUP
+                }`}
               </Text>
             </View>
 
             <View>
-              <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                {!!(
+              <View style={{ flexDirection: "row", alignItems: "center" }}>
+                {/* {!!(
                   !fromHistory &&
                   userData &&
                   userData?.client_preference?.is_cancel_order_driver &&
@@ -788,7 +854,7 @@ export default function TaskDetail({ route, navigation }) {
                         {strings.CANCELORDER}
                       </Text>
                     </TouchableOpacity>
-                  )}
+                  )} */}
 
                 {/* {taskDetail?.barcode && (
                   <View style={{justifyContent: 'center'}}>
@@ -803,96 +869,102 @@ export default function TaskDetail({ route, navigation }) {
                 userData?.client_preference?.is_cancel_order_driver &&
                 checkCallBackUrlForShowOrderDeatils()
               ) && (
-                  <View>
-                    <Text
-                      style={{
-                        color: colors.black,
-                        fontFamily: fontFamily?.bold,
-                      }}>
-                      {cancelRequestExit && cancelRequestExit != ''
-                        ? `Status: ${cancelRequestExit.status}`
-                        : ''}
-                    </Text>
-                  </View>
-                )}
+                <View>
+                  <Text
+                    style={{
+                      color: colors.black,
+                      fontFamily: fontFamily?.bold,
+                    }}
+                  >
+                    {cancelRequestExit && cancelRequestExit != ""
+                      ? `Status: ${cancelRequestExit.status}`
+                      : ""}
+                  </Text>
+                </View>
+              )}
             </View>
           </View>
           <Text style={styles.taskLable}>
             {strings.TASKDESCRIPTION.toUpperCase()}
           </Text>
           {/* Phone and email view */}
-          {(taskDetail?.tasktype?.name).toLowerCase() == 'drop' ? (
+          {(taskDetail?.tasktype?.name).toLowerCase() == "drop" ? (
             <View
               style={{
                 backgroundColor: colors.transactionHistoryBg,
                 padding: moderateScale(8),
-              }}>
+              }}
+            >
               {!!(
                 taskDetail?.order?.Recipient_email ||
                 taskDetail?.order?.recipient_phone
               ) && (
-                  <View
-                    style={{
-                      opacity: 0.5,
-                      flexDirection: 'row',
-                      justifyContent: 'space-between',
-                    }}>
-                    {!!taskDetail?.order?.Recipient_email && (
-                      <TouchableOpacity
-                        onPress={() =>
-                          Linking.openURL(
-                            `mailto:${taskDetail?.order?.Recipient_email}`,
-                          )
-                        }
-                        style={{
-                          flexDirection: 'row',
-                          marginTop: moderateScale(10),
-                          alignItems: 'center',
-                          flex: 0.65,
-                        }}>
-                        <Image
-                          source={imagePath.mail2}
-                          style={{ marginRight: moderateScale(5) }}
-                        />
-                        <Text style={styles.emailAndPhone}>
-                          {taskDetail?.order?.Recipient_email}
-                        </Text>
-                      </TouchableOpacity>
-                    )}
+                <View
+                  style={{
+                    opacity: 0.5,
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  {!!taskDetail?.order?.Recipient_email && (
+                    <TouchableOpacity
+                      onPress={() =>
+                        Linking.openURL(
+                          `mailto:${taskDetail?.order?.Recipient_email}`
+                        )
+                      }
+                      style={{
+                        flexDirection: "row",
+                        marginTop: moderateScale(10),
+                        alignItems: "center",
+                        flex: 0.65,
+                      }}
+                    >
+                      <Image
+                        source={imagePath.mail2}
+                        style={{ marginRight: moderateScale(5) }}
+                      />
+                      <Text style={styles.emailAndPhone}>
+                        {taskDetail?.order?.Recipient_email}
+                      </Text>
+                    </TouchableOpacity>
+                  )}
 
-                    {!!taskDetail?.location?.phone_number && (
-                      <TouchableOpacity
-                        onPress={() =>
-                          Linking.openURL(
-                            `tel:${taskDetail?.order?.recipient_phone}`,
-                          )
-                        }
-                        style={{
-                          flexDirection: 'row',
-                          marginTop: moderateScale(10),
-                          alignItems: 'center',
-                          flex: 0.35,
-                        }}>
-                        <Image
-                          source={imagePath.phone2}
-                          style={{ marginRight: moderateScale(5) }}
-                        />
-                        <Text style={styles.emailAndPhone}>
-                          {taskDetail?.location?.phone_number}
-                        </Text>
-                      </TouchableOpacity>
-                    )}
-                  </View>
-                )}
+                  {!!taskDetail?.location?.phone_number && (
+                    <TouchableOpacity
+                      onPress={() =>
+                        Linking.openURL(
+                          `tel:${taskDetail?.order?.recipient_phone}`
+                        )
+                      }
+                      style={{
+                        flexDirection: "row",
+                        marginTop: moderateScale(10),
+                        alignItems: "center",
+                        flex: 0.35,
+                      }}
+                    >
+                      <Image
+                        source={imagePath.phone2}
+                        style={{ marginRight: moderateScale(5) }}
+                      />
+                      <Text style={styles.emailAndPhone}>
+                        {taskDetail?.location?.phone_number}
+                      </Text>
+                    </TouchableOpacity>
+                  )}
+                </View>
+              )}
 
               {/* location and address */}
               {!!taskDetail?.location?.address && (
                 <View
                   style={{
-                    flexDirection: 'row',
+                    flexDirection: "row",
                     marginTop: moderateScale(10),
-                    alignItems: 'center',
-                  }}>
+                    alignItems: "center",
+                  }}
+                >
                   <Image
                     source={imagePath?.location2}
                     style={{ marginRight: moderateScale(5) }}
@@ -905,17 +977,19 @@ export default function TaskDetail({ route, navigation }) {
               {/* Quantity and post code */}
               <View
                 style={{
-                  flexDirection: 'row',
+                  flexDirection: "row",
                   marginTop: moderateScale(10),
-                  justifyContent: 'space-between',
-                }}>
+                  justifyContent: "space-between",
+                }}
+              >
                 {!!taskDetail?.quantity && (
                   <View
                     style={{
                       opacity: 0.5,
-                      flexDirection: 'row',
-                      alignItems: 'center',
-                    }}>
+                      flexDirection: "row",
+                      alignItems: "center",
+                    }}
+                  >
                     <Image
                       source={imagePath?.quantity}
                       style={{ marginRight: moderateScale(5) }}
@@ -929,10 +1003,11 @@ export default function TaskDetail({ route, navigation }) {
                 {!!taskDetail?.location?.post_code && (
                   <View
                     style={{
-                      flexDirection: 'row',
-                      alignItems: 'center',
+                      flexDirection: "row",
+                      alignItems: "center",
                       opacity: 0.5,
-                    }}>
+                    }}
+                  >
                     <Image
                       source={imagePath?.postal}
                       style={{ marginRight: moderateScale(5) }}
@@ -949,30 +1024,36 @@ export default function TaskDetail({ route, navigation }) {
               style={{
                 backgroundColor: colors.transactionHistoryBg,
                 padding: moderateScale(8),
-              }}>
+              }}
+            >
               {!!taskDetail?.order?.task_description && (
                 <View
-                  style={{ flexDirection: 'row', marginTop: moderateScale(2) }}>
+                  style={{ flexDirection: "row", marginTop: moderateScale(2) }}
+                >
                   <View>
                     <Text
                       numberOfLines={1}
                       style={[
                         styles.emailAndPhone,
                         { marginTop: moderateScale(5) },
-                      ]}>
+                      ]}
+                    >
                       {!!taskDetail?.order?.task_description && (
                         <View
                           style={{
-                            flexDirection: 'row',
+                            flexDirection: "row",
                             marginTop: moderateScale(2),
-                          }}>
+                          }}
+                        >
                           <View>
                             <Text
                               numberOfLines={1}
                               style={[
                                 styles.emailAndPhone,
                                 { marginTop: moderateScale(5) },
-                              ]}>
+                              ]}
+                            >
+                              Instructions:{" "}
                               {taskDetail?.order?.task_description}
                             </Text>
                           </View>
@@ -989,76 +1070,78 @@ export default function TaskDetail({ route, navigation }) {
                 )
                 // vendors?.email || vendors?.phone_no
               ) && (
-                  <View
-                    style={{
-                      // opacity: 0.5,
-                      flexDirection: 'row',
-                      justifyContent: 'space-between',
-                    }}>
-                    {!!taskDetail?.order?.Recipient_email && (
-                      //  !! vendors?.email
-                      <TouchableOpacity
-                        onPress={
-                          () =>
-                            Linking.openURL(
-                              `mailto:${taskDetail?.order?.Recipient_email}`,
-                            )
-                          // Linking.openURL(`mailto:${vendors?.email}`)
-                        }
-                        style={{
-                          flexDirection: 'row',
-                          marginTop: moderateScale(10),
-                          alignItems: 'center',
-                          flex: 0.7,
-                        }}>
-                        <Image
-                          source={imagePath.mail2}
-                          style={{ marginRight: moderateScale(5) }}
-                        />
-                        {!!taskDetail?.order?.task_description ? (
-                          <Text style={styles.emailAndPhone}>
-                            {vendors?.email}
-                          </Text>
-                        ) : (
-                          <Text style={styles.emailAndPhone}>
-                            {taskDetail?.order?.Recipient_email}
-                          </Text>
-                        )}
-                      </TouchableOpacity>
-                    )}
-                    {!!taskDetail?.order?.recipient_phone && (
-                      // !!vendors?.phone_no
+                <View
+                  style={{
+                    // opacity: 0.5,
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  {!!taskDetail?.order?.Recipient_email && (
+                    //  !! vendors?.email
+                    <TouchableOpacity
+                      onPress={
+                        () =>
+                          Linking.openURL(
+                            `mailto:${taskDetail?.order?.Recipient_email}`
+                          )
+                        // Linking.openURL(`mailto:${vendors?.email}`)
+                      }
+                      style={{
+                        flexDirection: "row",
+                        marginTop: moderateScale(10),
+                        alignItems: "center",
+                        flex: 0.7,
+                      }}
+                    >
+                      <Image
+                        source={imagePath.mail2}
+                        style={{ marginRight: moderateScale(5) }}
+                      />
+                      {!!taskDetail?.order?.task_description ? (
+                        <Text style={styles.emailAndPhone}>
+                          {vendors?.email}
+                        </Text>
+                      ) : (
+                        <Text style={styles.emailAndPhone}>
+                          {taskDetail?.order?.Recipient_email}
+                        </Text>
+                      )}
+                    </TouchableOpacity>
+                  )}
+                  {!!taskDetail?.order?.recipient_phone && (
+                    // !!vendors?.phone_no
 
-                      <TouchableOpacity
-                        onPress={
-                          () =>
-                            Linking.openURL(
-                              `tel:${taskDetail?.order?.recipient_phone}`,
-                            )
-                        }
-                        style={{
-                          flexDirection: 'row',
-                          marginTop: moderateScale(10),
-                          alignItems: 'center',
-                          flex: 0.3,
-                        }}>
-                        <Image
-                          source={imagePath.phone2}
-                          style={{ marginRight: moderateScale(5) }}
-                        />
-                        {!!taskDetail?.order?.task_description ? (
-                          <Text style={styles.emailAndPhone}>
-                            {vendors?.phone_no}
-                          </Text>
-                        ) : (
-                          <Text style={styles.emailAndPhone}>
-                            {taskDetail?.order?.recipient_phone}
-                          </Text>
-                        )}
-                      </TouchableOpacity>
-                    )}
-                  </View>
-                )}
+                    <TouchableOpacity
+                      onPress={() =>
+                        Linking.openURL(
+                          `tel:${taskDetail?.order?.recipient_phone}`
+                        )
+                      }
+                      style={{
+                        flexDirection: "row",
+                        marginTop: moderateScale(10),
+                        alignItems: "center",
+                        flex: 0.3,
+                      }}
+                    >
+                      <Image
+                        source={imagePath.phone2}
+                        style={{ marginRight: moderateScale(5) }}
+                      />
+                      {!!taskDetail?.order?.task_description ? (
+                        <Text style={styles.emailAndPhone}>
+                          {vendors?.phone_no}
+                        </Text>
+                      ) : (
+                        <Text style={styles.emailAndPhone}>
+                          {taskDetail?.order?.recipient_phone}
+                        </Text>
+                      )}
+                    </TouchableOpacity>
+                  )}
+                </View>
+              )}
 
               {/* location and address */}
               {!!taskDetail?.location?.address && (
@@ -1066,10 +1149,11 @@ export default function TaskDetail({ route, navigation }) {
                 <View
                   style={{
                     // opacity: 0.5,
-                    flexDirection: 'row',
+                    flexDirection: "row",
                     marginTop: moderateScale(10),
-                    alignItems: 'center',
-                  }}>
+                    alignItems: "center",
+                  }}
+                >
                   <Image
                     source={imagePath?.location2}
                     style={{ marginRight: moderateScale(5) }}
@@ -1088,17 +1172,19 @@ export default function TaskDetail({ route, navigation }) {
           {/* Quantity and post code */}
           <View
             style={{
-              flexDirection: 'row',
+              flexDirection: "row",
               marginTop: moderateScale(10),
-              justifyContent: 'space-between',
-            }}>
+              justifyContent: "space-between",
+            }}
+          >
             {!!taskDetail?.quantity && (
               <View
                 style={{
                   opacity: 0.5,
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                }}>
+                  flexDirection: "row",
+                  alignItems: "center",
+                }}
+              >
                 <Image
                   source={imagePath?.quantity}
                   style={{ marginRight: moderateScale(5) }}
@@ -1109,7 +1195,7 @@ export default function TaskDetail({ route, navigation }) {
               </View>
             )}
 
-            {!!taskDetail?.location?.post_code && (
+            {/* {!!taskDetail?.location?.post_code && (
               <View
                 style={{
                   flexDirection: 'row',
@@ -1118,27 +1204,27 @@ export default function TaskDetail({ route, navigation }) {
                 }}>
                 <Image
                   source={imagePath?.postal}
-                  style={{ marginRight: moderateScale(5) }}
+                  style={{marginRight: moderateScale(5)}}
                 />
                 <Text style={styles.emailAndPhone} numberOfLines={1}>
                   {taskDetail?.location?.post_code}
                 </Text>
               </View>
-            )}
+            )} */}
           </View>
 
           {/* Button  component */}
           <View style={{ marginVertical: moderateScale(10) }}>
             <ButtonComponent
               buttonStyle={{
-                flexDirection: 'row',
-                justifyContent: 'center',
-                alignItems: 'center',
+                flexDirection: "row",
+                justifyContent: "center",
+                alignItems: "center",
                 padding: moderateScale(10),
                 borderRadius: moderateScale(5),
                 marginTop: moderateScale(10),
               }}
-              onPress={Platform?.OS == 'android' ? openGoogleMap : openMaps}
+              onPress={Platform?.OS == "android" ? openGoogleMap : openMaps}
               buttonTitle={strings.NAVIGATE}
               imagevalue={imagePath?.navigate}
               imageStyle={{ marginHorizontal: moderateScale(2) }}
@@ -1146,16 +1232,16 @@ export default function TaskDetail({ route, navigation }) {
             {false && (
               <ButtonComponent
                 buttonStyle={{
-                  flexDirection: 'row',
-                  justifyContent: 'center',
-                  alignItems: 'center',
+                  flexDirection: "row",
+                  justifyContent: "center",
+                  alignItems: "center",
                   padding: moderateScale(10),
                   borderRadius: moderateScale(5),
                   marginTop: moderateScale(20),
                   backgroundColor: colors.green,
                 }}
                 onPress={_onDriverTracking}
-                buttonTitle={' IN APP MAP'}
+                buttonTitle={" IN APP MAP"}
                 imagevalue={imagePath?.navigate}
                 imageStyle={{ marginHorizontal: moderateScale(2) }}
               />
@@ -1165,9 +1251,9 @@ export default function TaskDetail({ route, navigation }) {
             <View style={{ marginVertical: moderateScale(10) }}>
               <ButtonComponent
                 buttonStyle={{
-                  flexDirection: 'row',
-                  justifyContent: 'center',
-                  alignItems: 'center',
+                  flexDirection: "row",
+                  justifyContent: "center",
+                  alignItems: "center",
                   padding: moderateScale(10),
                   borderRadius: moderateScale(5),
                   marginTop: moderateScale(10),
@@ -1186,9 +1272,10 @@ export default function TaskDetail({ route, navigation }) {
         <View
           style={{
             ...styles.taskDetailView,
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-          }}>
+            flexDirection: "row",
+            justifyContent: "space-between",
+          }}
+        >
           <Text style={styles.taskText}>
             {strings.TASKDETAIL.toUpperCase()}
           </Text>
@@ -1200,14 +1287,12 @@ export default function TaskDetail({ route, navigation }) {
           style={{
             padding: moderateScale(10),
             backgroundColor: colors.lightSkyE,
-          }}>
+          }}
+        >
           {taskDetail?.order?.customer?.name && (
             <View
               style={{ flexDirection: "row", justifyContent: "space-between" }}
             >
-              <Text style={styles.customerName}>
-                {taskDetail?.order?.customer?.name}
-              </Text>
               <Text style={{ fontFamily: fontFamily.bold }}>
                 {strings.TRACKINGID}:-{taskDetail?.order?.unique_id}
               </Text>
@@ -1219,88 +1304,92 @@ export default function TaskDetail({ route, navigation }) {
             taskDetail?.order?.customer?.email ||
             taskDetail?.order?.customer?.phone_number
           ) && (
-              <View
-                style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                {!!taskDetail?.order?.customer?.email && (
+            <View
+              style={{ flexDirection: "row", justifyContent: "space-between" }}
+            >
+              {!!taskDetail?.order?.customer?.email && (
+                <TouchableOpacity
+                  onPress={() =>
+                    // Communications.email(
+                    //   [
+                    //     taskDetail?.order?.customer?.email,
+                    //     taskDetail?.order?.customer?.email,
+                    //   ],
+                    //   null,
+                    //   null,
+                    //   '',
+                    //   '',
+                    // )
+
+                    Linking.openURL(
+                      `mailto:${
+                        taskDetail?.order?.customer?.email
+                      }?subject=${""}&body=${""}`
+                    )
+                  }
+                  style={{
+                    flex: 0.5,
+                    flexDirection: "row",
+                    marginTop: moderateScale(10),
+                    alignItems: "center",
+                  }}
+                >
+                  <Image
+                    source={imagePath.mail2}
+                    style={{ marginRight: moderateScale(5) }}
+                  />
+                  <Text numberOfLines={2} style={styles.emailAndPhone}>
+                    {taskDetail?.order?.customer?.email}
+                  </Text>
+                </TouchableOpacity>
+              )}
+
+              {!!taskDetail?.order?.customer?.phone_number && (
+                <View
+                  style={{
+                    flex: 0.4,
+                    flexDirection: "row",
+                    marginTop: moderateScale(10),
+                    alignItems: "center",
+                    justifyContent: "space-around",
+                  }}
+                >
                   <TouchableOpacity
-                    onPress={() =>
-                      // Communications.email(
-                      //   [
-                      //     taskDetail?.order?.customer?.email,
-                      //     taskDetail?.order?.customer?.email,
-                      //   ],
-                      //   null,
-                      //   null,
-                      //   '',
-                      //   '',
-                      // )
-
-                      Linking.openURL(
-                        `mailto:${taskDetail?.order?.customer?.email
-                        }?subject=${''}&body=${''}`,
-                      )
-                    }
                     style={{
-                      flex: 0.5,
-                      flexDirection: 'row',
-                      marginTop: moderateScale(10),
-                      alignItems: 'center',
-                    }}>
-                    <Image
-                      source={imagePath.mail2}
-                      style={{ marginRight: moderateScale(5) }}
-                    />
-                    <Text numberOfLines={2} style={styles.emailAndPhone}>
-                      {taskDetail?.order?.customer?.email}
-                    </Text>
+                      paddingHorizontal: moderateScale(10),
+                    }}
+                    hitSlop={hitSlopProp}
+                    onPress={onWhatsapp}
+                  >
+                    <Image source={imagePath.whatsapp} />
                   </TouchableOpacity>
-                )}
-
-                {!!taskDetail?.order?.customer?.phone_number && (
-                  <View
+                  <TouchableOpacity
                     style={{
-                      flex: 0.4,
-                      flexDirection: 'row',
-                      marginTop: moderateScale(10),
-                      alignItems: 'center',
-                      justifyContent: 'space-around',
-                    }}>
-                    <TouchableOpacity
-                      style={{
-                        paddingHorizontal: moderateScale(10),
-                      }}
-                      onPress={onWhatsapp}>
-                      <Image source={imagePath.whatsapp} />
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                      style={{
-                        flexDirection: 'row',
-                        alignItems: 'center',
-                      }}
-                      onPress={() =>
-                        Communications.phonecall(
-                          taskDetail?.order?.customer?.phone_number,
-                          true,
-                        )
-                      }>
-                      <Image source={imagePath.phone2} />
-                    </TouchableOpacity>
+                      flexDirection: "row",
+                      alignItems: "center",
+                    }}
+                    hitSlop={hitSlopProp}
+                    onPress={() => onStartCall()}
+                  >
+                    <Image source={imagePath.phone2} />
+                  </TouchableOpacity>
 
-                    {!!clientInfo?.socket_url ? (
-                      <TouchableOpacity
-                        style={{
-                          flexDirection: 'row',
-                          alignItems: 'center',
-                          marginLeft: moderateScale(5),
-                        }}
-                        onPress={() => createRoom(taskDetail)}>
-                        <Image source={imagePath.icStartChat} />
-                      </TouchableOpacity>
-                    ) : null}
-                  </View>
-                )}
-              </View>
-            )}
+                  {!!clientInfo?.socket_url ? (
+                    <TouchableOpacity
+                      style={{
+                        flexDirection: "row",
+                        alignItems: "center",
+                        marginLeft: moderateScale(5),
+                      }}
+                      onPress={() => createRoom(taskDetail)}
+                    >
+                      <Image source={imagePath.icStartChat} />
+                    </TouchableOpacity>
+                  ) : null}
+                </View>
+              )}
+            </View>
+          )}
 
           {/* seperator */}
           <View
@@ -1311,15 +1400,22 @@ export default function TaskDetail({ route, navigation }) {
           />
 
           {/* Time and cash to be collected */}
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+          <View
+            style={{ flexDirection: "row", justifyContent: "space-between" }}
+          >
             <View style={{ flex: 0.6 }}>
               <Text style={styles.taskLable}>
                 {strings.TIMINGS.toUpperCase()}
               </Text>
               <Text
                 numberOfLines={1}
-                style={[styles.emailAndPhone, { marginTop: moderateScale(5) }]}>
-                {getDate(taskDetail?.order?.order_time)}
+                style={[styles.emailAndPhone, { marginTop: moderateScale(5) }]}
+              >
+                {/* {getDate(taskDetail?.order?.order_time)} */}
+                {moment
+                  .utc(taskDetail?.order?.order_time)
+                  .local()
+                  .format("MMMM Do YYYY, h:mm a")}
               </Text>
             </View>
             {/* <Text style={styles.taskLable}>{strings.NAME}</Text> */}
@@ -1331,7 +1427,12 @@ export default function TaskDetail({ route, navigation }) {
                 </Text>
                 <Text
                   numberOfLines={1}
-                  style={[styles.emailAndPhone, { marginTop: moderateScale(5) }]}>
+                  style={[
+                    styles.emailAndPhone,
+                    { marginTop: moderateScale(5) },
+                  ]}
+                >
+                  {clientInfo?.currencyCode}{" "}
                   {Number(taskDetail?.order?.cash_to_be_collected).toFixed(2)}
                 </Text>
               </View>
@@ -1342,7 +1443,8 @@ export default function TaskDetail({ route, navigation }) {
           {!!taskDetail?.order?.task_images &&
             taskDetail?.order?.task_images.length >= 1 && (
               <View
-                style={{ flexDirection: 'row', marginTop: moderateScale(15) }}>
+                style={{ flexDirection: "row", marginTop: moderateScale(15) }}
+              >
                 <View>
                   {taskDetail?.order?.task_images.length >= 1 && (
                     <Text style={styles.taskLable}>
@@ -1352,13 +1454,19 @@ export default function TaskDetail({ route, navigation }) {
 
                   <View
                     style={{
-                      flexDirection: 'row',
-                      flexWrap: 'wrap',
+                      flexDirection: "row",
+                      flexWrap: "wrap",
                       marginTop: moderateScale(5),
-                    }}>
+                    }}
+                  >
                     {taskDetail?.order?.task_images.map((i, inx) => {
                       return (
-                        <>
+                        <TouchableOpacity
+                          onPress={() => {
+                            setIsVisible(true);
+                            setSelectedImage(i);
+                          }}
+                        >
                           <Image
                             source={{
                               uri: i,
@@ -1370,7 +1478,7 @@ export default function TaskDetail({ route, navigation }) {
                               height: width / 5, //362 is actual height of image
                             }}
                           />
-                        </>
+                        </TouchableOpacity>
                       );
                     })}
                   </View>
@@ -1381,7 +1489,7 @@ export default function TaskDetail({ route, navigation }) {
             productAllInsrucations?.map((item, index) => {
               return (
                 <View style={{ marginTop: moderateScaleVertical(10) }}>
-                  <View style={{ flexDirection: 'row' }}>
+                  <View style={{ flexDirection: "row" }}>
                     <Text
                       numberOfLines={2}
                       style={[
@@ -1390,7 +1498,8 @@ export default function TaskDetail({ route, navigation }) {
                           marginTop: moderateScale(5),
                           fontFamily: fontFamily.bold,
                         },
-                      ]}>
+                      ]}
+                    >
                       {`${strings.QUESTION} :`}
                     </Text>
                     <Text
@@ -1398,11 +1507,12 @@ export default function TaskDetail({ route, navigation }) {
                       style={[
                         styles.emailAndPhone,
                         { marginTop: moderateScale(5) },
-                      ]}>
+                      ]}
+                    >
                       {item?.question}
                     </Text>
                   </View>
-                  <View style={{ flexDirection: 'row' }}>
+                  <View style={{ flexDirection: "row" }}>
                     <Text
                       numberOfLines={2}
                       style={[
@@ -1411,7 +1521,8 @@ export default function TaskDetail({ route, navigation }) {
                           marginTop: moderateScale(5),
                           fontFamily: fontFamily.bold,
                         },
-                      ]}>
+                      ]}
+                    >
                       {`${strings.ANSWER} :`}
                     </Text>
                     <Text
@@ -1419,7 +1530,8 @@ export default function TaskDetail({ route, navigation }) {
                       style={[
                         styles.emailAndPhone,
                         { marginTop: moderateScale(5) },
-                      ]}>
+                      ]}
+                    >
                       {item?.answer}
                     </Text>
                   </View>
@@ -1428,14 +1540,20 @@ export default function TaskDetail({ route, navigation }) {
             })}
 
           {!!apiData && apiData?.comment_for_vendor ? (
-            <View style={{ flexDirection: 'row', marginTop: moderateScale(15) }}>
+            <View
+              style={{ flexDirection: "row", marginTop: moderateScale(15) }}
+            >
               <View>
                 <Text style={styles.taskLable}>
                   {strings.SPECIAL_INSTRUCTIONS.toUpperCase()}
                 </Text>
                 <Text
                   numberOfLines={1}
-                  style={[styles.emailAndPhone, { marginTop: moderateScale(5) }]}>
+                  style={[
+                    styles.emailAndPhone,
+                    { marginTop: moderateScale(5) },
+                  ]}
+                >
                   {apiData?.comment_for_vendor}
                 </Text>
               </View>
@@ -1444,10 +1562,11 @@ export default function TaskDetail({ route, navigation }) {
           {fromHistory && totalTravelData && (
             <View
               style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between',
+                flexDirection: "row",
+                justifyContent: "space-between",
                 marginVertical: moderateScaleVertical(5),
-              }}>
+              }}
+            >
               <View>
                 <Text style={styles.distanceTimeTitleTextStyle}>
                   {strings.TOTALDISTANCE}
@@ -1456,9 +1575,9 @@ export default function TaskDetail({ route, navigation }) {
                   {Number(
                     totalTravelData?.distance?.text.substring(
                       0,
-                      totalTravelData?.distance?.text.length - 2,
-                    ) * 1.609344,
-                  ).toFixed(2)}{' '}
+                      totalTravelData?.distance?.text.length - 2
+                    ) * 1.609344
+                  ).toFixed(2)}{" "}
                   KM
                 </Text>
               </View>
@@ -1477,11 +1596,11 @@ export default function TaskDetail({ route, navigation }) {
     );
   };
   const cancelTask = () => {
-    Alert.alert('', strings.CANCELMESSAGE, [
+    Alert.alert("", strings.CANCELMESSAGE, [
       {
         text: strings.CANCEL,
-        onPress: () => console.log('Cancel Pressed'),
-        style: 'cancel',
+        onPress: () => console.log("Cancel Pressed"),
+        style: "cancel",
       },
       {
         text: strings.OK,
@@ -1493,14 +1612,14 @@ export default function TaskDetail({ route, navigation }) {
 
   const cancelOrder = () => {
     if (cancelRequestExit) {
-      showSuccess('Your cancle request already submitted.');
+      showSuccess("Your cancle request already submitted.");
       return;
     }
-    Alert.alert('', strings.CANCELORDERMESSAGE, [
+    Alert.alert("", strings.CANCELORDERMESSAGE, [
       {
         text: strings.CANCEL,
-        onPress: () => console.log('Cancel Pressed'),
-        style: 'cancel',
+        onPress: () => console.log("Cancel Pressed"),
+        style: "cancel",
       },
       {
         text: strings.OK,
@@ -1521,8 +1640,8 @@ export default function TaskDetail({ route, navigation }) {
     latitude: Number(taskDetail?.location?.latitude),
     longitude: Number(taskDetail?.location?.longitude),
     end: `${taskDetail?.location?.address}`,
-    start: 'My Location',
-    provider: 'apple',
+    start: "My Location",
+    provider: "apple",
     //travelType: 'drive',
   };
   // const openAppleMap = createOpenLink(appleCoordinate);
@@ -1530,12 +1649,12 @@ export default function TaskDetail({ route, navigation }) {
   const getCurrentPosition = () => {
     return new Promise((resolve, reject) => {
       navigator.geolocation.default.getCurrentPosition(
-        position => {
-          console.log(position, 'position');
+        (position) => {
+          console.log(position, "position");
           resolve(position);
         },
-        error => reject(error.message),
-        { enableHighAccuracy: true, timeout: 20000 },
+        (error) => reject(error.message),
+        { enableHighAccuracy: true, timeout: 20000 }
       );
     });
   };
@@ -1575,29 +1694,55 @@ export default function TaskDetail({ route, navigation }) {
   };
 
   const openGoogleMap = () => {
-    var url = `https://www.google.com/maps/dir/?api=1&travelmode=driving&dir_action=navigate&destination=${taskDetail?.location?.latitude},${taskDetail?.location?.longitude}`;
+    const latitude = taskDetail?.location?.latitude;
+    const longitude = taskDetail?.location?.longitude;
+    const destination = `${latitude},${longitude}`;
 
+    // if (Platform.OS === 'ios') {
+    //   // Try to open Google Maps app
+    //   const url = `comgooglemaps://?daddr=${destination}&directionsmode=driving`;
+    //   Linking.canOpenURL(url)
+    //     .then(supported => {
+    //       if (supported) {
+    //         Linking.openURL(url);
+    //       } else {
+    //         // Fallback to web URL
+    //         const webUrl = `https://www.google.com/maps/dir/?api=1&origin=My+Location&destination=${destination}&travelmode=driving`;
+    //         Linking.openURL(webUrl);
+    //       }
+    //     })
+    //     .catch(err => console.error('An error occurred', err));
+    // } else {
+    // Android (web URL works for both app and browser)
+    const url = `https://www.google.com/maps/dir/?api=1&origin=My+Location&destination=${destination}&travelmode=driving`;
     Linking.canOpenURL(url)
-      .then(supported => {
-        console.log(supported, 'supportedsupported');
-        if (!supported) {
-          console.log("Can't handle url: " + url);
+      .then((supported) => {
+        if (supported) {
+          Linking.openURL(url);
         } else {
-          return Linking.openURL(url);
+          console.log("Can't handle url: " + url);
         }
       })
-      .catch(err => console.error('An error occurred', err));
+      .catch((err) => console.error("An error occurred", err));
+    // }
   };
-
-
 
   /**** */
 
   // this funtion use for camera handle
-  const onPressMapChoice = index => {
+  const onPressMapChoice = (index) => {
     if (index == 0) {
-      const url = 'maps:' + '?q=' + taskDetail?.location?.address;
-      Linking.openURL(url);
+      const url = `maps://app?daddr=${taskDetail?.location?.latitude},${taskDetail?.location?.longitude}`;
+      console.log(url, "url");
+      Linking.canOpenURL(url)
+        .then((supported) => {
+          if (supported) {
+            Linking.openURL(url);
+          } else {
+            console.log("Can't handle url: " + url);
+          }
+        })
+        .catch((err) => console.error("An error occurred", err));
     }
     if (index == 1) {
       openGoogleMap();
@@ -1608,13 +1753,17 @@ export default function TaskDetail({ route, navigation }) {
     <WrapperContainer
       statusBarColor={colors.white}
       bgColor={colors.white}
-      isLoading={isLoading||isLoadingNextScreen}
-      source={loaderOne}>
+      isLoading={isLoading}
+      source={loaderOne}
+    >
       <Header
         headerStyle={{ backgroundColor: colors.white }}
         leftIconStyle={{ tintColor: colors.themeColor }}
-        onPressLeft={paramData?.is_from_calendar ? () => navigation?.goBack() : moveToNewScreen(navigationStrings?.DASHBOARD)}
-
+        onPressLeft={
+          paramData?.is_from_calendar
+            ? () => navigation?.goBack()
+            : moveToNewScreen(navigationStrings?.DASHBOARD)
+        }
         // hideRight={true}
         // onPressLeft={()=>navigation.goBack()}
         centerTitle={`${strings.TASK} #${taskDetail?.id}`}
@@ -1630,7 +1779,8 @@ export default function TaskDetail({ route, navigation }) {
                   color: colors.textGrey,
                   fontFamily: fontFamily.regular,
                   fontSize: textScale(10),
-                }}>
+                }}
+              >
                 {strings.CANCEL}
               </Text>
             </TouchableOpacity>
@@ -1641,10 +1791,167 @@ export default function TaskDetail({ route, navigation }) {
 
       <ScrollView showsVerticalScrollIndicator={false}>
         {mapView()}
-        <View style={styles.mainContainer}>{taskDetailView()}</View>
+        {!!fromHistory ? (
+          <View style={{ margin: moderateScale(16) }}>
+            <View
+              style={{
+                alignItems: "flex-end",
+                marginBottom: moderateScale(10),
+              }}
+            >
+              <Text
+                style={{
+                  textTransform: "capitalize",
+                  color:
+                    taskDetail?.order?.status == "completed" ? "green" : "red",
+                  fontFamily: fontFamily?.medium,
+                  fontSize: textScale(14),
+                }}
+              >
+                {taskDetail?.order?.status}
+              </Text>
+            </View>
+            {taskDetail?.order?.task.map((item, index) => {
+              return (
+                <View
+                  style={{
+                    flexDirection: "row",
+                    marginBottom: moderateScale(10),
+                  }}
+                >
+                  <Text
+                    style={{
+                      flex: 1,
+                      fontSize: textScale(13),
+                      fontFamily: fontFamily?.medium,
+                    }}
+                  >
+                    {item?.location?.address}
+                  </Text>
+                  <View
+                    style={{
+                      backgroundColor:
+                        item?.task_type_id == 1 ? "green" : "red",
+                      justifyContent: "center",
+                      alignSelf: "auto",
+                      padding: moderateScale(10),
+                      width: moderateScale(70),
+                      borderRadius: moderateScale(5),
+                      alignItems: "center",
+                    }}
+                  >
+                    <Text
+                      style={{
+                        fontFamily: fontFamily?.semiBold,
+                        fontSize: textScale(13),
+                        color: "white",
+                      }}
+                    >
+                      {item?.task_type_id == 1 ? "Pickup" : "Drop"}
+                    </Text>
+                  </View>
+                </View>
+              );
+            })}
+            <View
+              style={{
+                backgroundColor: colors?.grey2,
+                paddingVertical: moderateScale(10),
+                paddingHorizontal: moderateScale(5),
+              }}
+            >
+              <View style={{ flexDirection: "row", alignItems: "center" }}>
+                <Text
+                  style={{
+                    textTransform: "capitalize",
+                    fontSize: textScale(14),
+                    fontFamily: fontFamily?.bold,
+                  }}
+                >
+                  {"Name : "}
+                </Text>
+                <Text
+                  style={{
+                    textTransform: "capitalize",
+                    fontSize: textScale(12),
+                    // fontFamily: fontFamily?.bold,
+                  }}
+                >
+                  {taskDetail?.order?.customer?.name}
+                </Text>
+              </View>
+              <View style={{ flexDirection: "row", alignItems: "center" }}>
+                <Text
+                  style={{
+                    textTransform: "capitalize",
+                    fontSize: textScale(14),
+                    fontFamily: fontFamily?.bold,
+                  }}
+                >
+                  {"Amount : "}
+                </Text>
+                <Text
+                  style={{
+                    textTransform: "capitalize",
+                    fontSize: textScale(12),
+                    // fontFamily: fontFamily?.bold,
+                  }}
+                >
+                  {clientInfo?.currencyCode}{" "}
+                  {taskDetail?.order?.cash_to_be_collected}
+                </Text>
+              </View>
+              <View style={{ flexDirection: "row", alignItems: "center" }}>
+                <Text
+                  style={{
+                    textTransform: "capitalize",
+                    fontSize: textScale(14),
+                    fontFamily: fontFamily?.bold,
+                  }}
+                >
+                  {"Payment Mode : "}
+                </Text>
+                <Text
+                  style={{
+                    textTransform: "capitalize",
+                    fontSize: textScale(12),
+                    // fontFamily: fontFamily?.bold,
+                  }}
+                >
+                  {taskDetail?.order?.payment_mode}
+                </Text>
+              </View>
+              <View style={{ flexDirection: "row", alignItems: "center" }}>
+                <Text
+                  style={{
+                    textTransform: "capitalize",
+                    fontSize: textScale(14),
+                    fontFamily: fontFamily?.bold,
+                  }}
+                >
+                  {"Ride Date & Time : "}
+                </Text>
+                <Text
+                  style={{
+                    textTransform: "capitalize",
+                    fontSize: textScale(12),
+                    // fontFamily: fontFamily?.bold,
+                  }}
+                >
+                  {moment
+                    .utc(taskDetail?.order?.order_time)
+                    .local()
+                    .format("MMM Do YYYY, h:mm a")}
+                </Text>
+              </View>
+            </View>
+          </View>
+        ) : (
+          <View style={styles.mainContainer}>{taskDetailView()}</View>
+        )}
         <View style={{ height: moderateScale(45) }} />
       </ScrollView>
-      {buttonView()}
+      {!!fromHistory ? null : buttonView()}
       <ActionSheet
         ref={actionSheet}
         // title={'Choose one option'}
@@ -1655,8 +1962,56 @@ export default function TaskDetail({ route, navigation }) {
         ]}
         cancelButtonIndex={2}
         destructiveButtonIndex={2}
-        onPress={index => onPressMapChoice(index)}
+        onPress={(index) => onPressMapChoice(index)}
       />
+
+      <Modal
+        style={{}}
+        animationType="slide"
+        transparent={false}
+        visible={isVisible}
+      >
+        <View style={{ backgroundColor: colors.black }}>
+          <TouchableOpacity
+            onPress={() => {
+              setIsVisible(false);
+
+              setSelectedImage(null);
+            }}
+            style={{
+              // position:"absolute",
+              // top:80,
+              marginTop: (Platform.OS === "android"
+                ? moderateScale(20)
+                : moderateScale(80)),
+              alignItems: "flex-end",
+              marginHorizontal: moderateScale(10),
+            }}
+          >
+            <Image source={imagePath?.crossRed} />
+          </TouchableOpacity>
+        </View>
+        <View
+          style={{
+            flex: 1,
+            backgroundColor: colors.black,
+          }}
+        >
+          <View
+            style={{
+              flex: 1,
+            }}
+          >
+            <FastImage
+              source={{ uri: selectedImage }}
+              style={{
+                flex: 1,
+              }}
+              resizeMode="contain"
+            />
+          </View>
+        </View>
+      </Modal>
     </WrapperContainer>
   );
 }

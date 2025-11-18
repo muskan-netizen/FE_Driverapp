@@ -1,6 +1,5 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import Modal from 'react-native-modal';
+import {Modal, StyleSheet, View} from 'react-native';
 import imagePath from '../constants/imagePath';
 import colors from '../styles/colors';
 import {moderateScaleVertical} from '../styles/responsiveSize';
@@ -27,7 +26,7 @@ export default function ModalView({
 }) {
   return (
     <Modal
-      isVisible={isVisible}
+      visible={isVisible}
       onBackButtonPress={onClose}
       onBackdropPress={onClose1}
       backdropTransitionInTiming={transistionOut}

@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {
+  ImageBackground,
   StyleSheet,
   TouchableOpacity,
-  View
+  View,
 } from 'react-native';
+// import CardView from 'react-native-cardview';
 import FastImage from 'react-native-fast-image';
-import { UIActivityIndicator } from 'react-native-indicators';
-import Carousel, { Pagination } from 'react-native-snap-carousel';
-import { useSelector } from 'react-redux';
-import { moderateScale, width } from '../styles/responsiveSize';
-import { getImageUrl } from '../utils/helperFunctions';
+import {UIActivityIndicator} from 'react-native-indicators';
+import Carousel, {Pagination} from 'react-native-snap-carousel';
+import {useSelector} from 'react-redux';
+import {moderateScale, width} from '../styles/responsiveSize';
+import {getImageUrl} from '../utils/helperFunctions';
 
 const Banner = ({
   imagestyle = {},
@@ -98,17 +100,19 @@ const Banner = ({
   };
   return (
     <View style={[styles.cardViewStyle, cardViewStyle]}>
-      <Carousel
-        ref={bannerRef}
-        data={bannerData}
-        renderItem={bannerDataImages}
-        autoplay={true}
-        loop={true}
-        autoplayInterval={3000}
-        sliderWidth={sliderWidth}
-        itemWidth={itemWidth}
-        onSnapToItem={(index) => setSnapState(index)}
-      />
+      {/* <CardView style={[styles.cardViewStyle, cardViewStyle]}> */}
+        <Carousel
+          ref={bannerRef}
+          data={bannerData}
+          renderItem={bannerDataImages}
+          autoplay={true}
+          loop={true}
+          autoplayInterval={3000}
+          sliderWidth={sliderWidth}
+          itemWidth={itemWidth}
+          onSnapToItem={(index) => setSnapState(index)}
+        />
+      {/* </CardView> */}
     </View>
   );
 };

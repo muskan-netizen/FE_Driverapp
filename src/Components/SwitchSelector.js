@@ -21,7 +21,7 @@ const SwitchSelectorComponent = ({
   fontSize = textScale(10),
   borderWidth = 0,
 }) => {
-
+  console.log("inital value+++",initial)
   return (
   
     <SwitchSelector

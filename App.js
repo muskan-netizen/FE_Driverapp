@@ -1,4 +1,3 @@
-// import 'react-native-gesture-handler';
 import NetInfo from '@react-native-community/netinfo';
 import React, { useEffect, useState } from 'react';
 import FlashMessage from 'react-native-flash-message';
@@ -33,6 +32,8 @@ import ShowNotificationForeground from './src/utils/ShowNotificationForeground';
 import types from './src/redux/types';
 import notifee, { AndroidImportance } from '@notifee/react-native';
 import { MenuProvider } from 'react-native-popup-menu';
+import { getItem, getUserData } from './src/utils/utils';
+import strings from './src/constants/lang';
 
 
 let CodePushOptions = { checkFrequency: codePush.CheckFrequency.MANUAL };
@@ -104,40 +105,63 @@ const App = () => {
         value: "vi",
       });
     }
-    else if (appIds.mrVeloz == DeviceInfo.getBundleId()) {
-      setDefaultLanguage({
-        id: 2,
-        label: 'Spanish',
-        value: 'es',
-      });
-    }
   };
 
   useEffect(() => {
     (async () => {
-      await AsyncStorage.getItem("alreadyLaunched").then((value) => {
-        console.log(value, "valuevaluevaluevalue");
+      const userData = await getUserData();
+      const getClientInfo = await getItem('clientInfo');
+      const defaultLanguage = await getItem('defaultLanguage');
+      console.log(
+        userData,
+        'clientInfoclientInfouserdata in app.js',
+        getClientInfo,
+      );
+      console.log(defaultLanguage, 'defaultLanguage in app.js');
+      if (userData && !!userData?.access_token) {
+        dispatch({
+          type: types.APP_INIT,
+          payload: getClientInfo,
+        });
+        dispatch({
+          type: types.LOGIN,
+          payload: userData,
+        });
+      }
+      if (defaultLanguage?.value) {
+        strings.setLanguage(defaultLanguage?.value);
+        dispatch({
+          type: types.DEFAULTLANGUAGE,
+          payload: defaultLanguage,
+        });
+      }
+ 
+      await AsyncStorage.getItem('alreadyLaunched').then(value => {
+        console.log(value, 'valuevaluevaluevalue');
         // const data = true;
         if (value == null) {
-          data = JSON.stringify({ data: true });
+          data = JSON.stringify({data: true});
           AsyncStorage.setItem('alreadyLaunched', data); // No need to wait for `setItem` to finish, although you might want to handle errors
           setInitialLanguage();
         } else {
         }
       }); // Add some error handling, also you can simply do this.setState({fistLaunch: value == null})
-      await AsyncStorage.getItem('cabPoolingStatus').then(value => {
-        const poolingStatus = JSON.parse(value)
-        dispatch({
-          type: types.POOLING,
-          payload: poolingStatus,
-        });
-      }).catch((error) => {
-        console.log(error, 'error in getting poolstatus');
-      })// Add some error handling, also you can simply do this.setState({fistLaunch: value == null})
+      await AsyncStorage.getItem('cabPoolingStatus')
+        .then(value => {
+          const poolingStatus = JSON.parse(value);
+          dispatch({
+            type: types.POOLING,
+            payload: poolingStatus,
+          });
+        })
+        .catch(error => {
+          console.log(error, 'error in getting poolstatus');
+        }); // Add some error handling, also you can simply do this.setState({fistLaunch: value == null})
     })().catch(err => {
       console.error(err);
     });
   }, []);
+ 
 
   const notificationConfig = () => {
     requestUserPermission();
@@ -147,7 +171,10 @@ const App = () => {
   useEffect(() => {
     notificationConfig();
     if (
-      getBundleId() == appIds?.flank
+      getBundleId() == appIds?.flank ||
+      getBundleId() == appIds?.tareeqk ||
+      getBundleId() == appIds?.weShopAfrica  
+      // getBundleId() == appIds?.dropdawg
     ) {
       setTimeout(() => {
         SplashScreen.hide();
@@ -275,4 +302,3 @@ const App = () => {
 };
 
 export default codePush(CodePushOptions)(App);
-

@@ -8,9 +8,10 @@ import imagePath from '../../constants/imagePath';
 import actions from '../../redux/actions';
 import colors from '../../styles/colors';
 import commonStylesFun from '../../styles/commonStyles';
-import {moderateScale} from '../../styles/responsiveSize';
+import {moderateScale, width} from '../../styles/responsiveSize';
 import {showError} from '../../utils/helperFunctions';
 import stylesFun from './styles';
+import RenderHTML from 'react-native-render-html';
 
 export default function Webview({navigation, route}) {
   const paramData = route?.params;
@@ -25,10 +26,16 @@ export default function Webview({navigation, route}) {
   //update your state
   const updateState = data => setState(state => ({...state, ...data}));
 
-
   //Redux Store Data
-  const {appData, themeColors, themeLayouts, currencies, languages, appStyle,clientInfo} =
-  useSelector(state => state?.initBoot);
+  const {
+    appData,
+    themeColors,
+    themeLayouts,
+    currencies,
+    languages,
+    appStyle,
+    clientInfo,
+  } = useSelector(state => state?.initBoot);
   const fontFamily = appStyle?.fontSizeData;
   const commonStyles = commonStylesFun({fontFamily});
   const styles = stylesFun({fontFamily});
@@ -42,10 +49,13 @@ export default function Webview({navigation, route}) {
     getListOfAllCmsLinks();
   }, []);
 
-
   const getListOfAllCmsLinks = () => {
     actions
-      .getListOfAllCmsLinks(`?cms_id=${paramData?.id}`, {}, {client: clientInfo?.database_name})
+      .getListOfAllCmsLinks(
+        `?cms_id=${paramData?.id}`,
+        {},
+        {client: clientInfo?.database_name},
+      )
       .then(res => {
         console.log('All Cms links', res);
         if (res?.data) {
@@ -77,15 +87,23 @@ export default function Webview({navigation, route}) {
       <View style={{...commonStyles.headerTopLine}} />
       {/* <WebView source={{uri: content}} /> */}
       <ScrollView bounces={false}>
-      <View
-        style={{
-          marginHorizontal: moderateScale(20),
-          marginTop: moderateScale(20),
-        }}>
-        <Text style={styles.content}>{content}</Text>
-      </View>
+        <View
+          style={{
+            marginHorizontal: moderateScale(20),
+            marginTop: moderateScale(20),
+          }}>
+          {/* <Text style={styles.content}>{content}</Text> */}
+          <RenderHTML
+            contentWidth={width}
+            source={{html: content}}
+            tagsStyles={{
+              p: {
+                color: colors.black,
+              },
+            }}
+          />
+        </View>
       </ScrollView>
-      
     </WrapperContainer>
   );
 }

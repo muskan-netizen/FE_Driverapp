@@ -36,6 +36,11 @@ const transportationArray=[
     activeIcon: imagePath.truckActive,
     inactiveIcon: imagePath.truckInactive,
   },
+  {
+    id: 6,
+    activeIcon: imagePath.autoActive,
+    inactiveIcon: imagePath.autoInactive,
+  },
   
 ]
 const employeetypeArray = [

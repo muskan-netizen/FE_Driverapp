@@ -132,6 +132,14 @@ export default {
   flank: require('../assets/Flank.mp4'),
   carMarker: require('../assets/images/ic_topviewcar.png'),
   icCalendarInActive: require('../assets/images/ic_calendarlined.png'),
+  tareerk:require('../assets/tareeqk.mp4'),
+  we_Shop_Africa: require('../assets/weShopAfrica.mp4'),
+  drop_dawg: require('../assets/dropdawg.mp4'),
+  autoActive:require('../assets/images/autoActive.png'),
+  autoInactive:require('../assets/images/autoInactive.png'),
+  ic_sos: require('../assets/images/ic_sos.png'),
+    star: require('../assets/images/star.png'),
 
+    icAttachments: require('../assets/images/ic_attachment.png'),
 
 };

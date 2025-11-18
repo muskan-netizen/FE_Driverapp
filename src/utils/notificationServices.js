@@ -1,54 +1,53 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import messaging from '@react-native-firebase/messaging';
-import { PermissionsAndroid, Platform } from 'react-native';
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import messaging from "@react-native-firebase/messaging";
+import { PermissionsAndroid, Platform } from "react-native";
 
-import { navigate } from '../navigation/NavigationService';
-import navigationStrings from '../navigation/navigationStrings';
-import actions from '../redux/actions';
-import { PERMISSIONS } from 'react-native-permissions';
-
+import { navigate } from "../navigation/NavigationService";
+import navigationStrings from "../navigation/navigationStrings";
+import actions from "../redux/actions";
+import { PERMISSIONS } from "react-native-permissions";
 
 export async function requestUserPermission(callback = () => {}) {
-
-  if (Platform.OS === 'ios') {
-  await messaging().registerDeviceForRemoteMessages();
-  // await messaging().registerForRemoteNotifications()
+  if (Platform.OS === "ios") {
+    await messaging().registerDeviceForRemoteMessages();
+    // await messaging().registerForRemoteNotifications()
   }
-  if (parseInt(Platform.constants.Release)>=Number(13)) {
-  try {
-  const granted = await PermissionsAndroid.request(
-  PERMISSIONS.ANDROID.POST_NOTIFICATIONS,
-  {
-  title: 'Notification Permission',
-  message: 'Allow this app to post notifications?',
-  buttonNeutral: 'Ask Me Later',
-  buttonNegative: 'Cancel',
-  buttonPositive: 'OK',
-  },
-  );
-  console.log(granted,'grantedgrantedgrantedgranted');
-  if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-  getFcmToken();
-  callback(false);
+  if (
+    Platform.OS == "android" &&
+    parseInt(Platform.constants.Release) >= Number(13)
+  ) {
+    try {
+      const granted = await PermissionsAndroid.request(
+        PERMISSIONS.ANDROID.POST_NOTIFICATIONS,
+        {
+          title: "Notification Permission",
+          message: "Allow this app to post notifications?",
+          buttonNeutral: "Ask Me Later",
+          buttonNegative: "Cancel",
+          buttonPositive: "OK",
+        }
+      );
+      console.log(granted, "grantedgrantedgrantedgranted");
+      if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+        getFcmToken();
+        callback(false);
+      } else {
+        callback(true);
+      }
+    } catch (err) {
+      console.warn(err);
+    }
   } else {
-  callback(true)
+    const authStatus = await messaging().requestPermission();
+    const enabled =
+      authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
+      authStatus === messaging.AuthorizationStatus.PROVISIONAL;
+    if (enabled) {
+      getFcmToken();
+      callback(false);
+    } else callback(true);
   }
-  } catch (err) {
-  console.warn(err);
-  }
-  
-  } else {
-  const authStatus = await messaging().requestPermission();
-  const enabled =
-  authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
-  authStatus === messaging.AuthorizationStatus.PROVISIONAL;
-  if (enabled) {
-  getFcmToken();
-  callback(false);
-  } else callback(true);
-  }
-  }
-  
+}
 
 // const romoveToken = () => {
 //  getMessaging()
@@ -64,32 +63,30 @@ export async function requestUserPermission(callback = () => {}) {
 // };
 
 const getFcmToken = async () => {
-  let fcmToken = await AsyncStorage.getItem('fcmToken');
-  if (fcmToken != null) {
+  let fcmToken = await AsyncStorage.getItem("fcmToken");
+
+  if (!!fcmToken) {
     actions.saveFcmToken(fcmToken);
   }
 
-
-  console.log(fcmToken, 'the old token');
+  console.log(fcmToken, "the old token");
   if (!fcmToken) {
     try {
       const fcmToken = await messaging().getToken();
       if (fcmToken) {
-        console.log(fcmToken, 'the new genrated token');
+        console.log(fcmToken, "the new genrated token");
         actions.saveFcmToken(fcmToken);
         // user has a device token
-        await AsyncStorage.setItem('fcmToken', fcmToken);
+        await AsyncStorage.setItem("fcmToken", fcmToken);
       }
     } catch (error) {
-      console.log(error, 'error in fcmToken');
+      console.log(error, "error in fcmToken");
       // showError(error.message)
     }
   }
 };
 
 export const notificationListener = async () => {
-
-
   // createDefaultChannels();
   // function createDefaultChannels() {
   //   PushNotification.createChannel(
@@ -119,19 +116,28 @@ export const notificationListener = async () => {
   // }
 
   //Backgorund
-  messaging().onNotificationOpenedApp(async remoteMessage => {
+  messaging().onNotificationOpenedApp(async (remoteMessage) => {
     console.log(
-      'Notification caused app to open from background state bla bla:',
-      JSON.stringify(remoteMessage),
+      "Notification caused app to open from background state bla bla:",
+      JSON.stringify(remoteMessage)
     );
     const { notification, data } = remoteMessage;
     let notificationType = data?.type || data?.notificationType;
+    if (data?.data == "chat_text") {
+      navigate(navigationStrings.CHAT_SCREEN, {
+        data: {
+          _id: remoteMessage?.data?.room_id,
+          room_id: remoteMessage?.data?.room_id_text,
+        },
+        fromNotification: true,
+      });
+    }
     if (
-      notification?.sound == 'notification.mp3' ||
-      notification?.android?.sound == 'notification'
+      notification?.sound == "notification.mp3" ||
+      notification?.android?.sound == "notification"
     ) {
       if (
-        notification?.data?.callback_url != '' &&
+        notification?.data?.callback_url != "" &&
         notification?.data?.callback_url != null
       ) {
         navigate(navigationStrings.ORDERDETAIL, {
@@ -141,10 +147,11 @@ export const notificationListener = async () => {
           },
         });
       } else {
-        console.log('here>>1');
+        console.log("here>>1");
 
         actions.isModalVisibleForAcceptReject({
-          isModalVisibleForAcceptReject: notificationType == 'bid_ride_request' ? false : true,
+          isModalVisibleForAcceptReject:
+            notificationType == "bid_ride_request" ? false : true,
           notificationData: remoteMessage,
         });
       }
@@ -154,23 +161,34 @@ export const notificationListener = async () => {
   //Kill or inactive
   messaging()
     .getInitialNotification()
-    .then(remoteMessage => {
+    .then((remoteMessage) => {
       if (remoteMessage) {
         console.log(
-          'remote message inital notification',
-          JSON.stringify(remoteMessage),
+          "remote message inital notification",
+          JSON.stringify(remoteMessage)
         );
-        const { notification } = remoteMessage;
+        const { notification, data } = remoteMessage;
         console.log(
-          'Notification caused app to open from quit state:',
-          remoteMessage.notification,
+          "Notification caused app to open from quit state:",
+          remoteMessage.notification
         );
+        if (data?.data == "chat_text") {
+          setTimeout(() => {
+            navigate(navigationStrings.CHAT_SCREEN, {
+              data: {
+                _id: remoteMessage?.data?.room_id,
+                room_id: remoteMessage?.data?.room_id_text,
+              },
+              fromNotification: true,
+            });
+          }, 1000);
+        }
         if (
-          notification?.sound == 'notification.mp3' ||
-          notification?.android?.sound == 'notification'
+          notification?.sound == "notification.mp3" ||
+          notification?.android?.sound == "notification"
         ) {
           if (
-            notification?.data?.callback_url != '' &&
+            notification?.data?.callback_url != "" &&
             notification?.data?.callback_url != null
           ) {
             navigate(navigationStrings.ORDERDETAIL, {
@@ -180,7 +198,7 @@ export const notificationListener = async () => {
               },
             });
           } else {
-            console.log('here>>2');
+            console.log("here>>2");
 
             actions.isModalVisibleForAcceptReject({
               isModalVisibleForAcceptReject: true,

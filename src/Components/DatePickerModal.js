@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, { useRef } from "react";
 import {
   StyleSheet,
   Text,
@@ -6,37 +6,39 @@ import {
   View,
   ScrollView,
   TouchableOpacity,
-} from 'react-native';
-import strings from '../constants/lang';
-import colors from '../styles/colors';
+} from "react-native";
+import strings from "../constants/lang";
+import colors from "../styles/colors";
 import {
   height,
+  moderateScale,
   moderateScaleVertical,
   textScale,
   width,
-} from '../styles/responsiveSize';
-import DatePicker from 'react-native-date-picker';
+} from "../styles/responsiveSize";
+import DatePicker from "react-native-date-picker";
 import Modal from 'react-native-modal';
-import imagePath from '../constants/imagePath';
-import fontFamily from '../styles/fontFamily';
-import {useSelector} from 'react-redux';
+import imagePath from "../constants/imagePath";
+import fontFamily from "../styles/fontFamily";
+import { useSelector } from "react-redux";
 const DatePickerModal = ({
   isVisible = false,
-  animationType = 'none',
+  animationType = "none",
   modalContainer = {},
   date = new Date(),
-  mode = 'datetime',
+  mode = "datetime",
   onDateChange = () => {},
   onclose,
   onSelectDate,
   closeIcon,
   closeText = strings.DONE,
   showHeader = false,
+  maxDate = new Date(),
   ...props
 }) => {
   const inputRef = useRef();
   const defaultLanguagae = useSelector(
-    state => state?.initBoot?.defaultLanguage,
+    (state) => state?.initBoot?.defaultLanguage
   );
 
   return (
@@ -46,7 +48,9 @@ const DatePickerModal = ({
       animationType={animationType}
       onBackdropPress={onclose}
       onBackButtonPress={onclose}
-      style={[styles.modalContainer, modalContainer]}>
+      style={[styles.modalContainer, modalContainer]}
+    >
+     
       <View style={styles.modalMainViewContainer}>
         <TouchableOpacity style={styles.closeButton} onPress={onSelectDate}>
           {closeIcon ? (
@@ -58,27 +62,30 @@ const DatePickerModal = ({
         <ScrollView
           showsVerticalScrollIndicator={false}
           bounces={false}
-          style={styles.modalMainViewContainer}>
+          style={styles.modalMainViewContainer}
+        >
           {!!showHeader && (
             <View
               style={{
-                alignItems: 'center',
-                justifyContent: 'center',
+                alignItems: "center",
+                justifyContent: "center",
                 marginTop: 10,
-              }}>
+              }}
+            >
               <Text style={styles.carType}>{strings.SELECTDATEANDTIME}</Text>
             </View>
           )}
 
-          <View style={{alignItems: 'center', height: height / 3}}>
+          <View style={{ alignItems: "center", height: height / 3 }}>
             <DatePicker
               date={date ? date : new Date()}
               mode={mode}
               locale={defaultLanguagae?.value}
               // minimumDate={undefined}
-              theme={'light'}
-              style={{width: width - 20, height: height / 4}}
-              onDateChange={value => onDateChange(value)}
+              maximumDate={maxDate}
+              theme={"light"}
+              style={{ width: width - 20, height: height / 4 }}
+              onDateChange={(value) => onDateChange(value)}
               textColor={colors.black}
             />
           </View>
@@ -90,22 +97,28 @@ const DatePickerModal = ({
 
 const styles = StyleSheet.create({
   modalMainViewContainer: {
-    flex: 1,
+    // flex: 1,
     backgroundColor: colors.white,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
+    // minHeight: moderateScale(50),
     // overflow: 'hidden',
     // paddingHorizontal: moderateScale(24),
   },
   modalContainer: {
     marginHorizontal: 0,
     marginBottom: 0,
-    marginTop: moderateScaleVertical(height / 1.5),
-    overflow: 'hidden',
+    // marginTop: moderateScaleVertical(height / 1.5),
+    // overflow: 'hidden',
+    justifyContent: "flex-end",
+  },
+  overlay: {
+    flex: 1,
+    backgroundColor: "rgba(0,0,0,0.5)",
   },
   closeButton: {
-    alignItems: 'flex-end',
-    justifyContent: 'center',
+    alignItems: "flex-end",
+    justifyContent: "center",
     marginVertical: moderateScaleVertical(10),
     marginHorizontal: moderateScaleVertical(20),
   },

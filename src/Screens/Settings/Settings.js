@@ -33,100 +33,86 @@ export default function Settings({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
 
   const {defaultLanguage, clientInfo} = useSelector(state => state?.initBoot);
-
+// log
+console.log(defaultLanguage,"defaultLanguagedefaultLanguagedefaultLanguagedefaultLanguagedefaultLanguage");
   const styles = stylesFunc({defaultLanguage});
   const [state, setState] = useState({
     isLoading: false,
-    allLanguages:
-      appIds.bluebolt == DeviceInfo.getBundleId()
-        ? [
+    allLanguages: [
             {
               id: 1,
               label: 'English',
               value: 'en',
             },
-            {
-              id: 9,
-              label: 'Vietnamese',
-              value: 'vi',
-            },
-          ]
-        : [
-            {
-              id: 1,
-              label: 'English',
-              value: 'en',
-            },
-            {
-              id: 2,
-              label: 'Spanish',
-              value: 'es',
-            },
-            {
-              id: 3,
-              label: 'Arabic',
-              value: 'ar',
-            },
-            {
-              id: 4,
-              label: 'German',
-              value: 'ger',
-            },
-            {
-              id: 5,
-              label: 'French',
-              value: 'fr',
-            },
-            {
-              id: 6,
-              label: 'Chinese',
-              value: 'zh',
-            },
-            {
-              id: 7,
-              label: 'Russian',
-              value: 'Ru',
-            },
-            {
-              id: 8,
-              label: 'Portuguese - (Brazil)',
-              value: 'ptBr',
-            },
-            {
-              id: 8,
-              label: 'Sweden',
-              value: 'sv',
-            },
-            {
-              id: 9,
-              label: 'Vietnamese',
-              value: 'vi',
-            },
-            {
-              id: 10,
-              label: 'Nepali',
-              value: 'ne',
-            },
-            {
-              id: 11,
-              label: 'Swahili',
-              value: 'swa',
-            },
-            {
-              id: 12,
-              label: 'Hebrew',
-              value: 'he',
-            },
+            // {
+            //   id: 2,
+            //   label: 'Spanish',
+            //   value: 'es',
+            // },
+            // {
+            //   id: 3,
+            //   label: 'Arabic',
+            //   value: 'ar',
+            // },
+            // {
+            //   id: 4,
+            //   label: 'German',
+            //   value: 'ger',
+            // },
+            // {
+            //   id: 5,
+            //   label: 'French',
+            //   value: 'fr',
+            // },
+            // {
+            //   id: 6,
+            //   label: 'Chinese',
+            //   value: 'zh',
+            // },
+            // {
+            //   id: 7,
+            //   label: 'Russian',
+            //   value: 'Ru',
+            // },
+            // {
+            //   id: 8,
+            //   label: 'Portuguese - (Brazil)',
+            //   value: 'ptBr',
+            // },
+            // {
+            //   id: 8,
+            //   label: 'Sweden',
+            //   value: 'sv',
+            // },
+            // {
+            //   id: 9,
+            //   label: 'Vietnamese',
+            //   value: 'vi',
+            // },
+            // {
+            //   id: 10,
+            //   label: 'Nepali',
+            //   value: 'ne',
+            // },
+            // {
+            //   id: 11,
+            //   label: 'Swahili',
+            //   value: 'swa',
+            // },
+            // {
+            //   id: 12,
+            //   label: 'Hebrew',
+            //   value: 'he',
+            // },
+            // {
+            //   id: 13,
+            //   label: 'Tamil',
+            //   value: 'tm',
+            // },
           ],
     selectedLangauge: defaultLanguage?.label
       ? defaultLanguage
-      : appIds.bluebolt == DeviceInfo.getBundleId()
-      ? {
-          id: 9,
-          label: 'Vietnamese',
-          value: 'vi',
-        }
-      : {
+      :{
           id: 1,
           label: 'English',
           value: 'en',
@@ -137,7 +123,7 @@ export default function Settings({route, navigation}) {
   const {isLoading, allLanguages, selectedLangauge, isModalVisibleForLanguage} =
     state;
   const commonStyles = commonStylesFunc({fontFamily});
-
+console.log(selectedLangauge,"selectedLangaugeselectedLangaugeselectedLangaugeselectedLangauge");
   const updateState = data => setState(state => ({...state, ...data}));
 
   //Naviagtion to specific screen
@@ -237,15 +223,9 @@ export default function Settings({route, navigation}) {
   const logout = () => {
     actions
       .logout({}, {client: clientInfo?.database_name})
-      .then((res) => {
-        console.log(res, 'login data');
-        updateState({ isLoading: false });
-        setTimeout(() => {
-           removeItem("userData").then(()=>{
-             removerUserData()
-             showSuccess(res?.message ? res?.message : 'Logout successfully.');
-           })
-        }, 400);
+      .then(res => {
+        showSuccess(res?.message ? res?.message : 'Logout successfully.');
+        moveToNewScreen(navigationStrings.LOGIN)();
       })
       .catch(errorMethod);
   };
@@ -353,7 +333,7 @@ export default function Settings({route, navigation}) {
             fontFamily: fontFamily.bold,
             fontSize: textScale(20),
           }}>
-          Delete Account
+          {strings.DELETE_ACCOUNT}
         </Text>
       </TouchableOpacity>
       <ModalView

@@ -88,7 +88,7 @@ export default function ShortCode({route, navigation}) {
       });
     }
     const getClientInfo = await getItem('clientInfo');
-
+    console.log('clientInfoclientInfo', getClientInfo);
     dispatch({
       type: types.APP_INIT,
       payload: getClientInfo,
@@ -152,7 +152,11 @@ export default function ShortCode({route, navigation}) {
 
   useEffect(() => {
     if (!!shortCodeDataInfo && !isEmpty(shortCodeDataInfo)) {
-      if (getBundleId() == appIds?.flank) {
+      if (getBundleId() == appIds?.flank
+        || getBundleId()==appIds?.tareeqk
+        || getBundleId() == appIds?.weShopAfrica
+        // || getBundleId() == appIds?.dropdawg
+      ) {
         setTimeout(() => {
           SplashScreen.hide();
         }, 100);
@@ -168,10 +172,7 @@ export default function ShortCode({route, navigation}) {
   const initApiHit = () => {
     (async () => {
       const saveShortCode = await getItem('saveShortCode');
-      // const appCode = !!saveShortCode ? saveShortCode : getAppCode();
-        const appCode = '3c58a1';
-
-      console.log(defaultLanguage?.value, 'Language in init screen');
+      const appCode = !!saveShortCode ? saveShortCode : getAppCode();
       let header = {};
       if (defaultLanguage?.id) {
         header = {
@@ -184,6 +185,7 @@ export default function ShortCode({route, navigation}) {
       }
 
       let updatedShortCode = appCode;
+      // let updatedShortCode = '362d14';
 
       actions
         .initApp({shortCode: updatedShortCode}, header)
@@ -191,7 +193,7 @@ export default function ShortCode({route, navigation}) {
           // if (getBundleId() == appIds.royoorder && res?.data) {
           //   actions.saveShortCode(updatedShortCode);
           // }
-       
+
           actions.saveShortCode(updatedShortCode);
           console.log(res, 'res>res>resv');
           updateState({
@@ -209,7 +211,11 @@ export default function ShortCode({route, navigation}) {
               });
             }
           } else {
-            if (getBundleId() == appIds.flank) {
+            if (getBundleId() == appIds.flank
+              || getBundleId()==appIds?.tareeqk
+              || getBundleId() == appIds.weShopAfrica
+              // || getBundleId() == appIds.dropdawg
+            ) {
               updateState({
                 initapiresponse: true,
               });
@@ -228,6 +234,12 @@ export default function ShortCode({route, navigation}) {
     switch (getBundleId()) {
       case appIds?.flank:
         return imagePath.flank;
+        case appIds?.tareeqk:
+          return imagePath.tareerk;
+          case appIds?.weShopAfrica:
+            return imagePath.we_Shop_Africa;
+            // case appIds?.dropdawg:
+            //   return imagePath.drop_dawg;
     }
   };
 
@@ -257,18 +269,25 @@ export default function ShortCode({route, navigation}) {
             height: height,
             width: width + moderateScale(5),
           }}
-          resizeMode="cover"
+          // resizeMode="contain"
+          resizeMode={getBundleId() == appIds.weShopAfrica ? 'contain' : 'cover'}
+
           onEnd={() => onVideoDurationEnded()}
           muted={true}
         />
       </View>
     );
   };
-  
   const _renderSplash = () => {
     switch (getBundleId()) {
       case appIds.flank:
         return animatedSplash();
+        case appIds.tareeqk:
+          return animatedSplash();
+          case appIds.weShopAfrica:
+            return animatedSplash();
+            // case appIds.dropdawg:
+            //   return animatedSplash();
       default:
         return imageSplash();
     }

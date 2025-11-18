@@ -30,6 +30,8 @@ const TaskListCard = ({
   showCurrency = false,
   previousData = null,
   isFromHistory = false,
+  fromDashboard=false,
+  clientInfo={}
 }) => {
   const localTimeInTimeStamp = moment
     .utc(data?.order?.order_time, 'YYYY-MM-DD HH:mm:ss')
@@ -120,49 +122,46 @@ const TaskListCard = ({
     } else {
       total = Date.parse(new Date()) - Date.parse(endtime);
     }
-    
-      
 
-    const seconds = Number(Math.abs(Math.floor((total / 1000) % 60)))
-    const hours = Number(Math.abs(Math.floor((total / (1000 * 60 * 60)) % 24)))
-    const days = Number(Math.abs(Math.floor(total / (1000 * 60 * 60 * 24))))
-    const minutes = Number(Math.abs(Math.floor((total / 1000 / 60) % 60)))
-    const totalHours = Number(days*24)+hours
-    const totalMinutes = Number(Math.floor(totalHours * 60))+minutes
+    const seconds = Number(Math.abs(Math.floor((total / 1000) % 60)));
+    const hours = Number(Math.abs(Math.floor((total / (1000 * 60 * 60)) % 24)));
+    const days = Number(Math.abs(Math.floor(total / (1000 * 60 * 60 * 24))));
+    const minutes = Number(Math.abs(Math.floor((total / 1000 / 60) % 60)));
+    const totalHours = Number(days * 24) + hours;
+    const totalMinutes = Number(Math.floor(totalHours * 60)) + minutes;
 
     return {
       total,
       days,
       totalMinutes,
       hours,
-      seconds
+      seconds,
     };
   };
 
   if (getBundleId() == appIds.SXM2GO) {
     useInterval(() => {
-      const {
-        days,
-        totalMinutes,
-        hours,
-        seconds,
-        total } = vendorOrderPerpationTime(deadline)
+      const {days, totalMinutes, hours, seconds, total} =
+        vendorOrderPerpationTime(deadline);
       const orderPerpationTime = {
-        total, days, hours,
+        total,
+        days,
+        hours,
         totalMinutes,
-        seconds
-      }
-      setOrderPerpationTime(orderPerpationTime)
-      setIsOrderPrepartionTimeExpired(deadline.getTime() > new Date().getTime())
-
-    }, 1000)
+        seconds,
+      };
+      setOrderPerpationTime(orderPerpationTime);
+      setIsOrderPrepartionTimeExpired(
+        deadline.getTime() > new Date().getTime(),
+      );
+    }, 1000);
   }
 
   return (
-    <View
+    <TouchableOpacity
       activeOpacity={1}
-      disabled={getDynamicUpdateOnValues().click}
-      // onPress={_onPressTask}
+      disabled={fromDashboard}
+      onPress={_onPressTask}
       style={{
         marginTop: isFromHistory ? getDynamicUpdateOnValues().marginTop : 0,
       }}>
@@ -182,10 +181,15 @@ const TaskListCard = ({
           {!!data?.order?.cash_to_be_collected ? (
             <Text
               style={{
-                fontFamily: fontFamily?.bold
-              }}
-            >
-              {(getBundleId() == appIds.mrVeloz && defaultLanguagae?.value == 'es') ? strings.CASH_COLLECTED : 'Cash Collected :'} {data?.order?.status == 'completed' ? data?.order?.cash_to_be_collected:0}{' '}
+                fontFamily: fontFamily?.bold,
+              }}>
+              {getBundleId() == appIds.mrVeloz &&
+              defaultLanguagae?.value == 'es'
+                ? strings.CASH_COLLECTED
+                : 'Cash Collected :'}{' '}
+              {clientInfo?.currencyCode}{data?.order?.status == 'completed'
+                ? data?.order?.cash_to_be_collected
+                : 0}{' '}
             </Text>
           ) : (
             <View />
@@ -193,10 +197,15 @@ const TaskListCard = ({
           {!!data?.order?.driver_cost ? (
             <Text
               style={{
-                fontFamily: fontFamily?.bold
-              }}
-            >
-              {(getBundleId() == appIds.mrVeloz && defaultLanguagae?.value == 'es') ? strings.EARNING:'Earning :'} {data?.order?.status == 'completed' ? data?.order?.driver_cost : 0}
+                fontFamily: fontFamily?.bold,
+              }}>
+              {getBundleId() == appIds.mrVeloz &&
+              defaultLanguagae?.value == 'es'
+                ? strings.EARNING
+                : 'Earning :'}{' '}
+             {clientInfo?.currencyCode}{data?.order?.status == 'completed'
+                ? data?.order?.driver_cost
+                : 0}
             </Text>
           ) : (
             <View />
@@ -240,7 +249,8 @@ const TaskListCard = ({
                           ? colors.green
                           : colors.redB,
                       }}>
-                      {orderPerpationTime?.totalMinutes}M:{orderPerpationTime?.seconds}S
+                      {orderPerpationTime?.totalMinutes}M:
+                      {orderPerpationTime?.seconds}S
                     </Text>
                   </View>
                 </View>
@@ -254,7 +264,6 @@ const TaskListCard = ({
                 </Text>
               </>
             )}
-        
 
           <Text style={styles.address} numberOfLines={2}>
             {data?.location?.address}
@@ -264,21 +273,23 @@ const TaskListCard = ({
             <Image source={imagePath.time} />
             <Text style={styles.dateTimeStyle}>
               {getDate(data?.order?.order_time)}
+              {/* {moment(data?.order?.order_time).format('MMMM Do YYYY, h:mm a')} */}
+              {/* {data?.order?.order_time} */}
             </Text>
           </View>
 
-          {/* {!!showCurrency && (
+          {!!showCurrency && (
             <View style={styles.currencyContainer}>
-              <Image source={imagePath.dollor} />
-              <Text style={styles.dateTimeStyle}>
+              {/* <Image source={imagePath.dollor} /> */}
+              {/* <Text style={styles.dateTimeStyle}>
                 {data?.order?.amount
                   ? Number(data?.order?.amount)
                       .toFixed(2)
                       .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
                   : Number(0).toFixed(2)}
-              </Text>
+              </Text> */}
             </View>
-          )} */}
+          )}
         </View>
 
         <View style={styles.dotViewStyle}>
@@ -327,15 +338,19 @@ const TaskListCard = ({
                 // {color: getTextColor(data?.tasktype?.name)},
                 {color: colors.black},
               ]}>
-              {`${(data?.tasktype?.name).toLowerCase() == 'drop'
-                ? (getBundleId() == appIds.mrVeloz && defaultLanguagae?.value == 'es') ? strings.DROP_MRVELOZ : strings.DROP
-                : strings.PICKUP
-                }`}
+              {`${
+                (data?.tasktype?.name).toLowerCase() == 'drop'
+                  ? getBundleId() == appIds.mrVeloz &&
+                    defaultLanguagae?.value == 'es'
+                    ? strings.DROP_MRVELOZ
+                    : strings.DROP
+                  : strings.PICKUP
+              }`}
             </Text>
           </View>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

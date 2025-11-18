@@ -11,9 +11,10 @@ import {
 export const styles = StyleSheet.create({
     subscriptionTitle: {
       fontFamily: fontFamily.medium,
-      fontSize: moderateScale(16),
-      color: colors.blackC,
-      opacity: 0.5,
+      fontSize: textScale(16),
+      color: '#ff9019',
+      fontWeight:'800',
+      // opacity: 0.5,
     },
     subscription2:{
         fontFamily: fontFamily.bold,

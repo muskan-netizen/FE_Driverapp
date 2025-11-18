@@ -9,6 +9,16 @@ import * as NavigationService from '../navigation/NavigationService';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 // import { useNavigation } from '@react-navigation/native';
 
+
+export const createAxiosInstance = () => {
+  const source = axios.CancelToken.source();
+  const instance = axios.create({
+    cancelToken: source.token,
+  });
+  return { instance, cancel: source.cancel };
+};
+
+
 export async function getHeaders() {
   let userData = await AsyncStorage.getItem('userData');
 
@@ -107,8 +117,10 @@ export async function apiReq(
     console.log(endPoint, '+++++endPoint');
     console.log(data, '+++++data');
     console.log(headers, '+++++headers');
+ // Create an axios instance with a CancelToken
+ const { instance } = createAxiosInstance();
 
-    axios[method](endPoint, data, {headers})
+    instance[method](endPoint, data, {headers})
       .then(result => {
         console.log('+++++success result', result);
         const {data} = result;
@@ -118,12 +130,16 @@ export async function apiReq(
         return res(data);
       })
       .catch(error => {
-        console.log(error, 'all error');
-        if (error && error.response && error.response.status === 401) {
+        if (axios.isCancel(error)) {
+          console.log('Request was canceled');
+          return rej({
+            error: 'Request was canceled please try again later',
+          });
+        } else if (error && error.response && error.response.status === 401) {
           sessionHandler(error.response.data.message);
           // return rej(error);
         } else {
-          console.log(error.response, 'all error>>>>>>');
+          console.log(error?.response, 'all error++++');
           if (error && error.response && error.response.data) {
             if (!error.response.data.error) {
               return rej({
@@ -136,8 +152,7 @@ export async function apiReq(
             return rej({error: 'Network Error', message: 'Network Error'});
           }
         }
-
-        // return rej(error);
+        return rej(error);
       });
   });
 }

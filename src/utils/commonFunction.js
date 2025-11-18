@@ -61,5 +61,32 @@ export const checkValueExistInAry = (item = {}, arr2 = []) => {
   let found = arr2.includes(item?.id);
   return found;
 };
+const cameraImgVideoHandler = async (data, options) => {
 
-export { cameraHandler, currencyNumberFormatter, kFormatter };
+  //this condition use for open camera
+  if (data == 0) {
+
+    try {
+      const res = await openCamera({ ...options });
+      if (res) {
+        return res;
+      }
+    } catch (err) {
+      console.log(err, 'err');
+    }
+  }
+  //this condition use for open gallery
+  else if (data == 1) {
+    try {
+      const res = await openPicker({ ...options });
+      if (res) {
+        return res;
+      }
+    } catch (err) {
+      console.log(err, 'err');
+    }
+  } else {
+    return null;
+  }
+};
+export { cameraHandler, currencyNumberFormatter, kFormatter ,cameraImgVideoHandler};

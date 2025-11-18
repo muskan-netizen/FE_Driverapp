@@ -136,6 +136,8 @@ export default function PhoneNumberInput({
           <CountryPicker
             withCallingCode={true}
             cca2={cca2}
+            withEmoji={false}
+            withFlag
             visible={countryPickerModalVisible}
             withFlagButton={false}
             withFilter

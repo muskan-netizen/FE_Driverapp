@@ -1,4 +1,4 @@
-import { AGENT_CHAT_ROOM, ALL_ROOM_USER, GET_ALL_MESSAGES, SEND_MESSAGE, SEND_NOTIFCATION, START_CHAT } from "../../config/urls";
+import { AGENT_CHAT_ROOM, ALL_ROOM_USER, GET_ALL_MESSAGES, SEND_MESSAGE, SEND_NOTIFCATION, START_CHAT, UPLOAD_FILE_S3 } from "../../config/urls";
 import { apiGet, apiPost, getItem } from "../../utils/utils";
 
 export function onStartChat(data = {}, headers = {}) {
@@ -37,7 +37,7 @@ export function sendMessage(data = {}, headers = {}) {
     const defaultUrl = 'https://chat.royoorders.com';
     const getClientInfo = await getItem('clientInfo');
     const socketUrl = getClientInfo?.socket_url ? getClientInfo?.socket_url : defaultUrl
-    
+    console.log(socketUrl + SEND_MESSAGE,'socketUrl + SEND_MESSAGEsocketUrl + SEND_MESSAGE',data,headers)
     apiPost(socketUrl + SEND_MESSAGE, data, headers)
       .then((response) => {
         resolve(response);
@@ -94,3 +94,7 @@ export function sendNotification(data = {}, headers = {}) {
   });
 }
 
+export function uploadMediaS3(uri = '', data = {}, headers = {}) {
+  console.log('uri',uri)
+  return apiGet(UPLOAD_FILE_S3 + uri, data, headers);
+}

@@ -142,6 +142,10 @@ export default ({defaultLanguagae}) => {
       borderRadius: moderateScale(10),
       height: moderateScale(200),
     },
+    overlay: {
+      flex: 1,
+      backgroundColor: 'rgba(0,0,0,0.5)',
+    },
     thanksMsgTxt: {
       textAlign: 'center',
       fontFamily: fontFamily.bold,
@@ -156,7 +160,7 @@ export default ({defaultLanguagae}) => {
     },
     driverTagsView: {
       borderWidth: 1,
-      width: (width - moderateScale(70)) / 3,
+      // width: (width - moderateScale(70)) / 3,
       alignItems: 'center',
       marginVertical: moderateScale(5),
       paddingVertical: moderateScale(5),
@@ -164,6 +168,7 @@ export default ({defaultLanguagae}) => {
       zIndex: 1,
       borderRadius: moderateScale(5),
       justifyContent: 'center',
+      paddingHorizontal:moderateScale(4)
     },
     noDataFound: {
       width: '100%',

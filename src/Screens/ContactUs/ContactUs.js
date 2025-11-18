@@ -109,7 +109,7 @@ export default function ContactUs({route, navigation}) {
             )
           }
           style={styles.emailCallView}>
-          <Image source={imagePath?.call} />
+          <Image source={imagePath?.call} tintColor={colors?.black} />
 
           <Text style={styles.phoneEmailStyle}>{`${
             !!clientInfo?.get_country_set?.phonecode
@@ -132,7 +132,7 @@ export default function ContactUs({route, navigation}) {
             )
           }
           style={{...styles.emailCallView, marginTop: moderateScale(20)}}>
-          <Image source={imagePath?.chatBlue} />
+          <Image source={imagePath?.chatBlue} tintColor={colors?.black} />
           <Text style={styles.phoneEmailStyle}>{clientInfo?.email}</Text>
         </TouchableOpacity>
       </View>

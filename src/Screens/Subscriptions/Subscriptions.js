@@ -1,10 +1,18 @@
-import React, { useState, useEffect, createRef } from 'react';
-import { useFocusEffect } from '@react-navigation/native';
-import { Image, View, Text, ScrollView, Button, RefreshControl, TouchableOpacity } from 'react-native';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import { useSelector } from 'react-redux';
+import React, {useState, useEffect, createRef} from 'react';
+import {useFocusEffect} from '@react-navigation/native';
+import {
+  Image,
+  View,
+  Text,
+  ScrollView,
+  Button,
+  RefreshControl,
+  TouchableOpacity,
+} from 'react-native';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import {useSelector} from 'react-redux';
 import Header from '../../Components/Header';
-import { loaderOne } from '../../Components/Loaders/AnimatedLoaderFiles';
+import {loaderOne} from '../../Components/Loaders/AnimatedLoaderFiles';
 import TextInputWithlabel from '../../Components/TextInputWithlabel';
 import WrapperContainer from '../../Components/WrapperContainer';
 import PhoneNumberInput from '../../Components/PhoneNumberInput';
@@ -21,21 +29,21 @@ import {
   width,
 } from '../../styles/responsiveSize';
 import imagePath from '../../constants/imagePath';
-import { transportationArray } from '../../utils/constants/ConstantValues';
+import {transportationArray} from '../../utils/constants/ConstantValues';
 import {styles} from './styles';
 import SubscriptionComponent from '../../Components/SubscriptionComponent';
-import { FlatList } from 'react-native-gesture-handler';
+import {FlatList} from 'react-native-gesture-handler';
 import SubscriptionComponent2 from '../../Components/SubscriptionComponent2';
 import actions from '../../redux/actions';
-import { showError, showSuccess } from '../../utils/helperFunctions';
+import {showError, showSuccess} from '../../utils/helperFunctions';
 import axios from 'axios';
 import ListEmptySubscriptions from './ListEmptySubscriptions';
-import { GET_ALL_SUBSCRIPTION_PLANS } from '../../config/urls';
+import {GET_ALL_SUBSCRIPTION_PLANS} from '../../config/urls';
 import ModalView from '../../Components/Modal';
 import GradientButton from '../../Components/GradientButton';
 import FastImage from 'react-native-fast-image';
 
-export default function Subscriptions({ route, navigation }) {
+export default function Subscriptions({route, navigation}) {
   const userData = useSelector(state => state?.auth?.userData);
   console.log(userData, 'userData');
   const [state, setState] = useState({
@@ -73,19 +81,18 @@ export default function Subscriptions({ route, navigation }) {
     selectedPaymentMethod,
     cardInfo,
     planPrice,
-    clientCurrencyToBuy
-
+    clientCurrencyToBuy,
   } = state;
 
-  // updated your state 
-  const updateState = data => setState(state => ({ ...state, ...data }));
-
-  const commonStyles = commonStylesFunc({ fontFamily });
+  // updated your state
+  const updateState = data => setState(state => ({...state, ...data}));
+  const [selectedPlanDetails, setSelectedPlanDetails] = useState(null);
+  const commonStyles = commonStylesFunc({fontFamily});
   const explosion = createRef();
 
   useFocusEffect(
     React.useCallback(() => {
-      updateState({ isLoadingB: true });
+      updateState({isLoadingB: true});
       getAllSubscriptions();
       console.log(explosion, 'explosion');
     }, []),
@@ -95,11 +102,9 @@ export default function Subscriptions({ route, navigation }) {
   //   console.log(transportationArray, 'transportationArray');
   // }, [transportationArray]);
 
-
-
   const clientInfo = useSelector(state => state?.initBoot?.clientInfo);
   const shortCode = useSelector(state => state?.initBoot?.shortCode);
-  console.log(clientInfo, shortCode, "dataaaaa")
+  console.log(clientInfo, shortCode, 'dataaaaa');
 
   // const defaultLanguagae = useSelector(
   //   state => state?.initBoot?.defaultLanguage,
@@ -109,27 +114,31 @@ export default function Subscriptions({ route, navigation }) {
 
   //Naviagtion to specific screen
   const moveToNewScreen = (screenName, data) => () => {
-    navigation.navigate(screenName, { data });
+    navigation.navigate(screenName, {data});
   };
 
   //On country change
   const _onCountryChange = data => {
-    updateState({ cca2: data.cca2, callingCode: data.callingCode[0] });
+    updateState({cca2: data.cca2, callingCode: data.callingCode[0]});
     return;
   };
 
+  //Subscribe for specific plan selectSubscription
 
-  //Subscribe for specific plan
-  const selectSpecificSubscriptionPlan = (item) => {
+  const selectSpecificSubscriptionPlan = item => {
     console.log(item, '>>>>>>>>>>>>>selectSpecificSubscriptionPlan');
-    updateState({ isLoading: true, planPrice: 120.0 });
+
+    setSelectedPlanDetails(item);
+
+    return;
+    updateState({isLoading: true, planPrice: 120.0});
     actions
       .selectSpecificSubscriptionPlan(
         `/${item?.slug}`,
         {},
-        { client: clientInfo?.database_name },
+        {client: clientInfo?.database_name},
       )
-      .then((res) => {
+      .then(res => {
         console.log('selectSpecificSubscriptionPlan', res);
         if (res && res.status == 'Success') {
           updateState({
@@ -137,7 +146,7 @@ export default function Subscriptions({ route, navigation }) {
             isLoading: false,
             isModalVisibleForPayment: true,
             selectedPlan: res?.data?.sub_plan,
-            clientCurrencyToBuy : res?.data?. clientCurrency,
+            clientCurrencyToBuy: res?.data?.clientCurrency,
             paymentOptions: res?.data?.payment_options
               ? res?.data?.payment_options
               : [],
@@ -153,33 +162,69 @@ export default function Subscriptions({ route, navigation }) {
       .catch(errorMethod);
   };
 
+  const selectSubscription = item => {
+    console.log(
+      item,
+      '>>>>>>>>>>>>>selectSubscriptionselectSubscriptionselectSubscriptions',
+    );
+    setSelectedPlanDetails(item);
+    updateState({isLoading: true, planPrice: 120.0});
+    actions
+      .selectSpecificSubscriptionPlan(
+        `/${item?.slug}`,
+        {},
+        {client: clientInfo?.database_name},
+      )
+      .then(res => {
+        console.log('selectSpecificSubscriptionPlan', res);
+        if (res && res.status == 'Success') {
+          updateState({
+            isLoadingB: false,
+            isLoading: false,
+            isModalVisibleForPayment: true,
+            selectedPlan: res?.data?.sub_plan,
+            clientCurrencyToBuy: res?.data?.clientCurrency,
+            paymentOptions: res?.data?.payment_options
+              ? res?.data?.payment_options
+              : [],
+          });
+        } else {
+          showError(res?.message);
+          updateState({
+            isLoadingB: false,
+            isLoading: false,
+          });
+        }
+      })
+      .catch(errorMethod);
+  };
 
-  // Purchase Subscription 
+  // Purchase Subscription
 
-  const purchaseSubscriptionPlan =  (item) => {
-    console.log(item,"selectedPlan")
-    updateState({isLoading:true, isLoadingB:true, })
+  const purchaseSubscriptionPlan = item => {
+    console.log(item, 'selectedPlan');
+    updateState({isLoading: true, isLoadingB: true});
 
-      actions
-          .purchaseSubscriptionPlan(
-            `/${item?.slug}`,
-            {},
-            { client: clientInfo?.database_name },
-          )
-          .then((res) => {
-            console.log(res,"ressssssss>>")
-            getAllSubscriptions(true);
-            updateState({
-              isLoadingB: false,
-              isLoading: false,
-              isRefreshing: false,
-              isModalVisibleForPayment: false 
-            });
-            showSuccess(res?.message); 
-          })
-          .catch(errorMethod);
+    actions
+      .purchaseSubscriptionPlan(
+        `/${item?.slug}`,
+        {},
+        {client: clientInfo?.database_name},
+      )
+      .then(res => {
+        console.log(res, 'ressssssss>>');
+        getAllSubscriptions(true);
+        updateState({
+          isLoadingB: false,
+          isLoading: false,
+          isRefreshing: false,
+          isModalVisibleForPayment: false,
+        });
+        showSuccess(res?.message);
+      })
+      .catch(errorMethod);
     // if (!!item) {
-       
+
     //     // let selectedMethod = selectedPaymentMethod.title.toLowerCase();
     //     actions
     //       .purchaseSubscriptionPlan(
@@ -206,20 +251,19 @@ export default function Subscriptions({ route, navigation }) {
     //       showError(res?.error?.message);
     //     }
     //   }
-  }
-
+  };
 
   //cancel subscription
-  const cancelSubscription = (item) => {
+  const cancelSubscription = item => {
     console.log(item, 'item>>selectSpecificSubscriptionPlan');
-    updateState({ isLoading: true ,isLoadingB:true,});
+    updateState({isLoading: true, isLoadingB: true});
     actions
       .cancelSubscriptionPlan(
         `/${item?.slug}`,
         {},
-        { client: clientInfo?.database_name },
+        {client: clientInfo?.database_name},
       )
-      .then((res) => {
+      .then(res => {
         console.log('selectSpecificSubscriptionPlan data', res);
         updateState({
           isLoadingB: false,
@@ -231,15 +275,10 @@ export default function Subscriptions({ route, navigation }) {
       .catch(errorMethod);
   };
 
-
-  
-
-  const getAllSubscriptions = (showSuccess) => {
+  const getAllSubscriptions = showSuccess => {
     actions
-      .getAllSubscriptions({},
-        { client: clientInfo?.database_name },
-      )
-      .then((res) => {
+      .getAllSubscriptions({}, {client: clientInfo?.database_name})
+      .then(res => {
         console.log('Get all subscription plans', res);
         updateState({
           isLoadingB: false,
@@ -254,21 +293,23 @@ export default function Subscriptions({ route, navigation }) {
   };
 
   //Error handling in screen
-  const errorMethod = (error) => {
-    updateState({ isLoading: false, isLoadingB: false, isRefreshing: false , isModalVisibleForPayment:false });
+  const errorMethod = error => {
+    updateState({
+      isLoading: false,
+      isLoadingB: false,
+      isRefreshing: false,
+      isModalVisibleForPayment: false,
+    });
     showError(error?.message || error?.error);
   };
 
-
   //Pull to refresh
   const handleRefresh = () => {
-    updateState({ isRefreshing: true });
+    updateState({isRefreshing: true});
     getAllSubscriptions();
   };
 
-
-
-  // Modal View functions  
+  // Modal View functions
 
   const modalMainContent = () => {
     return (
@@ -281,10 +322,9 @@ export default function Subscriptions({ route, navigation }) {
           }}>
           <Text style={styles.title}>{selectedPlan?.title}</Text>
           <Text
-            style={[
-              styles.title2,
-              { marginTop: moderateScale(10) },
-            ]}>{`${Number(selectedPlan?.price).toFixed(2)}/${selectedPlan?.frequency}`}</Text>
+            style={[styles.title2, {marginTop: moderateScale(10)}]}>{`${Number(
+            selectedPlan?.price,
+          ).toFixed(2)}/${selectedPlan?.frequency}`}</Text>
         </View>
 
         <View
@@ -294,7 +334,7 @@ export default function Subscriptions({ route, navigation }) {
             marginVertical: moderateScale(10),
           }}>
           <Text style={styles.title}>{strings.FEATURES_INCLUDED}</Text>
-        
+
           <View
             style={{
               flexDirection: 'row',
@@ -303,12 +343,14 @@ export default function Subscriptions({ route, navigation }) {
               alignItems: 'center',
             }}>
             <Image source={imagePath.tickGreen} />
-            <Text
-              style={[
-                styles.title2,
-                { marginLeft: moderateScale(10) },
-              ]}> {`${strings.FIXED_COMMISION} : ${clientCurrencyToBuy?.symbol} ${Number(selectedPlan?.driver_commission_fixed).toFixed(2)}`} </Text>
-              
+            <Text style={[styles.title2, {marginLeft: moderateScale(10)}]}>
+              {' '}
+              {`${strings.FIXED_COMMISION} : ${
+                clientCurrencyToBuy?.symbol
+              } ${Number(selectedPlan?.driver_commission_fixed).toFixed(
+                2,
+              )}`}{' '}
+            </Text>
           </View>
 
           <View
@@ -319,11 +361,14 @@ export default function Subscriptions({ route, navigation }) {
               alignItems: 'center',
             }}>
             <Image source={imagePath.tickGreen} />
-            <Text
-              style={[
-                styles.title2,
-                { marginLeft: moderateScale(10) },
-              ]}> {`${strings.PERCENTAGE_COMMISION} : ${clientCurrencyToBuy?.symbol} ${Number(selectedPlan?.driver_commission_percentage.toFixed(2))}`} </Text>
+            <Text style={[styles.title2, {marginLeft: moderateScale(10)}]}>
+              {' '}
+              {`${strings.PERCENTAGE_COMMISION} : ${
+                clientCurrencyToBuy?.symbol
+              } ${Number(
+                selectedPlan?.driver_commission_percentage.toFixed(2),
+              )}`}{' '}
+            </Text>
           </View>
         </View>
 
@@ -341,16 +386,23 @@ export default function Subscriptions({ route, navigation }) {
             paddingHorizontal: moderateScale(20),
             marginVertical: moderateScale(10),
           }}>
-          <View style={{}} >
+          <View style={{}}>
             <Text style={styles.title}>{strings.DEBIT_FROM}</Text>
-           <View style={{flexDirection:'row', alignItems:'center',}} >
-           <Image
-              style={{marginRight:moderateScale(4),height:moderateScaleVertical(18), width:moderateScale(18) }}
-              source={imagePath.radioActive}
-            />
-           <Text style={{ ...styles.title2, marginVertical:moderateScale(10)}} > {strings.WALLET} </Text>
-            
-           </View>
+            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+              <Image
+                style={{
+                  marginRight: moderateScale(4),
+                  height: moderateScaleVertical(18),
+                  width: moderateScale(18),
+                }}
+                source={imagePath.radioActive}
+              />
+              <Text
+                style={{...styles.title2, marginVertical: moderateScale(10)}}>
+                {' '}
+                {strings.WALLET}{' '}
+              </Text>
+            </View>
           </View>
           <View>
             {/* <FlatList
@@ -385,7 +437,7 @@ export default function Subscriptions({ route, navigation }) {
         }}>
         <Text style={styles.subscription2}>{strings.SUBSCRIPTION}</Text>
         <TouchableOpacity
-          onPress={() => updateState({ isModalVisibleForPayment: false })}>
+          onPress={() => updateState({isModalVisibleForPayment: false})}>
           <Image source={imagePath.ic_cross} />
         </TouchableOpacity>
       </View>
@@ -408,14 +460,14 @@ export default function Subscriptions({ route, navigation }) {
               //   themeColors.primary_color,
               // ]}
               textStyle={styles.textStyle}
-              onPress={() => updateState({ isModalVisibleForPayment: false })}
+              onPress={() => updateState({isModalVisibleForPayment: false})}
               borderRadius={moderateScale(5)}
               containerStyle={{
                 marginHorizontal: moderateScale(10),
                 // width: paymentOptions.length ? width / 3 : width - 60,
-                width: width / 4
+                width: width / 4,
               }}
-              btnText={strings.CANCEL} 
+              btnText={strings.CANCEL}
             />
             <GradientButton
               // colorsArray={[
@@ -423,16 +475,17 @@ export default function Subscriptions({ route, navigation }) {
               //   themeColors.primary_color,
               // ]}
               textStyle={styles.textStyle}
-              onPress={()=> {purchaseSubscriptionPlan(selectedPlan)} }
+              onPress={() => {
+                purchaseSubscriptionPlan(selectedPlan);
+              }}
               borderRadius={moderateScale(5)}
               containerStyle={{
                 marginHorizontal: moderateScale(10),
-                width: width / 3
+                width: width / 3,
                 // width: paymentOptions.length ? width / 3 : width - 60,
               }}
               btnText={strings.BUY_NOW}
             />
-
 
             {/* {paymentOptions.length ? (
               <GradientButton
@@ -458,29 +511,25 @@ export default function Subscriptions({ route, navigation }) {
     );
   };
 
-
   // render List Header of flat List
   const listHeaderComponent = () => {
     return (
-      <>
+      <View
+        style={{
+          // backgroundColor:'pink',
+          marginHorizontal: moderateScale(16),
+        }}>
         {!!currentSubscription && (
-          <>
-            <View style={{ marginVertical: moderateScale(10) }}>
-              <Text
-              style={styles.subscriptionTitle}
-                // style={
-                //   isDarkMode
-                //     ? [
-                //       styles.subscriptionTitle,
-                //       { color: MyDarkTheme.colors.text },
-                //     ]
-                //     : styles.subscriptionTitle
-                // }
-                >
-              {strings.MY_SUBSCRIPTION}
+          <View>
+            <View style={{marginVertical: moderateScale(10)}}>
+              <Text style={styles.subscriptionTitle}>
+                {strings.MY_SUBSCRIPTION}
               </Text>
             </View>
             <SubscriptionComponent2
+               borderStyle={{
+                borderColor:'#ff9019',
+              }}
               data={currentSubscription?.plan}
               subscriptionData={currentSubscription}
               clientCurrency={clientCurrency}
@@ -492,32 +541,44 @@ export default function Subscriptions({ route, navigation }) {
               cancelSubscription={() => cancelSubscription(currentSubscription)}
               isCancelBtn={true}
             />
-          </>
+          </View>
         )}
-      </>
+      </View>
     );
   };
-  const renderProduct = ({ item, index }) => {
-    
+  const renderProduct = ({item, index}) => {
+    console.log(item, 'jhghjhghjghjgjhghjghjgj');
+
     return (
-      <View>
+      <View
+        style={{
+          marginHorizontal: moderateScale(20),
+          marginTop: moderateScaleVertical(10),
+        }}>
         {!!(index == 0) && (
           <View
             style={{
-              marginTop: currentSubscription ? moderateScale(40) : null,
+              marginTop: currentSubscription ? moderateScale(10) : null,
               marginBottom: moderateScale(20),
             }}>
             <Text style={styles.subscriptionTitle}>
               {currentSubscription
-                ?` ${strings.OTHER_SUBSCRIPTION}`
+                ? ` ${strings.OTHER_SUBSCRIPTION}`
                 : `${strings.ALL_SUBSCRIPTION}`}
             </Text>
           </View>
         )}
         <SubscriptionComponent2
+          borderStyle={{
+            borderColor:
+              item?.id == selectedPlanDetails?.id
+                ? '#ff9019'
+                : colors.blackOpacity43,
+                borderWidth: item?.id == selectedPlanDetails?.id ? 3 : 1,
+          }}
           data={item}
           clientCurrency={clientCurrency}
-          onPress={(item) => selectSpecificSubscriptionPlan(item)}
+          onPress={() => selectSpecificSubscriptionPlan(item)}
           payNowUpcoming={() =>
             selectSpecificSubscriptionPlan(currentSubscription?.plan)
           }
@@ -529,45 +590,47 @@ export default function Subscriptions({ route, navigation }) {
     );
   };
 
-
   return (
     <WrapperContainer
       statusBarColor={colors.white}
       bgColor={colors.white}
       isLoadingB={isLoading}
-      source={loaderOne}
-    >
+      source={loaderOne}>
       <Header
-        headerStyle={{ backgroundColor: colors.white }}
+        headerStyle={{backgroundColor: colors.white}}
         // hideRight={true}
         // onPressLeft={()=>navigation.goBack()}
         centerTitle={strings.SUBSCRIPTIONS}
       />
-      <View style={{ ...commonStyles.headerTopLine }} />
-      <View style={styles.rootContainer}>
-            <FlatList
-              data={(!isLoadingB && allSubscriptions) || []}
-              renderItem={renderProduct}
-              keyExtractor={(item, index) => String(index)}
-              ItemSeparatorComponent={() => <View style={{ height: 10 }} />}
-              ListHeaderComponent={listHeaderComponent()}
-              keyboardShouldPersistTaps="always"
-              showsVerticalScrollIndicator={false}
-              contentContainerStyle={{ flexGrow: 1 }}
-              initialNumToRender={12}
-              maxToRenderPerBatch={10}
-              windowSize={10}
-              ListFooterComponent={() => <View style={{ height: 40 }} />}
-              ListEmptyComponent={<ListEmptySubscriptions isLoading={isLoadingB} />}
-              refreshControl={
-                <RefreshControl
-                  refreshing={isRefreshing}
-                  onRefresh={handleRefresh}
-                  tintColor={colors.themeColor}
-                />
-              }
-            />
-      </View>
+      <View style={{...commonStyles.headerTopLine}} />
+      {/* <View style={styles.rootContainer}> */}
+      <FlatList
+        data={(!isLoadingB && allSubscriptions) || []}
+        renderItem={renderProduct}
+        keyExtractor={(item, index) => String(index)}
+        ItemSeparatorComponent={() => <View style={{height: 10}} />}
+        ListHeaderComponent={listHeaderComponent()}
+        style={{
+          marginTop: moderateScaleVertical(20),
+        }}
+        keyboardShouldPersistTaps="always"
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{flexGrow: 1}}
+        initialNumToRender={12}
+        maxToRenderPerBatch={10}
+        windowSize={10}
+        ListFooterComponent={() => <View style={{height: 40}} />}
+        ListEmptyComponent={<ListEmptySubscriptions isLoading={isLoadingB} />}
+        refreshControl={
+          <RefreshControl
+            refreshing={isRefreshing}
+            onRefresh={handleRefresh}
+            tintColor={colors.themeColor}
+          />
+        }
+      />
+      {/* </View> */}
+
       <ModalView
         data={selectedPlan}
         isVisible={isModalVisibleForPayment}
@@ -579,6 +642,33 @@ export default function Subscriptions({ route, navigation }) {
         modalBottomContent={modalBottomContent}
         avoidKeyboard={Platform.OS == 'ios' ? true : false}
       />
+      <GradientButton
+        onPress={() => selectSubscription(selectedPlanDetails)}
+        borderRadius={moderateScale(12)}
+        colorsArray={['#ff9019', '#ff9019']}
+        btnStyle={{
+          backGroundColor: 'red',
+        }}
+        btnText={strings.CHOOSE_PLANS}
+        containerStyle={{
+          marginHorizontal: 20,
+        }}
+      />
+      <TouchableOpacity
+        onPress={() => navigation.goBack()}
+        style={{
+          marginVertical: moderateScaleVertical(20),
+          alignItems: 'center',
+          // marginBottom:moderateScaleVertical(100)
+        }}>
+        <Text
+          style={{
+            fontSize: textScale(14),
+            color: colors.blackOpacity86,
+          }}>
+          Cancel
+        </Text>
+      </TouchableOpacity>
     </WrapperContainer>
   );
 }
