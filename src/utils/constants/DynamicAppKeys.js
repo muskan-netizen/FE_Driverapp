@@ -3,7 +3,7 @@ import { getBundleId } from "react-native-device-info";
 
 const shortCodes = {
   payanam:'7a6d0e',
-  hubDrives:'cf0b96',
+  hubDrives:'86392b',
 };
 
 const appIds = {
