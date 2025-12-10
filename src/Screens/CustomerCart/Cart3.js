@@ -1,7 +1,7 @@
-import {useFocusEffect} from '@react-navigation/native';
-import {cloneDeep, isEmpty} from 'lodash';
+import { useFocusEffect } from '@react-navigation/native';
+import { cloneDeep } from 'lodash';
 import moment from 'moment';
-import React, {Fragment, useEffect, useRef, useState} from 'react';
+import React, { Fragment, useEffect, useRef, useState } from 'react';
 import {
   Alert,
   Animated,
@@ -14,27 +14,24 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
-  View,
   TouchableWithoutFeedback,
+  View,
 } from 'react-native';
 import * as Animatable from 'react-native-animatable';
-import {Calendar} from 'react-native-calendars';
-import {useDarkMode} from 'react-native-dynamic';
+import { Calendar } from 'react-native-calendars';
 import DatePicker from 'react-native-date-picker';
 import DeviceInfo from 'react-native-device-info';
 import DropDownPicker from 'react-native-dropdown-picker';
+import { useDarkMode } from 'react-native-dynamic';
 import FastImage from 'react-native-fast-image';
-import Swipeable from 'react-native-gesture-handler/Swipeable';
-import {UIActivityIndicator} from 'react-native-indicators';
+import { UIActivityIndicator } from 'react-native-indicators';
 import * as RNLocalize from 'react-native-localize';
 import Modal from 'react-native-modal';
-import RazorpayCheckout from 'react-native-razorpay';
-import {useSelector} from 'react-redux';
-import ButtonComponent from '../../Components/ButtonComponent';
+import { useSelector } from 'react-redux';
 import GradientButton from '../../Components/GradientButton';
 import Header from '../../Components/Header';
 import HorizontalLine from '../../Components/HorizontalLine';
-import {loaderOne} from '../../Components/Loaders/AnimatedLoaderFiles';
+import { loaderOne } from '../../Components/Loaders/AnimatedLoaderFiles';
 import HeaderLoader from '../../Components/Loaders/HeaderLoader';
 import ProductListLoader from '../../Components/Loaders/ProductListLoader';
 import WrapperContainer from '../../Components/WrapperContainer';
@@ -44,7 +41,7 @@ import staticStrings from '../../constants/staticStrings';
 import navigationStrings from '../../navigation/navigationStrings';
 import actions from '../../redux/actions';
 import colors from '../../styles/colors';
-import {hitSlopProp} from '../../styles/commonStyles';
+import { hitSlopProp } from '../../styles/commonStyles';
 import {
   height,
   moderateScale,
@@ -52,23 +49,21 @@ import {
   textScale,
   width,
 } from '../../styles/responsiveSize';
-import {MyDarkTheme} from '../../styles/theme';
-import {currencyNumberFormatter} from '../../utils/commonFunction';
+import { MyDarkTheme } from '../../styles/theme';
+import { currencyNumberFormatter } from '../../utils/commonFunction';
 import {
   getHostName,
   getImageUrl,
   getParameterByName,
   hapticEffects,
-  showError,
-  showInfo,
-  showSuccess,
-  timeInLocalLangauge,
   playHapticEffect,
+  showError,
+  showSuccess,
+  timeInLocalLangauge
 } from '../../utils/helperFunctions';
-import {getItem, removeItem, setItem} from '../../utils/utils';
+import { getItem, removeItem, setItem } from '../../utils/utils';
 import stylesFun from './styles';
 // import BottomSheet, {BottomSheetScrollView} from '@gorhom/bottom-sheet';
-import VariantAddons from '../../Components/VariantAddons';
 
 export default function Cart({navigation, route}) {
   const theme = useSelector(state => state?.initBoot?.themeColor);
@@ -969,19 +964,19 @@ export default function Cart({navigation, route}) {
       theme: {color: themeColors.primary_color},
     };
 
-    RazorpayCheckout.open(options)
-      .then(res => {
-        console.log(`Success for razor: `, res);
-        if (res?.razorpay_payment_id) {
-          let data = {};
-          data['address_id'] = selectedAddressData?.id;
-          data['payment_option_id'] = selectedPayment?.id;
-          data['type'] = dineInType || '';
-          data['transaction_id'] = res?.razorpay_payment_id;
-          placeOrderData(data); // placeOrder
-        }
-      })
-      .catch(errorMethod);
+    // RazorpayCheckout.open(options)
+    //   .then(res => {
+    //     console.log(`Success for razor: `, res);
+    //     if (res?.razorpay_payment_id) {
+    //       let data = {};
+    //       data['address_id'] = selectedAddressData?.id;
+    //       data['payment_option_id'] = selectedPayment?.id;
+    //       data['type'] = dineInType || '';
+    //       data['transaction_id'] = res?.razorpay_payment_id;
+    //       placeOrderData(data); // placeOrder
+    //     }
+    //   })
+    //   .catch(errorMethod);
   };
 
   const clearSceduleDate = async () => {

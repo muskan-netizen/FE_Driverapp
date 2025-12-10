@@ -1,17 +1,22 @@
+import {
+  CardField,
+  createToken,
+  initStripe,
+  StripeProvider,
+} from "@stripe/stripe-react-native";
 import React, { useEffect, useState } from "react";
 import {
   Alert,
   FlatList,
   Image,
+  Keyboard,
   Text,
   TextInput,
   TouchableOpacity,
-  View,
-  ScrollView,
-  Keyboard,
   TouchableWithoutFeedback,
+  View
 } from "react-native";
-import RazorpayCheckout from "react-native-razorpay";
+import { useDarkMode } from "react-native-dynamic";
 import { useSelector } from "react-redux";
 import GradientButton from "../../Components/GradientButton";
 import Header from "../../Components/Header";
@@ -22,7 +27,6 @@ import strings from "../../constants/lang";
 import navigationStrings from "../../navigation/navigationStrings";
 import actions from "../../redux/actions";
 import colors from "../../styles/colors";
-import fontFamily from "../../styles/fontFamily";
 import {
   moderateScale,
   moderateScaleVertical,
@@ -30,13 +34,6 @@ import {
 import { currencyNumberFormatter } from "../../utils/commonFunction";
 import { showError } from "../../utils/helperFunctions";
 import stylesFun from "./styles";
-import {
-  CardField,
-  createToken,
-  initStripe,
-  StripeProvider,
-} from "@stripe/stripe-react-native";
-import { useDarkMode } from "react-native-dynamic";
 
 export default function AddMoney({ navigation }) {
   const { clientInfo, themeColor, themeToggle } = useSelector(
@@ -427,31 +424,31 @@ export default function AddMoney({ navigation }) {
       theme: { color: "#F37254" },
     };
 
-    RazorpayCheckout.open(options)
-      .then((res) => {
-        console.log(`Success for razor: `, res);
-        if (res?.razorpay_payment_id) {
-          const data = {};
-          data["amount"] = amount;
-          data["transaction_id"] = res?.razorpay_payment_id;
-          actions
-            .walletCredit(data, {
-              client: clientInfo?.database_name,
-            })
-            .then((res) => {
-              console.log(res, "response credit wallet");
-              Alert.alert("", strings.PAYMENT_SUCCESS, [
-                {
-                  text: strings.OK,
-                  onPress: () => console.log("Okay pressed"),
-                },
-              ]);
-              navigation.navigate(navigationStrings.WALLET);
-            })
-            .catch(errorMethod);
-        }
-      })
-      .catch((err) => showError(err?.error?.description));
+    // RazorpayCheckout.open(options)
+    //   .then((res) => {
+    //     console.log(`Success for razor: `, res);
+    //     if (res?.razorpay_payment_id) {
+    //       const data = {};
+    //       data["amount"] = amount;
+    //       data["transaction_id"] = res?.razorpay_payment_id;
+    //       actions
+    //         .walletCredit(data, {
+    //           client: clientInfo?.database_name,
+    //         })
+    //         .then((res) => {
+    //           console.log(res, "response credit wallet");
+    //           Alert.alert("", strings.PAYMENT_SUCCESS, [
+    //             {
+    //               text: strings.OK,
+    //               onPress: () => console.log("Okay pressed"),
+    //             },
+    //           ]);
+    //           navigation.navigate(navigationStrings.WALLET);
+    //         })
+    //         .catch(errorMethod);
+    //     }
+    //   })
+    //   .catch((err) => showError(err?.error?.description));
   };
 
   const _selectPaymentMethod = (item) => {
