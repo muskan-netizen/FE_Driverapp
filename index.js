@@ -8,6 +8,7 @@ import actions from './src/redux/actions';
 import {Platform} from 'react-native';
 import {navigate} from './src/navigation/NavigationService';
 import navigationStrings from './src/navigation/navigationStrings';
+import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
 // Register background handler
 messaging().setBackgroundMessageHandler(async remoteMessage => {
   console.log('Message handled in the background!', remoteMessage);
@@ -52,4 +53,4 @@ messaging().setBackgroundMessageHandler(async remoteMessage => {
     }
   }
 });
-AppRegistry.registerComponent(appName, () => App);
+AppRegistry.registerComponent(appName, () => gestureHandlerRootHOC(App));
