@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		281FBEAA20A1CA06AC7762B4 /* Pods_available_pods_HubDrives.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CDEA5EF827ECE3A479FF538 /* Pods_available_pods_HubDrives.framework */; };
-		2B044BD8948027471836301D /* Pods_available_pods_Yah.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E74E854B75C706FE60EE9B /* Pods_available_pods_Yah.framework */; };
+		3CC5CCFF7419728DFBEA98D3 /* Pods_available_pods_Payanam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38DB19EDFFAA2719B36297FB /* Pods_available_pods_Payanam.framework */; };
 		3D0054BA2DF15D1D001D9593 /* RoyoDriverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84961AE127EB05D300B58C31 /* RoyoDriverApp.swift */; };
 		3D0054BB2DF15D1D001D9593 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		3D0054BD2DF15D1D001D9593 /* ChatSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DFD7CF92D6C74E50037320F /* ChatSDK.xcframework */; };
@@ -81,8 +80,9 @@
 		3DCA9FF52DF2AC77004825F5 /* Vamanoz(prod).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 3DCA9FF42DF2AC77004825F5 /* Vamanoz(prod).xcconfig */; };
 		3DCA9FF72DF2AC87004825F5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DCA9FF62DF2AC87004825F5 /* Images.xcassets */; };
 		3DCA9FF92DF2ACA3004825F5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3DCA9FF82DF2ACA3004825F5 /* GoogleService-Info.plist */; };
-		97030169D080E2837F354560 /* Pods_available_pods_Payanam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E5A90912FE3195104F3E74B /* Pods_available_pods_Payanam.framework */; };
+		7D10F14D70F740AB94CEB9E8 /* Pods_available_pods_HubDrives.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F26AF0CEE2393D0D046C2B3 /* Pods_available_pods_HubDrives.framework */; };
 		A784F8816BFF9B8610F0C1B4 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 5954D811E9013628F489ED66 /* PrivacyInfo.xcprivacy */; };
+		BE4858C46112D12A27657F43 /* Pods_available_pods_Yah.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 552A1FAAD62EBD9F41ACD40B /* Pods_available_pods_Yah.framework */; };
 		ED0754D32ECC61120004D1E1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED0754CF2ECC61120004D1E1 /* GoogleService-Info.plist */; };
 		ED0754D42ECC61120004D1E1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED0754D22ECC61120004D1E1 /* Images.xcassets */; };
 		ED0754D52ECC61120004D1E1 /* Hubdrives(Production).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = ED0754D12ECC61120004D1E1 /* Hubdrives(Production).xcconfig */; };
@@ -201,14 +201,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		06FA35BDE22E008054995E96 /* Pods-available_pods-HubDrives.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-HubDrives.debug.xcconfig"; path = "Target Support Files/Pods-available_pods-HubDrives/Pods-available_pods-HubDrives.debug.xcconfig"; sourceTree = "<group>"; };
 		09D9D592F0D186B45EEED5E2 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		0E9552752B627F33007AA49A /* KhaleejTimes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KhaleejTimes.entitlements; sourceTree = "<group>"; };
-		0FA2EB78A2CB94FFB14E1242 /* Pods-available_pods-Yah.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-Yah.release.xcconfig"; path = "Target Support Files/Pods-available_pods-Yah/Pods-available_pods-Yah.release.xcconfig"; sourceTree = "<group>"; };
+		12864EE526EF7DA89F3BF609 /* Pods-available_pods-Payanam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-Payanam.debug.xcconfig"; path = "Target Support Files/Pods-available_pods-Payanam/Pods-available_pods-Payanam.debug.xcconfig"; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = RoyoDriverApp/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = RoyoDriverApp/main.m; sourceTree = "<group>"; };
-		2E5A90912FE3195104F3E74B /* Pods_available_pods_Payanam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_available_pods_Payanam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D368653FAF79E310DB75C52 /* Pods-available_pods-Payanam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-Payanam.release.xcconfig"; path = "Target Support Files/Pods-available_pods-Payanam/Pods-available_pods-Payanam.release.xcconfig"; sourceTree = "<group>"; };
+		2033D7E0F88675A1CB0DB087 /* Pods-available_pods-HubDrives.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-HubDrives.debug.xcconfig"; path = "Target Support Files/Pods-available_pods-HubDrives/Pods-available_pods-HubDrives.debug.xcconfig"; sourceTree = "<group>"; };
+		26FA2EBF512FA77A0CF1BEFF /* Pods-available_pods-Yah.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-Yah.debug.xcconfig"; path = "Target Support Files/Pods-available_pods-Yah/Pods-available_pods-Yah.debug.xcconfig"; sourceTree = "<group>"; };
 		2F3C126F3D7B022FEB3423B9 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		38DB19EDFFAA2719B36297FB /* Pods_available_pods_Payanam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_available_pods_Payanam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		38F40753173AB7D59D2A24A9 /* Pods-available_pods-Yah.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-Yah.release.xcconfig"; path = "Target Support Files/Pods-available_pods-Yah/Pods-available_pods-Yah.release.xcconfig"; sourceTree = "<group>"; };
 		3D0054E22DF15D1D001D9593 /* Yah.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yah.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D0054E52DF15D40001D9593 /* Yah(dev).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Yah(dev).xcconfig"; sourceTree = "<group>"; };
 		3D0054E72DF15D65001D9593 /* Yah(Prod).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Yah(Prod).xcconfig"; sourceTree = "<group>"; };
@@ -228,15 +231,12 @@
 		3DFD7D062D6C74F90037320F /* SDKConfigurations.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SDKConfigurations.xcframework; path = Pods/ZendeskSDKConfigurationsSDK/SDKConfigurations.xcframework; sourceTree = "<group>"; };
 		3DFD7D3A2D6CA21E0037320F /* Razorpay.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Razorpay.xcframework; path = "Pods/razorpay-pod/Pod/Razorpay.xcframework"; sourceTree = "<group>"; };
 		416EAA6771364917E617CB60 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		492E24B12CDE39BCFE1E4A08 /* Pods-available_pods-Vamanoz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-Vamanoz.release.xcconfig"; path = "Target Support Files/Pods-available_pods-Vamanoz/Pods-available_pods-Vamanoz.release.xcconfig"; sourceTree = "<group>"; };
 		4A719B82B86710C1356FD53D /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		546B79761D8984B79CBEA5C2 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		5793C665689755DDB9B570D6 /* Pods-available_pods-Payanam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-Payanam.release.xcconfig"; path = "Target Support Files/Pods-available_pods-Payanam/Pods-available_pods-Payanam.release.xcconfig"; sourceTree = "<group>"; };
+		552A1FAAD62EBD9F41ACD40B /* Pods_available_pods_Yah.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_available_pods_Yah.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5954D811E9013628F489ED66 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		5BF1F40632F9606F3571A9FE /* Pods-available_pods-Yah.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-Yah.debug.xcconfig"; path = "Target Support Files/Pods-available_pods-Yah/Pods-available_pods-Yah.debug.xcconfig"; sourceTree = "<group>"; };
 		6F33746757D6EBB233E4B517 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		7622B1FD84C15D708EF86B11 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		7CDEA5EF827ECE3A479FF538 /* Pods_available_pods_HubDrives.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_available_pods_HubDrives.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = RoyoDriverApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		845B37B527CCF974005FF576 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		847EFFCC270AE8FA004251BE /* RoyoDriverAppRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = RoyoDriverAppRelease.entitlements; path = RoyoDriverApp/RoyoDriverAppRelease.entitlements; sourceTree = "<group>"; };
@@ -247,12 +247,10 @@
 		84CE2BC426E9E6D20066EEEE /* campton-light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "campton-light.ttf"; sourceTree = "<group>"; };
 		84CE2BC526E9E6D20066EEEE /* campton-book.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "campton-book.ttf"; sourceTree = "<group>"; };
 		84CE2BC626E9E6D20066EEEE /* campton-medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "campton-medium.ttf"; sourceTree = "<group>"; };
-		85FD513CC992388E59128E8B /* Pods-available_pods-Payanam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-Payanam.debug.xcconfig"; path = "Target Support Files/Pods-available_pods-Payanam/Pods-available_pods-Payanam.debug.xcconfig"; sourceTree = "<group>"; };
-		920BA10A0962988C7B3D4232 /* Pods-available_pods-Vamanoz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-Vamanoz.debug.xcconfig"; path = "Target Support Files/Pods-available_pods-Vamanoz/Pods-available_pods-Vamanoz.debug.xcconfig"; sourceTree = "<group>"; };
+		8F26AF0CEE2393D0D046C2B3 /* Pods_available_pods_HubDrives.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_available_pods_HubDrives.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3AD0A6462D155D6C72734DE /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		B7A2D1B013629CC05C0DB4C8 /* Pods-available_pods-HubDrives.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-HubDrives.release.xcconfig"; path = "Target Support Files/Pods-available_pods-HubDrives/Pods-available_pods-HubDrives.release.xcconfig"; sourceTree = "<group>"; };
 		C009850AD6F7331FE3F480CD /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		C6E74E854B75C706FE60EE9B /* Pods_available_pods_Yah.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_available_pods_Yah.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CC9109279946938DD2884F2B /* Pods-available_pods-HubDrives.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-available_pods-HubDrives.release.xcconfig"; path = "Target Support Files/Pods-available_pods-HubDrives/Pods-available_pods-HubDrives.release.xcconfig"; sourceTree = "<group>"; };
 		E6315016B1C81A8587F4653D /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		ED0754CF2ECC61120004D1E1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		ED0754D02ECC61120004D1E1 /* Hubdrives(Development).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Hubdrives(Development).xcconfig"; sourceTree = "<group>"; };
@@ -284,7 +282,7 @@
 				3D0054C22DF15D1D001D9593 /* Razorpay.xcframework in Frameworks */,
 				3D0054C32DF15D1D001D9593 /* ChatProvidersSDK.xcframework in Frameworks */,
 				3D0054C42DF15D1D001D9593 /* CommonUISDK.xcframework in Frameworks */,
-				2B044BD8948027471836301D /* Pods_available_pods_Yah.framework in Frameworks */,
+				BE4858C46112D12A27657F43 /* Pods_available_pods_Yah.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,7 +311,7 @@
 				ED66EA802ECC59D300E9F5C3 /* Razorpay.xcframework in Frameworks */,
 				ED66EA812ECC59D300E9F5C3 /* ChatProvidersSDK.xcframework in Frameworks */,
 				ED66EA822ECC59D300E9F5C3 /* CommonUISDK.xcframework in Frameworks */,
-				281FBEAA20A1CA06AC7762B4 /* Pods_available_pods_HubDrives.framework in Frameworks */,
+				7D10F14D70F740AB94CEB9E8 /* Pods_available_pods_HubDrives.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,7 +326,7 @@
 				3DB075532D6D83E300A2CA2B /* Razorpay.xcframework in Frameworks */,
 				3DB075482D6D83D200A2CA2B /* ChatProvidersSDK.xcframework in Frameworks */,
 				3DB0754C2D6D83D200A2CA2B /* CommonUISDK.xcframework in Frameworks */,
-				97030169D080E2837F354560 /* Pods_available_pods_Payanam.framework in Frameworks */,
+				3CC5CCFF7419728DFBEA98D3 /* Pods_available_pods_Payanam.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,9 +357,9 @@
 				3DFD7CF82D6C74E50037320F /* ChatProvidersSDK.xcframework */,
 				3DFD7CF92D6C74E50037320F /* ChatSDK.xcframework */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				2E5A90912FE3195104F3E74B /* Pods_available_pods_Payanam.framework */,
-				C6E74E854B75C706FE60EE9B /* Pods_available_pods_Yah.framework */,
-				7CDEA5EF827ECE3A479FF538 /* Pods_available_pods_HubDrives.framework */,
+				8F26AF0CEE2393D0D046C2B3 /* Pods_available_pods_HubDrives.framework */,
+				38DB19EDFFAA2719B36297FB /* Pods_available_pods_Payanam.framework */,
+				552A1FAAD62EBD9F41ACD40B /* Pods_available_pods_Yah.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -484,14 +482,12 @@
 		CF572E3A7184357FCBFC05E9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				85FD513CC992388E59128E8B /* Pods-available_pods-Payanam.debug.xcconfig */,
-				5793C665689755DDB9B570D6 /* Pods-available_pods-Payanam.release.xcconfig */,
-				920BA10A0962988C7B3D4232 /* Pods-available_pods-Vamanoz.debug.xcconfig */,
-				492E24B12CDE39BCFE1E4A08 /* Pods-available_pods-Vamanoz.release.xcconfig */,
-				5BF1F40632F9606F3571A9FE /* Pods-available_pods-Yah.debug.xcconfig */,
-				0FA2EB78A2CB94FFB14E1242 /* Pods-available_pods-Yah.release.xcconfig */,
-				06FA35BDE22E008054995E96 /* Pods-available_pods-HubDrives.debug.xcconfig */,
-				CC9109279946938DD2884F2B /* Pods-available_pods-HubDrives.release.xcconfig */,
+				2033D7E0F88675A1CB0DB087 /* Pods-available_pods-HubDrives.debug.xcconfig */,
+				B7A2D1B013629CC05C0DB4C8 /* Pods-available_pods-HubDrives.release.xcconfig */,
+				12864EE526EF7DA89F3BF609 /* Pods-available_pods-Payanam.debug.xcconfig */,
+				1D368653FAF79E310DB75C52 /* Pods-available_pods-Payanam.release.xcconfig */,
+				26FA2EBF512FA77A0CF1BEFF /* Pods-available_pods-Yah.debug.xcconfig */,
+				38F40753173AB7D59D2A24A9 /* Pods-available_pods-Yah.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -532,15 +528,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3D0054DF2DF15D1D001D9593 /* Build configuration list for PBXNativeTarget "Yah" */;
 			buildPhases = (
-				128F3D9A285CD9EEDA985AC8 /* [CP] Check Pods Manifest.lock */,
+				99CE2896CB6223B06E9B03DF /* [CP] Check Pods Manifest.lock */,
 				3D0054B72DF15D1D001D9593 /* Start Packager */,
 				3D0054B82DF15D1D001D9593 /* Sources */,
 				3D0054BC2DF15D1D001D9593 /* Frameworks */,
 				3D0054C52DF15D1D001D9593 /* Resources */,
 				3D0054D42DF15D1D001D9593 /* Bundle React Native code and images */,
 				3D0054D72DF15D1D001D9593 /* Embed Frameworks */,
-				D146FED1A25598BA8E2DB21D /* [CP] Embed Pods Frameworks */,
-				8C1962BD59A556B519D4583E /* [CP] Copy Pods Resources */,
+				05BC33BCC5BC368852E18520 /* [CP] Embed Pods Frameworks */,
+				6BCE5FCC96CB112204F3F033 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -575,15 +571,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ED66EA9D2ECC59D300E9F5C3 /* Build configuration list for PBXNativeTarget "HubDrives" */;
 			buildPhases = (
-				ED66EA752ECC59D300E9F5C3 /* [CP] Check Pods Manifest.lock */,
+				5F9669411D7CFB96A1DDAD01 /* [CP] Check Pods Manifest.lock */,
 				ED66EA762ECC59D300E9F5C3 /* Start Packager */,
 				ED66EA772ECC59D300E9F5C3 /* Sources */,
 				ED66EA7A2ECC59D300E9F5C3 /* Frameworks */,
 				ED66EA832ECC59D300E9F5C3 /* Resources */,
 				ED66EA922ECC59D300E9F5C3 /* Bundle React Native code and images */,
-				ED66EA932ECC59D300E9F5C3 /* [CP] Embed Pods Frameworks */,
-				ED66EA942ECC59D300E9F5C3 /* [CP] Copy Pods Resources */,
 				ED66EA952ECC59D300E9F5C3 /* Embed Frameworks */,
+				7F1B844A56E41A6C22BA14DA /* [CP] Embed Pods Frameworks */,
+				4F726888E3ABDDA834A900DD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -598,15 +594,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EE3825202CB7D337005C0E42 /* Build configuration list for PBXNativeTarget "Payanam" */;
 			buildPhases = (
-				53B8687C053624CBA97CDF5D /* [CP] Check Pods Manifest.lock */,
+				D976A92C2A8EBA45608ACF7C /* [CP] Check Pods Manifest.lock */,
 				EE3825092CB7D337005C0E42 /* Start Packager */,
 				EE38250A2CB7D337005C0E42 /* Sources */,
 				EE38250E2CB7D337005C0E42 /* Frameworks */,
 				EE3825102CB7D337005C0E42 /* Resources */,
 				EE38251D2CB7D337005C0E42 /* Bundle React Native code and images */,
 				3DB0754E2D6D83D200A2CA2B /* Embed Frameworks */,
-				F5781165881C04F905ED0214 /* [CP] Embed Pods Frameworks */,
-				38D5F5CD5B2B0F61FDF62EE2 /* [CP] Copy Pods Resources */,
+				372D4B4741A0019AA47956FC /* [CP] Embed Pods Frameworks */,
+				1ECDD661F8438A6BB040399B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -731,29 +727,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		128F3D9A285CD9EEDA985AC8 /* [CP] Check Pods Manifest.lock */ = {
+		05BC33BCC5BC368852E18520 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-available_pods-Yah/Pods-available_pods-Yah-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-available_pods-Yah/Pods-available_pods-Yah-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-available_pods-Yah-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-Yah/Pods-available_pods-Yah-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		38D5F5CD5B2B0F61FDF62EE2 /* [CP] Copy Pods Resources */ = {
+		1ECDD661F8438A6BB040399B /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -761,13 +756,38 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-available_pods-Payanam/Pods-available_pods-Payanam-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-available_pods-Payanam/Pods-available_pods-Payanam-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
+			outputPaths = (
+			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-Payanam/Pods-available_pods-Payanam-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		372D4B4741A0019AA47956FC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-available_pods-Payanam/Pods-available_pods-Payanam-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-available_pods-Payanam/Pods-available_pods-Payanam-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-Payanam/Pods-available_pods-Payanam-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		3D0054B72DF15D1D001D9593 /* Start Packager */ = {
@@ -836,7 +856,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n \nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n \n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n \n";
 		};
-		53B8687C053624CBA97CDF5D /* [CP] Check Pods Manifest.lock */ = {
+		4F726888E3ABDDA834A900DD /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -844,55 +864,18 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-available_pods-Payanam-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8C1962BD59A556B519D4583E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-available_pods-Yah/Pods-available_pods-Yah-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-available_pods-Yah/Pods-available_pods-Yah-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-Yah/Pods-available_pods-Yah-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-HubDrives/Pods-available_pods-HubDrives-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D146FED1A25598BA8E2DB21D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-available_pods-Yah/Pods-available_pods-Yah-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-available_pods-Yah/Pods-available_pods-Yah-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-Yah/Pods-available_pods-Yah-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		ED66EA752ECC59D300E9F5C3 /* [CP] Check Pods Manifest.lock */ = {
+		5F9669411D7CFB96A1DDAD01 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -908,6 +891,90 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-available_pods-HubDrives-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6BCE5FCC96CB112204F3F033 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-available_pods-Yah/Pods-available_pods-Yah-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-available_pods-Yah/Pods-available_pods-Yah-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-Yah/Pods-available_pods-Yah-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7F1B844A56E41A6C22BA14DA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-HubDrives/Pods-available_pods-HubDrives-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		99CE2896CB6223B06E9B03DF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-available_pods-Yah-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D976A92C2A8EBA45608ACF7C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-available_pods-Payanam-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -947,36 +1014,6 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n \nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n \n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n \n";
 		};
-		ED66EA932ECC59D300E9F5C3 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-HubDrives/Pods-available_pods-HubDrives-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		ED66EA942ECC59D300E9F5C3 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-HubDrives/Pods-available_pods-HubDrives-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		EE3825092CB7D337005C0E42 /* Start Packager */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1009,23 +1046,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "set -e\n \nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n \n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n \n";
-		};
-		F5781165881C04F905ED0214 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-available_pods-Payanam/Pods-available_pods-Payanam-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-available_pods-Payanam/Pods-available_pods-Payanam-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-available_pods-Payanam/Pods-available_pods-Payanam-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1413,9 +1433,14 @@
 				PROJECT_NAME = "${PROJECT_NAME}";
 				PROJECT_PLIST = "$(PROJECT_PLIST)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "RoyoDriverApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1452,8 +1477,13 @@
 				PROJECT_NAME = "${PROJECT_NAME}";
 				PROJECT_PLIST = "$(PROJECT_PLIST)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "RoyoDriverApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

@@ -1552,9 +1552,6 @@ PODS:
     - React-Core
   - react-native-otp-verify (1.1.8):
     - React-Core
-  - react-native-razorpay (2.3.0):
-    - razorpay-pod
-    - React
   - react-native-render-html (6.3.4):
     - React-Core
   - react-native-restart (0.0.22):
@@ -2617,7 +2614,6 @@ DEPENDENCIES:
   - react-native-maps (from `../node_modules/react-native-maps`)
   - "react-native-netinfo (from `../node_modules/@react-native-community/netinfo`)"
   - react-native-otp-verify (from `../node_modules/react-native-otp-verify`)
-  - react-native-razorpay (from `../node_modules/react-native-razorpay`)
   - react-native-render-html (from `../node_modules/react-native-render-html`)
   - react-native-restart (from `../node_modules/react-native-restart`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
@@ -2835,8 +2831,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-community/netinfo"
   react-native-otp-verify:
     :path: "../node_modules/react-native-otp-verify"
-  react-native-razorpay:
-    :path: "../node_modules/react-native-razorpay"
   react-native-render-html:
     :path: "../node_modules/react-native-render-html"
   react-native-restart:
@@ -3034,7 +3028,6 @@ SPEC CHECKSUMS:
   react-native-maps: deb2adbdf309b622f15055b72b8742054929c740
   react-native-netinfo: cec9c4e86083cb5b6aba0e0711f563e2fbbff187
   react-native-otp-verify: 6d153f8a8e8392c6a51f9d94c090dc16d7c756b2
-  react-native-razorpay: ab51e7be3d906f49b26198d978fc6f163e846d30
   react-native-render-html: 5afc4751f1a98621b3009432ef84c47019dcb2bd
   react-native-restart: f6f591aeb40194c41b9b5013901f00e6cf7d0f29
   react-native-safe-area-context: 83e0ac3d023997de1c2e035af907cc4dc05f718c

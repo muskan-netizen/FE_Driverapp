@@ -1,4 +1,4 @@
-export const API_BASE_URL = 'https://hubdriver-dispatch.netsolutionindia.com/';
+export const API_BASE_URL = 'https://dispatch.restocare.in/';
 // export const API_BASE_URL = 'http://192.168.102.219:8000/';
 export const getApiUrl = endpoint => API_BASE_URL + endpoint;
 

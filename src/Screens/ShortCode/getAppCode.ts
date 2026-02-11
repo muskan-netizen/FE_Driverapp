@@ -4,6 +4,6 @@ import { appIds, shortCodes } from "../../utils/constants/DynamicAppKeys";
 export const getAppCode = () => {
 switch (getBundleId()) {
     case appIds.hubDrives: return shortCodes.hubDrives
-    default: return '86392b'
+    default: return '66951f'
 }
 }
