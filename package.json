@@ -5,8 +5,8 @@
   "scripts": {
     "payanamdispatcher": "react-native run-android --mode=payanamDebug",
     "payanamdispatcherRelease": "cd android && ./gradlew assemblepayanamRelease",
-    "hubDrives": "react-native run-android --mode=hubDrivesDebug",
-    "hubDrivesRelease": "cd android && ./gradlew assemblehubDrivesRelease",
+    "restocare": "react-native run-android --mode=hubDrivesDebug",
+    "restocareRelease": "cd android && ./gradlew assemblehubDrivesRelease",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",

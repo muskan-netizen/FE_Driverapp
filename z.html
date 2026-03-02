@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RestoCare Print</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .print-container {
+      background-color: #0F172A;
+    }
+
+    .inner-border {
+      border: 2px solid white;
+    }
+
+    .outer-border {
+      border: 3px solid #1E293B;
+      padding: 12px;
+    }
+
+    @media print {
+      body {
+        background: white;
+      }
+    }
+  </style>
+</head>
+<body class="bg-black flex items-center justify-center min-h-screen p-6">
+
+  <div class="print-container outer-border rounded-2xl max-w-5xl w-full">
+    <div class="inner-border rounded-xl p-12 text-center text-white">
+
+      <!-- Logo -->
+      <div class="flex justify-center mb-6">
+        <div class="bg-yellow-400 w-20 h-20 rounded-lg flex items-center justify-center font-bold text-red-600 text-3xl">
+          RC
+        </div>
+      </div>
+
+      <!-- Company Name -->
+      <h1 class="text-4xl font-semibold tracking-wide mb-4">
+        RESTOCARE
+      </h1>
+
+      <h2 class="text-2xl font-medium tracking-wide mb-6">
+        RESTROEDGE PRIVATE LIMITED
+      </h2>
+
+      <p class="text-xl mb-3">
+        GSTIN : 07AAOCR0865MIZR
+      </p>
+
+      <p class="text-xl mb-8">
+        9953666673 | support@restocare.in
+      </p>
+
+      <!-- Divider -->
+      <div class="border-t border-white opacity-60 mb-6"></div>
+
+      <!-- Address -->
+      <p class="text-lg leading-relaxed">
+        Office Add – 3rd floor, KD-180 Kohat Enclave, Pitampura,<br>
+        New Delhi – 110034
+      </p>
+
+    </div>
+  </div>
+
+</body>
+</html>

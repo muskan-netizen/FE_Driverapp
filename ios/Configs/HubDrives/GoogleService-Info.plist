@@ -2,18 +2,22 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CLIENT_ID</key>
+	<string>483539540562-s1785vqgs5kq8qfbfi6p9f67f4qhlv3q.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.483539540562-s1785vqgs5kq8qfbfi6p9f67f4qhlv3q</string>
 	<key>API_KEY</key>
-	<string>AIzaSyBuzqaQpi73Z-thnZ77Mj244WUuVyJsA1E</string>
+	<string>AIzaSyCNI5YFL0kDcevCyTg_Cm6r9ZahUqo6Jz0</string>
 	<key>GCM_SENDER_ID</key>
-	<string>525107289765</string>
+	<string>483539540562</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.dispatch.hubdrives</string>
+	<string>com.driver.restocare</string>
 	<key>PROJECT_ID</key>
-	<string>hubdriver-chauffer</string>
+	<string>restocare-customer</string>
 	<key>STORAGE_BUCKET</key>
-	<string>hubdriver-chauffer.firebasestorage.app</string>
+	<string>restocare-customer.firebasestorage.app</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:525107289765:ios:a1bf4e228701f6baadf74c</string>
+	<string>1:483539540562:ios:e3e8b8bb9cffcacefedd8b</string>
 </dict>
 </plist>

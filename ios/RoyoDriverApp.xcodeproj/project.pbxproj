@@ -129,6 +129,20 @@
 		EE38252F2CB7D358005C0E42 /* Payanam(Production).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = EE38252A2CB7D358005C0E42 /* Payanam(Production).xcconfig */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXBuildRule section */
+		18EA718D2F3DCB9F00FF32A8 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = folder.rkassets;
+			inputFiles = (
+			);
+			isEditable = 1;
+			outputFiles = (
+			);
+			script = "# realitytool\n";
+		};
+/* End PBXBuildRule section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		3D0054D72DF15D1D001D9593 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -582,6 +596,7 @@
 				4F726888E3ABDDA834A900DD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
+				18EA718D2F3DCB9F00FF32A8 /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -1409,7 +1424,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = 6FXUMT5X23;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				HEADER_SEARCH_PATHS = "$(inherited)";
@@ -1455,7 +1470,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = 6FXUMT5X23;
+				DEVELOPMENT_TEAM = "";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Plists/$(PROJECT_PLIST).plist";
 				LD_RUNPATH_SEARCH_PATHS = (

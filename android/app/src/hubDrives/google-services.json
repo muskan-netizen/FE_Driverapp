@@ -1,26 +1,41 @@
 {
   "project_info": {
-    "project_number": "525107289765",
-    "project_id": "hubdriver-chauffer",
-    "storage_bucket": "hubdriver-chauffer.firebasestorage.app"
+    "project_number": "483539540562",
+    "project_id": "restocare-customer",
+    "storage_bucket": "restocare-customer.firebasestorage.app"
   },
   "client": [
+   
     {
       "client_info": {
-        "mobilesdk_app_id": "1:525107289765:android:0b7040a339791470adf74c",
+        "mobilesdk_app_id": "1:483539540562:android:1604aa4be6f4ef56fedd8b",
         "android_client_info": {
-          "package_name": "com.dispatch.hubdrives"
+          "package_name": "com.driver.restocare"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "483539540562-9a0odp83qqa6n56m7g7ngldc6d9pten2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyD4iwug494XbxwsUuu5NahoGrfluUM_QP4"
+          "current_key": "AIzaSyALR0pBoCaszxwE775xaxw7MmzNnAnFnLc"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "483539540562-9a0odp83qqa6n56m7g7ngldc6d9pten2.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "483539540562-7ate8eud8af4ljfkgc92ttfq50lsqqve.apps.googleusercontent.com",
+              "client_type": 2
+            }
+          ]
         }
       }
     }
