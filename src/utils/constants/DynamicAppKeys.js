@@ -14,8 +14,8 @@ const appIds = {
   }),
 
   hubDrives: Platform.select({
-    ios: 'com.driver.restocare',
-    android: 'com.driver.restocare',
+    ios: 'com.dispatcher.restocare',
+    android: 'com.dispatcher.restocare',
   }),
 };
 
