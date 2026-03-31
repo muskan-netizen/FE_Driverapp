@@ -106,7 +106,8 @@ export default function Wallet({route, navigation}) {
       .then(res => {
         updateState({
           lifetimeAmount: res?.lifetime_earnings,
-          currentAmount: Number(res?.wallet_balance),
+          // currentAmount: Number(res?.wallet_balance),
+          currentAmount: Number(res?.actual_wallet_balance),
           allTaskInHistory:
             pageNo == 1
               ? res?.payments.data
@@ -555,7 +556,7 @@ export default function Wallet({route, navigation}) {
             source={imagePath.currentBalance}
             style={{marginBottom: moderateScale(10)}}
           />
-          <Text style={styles.totalRevenue}>{strings.TOTALREVNUE}</Text>
+          <Text style={styles.totalRevenue}>Wallet Balance</Text>
           <Text style={styles.amountText}>
             {userData?.client_preference?.currency?.symbol}
             {/* {kFormatter(currentAmount)} */}

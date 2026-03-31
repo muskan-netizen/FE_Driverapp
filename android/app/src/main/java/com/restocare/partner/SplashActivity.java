@@ -1,4 +1,4 @@
-package com.royodriverapp;
+package com.restocare.partner;
 
 import android.content.Intent;
 import android.os.Bundle;

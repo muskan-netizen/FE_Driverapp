@@ -168,7 +168,7 @@ export default function DrawerRoutes(props) {
           ),
         }}
       />
-      <Drawer.Screen
+      {/* <Drawer.Screen
         component={SubscriptionStack}
         name={navigationStrings.SUBSCRIPTION_STACK}
         options={{
@@ -180,7 +180,7 @@ export default function DrawerRoutes(props) {
             />
           ),
         }}
-      />
+      /> */}
 
       <Drawer.Screen
         component={GoToHome}

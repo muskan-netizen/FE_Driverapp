@@ -130,6 +130,7 @@ export function getWalletData(uri = '', data = {}, headers = {}) {
     apiGet(GETWALLETDATA + uri, data, headers)
       .then(res => {
         resolve(res);
+        console.log("Wallet Data", res);
       })
       .catch(error => {
         reject(error);

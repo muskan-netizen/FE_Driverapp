@@ -549,7 +549,9 @@ export default function AddMoney({ navigation }) {
             >
               {!isLoading &&
                 !!payoutDetails.payout_options &&
-                payoutDetails.payout_options.map((item, index) => {
+                payoutDetails.payout_options
+                ?.filter(item => item.code !== 'razorpay')
+                .map((item, index) => {
                   return (
                     <TouchableOpacity
                       key={index}

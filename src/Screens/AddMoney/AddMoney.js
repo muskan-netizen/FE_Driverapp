@@ -17,6 +17,7 @@ import {
   View
 } from "react-native";
 import { useDarkMode } from "react-native-dynamic";
+import RazorpayCheckout from 'react-native-razorpay';
 import { useSelector } from "react-redux";
 import GradientButton from "../../Components/GradientButton";
 import Header from "../../Components/Header";
@@ -424,31 +425,31 @@ export default function AddMoney({ navigation }) {
       theme: { color: "#F37254" },
     };
 
-    // RazorpayCheckout.open(options)
-    //   .then((res) => {
-    //     console.log(`Success for razor: `, res);
-    //     if (res?.razorpay_payment_id) {
-    //       const data = {};
-    //       data["amount"] = amount;
-    //       data["transaction_id"] = res?.razorpay_payment_id;
-    //       actions
-    //         .walletCredit(data, {
-    //           client: clientInfo?.database_name,
-    //         })
-    //         .then((res) => {
-    //           console.log(res, "response credit wallet");
-    //           Alert.alert("", strings.PAYMENT_SUCCESS, [
-    //             {
-    //               text: strings.OK,
-    //               onPress: () => console.log("Okay pressed"),
-    //             },
-    //           ]);
-    //           navigation.navigate(navigationStrings.WALLET);
-    //         })
-    //         .catch(errorMethod);
-    //     }
-    //   })
-    //   .catch((err) => showError(err?.error?.description));
+    RazorpayCheckout.open(options)
+      .then((res) => {
+        console.log(`Success for razor: `, res);
+        if (res?.razorpay_payment_id) {
+          const data = {};
+          data["amount"] = amount;
+          data["transaction_id"] = res?.razorpay_payment_id;
+          actions
+            .walletCredit(data, {
+              client: clientInfo?.database_name,
+            })
+            .then((res) => {
+              console.log(res, "response credit wallet");
+              Alert.alert("", strings.PAYMENT_SUCCESS, [
+                {
+                  text: strings.OK,
+                  onPress: () => console.log("Okay pressed"),
+                },
+              ]);
+              navigation.navigate(navigationStrings.WALLET);
+            })
+            .catch(errorMethod);
+        }
+      })
+      .catch((err) => showError(err?.error?.description));
   };
 
   const _selectPaymentMethod = (item) => {

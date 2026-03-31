@@ -99,8 +99,8 @@ export default function Signup({ route, navigation }) {
     fullName: "",
     transportDetails: "",
     phoneNumber: "",
-    callingCode: "1",
-    cca2: "US",
+    callingCode: "91",
+    cca2: "IN",
     allTransportation: transportationArray,
     allEmployeeTypes: employeetypeArray,
     selectedVehicleType: null,
@@ -287,54 +287,73 @@ export default function Signup({ route, navigation }) {
     Keyboard.dismiss();
   };
 
-  const getRequiredDatas = () => {
-    (async () => {
-      actions
-        .signupDoc(
-          {},
-          {
-            client: clientInfo?.database_name,
-          }
-        )
-        .then((res) => {
-          console.log(res?.data?.documents, "getRequiredDatas data");
+const getRequiredDatas = () => {
+  (async () => {
+    actions
+      .signupDoc(
+        {},
+        {
+          client: clientInfo?.database_name,
+        }
+      )
+      .then((res) => {
+        console.log(res?.data?.documents, "getRequiredDatas data");
 
+        const removedFields = [
+          "Test",
+          "Account number",
+          "IFSC code",
+        ];
+
+        const renameFields = {
+          "Bank Name": "Bank Passbook",
+          "adhar card": "Aadhar Card",
+          "Age": "Pan Card",
+        };
+
+        const processedDocs = res?.data?.documents
+          .filter((doc) => !removedFields.includes(doc?.name))
+          .map((doc) => ({
+            ...doc,
+            name: renameFields[doc?.name] || doc?.name,
+          }));
+
+        updateState({
+          driverTags: res?.data?.agent_tags,
+          driverTagsAry: res?.data?.agent_tags,
+          driverTeams: res?.data?.all_teams,
+          vehicleTypes: res?.data?.vehicle_types,
+        });
+
+        if (res?.data) {
           updateState({
-            driverTags: res?.data?.agent_tags,
-            driverTagsAry: res?.data?.agent_tags,
-            driverTeams: res?.data?.all_teams,
-            vehicleTypes: res?.data?.vehicle_types,
+            addtionalTextInputs: processedDocs.filter(
+              (x) => x?.file_type === "Text"
+            ),
+            addtionalImages: processedDocs.filter(
+              (x) => x?.file_type === "Image"
+            ),
+            addtionalPdfs: processedDocs.filter(
+              (x) => x?.file_type === "Pdf"
+            ),
+            additionalDateFields: processedDocs.filter(
+              (x) => x?.file_type === "Date"
+            ),
+            additionalSelectors: processedDocs.filter(
+              (x) => x?.file_type === "selector"
+            ),
+            dataToSet: processedDocs.map((i) => ({
+              type: i?.file_type,
+              value: "",
+            })),
           });
-          if (res?.data) {
-            updateState({
-              addtionalTextInputs: res?.data?.documents.filter(
-                (x) => x?.file_type == "Text"
-              ),
-              addtionalImages: res?.data?.documents.filter(
-                (x) => x?.file_type == "Image"
-              ),
-              addtionalPdfs: res?.data?.documents.filter(
-                (x) => x?.file_type == "Pdf"
-              ),
-              additionalDateFields: res?.data?.documents.filter(
-                (x) => x?.file_type == "Date"
-              ),
-              additionalSelectors: res?.data?.documents.filter(
-                (x) => x?.file_type == "selector"
-              ),
-              dataToSet: res?.data?.documents.map((i, inx) => {
-                return {
-                  type: i?.file_type,
-                  value: "",
-                };
-              }),
-            });
-          }
-          updateState({ isLoading: false, documentData: res?.data });
-        })
-        .catch(errorMethod);
-    })();
-  };
+        }
+
+        updateState({ isLoading: false, documentData: res?.data });
+      })
+      .catch(errorMethod);
+  })();
+};
   const handleBackgroundTap = () => {
     // If keyboard is open, close it. If closed, focus the pin input.
     if (Keyboard.isVisible()) {
@@ -1227,7 +1246,8 @@ export default function Signup({ route, navigation }) {
 
               <TextInputWithlabel
                 editable={true}
-                label={strings.TRANSPORT_DETAILS}
+                // label={strings.TRANSPORT_DETAILS}
+                label="Vehicle Type & Model"
                 value={transportDetails}
                 // autoFocus={true}
                 onChangeText={(text) => updateState({ transportDetails: text })}
@@ -1235,7 +1255,8 @@ export default function Signup({ route, navigation }) {
               />
               <TextInputWithlabel
                 editable={true}
-                label={strings.UID}
+                // label={strings.UID}
+                label="Aadhar No."
                 value={uid}
                 // autoFocus={true}
                 onChangeText={(text) => updateState({ uid: text })}
@@ -1243,7 +1264,7 @@ export default function Signup({ route, navigation }) {
               />
               <TextInputWithlabel
                 editable={true}
-                label={strings.LICENCE_PLATE}
+                label={strings.LICENCE_PLATE + " No."}
                 value={licensePlate}
                 // autoFocus={true}
                 onChangeText={(text) => updateState({ licensePlate: text })}
@@ -1265,7 +1286,8 @@ export default function Signup({ route, navigation }) {
                 marginVertical: moderateScaleVertical(10),
               }}
             >
-              {strings.TEAMS}
+              {/* {strings.TEAMS} */}
+              Select Your Profile
             </Text>
 
             <View style={{ zIndex: 10 }}>
@@ -1295,7 +1317,7 @@ export default function Signup({ route, navigation }) {
                     marginBottom: 0,
                   }}
                 >
-                  {!!selectedTeam ? selectedTeam?.name : strings.SELECT_TEAM}
+                  {!!selectedTeam ? selectedTeam?.name : "Seletct a Profile"}
                 </Text>
                 <Image source={imagePath.dropDownNew} />
               </TouchableOpacity>
@@ -1571,7 +1593,7 @@ export default function Signup({ route, navigation }) {
                 </View>
               </View>
             )}
-            <Text
+            {/* <Text
               style={{
                 marginVertical: moderateScaleVertical(10),
                 fontSize: textScale(12),
@@ -1580,9 +1602,9 @@ export default function Signup({ route, navigation }) {
               }}
             >
               {strings.TAGS}
-            </Text>
+            </Text> */}
 
-            <View style={{ zIndex: 2, marginBottom: moderateScale(10) }}>
+            {/* <View style={{ zIndex: 2, marginBottom: moderateScale(10) }}>
               <View
                 onLayout={(event) => {
                   updateState({
@@ -1716,8 +1738,9 @@ export default function Signup({ route, navigation }) {
                   )}
                 </View>
               )}
-            </View>
-            {vehicleTypes !== "" && vehicleTypes ? (
+            </View> */}
+
+            {/* {vehicleTypes !== "" && vehicleTypes ? (
               <>
                 <View
                   onTouchStart={() => updateState({ isTagsShow: false })}
@@ -1771,7 +1794,7 @@ export default function Signup({ route, navigation }) {
                   </ScrollView>
                 </View>
               </>
-            ) : null}
+            ) : null} */}
             {/* { getEmployeeViewBasedOnClient(savedShortCode)} */}
 
             {!!(addtionalTextInputs && addtionalTextInputs?.length) &&

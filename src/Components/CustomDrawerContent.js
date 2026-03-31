@@ -247,18 +247,18 @@ function CustomDrawerContent({
               // subRoute:navigationStrings.MYPROFILE
             }
           : {},
-        subscription === undefined
-          ? {}
-          : subscription?.hide_subscription_module == 0
-          ? {
-              id: 9,
-              label: strings.SUBSCRIPTIONS,
-              support: true,
-              image: imagePath.icSubscription,
-              key: navigationStrings.SUBSCRIPTION_STACK,
-              subRoute: navigationStrings.SUBSCRIPTION_STACK,
-            }
-          : {},
+        // subscription === undefined
+        //   ? {}
+        //   : subscription?.hide_subscription_module == 0
+        //   ? {
+        //       id: 9,
+        //       label: strings.SUBSCRIPTIONS,
+        //       support: true,
+        //       image: imagePath.icSubscription,
+        //       key: navigationStrings.SUBSCRIPTION_STACK,
+        //       subRoute: navigationStrings.SUBSCRIPTION_STACK,
+        //     }
+        //   : {},
 
         appIds.transportSystem === DeviceInfo.getBundleId()
           ? {
